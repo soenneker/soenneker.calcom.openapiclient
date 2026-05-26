@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.CalCom.OpenApiClient.Availabilities.Item;
+using Soenneker.CalCom.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -48,21 +49,22 @@ namespace Soenneker.CalCom.OpenApiClient.Availabilities
         /// <summary>
         /// Creates a new availability
         /// </summary>
+        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Availabilities.AvailabilitiesPostResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task PostAsync(global::Soenneker.CalCom.OpenApiClient.Availabilities.AvailabilitiesPostRequestBody body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Availabilities.AvailabilitiesRequestBuilder.AvailabilitiesRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Availabilities.AvailabilitiesPostResponse?> PostAsync(global::Soenneker.CalCom.OpenApiClient.Models.AddAvailability body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Availabilities.AvailabilitiesRequestBuilder.AvailabilitiesRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task PostAsync(global::Soenneker.CalCom.OpenApiClient.Availabilities.AvailabilitiesPostRequestBody body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Availabilities.AvailabilitiesRequestBuilder.AvailabilitiesRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Availabilities.AvailabilitiesPostResponse> PostAsync(global::Soenneker.CalCom.OpenApiClient.Models.AddAvailability body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Availabilities.AvailabilitiesRequestBuilder.AvailabilitiesRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Availabilities.AvailabilitiesPostResponse>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Availabilities.AvailabilitiesPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new availability
@@ -72,16 +74,17 @@ namespace Soenneker.CalCom.OpenApiClient.Availabilities
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.CalCom.OpenApiClient.Availabilities.AvailabilitiesPostRequestBody body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Availabilities.AvailabilitiesRequestBuilder.AvailabilitiesRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.CalCom.OpenApiClient.Models.AddAvailability body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Availabilities.AvailabilitiesRequestBuilder.AvailabilitiesRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.CalCom.OpenApiClient.Availabilities.AvailabilitiesPostRequestBody body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Availabilities.AvailabilitiesRequestBuilder.AvailabilitiesRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.CalCom.OpenApiClient.Models.AddAvailability body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Availabilities.AvailabilitiesRequestBuilder.AvailabilitiesRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }

@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.CalCom.OpenApiClient.Models;
 using Soenneker.CalCom.OpenApiClient.Teams.Item.EventTypes;
 using System.Collections.Generic;
 using System.IO;
@@ -58,39 +59,40 @@ namespace Soenneker.CalCom.OpenApiClient.Teams.Item
         /// <summary>
         /// Find a team
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
+        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Teams.Item.WithTeamGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Teams.Item.WithTeamItemRequestBuilder.WithTeamItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Teams.Item.WithTeamGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Teams.Item.WithTeamItemRequestBuilder.WithTeamItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Teams.Item.WithTeamItemRequestBuilder.WithTeamItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Teams.Item.WithTeamGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Teams.Item.WithTeamItemRequestBuilder.WithTeamItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Teams.Item.WithTeamGetResponse>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Teams.Item.WithTeamGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Edit an existing team
         /// </summary>
+        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Teams.Item.WithTeamPatchResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task PatchAsync(global::Soenneker.CalCom.OpenApiClient.Teams.Item.WithTeamPatchRequestBody body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Teams.Item.WithTeamItemRequestBuilder.WithTeamItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Teams.Item.WithTeamPatchResponse?> PatchAsync(global::Soenneker.CalCom.OpenApiClient.Models.EditTeamById body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Teams.Item.WithTeamItemRequestBuilder.WithTeamItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task PatchAsync(global::Soenneker.CalCom.OpenApiClient.Teams.Item.WithTeamPatchRequestBody body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Teams.Item.WithTeamItemRequestBuilder.WithTeamItemRequestBuilderPatchQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Teams.Item.WithTeamPatchResponse> PatchAsync(global::Soenneker.CalCom.OpenApiClient.Models.EditTeamById body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Teams.Item.WithTeamItemRequestBuilder.WithTeamItemRequestBuilderPatchQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Teams.Item.WithTeamPatchResponse>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Teams.Item.WithTeamPatchResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Remove an existing team
@@ -108,6 +110,7 @@ namespace Soenneker.CalCom.OpenApiClient.Teams.Item
 #endif
             var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
@@ -126,6 +129,7 @@ namespace Soenneker.CalCom.OpenApiClient.Teams.Item
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
@@ -136,16 +140,17 @@ namespace Soenneker.CalCom.OpenApiClient.Teams.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.CalCom.OpenApiClient.Teams.Item.WithTeamPatchRequestBody body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Teams.Item.WithTeamItemRequestBuilder.WithTeamItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.CalCom.OpenApiClient.Models.EditTeamById body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Teams.Item.WithTeamItemRequestBuilder.WithTeamItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.CalCom.OpenApiClient.Teams.Item.WithTeamPatchRequestBody body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Teams.Item.WithTeamItemRequestBuilder.WithTeamItemRequestBuilderPatchQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.CalCom.OpenApiClient.Models.EditTeamById body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Teams.Item.WithTeamItemRequestBuilder.WithTeamItemRequestBuilderPatchQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }

@@ -1,0 +1,5308 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "@calcom/api: Public API for Cal.com",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cal.com/v1"
+    }
+  ],
+  "paths": {
+    "/attendees": {
+      "get": {
+        "tags": [
+          "Attendees"
+        ],
+        "summary": "Find all attendees",
+        "operationId": "listAttendees",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Find All Attendees",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttendeesFetchedResponse"
+                },
+                "examples": {
+                  "Attendees found successfully": {
+                    "value": {
+                      "attendees": [
+                        {
+                          "id": 251,
+                          "bookingId": 313,
+                          "name": "John Doe",
+                          "email": "john.doe@example.com",
+                          "timeZone": "Asia/Jerusalem"
+                        },
+                        {
+                          "id": 252,
+                          "bookingId": 314,
+                          "name": "Jane Doe",
+                          "email": "jane.doe@example.com",
+                          "timeZone": "Asia/Dubai"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "message": "Authorization information is missing or invalid."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No attendees were found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "message": "No attendees were found."
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Attendees"
+        ],
+        "summary": "Creates a new attendee",
+        "operationId": "addAttendee",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Create a new attendee related to one of your bookings",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddAttendee"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Attendee created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttendeeCreatedResponse"
+                },
+                "examples": {
+                  "Attendee created successfully": {
+                    "value": {
+                      "attendee": {
+                        "id": 255,
+                        "bookingId": 313,
+                        "name": "Justin Doe",
+                        "email": "justin.doe@example.com",
+                        "timeZone": "Asia/Jerusalem"
+                      },
+                      "message": "Attendee created successfully"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request. Attendee body is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "message": "Bad request. Attendee body is invalid."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "message": "Authorization information is missing or invalid."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/attendees/{id}": {
+      "delete": {
+        "tags": [
+          "Attendees"
+        ],
+        "summary": "Remove an existing attendee",
+        "operationId": "removeAttendeeById",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the attendee to delete",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "OK, attendee removed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "message": "OK, attendee removed successfully"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request. Attendee id is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "message": "Bad request. Attendee id is invalid."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "message": "Authorization information is missing or invalid."
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Attendees"
+        ],
+        "summary": "Find an attendee",
+        "operationId": "getAttendeeById",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the attendee to get",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttendeeFetchedResponse"
+                },
+                "examples": {
+                  "Attendee fetched successfully": {
+                    "value": {
+                      "attendee": {
+                        "id": 255,
+                        "bookingId": 313,
+                        "name": "Justin Doe",
+                        "email": "justin.doe@example.com",
+                        "timeZone": "Asia/Jerusalem"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "message": "Authorization information is missing or invalid."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Attendee was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "message": "Attendee was not found"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Attendees"
+        ],
+        "summary": "Edit an existing attendee",
+        "operationId": "editAttendeeById",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the attendee to get",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Edit an existing attendee related to one of your bookings",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditAttendeeById"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "OK, attendee edited successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttendeeFetchedResponse"
+                },
+                "examples": {
+                  "Attendee edited successfully": {
+                    "value": {
+                      "attendee": {
+                        "id": 255,
+                        "bookingId": 313,
+                        "name": "Justin Doe",
+                        "email": "justin.doe@example.com",
+                        "timeZone": "Asia/Jerusalem"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request. Attendee body is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "message": "Bad request. Attendee body is invalid."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "message": "Authorization information is missing or invalid."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/availabilities": {
+      "post": {
+        "tags": [
+          "Availabilities"
+        ],
+        "summary": "Creates a new availability",
+        "externalDocs": {
+          "url": "https://docs.cal.com/docs/core-features/availability"
+        },
+        "operationId": "addAvailability",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Edit an existing availability related to one of your bookings",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddAvailability"
+              },
+              "examples": {
+                "availability": {
+                  "summary": "An example of availability",
+                  "value": {
+                    "scheduleId": 123,
+                    "days": [
+                      1,
+                      2,
+                      3,
+                      5
+                    ],
+                    "startTime": "1970-01-01T17:00:00.000Z",
+                    "endTime": "1970-01-01T17:00:00.000Z"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/availabilities/{id}": {
+      "delete": {
+        "tags": [
+          "Availabilities"
+        ],
+        "summary": "Remove an existing availability",
+        "externalDocs": {
+          "url": "https://docs.cal.com/docs/core-features/availability"
+        },
+        "operationId": "removeAvailabilityById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the availability to delete",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Availabilities"
+        ],
+        "summary": "Find an availability",
+        "externalDocs": {
+          "url": "https://docs.cal.com/docs/core-features/availability"
+        },
+        "operationId": "getAvailabilityById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the availability to get",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Availabilities"
+        ],
+        "summary": "Edit an existing availability",
+        "externalDocs": {
+          "url": "https://docs.cal.com/docs/core-features/availability"
+        },
+        "operationId": "editAvailabilityById",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the availability to edit",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Edit an existing availability related to one of your bookings",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditAvailabilityById"
+              },
+              "examples": {
+                "availability": {
+                  "summary": "An example of availability",
+                  "value": {
+                    "scheduleId": 123,
+                    "days": [
+                      1,
+                      2,
+                      3,
+                      5
+                    ],
+                    "startTime": "1970-01-01T17:00:00.000Z",
+                    "endTime": "1970-01-01T17:00:00.000Z"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/booking-references": {
+      "get": {
+        "tags": [
+          "Booking References"
+        ],
+        "summary": "Find all booking references",
+        "operationId": "listBookingReferences",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Booking References"
+        ],
+        "summary": "Creates a new  booking reference",
+        "operationId": "addBookingReference",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Create a new booking reference related to one of your bookings",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddBookingReference"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/booking-references/{id}": {
+      "delete": {
+        "tags": [
+          "Booking References"
+        ],
+        "summary": "Remove an existing booking reference",
+        "operationId": "removeBookingReferenceById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the booking reference to delete",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Booking References"
+        ],
+        "summary": "Find a booking reference",
+        "operationId": "getBookingReferenceById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the booking reference to get",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Booking References"
+        ],
+        "summary": "Edit an existing booking reference",
+        "operationId": "editBookingReferenceById",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the booking reference to edit",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Edit an existing booking reference related to one of your bookings",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditBookingReferenceById"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bookings": {
+      "post": {
+        "tags": [
+          "Bookings"
+        ],
+        "summary": "Creates a new booking",
+        "operationId": "addBooking",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Create a new booking related to one of your event-types",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddBooking"
+              },
+              "examples": {
+                "New Booking example": {
+                  "value": {
+                    "eventTypeId": 2323232,
+                    "start": "2023-05-24T13:00:00.000Z",
+                    "end": "2023-05-24T13:30:00.000Z",
+                    "responses": {
+                      "name": "Hello Hello",
+                      "email": "hello@gmail.com",
+                      "smsReminderNumber": null,
+                      "location": {
+                        "value": "userPhone",
+                        "optionValue": ""
+                      }
+                    },
+                    "timeZone": "Europe/London",
+                    "language": "en",
+                    "title": "Debugging between Syed Ali Shahbaz and Hello Hello",
+                    "description": null,
+                    "status": "PENDING",
+                    "metadata": { }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bookings/{id}/cancel": {
+      "delete": {
+        "tags": [
+          "Bookings"
+        ],
+        "summary": "Booking cancellation",
+        "operationId": "cancelBookingById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the booking to cancel",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "allRemainingBookings",
+            "in": "query",
+            "description": "Delete all remaining bookings",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "cancellationReason",
+            "in": "query",
+            "description": "The reason for cancellation of the booking, not required except for hosts",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bookings/{id}": {
+      "get": {
+        "tags": [
+          "Bookings"
+        ],
+        "summary": "Find a booking",
+        "operationId": "getBookingById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the booking to get",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetBookingById200"
+                },
+                "examples": {
+                  "booking": {
+                    "value": {
+                      "booking": {
+                        "id": 91,
+                        "userId": 5,
+                        "description": "",
+                        "eventTypeId": 7,
+                        "uid": "bFJeNb2uX8ANpT3JL5EfXw",
+                        "title": "60min between Pro Example and John Doe",
+                        "startTime": "2023-05-25T09:30:00.000Z",
+                        "endTime": "2023-05-25T10:30:00.000Z",
+                        "attendees": [
+                          {
+                            "email": "john.doe@example.com",
+                            "name": "John Doe",
+                            "timeZone": "Asia/Kolkata",
+                            "locale": "en"
+                          }
+                        ],
+                        "user": {
+                          "email": "pro@example.com",
+                          "name": "Pro Example",
+                          "timeZone": "Asia/Kolkata",
+                          "locale": "en"
+                        },
+                        "payment": [
+                          {
+                            "id": 1,
+                            "success": true,
+                            "paymentOption": "ON_BOOKING"
+                          }
+                        ],
+                        "metadata": { },
+                        "status": "ACCEPTED",
+                        "responses": {
+                          "email": "john.doe@example.com",
+                          "name": "John Doe",
+                          "location": {
+                            "optionValue": "",
+                            "value": "inPerson"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Bookings"
+        ],
+        "summary": "Edit an existing booking",
+        "operationId": "editBookingById",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the booking to edit",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Edit an existing booking related to one of your event-types",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditBookingById"
+              },
+              "examples": {
+                "editBooking": {
+                  "value": {
+                    "title": "Debugging between Syed Ali Shahbaz and Hello Hello",
+                    "start": "2023-05-24T13:00:00.000Z",
+                    "end": "2023-05-24T13:30:00.000Z",
+                    "status": "CANCELLED"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bookings/{id}/recordings": {
+      "get": {
+        "tags": [
+          "Bookings"
+        ],
+        "summary": "Find all Cal video recordings of that booking",
+        "operationId": "getRecordingsByBookingId",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the booking for which recordings need to be fetched. Recording download link is only valid for 12 hours and you would have to fetch the recordings again to get new download link",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "room_name": {
+                        "type": "string"
+                      },
+                      "start_ts": {
+                        "type": "number"
+                      },
+                      "status": {
+                        "type": "string"
+                      },
+                      "max_participants": {
+                        "type": "number"
+                      },
+                      "duration": {
+                        "type": "number"
+                      },
+                      "download_link": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "recordings": {
+                    "value": [
+                      {
+                        "id": "ad90a2e7-154f-49ff-a815-5da1db7bf899",
+                        "room_name": "0n22w24AQ5ZFOtEKX2gX",
+                        "start_ts": 1716215386,
+                        "status": "finished",
+                        "max_participants": 1,
+                        "duration": 11,
+                        "share_token": "x94YK-69Gnh7",
+                        "download_link": "https://daily-meeting-recordings..."
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bookings/{id}/transcripts": {
+      "get": {
+        "tags": [
+          "Bookings"
+        ],
+        "summary": "Find all Cal video transcripts of that booking",
+        "operationId": "getTranscriptsByBookingId",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the booking for which recordings need to be fetched.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bookings/{id}/transcripts/{recordingId}": {
+      "get": {
+        "tags": [
+          "Bookings"
+        ],
+        "summary": "Find all Cal video transcripts of that recording",
+        "operationId": "getTranscriptsByRecordingId",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the booking for which transcripts need to be fetched.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "recordingId",
+            "in": "path",
+            "description": "ID of the recording(daily.co recording id) for which transcripts need to be fetched.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/credential-sync": {
+      "delete": {
+        "tags": [
+          "Credentials"
+        ],
+        "summary": "Delete a credential record for a user",
+        "operationId": "deleteUserAppCredential",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "description": "ID of the user to fetch the credentials for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "credentialId",
+            "in": "query",
+            "description": "ID of the credential to update",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Credentials"
+        ],
+        "summary": "Get all app credentials for a user",
+        "operationId": "getUserAppCredentials",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "description": "ID of the user to fetch the credentials for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Credentials"
+        ],
+        "summary": "Update a credential record for a user",
+        "operationId": "updateUserAppCredential",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "description": "ID of the user to fetch the credentials for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "credentialId",
+            "in": "query",
+            "description": "ID of the credential to update",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Update a new credential",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserAppCredential"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Credentials"
+        ],
+        "summary": "Create a credential record for a user",
+        "operationId": "createUserAppCredential",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "description": "ID of the user to fetch the credentials for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Create a new credential",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserAppCredential"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/destination-calendars": {
+      "get": {
+        "tags": [
+          "Destination Calendars"
+        ],
+        "summary": "Find all destination calendars",
+        "operationId": "get_destination_calendars",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Destination Calendars"
+        ],
+        "summary": "Creates a new destination calendar",
+        "operationId": "post_destination_calendars",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Create a new destination calendar for your events",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostDestinationCalendars"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/destination-calendars/{id}": {
+      "delete": {
+        "tags": [
+          "Destination Calendars"
+        ],
+        "summary": "Remove an existing destination calendar",
+        "operationId": "delete_destination_calendars_id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the destination calendar to delete",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Destination Calendars"
+        ],
+        "summary": "Find a destination calendar",
+        "operationId": "get_destination_calendars_id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the destination calendar to get",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Destination Calendars"
+        ],
+        "summary": "Edit an existing destination calendar",
+        "operationId": "patch_destination_calendars_id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the destination calendar to edit",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Create a new booking related to one of your event-types",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchDestinationCalendarsId"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/event-types": {
+      "get": {
+        "tags": [
+          "Event Types"
+        ],
+        "summary": "Find all event types",
+        "externalDocs": {
+          "url": "https://docs.cal.com/docs/core-features/event-types"
+        },
+        "operationId": "listEventTypes",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API Key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "slug",
+            "in": "query",
+            "description": "Slug to filter event types by",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Event Types"
+        ],
+        "summary": "Creates a new event type",
+        "externalDocs": {
+          "url": "https://docs.cal.com/docs/core-features/event-types"
+        },
+        "operationId": "addEventType",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API Key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Create a new event-type related to your user or team",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddEventType"
+              },
+              "examples": {
+                "event-type": {
+                  "summary": "An example of an individual event type POST request",
+                  "value": {
+                    "title": "Hello World",
+                    "slug": "hello-world",
+                    "length": 30,
+                    "hidden": false,
+                    "position": 0,
+                    "eventName": null,
+                    "timeZone": null,
+                    "scheduleId": 5,
+                    "periodType": "UNLIMITED",
+                    "periodStartDate": "2023-02-15T08:46:16.000Z",
+                    "periodEndDate": "2023-0-15T08:46:16.000Z",
+                    "periodDays": null,
+                    "periodCountCalendarDays": false,
+                    "requiresConfirmation": false,
+                    "recurringEvent": null,
+                    "disableGuests": false,
+                    "hideCalendarNotes": false,
+                    "minimumBookingNotice": 120,
+                    "beforeEventBuffer": 0,
+                    "afterEventBuffer": 0,
+                    "price": 0,
+                    "currency": "usd",
+                    "slotInterval": null,
+                    "successRedirectUrl": null,
+                    "description": "A test event type",
+                    "metadata": {
+                      "apps": {
+                        "stripe": {
+                          "price": 0,
+                          "enabled": false,
+                          "currency": "usd"
+                        }
+                      }
+                    }
+                  }
+                },
+                "team-event-type": {
+                  "summary": "An example of a team event type POST request",
+                  "value": {
+                    "title": "Tennis class",
+                    "slug": "tennis-class-{{$guid}}",
+                    "length": 60,
+                    "hidden": false,
+                    "position": 0,
+                    "teamId": 3,
+                    "eventName": null,
+                    "timeZone": null,
+                    "periodType": "UNLIMITED",
+                    "periodStartDate": null,
+                    "periodEndDate": null,
+                    "periodDays": null,
+                    "periodCountCalendarDays": null,
+                    "requiresConfirmation": true,
+                    "recurringEvent": {
+                      "interval": 2,
+                      "count": 10,
+                      "freq": 2
+                    },
+                    "disableGuests": false,
+                    "hideCalendarNotes": false,
+                    "minimumBookingNotice": 120,
+                    "beforeEventBuffer": 0,
+                    "afterEventBuffer": 0,
+                    "schedulingType": "COLLECTIVE",
+                    "price": 0,
+                    "currency": "usd",
+                    "slotInterval": null,
+                    "successRedirectUrl": null,
+                    "description": null,
+                    "locations": [
+                      {
+                        "address": "London",
+                        "type": "inPerson"
+                      }
+                    ],
+                    "metadata": { }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/event-types/{id}": {
+      "delete": {
+        "tags": [
+          "Event Types"
+        ],
+        "summary": "Remove an existing eventType",
+        "externalDocs": {
+          "url": "https://docs.cal.com/docs/core-features/event-types"
+        },
+        "operationId": "removeEventTypeById",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API Key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the eventType to delete",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Event Types"
+        ],
+        "summary": "Find a eventType",
+        "externalDocs": {
+          "url": "https://docs.cal.com/docs/core-features/event-types"
+        },
+        "operationId": "getEventTypeById",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API Key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the eventType to get",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "example": 4
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Event Types"
+        ],
+        "summary": "Edit an existing eventType",
+        "externalDocs": {
+          "url": "https://docs.cal.com/docs/core-features/event-types"
+        },
+        "operationId": "editEventTypeById",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API Key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the eventType to edit",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Create a new event-type related to your user or team",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditEventTypeById"
+              },
+              "example": {
+                "event-type": {
+                  "summary": "An example of event type PATCH request",
+                  "value": {
+                    "length": 60,
+                    "requiresConfirmation": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/memberships": {
+      "get": {
+        "tags": [
+          "Memberships"
+        ],
+        "summary": "Find all memberships",
+        "operationId": "get_memberships",
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Memberships"
+        ],
+        "summary": "Creates a new membership",
+        "operationId": "post_memberships",
+        "responses": {
+          "201": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/memberships/{userId}_{teamId}": {
+      "delete": {
+        "tags": [
+          "Memberships"
+        ],
+        "summary": "Remove an existing membership",
+        "operationId": "delete_memberships_userId_teamId",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "Numeric userId of the membership to get",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "teamId",
+            "in": "path",
+            "description": "Numeric teamId of the membership to get",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Memberships"
+        ],
+        "summary": "Find a membership by userID and teamID",
+        "operationId": "get_memberships_userId_teamId",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "Numeric userId of the membership to get",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "teamId",
+            "in": "path",
+            "description": "Numeric teamId of the membership to get",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Memberships"
+        ],
+        "summary": "Edit an existing membership",
+        "operationId": "patch_memberships_userId_teamId",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "Numeric userId of the membership to get",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "teamId",
+            "in": "path",
+            "description": "Numeric teamId of the membership to get",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payments/{id}": {
+      "get": {
+        "tags": [
+          "Payments"
+        ],
+        "summary": "Find a payment",
+        "operationId": "get_payments_id",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the payment to get",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payments": {
+      "get": {
+        "tags": [
+          "Payments"
+        ],
+        "summary": "Find all payments",
+        "operationId": "get_payments",
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/schedules": {
+      "get": {
+        "tags": [
+          "Schedules"
+        ],
+        "summary": "Find all schedules",
+        "operationId": "listSchedules",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API Key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Schedules"
+        ],
+        "summary": "Creates a new schedule",
+        "operationId": "addSchedule",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API Key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Create a new schedule",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddSchedule"
+              },
+              "examples": {
+                "schedule": {
+                  "value": {
+                    "name": "Sample Schedule",
+                    "timeZone": "Asia/Calcutta"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/schedules/{id}": {
+      "delete": {
+        "tags": [
+          "Schedules"
+        ],
+        "summary": "Remove an existing schedule",
+        "operationId": "removeScheduleById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the schedule to delete",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API Key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Schedules"
+        ],
+        "summary": "Find a schedule",
+        "operationId": "getScheduleById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the schedule to get",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API Key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Schedules"
+        ],
+        "summary": "Edit an existing schedule",
+        "operationId": "editScheduleById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the schedule to edit",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API Key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Edit an existing schedule",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditScheduleById"
+              },
+              "examples": {
+                "schedule": {
+                  "value": {
+                    "name": "Updated Schedule",
+                    "timeZone": "Asia/Calcutta"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/selected-calendars": {
+      "get": {
+        "tags": [
+          "Selected Calendars"
+        ],
+        "summary": "Find all selected calendars",
+        "operationId": "listSelectedCalendars",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API Key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Selected Calendars"
+        ],
+        "summary": "Creates a new selected calendar",
+        "operationId": "post_selected_calendars",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API Key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Create a new selected calendar",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostSelectedCalendars"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/selected-calendars/{userId}_{integration}_{externalId}": {
+      "delete": {
+        "tags": [
+          "Selected Calendars"
+        ],
+        "summary": "Remove a selected calendar",
+        "operationId": "removeSelectedCalendarById",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API Key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "userId of the selected calendar to get",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "externalId",
+            "in": "path",
+            "description": "externalId of the selected-calendar to get",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "integration",
+            "in": "path",
+            "description": "integration of the selected calendar to get",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Selected Calendars"
+        ],
+        "summary": "Find a selected calendar by providing the compoundId(userId_integration_externalId) separated by `_`",
+        "operationId": "getSelectedCalendarById",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API Key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "userId of the selected calendar to get",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "externalId",
+            "in": "path",
+            "description": "externalId of the selected calendar to get",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "integration",
+            "in": "path",
+            "description": "integration of the selected calendar to get",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Selected Calendars"
+        ],
+        "summary": "Edit a selected calendar",
+        "operationId": "editSelectedCalendarById",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API Key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "userId of the selected calendar to get",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "externalId",
+            "in": "path",
+            "description": "externalId of the selected calendar to get",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "integration",
+            "in": "path",
+            "description": "integration of the selected calendar to get",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/slots": {
+      "get": {
+        "tags": [
+          "slots"
+        ],
+        "summary": "Get all bookable slots between a datetime range",
+        "operationId": "get_slots",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API Key",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "cal_live_<unique_identifier>"
+            }
+          },
+          {
+            "name": "eventTypeId",
+            "in": "query",
+            "description": "The event type Id to fetch available slots against",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "startTime",
+            "in": "query",
+            "description": "Start time of the slot lookup",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "endTime",
+            "in": "query",
+            "description": "End time of the slot lookup",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "timeZone",
+            "in": "query",
+            "description": "TimeZone for the slot lookup",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "usernameList",
+            "in": "query",
+            "description": "An array of usernames, or team slug in case of a team event [To be used when not using eventTypeId]",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "example": [
+              "user1",
+              "user2",
+              "user3"
+            ]
+          },
+          {
+            "name": "eventTypeSlug",
+            "in": "query",
+            "description": "Slug of the event type to fetch available slots against [To be used when not using eventTypeId]",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "orgSlug",
+            "in": "query",
+            "description": "Slug of the organization that the user belongs to, in case the user belongs to an organization [To be used when not using eventTypeId]",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "isTeamEvent",
+            "in": "query",
+            "description": "True if the event is a team event",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "message": "Authorization information is missing or invalid."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/teams": {
+      "get": {
+        "tags": [
+          "Teams"
+        ],
+        "summary": "Find all teams",
+        "operationId": "listTeams",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Teams"
+        ],
+        "summary": "Creates a new team",
+        "operationId": "addTeam",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Create a new custom input for an event type",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddTeam"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/teams/{teamId}": {
+      "delete": {
+        "tags": [
+          "Teams"
+        ],
+        "summary": "Remove an existing team",
+        "operationId": "removeTeamById",
+        "parameters": [
+          {
+            "name": "teamId",
+            "in": "path",
+            "description": "ID of the team to delete",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Teams"
+        ],
+        "summary": "Find a team",
+        "operationId": "getTeamById",
+        "parameters": [
+          {
+            "name": "teamId",
+            "in": "path",
+            "description": "ID of the team to get",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Teams"
+        ],
+        "summary": "Edit an existing team",
+        "operationId": "editTeamById",
+        "parameters": [
+          {
+            "name": "teamId",
+            "in": "path",
+            "description": "ID of the team to edit",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Create a new custom input for an event type",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditTeamById"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/teams/{teamId}/event-types": {
+      "get": {
+        "tags": [
+          "Event Types"
+        ],
+        "summary": "Find all event types that belong to teamId",
+        "externalDocs": {
+          "url": "https://docs.cal.com/docs/core-features/event-types"
+        },
+        "operationId": "listEventTypesByTeamId",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API Key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "teamId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Find all users",
+        "operationId": "listUsers",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "description": "The email address or an array of email addresses to filter by",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "email"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Creates a new user",
+        "operationId": "addUser",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Create a new user",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddUser"
+              },
+              "examples": {
+                "user": {
+                  "summary": "An example of USER",
+                  "value": {
+                    "email": "email@example.com",
+                    "username": "johndoe",
+                    "weekStart": "MONDAY",
+                    "brandColor": "#555555",
+                    "darkBrandColor": "#111111",
+                    "timeZone": "EUROPE/PARIS",
+                    "theme": "LIGHT",
+                    "timeFormat": "TWELVE",
+                    "locale": "FR"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{userId}": {
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Remove an existing user",
+        "operationId": "removeUserById",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "ID of the user to delete",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1
+          },
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Find a user, returns your user if regular user.",
+        "operationId": "getUserById",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "ID of the user to get",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "example": 4
+          },
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Edit an existing user",
+        "operationId": "editUserById",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "ID of the user to edit",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "example": 4
+          },
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Edit an existing attendee related to one of your bookings",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditUserById"
+              },
+              "examples": {
+                "user": {
+                  "summary": "An example of USER",
+                  "value": {
+                    "email": "email@example.com",
+                    "username": "johndoe",
+                    "weekStart": "MONDAY",
+                    "brandColor": null,
+                    "darkBrandColor": null,
+                    "timeZone": "EUROPE/PARIS",
+                    "theme": "LIGHT",
+                    "timeFormat": "TWELVE",
+                    "locale": "FR"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/webhooks": {
+      "get": {
+        "tags": [
+          "Webhooks"
+        ],
+        "summary": "Find all webhooks",
+        "externalDocs": {
+          "url": "https://docs.cal.com/docs/core-features/webhooks"
+        },
+        "operationId": "listWebhooks",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Webhooks"
+        ],
+        "summary": "Creates a new webhook",
+        "externalDocs": {
+          "url": "https://docs.cal.com/docs/core-features/webhooks"
+        },
+        "operationId": "addWebhook",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Create a new webhook",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddWebhook"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/webhooks/{id}": {
+      "delete": {
+        "tags": [
+          "Webhooks"
+        ],
+        "summary": "Remove an existing hook",
+        "externalDocs": {
+          "url": "https://docs.cal.com/docs/core-features/webhooks"
+        },
+        "operationId": "removeWebhookById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Numeric ID of the hooks to delete",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Webhooks"
+        ],
+        "summary": "Find a webhook",
+        "externalDocs": {
+          "url": "https://docs.cal.com/docs/core-features/webhooks"
+        },
+        "operationId": "getWebhookById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Numeric ID of the webhook to get",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Webhooks"
+        ],
+        "summary": "Edit an existing webhook",
+        "externalDocs": {
+          "url": "https://docs.cal.com/docs/core-features/webhooks"
+        },
+        "operationId": "editWebhookById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Numeric ID of the webhook to edit",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your API key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Edit an existing webhook",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditWebhookById"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "Attendee": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "bookingId": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "timeZone": {
+            "type": "string"
+          }
+        }
+      },
+      "AttendeesFetchedResponse": {
+        "type": "object",
+        "properties": {
+          "attendees": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Attendee"
+            }
+          }
+        }
+      },
+      "AttendeeCreatedResponse": {
+        "type": "object",
+        "properties": {
+          "attendee": {
+            "$ref": "#/components/schemas/Attendee"
+          },
+          "message": {
+            "type": "string",
+            "example": "Attendee created successfully"
+          }
+        }
+      },
+      "AttendeeFetchedResponse": {
+        "type": "object",
+        "properties": {
+          "attendee": {
+            "$ref": "#/components/schemas/Attendee"
+          }
+        }
+      },
+      "ArrayOfBookings": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "description": {
+              "type": "string"
+            },
+            "eventTypeId": {
+              "type": "number"
+            },
+            "uid": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "title": {
+              "type": "string"
+            },
+            "startTime": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "endTime": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "timeZone": {
+              "type": "string",
+              "example": "Europe/London"
+            },
+            "fromReschedule": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "attendees": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "example@cal.com"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "timeZone": {
+                    "type": "string",
+                    "example": "Europe/London"
+                  },
+                  "locale": {
+                    "type": "string",
+                    "example": "en"
+                  }
+                }
+              }
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "example@cal.com"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "timeZone": {
+                  "type": "string",
+                  "example": "Europe/London"
+                },
+                "locale": {
+                  "type": "string",
+                  "example": "en"
+                }
+              }
+            },
+            "payment": {
+              "type": "object",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number",
+                    "example": 1
+                  },
+                  "success": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "paymentOption": {
+                    "type": "string",
+                    "example": "ON_BOOKING"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "ArrayOfRecordings": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "room_name": {
+              "type": "string"
+            },
+            "start_ts": {
+              "type": "number"
+            },
+            "status": {
+              "type": "string"
+            },
+            "max_participants": {
+              "type": "number"
+            },
+            "duration": {
+              "type": "number"
+            },
+            "download_link": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "Recording": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "room_name": {
+            "type": "string"
+          },
+          "start_ts": {
+            "type": "number"
+          },
+          "status": {
+            "type": "string"
+          },
+          "max_participants": {
+            "type": "number"
+          },
+          "duration": {
+            "type": "number"
+          },
+          "download_link": {
+            "type": "string"
+          }
+        }
+      },
+      "Booking": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "description": {
+            "type": "string"
+          },
+          "eventTypeId": {
+            "type": "number"
+          },
+          "uid": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "type": "string"
+          },
+          "startTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "timeZone": {
+            "type": "string",
+            "example": "Europe/London"
+          },
+          "fromReschedule": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "attendees": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "example@cal.com"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "timeZone": {
+                  "type": "string",
+                  "example": "Europe/London"
+                },
+                "locale": {
+                  "type": "string",
+                  "example": "en"
+                }
+              }
+            }
+          },
+          "user": {
+            "type": "object",
+            "properties": {
+              "email": {
+                "type": "string",
+                "example": "example@cal.com"
+              },
+              "name": {
+                "type": "string"
+              },
+              "timeZone": {
+                "type": "string",
+                "example": "Europe/London"
+              },
+              "locale": {
+                "type": "string",
+                "example": "en"
+              }
+            }
+          },
+          "payment": {
+            "type": "object",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "success": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "paymentOption": {
+                  "type": "string",
+                  "example": "ON_BOOKING"
+                }
+              }
+            }
+          }
+        }
+      },
+      "AddAttendee": {
+        "required": [
+          "bookingId",
+          "name",
+          "email",
+          "timeZone"
+        ],
+        "type": "object",
+        "properties": {
+          "bookingId": {
+            "type": "number"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "name": {
+            "type": "string"
+          },
+          "timeZone": {
+            "type": "string"
+          }
+        }
+      },
+      "EditAttendeeById": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "name": {
+            "type": "string"
+          },
+          "timeZone": {
+            "type": "string"
+          }
+        }
+      },
+      "AddAvailability": {
+        "required": [
+          "scheduleId",
+          "startTime",
+          "endTime"
+        ],
+        "type": "object",
+        "properties": {
+          "days": {
+            "type": "array",
+            "items": {
+              "enum": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "type": "integer",
+              "additionalProperties": false
+            },
+            "description": "Array of integers depicting weekdays"
+          },
+          "scheduleId": {
+            "type": "integer",
+            "description": "ID of schedule this availability is associated with"
+          },
+          "startTime": {
+            "type": "string",
+            "description": "Start time of the availability"
+          },
+          "endTime": {
+            "type": "string",
+            "description": "End time of the availability"
+          }
+        }
+      },
+      "EditAvailabilityById": {
+        "type": "object",
+        "properties": {
+          "days": {
+            "type": "array",
+            "items": {
+              "enum": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "type": "integer",
+              "additionalProperties": false
+            },
+            "description": "Array of integers depicting weekdays"
+          },
+          "scheduleId": {
+            "type": "integer",
+            "description": "ID of schedule this availability is associated with"
+          },
+          "startTime": {
+            "type": "string",
+            "description": "Start time of the availability"
+          },
+          "endTime": {
+            "type": "string",
+            "description": "End time of the availability"
+          }
+        }
+      },
+      "AddBookingReference": {
+        "required": [
+          "type",
+          "uid"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "uid": {
+            "type": "string"
+          },
+          "meetingId": {
+            "type": "string"
+          },
+          "meetingPassword": {
+            "type": "string"
+          },
+          "meetingUrl": {
+            "type": "string"
+          },
+          "bookingId": {
+            "type": "boolean"
+          },
+          "externalCalendarId": {
+            "type": "string"
+          },
+          "deleted": {
+            "type": "boolean"
+          },
+          "credentialId": {
+            "type": "integer"
+          }
+        }
+      },
+      "EditBookingReferenceById": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "meetingId": {
+            "type": "string"
+          },
+          "meetingPassword": {
+            "type": "string"
+          },
+          "externalCalendarId": {
+            "type": "string"
+          },
+          "deleted": {
+            "type": "boolean"
+          },
+          "credentialId": {
+            "type": "integer"
+          }
+        }
+      },
+      "AddBooking": {
+        "required": [
+          "eventTypeId",
+          "start",
+          "responses",
+          "timeZone",
+          "language",
+          "metadata"
+        ],
+        "type": "object",
+        "properties": {
+          "eventTypeId": {
+            "type": "integer",
+            "description": "ID of the event type to book"
+          },
+          "start": {
+            "type": "string",
+            "description": "Start time of the Event",
+            "format": "date-time"
+          },
+          "end": {
+            "type": "string",
+            "description": "End time of the Event",
+            "format": "date-time"
+          },
+          "rescheduleUid": {
+            "type": "string",
+            "description": "Uid of the booking to reschedule",
+            "format": "UID"
+          },
+          "responses": {
+            "required": [
+              "name",
+              "email",
+              "location"
+            ],
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Attendee full name"
+              },
+              "email": {
+                "type": "string",
+                "description": "Attendee email address",
+                "format": "email"
+              },
+              "location": {
+                "type": "object",
+                "properties": {
+                  "optionValue": {
+                    "type": "string",
+                    "description": "Option value for the location"
+                  },
+                  "value": {
+                    "type": "string",
+                    "description": "The meeting URL, Phone number or Address"
+                  }
+                },
+                "description": "Meeting location"
+              },
+              "smsReminderNumber": {
+                "type": "number",
+                "description": "SMS reminder number"
+              }
+            }
+          },
+          "metadata": {
+            "type": "object",
+            "description": "Any metadata associated with the booking"
+          },
+          "timeZone": {
+            "type": "string",
+            "description": "TimeZone of the Attendee"
+          },
+          "language": {
+            "type": "string",
+            "description": "Language of the Attendee"
+          },
+          "title": {
+            "type": "string",
+            "description": "Booking event title"
+          },
+          "recurringEventId": {
+            "type": "integer",
+            "description": "Recurring event ID if the event is recurring"
+          },
+          "description": {
+            "type": "string",
+            "description": "Event description"
+          },
+          "status": {
+            "type": "string",
+            "description": "Acceptable values one of [\"ACCEPTED\", \"PENDING\", \"CANCELLED\", \"REJECTED\"]"
+          },
+          "seatsPerTimeSlot": {
+            "type": "integer",
+            "description": "The number of seats for each time slot"
+          },
+          "seatsShowAttendees": {
+            "type": "boolean",
+            "description": "Share Attendee information in seats"
+          },
+          "seatsShowAvailabilityCount": {
+            "type": "boolean",
+            "description": "Show the number of available seats"
+          }
+        }
+      },
+      "GetBookingById200": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "description": {
+            "type": "string"
+          },
+          "eventTypeId": {
+            "type": "number"
+          },
+          "uid": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "type": "string"
+          },
+          "startTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "timeZone": {
+            "type": "string",
+            "example": "Europe/London"
+          },
+          "fromReschedule": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "attendees": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "example@cal.com"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "timeZone": {
+                  "type": "string",
+                  "example": "Europe/London"
+                },
+                "locale": {
+                  "type": "string",
+                  "example": "en"
+                }
+              }
+            }
+          },
+          "user": {
+            "type": "object",
+            "properties": {
+              "email": {
+                "type": "string",
+                "example": "example@cal.com"
+              },
+              "name": {
+                "type": "string"
+              },
+              "timeZone": {
+                "type": "string",
+                "example": "Europe/London"
+              },
+              "locale": {
+                "type": "string",
+                "example": "en"
+              }
+            }
+          },
+          "payment": {
+            "type": "object",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "success": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "paymentOption": {
+                  "type": "string",
+                  "example": "ON_BOOKING"
+                }
+              }
+            }
+          }
+        }
+      },
+      "EditBookingById": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Booking event title"
+          },
+          "start": {
+            "type": "string",
+            "description": "Start time of the Event",
+            "format": "date-time"
+          },
+          "end": {
+            "type": "string",
+            "description": "End time of the Event",
+            "format": "date-time"
+          },
+          "status": {
+            "type": "string",
+            "description": "Acceptable values one of [\"ACCEPTED\", \"PENDING\", \"CANCELLED\", \"REJECTED\"]"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the meeting"
+          }
+        }
+      },
+      "GetRecordingsByBookingId200": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "room_name": {
+              "type": "string"
+            },
+            "start_ts": {
+              "type": "number"
+            },
+            "status": {
+              "type": "string"
+            },
+            "max_participants": {
+              "type": "number"
+            },
+            "duration": {
+              "type": "number"
+            },
+            "download_link": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "UpdateUserAppCredential": {
+        "required": [
+          "encryptedKey"
+        ],
+        "type": "object",
+        "properties": {
+          "encryptedKey": {
+            "type": "string"
+          }
+        }
+      },
+      "CreateUserAppCredential": {
+        "required": [
+          "encryptedKey",
+          "appSlug"
+        ],
+        "type": "object",
+        "properties": {
+          "encryptedKey": {
+            "type": "string"
+          },
+          "appSlug": {
+            "type": "string"
+          }
+        }
+      },
+      "PostDestinationCalendars": {
+        "required": [
+          "integration",
+          "externalId",
+          "credentialId"
+        ],
+        "type": "object",
+        "properties": {
+          "integration": {
+            "type": "string",
+            "description": "The integration"
+          },
+          "externalId": {
+            "type": "string",
+            "description": "The external ID of the integration"
+          },
+          "eventTypeId": {
+            "type": "integer",
+            "description": "The ID of the eventType it is associated with"
+          },
+          "bookingId": {
+            "type": "integer",
+            "description": "The booking ID it is associated with"
+          },
+          "userId": {
+            "type": "integer",
+            "description": "The user it is associated with"
+          }
+        }
+      },
+      "PatchDestinationCalendarsId": {
+        "type": "object",
+        "properties": {
+          "integration": {
+            "type": "string",
+            "description": "The integration"
+          },
+          "externalId": {
+            "type": "string",
+            "description": "The external ID of the integration"
+          },
+          "eventTypeId": {
+            "type": "integer",
+            "description": "The ID of the eventType it is associated with"
+          },
+          "bookingId": {
+            "type": "integer",
+            "description": "The booking ID it is associated with"
+          }
+        }
+      },
+      "AddEventType": {
+        "required": [
+          "title",
+          "slug",
+          "length",
+          "metadata"
+        ],
+        "type": "object",
+        "properties": {
+          "length": {
+            "type": "integer",
+            "description": "Duration of the event type in minutes"
+          },
+          "metadata": {
+            "type": "object",
+            "description": "Metadata relating to event type. Pass {} if empty"
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the event type"
+          },
+          "slug": {
+            "type": "string",
+            "description": "Unique slug for the event type"
+          },
+          "hosts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "userId": {
+                  "type": "number"
+                },
+                "isFixed": {
+                  "type": "boolean",
+                  "description": "Host MUST be available for any slot to be bookable."
+                }
+              }
+            }
+          },
+          "hidden": {
+            "type": "boolean",
+            "description": "If the event type should be hidden from your public booking page"
+          },
+          "scheduleId": {
+            "type": "number",
+            "description": "The ID of the schedule for this event type"
+          },
+          "position": {
+            "type": "integer",
+            "description": "The position of the event type on the public booking page"
+          },
+          "teamId": {
+            "type": "integer",
+            "description": "Team ID if the event type should belong to a team"
+          },
+          "periodType": {
+            "enum": [
+              "UNLIMITED",
+              "ROLLING",
+              "RANGE"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "To decide how far into the future an invitee can book an event with you"
+          },
+          "periodStartDate": {
+            "type": "string",
+            "description": "Start date of bookable period (Required if periodType is 'range')",
+            "format": "date-time"
+          },
+          "periodEndDate": {
+            "type": "string",
+            "description": "End date of bookable period (Required if periodType is 'range')",
+            "format": "date-time"
+          },
+          "periodDays": {
+            "type": "integer",
+            "description": "Number of bookable days (Required if periodType is rolling)"
+          },
+          "periodCountCalendarDays": {
+            "type": "boolean",
+            "description": "If calendar days should be counted for period days"
+          },
+          "requiresConfirmation": {
+            "type": "boolean",
+            "description": "If the event type should require your confirmation before completing the booking"
+          },
+          "recurringEvent": {
+            "type": "object",
+            "properties": {
+              "interval": {
+                "type": "integer"
+              },
+              "count": {
+                "type": "integer"
+              },
+              "freq": {
+                "type": "integer"
+              }
+            },
+            "description": "If the event should recur every week/month/year with the selected frequency"
+          },
+          "disableGuests": {
+            "type": "boolean",
+            "description": "If the event type should disable adding guests to the booking"
+          },
+          "hideCalendarNotes": {
+            "type": "boolean",
+            "description": "If the calendar notes should be hidden from the booking"
+          },
+          "minimumBookingNotice": {
+            "type": "integer",
+            "description": "Minimum time in minutes before the event is bookable"
+          },
+          "beforeEventBuffer": {
+            "type": "integer",
+            "description": "Number of minutes of buffer time before a Cal Event"
+          },
+          "afterEventBuffer": {
+            "type": "integer",
+            "description": "Number of minutes of buffer time after a Cal Event"
+          },
+          "schedulingType": {
+            "enum": [
+              "ROUND_ROBIN",
+              "COLLECTIVE",
+              "MANAGED"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The type of scheduling if a Team event. Required for team events only"
+          },
+          "price": {
+            "type": "integer",
+            "description": "Price of the event type booking"
+          },
+          "parentId": {
+            "type": "integer",
+            "description": "EventTypeId of the parent managed event"
+          },
+          "currency": {
+            "type": "string",
+            "description": "Currency acronym. Eg- usd, eur, gbp, etc."
+          },
+          "slotInterval": {
+            "type": "integer",
+            "description": "The intervals of available bookable slots in minutes"
+          },
+          "successRedirectUrl": {
+            "type": "string",
+            "description": "A valid URL where the booker will redirect to, once the booking is completed successfully",
+            "format": "url"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the event type"
+          },
+          "locations": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "enum": [
+                          "integrations:daily"
+                        ],
+                        "type": "string",
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "enum": [
+                          "attendeeInPerson"
+                        ],
+                        "type": "string",
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "enum": [
+                          "inPerson"
+                        ],
+                        "type": "string",
+                        "additionalProperties": false
+                      },
+                      "address": {
+                        "type": "string"
+                      },
+                      "displayLocationPublicly": {
+                        "type": "boolean"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "enum": [
+                          "link"
+                        ],
+                        "type": "string",
+                        "additionalProperties": false
+                      },
+                      "link": {
+                        "type": "string"
+                      },
+                      "displayLocationPublicly": {
+                        "type": "boolean"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "description": "A list of all available locations for the event type"
+          }
+        }
+      },
+      "EditEventTypeById": {
+        "type": "object",
+        "properties": {
+          "length": {
+            "type": "integer",
+            "description": "Duration of the event type in minutes"
+          },
+          "metadata": {
+            "type": "object",
+            "description": "Metadata relating to event type. Pass {} if empty"
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the event type"
+          },
+          "slug": {
+            "type": "string",
+            "description": "Unique slug for the event type"
+          },
+          "scheduleId": {
+            "type": "number",
+            "description": "The ID of the schedule for this event type"
+          },
+          "hosts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "userId": {
+                  "type": "number"
+                },
+                "isFixed": {
+                  "type": "boolean",
+                  "description": "Host MUST be available for any slot to be bookable."
+                }
+              }
+            }
+          },
+          "hidden": {
+            "type": "boolean",
+            "description": "If the event type should be hidden from your public booking page"
+          },
+          "position": {
+            "type": "integer",
+            "description": "The position of the event type on the public booking page"
+          },
+          "teamId": {
+            "type": "integer",
+            "description": "Team ID if the event type should belong to a team"
+          },
+          "periodType": {
+            "enum": [
+              "UNLIMITED",
+              "ROLLING",
+              "RANGE"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "To decide how far into the future an invitee can book an event with you"
+          },
+          "periodStartDate": {
+            "type": "string",
+            "description": "Start date of bookable period (Required if periodType is 'range')",
+            "format": "date-time"
+          },
+          "periodEndDate": {
+            "type": "string",
+            "description": "End date of bookable period (Required if periodType is 'range')",
+            "format": "date-time"
+          },
+          "periodDays": {
+            "type": "integer",
+            "description": "Number of bookable days (Required if periodType is rolling)"
+          },
+          "periodCountCalendarDays": {
+            "type": "boolean",
+            "description": "If calendar days should be counted for period days"
+          },
+          "requiresConfirmation": {
+            "type": "boolean",
+            "description": "If the event type should require your confirmation before completing the booking"
+          },
+          "recurringEvent": {
+            "type": "object",
+            "properties": {
+              "interval": {
+                "type": "integer"
+              },
+              "count": {
+                "type": "integer"
+              },
+              "freq": {
+                "type": "integer"
+              }
+            },
+            "description": "If the event should recur every week/month/year with the selected frequency"
+          },
+          "disableGuests": {
+            "type": "boolean",
+            "description": "If the event type should disable adding guests to the booking"
+          },
+          "hideCalendarNotes": {
+            "type": "boolean",
+            "description": "If the calendar notes should be hidden from the booking"
+          },
+          "minimumBookingNotice": {
+            "type": "integer",
+            "description": "Minimum time in minutes before the event is bookable"
+          },
+          "beforeEventBuffer": {
+            "type": "integer",
+            "description": "Number of minutes of buffer time before a Cal Event"
+          },
+          "afterEventBuffer": {
+            "type": "integer",
+            "description": "Number of minutes of buffer time after a Cal Event"
+          },
+          "schedulingType": {
+            "enum": [
+              "ROUND_ROBIN",
+              "COLLECTIVE"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The type of scheduling if a Team event. Required for team events only"
+          },
+          "price": {
+            "type": "integer",
+            "description": "Price of the event type booking"
+          },
+          "currency": {
+            "type": "string",
+            "description": "Currency acronym. Eg- usd, eur, gbp, etc."
+          },
+          "slotInterval": {
+            "type": "integer",
+            "description": "The intervals of available bookable slots in minutes"
+          },
+          "successRedirectUrl": {
+            "type": "string",
+            "description": "A valid URL where the booker will redirect to, once the booking is completed successfully",
+            "format": "url"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the event type"
+          },
+          "seatsPerTimeSlot": {
+            "type": "integer",
+            "description": "The number of seats for each time slot"
+          },
+          "seatsShowAttendees": {
+            "type": "boolean",
+            "description": "Share Attendee information in seats"
+          },
+          "seatsShowAvailabilityCount": {
+            "type": "boolean",
+            "description": "Show the number of available seats"
+          },
+          "locations": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "enum": [
+                          "integrations:daily"
+                        ],
+                        "type": "string",
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "enum": [
+                          "attendeeInPerson"
+                        ],
+                        "type": "string",
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "enum": [
+                          "inPerson"
+                        ],
+                        "type": "string",
+                        "additionalProperties": false
+                      },
+                      "address": {
+                        "type": "string"
+                      },
+                      "displayLocationPublicly": {
+                        "type": "boolean"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "enum": [
+                          "link"
+                        ],
+                        "type": "string",
+                        "additionalProperties": false
+                      },
+                      "link": {
+                        "type": "string"
+                      },
+                      "displayLocationPublicly": {
+                        "type": "boolean"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "description": "A list of all available locations for the event type"
+          }
+        }
+      },
+      "AddSchedule": {
+        "required": [
+          "name",
+          "timeZone"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the schedule"
+          },
+          "timeZone": {
+            "type": "string",
+            "description": "The timeZone for this schedule"
+          }
+        }
+      },
+      "EditScheduleById": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the schedule"
+          },
+          "timeZone": {
+            "type": "string",
+            "description": "The timezone for this schedule"
+          }
+        }
+      },
+      "PostSelectedCalendars": {
+        "required": [
+          "integration",
+          "externalId"
+        ],
+        "type": "object",
+        "properties": {
+          "integration": {
+            "type": "string",
+            "description": "The integration name"
+          },
+          "externalId": {
+            "type": "string",
+            "description": "The external ID of the integration"
+          }
+        }
+      },
+      "GetSlots200": {
+        "type": "object",
+        "example": {
+          "slots": {
+            "2024-04-13": [
+              {
+                "time": "2024-04-13T11:00:00+04:00"
+              },
+              {
+                "time": "2024-04-13T12:00:00+04:00"
+              },
+              {
+                "time": "2024-04-13T13:00:00+04:00"
+              }
+            ]
+          }
+        }
+      },
+      "AddTeam": {
+        "required": [
+          "name",
+          "slug",
+          "hideBookATeamMember",
+          "brandColor",
+          "darkBrandColor",
+          "timeZone",
+          "weekStart",
+          "isPrivate"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the team"
+          },
+          "slug": {
+            "type": "string",
+            "description": "A unique slug that works as path for the team public page"
+          },
+          "hideBookATeamMember": {
+            "type": "boolean",
+            "description": "Flag to hide or show the book a team member option"
+          },
+          "brandColor": {
+            "type": "string",
+            "description": "Primary brand color for the team"
+          },
+          "darkBrandColor": {
+            "type": "string",
+            "description": "Dark variant of the primary brand color for the team"
+          },
+          "timeZone": {
+            "type": "string",
+            "description": "Time zone of the team"
+          },
+          "weekStart": {
+            "type": "string",
+            "description": "Starting day of the week for the team"
+          },
+          "isPrivate": {
+            "type": "boolean",
+            "description": "Flag indicating if the team is private"
+          },
+          "ownerId": {
+            "type": "number",
+            "description": "ID of the team owner - only admins can set this."
+          },
+          "parentId": {
+            "type": "number",
+            "description": "ID of the parent organization."
+          }
+        }
+      },
+      "EditTeamById": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the team"
+          },
+          "slug": {
+            "type": "string",
+            "description": "A unique slug that works as path for the team public page"
+          }
+        }
+      },
+      "AddUser": {
+        "required": [
+          "email",
+          "username"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "Email that belongs to the user being edited",
+            "format": "email"
+          },
+          "username": {
+            "type": "string",
+            "description": "Username for the user being created"
+          },
+          "brandColor": {
+            "type": "string",
+            "description": "The new user's brand color"
+          },
+          "darkBrandColor": {
+            "type": "string",
+            "description": "The new user's brand color for dark mode"
+          },
+          "hideBranding": {
+            "type": "boolean",
+            "description": "Remove branding from the user's calendar page"
+          },
+          "weekStart": {
+            "type": "string",
+            "description": "Start of the week. Acceptable values are one of [SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY]"
+          },
+          "timeZone": {
+            "type": "string",
+            "description": "The new user's time zone. Eg- 'EUROPE/PARIS'"
+          },
+          "theme": {
+            "type": "string",
+            "description": "Default theme for the new user. Acceptable values are one of [DARK, LIGHT]"
+          },
+          "timeFormat": {
+            "type": "string",
+            "description": "The new user's time format. Acceptable values are one of [TWELVE, TWENTY_FOUR]"
+          },
+          "locale": {
+            "type": "string",
+            "description": "The new user's locale. Acceptable values are one of [EN, FR, IT, RU, ES, DE, PT, RO, NL, PT_BR, ES_419, KO, JA, PL, AR, IW, ZH_CH, ZH_TW, CS, SR, SV, VI]"
+          },
+          "avatar": {
+            "type": "string",
+            "description": "The user's avatar, in base64 format"
+          }
+        }
+      },
+      "EditUserById": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "Email that belongs to the user being edited",
+            "format": "email"
+          },
+          "username": {
+            "type": "string",
+            "description": "Username for the user being edited"
+          },
+          "brandColor": {
+            "type": "string",
+            "description": "The user's brand color"
+          },
+          "darkBrandColor": {
+            "type": "string",
+            "description": "The user's brand color for dark mode"
+          },
+          "weekStart": {
+            "type": "string",
+            "description": "Start of the week. Acceptable values are one of [SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY]"
+          },
+          "timeZone": {
+            "type": "string",
+            "description": "The user's time zone"
+          },
+          "hideBranding": {
+            "type": "boolean",
+            "description": "Remove branding from the user's calendar page"
+          },
+          "theme": {
+            "type": "string",
+            "description": "Default theme for the user. Acceptable values are one of [DARK, LIGHT]"
+          },
+          "timeFormat": {
+            "type": "string",
+            "description": "The user's time format. Acceptable values are one of [TWELVE, TWENTY_FOUR]"
+          },
+          "locale": {
+            "type": "string",
+            "description": "The user's locale. Acceptable values are one of [EN, FR, IT, RU, ES, DE, PT, RO, NL, PT_BR, ES_419, KO, JA, PL, AR, IW, ZH_CH, ZH_TW, CS, SR, SV, VI]"
+          },
+          "avatar": {
+            "type": "string",
+            "description": "The user's avatar, in base64 format"
+          }
+        }
+      },
+      "AddWebhook": {
+        "required": [
+          "subscriberUrl",
+          "eventTriggers",
+          "active"
+        ],
+        "type": "object",
+        "properties": {
+          "subscriberUrl": {
+            "type": "string",
+            "description": "The URL to subscribe to this webhook",
+            "format": "uri"
+          },
+          "eventTriggers": {
+            "enum": [
+              "BOOKING_CREATED",
+              "BOOKING_RESCHEDULED",
+              "BOOKING_CANCELLED",
+              "MEETING_ENDED"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The events which should trigger this webhook call"
+          },
+          "active": {
+            "type": "boolean",
+            "description": "Whether the webhook is active and should trigger on associated trigger events"
+          },
+          "payloadTemplate": {
+            "type": "string",
+            "description": "The template of the webhook's payload"
+          },
+          "eventTypeId": {
+            "type": "number",
+            "description": "The event type ID if this webhook should be associated with only that event type"
+          },
+          "secret": {
+            "type": "string",
+            "description": "The secret to verify the authenticity of the received payload"
+          }
+        }
+      },
+      "EditWebhookById": {
+        "type": "object",
+        "properties": {
+          "subscriberUrl": {
+            "type": "string",
+            "description": "The URL to subscribe to this webhook",
+            "format": "uri"
+          },
+          "eventTriggers": {
+            "enum": [
+              "BOOKING_CREATED",
+              "BOOKING_RESCHEDULED",
+              "BOOKING_CANCELLED",
+              "MEETING_ENDED"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The events which should trigger this webhook call"
+          },
+          "active": {
+            "type": "boolean",
+            "description": "Whether the webhook is active and should trigger on associated trigger events"
+          },
+          "payloadTemplate": {
+            "type": "string",
+            "description": "The template of the webhook's payload"
+          },
+          "eventTypeId": {
+            "type": "number",
+            "description": "The event type ID if this webhook should be associated with only that event type"
+          },
+          "secret": {
+            "type": "string",
+            "description": "The secret to verify the authenticity of the received payload"
+          }
+        }
+      },
+      "ExamplePayload": {
+        "type": "object",
+        "description": "Placeholder schema for path example refs"
+      }
+    },
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "name": "apiKey",
+        "in": "query"
+      },
+      "assets_jwt": {
+        "type": "http",
+        "description": "JWT used for assets upload",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "ApiKeyAuth": [ ]
+    }
+  ],
+  "tags": [
+    {
+      "name": "Users"
+    },
+    {
+      "name": "Event Types"
+    },
+    {
+      "name": "Bookings"
+    },
+    {
+      "name": "Attendees"
+    },
+    {
+      "name": "Payments"
+    },
+    {
+      "name": "Schedules"
+    },
+    {
+      "name": "Teams"
+    },
+    {
+      "name": "Memberships"
+    },
+    {
+      "name": "Availabilities",
+      "description": "Allows modifying unique availabilities tied to a schedule."
+    },
+    {
+      "name": "Custom Inputs"
+    },
+    {
+      "name": "Event References"
+    },
+    {
+      "name": "Booking References"
+    },
+    {
+      "name": "Destination Calendars"
+    },
+    {
+      "name": "Selected Calendars"
+    }
+  ],
+  "externalDocs": {
+    "description": "Find more info at our main docs: https://docs.cal.com/",
+    "url": "https://docs.cal.com"
+  }
+}
