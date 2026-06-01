@@ -49,22 +49,22 @@ namespace Soenneker.CalCom.OpenApiClient.Bookings
         /// <summary>
         /// Creates a new booking
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Bookings.BookingsPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson9"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.CalCom.OpenApiClient.Bookings.BookingsPostResponse?> PostAsync(global::Soenneker.CalCom.OpenApiClient.Models.AddBooking body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Bookings.BookingsRequestBuilder.BookingsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson9?> PostAsync(global::Soenneker.CalCom.OpenApiClient.Models.AddBookingRequest body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Bookings.BookingsRequestBuilder.BookingsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.CalCom.OpenApiClient.Bookings.BookingsPostResponse> PostAsync(global::Soenneker.CalCom.OpenApiClient.Models.AddBooking body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Bookings.BookingsRequestBuilder.BookingsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson9> PostAsync(global::Soenneker.CalCom.OpenApiClient.Models.AddBookingRequest body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Bookings.BookingsRequestBuilder.BookingsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Bookings.BookingsPostResponse>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Bookings.BookingsPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson9>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson9.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new booking
@@ -74,11 +74,11 @@ namespace Soenneker.CalCom.OpenApiClient.Bookings
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.CalCom.OpenApiClient.Models.AddBooking body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Bookings.BookingsRequestBuilder.BookingsRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.CalCom.OpenApiClient.Models.AddBookingRequest body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Bookings.BookingsRequestBuilder.BookingsRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.CalCom.OpenApiClient.Models.AddBooking body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Bookings.BookingsRequestBuilder.BookingsRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.CalCom.OpenApiClient.Models.AddBookingRequest body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Bookings.BookingsRequestBuilder.BookingsRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

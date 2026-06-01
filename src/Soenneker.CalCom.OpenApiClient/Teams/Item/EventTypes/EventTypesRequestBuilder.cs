@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.CalCom.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -35,20 +36,20 @@ namespace Soenneker.CalCom.OpenApiClient.Teams.Item.EventTypes
         /// <summary>
         /// Find all event types that belong to teamId
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Teams.Item.EventTypes.EventTypesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson50"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.CalCom.OpenApiClient.Teams.Item.EventTypes.EventTypesGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Teams.Item.EventTypes.EventTypesRequestBuilder.EventTypesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson50?> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Teams.Item.EventTypes.EventTypesRequestBuilder.EventTypesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.CalCom.OpenApiClient.Teams.Item.EventTypes.EventTypesGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Teams.Item.EventTypes.EventTypesRequestBuilder.EventTypesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson50> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Teams.Item.EventTypes.EventTypesRequestBuilder.EventTypesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Teams.Item.EventTypes.EventTypesGetResponse>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Teams.Item.EventTypes.EventTypesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson50>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson50.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Find all event types that belong to teamId

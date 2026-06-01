@@ -36,17 +36,17 @@ namespace Soenneker.CalCom.OpenApiClient.Slots
         /// <summary>
         /// Get all bookable slots between a datetime range
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Slots.SlotsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Models.GetSlots200ResponseResponseJson"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.CalCom.OpenApiClient.Models.ErrorResponse">When receiving a 401 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.CalCom.OpenApiClient.Slots.SlotsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Slots.SlotsRequestBuilder.SlotsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.GetSlots200ResponseResponseJson?> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Slots.SlotsRequestBuilder.SlotsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.CalCom.OpenApiClient.Slots.SlotsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Slots.SlotsRequestBuilder.SlotsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.GetSlots200ResponseResponseJson> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Slots.SlotsRequestBuilder.SlotsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -54,7 +54,7 @@ namespace Soenneker.CalCom.OpenApiClient.Slots
             {
                 { "401", global::Soenneker.CalCom.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Slots.SlotsGetResponse>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Slots.SlotsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetSlots200ResponseResponseJson>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetSlots200ResponseResponseJson.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get all bookable slots between a datetime range

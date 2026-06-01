@@ -53,40 +53,40 @@ namespace Soenneker.CalCom.OpenApiClient.BookingReferences.Item
         /// <summary>
         /// Find a booking reference
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.BookingReferences.Item.BookingReferencesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson7"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.CalCom.OpenApiClient.BookingReferences.Item.BookingReferencesGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.BookingReferences.Item.BookingReferencesItemRequestBuilder.BookingReferencesItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson7?> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.BookingReferences.Item.BookingReferencesItemRequestBuilder.BookingReferencesItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.CalCom.OpenApiClient.BookingReferences.Item.BookingReferencesGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.BookingReferences.Item.BookingReferencesItemRequestBuilder.BookingReferencesItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson7> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.BookingReferences.Item.BookingReferencesItemRequestBuilder.BookingReferencesItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.BookingReferences.Item.BookingReferencesGetResponse>(requestInfo, global::Soenneker.CalCom.OpenApiClient.BookingReferences.Item.BookingReferencesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson7>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson7.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Edit an existing booking reference
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.BookingReferences.Item.BookingReferencesPatchResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson8"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.CalCom.OpenApiClient.BookingReferences.Item.BookingReferencesPatchResponse?> PatchAsync(global::Soenneker.CalCom.OpenApiClient.Models.EditBookingReferenceById body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.BookingReferences.Item.BookingReferencesItemRequestBuilder.BookingReferencesItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson8?> PatchAsync(global::Soenneker.CalCom.OpenApiClient.Models.EditBookingReferenceByIdRequest body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.BookingReferences.Item.BookingReferencesItemRequestBuilder.BookingReferencesItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.CalCom.OpenApiClient.BookingReferences.Item.BookingReferencesPatchResponse> PatchAsync(global::Soenneker.CalCom.OpenApiClient.Models.EditBookingReferenceById body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.BookingReferences.Item.BookingReferencesItemRequestBuilder.BookingReferencesItemRequestBuilderPatchQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson8> PatchAsync(global::Soenneker.CalCom.OpenApiClient.Models.EditBookingReferenceByIdRequest body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.BookingReferences.Item.BookingReferencesItemRequestBuilder.BookingReferencesItemRequestBuilderPatchQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.BookingReferences.Item.BookingReferencesPatchResponse>(requestInfo, global::Soenneker.CalCom.OpenApiClient.BookingReferences.Item.BookingReferencesPatchResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson8>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson8.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Remove an existing booking reference
@@ -134,11 +134,11 @@ namespace Soenneker.CalCom.OpenApiClient.BookingReferences.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.CalCom.OpenApiClient.Models.EditBookingReferenceById body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.BookingReferences.Item.BookingReferencesItemRequestBuilder.BookingReferencesItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.CalCom.OpenApiClient.Models.EditBookingReferenceByIdRequest body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.BookingReferences.Item.BookingReferencesItemRequestBuilder.BookingReferencesItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.CalCom.OpenApiClient.Models.EditBookingReferenceById body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.BookingReferences.Item.BookingReferencesItemRequestBuilder.BookingReferencesItemRequestBuilderPatchQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.CalCom.OpenApiClient.Models.EditBookingReferenceByIdRequest body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.BookingReferences.Item.BookingReferencesItemRequestBuilder.BookingReferencesItemRequestBuilderPatchQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

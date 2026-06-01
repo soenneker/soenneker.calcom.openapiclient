@@ -53,40 +53,40 @@ namespace Soenneker.CalCom.OpenApiClient.Users.Item
         /// <summary>
         /// Find a user, returns your user if regular user.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Users.Item.WithUserGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson54"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.CalCom.OpenApiClient.Users.Item.WithUserGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Users.Item.WithUserItemRequestBuilder.WithUserItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson54?> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Users.Item.WithUserItemRequestBuilder.WithUserItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.CalCom.OpenApiClient.Users.Item.WithUserGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Users.Item.WithUserItemRequestBuilder.WithUserItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson54> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Users.Item.WithUserItemRequestBuilder.WithUserItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Users.Item.WithUserGetResponse>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Users.Item.WithUserGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson54>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson54.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Edit an existing user
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Users.Item.WithUserPatchResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson55"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.CalCom.OpenApiClient.Users.Item.WithUserPatchResponse?> PatchAsync(global::Soenneker.CalCom.OpenApiClient.Models.EditUserById body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Users.Item.WithUserItemRequestBuilder.WithUserItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson55?> PatchAsync(global::Soenneker.CalCom.OpenApiClient.Models.EditUserByIdRequest body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Users.Item.WithUserItemRequestBuilder.WithUserItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.CalCom.OpenApiClient.Users.Item.WithUserPatchResponse> PatchAsync(global::Soenneker.CalCom.OpenApiClient.Models.EditUserById body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Users.Item.WithUserItemRequestBuilder.WithUserItemRequestBuilderPatchQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson55> PatchAsync(global::Soenneker.CalCom.OpenApiClient.Models.EditUserByIdRequest body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Users.Item.WithUserItemRequestBuilder.WithUserItemRequestBuilderPatchQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Users.Item.WithUserPatchResponse>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Users.Item.WithUserPatchResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson55>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson55.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Remove an existing user
@@ -134,11 +134,11 @@ namespace Soenneker.CalCom.OpenApiClient.Users.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.CalCom.OpenApiClient.Models.EditUserById body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Users.Item.WithUserItemRequestBuilder.WithUserItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.CalCom.OpenApiClient.Models.EditUserByIdRequest body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Users.Item.WithUserItemRequestBuilder.WithUserItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.CalCom.OpenApiClient.Models.EditUserById body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Users.Item.WithUserItemRequestBuilder.WithUserItemRequestBuilderPatchQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.CalCom.OpenApiClient.Models.EditUserByIdRequest body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Users.Item.WithUserItemRequestBuilder.WithUserItemRequestBuilderPatchQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

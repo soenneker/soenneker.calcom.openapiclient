@@ -82,11 +82,11 @@ namespace Soenneker.CalCom.OpenApiClient.Attendees
         /// <exception cref="global::Soenneker.CalCom.OpenApiClient.Models.ErrorResponse">When receiving a 401 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.AttendeeCreatedResponse?> PostAsync(global::Soenneker.CalCom.OpenApiClient.Models.AddAttendee body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Attendees.AttendeesRequestBuilder.AttendeesRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.AttendeeCreatedResponse?> PostAsync(global::Soenneker.CalCom.OpenApiClient.Models.AddAttendeeRequest body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Attendees.AttendeesRequestBuilder.AttendeesRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.AttendeeCreatedResponse> PostAsync(global::Soenneker.CalCom.OpenApiClient.Models.AddAttendee body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Attendees.AttendeesRequestBuilder.AttendeesRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.AttendeeCreatedResponse> PostAsync(global::Soenneker.CalCom.OpenApiClient.Models.AddAttendeeRequest body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Attendees.AttendeesRequestBuilder.AttendeesRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -125,11 +125,11 @@ namespace Soenneker.CalCom.OpenApiClient.Attendees
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.CalCom.OpenApiClient.Models.AddAttendee body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Attendees.AttendeesRequestBuilder.AttendeesRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.CalCom.OpenApiClient.Models.AddAttendeeRequest body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Attendees.AttendeesRequestBuilder.AttendeesRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.CalCom.OpenApiClient.Models.AddAttendee body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Attendees.AttendeesRequestBuilder.AttendeesRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.CalCom.OpenApiClient.Models.AddAttendeeRequest body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Attendees.AttendeesRequestBuilder.AttendeesRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

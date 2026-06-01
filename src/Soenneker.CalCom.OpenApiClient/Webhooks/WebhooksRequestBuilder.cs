@@ -49,40 +49,40 @@ namespace Soenneker.CalCom.OpenApiClient.Webhooks
         /// <summary>
         /// Find all webhooks
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Webhooks.WebhooksGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson56"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.CalCom.OpenApiClient.Webhooks.WebhooksGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Webhooks.WebhooksRequestBuilder.WebhooksRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson56?> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Webhooks.WebhooksRequestBuilder.WebhooksRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.CalCom.OpenApiClient.Webhooks.WebhooksGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Webhooks.WebhooksRequestBuilder.WebhooksRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson56> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Webhooks.WebhooksRequestBuilder.WebhooksRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Webhooks.WebhooksGetResponse>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Webhooks.WebhooksGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson56>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson56.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new webhook
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Webhooks.WebhooksPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson57"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.CalCom.OpenApiClient.Webhooks.WebhooksPostResponse?> PostAsync(global::Soenneker.CalCom.OpenApiClient.Models.AddWebhook body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Webhooks.WebhooksRequestBuilder.WebhooksRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson57?> PostAsync(global::Soenneker.CalCom.OpenApiClient.Models.AddWebhookRequest body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Webhooks.WebhooksRequestBuilder.WebhooksRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.CalCom.OpenApiClient.Webhooks.WebhooksPostResponse> PostAsync(global::Soenneker.CalCom.OpenApiClient.Models.AddWebhook body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Webhooks.WebhooksRequestBuilder.WebhooksRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson57> PostAsync(global::Soenneker.CalCom.OpenApiClient.Models.AddWebhookRequest body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Webhooks.WebhooksRequestBuilder.WebhooksRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Webhooks.WebhooksPostResponse>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Webhooks.WebhooksPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson57>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson57.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Find all webhooks
@@ -111,11 +111,11 @@ namespace Soenneker.CalCom.OpenApiClient.Webhooks
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.CalCom.OpenApiClient.Models.AddWebhook body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Webhooks.WebhooksRequestBuilder.WebhooksRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.CalCom.OpenApiClient.Models.AddWebhookRequest body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Webhooks.WebhooksRequestBuilder.WebhooksRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.CalCom.OpenApiClient.Models.AddWebhook body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Webhooks.WebhooksRequestBuilder.WebhooksRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.CalCom.OpenApiClient.Models.AddWebhookRequest body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Webhooks.WebhooksRequestBuilder.WebhooksRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

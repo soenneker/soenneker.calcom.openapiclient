@@ -53,40 +53,40 @@ namespace Soenneker.CalCom.OpenApiClient.EventTypes.Item
         /// <summary>
         /// Find a eventType
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.EventTypes.Item.EventTypesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson26"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.CalCom.OpenApiClient.EventTypes.Item.EventTypesGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.EventTypes.Item.EventTypesItemRequestBuilder.EventTypesItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson26?> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.EventTypes.Item.EventTypesItemRequestBuilder.EventTypesItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.CalCom.OpenApiClient.EventTypes.Item.EventTypesGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.EventTypes.Item.EventTypesItemRequestBuilder.EventTypesItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson26> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.EventTypes.Item.EventTypesItemRequestBuilder.EventTypesItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.EventTypes.Item.EventTypesGetResponse>(requestInfo, global::Soenneker.CalCom.OpenApiClient.EventTypes.Item.EventTypesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson26>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson26.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Edit an existing eventType
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.EventTypes.Item.EventTypesPatchResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson27"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.CalCom.OpenApiClient.EventTypes.Item.EventTypesPatchResponse?> PatchAsync(global::Soenneker.CalCom.OpenApiClient.Models.EditEventTypeById body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.EventTypes.Item.EventTypesItemRequestBuilder.EventTypesItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson27?> PatchAsync(global::Soenneker.CalCom.OpenApiClient.Models.EditEventTypeByIdRequest body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.EventTypes.Item.EventTypesItemRequestBuilder.EventTypesItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.CalCom.OpenApiClient.EventTypes.Item.EventTypesPatchResponse> PatchAsync(global::Soenneker.CalCom.OpenApiClient.Models.EditEventTypeById body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.EventTypes.Item.EventTypesItemRequestBuilder.EventTypesItemRequestBuilderPatchQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson27> PatchAsync(global::Soenneker.CalCom.OpenApiClient.Models.EditEventTypeByIdRequest body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.EventTypes.Item.EventTypesItemRequestBuilder.EventTypesItemRequestBuilderPatchQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.EventTypes.Item.EventTypesPatchResponse>(requestInfo, global::Soenneker.CalCom.OpenApiClient.EventTypes.Item.EventTypesPatchResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson27>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson27.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Remove an existing eventType
@@ -134,11 +134,11 @@ namespace Soenneker.CalCom.OpenApiClient.EventTypes.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.CalCom.OpenApiClient.Models.EditEventTypeById body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.EventTypes.Item.EventTypesItemRequestBuilder.EventTypesItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.CalCom.OpenApiClient.Models.EditEventTypeByIdRequest body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.EventTypes.Item.EventTypesItemRequestBuilder.EventTypesItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.CalCom.OpenApiClient.Models.EditEventTypeById body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.EventTypes.Item.EventTypesItemRequestBuilder.EventTypesItemRequestBuilderPatchQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.CalCom.OpenApiClient.Models.EditEventTypeByIdRequest body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.EventTypes.Item.EventTypesItemRequestBuilder.EventTypesItemRequestBuilderPatchQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

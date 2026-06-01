@@ -53,40 +53,40 @@ namespace Soenneker.CalCom.OpenApiClient.DestinationCalendars.Item
         /// <summary>
         /// Find a destination calendar
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.DestinationCalendars.Item.DestinationCalendarsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson21"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.CalCom.OpenApiClient.DestinationCalendars.Item.DestinationCalendarsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.DestinationCalendars.Item.DestinationCalendarsItemRequestBuilder.DestinationCalendarsItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson21?> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.DestinationCalendars.Item.DestinationCalendarsItemRequestBuilder.DestinationCalendarsItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.CalCom.OpenApiClient.DestinationCalendars.Item.DestinationCalendarsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.DestinationCalendars.Item.DestinationCalendarsItemRequestBuilder.DestinationCalendarsItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson21> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.DestinationCalendars.Item.DestinationCalendarsItemRequestBuilder.DestinationCalendarsItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.DestinationCalendars.Item.DestinationCalendarsGetResponse>(requestInfo, global::Soenneker.CalCom.OpenApiClient.DestinationCalendars.Item.DestinationCalendarsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson21>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson21.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Edit an existing destination calendar
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.DestinationCalendars.Item.DestinationCalendarsPatchResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson22"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.CalCom.OpenApiClient.DestinationCalendars.Item.DestinationCalendarsPatchResponse?> PatchAsync(global::Soenneker.CalCom.OpenApiClient.Models.PatchDestinationCalendarsId body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.DestinationCalendars.Item.DestinationCalendarsItemRequestBuilder.DestinationCalendarsItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson22?> PatchAsync(global::Soenneker.CalCom.OpenApiClient.Models.PatchDestinationCalendarsByIdRequest body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.DestinationCalendars.Item.DestinationCalendarsItemRequestBuilder.DestinationCalendarsItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.CalCom.OpenApiClient.DestinationCalendars.Item.DestinationCalendarsPatchResponse> PatchAsync(global::Soenneker.CalCom.OpenApiClient.Models.PatchDestinationCalendarsId body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.DestinationCalendars.Item.DestinationCalendarsItemRequestBuilder.DestinationCalendarsItemRequestBuilderPatchQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson22> PatchAsync(global::Soenneker.CalCom.OpenApiClient.Models.PatchDestinationCalendarsByIdRequest body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.DestinationCalendars.Item.DestinationCalendarsItemRequestBuilder.DestinationCalendarsItemRequestBuilderPatchQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.DestinationCalendars.Item.DestinationCalendarsPatchResponse>(requestInfo, global::Soenneker.CalCom.OpenApiClient.DestinationCalendars.Item.DestinationCalendarsPatchResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson22>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson22.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Remove an existing destination calendar
@@ -134,11 +134,11 @@ namespace Soenneker.CalCom.OpenApiClient.DestinationCalendars.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.CalCom.OpenApiClient.Models.PatchDestinationCalendarsId body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.DestinationCalendars.Item.DestinationCalendarsItemRequestBuilder.DestinationCalendarsItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.CalCom.OpenApiClient.Models.PatchDestinationCalendarsByIdRequest body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.DestinationCalendars.Item.DestinationCalendarsItemRequestBuilder.DestinationCalendarsItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.CalCom.OpenApiClient.Models.PatchDestinationCalendarsId body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.DestinationCalendars.Item.DestinationCalendarsItemRequestBuilder.DestinationCalendarsItemRequestBuilderPatchQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.CalCom.OpenApiClient.Models.PatchDestinationCalendarsByIdRequest body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.DestinationCalendars.Item.DestinationCalendarsItemRequestBuilder.DestinationCalendarsItemRequestBuilderPatchQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
