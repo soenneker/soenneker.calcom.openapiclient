@@ -22,7 +22,7 @@ namespace Soenneker.CalCom.OpenApiClient.CredentialSync
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CredentialSyncRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/credential-sync?apiKey={apiKey}&credentialId={credentialId}&userId={userId}", pathParameters)
+        public CredentialSyncRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/credential-sync?apiKey={apiKey}&userId={userId}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.CalCom.OpenApiClient.CredentialSync
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CredentialSyncRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/credential-sync?apiKey={apiKey}&credentialId={credentialId}&userId={userId}", rawUrl)
+        public CredentialSyncRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/credential-sync?apiKey={apiKey}&userId={userId}", rawUrl)
         {
         }
         /// <summary>
@@ -122,7 +122,7 @@ namespace Soenneker.CalCom.OpenApiClient.CredentialSync
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.CredentialSync.CredentialSyncRequestBuilder.CredentialSyncRequestBuilderDeleteQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/credential-sync?apiKey={apiKey}&credentialId={credentialId}&userId={userId}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -141,7 +141,7 @@ namespace Soenneker.CalCom.OpenApiClient.CredentialSync
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.CredentialSync.CredentialSyncRequestBuilder.CredentialSyncRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/credential-sync?apiKey={apiKey}&userId={userId}", PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -162,7 +162,7 @@ namespace Soenneker.CalCom.OpenApiClient.CredentialSync
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/credential-sync?apiKey={apiKey}&credentialId={credentialId}&userId={userId}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
@@ -184,7 +184,7 @@ namespace Soenneker.CalCom.OpenApiClient.CredentialSync
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/credential-sync?apiKey={apiKey}&userId={userId}", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
