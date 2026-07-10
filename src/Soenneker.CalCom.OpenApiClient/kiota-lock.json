@@ -2,7 +2,7 @@
   "descriptionHash": "9B36D550D442C06E4DEA31EFDD3B8915C93BD5F7857EB365DC08E56B4A0AA2C595664A3C52BD0E0194022DFA42EBDF3A52D60BCD43B792857D62349DA7CDB246",
   "descriptionLocation": "../../fixed.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.34.0",
+  "kiotaVersion": "1.34.1",
   "clientClassName": "CalComOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.CalCom.OpenApiClient",
