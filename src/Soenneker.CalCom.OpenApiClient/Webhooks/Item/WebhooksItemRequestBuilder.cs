@@ -53,40 +53,40 @@ namespace Soenneker.CalCom.OpenApiClient.Webhooks.Item
         /// <summary>
         /// Find a webhook
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson59"/></returns>
+        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Models.GetWebhookById200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson59?> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Webhooks.Item.WebhooksItemRequestBuilder.WebhooksItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.GetWebhookById200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Webhooks.Item.WebhooksItemRequestBuilder.WebhooksItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson59> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Webhooks.Item.WebhooksItemRequestBuilder.WebhooksItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.GetWebhookById200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Webhooks.Item.WebhooksItemRequestBuilder.WebhooksItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson59>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson59.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetWebhookById200Response>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetWebhookById200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Edit an existing webhook
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson60"/></returns>
+        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Models.EditWebhookById200Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson60?> PatchAsync(global::Soenneker.CalCom.OpenApiClient.Models.EditWebhookByIdRequest body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Webhooks.Item.WebhooksItemRequestBuilder.WebhooksItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.EditWebhookById200Response?> PatchAsync(global::Soenneker.CalCom.OpenApiClient.Models.EditWebhookByIdRequest body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Webhooks.Item.WebhooksItemRequestBuilder.WebhooksItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson60> PatchAsync(global::Soenneker.CalCom.OpenApiClient.Models.EditWebhookByIdRequest body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Webhooks.Item.WebhooksItemRequestBuilder.WebhooksItemRequestBuilderPatchQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.EditWebhookById200Response> PatchAsync(global::Soenneker.CalCom.OpenApiClient.Models.EditWebhookByIdRequest body, Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.Webhooks.Item.WebhooksItemRequestBuilder.WebhooksItemRequestBuilderPatchQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson60>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.DefaultResponseResponseJson60.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.EditWebhookById200Response>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.EditWebhookById200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Remove an existing hook
