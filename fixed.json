@@ -114,7 +114,8 @@
                 "$ref": "#/components/schemas/AddAttendeeRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -351,7 +352,8 @@
                 "$ref": "#/components/schemas/EditAttendeeByIdRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -451,18 +453,18 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AddAvailability201Response"
-                }
-              }
-            }
+            "description": "OK, availability created"
+          },
+          "400": {
+            "description": "Bad request. Availability body is invalid."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
           }
         }
       }
@@ -498,15 +500,14 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoveAvailabilityById204Response"
-                }
-              }
-            }
+          "201": {
+            "description": "OK, availability removed successfully"
+          },
+          "400": {
+            "description": "Bad request. Availability id is invalid."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
           }
         }
       },
@@ -541,14 +542,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetAvailabilityById200Response"
-                }
-              }
-            }
+            "description": "OK"
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid"
+          },
+          "404": {
+            "description": "Availability not found"
           }
         }
       },
@@ -605,18 +605,18 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
-          "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EditAvailabilityById200Response"
-                }
-              }
-            }
+          "201": {
+            "description": "OK, availability edited successfully"
+          },
+          "400": {
+            "description": "Bad request. Availability body is invalid."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
           }
         }
       }
@@ -641,14 +641,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ListBookingReferences200Response"
-                }
-              }
-            }
+            "description": "OK"
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          },
+          "404": {
+            "description": "No booking references were found"
           }
         }
       },
@@ -677,18 +676,18 @@
                 "$ref": "#/components/schemas/AddBookingReferenceRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AddBookingReference201Response"
-                }
-              }
-            }
+            "description": "OK,  booking reference created"
+          },
+          "400": {
+            "description": "Bad request. BookingReference body is invalid."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
           }
         }
       }
@@ -721,15 +720,14 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoveBookingReferenceById204Response"
-                }
-              }
-            }
+          "201": {
+            "description": "OK, bookingReference removed successfully"
+          },
+          "400": {
+            "description": "Bad request. BookingReference id is invalid."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
           }
         }
       },
@@ -761,14 +759,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetBookingReferenceById200Response"
-                }
-              }
-            }
+            "description": "OK"
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          },
+          "404": {
+            "description": "BookingReference was not found"
           }
         }
       },
@@ -806,18 +803,18 @@
                 "$ref": "#/components/schemas/EditBookingReferenceByIdRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
-          "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EditBookingReferenceById200Response"
-                }
-              }
-            }
+          "201": {
+            "description": "OK, BookingReference edited successfully"
+          },
+          "400": {
+            "description": "Bad request. BookingReference body is invalid."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
           }
         }
       }
@@ -872,18 +869,73 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
-          "201": {
-            "description": "Default",
+          "200": {
+            "description": "Booking(s) created successfully.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AddBooking201Response"
+                  "type": "object",
+                  "description": "Fallback media schema"
+                },
+                "examples": {
+                  "booking created successfully example": {
+                    "value": {
+                      "booking": {
+                        "id": 91,
+                        "userId": 5,
+                        "description": "",
+                        "eventTypeId": 7,
+                        "uid": "bFJeNb2uX8ANpT3JL5EfXw",
+                        "title": "60min between Pro Example and John Doe",
+                        "startTime": "2023-05-25T09:30:00.000Z",
+                        "endTime": "2023-05-25T10:30:00.000Z",
+                        "attendees": [
+                          {
+                            "email": "john.doe@example.com",
+                            "name": "John Doe",
+                            "timeZone": "Asia/Kolkata",
+                            "locale": "en"
+                          }
+                        ],
+                        "user": {
+                          "email": "pro@example.com",
+                          "name": "Pro Example",
+                          "timeZone": "Asia/Kolkata",
+                          "locale": "en"
+                        },
+                        "payment": [
+                          {
+                            "id": 1,
+                            "success": true,
+                            "paymentOption": "ON_BOOKING"
+                          }
+                        ],
+                        "metadata": {},
+                        "status": "ACCEPTED",
+                        "responses": {
+                          "email": "john.doe@example.com",
+                          "name": "John Doe",
+                          "location": {
+                            "optionValue": "",
+                            "value": "inPerson"
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad request\n\u003Ctable\u003E\n  \u003Ctr\u003E\n    \u003Ctd\u003EMessage\u003C/td\u003E\n    \u003Ctd\u003ECause\u003C/td\u003E\n  \u003C/tr\u003E\n  \u003Ctr\u003E\n    \u003Ctd\u003EBooking body is invalid\u003C/td\u003E\n    \u003Ctd\u003EMissing property on booking entity.\u003C/td\u003E\n  \u003C/tr\u003E\n  \u003Ctr\u003E\n    \u003Ctd\u003EInvalid eventTypeId\u003C/td\u003E\n    \u003Ctd\u003EThe provided eventTypeId does not exist.\u003C/td\u003E\n  \u003C/tr\u003E\n  \u003Ctr\u003E\n    \u003Ctd\u003EMissing recurringCount\u003C/td\u003E\n    \u003Ctd\u003EThe eventType is recurring, and no recurringCount was passed.\u003C/td\u003E\n  \u003C/tr\u003E\n  \u003Ctr\u003E\n    \u003Ctd\u003EInvalid recurringCount\u003C/td\u003E\n    \u003Ctd\u003EThe provided recurringCount is greater than the eventType recurring config\u003C/td\u003E\n  \u003C/tr\u003E\n\u003C/table\u003E\n"
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
           }
         }
       }
@@ -933,15 +985,14 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CancelBookingById204Response"
-                }
-              }
-            }
+          "200": {
+            "description": "OK, booking cancelled successfully"
+          },
+          "400": {
+            "description": "Bad request\n \u003Ctable\u003E\n   \u003Ctr\u003E\n     \u003Ctd\u003EMessage\u003C/td\u003E\n     \u003Ctd\u003ECause\u003C/td\u003E\n   \u003C/tr\u003E\n   \u003Ctr\u003E\n     \u003Ctd\u003EBooking not found\u003C/td\u003E\n     \u003Ctd\u003EThe provided id didn\u0027t correspond to any existing booking.\u003C/td\u003E\n   \u003C/tr\u003E\n   \u003Ctr\u003E\n     \u003Ctd\u003EUser not found\u003C/td\u003E\n     \u003Ctd\u003EThe userId did not matched an existing user.\u003C/td\u003E\n   \u003C/tr\u003E\n \u003C/table\u003E\n"
+          },
+          "404": {
+            "description": "User not found"
           }
         }
       }
@@ -1030,6 +1081,12 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          },
+          "404": {
+            "description": "Booking was not found"
           }
         }
       },
@@ -1077,18 +1134,52 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
-            "description": "Default",
+            "description": "OK, booking edited successfully",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EditBookingById200Response"
+                  "type": "object",
+                  "description": "Fallback media schema"
+                },
+                "examples": {
+                  "bookings": {
+                    "value": {
+                      "booking": {
+                        "id": 11223344,
+                        "userId": 182,
+                        "description": null,
+                        "eventTypeId": 2323232,
+                        "uid": "stoSJtnh83PEL4rZmqdHe2",
+                        "title": "Debugging between Syed Ali Shahbaz and Hello Hello",
+                        "startTime": "2023-05-24T13:00:00.000Z",
+                        "endTime": "2023-05-24T13:30:00.000Z",
+                        "metadata": {},
+                        "status": "CANCELLED",
+                        "responses": {
+                          "email": "john.doe@example.com",
+                          "name": "John Doe",
+                          "location": {
+                            "optionValue": "",
+                            "value": "inPerson"
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad request. Booking body is invalid."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
           }
         }
       }
@@ -1146,6 +1237,12 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          },
+          "404": {
+            "description": "Booking was not found"
           }
         }
       }
@@ -1179,14 +1276,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetTranscriptsByBookingId200Response"
-                }
-              }
-            }
+            "description": "OK"
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          },
+          "404": {
+            "description": "Booking was not found"
           }
         }
       }
@@ -1229,14 +1325,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetTranscriptsByRecordingId200Response"
-                }
-              }
-            }
+            "description": "OK"
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          },
+          "404": {
+            "description": "Booking was not found"
           }
         }
       }
@@ -1278,15 +1373,14 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DeleteUserAppCredential204Response"
-                }
-              }
-            }
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          },
+          "505": {
+            "description": "Credential syncing not enabled"
           }
         }
       },
@@ -1318,14 +1412,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetUserAppCredentials200Response"
-                }
-              }
-            }
+            "description": "OK"
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          },
+          "505": {
+            "description": "Credential syncing not enabled"
           }
         }
       },
@@ -1372,18 +1465,18 @@
                 "$ref": "#/components/schemas/UpdateUserAppCredentialRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UpdateUserAppCredential200Response"
-                }
-              }
-            }
+            "description": "OK"
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          },
+          "505": {
+            "description": "Credential syncing not enabled"
           }
         }
       },
@@ -1421,18 +1514,18 @@
                 "$ref": "#/components/schemas/CreateUserAppCredentialRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
-          "201": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CreateUserAppCredential201Response"
-                }
-              }
-            }
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          },
+          "505": {
+            "description": "Credential syncing not enabled"
           }
         }
       }
@@ -1457,14 +1550,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetDestinationCalendars200Response"
-                }
-              }
-            }
+            "description": "OK"
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          },
+          "404": {
+            "description": "No destination calendars were found"
           }
         }
       },
@@ -1493,18 +1585,18 @@
                 "$ref": "#/components/schemas/PostDestinationCalendarsRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PostDestinationCalendars201Response"
-                }
-              }
-            }
+            "description": "OK, destination calendar created"
+          },
+          "400": {
+            "description": "Bad request. DestinationCalendar body is invalid."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
           }
         }
       }
@@ -1537,15 +1629,14 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DeleteDestinationCalendarsById204Response"
-                }
-              }
-            }
+          "200": {
+            "description": "OK, destinationCalendar removed successfully"
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          },
+          "404": {
+            "description": "Destination calendar not found"
           }
         }
       },
@@ -1577,14 +1668,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetDestinationCalendarsById200Response"
-                }
-              }
-            }
+            "description": "OK"
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          },
+          "404": {
+            "description": "Destination calendar not found"
           }
         }
       },
@@ -1622,18 +1712,18 @@
                 "$ref": "#/components/schemas/PatchDestinationCalendarsByIdRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PatchDestinationCalendarsById200Response"
-                }
-              }
-            }
+            "description": "OK"
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          },
+          "404": {
+            "description": "Destination calendar not found"
           }
         }
       }
@@ -1669,14 +1759,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ListEventTypes200Response"
-                }
-              }
-            }
+            "description": "OK"
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          },
+          "404": {
+            "description": "No event types were found"
           }
         }
       },
@@ -1791,18 +1880,18 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AddEventType201Response"
-                }
-              }
-            }
+            "description": "OK, event type created"
+          },
+          "400": {
+            "description": "Bad request. EventType body is invalid."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
           }
         }
       }
@@ -1838,15 +1927,14 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoveEventTypeById204Response"
-                }
-              }
-            }
+          "201": {
+            "description": "OK, eventType removed successfully"
+          },
+          "400": {
+            "description": "Bad request. EventType id is invalid."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
           }
         }
       },
@@ -1882,14 +1970,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetEventTypeById200Response"
-                }
-              }
-            }
+            "description": "OK"
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          },
+          "404": {
+            "description": "EventType was not found"
           }
         }
       },
@@ -1939,18 +2026,18 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
-          "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EditEventTypeById200Response"
-                }
-              }
-            }
+          "201": {
+            "description": "OK, eventType edited successfully"
+          },
+          "400": {
+            "description": "Bad request. EventType body is invalid."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
           }
         }
       }
@@ -1964,14 +2051,13 @@
         "operationId": "GetMemberships",
         "responses": {
           "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetMemberships200Response"
-                }
-              }
-            }
+            "description": "OK"
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          },
+          "404": {
+            "description": "No memberships were found"
           }
         }
       },
@@ -1983,14 +2069,13 @@
         "operationId": "PostMemberships",
         "responses": {
           "201": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PostMemberships201Response"
-                }
-              }
-            }
+            "description": "OK, membership created"
+          },
+          "400": {
+            "description": "Bad request. Membership body is invalid."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
           }
         }
       }
@@ -2023,15 +2108,14 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DeleteMembershipsByUserIdTeamId204Response"
-                }
-              }
-            }
+          "201": {
+            "description": "OK, membership removed successfully"
+          },
+          "400": {
+            "description": "Bad request. Membership id is invalid."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
           }
         }
       },
@@ -2063,14 +2147,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetMembershipsByUserIdTeamId200Response"
-                }
-              }
-            }
+            "description": "OK"
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          },
+          "404": {
+            "description": "Membership was not found"
           }
         }
       },
@@ -2101,15 +2184,14 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PatchMembershipsByUserIdTeamId200Response"
-                }
-              }
-            }
+          "201": {
+            "description": "OK, membership edited successfully"
+          },
+          "400": {
+            "description": "Bad request. Membership body is invalid."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
           }
         }
       }
@@ -2143,14 +2225,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetPaymentsById200Response"
-                }
-              }
-            }
+            "description": "OK"
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          },
+          "404": {
+            "description": "Payment was not found"
           }
         }
       }
@@ -2164,14 +2245,13 @@
         "operationId": "GetPayments",
         "responses": {
           "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetPayments200Response"
-                }
-              }
-            }
+            "description": "OK"
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          },
+          "404": {
+            "description": "No payments were found"
           }
         }
       }
@@ -2196,14 +2276,71 @@
         ],
         "responses": {
           "200": {
-            "description": "Default",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ListSchedules200Response"
+                  "type": "object",
+                  "description": "Fallback media schema"
+                },
+                "examples": {
+                  "schedules": {
+                    "value": {
+                      "schedules": [
+                        {
+                          "id": 1234,
+                          "userId": 5678,
+                          "name": "Sample Schedule 1",
+                          "timeZone": "America/Chicago",
+                          "availability": [
+                            {
+                              "id": 987,
+                              "eventTypeId": null,
+                              "days": [
+                                1,
+                                2,
+                                3,
+                                4,
+                                5
+                              ],
+                              "startTime": "09:00:00",
+                              "endTime": "23:00:00"
+                            }
+                          ]
+                        },
+                        {
+                          "id": 2345,
+                          "userId": 6789,
+                          "name": "Sample Schedule 2",
+                          "timeZone": "Europe/Amsterdam",
+                          "availability": [
+                            {
+                              "id": 876,
+                              "eventTypeId": null,
+                              "days": [
+                                1,
+                                2,
+                                3,
+                                4,
+                                5
+                              ],
+                              "startTime": "09:00:00",
+                              "endTime": "17:00:00"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          },
+          "404": {
+            "description": "No schedules were found"
           }
         }
       },
@@ -2240,18 +2377,54 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
-          "201": {
-            "description": "Default",
+          "200": {
+            "description": "OK, schedule created",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AddSchedule201Response"
+                  "type": "object",
+                  "description": "Fallback media schema"
+                },
+                "examples": {
+                  "schedule": {
+                    "value": {
+                      "schedule": {
+                        "id": 79471,
+                        "userId": 182,
+                        "name": "Total Testing",
+                        "timeZone": "Asia/Calcutta",
+                        "availability": [
+                          {
+                            "id": 337917,
+                            "eventTypeId": null,
+                            "days": [
+                              1,
+                              2,
+                              3,
+                              4,
+                              5
+                            ],
+                            "startTime": "09:00:00",
+                            "endTime": "17:00:00"
+                          }
+                        ]
+                      },
+                      "message": "Schedule created successfully"
+                    }
+                  }
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad request. Schedule body is invalid."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
           }
         }
       }
@@ -2284,15 +2457,14 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoveScheduleById204Response"
-                }
-              }
-            }
+          "201": {
+            "description": "OK, schedule removed successfully"
+          },
+          "400": {
+            "description": "Bad request. Schedule id is invalid."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
           }
         }
       },
@@ -2324,14 +2496,67 @@
         ],
         "responses": {
           "200": {
-            "description": "Default",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetScheduleById200Response"
+                  "type": "object",
+                  "description": "Fallback media schema"
+                },
+                "examples": {
+                  "schedule": {
+                    "value": {
+                      "schedule": {
+                        "id": 12345,
+                        "userId": 182,
+                        "name": "Sample Schedule",
+                        "timeZone": "Asia/Calcutta",
+                        "availability": [
+                          {
+                            "id": 111,
+                            "eventTypeId": null,
+                            "days": [
+                              0,
+                              1,
+                              2,
+                              3,
+                              4,
+                              6
+                            ],
+                            "startTime": "00:00:00",
+                            "endTime": "23:45:00"
+                          },
+                          {
+                            "id": 112,
+                            "eventTypeId": null,
+                            "days": [
+                              5
+                            ],
+                            "startTime": "00:00:00",
+                            "endTime": "12:00:00"
+                          },
+                          {
+                            "id": 113,
+                            "eventTypeId": null,
+                            "days": [
+                              5
+                            ],
+                            "startTime": "15:00:00",
+                            "endTime": "23:45:00"
+                          }
+                        ]
+                      }
+                    }
+                  }
                 }
               }
             }
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          },
+          "404": {
+            "description": "Schedule was not found"
           }
         }
       },
@@ -2377,18 +2602,53 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
-            "description": "Default",
+            "description": "OK, schedule edited successfully",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EditScheduleById200Response"
+                  "type": "object",
+                  "description": "Fallback media schema"
+                },
+                "examples": {
+                  "schedule": {
+                    "value": {
+                      "schedule": {
+                        "id": 12345,
+                        "userId": 1,
+                        "name": "Total Testing Part 2",
+                        "timeZone": "Asia/Calcutta",
+                        "availability": [
+                          {
+                            "id": 4567,
+                            "eventTypeId": null,
+                            "days": [
+                              1,
+                              2,
+                              3,
+                              4,
+                              5
+                            ],
+                            "startTime": "09:00:00",
+                            "endTime": "17:00:00"
+                          }
+                        ]
+                      }
+                    }
+                  }
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad request. Schedule body is invalid."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
           }
         }
       }
@@ -2413,14 +2673,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ListSelectedCalendars200Response"
-                }
-              }
-            }
+            "description": "OK"
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          },
+          "404": {
+            "description": "No selected calendars were found"
           }
         }
       },
@@ -2449,18 +2708,18 @@
                 "$ref": "#/components/schemas/PostSelectedCalendarsRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PostSelectedCalendars201Response"
-                }
-              }
-            }
+            "description": "OK, selected calendar created"
+          },
+          "400": {
+            "description": "Bad request. SelectedCalendar body is invalid."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
           }
         }
       }
@@ -2511,15 +2770,14 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoveSelectedCalendarById204Response"
-                }
-              }
-            }
+          "201": {
+            "description": "OK, selected-calendar removed successfully"
+          },
+          "400": {
+            "description": "Bad request. SelectedCalendar id is invalid."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
           }
         }
       },
@@ -2569,14 +2827,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetSelectedCalendarById200Response"
-                }
-              }
-            }
+            "description": "OK"
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          },
+          "404": {
+            "description": "SelectedCalendar was not found"
           }
         }
       },
@@ -2625,15 +2882,14 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EditSelectedCalendarById200Response"
-                }
-              }
-            }
+          "201": {
+            "description": "OK, selected-calendar edited successfully"
+          },
+          "400": {
+            "description": "Bad request. SelectedCalendar body is invalid."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
           }
         }
       }
@@ -2780,14 +3036,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ListTeams200Response"
-                }
-              }
-            }
+            "description": "OK"
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          },
+          "404": {
+            "description": "No teams were found"
           }
         }
       },
@@ -2816,18 +3071,18 @@
                 "$ref": "#/components/schemas/AddTeamRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AddTeam201Response"
-                }
-              }
-            }
+            "description": "OK, team created"
+          },
+          "400": {
+            "description": "Bad request. Team body is invalid."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
           }
         }
       }
@@ -2860,15 +3115,14 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoveTeamById204Response"
-                }
-              }
-            }
+          "201": {
+            "description": "OK, team removed successfully"
+          },
+          "400": {
+            "description": "Bad request. Team id is invalid."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
           }
         }
       },
@@ -2900,14 +3154,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetTeamById200Response"
-                }
-              }
-            }
+            "description": "OK"
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          },
+          "404": {
+            "description": "Team was not found"
           }
         }
       },
@@ -2945,18 +3198,18 @@
                 "$ref": "#/components/schemas/EditTeamByIdRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
-          "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EditTeamById200Response"
-                }
-              }
-            }
+          "201": {
+            "description": "OK, team edited successfully"
+          },
+          "400": {
+            "description": "Bad request. Team body is invalid."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
           }
         }
       }
@@ -2992,14 +3245,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ListEventTypesByTeamId200Response"
-                }
-              }
-            }
+            "description": "OK"
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          },
+          "404": {
+            "description": "No event types were found"
           }
         }
       }
@@ -3036,14 +3288,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ListUsers200Response"
-                }
-              }
-            }
+            "description": "OK"
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          },
+          "404": {
+            "description": "No users were found"
           }
         }
       },
@@ -3088,18 +3339,18 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AddUser201Response"
-                }
-              }
-            }
+            "description": "OK, user created"
+          },
+          "400": {
+            "description": "Bad request. user body is invalid."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
           }
         }
       }
@@ -3133,15 +3384,14 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoveUserById204Response"
-                }
-              }
-            }
+          "201": {
+            "description": "OK, user removed successfully"
+          },
+          "400": {
+            "description": "Bad request. User id is invalid."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
           }
         }
       },
@@ -3174,14 +3424,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetUserById200Response"
-                }
-              }
-            }
+            "description": "OK"
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          },
+          "404": {
+            "description": "User was not found"
           }
         }
       },
@@ -3236,18 +3485,21 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EditUserById200Response"
-                }
-              }
-            }
+            "description": "OK, user edited successfully"
+          },
+          "400": {
+            "description": "Bad request. User body is invalid."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          },
+          "403": {
+            "description": "Insufficient permissions to access resource."
           }
         }
       }
@@ -3275,14 +3527,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ListWebhooks200Response"
-                }
-              }
-            }
+            "description": "OK"
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          },
+          "404": {
+            "description": "No webhooks were found"
           }
         }
       },
@@ -3314,18 +3565,18 @@
                 "$ref": "#/components/schemas/AddWebhookRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AddWebhook201Response"
-                }
-              }
-            }
+            "description": "OK, webhook created"
+          },
+          "400": {
+            "description": "Bad request. webhook body is invalid."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
           }
         }
       }
@@ -3361,15 +3612,14 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoveWebhookById204Response"
-                }
-              }
-            }
+          "201": {
+            "description": "OK, hook removed successfully"
+          },
+          "400": {
+            "description": "Bad request. hook id is invalid."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
           }
         }
       },
@@ -3404,14 +3654,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetWebhookById200Response"
-                }
-              }
-            }
+            "description": "OK"
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          },
+          "404": {
+            "description": "Webhook was not found"
           }
         }
       },
@@ -3452,18 +3701,18 @@
                 "$ref": "#/components/schemas/EditWebhookByIdRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
-          "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EditWebhookById200Response"
-                }
-              }
-            }
+          "201": {
+            "description": "OK, webhook edited successfully"
+          },
+          "400": {
+            "description": "Bad request. Webhook body is invalid."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
           }
         }
       }
@@ -4796,319 +5045,14 @@
         "type": "object",
         "description": "Placeholder schema for path example refs"
       },
-      "AddAvailability201Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "RemoveAvailabilityById204Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "GetAvailabilityById200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "EditAvailabilityById200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "ListBookingReferences200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "AddBookingReference201Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "RemoveBookingReferenceById204Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "GetBookingReferenceById200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "EditBookingReferenceById200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "AddBooking201Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "CancelBookingById204Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "EditBookingById200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
       "GetRecordingsByBookingId200ResponseSchema": {
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/GetRecordingsByBookingId200ResponseSchemaItem"
         }
       },
-      "GetTranscriptsByBookingId200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "GetTranscriptsByRecordingId200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "DeleteUserAppCredential204Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "GetUserAppCredentials200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "UpdateUserAppCredential200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "CreateUserAppCredential201Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "GetDestinationCalendars200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "PostDestinationCalendars201Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "DeleteDestinationCalendarsById204Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "GetDestinationCalendarsById200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "PatchDestinationCalendarsById200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "ListEventTypes200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "AddEventType201Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "RemoveEventTypeById204Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "GetEventTypeById200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "EditEventTypeById200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "GetMemberships200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "PostMemberships201Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "DeleteMembershipsByUserIdTeamId204Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "GetMembershipsByUserIdTeamId200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "PatchMembershipsByUserIdTeamId200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "GetPaymentsById200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "GetPayments200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "ListSchedules200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "AddSchedule201Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "RemoveScheduleById204Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "GetScheduleById200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "EditScheduleById200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "ListSelectedCalendars200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "PostSelectedCalendars201Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "RemoveSelectedCalendarById204Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "GetSelectedCalendarById200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "EditSelectedCalendarById200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
       "GetSlots200ResponseSchema": {
         "type": "object"
-      },
-      "ListTeams200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "AddTeam201Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "RemoveTeamById204Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "GetTeamById200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "EditTeamById200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "ListEventTypesByTeamId200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "ListUsers200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "AddUser201Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "RemoveUserById204Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "GetUserById200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "EditUserById200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "ListWebhooks200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "AddWebhook201Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "RemoveWebhookById204Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "GetWebhookById200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
-      },
-      "EditWebhookById200Response": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "description": "Default response schema"
       },
       "BookingPayment": {
         "type": "object",
@@ -5610,12 +5554,6 @@
         "type": "apiKey",
         "name": "apiKey",
         "in": "query"
-      },
-      "assets_jwt": {
-        "type": "http",
-        "description": "JWT used for assets upload",
-        "scheme": "bearer",
-        "bearerFormat": "JWT"
       }
     }
   },

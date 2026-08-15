@@ -3,7 +3,6 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.CalCom.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -59,38 +58,37 @@ namespace Soenneker.CalCom.OpenApiClient.SelectedCalendars.WithUserId_WithIntegr
         /// <summary>
         /// Find a selected calendar by providing the compoundId(userId_integration_externalId) separated by `_`
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Models.GetSelectedCalendarById200Response"/></returns>
+        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.GetSelectedCalendarById200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.SelectedCalendars.WithUserId_WithIntegration_WithExternalId.WithUserId_WithIntegration_WithExternalIdRequestBuilder.WithUserId_WithIntegration_WithExternalIdRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream?> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.SelectedCalendars.WithUserId_WithIntegration_WithExternalId.WithUserId_WithIntegration_WithExternalIdRequestBuilder.WithUserId_WithIntegration_WithExternalIdRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.GetSelectedCalendarById200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.SelectedCalendars.WithUserId_WithIntegration_WithExternalId.WithUserId_WithIntegration_WithExternalIdRequestBuilder.WithUserId_WithIntegration_WithExternalIdRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream> GetAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.SelectedCalendars.WithUserId_WithIntegration_WithExternalId.WithUserId_WithIntegration_WithExternalIdRequestBuilder.WithUserId_WithIntegration_WithExternalIdRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetSelectedCalendarById200Response>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetSelectedCalendarById200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Edit a selected calendar
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Models.EditSelectedCalendarById200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.EditSelectedCalendarById200Response?> PatchAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.SelectedCalendars.WithUserId_WithIntegration_WithExternalId.WithUserId_WithIntegration_WithExternalIdRequestBuilder.WithUserId_WithIntegration_WithExternalIdRequestBuilderPatchQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task PatchAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.SelectedCalendars.WithUserId_WithIntegration_WithExternalId.WithUserId_WithIntegration_WithExternalIdRequestBuilder.WithUserId_WithIntegration_WithExternalIdRequestBuilderPatchQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.EditSelectedCalendarById200Response> PatchAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.SelectedCalendars.WithUserId_WithIntegration_WithExternalId.WithUserId_WithIntegration_WithExternalIdRequestBuilder.WithUserId_WithIntegration_WithExternalIdRequestBuilderPatchQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task PatchAsync(Action<RequestConfiguration<global::Soenneker.CalCom.OpenApiClient.SelectedCalendars.WithUserId_WithIntegration_WithExternalId.WithUserId_WithIntegration_WithExternalIdRequestBuilder.WithUserId_WithIntegration_WithExternalIdRequestBuilderPatchQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPatchRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.EditSelectedCalendarById200Response>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.EditSelectedCalendarById200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Remove a selected calendar
@@ -108,7 +106,6 @@ namespace Soenneker.CalCom.OpenApiClient.SelectedCalendars.WithUserId_WithIntegr
 #endif
             var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
@@ -127,7 +124,6 @@ namespace Soenneker.CalCom.OpenApiClient.SelectedCalendars.WithUserId_WithIntegr
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
@@ -146,7 +142,6 @@ namespace Soenneker.CalCom.OpenApiClient.SelectedCalendars.WithUserId_WithIntegr
 #endif
             var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>

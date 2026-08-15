@@ -5,32 +5,32 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.CalCom.OpenApiClient.Models
+namespace Soenneker.CalCom.OpenApiClient.Bookings
 {
     /// <summary>
-    /// Default response schema
+    /// Fallback media schema
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ListTeams200Response : IAdditionalDataHolder, IParsable
+    public partial class BookingsPostResponse : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.ListTeams200Response"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Bookings.BookingsPostResponse"/> and sets the default values.
         /// </summary>
-        public ListTeams200Response()
+        public BookingsPostResponse()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Models.ListTeams200Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Bookings.BookingsPostResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.CalCom.OpenApiClient.Models.ListTeams200Response CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.CalCom.OpenApiClient.Bookings.BookingsPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.ListTeams200Response();
+            return new global::Soenneker.CalCom.OpenApiClient.Bookings.BookingsPostResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
