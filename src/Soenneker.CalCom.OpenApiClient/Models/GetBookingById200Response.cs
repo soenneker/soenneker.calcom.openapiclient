@@ -41,10 +41,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The payment property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.GetBookingById200ResponsePayment? Payment { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.GetBookingById200ResponsePaymentItem>? Payment { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.GetBookingById200ResponsePayment Payment { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.GetBookingById200ResponsePaymentItem> Payment { get; set; }
 #endif
         /// <summary>The startTime property</summary>
         public DateTimeOffset? StartTime { get; set; }
@@ -105,7 +105,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
                 { "eventTypeId", n => { EventTypeId = n.GetDoubleValue(); } },
                 { "fromReschedule", n => { FromReschedule = n.GetGuidValue(); } },
                 { "id", n => { Id = n.GetDoubleValue(); } },
-                { "payment", n => { Payment = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.GetBookingById200ResponsePayment>(global::Soenneker.CalCom.OpenApiClient.Models.GetBookingById200ResponsePayment.CreateFromDiscriminatorValue); } },
+                { "payment", n => { Payment = n.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.GetBookingById200ResponsePaymentItem>(global::Soenneker.CalCom.OpenApiClient.Models.GetBookingById200ResponsePaymentItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "startTime", n => { StartTime = n.GetDateTimeOffsetValue(); } },
                 { "timeZone", n => { TimeZone = n.GetStringValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
@@ -126,7 +126,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteDoubleValue("eventTypeId", EventTypeId);
             writer.WriteGuidValue("fromReschedule", FromReschedule);
             writer.WriteDoubleValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.GetBookingById200ResponsePayment>("payment", Payment);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.GetBookingById200ResponsePaymentItem>("payment", Payment);
             writer.WriteDateTimeOffsetValue("startTime", StartTime);
             writer.WriteStringValue("timeZone", TimeZone);
             writer.WriteStringValue("title", Title);

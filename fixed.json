@@ -3864,7 +3864,10 @@
             "$ref": "#/components/schemas/BookingUser"
           },
           "payment": {
-            "$ref": "#/components/schemas/BookingPayment"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BookingPaymentItem"
+            }
           }
         }
       },
@@ -3914,7 +3917,10 @@
             "$ref": "#/components/schemas/ArrayOfBookingsItemUser"
           },
           "payment": {
-            "$ref": "#/components/schemas/ArrayOfBookingsItemPayment"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ArrayOfBookingsItemPaymentItem"
+            }
           }
         }
       },
@@ -4329,7 +4335,10 @@
             "$ref": "#/components/schemas/GetBookingById200ResponseUser"
           },
           "payment": {
-            "$ref": "#/components/schemas/GetBookingById200ResponsePayment"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetBookingById200ResponsePaymentItem"
+            }
           }
         }
       },
@@ -5054,18 +5063,6 @@
       "GetSlots200ResponseSchema": {
         "type": "object"
       },
-      "BookingPayment": {
-        "type": "object",
-        "items": {
-          "$ref": "#/components/schemas/BookingPaymentItem"
-        }
-      },
-      "ArrayOfBookingsItemPayment": {
-        "type": "object",
-        "items": {
-          "$ref": "#/components/schemas/ArrayOfBookingsItemPaymentItem"
-        }
-      },
       "AddBookingRequestResponses": {
         "required": [
           "name",
@@ -5136,10 +5133,21 @@
           }
         }
       },
-      "GetBookingById200ResponsePayment": {
+      "GetBookingById200ResponsePaymentItem": {
         "type": "object",
-        "items": {
-          "$ref": "#/components/schemas/GetBookingById200ResponsePaymentItem"
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 1
+          },
+          "success": {
+            "type": "boolean",
+            "example": true
+          },
+          "paymentOption": {
+            "type": "string",
+            "example": "ON_BOOKING"
+          }
         }
       },
       "GetRecordingsByBookingId200ResponseItem": {
@@ -5269,23 +5277,6 @@
           }
         },
         "description": "Meeting location"
-      },
-      "GetBookingById200ResponsePaymentItem": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number",
-            "example": 1
-          },
-          "success": {
-            "type": "boolean",
-            "example": true
-          },
-          "paymentOption": {
-            "type": "string",
-            "example": "ON_BOOKING"
-          }
-        }
       },
       "AddAvailabilityRequestDaysItem": {
         "enum": [
