@@ -10,6 +10,7 @@ using Soenneker.CalCom.OpenApiClient.V2.Events.Item.CheckIns;
 using Soenneker.CalCom.OpenApiClient.V2.Events.Item.CoHosts;
 using Soenneker.CalCom.OpenApiClient.V2.Events.Item.Coordinates;
 using Soenneker.CalCom.OpenApiClient.V2.Events.Item.CoverImage;
+using Soenneker.CalCom.OpenApiClient.V2.Events.Item.HostCandidates;
 using Soenneker.CalCom.OpenApiClient.V2.Events.Item.Invitations;
 using Soenneker.CalCom.OpenApiClient.V2.Events.Item.Locations;
 using Soenneker.CalCom.OpenApiClient.V2.Events.Item.Messages;
@@ -58,6 +59,11 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Events.Item
         public global::Soenneker.CalCom.OpenApiClient.V2.Events.Item.CoverImage.CoverImageRequestBuilder CoverImage
         {
             get => new global::Soenneker.CalCom.OpenApiClient.V2.Events.Item.CoverImage.CoverImageRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The hostCandidates property</summary>
+        public global::Soenneker.CalCom.OpenApiClient.V2.Events.Item.HostCandidates.HostCandidatesRequestBuilder HostCandidates
+        {
+            get => new global::Soenneker.CalCom.OpenApiClient.V2.Events.Item.HostCandidates.HostCandidatesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The invitations property</summary>
         public global::Soenneker.CalCom.OpenApiClient.V2.Events.Item.Invitations.InvitationsRequestBuilder Invitations

@@ -18580,6 +18580,92 @@
         "x-oauth-scopes": ["EVENT_WRITE"]
       }
     },
+    "/v2/events/{uuid}/host-candidates": {
+      "get": {
+        "description": "Returns the accepted members of the team that owns the Event, so you can pick who to send in `hosts` when updating the Event with `PATCH /v2/events/{uuid}`. Members whose invitation to the team is still pending are left out. `search` matches name or email, case-insensitive.\n\nThe order of the members is unspecified; sort them on your side if you show them sorted. Cursor-based pagination: pass `pagination.nextCursor` from a previous response as the `cursor` query parameter to fetch the next page; omit `cursor` for the first page.\n\nOnly team Events have host candidates; a personal Event returns 400. The authenticated user must be able to update the Event: its owner, one of its hosts, or a team member with the permission below. An accepted co-host cannot change hosts and gets 404, exactly like an unknown uuid.\n\nPBAC permission for team events: `calEvent.update`. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control.\n\nIf accessed using an OAuth access token, the `EVENT_WRITE` scope is required.",
+        "operationId": "EventHostCandidatesController_list",
+        "parameters": [
+          {
+            "name": "uuid",
+            "required": true,
+            "in": "path",
+            "description": "Event UUID. Accepts the canonical UUID (e.g. `018ff5cd-6dc4-7d57-bcbc-374702ca8b38`) or its short-uuid (Flickr Base58) form (e.g. `1cbZYoAFoJdwqN4tixezd5`).",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "name": "cursor",
+            "required": false,
+            "in": "query",
+            "description": "Opaque cursor for cursor-based pagination. Pass the `pagination.nextCursor` value from a previous response to fetch the next page. Omit to fetch the first page.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "Maximum number of team members to return.",
+            "schema": {
+              "minimum": 1,
+              "maximum": 250,
+              "default": 50,
+              "example": 25,
+              "type": "number"
+            }
+          },
+          {
+            "name": "search",
+            "required": false,
+            "in": "query",
+            "description": "Filter by the team member's name or email, case-insensitive substring match.",
+            "schema": {
+              "maxLength": 255,
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be `Bearer <token>` where `<token>` is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HostCandidatesOutputResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid Event UUID, invalid cursor or query, or the Event is a personal Event"
+          },
+          "401": {
+            "description": "Unauthenticated"
+          },
+          "403": {
+            "description": "Insufficient permissions"
+          },
+          "404": {
+            "description": "Event not found"
+          }
+        },
+        "summary": "Search the team members who can host an Event",
+        "tags": ["Events"],
+        "x-oauth-scopes": ["EVENT_WRITE"]
+      }
+    },
     "/v2/events/{uuid}/coordinates": {
       "get": {
         "description": "Returns the `latitude` and `longitude` shown on the map of the Event's public page. Update them with `PATCH /v2/events/{uuid}/coordinates`.\n\nThe Event must have an address location.\n\nThe authenticated user must be its owner, one of its hosts, an accepted co-host, or a member of the owning team. PBAC permission for team events: `calEvent.update`. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control.\n\nIf accessed using an OAuth access token, the `EVENT_READ` scope is required.",
@@ -61903,6 +61989,55 @@
           }
         },
         "required": ["status"]
+      },
+      "HostCandidateOutputDto": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "number",
+            "description": "User id. Send it in `hosts` when updating the Event.",
+            "example": 42
+          },
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "example": "Ada Lovelace"
+          },
+          "username": {
+            "type": "string",
+            "nullable": true,
+            "example": "ada"
+          },
+          "email": {
+            "type": "string",
+            "example": "ada@example.com"
+          },
+          "avatarUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": ["userId", "name", "username", "email", "avatarUrl"]
+      },
+      "HostCandidatesOutputResponseDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "enum": ["success", "error"],
+            "type": "string",
+            "example": "success"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HostCandidateOutputDto"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/EventsCursorPaginationMetaDto"
+          }
+        },
+        "required": ["status", "data", "pagination"]
       },
       "EventCoordinatesOutput": {
         "type": "object",

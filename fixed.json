@@ -18371,6 +18371,93 @@
         ]
       }
     },
+    "/v2/events/{uuid}/host-candidates": {
+      "get": {
+        "tags": [
+          "Events"
+        ],
+        "summary": "Search the team members who can host an Event",
+        "description": "Returns the accepted members of the team that owns the Event, so you can pick who to send in \u0060hosts\u0060 when updating the Event with \u0060PATCH /v2/events/{uuid}\u0060. Members whose invitation to the team is still pending are left out. \u0060search\u0060 matches name or email, case-insensitive.\n\nThe order of the members is unspecified; sort them on your side if you show them sorted. Cursor-based pagination: pass \u0060pagination.nextCursor\u0060 from a previous response as the \u0060cursor\u0060 query parameter to fetch the next page; omit \u0060cursor\u0060 for the first page.\n\nOnly team Events have host candidates; a personal Event returns 400. The authenticated user must be able to update the Event: its owner, one of its hosts, or a team member with the permission below. An accepted co-host cannot change hosts and gets 404, exactly like an unknown uuid.\n\nPBAC permission for team events: \u0060calEvent.update\u0060. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control.\n\nIf accessed using an OAuth access token, the \u0060EVENT_WRITE\u0060 scope is required.",
+        "operationId": "EventHostCandidatesControllerList",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "description": "Event UUID. Accepts the canonical UUID (e.g. \u0060018ff5cd-6dc4-7d57-bcbc-374702ca8b38\u0060) or its short-uuid (Flickr Base58) form (e.g. \u00601cbZYoAFoJdwqN4tixezd5\u0060).",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "description": "Opaque cursor for cursor-based pagination. Pass the \u0060pagination.nextCursor\u0060 value from a previous response to fetch the next page. Omit to fetch the first page.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of team members to return.",
+            "schema": {
+              "maximum": 250,
+              "minimum": 1,
+              "type": "number",
+              "default": 50,
+              "example": 25
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Filter by the team member\u0027s name or email, case-insensitive substring match.",
+            "schema": {
+              "maxLength": 255,
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be \u0060Bearer \u003Ctoken\u003E\u0060 where \u0060\u003Ctoken\u003E\u0060 is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HostCandidatesOutputResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid Event UUID, invalid cursor or query, or the Event is a personal Event"
+          },
+          "401": {
+            "description": "Unauthenticated"
+          },
+          "403": {
+            "description": "Insufficient permissions"
+          },
+          "404": {
+            "description": "Event not found"
+          }
+        },
+        "x-oauth-scopes": [
+          "EVENT_WRITE"
+        ]
+      }
+    },
     "/v2/events/{uuid}/coordinates": {
       "get": {
         "tags": [
@@ -54826,6 +54913,63 @@
         "properties": {
           "status": {
             "$ref": "#/components/schemas/CoHostsActionOutputResponseDtoStatus"
+          }
+        }
+      },
+      "HostCandidateOutputDto": {
+        "required": [
+          "userId",
+          "name",
+          "username",
+          "email",
+          "avatarUrl"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "number",
+            "description": "User id. Send it in \u0060hosts\u0060 when updating the Event.",
+            "example": 42
+          },
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "example": "Ada Lovelace"
+          },
+          "username": {
+            "type": "string",
+            "nullable": true,
+            "example": "ada"
+          },
+          "email": {
+            "type": "string",
+            "example": "ada@example.com"
+          },
+          "avatarUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "HostCandidatesOutputResponseDto": {
+        "required": [
+          "status",
+          "data",
+          "pagination"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/HostCandidatesOutputResponseDtoStatus"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HostCandidateOutputDto"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/EventsCursorPaginationMetaDto"
           }
         }
       },
@@ -101975,6 +102119,29 @@
         "example": "success",
         "x-ms-enum": {
           "name": "CoHostsActionOutputResponseDtoStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "success",
+              "name": "Success"
+            },
+            {
+              "value": "error",
+              "name": "Error"
+            }
+          ]
+        }
+      },
+      "HostCandidatesOutputResponseDtoStatus": {
+        "enum": [
+          "success",
+          "error"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "success",
+        "x-ms-enum": {
+          "name": "HostCandidatesOutputResponseDtoStatus",
           "modelAsString": false,
           "values": [
             {
