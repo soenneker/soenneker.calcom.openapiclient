@@ -6,21 +6,7 @@ using Microsoft.Kiota.Serialization.Form;
 using Microsoft.Kiota.Serialization.Json;
 using Microsoft.Kiota.Serialization.Multipart;
 using Microsoft.Kiota.Serialization.Text;
-using Soenneker.CalCom.OpenApiClient.Attendees;
-using Soenneker.CalCom.OpenApiClient.Availabilities;
-using Soenneker.CalCom.OpenApiClient.BookingReferences;
-using Soenneker.CalCom.OpenApiClient.Bookings;
-using Soenneker.CalCom.OpenApiClient.CredentialSync;
-using Soenneker.CalCom.OpenApiClient.DestinationCalendars;
-using Soenneker.CalCom.OpenApiClient.EventTypes;
-using Soenneker.CalCom.OpenApiClient.Memberships;
-using Soenneker.CalCom.OpenApiClient.Payments;
-using Soenneker.CalCom.OpenApiClient.Schedules;
-using Soenneker.CalCom.OpenApiClient.SelectedCalendars;
-using Soenneker.CalCom.OpenApiClient.Slots;
-using Soenneker.CalCom.OpenApiClient.Teams;
-using Soenneker.CalCom.OpenApiClient.Users;
-using Soenneker.CalCom.OpenApiClient.Webhooks;
+using Soenneker.CalCom.OpenApiClient.V2;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -33,80 +19,10 @@ namespace Soenneker.CalCom.OpenApiClient
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CalComOpenApiClient : BaseRequestBuilder
     {
-        /// <summary>The attendees property</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Attendees.AttendeesRequestBuilder Attendees
+        /// <summary>The v2 property</summary>
+        public global::Soenneker.CalCom.OpenApiClient.V2.V2RequestBuilder V2
         {
-            get => new global::Soenneker.CalCom.OpenApiClient.Attendees.AttendeesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The availabilities property</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Availabilities.AvailabilitiesRequestBuilder Availabilities
-        {
-            get => new global::Soenneker.CalCom.OpenApiClient.Availabilities.AvailabilitiesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The bookingReferences property</summary>
-        public global::Soenneker.CalCom.OpenApiClient.BookingReferences.BookingReferencesRequestBuilder BookingReferences
-        {
-            get => new global::Soenneker.CalCom.OpenApiClient.BookingReferences.BookingReferencesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The bookings property</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Bookings.BookingsRequestBuilder Bookings
-        {
-            get => new global::Soenneker.CalCom.OpenApiClient.Bookings.BookingsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The credentialSync property</summary>
-        public global::Soenneker.CalCom.OpenApiClient.CredentialSync.CredentialSyncRequestBuilder CredentialSync
-        {
-            get => new global::Soenneker.CalCom.OpenApiClient.CredentialSync.CredentialSyncRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The destinationCalendars property</summary>
-        public global::Soenneker.CalCom.OpenApiClient.DestinationCalendars.DestinationCalendarsRequestBuilder DestinationCalendars
-        {
-            get => new global::Soenneker.CalCom.OpenApiClient.DestinationCalendars.DestinationCalendarsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The eventTypes property</summary>
-        public global::Soenneker.CalCom.OpenApiClient.EventTypes.EventTypesRequestBuilder EventTypes
-        {
-            get => new global::Soenneker.CalCom.OpenApiClient.EventTypes.EventTypesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The memberships property</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Memberships.MembershipsRequestBuilder Memberships
-        {
-            get => new global::Soenneker.CalCom.OpenApiClient.Memberships.MembershipsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The payments property</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Payments.PaymentsRequestBuilder Payments
-        {
-            get => new global::Soenneker.CalCom.OpenApiClient.Payments.PaymentsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The schedules property</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Schedules.SchedulesRequestBuilder Schedules
-        {
-            get => new global::Soenneker.CalCom.OpenApiClient.Schedules.SchedulesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The selectedCalendars property</summary>
-        public global::Soenneker.CalCom.OpenApiClient.SelectedCalendars.SelectedCalendarsRequestBuilder SelectedCalendars
-        {
-            get => new global::Soenneker.CalCom.OpenApiClient.SelectedCalendars.SelectedCalendarsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The slots property</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Slots.SlotsRequestBuilder Slots
-        {
-            get => new global::Soenneker.CalCom.OpenApiClient.Slots.SlotsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The teams property</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Teams.TeamsRequestBuilder Teams
-        {
-            get => new global::Soenneker.CalCom.OpenApiClient.Teams.TeamsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The users property</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Users.UsersRequestBuilder Users
-        {
-            get => new global::Soenneker.CalCom.OpenApiClient.Users.UsersRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The webhooks property</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Webhooks.WebhooksRequestBuilder Webhooks
-        {
-            get => new global::Soenneker.CalCom.OpenApiClient.Webhooks.WebhooksRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.CalCom.OpenApiClient.V2.V2RequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.CalComOpenApiClient"/> and sets the default values.
@@ -121,11 +37,6 @@ namespace Soenneker.CalCom.OpenApiClient
             ApiClientBuilder.RegisterDefaultDeserializer<JsonParseNodeFactory>();
             ApiClientBuilder.RegisterDefaultDeserializer<TextParseNodeFactory>();
             ApiClientBuilder.RegisterDefaultDeserializer<FormParseNodeFactory>();
-            if (string.IsNullOrEmpty(RequestAdapter.BaseUrl))
-            {
-                RequestAdapter.BaseUrl = "https://api.cal.com/v1";
-            }
-            PathParameters.TryAdd("baseurl", RequestAdapter.BaseUrl);
         }
     }
 }
