@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.CalCom.OpenApiClient.Models;
 using Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.DelegationCredentials.Item.ResetRotation;
+using Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.DelegationCredentials.Item.Verify;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -22,6 +23,11 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.DelegationCredent
         public global::Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.DelegationCredentials.Item.ResetRotation.ResetRotationRequestBuilder ResetRotation
         {
             get => new global::Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.DelegationCredentials.Item.ResetRotation.ResetRotationRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The verify property</summary>
+        public global::Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.DelegationCredentials.Item.Verify.VerifyRequestBuilder Verify
+        {
+            get => new global::Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.DelegationCredentials.Item.Verify.VerifyRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.DelegationCredentials.Item.WithCredentialItemRequestBuilder"/> and sets the default values.

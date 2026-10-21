@@ -2198,6 +2198,105 @@
         "x-platform-plan": "SCALE"
       }
     },
+    "/v2/organizations/{orgId}/delegation-credentials/{credentialId}/verify": {
+      "post": {
+        "tags": [
+          "Orgs / Delegation Credentials"
+        ],
+        "summary": "Verify a delegation credential\u0027s workspace setup",
+        "description": "Runs the same Google Workspace / Microsoft 365 check as enabling the credential, impersonating the authenticated user, without changing the credential. Works whether or not the credential is enabled. A failed check is returned as \u0060verified: false\u0060 with the reason, not as an error. Required membership role: \u0060org admin\u0060. PBAC permission: \u0060organization.update\u0060. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control",
+        "operationId": "OrganizationsDelegationCredentialControllerVerifyDelegationCredential",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "For non-platform customers - value must be \u0060Bearer \u003Ctoken\u003E\u0060 where \u0060\u003Ctoken\u003E\u0060 is api key prefixed with cal_",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-cal-secret-key",
+            "in": "header",
+            "description": "For platform customers - OAuth client secret key",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-cal-client-id",
+            "in": "header",
+            "description": "For platform customers - OAuth client ID",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "The unique identifier of the organization the delegation credential belongs to",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "example": 123
+            }
+          },
+          {
+            "name": "credentialId",
+            "in": "path",
+            "description": "The unique identifier of the delegation credential",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "clsx1234567890"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VerifyDelegationCredentialOutput"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationsDelegationCredentialControllerVerifyDelegationCredential401Response"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The authenticated user is not an org admin, lacks the \u0060organization.update\u0060 permission, or the organization is not on the required plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationsDelegationCredentialControllerVerifyDelegationCredential403Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No delegation credential with the given id exists in the organization, or it belongs to a different organization",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationsDelegationCredentialControllerVerifyDelegationCredential404Response"
+                }
+              }
+            }
+          }
+        },
+        "x-platform-plan": "SCALE"
+      }
+    },
     "/v2/organizations/{orgId}/memberships": {
       "get": {
         "tags": [
@@ -42481,6 +42580,54 @@
           }
         }
       },
+      "DelegationCredentialVerificationOutput": {
+        "required": [
+          "verified",
+          "errorCode",
+          "errorMessage",
+          "impersonatedEmailMatchesDomain"
+        ],
+        "type": "object",
+        "properties": {
+          "verified": {
+            "type": "boolean",
+            "description": "Whether the workspace accepted the delegation credential",
+            "example": false
+          },
+          "errorCode": {
+            "type": "string",
+            "description": "Classified reason the check failed; null when verified",
+            "nullable": true,
+            "example": "CalendarAppDelegationCredentialInvalidGrantError"
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": "Human-readable reason the check failed; null when verified",
+            "nullable": true,
+            "example": "User might not exist in Google Workspace"
+          },
+          "impersonatedEmailMatchesDomain": {
+            "type": "boolean",
+            "description": "Whether the authenticated user\u0027s email is on the delegation credential\u0027s domain. The check impersonates that user, so false usually explains a failure.",
+            "example": false
+          }
+        }
+      },
+      "VerifyDelegationCredentialOutput": {
+        "required": [
+          "status",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/VerifyDelegationCredentialOutputStatus"
+          },
+          "data": {
+            "$ref": "#/components/schemas/DelegationCredentialVerificationOutput"
+          }
+        }
+      },
       "DeleteDelegationCredentialOutput": {
         "required": [
           "status",
@@ -53396,6 +53543,8 @@
           "status",
           "locations",
           "requiresApproval",
+          "registrationOpensAt",
+          "registrationClosesAt",
           "waitlistEnabled",
           "showOrganizerEmail",
           "guestList",
@@ -53480,6 +53629,18 @@
           "paymentTimeoutMinutes": {
             "type": "number",
             "description": "How many minutes a guest\u0027s seat is held while they pay. null uses the default of 10 minutes.",
+            "nullable": true
+          },
+          "registrationOpensAt": {
+            "type": "string",
+            "description": "When guests can start registering. null means registration opens when the Event is published.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "registrationClosesAt": {
+            "type": "string",
+            "description": "When registration closes. null means registration closes when the Event starts.",
+            "format": "date-time",
             "nullable": true
           },
           "waitlistEnabled": {
@@ -54061,6 +54222,18 @@
             "description": "How many minutes a guest\u0027s seat is held while they pay. null uses the default of 10 minutes.",
             "nullable": true
           },
+          "registrationOpensAt": {
+            "type": "string",
+            "description": "When guests can start registering, in ISO 8601 format in UTC timezone. Must be before registration closes. null opens registration when the Event is published.",
+            "nullable": true,
+            "example": "2029-12-01T09:00:00.000Z"
+          },
+          "registrationClosesAt": {
+            "type": "string",
+            "description": "When registration closes, in ISO 8601 format in UTC timezone. Must not be after \u0060startTime\u0060. null closes registration when the Event starts. Guests already on the waitlist can still be promoted after it closes.",
+            "nullable": true,
+            "example": "2029-12-31T12:00:00.000Z"
+          },
           "requiresApproval": {
             "type": "boolean",
             "description": "Registrations wait for a host\u0027s approval.",
@@ -54180,6 +54353,18 @@
           },
           "paymentTimeoutMinutes": {
             "$ref": "#/components/schemas/UpdateEventInputPaymentTimeoutMinutesProperty"
+          },
+          "registrationOpensAt": {
+            "type": "string",
+            "description": "When guests can start registering, in ISO 8601 format in UTC timezone. Must be before registration closes. null opens registration when the Event is published.",
+            "nullable": true,
+            "example": "2029-12-01T09:00:00.000Z"
+          },
+          "registrationClosesAt": {
+            "type": "string",
+            "description": "When registration closes, in ISO 8601 format in UTC timezone. Must not be after \u0060startTime\u0060. null closes registration when the Event starts. Guests already on the waitlist can still be promoted after it closes.",
+            "nullable": true,
+            "example": "2029-12-31T12:00:00.000Z"
           },
           "theme": {
             "$ref": "#/components/schemas/UpdateEventInputTheme"
@@ -71587,6 +71772,66 @@
           }
         }
       },
+      "OrganizationsDelegationCredentialControllerVerifyDelegationCredential401Response": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "error"
+          },
+          "timestamp": {
+            "type": "string",
+            "example": "2024-04-01T00:00:00.000Z"
+          },
+          "path": {
+            "type": "string",
+            "example": "/v2/organizations/123/delegation-credentials/clsx1234567890/verify"
+          },
+          "error": {
+            "$ref": "#/components/schemas/OrganizationsDelegationCredentialControllerVerifyDelegationCredential401ResponseError"
+          }
+        }
+      },
+      "OrganizationsDelegationCredentialControllerVerifyDelegationCredential403Response": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "error"
+          },
+          "timestamp": {
+            "type": "string",
+            "example": "2024-04-01T00:00:00.000Z"
+          },
+          "path": {
+            "type": "string",
+            "example": "/v2/organizations/123/delegation-credentials/clsx1234567890/verify"
+          },
+          "error": {
+            "$ref": "#/components/schemas/OrganizationsDelegationCredentialControllerVerifyDelegationCredential403ResponseError"
+          }
+        }
+      },
+      "OrganizationsDelegationCredentialControllerVerifyDelegationCredential404Response": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "error"
+          },
+          "timestamp": {
+            "type": "string",
+            "example": "2024-04-01T00:00:00.000Z"
+          },
+          "path": {
+            "type": "string",
+            "example": "/v2/organizations/123/delegation-credentials/clsx1234567890/verify"
+          },
+          "error": {
+            "$ref": "#/components/schemas/OrganizationsDelegationCredentialControllerVerifyDelegationCredential404ResponseError"
+          }
+        }
+      },
       "OrganizationsMembershipsControllerCreateMembershipRequest": {
         "type": "object",
         "oneOf": [
@@ -72822,6 +73067,42 @@
         }
       },
       "OrganizationsDelegationCredentialControllerResetDelegationCredentialRotation404ResponseError": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "example": "NotFoundException"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "OrganizationsDelegationCredentialControllerVerifyDelegationCredential401ResponseError": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "example": "UnauthorizedException"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "OrganizationsDelegationCredentialControllerVerifyDelegationCredential403ResponseError": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "example": "ForbiddenException"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "OrganizationsDelegationCredentialControllerVerifyDelegationCredential404ResponseError": {
         "type": "object",
         "properties": {
           "code": {
@@ -89489,6 +89770,29 @@
         "example": "success",
         "x-ms-enum": {
           "name": "ResetDelegationCredentialRotationOutputStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "success",
+              "name": "Success"
+            },
+            {
+              "value": "error",
+              "name": "Error"
+            }
+          ]
+        }
+      },
+      "VerifyDelegationCredentialOutputStatus": {
+        "enum": [
+          "success",
+          "error"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "success",
+        "x-ms-enum": {
+          "name": "VerifyDelegationCredentialOutputStatus",
           "modelAsString": false,
           "values": [
             {

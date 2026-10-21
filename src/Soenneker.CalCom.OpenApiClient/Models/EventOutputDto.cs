@@ -120,6 +120,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public double? Price { get; set; }
         /// <summary>The publishedAt property</summary>
         public DateTimeOffset? PublishedAt { get; set; }
+        /// <summary>When registration closes. null means registration closes when the Event starts.</summary>
+        public DateTimeOffset? RegistrationClosesAt { get; set; }
         /// <summary>Questions guests answer when registering. Always includes name and email.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -128,6 +130,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 #else
         public List<global::Soenneker.CalCom.OpenApiClient.Models.EventOutputDtoRegistrationFieldsItem> RegistrationFields { get; set; }
 #endif
+        /// <summary>When guests can start registering. null means registration opens when the Event is published.</summary>
+        public DateTimeOffset? RegistrationOpensAt { get; set; }
         /// <summary>The requiresApproval property</summary>
         public bool? RequiresApproval { get; set; }
         /// <summary>Agenda on the event page. Returned on single-Event responses, not on Event lists.</summary>
@@ -236,7 +240,9 @@ namespace Soenneker.CalCom.OpenApiClient.Models
                 { "poster", n => { Poster = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.EventOutputDtoPoster>(global::Soenneker.CalCom.OpenApiClient.Models.EventOutputDtoPoster.CreateFromDiscriminatorValue); } },
                 { "price", n => { Price = n.GetDoubleValue(); } },
                 { "publishedAt", n => { PublishedAt = n.GetDateTimeOffsetValue(); } },
+                { "registrationClosesAt", n => { RegistrationClosesAt = n.GetDateTimeOffsetValue(); } },
                 { "registrationFields", n => { RegistrationFields = n.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.EventOutputDtoRegistrationFieldsItem>(global::Soenneker.CalCom.OpenApiClient.Models.EventOutputDtoRegistrationFieldsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "registrationOpensAt", n => { RegistrationOpensAt = n.GetDateTimeOffsetValue(); } },
                 { "requiresApproval", n => { RequiresApproval = n.GetBoolValue(); } },
                 { "schedule", n => { Schedule = n.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.EventScheduleItemOutput>(global::Soenneker.CalCom.OpenApiClient.Models.EventScheduleItemOutput.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "showOrganizerEmail", n => { ShowOrganizerEmail = n.GetBoolValue(); } },
@@ -284,7 +290,9 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.EventOutputDtoPoster>("poster", Poster);
             writer.WriteDoubleValue("price", Price);
             writer.WriteDateTimeOffsetValue("publishedAt", PublishedAt);
+            writer.WriteDateTimeOffsetValue("registrationClosesAt", RegistrationClosesAt);
             writer.WriteCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.EventOutputDtoRegistrationFieldsItem>("registrationFields", RegistrationFields);
+            writer.WriteDateTimeOffsetValue("registrationOpensAt", RegistrationOpensAt);
             writer.WriteBoolValue("requiresApproval", RequiresApproval);
             writer.WriteCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.EventScheduleItemOutput>("schedule", Schedule);
             writer.WriteBoolValue("showOrganizerEmail", ShowOrganizerEmail);

@@ -82,6 +82,14 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public double? PaymentTimeoutMinutes { get; set; }
         /// <summary>Price of the Event, in the currency&apos;s smallest unit. Only for Events without locations, which need at least one live stream; Events with locations are priced per location. On update, null makes the Event free. Check `paymentsEnabled` on the Event before setting it.</summary>
         public double? Price { get; set; }
+        /// <summary>When registration closes, in ISO 8601 format in UTC timezone. Must not be after `startTime`. null closes registration when the Event starts. Guests already on the waitlist can still be promoted after it closes.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RegistrationClosesAt { get; set; }
+#nullable restore
+#else
+        public string RegistrationClosesAt { get; set; }
+#endif
         /// <summary>The questions guests answer when they register.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -89,6 +97,14 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 #nullable restore
 #else
         public List<global::Soenneker.CalCom.OpenApiClient.Models.CreateEventInputRegistrationFieldsItem> RegistrationFields { get; set; }
+#endif
+        /// <summary>When guests can start registering, in ISO 8601 format in UTC timezone. Must be before registration closes. null opens registration when the Event is published.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RegistrationOpensAt { get; set; }
+#nullable restore
+#else
+        public string RegistrationOpensAt { get; set; }
 #endif
         /// <summary>Registrations wait for a host&apos;s approval.</summary>
         public bool? RequiresApproval { get; set; }
@@ -184,7 +200,9 @@ namespace Soenneker.CalCom.OpenApiClient.Models
                 { "locations", n => { Locations = n.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.CreateEventInputLocationsItem>(global::Soenneker.CalCom.OpenApiClient.Models.CreateEventInputLocationsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "paymentTimeoutMinutes", n => { PaymentTimeoutMinutes = n.GetDoubleValue(); } },
                 { "price", n => { Price = n.GetDoubleValue(); } },
+                { "registrationClosesAt", n => { RegistrationClosesAt = n.GetStringValue(); } },
                 { "registrationFields", n => { RegistrationFields = n.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.CreateEventInputRegistrationFieldsItem>(global::Soenneker.CalCom.OpenApiClient.Models.CreateEventInputRegistrationFieldsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "registrationOpensAt", n => { RegistrationOpensAt = n.GetStringValue(); } },
                 { "requiresApproval", n => { RequiresApproval = n.GetBoolValue(); } },
                 { "schedule", n => { Schedule = n.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.EventScheduleItemInput>(global::Soenneker.CalCom.OpenApiClient.Models.EventScheduleItemInput.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "showOrganizerEmail", n => { ShowOrganizerEmail = n.GetBoolValue(); } },
@@ -218,7 +236,9 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.CreateEventInputLocationsItem>("locations", Locations);
             writer.WriteDoubleValue("paymentTimeoutMinutes", PaymentTimeoutMinutes);
             writer.WriteDoubleValue("price", Price);
+            writer.WriteStringValue("registrationClosesAt", RegistrationClosesAt);
             writer.WriteCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.CreateEventInputRegistrationFieldsItem>("registrationFields", RegistrationFields);
+            writer.WriteStringValue("registrationOpensAt", RegistrationOpensAt);
             writer.WriteBoolValue("requiresApproval", RequiresApproval);
             writer.WriteCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.EventScheduleItemInput>("schedule", Schedule);
             writer.WriteBoolValue("showOrganizerEmail", ShowOrganizerEmail);

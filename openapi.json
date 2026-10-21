@@ -2424,6 +2424,184 @@
         "x-platform-plan": "SCALE"
       }
     },
+    "/v2/organizations/{orgId}/delegation-credentials/{credentialId}/verify": {
+      "post": {
+        "description": "Runs the same Google Workspace / Microsoft 365 check as enabling the credential, impersonating the authenticated user, without changing the credential. Works whether or not the credential is enabled. A failed check is returned as `verified: false` with the reason, not as an error. Required membership role: `org admin`. PBAC permission: `organization.update`. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control",
+        "operationId": "OrganizationsDelegationCredentialController_verifyDelegationCredential",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "For non-platform customers - value must be `Bearer <token>` where `<token>` is api key prefixed with cal_",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-cal-secret-key",
+            "in": "header",
+            "description": "For platform customers - OAuth client secret key",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-cal-client-id",
+            "in": "header",
+            "description": "For platform customers - OAuth client ID",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "orgId",
+            "required": true,
+            "in": "path",
+            "description": "The unique identifier of the organization the delegation credential belongs to",
+            "schema": {
+              "example": 123,
+              "type": "number"
+            }
+          },
+          {
+            "name": "credentialId",
+            "required": true,
+            "in": "path",
+            "description": "The unique identifier of the delegation credential",
+            "schema": {
+              "example": "clsx1234567890",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VerifyDelegationCredentialOutput"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "timestamp": {
+                      "type": "string",
+                      "example": "2024-04-01T00:00:00.000Z"
+                    },
+                    "path": {
+                      "type": "string",
+                      "example": "/v2/organizations/123/delegation-credentials/clsx1234567890/verify"
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string",
+                          "example": "UnauthorizedException"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The authenticated user is not an org admin, lacks the `organization.update` permission, or the organization is not on the required plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "timestamp": {
+                      "type": "string",
+                      "example": "2024-04-01T00:00:00.000Z"
+                    },
+                    "path": {
+                      "type": "string",
+                      "example": "/v2/organizations/123/delegation-credentials/clsx1234567890/verify"
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string",
+                          "example": "ForbiddenException"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No delegation credential with the given id exists in the organization, or it belongs to a different organization",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "timestamp": {
+                      "type": "string",
+                      "example": "2024-04-01T00:00:00.000Z"
+                    },
+                    "path": {
+                      "type": "string",
+                      "example": "/v2/organizations/123/delegation-credentials/clsx1234567890/verify"
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string",
+                          "example": "NotFoundException"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Verify a delegation credential's workspace setup",
+        "tags": ["Orgs / Delegation Credentials"],
+        "x-platform-plan": "SCALE"
+      }
+    },
     "/v2/organizations/{orgId}/memberships": {
       "get": {
         "description": "Required membership role: `org admin`. PBAC permission: `organization.readMemberships`. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the `ORG_MEMBERSHIP_READ` scope is required.",
@@ -45942,6 +46120,48 @@
         },
         "required": ["status", "data"]
       },
+      "DelegationCredentialVerificationOutput": {
+        "type": "object",
+        "properties": {
+          "verified": {
+            "type": "boolean",
+            "example": false,
+            "description": "Whether the workspace accepted the delegation credential"
+          },
+          "errorCode": {
+            "type": "string",
+            "nullable": true,
+            "example": "CalendarAppDelegationCredentialInvalidGrantError",
+            "description": "Classified reason the check failed; null when verified"
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true,
+            "example": "User might not exist in Google Workspace",
+            "description": "Human-readable reason the check failed; null when verified"
+          },
+          "impersonatedEmailMatchesDomain": {
+            "type": "boolean",
+            "example": false,
+            "description": "Whether the authenticated user's email is on the delegation credential's domain. The check impersonates that user, so false usually explains a failure."
+          }
+        },
+        "required": ["verified", "errorCode", "errorMessage", "impersonatedEmailMatchesDomain"]
+      },
+      "VerifyDelegationCredentialOutput": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "enum": ["success", "error"],
+            "type": "string",
+            "example": "success"
+          },
+          "data": {
+            "$ref": "#/components/schemas/DelegationCredentialVerificationOutput"
+          }
+        },
+        "required": ["status", "data"]
+      },
       "DeleteDelegationCredentialOutput": {
         "type": "object",
         "properties": {
@@ -59907,6 +60127,18 @@
             "nullable": true,
             "description": "How many minutes a guest's seat is held while they pay. null uses the default of 10 minutes."
           },
+          "registrationOpensAt": {
+            "format": "date-time",
+            "type": "string",
+            "nullable": true,
+            "description": "When guests can start registering. null means registration opens when the Event is published."
+          },
+          "registrationClosesAt": {
+            "format": "date-time",
+            "type": "string",
+            "nullable": true,
+            "description": "When registration closes. null means registration closes when the Event starts."
+          },
           "waitlistEnabled": {
             "type": "boolean",
             "description": "Whether guests can join a waitlist when the Event is full. The waitlist only opens when the Event or the chosen location is full, so it only works when capacity is set on the Event or on a location."
@@ -60166,6 +60398,8 @@
           "status",
           "locations",
           "requiresApproval",
+          "registrationOpensAt",
+          "registrationClosesAt",
           "waitlistEnabled",
           "showOrganizerEmail",
           "guestList",
@@ -60805,6 +61039,18 @@
             "maximum": 10080,
             "description": "How many minutes a guest's seat is held while they pay. null uses the default of 10 minutes."
           },
+          "registrationOpensAt": {
+            "type": "string",
+            "nullable": true,
+            "description": "When guests can start registering, in ISO 8601 format in UTC timezone. Must be before registration closes. null opens registration when the Event is published.",
+            "example": "2029-12-01T09:00:00.000Z"
+          },
+          "registrationClosesAt": {
+            "type": "string",
+            "nullable": true,
+            "description": "When registration closes, in ISO 8601 format in UTC timezone. Must not be after `startTime`. null closes registration when the Event starts. Guests already on the waitlist can still be promoted after it closes.",
+            "example": "2029-12-31T12:00:00.000Z"
+          },
           "requiresApproval": {
             "type": "boolean",
             "description": "Registrations wait for a host's approval.",
@@ -61098,6 +61344,18 @@
             "minimum": 10,
             "maximum": 10080,
             "description": "How many minutes a guest's seat is held while they pay. null uses the default of 10 minutes."
+          },
+          "registrationOpensAt": {
+            "type": "string",
+            "nullable": true,
+            "description": "When guests can start registering, in ISO 8601 format in UTC timezone. Must be before registration closes. null opens registration when the Event is published.",
+            "example": "2029-12-01T09:00:00.000Z"
+          },
+          "registrationClosesAt": {
+            "type": "string",
+            "nullable": true,
+            "description": "When registration closes, in ISO 8601 format in UTC timezone. Must not be after `startTime`. null closes registration when the Event starts. Guests already on the waitlist can still be promoted after it closes.",
+            "example": "2029-12-31T12:00:00.000Z"
           },
           "theme": {
             "nullable": true,
