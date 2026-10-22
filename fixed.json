@@ -12883,6 +12883,78 @@
         ]
       }
     },
+    "/v2/bookings/{bookingUid}/seats/decline": {
+      "post": {
+        "tags": [
+          "Bookings"
+        ],
+        "summary": "Decline booking seats",
+        "description": "Decline selected seats on a booking whose event type requires confirmation and has seats. The authorization header refers to a host who can update the booking.\n\n\u0060declinedSeatUids\u0060 lists seats that were waiting or confirmed and are now declined. Seats that were already declined stay declined and are omitted. A confirmed seat can be declined.\n\n\u0060POST /v2/bookings/:bookingUid/decline\u0060 refuses these bookings. Pass each seat\u0027s \u0060seatUid\u0060 here instead.\n\nAvailable with \u0060cal-api-version\u0060 \u00602024-08-13\u0060, \u00602026-02-25\u0060, and \u00602026-05-01\u0060.\n\nIf accessed using an OAuth access token, the \u0060BOOKING_WRITE\u0060 scope is required.\n    ",
+        "operationId": "BookingsController20260225DeclineBookingSeats",
+        "parameters": [
+          {
+            "name": "cal-api-version",
+            "in": "header",
+            "description": "Must be set to 2026-02-25.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "2026-02-25",
+              "example": "2026-02-25"
+            }
+          },
+          {
+            "name": "bookingUid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be \u0060Bearer \u003Ctoken\u003E\u0060 where \u0060\u003Ctoken\u003E\u0060 is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeclineBookingSeatsInput20240813"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeclineBookingSeatsOutput20240813"
+                }
+              }
+            }
+          }
+        },
+        "x-mcp": {
+          "name": "decline_booking_seats",
+          "guidance": "Decline selected seats on a confirmation-required seated booking. Waiting and confirmed seats can be declined. Pass seatUids from the booking. POST /bookings/{bookingUid}/decline refuses these bookings.",
+          "hints": {
+            "idempotent": true
+          }
+        },
+        "x-oauth-scopes": [
+          "BOOKING_WRITE"
+        ]
+      }
+    },
     "/v2/bookings/{bookingUid}/decline": {
       "post": {
         "tags": [
@@ -19164,7 +19236,7 @@
           "Events"
         ],
         "summary": "Message an Event\u0027s guests",
-        "description": "Emails one segment of the Event\u0027s guests, optionally narrowed to one location or to guests who did or did not check in. The message is queued and sent in the background; list the Event\u0027s messages to follow its status. The authenticated user must be the Event\u0027s owner, one of its hosts, or a member of the owning team. Co-hosts cannot message guests. PBAC permission for team events: \u0060calEvent.update\u0060. If accessed using an OAuth access token, the \u0060EVENT_WRITE\u0060 scope is required.",
+        "description": "Emails one segment of the Event\u0027s guests, optionally narrowed to one location or to guests who did or did not check in. Guests who have only a phone number are texted instead when texting is available; \u0060textRecipientCount\u0060 says how many. The message is queued and sent in the background; list the Event\u0027s messages to follow its status. The authenticated user must be the Event\u0027s owner, one of its hosts, or a member of the owning team. Co-hosts cannot message guests. PBAC permission for team events: \u0060calEvent.update\u0060. If accessed using an OAuth access token, the \u0060EVENT_WRITE\u0060 scope is required.",
         "operationId": "EventMessagesControllerSendMessage",
         "parameters": [
           {
@@ -49776,6 +49848,54 @@
           }
         }
       },
+      "DeclineBookingSeatsInput20240813": {
+        "required": [
+          "seatUids"
+        ],
+        "type": "object",
+        "properties": {
+          "seatUids": {
+            "maxItems": 500,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "description": "Seat UIDs to decline. A waiting or confirmed seat becomes declined. A seat that is already declined stays declined. Duplicate UIDs in one request are declined once."
+          }
+        }
+      },
+      "DeclineBookingSeatsData20240813": {
+        "required": [
+          "declinedSeatUids"
+        ],
+        "type": "object",
+        "properties": {
+          "declinedSeatUids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Seat UIDs that were waiting or confirmed and are now declined. Seats that were already declined are omitted."
+          }
+        }
+      },
+      "DeclineBookingSeatsOutput20240813": {
+        "required": [
+          "status",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/DeclineBookingSeatsOutput20240813Status"
+          },
+          "data": {
+            "$ref": "#/components/schemas/DeclineBookingSeatsData20240813"
+          }
+        }
+      },
       "DeclineBookingInput20240813": {
         "type": "object",
         "properties": {
@@ -55600,20 +55720,32 @@
         "required": [
           "sentCount",
           "failedCount",
+          "textedCount",
+          "textFailedCount",
           "skippedPhoneCount",
           "skippedUnsubscribedCount"
         ],
         "type": "object",
         "properties": {
           "sentCount": {
-            "type": "number"
+            "type": "number",
+            "description": "Emails sent."
           },
           "failedCount": {
-            "type": "number"
+            "type": "number",
+            "description": "Emails that failed to send."
+          },
+          "textedCount": {
+            "type": "number",
+            "description": "Texts sent to guests who have only a phone number."
+          },
+          "textFailedCount": {
+            "type": "number",
+            "description": "Texts that failed to send."
           },
           "skippedPhoneCount": {
             "type": "number",
-            "description": "Guests skipped because they have only a phone number."
+            "description": "Guests skipped because they have only a phone number and were not texted."
           },
           "skippedUnsubscribedCount": {
             "type": "number",
@@ -70896,20 +71028,32 @@
         "required": [
           "sentCount",
           "failedCount",
+          "textedCount",
+          "textFailedCount",
           "skippedPhoneCount",
           "skippedUnsubscribedCount"
         ],
         "type": "object",
         "properties": {
           "sentCount": {
-            "type": "number"
+            "type": "number",
+            "description": "Emails sent."
           },
           "failedCount": {
-            "type": "number"
+            "type": "number",
+            "description": "Emails that failed to send."
+          },
+          "textedCount": {
+            "type": "number",
+            "description": "Texts sent to guests who have only a phone number."
+          },
+          "textFailedCount": {
+            "type": "number",
+            "description": "Texts that failed to send."
           },
           "skippedPhoneCount": {
             "type": "number",
-            "description": "Guests skipped because they have only a phone number."
+            "description": "Guests skipped because they have only a phone number and were not texted."
           },
           "skippedUnsubscribedCount": {
             "type": "number",
@@ -96934,6 +97078,29 @@
         "example": "success",
         "x-ms-enum": {
           "name": "ConfirmBookingSeatsOutput20240813Status",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "success",
+              "name": "Success"
+            },
+            {
+              "value": "error",
+              "name": "Error"
+            }
+          ]
+        }
+      },
+      "DeclineBookingSeatsOutput20240813Status": {
+        "enum": [
+          "success",
+          "error"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "success",
+        "x-ms-enum": {
+          "name": "DeclineBookingSeatsOutput20240813Status",
           "modelAsString": false,
           "values": [
             {

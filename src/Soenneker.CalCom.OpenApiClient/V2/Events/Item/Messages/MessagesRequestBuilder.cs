@@ -52,7 +52,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Events.Item.Messages
             return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.MessagesOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.MessagesOutputResponseDto.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Emails one segment of the Event&apos;s guests, optionally narrowed to one location or to guests who did or did not check in. The message is queued and sent in the background; list the Event&apos;s messages to follow its status. The authenticated user must be the Event&apos;s owner, one of its hosts, or a member of the owning team. Co-hosts cannot message guests. PBAC permission for team events: `calEvent.update`. If accessed using an OAuth access token, the `EVENT_WRITE` scope is required.
+        /// Emails one segment of the Event&apos;s guests, optionally narrowed to one location or to guests who did or did not check in. Guests who have only a phone number are texted instead when texting is available; `textRecipientCount` says how many. The message is queued and sent in the background; list the Event&apos;s messages to follow its status. The authenticated user must be the Event&apos;s owner, one of its hosts, or a member of the owning team. Co-hosts cannot message guests. PBAC permission for team events: `calEvent.update`. If accessed using an OAuth access token, the `EVENT_WRITE` scope is required.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Models.SendMessageOutputResponseDto"/></returns>
         /// <param name="body">The request body</param>
@@ -91,7 +91,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Events.Item.Messages
             return requestInfo;
         }
         /// <summary>
-        /// Emails one segment of the Event&apos;s guests, optionally narrowed to one location or to guests who did or did not check in. The message is queued and sent in the background; list the Event&apos;s messages to follow its status. The authenticated user must be the Event&apos;s owner, one of its hosts, or a member of the owning team. Co-hosts cannot message guests. PBAC permission for team events: `calEvent.update`. If accessed using an OAuth access token, the `EVENT_WRITE` scope is required.
+        /// Emails one segment of the Event&apos;s guests, optionally narrowed to one location or to guests who did or did not check in. Guests who have only a phone number are texted instead when texting is available; `textRecipientCount` says how many. The message is queued and sent in the background; list the Event&apos;s messages to follow its status. The authenticated user must be the Event&apos;s owner, one of its hosts, or a member of the owning team. Co-hosts cannot message guests. PBAC permission for team events: `calEvent.update`. If accessed using an OAuth access token, the `EVENT_WRITE` scope is required.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

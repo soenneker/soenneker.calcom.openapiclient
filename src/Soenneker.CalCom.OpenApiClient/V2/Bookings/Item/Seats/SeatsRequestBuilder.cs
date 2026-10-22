@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.CalCom.OpenApiClient.V2.Bookings.Item.Seats.Confirm;
+using Soenneker.CalCom.OpenApiClient.V2.Bookings.Item.Seats.Decline;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -19,6 +20,11 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Bookings.Item.Seats
         public global::Soenneker.CalCom.OpenApiClient.V2.Bookings.Item.Seats.Confirm.ConfirmRequestBuilder Confirm
         {
             get => new global::Soenneker.CalCom.OpenApiClient.V2.Bookings.Item.Seats.Confirm.ConfirmRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The decline property</summary>
+        public global::Soenneker.CalCom.OpenApiClient.V2.Bookings.Item.Seats.Decline.DeclineRequestBuilder Decline
+        {
+            get => new global::Soenneker.CalCom.OpenApiClient.V2.Bookings.Item.Seats.Decline.DeclineRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.V2.Bookings.Item.Seats.SeatsRequestBuilder"/> and sets the default values.

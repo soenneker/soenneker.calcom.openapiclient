@@ -15,14 +15,18 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The failedCount property</summary>
+        /// <summary>Emails that failed to send.</summary>
         public double? FailedCount { get; set; }
-        /// <summary>The sentCount property</summary>
+        /// <summary>Emails sent.</summary>
         public double? SentCount { get; set; }
-        /// <summary>Guests skipped because they have only a phone number.</summary>
+        /// <summary>Guests skipped because they have only a phone number and were not texted.</summary>
         public double? SkippedPhoneCount { get; set; }
         /// <summary>Guests skipped because they unsubscribed from the Event&apos;s emails.</summary>
         public double? SkippedUnsubscribedCount { get; set; }
+        /// <summary>Texts sent to guests who have only a phone number.</summary>
+        public double? TextedCount { get; set; }
+        /// <summary>Texts that failed to send.</summary>
+        public double? TextFailedCount { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.MessageOutputDtoCounts"/> and sets the default values.
         /// </summary>
@@ -52,6 +56,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
                 { "sentCount", n => { SentCount = n.GetDoubleValue(); } },
                 { "skippedPhoneCount", n => { SkippedPhoneCount = n.GetDoubleValue(); } },
                 { "skippedUnsubscribedCount", n => { SkippedUnsubscribedCount = n.GetDoubleValue(); } },
+                { "textFailedCount", n => { TextFailedCount = n.GetDoubleValue(); } },
+                { "textedCount", n => { TextedCount = n.GetDoubleValue(); } },
             };
         }
         /// <summary>
@@ -65,6 +71,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteDoubleValue("sentCount", SentCount);
             writer.WriteDoubleValue("skippedPhoneCount", SkippedPhoneCount);
             writer.WriteDoubleValue("skippedUnsubscribedCount", SkippedUnsubscribedCount);
+            writer.WriteDoubleValue("textedCount", TextedCount);
+            writer.WriteDoubleValue("textFailedCount", TextFailedCount);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
