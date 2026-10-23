@@ -34,7 +34,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Teams.Item.VerifiedResources.Emails.
         {
         }
         /// <summary>
-        /// Use code to verify an email. If accessed using an OAuth access token, the `TEAM_VERIFIED_RESOURCES_WRITE` scope is required.
+        /// Use code to verify an email. Required membership role: `team admin`. PBAC permission: `team.update`. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the `TEAM_VERIFIED_RESOURCES_WRITE` scope is required.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Models.TeamVerifiedEmailOutput"/></returns>
         /// <param name="body">The request body</param>
@@ -54,7 +54,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Teams.Item.VerifiedResources.Emails.
             return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.TeamVerifiedEmailOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.TeamVerifiedEmailOutput.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Use code to verify an email. If accessed using an OAuth access token, the `TEAM_VERIFIED_RESOURCES_WRITE` scope is required.
+        /// Use code to verify an email. Required membership role: `team admin`. PBAC permission: `team.update`. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the `TEAM_VERIFIED_RESOURCES_WRITE` scope is required.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

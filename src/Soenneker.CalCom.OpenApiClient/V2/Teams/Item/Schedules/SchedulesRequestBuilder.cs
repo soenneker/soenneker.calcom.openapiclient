@@ -34,7 +34,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Teams.Item.Schedules
         {
         }
         /// <summary>
-        /// If accessed using an OAuth access token, the `TEAM_SCHEDULE_READ` scope is required.
+        /// Required membership role: `team admin`. PBAC permission: `availability.readTeamAvailability`. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the `TEAM_SCHEDULE_READ` scope is required.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Models.GetSchedulesOutput20240611"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -52,7 +52,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Teams.Item.Schedules
             return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetSchedulesOutput20240611>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetSchedulesOutput20240611.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// If accessed using an OAuth access token, the `TEAM_SCHEDULE_READ` scope is required.
+        /// Required membership role: `team admin`. PBAC permission: `availability.readTeamAvailability`. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the `TEAM_SCHEDULE_READ` scope is required.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -80,7 +80,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Teams.Item.Schedules
             return new global::Soenneker.CalCom.OpenApiClient.V2.Teams.Item.Schedules.SchedulesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// If accessed using an OAuth access token, the `TEAM_SCHEDULE_READ` scope is required.
+        /// Required membership role: `team admin`. PBAC permission: `availability.readTeamAvailability`. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the `TEAM_SCHEDULE_READ` scope is required.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SchedulesRequestBuilderGetQueryParameters 

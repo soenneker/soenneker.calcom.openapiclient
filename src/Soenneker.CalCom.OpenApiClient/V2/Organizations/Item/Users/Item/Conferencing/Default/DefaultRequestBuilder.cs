@@ -34,7 +34,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.Users.Item.Confer
         {
         }
         /// <summary>
-        /// Sets the default conferencing app for a specific user within the organization. If accessed using an OAuth access token, the `APPS_WRITE` scope is required.
+        /// Sets the default conferencing app for a specific user within the organization. Required membership role: `org admin`. PBAC permission: `organization.editUsers`. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the `APPS_WRITE` scope is required.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Models.SetDefaultConferencingAppOutputResponseDto"/></returns>
         /// <param name="body">The request body</param>
@@ -54,7 +54,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.Users.Item.Confer
             return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.SetDefaultConferencingAppOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.SetDefaultConferencingAppOutputResponseDto.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Sets the default conferencing app for a specific user within the organization. If accessed using an OAuth access token, the `APPS_WRITE` scope is required.
+        /// Sets the default conferencing app for a specific user within the organization. Required membership role: `org admin`. PBAC permission: `organization.editUsers`. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the `APPS_WRITE` scope is required.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

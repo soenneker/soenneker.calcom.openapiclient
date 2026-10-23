@@ -10402,7 +10402,7 @@
           "Orgs / Users / Conferencing"
         ],
         "summary": "List conferencing apps of an organization user",
-        "description": "Lists all connected conferencing apps for a specific user within the organization, including which one is set as default. If accessed using an OAuth access token, the \u0060APPS_READ\u0060 scope is required.",
+        "description": "Lists all connected conferencing apps for a specific user within the organization, including which one is set as default. Required membership role: \u0060org admin\u0060. PBAC permission: \u0060team.readConferencing\u0060. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the \u0060APPS_READ\u0060 scope is required.",
         "operationId": "OrganizationsUsersConferencingControllerListConferencingApps",
         "parameters": [
           {
@@ -10470,7 +10470,7 @@
           "Orgs / Users / Conferencing"
         ],
         "summary": "Set the default conferencing app for an organization user",
-        "description": "Sets the default conferencing app for a specific user within the organization. If accessed using an OAuth access token, the \u0060APPS_WRITE\u0060 scope is required.",
+        "description": "Sets the default conferencing app for a specific user within the organization. Required membership role: \u0060org admin\u0060. PBAC permission: \u0060organization.editUsers\u0060. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the \u0060APPS_WRITE\u0060 scope is required.",
         "operationId": "OrganizationsUsersConferencingControllerSetDefaultConferencingApp",
         "parameters": [
           {
@@ -25250,7 +25250,7 @@
           "Teams"
         ],
         "summary": "Update a team",
-        "description": "If accessed using an OAuth access token, the \u0060TEAM_PROFILE_WRITE\u0060 scope is required.",
+        "description": "Required membership role: \u0060team owner\u0060. PBAC permission: \u0060team.update\u0060, or \u0060organization.update\u0060 when the team id is an organization. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the \u0060TEAM_PROFILE_WRITE\u0060 scope is required.",
         "operationId": "TeamsControllerUpdateTeam",
         "parameters": [
           {
@@ -25310,7 +25310,7 @@
           "Teams"
         ],
         "summary": "Delete a team",
-        "description": "If accessed using an OAuth access token, the \u0060TEAM_PROFILE_WRITE\u0060 scope is required.",
+        "description": "Required membership role: \u0060team owner\u0060. PBAC permission: \u0060team.delete\u0060, or \u0060organization.delete\u0060 when the team id is an organization. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the \u0060TEAM_PROFILE_WRITE\u0060 scope is required.",
         "operationId": "TeamsControllerDeleteTeam",
         "parameters": [
           {
@@ -25942,7 +25942,7 @@
           "Teams / Bookings"
         ],
         "summary": "Get team bookings",
-        "description": "If accessed using an OAuth access token, the \u0060TEAM_BOOKING_READ\u0060 scope is required.",
+        "description": "Required membership role: \u0060team admin\u0060. PBAC permission: \u0060booking.readTeamBookings\u0060. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the \u0060TEAM_BOOKING_READ\u0060 scope is required.",
         "operationId": "TeamsBookingsControllerGetAllTeamBookings",
         "parameters": [
           {
@@ -26760,7 +26760,7 @@
           "Teams / Invite"
         ],
         "summary": "Create team invite link",
-        "description": "If accessed using an OAuth access token, the \u0060TEAM_MEMBERSHIP_WRITE\u0060 scope is required.",
+        "description": "Required membership role: \u0060team admin\u0060. PBAC permission: \u0060team.invite\u0060. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the \u0060TEAM_MEMBERSHIP_WRITE\u0060 scope is required.",
         "operationId": "TeamsInviteControllerCreateInvite",
         "parameters": [
           {
@@ -26816,7 +26816,7 @@
           "Teams / Memberships"
         ],
         "summary": "Create a membership",
-        "description": "If accessed using an OAuth access token, the \u0060TEAM_MEMBERSHIP_WRITE\u0060 scope is required.",
+        "description": "Required membership role: \u0060team admin\u0060. PBAC permission: \u0060team.invite\u0060. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the \u0060TEAM_MEMBERSHIP_WRITE\u0060 scope is required.",
         "operationId": "TeamsMembershipsControllerCreateTeamMembership",
         "parameters": [
           {
@@ -26880,7 +26880,7 @@
           "Teams / Memberships"
         ],
         "summary": "Get all memberships",
-        "description": "Retrieve team memberships with optional filtering by email addresses. Supports pagination. If accessed using an OAuth access token, the \u0060TEAM_MEMBERSHIP_READ\u0060 scope is required.",
+        "description": "Retrieve team memberships with optional filtering by email addresses. Supports pagination. Required membership role: \u0060team admin\u0060. PBAC permission: \u0060team.readMemberships\u0060. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the \u0060TEAM_MEMBERSHIP_READ\u0060 scope is required.",
         "operationId": "TeamsMembershipsControllerGetTeamMemberships",
         "parameters": [
           {
@@ -26974,7 +26974,7 @@
           "Teams / Memberships"
         ],
         "summary": "Get a membership",
-        "description": "If accessed using an OAuth access token, the \u0060TEAM_MEMBERSHIP_READ\u0060 scope is required.",
+        "description": "Required membership role: \u0060team admin\u0060. PBAC permission: \u0060team.readMemberships\u0060. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the \u0060TEAM_MEMBERSHIP_READ\u0060 scope is required.",
         "operationId": "TeamsMembershipsControllerGetTeamMembership",
         "parameters": [
           {
@@ -27036,7 +27036,7 @@
           "Teams / Memberships"
         ],
         "summary": "Update membership",
-        "description": "If accessed using an OAuth access token, the \u0060TEAM_MEMBERSHIP_WRITE\u0060 scope is required.",
+        "description": "Required membership role: \u0060team admin\u0060. PBAC permission: \u0060team.changeMemberRole\u0060. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the \u0060TEAM_MEMBERSHIP_WRITE\u0060 scope is required.",
         "operationId": "TeamsMembershipsControllerUpdateTeamMembership",
         "parameters": [
           {
@@ -27305,7 +27305,7 @@
           "Teams / Schedules"
         ],
         "summary": "Get all team member schedules",
-        "description": "If accessed using an OAuth access token, the \u0060TEAM_SCHEDULE_READ\u0060 scope is required.",
+        "description": "Required membership role: \u0060team admin\u0060. PBAC permission: \u0060availability.readTeamAvailability\u0060. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the \u0060TEAM_SCHEDULE_READ\u0060 scope is required.",
         "operationId": "TeamsSchedulesControllerGetTeamSchedules",
         "parameters": [
           {
@@ -27380,7 +27380,7 @@
           "Teams / Users / OOO"
         ],
         "summary": "Get all out-of-office entries for a team member",
-        "description": "If accessed using an OAuth access token, the \u0060TEAM_SCHEDULE_READ\u0060 scope is required.",
+        "description": "Required membership role: \u0060team admin\u0060. PBAC permission: \u0060ooo.read\u0060. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the \u0060TEAM_SCHEDULE_READ\u0060 scope is required.",
         "operationId": "TeamsOooControllerGetTeamMemberOoo",
         "parameters": [
           {
@@ -27477,7 +27477,7 @@
           "Teams / Users / OOO"
         ],
         "summary": "Create an out-of-office entry for a team member",
-        "description": "If accessed using an OAuth access token, the \u0060TEAM_SCHEDULE_WRITE\u0060 scope is required.",
+        "description": "Required membership role: \u0060team admin\u0060. PBAC permission: \u0060ooo.create\u0060. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the \u0060TEAM_SCHEDULE_WRITE\u0060 scope is required.",
         "operationId": "TeamsOooControllerCreateTeamMemberOoo",
         "parameters": [
           {
@@ -27547,7 +27547,7 @@
           "Teams / Users / OOO"
         ],
         "summary": "Update an out-of-office entry for a team member",
-        "description": "If accessed using an OAuth access token, the \u0060TEAM_SCHEDULE_WRITE\u0060 scope is required.",
+        "description": "Required membership role: \u0060team admin\u0060. PBAC permission: \u0060ooo.update\u0060. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the \u0060TEAM_SCHEDULE_WRITE\u0060 scope is required.",
         "operationId": "TeamsOooControllerUpdateTeamMemberOoo",
         "parameters": [
           {
@@ -27623,7 +27623,7 @@
           "Teams / Users / OOO"
         ],
         "summary": "Delete an out-of-office entry for a team member",
-        "description": "If accessed using an OAuth access token, the \u0060TEAM_SCHEDULE_WRITE\u0060 scope is required.",
+        "description": "Required membership role: \u0060team admin\u0060. PBAC permission: \u0060ooo.delete\u0060. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the \u0060TEAM_SCHEDULE_WRITE\u0060 scope is required.",
         "operationId": "TeamsOooControllerDeleteTeamMemberOoo",
         "parameters": [
           {
@@ -27691,7 +27691,7 @@
           "Teams Verified Resources"
         ],
         "summary": "Request email verification code",
-        "description": "Sends a verification code to the Email. If accessed using an OAuth access token, the \u0060TEAM_VERIFIED_RESOURCES_WRITE\u0060 scope is required.",
+        "description": "Sends a verification code to the Email. Required membership role: \u0060team admin\u0060. PBAC permission: \u0060team.update\u0060. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the \u0060TEAM_VERIFIED_RESOURCES_WRITE\u0060 scope is required.",
         "operationId": "TeamsVerifiedResourcesControllerRequestEmailVerificationCode",
         "parameters": [
           {
@@ -27753,7 +27753,7 @@
           "Teams Verified Resources"
         ],
         "summary": "Request phone number verification code",
-        "description": "Sends a verification code to the phone number. If accessed using an OAuth access token, the \u0060TEAM_VERIFIED_RESOURCES_WRITE\u0060 scope is required.",
+        "description": "Sends a verification code to the phone number. Required membership role: \u0060team admin\u0060. PBAC permission: \u0060team.update\u0060. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the \u0060TEAM_VERIFIED_RESOURCES_WRITE\u0060 scope is required.",
         "operationId": "TeamsVerifiedResourcesControllerRequestPhoneVerificationCode",
         "parameters": [
           {
@@ -27815,7 +27815,7 @@
           "Teams Verified Resources"
         ],
         "summary": "Verify an email for a team",
-        "description": "Use code to verify an email. If accessed using an OAuth access token, the \u0060TEAM_VERIFIED_RESOURCES_WRITE\u0060 scope is required.",
+        "description": "Use code to verify an email. Required membership role: \u0060team admin\u0060. PBAC permission: \u0060team.update\u0060. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the \u0060TEAM_VERIFIED_RESOURCES_WRITE\u0060 scope is required.",
         "operationId": "TeamsVerifiedResourcesControllerVerifyEmail",
         "parameters": [
           {
@@ -27877,7 +27877,7 @@
           "Teams Verified Resources"
         ],
         "summary": "Verify a phone number for an org team",
-        "description": "Use code to verify a phone number. If accessed using an OAuth access token, the \u0060TEAM_VERIFIED_RESOURCES_WRITE\u0060 scope is required.",
+        "description": "Use code to verify a phone number. Required membership role: \u0060team admin\u0060. PBAC permission: \u0060team.update\u0060. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the \u0060TEAM_VERIFIED_RESOURCES_WRITE\u0060 scope is required.",
         "operationId": "TeamsVerifiedResourcesControllerVerifyPhoneNumber",
         "parameters": [
           {
@@ -27939,7 +27939,7 @@
           "Teams Verified Resources"
         ],
         "summary": "Get list of verified emails of a team",
-        "description": "If accessed using an OAuth access token, the \u0060TEAM_VERIFIED_RESOURCES_READ\u0060 scope is required.",
+        "description": "Required membership role: \u0060team admin\u0060. PBAC permission: \u0060team.readVerifiedResources\u0060. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the \u0060TEAM_VERIFIED_RESOURCES_READ\u0060 scope is required.",
         "operationId": "TeamsVerifiedResourcesControllerGetVerifiedEmails",
         "parameters": [
           {
@@ -28014,7 +28014,7 @@
           "Teams Verified Resources"
         ],
         "summary": "Get list of verified phone numbers of a team",
-        "description": "If accessed using an OAuth access token, the \u0060TEAM_VERIFIED_RESOURCES_READ\u0060 scope is required.",
+        "description": "Required membership role: \u0060team admin\u0060. PBAC permission: \u0060team.readVerifiedResources\u0060. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the \u0060TEAM_VERIFIED_RESOURCES_READ\u0060 scope is required.",
         "operationId": "TeamsVerifiedResourcesControllerGetVerifiedPhoneNumbers",
         "parameters": [
           {
@@ -28089,7 +28089,7 @@
           "Teams Verified Resources"
         ],
         "summary": "Get verified email of a team by id",
-        "description": "If accessed using an OAuth access token, the \u0060TEAM_VERIFIED_RESOURCES_READ\u0060 scope is required.",
+        "description": "Required membership role: \u0060team admin\u0060. PBAC permission: \u0060team.readVerifiedResources\u0060. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the \u0060TEAM_VERIFIED_RESOURCES_READ\u0060 scope is required.",
         "operationId": "TeamsVerifiedResourcesControllerGetVerifiedEmailById",
         "parameters": [
           {
@@ -28149,7 +28149,7 @@
           "Teams Verified Resources"
         ],
         "summary": "Get verified phone number of a team by id",
-        "description": "If accessed using an OAuth access token, the \u0060TEAM_VERIFIED_RESOURCES_READ\u0060 scope is required.",
+        "description": "Required membership role: \u0060team admin\u0060. PBAC permission: \u0060team.readVerifiedResources\u0060. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the \u0060TEAM_VERIFIED_RESOURCES_READ\u0060 scope is required.",
         "operationId": "TeamsVerifiedResourcesControllerGetVerifiedPhoneById",
         "parameters": [
           {
