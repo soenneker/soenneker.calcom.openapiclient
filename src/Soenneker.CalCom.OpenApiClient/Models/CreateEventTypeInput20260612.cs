@@ -199,13 +199,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>When enabled, a private note calendar event is created alongside the booking with the resolved template as its description. Only visible to the host.</summary>
         public bool? PrivateNoteEnabled { get; set; }
         /// <summary>How private notes are delivered: as an additional host event or by sending separate host and guest invites.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
         public global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeInput20260612PrivateNoteMode? PrivateNoteMode { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeInput20260612PrivateNoteMode PrivateNoteMode { get; set; }
-#endif
         /// <summary>Template for the private note content. Supports variables like {Attendee name}, {Link title}, {Event type title} (legacy), {Location}, {Host name}, {Event duration}, and custom booking field names.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -336,7 +330,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
                 { "offsetStart", n => { OffsetStart = n.GetDoubleValue(); } },
                 { "onlyShowFirstAvailableSlot", n => { OnlyShowFirstAvailableSlot = n.GetBoolValue(); } },
                 { "privateNoteEnabled", n => { PrivateNoteEnabled = n.GetBoolValue(); } },
-                { "privateNoteMode", n => { PrivateNoteMode = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeInput20260612PrivateNoteMode>(global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeInput20260612PrivateNoteMode.CreateFromDiscriminatorValue); } },
+                { "privateNoteMode", n => { PrivateNoteMode = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeInput20260612PrivateNoteMode>(); } },
                 { "privateNoteTemplate", n => { PrivateNoteTemplate = n.GetStringValue(); } },
                 { "recurrence", n => { Recurrence = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeInput20260612Recurrence>(global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeInput20260612Recurrence.CreateFromDiscriminatorValue); } },
                 { "requiresBookerEmailVerification", n => { RequiresBookerEmailVerification = n.GetBoolValue(); } },
@@ -395,7 +389,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteDoubleValue("offsetStart", OffsetStart);
             writer.WriteBoolValue("onlyShowFirstAvailableSlot", OnlyShowFirstAvailableSlot);
             writer.WriteBoolValue("privateNoteEnabled", PrivateNoteEnabled);
-            writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeInput20260612PrivateNoteMode>("privateNoteMode", PrivateNoteMode);
+            writer.WriteEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeInput20260612PrivateNoteMode>("privateNoteMode", PrivateNoteMode);
             writer.WriteStringValue("privateNoteTemplate", PrivateNoteTemplate);
             writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeInput20260612Recurrence>("recurrence", Recurrence);
             writer.WriteBoolValue("requiresBookerEmailVerification", RequiresBookerEmailVerification);

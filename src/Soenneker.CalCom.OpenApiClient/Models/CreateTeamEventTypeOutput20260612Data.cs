@@ -8,26 +8,26 @@ using System;
 namespace Soenneker.CalCom.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.CalCom.OpenApiClient.Models.CreateTeamEventTypeOutput20260612DataBranch2"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612"/>, List&lt;global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateTeamEventTypeOutput20260612Data : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.CreateTeamEventTypeOutput20260612DataBranch2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.CreateTeamEventTypeOutput20260612DataBranch2? CreateTeamEventTypeOutput20260612DataBranch2 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.CalCom.OpenApiClient.Models.CreateTeamEventTypeOutput20260612DataBranch2 CreateTeamEventTypeOutput20260612DataBranch2 { get; set; }
-#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612? TeamEventTypeOutput20260612 { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612? CreateTeamEventTypeOutput20260612DataTeamEventTypeOutput20260612 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612 TeamEventTypeOutput20260612 { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612 CreateTeamEventTypeOutput20260612DataTeamEventTypeOutput20260612 { get; set; }
+#endif
+        /// <summary>Composed type representation for type List&lt;global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612&gt;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612>? TeamEventTypeOutput20260612 { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612> TeamEventTypeOutput20260612 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,13 +39,13 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.CalCom.OpenApiClient.Models.CreateTeamEventTypeOutput20260612Data();
-            if("CreateTeamEventTypeOutput20260612DataBranch2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("TeamEventTypeOutput20260612".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.CreateTeamEventTypeOutput20260612DataBranch2 = new global::Soenneker.CalCom.OpenApiClient.Models.CreateTeamEventTypeOutput20260612DataBranch2();
+                result.CreateTeamEventTypeOutput20260612DataTeamEventTypeOutput20260612 = new global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612();
             }
-            else if("TeamEventTypeOutput20260612".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612>(global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612> teamEventTypeOutput20260612Value)
             {
-                result.TeamEventTypeOutput20260612 = new global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612();
+                result.TeamEventTypeOutput20260612 = teamEventTypeOutput20260612Value;
             }
             return result;
         }
@@ -55,13 +55,9 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(CreateTeamEventTypeOutput20260612DataBranch2 != null)
+            if(CreateTeamEventTypeOutput20260612DataTeamEventTypeOutput20260612 != null)
             {
-                return CreateTeamEventTypeOutput20260612DataBranch2.GetFieldDeserializers();
-            }
-            else if(TeamEventTypeOutput20260612 != null)
-            {
-                return TeamEventTypeOutput20260612.GetFieldDeserializers();
+                return CreateTeamEventTypeOutput20260612DataTeamEventTypeOutput20260612.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -72,13 +68,13 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(CreateTeamEventTypeOutput20260612DataBranch2 != null)
+            if(CreateTeamEventTypeOutput20260612DataTeamEventTypeOutput20260612 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.CreateTeamEventTypeOutput20260612DataBranch2>(null, CreateTeamEventTypeOutput20260612DataBranch2);
+                writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612>(null, CreateTeamEventTypeOutput20260612DataTeamEventTypeOutput20260612);
             }
             else if(TeamEventTypeOutput20260612 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612>(null, TeamEventTypeOutput20260612);
+                writer.WriteCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612>(null, TeamEventTypeOutput20260612);
             }
         }
     }

@@ -71,13 +71,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public List<global::Soenneker.CalCom.OpenApiClient.Models.UnifiedCalendarEventOutputLocationsItem> Locations { get; set; }
 #endif
         /// <summary>Calendar integration source (e.g., Google Calendar, Office 365, Apple Calendar). Currently only Google Calendar is supported.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
         public global::Soenneker.CalCom.OpenApiClient.Models.UnifiedCalendarEventOutputSource? Source { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.CalCom.OpenApiClient.Models.UnifiedCalendarEventOutputSource Source { get; set; }
-#endif
         /// <summary>Start date and time of the calendar event with timezone information</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -87,13 +81,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public global::Soenneker.CalCom.OpenApiClient.Models.UnifiedCalendarEventOutputStart Start { get; set; }
 #endif
         /// <summary>Status of the event (accepted, pending, declined, cancelled)</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
         public global::Soenneker.CalCom.OpenApiClient.Models.UnifiedCalendarEventOutputStatus? Status { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.CalCom.OpenApiClient.Models.UnifiedCalendarEventOutputStatus Status { get; set; }
-#endif
         /// <summary>Title of the calendar event</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -134,9 +122,9 @@ namespace Soenneker.CalCom.OpenApiClient.Models
                 { "hosts", n => { Hosts = n.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.CalendarEventHost>(global::Soenneker.CalCom.OpenApiClient.Models.CalendarEventHost.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "locations", n => { Locations = n.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.UnifiedCalendarEventOutputLocationsItem>(global::Soenneker.CalCom.OpenApiClient.Models.UnifiedCalendarEventOutputLocationsItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "source", n => { Source = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.UnifiedCalendarEventOutputSource>(global::Soenneker.CalCom.OpenApiClient.Models.UnifiedCalendarEventOutputSource.CreateFromDiscriminatorValue); } },
+                { "source", n => { Source = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.UnifiedCalendarEventOutputSource>(); } },
                 { "start", n => { Start = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.UnifiedCalendarEventOutputStart>(global::Soenneker.CalCom.OpenApiClient.Models.UnifiedCalendarEventOutputStart.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.UnifiedCalendarEventOutputStatus>(global::Soenneker.CalCom.OpenApiClient.Models.UnifiedCalendarEventOutputStatus.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.UnifiedCalendarEventOutputStatus>(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
             };
         }
@@ -154,9 +142,9 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.CalendarEventHost>("hosts", Hosts);
             writer.WriteStringValue("id", Id);
             writer.WriteCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.UnifiedCalendarEventOutputLocationsItem>("locations", Locations);
-            writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.UnifiedCalendarEventOutputSource>("source", Source);
+            writer.WriteEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.UnifiedCalendarEventOutputSource>("source", Source);
             writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.UnifiedCalendarEventOutputStart>("start", Start);
-            writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.UnifiedCalendarEventOutputStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.UnifiedCalendarEventOutputStatus>("status", Status);
             writer.WriteStringValue("title", Title);
             writer.WriteAdditionalData(AdditionalData);
         }

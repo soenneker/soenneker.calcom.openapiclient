@@ -39413,6 +39413,7 @@
                 "BOOKING_SEAT_REJECTED",
                 "BOOKING_NO_SHOW_UPDATED",
                 "BOOKING_LOCATION_UPDATED",
+                "BOOKING_TITLE_UPDATED",
                 "BOOKING_REASSIGNED",
                 "BOOKING_SEAT_ACCEPTED",
                 "FORM_SUBMITTED",
@@ -39540,6 +39541,7 @@
                 "BOOKING_SEAT_REJECTED",
                 "BOOKING_NO_SHOW_UPDATED",
                 "BOOKING_LOCATION_UPDATED",
+                "BOOKING_TITLE_UPDATED",
                 "BOOKING_REASSIGNED",
                 "BOOKING_SEAT_ACCEPTED",
                 "FORM_SUBMITTED",
@@ -39648,6 +39650,7 @@
                 "BOOKING_SEAT_REJECTED",
                 "BOOKING_NO_SHOW_UPDATED",
                 "BOOKING_LOCATION_UPDATED",
+                "BOOKING_TITLE_UPDATED",
                 "BOOKING_REASSIGNED",
                 "BOOKING_SEAT_ACCEPTED",
                 "FORM_SUBMITTED",
@@ -57227,6 +57230,7 @@
                 "BOOKING_SEAT_REJECTED",
                 "BOOKING_NO_SHOW_UPDATED",
                 "BOOKING_LOCATION_UPDATED",
+                "BOOKING_TITLE_UPDATED",
                 "BOOKING_REASSIGNED",
                 "BOOKING_SEAT_ACCEPTED",
                 "FORM_SUBMITTED",
@@ -57346,6 +57350,7 @@
                 "BOOKING_SEAT_REJECTED",
                 "BOOKING_NO_SHOW_UPDATED",
                 "BOOKING_LOCATION_UPDATED",
+                "BOOKING_TITLE_UPDATED",
                 "BOOKING_REASSIGNED",
                 "BOOKING_SEAT_ACCEPTED",
                 "FORM_SUBMITTED",
@@ -57479,6 +57484,7 @@
                 "BOOKING_SEAT_REJECTED",
                 "BOOKING_NO_SHOW_UPDATED",
                 "BOOKING_LOCATION_UPDATED",
+                "BOOKING_TITLE_UPDATED",
                 "BOOKING_REASSIGNED",
                 "BOOKING_SEAT_ACCEPTED",
                 "FORM_SUBMITTED",
@@ -63092,9 +63098,22 @@
             ]
           },
           "status": {
-            "enum": ["SENDING", "SENT", "PARTIALLY_SENT", "NOT_SENT", "NOT_SENT_EVENT_UNSENDABLE"],
+            "enum": [
+              "SCHEDULED",
+              "SENDING",
+              "SENT",
+              "PARTIALLY_SENT",
+              "NOT_SENT",
+              "NOT_SENT_EVENT_UNSENDABLE",
+              "CANCELLED"
+            ],
             "type": "string",
-            "description": "`SENDING` while it goes out, `SENT`, `PARTIALLY_SENT`, `NOT_SENT`, or `NOT_SENT_EVENT_UNSENDABLE` when the Event stopped accepting messages before it went out."
+            "description": "`SCHEDULED` while it waits for its time, `SENDING` while it goes out, `SENT`, `PARTIALLY_SENT`, `NOT_SENT`, `NOT_SENT_EVENT_UNSENDABLE` when the Event stopped accepting messages before it went out, or `CANCELLED` when it was cancelled before its time."
+          },
+          "scheduledAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "When a scheduled message goes out, or was meant to. Absent for a message sent at once."
           },
           "counts": {
             "nullable": true,

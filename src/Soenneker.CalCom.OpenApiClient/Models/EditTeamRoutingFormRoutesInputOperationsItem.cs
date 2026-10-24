@@ -61,25 +61,25 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.EditTeamRoutingFormRoutesInputOperationsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.CalCom.OpenApiClient.Models.EditTeamRoutingFormRoutesInputOperationsItem();
-            if("AddRouteOperationInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("add".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.AddRouteOperationInput = new global::Soenneker.CalCom.OpenApiClient.Models.AddRouteOperationInput();
             }
-            else if("MoveRouteOperationInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("move".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.MoveRouteOperationInput = new global::Soenneker.CalCom.OpenApiClient.Models.MoveRouteOperationInput();
             }
-            else if("RemoveRouteOperationInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("remove".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RemoveRouteOperationInput = new global::Soenneker.CalCom.OpenApiClient.Models.RemoveRouteOperationInput();
             }
-            else if("ReplaceRouteOperationInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("replace".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ReplaceRouteOperationInput = new global::Soenneker.CalCom.OpenApiClient.Models.ReplaceRouteOperationInput();
             }
-            else if("SetFallbackOperationInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("setFallback".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SetFallbackOperationInput = new global::Soenneker.CalCom.OpenApiClient.Models.SetFallbackOperationInput();
             }

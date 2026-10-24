@@ -45,17 +45,17 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.EditTeamRoutingFormFieldsInputOperationsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.CalCom.OpenApiClient.Models.EditTeamRoutingFormFieldsInputOperationsItem();
-            if("AddFieldOperationInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("add".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.AddFieldOperationInput = new global::Soenneker.CalCom.OpenApiClient.Models.AddFieldOperationInput();
             }
-            else if("RemoveFieldOperationInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("remove".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RemoveFieldOperationInput = new global::Soenneker.CalCom.OpenApiClient.Models.RemoveFieldOperationInput();
             }
-            else if("UpdateFieldOperationInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("update".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.UpdateFieldOperationInput = new global::Soenneker.CalCom.OpenApiClient.Models.UpdateFieldOperationInput();
             }

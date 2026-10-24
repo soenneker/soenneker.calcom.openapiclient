@@ -53,21 +53,21 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.EventLocationOutputResponseDtoData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.CalCom.OpenApiClient.Models.EventLocationOutputResponseDtoData();
-            if("EventAddressLocationOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("address".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EventAddressLocationOutput = new global::Soenneker.CalCom.OpenApiClient.Models.EventAddressLocationOutput();
             }
-            else if("EventIntegrationLocationOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("integration".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EventIntegrationLocationOutput = new global::Soenneker.CalCom.OpenApiClient.Models.EventIntegrationLocationOutput();
             }
-            else if("EventLinkLocationOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("link".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EventLinkLocationOutput = new global::Soenneker.CalCom.OpenApiClient.Models.EventLinkLocationOutput();
             }
-            else if("EventOrganizersDefaultAppLocationOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("organizersDefaultApp".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EventOrganizersDefaultAppLocationOutput = new global::Soenneker.CalCom.OpenApiClient.Models.EventOrganizersDefaultAppLocationOutput();
             }

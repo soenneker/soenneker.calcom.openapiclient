@@ -37,9 +37,16 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.OrganizationsDelegationCredentialControllerCreateDelegationCredentialRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+            var mappingValue = parseNode.GetChildNode("workspacePlatformSlug")?.GetStringValue();
             var result = new global::Soenneker.CalCom.OpenApiClient.Models.OrganizationsDelegationCredentialControllerCreateDelegationCredentialRequest();
-            result.CreateGoogleDelegationCredentialInput = new global::Soenneker.CalCom.OpenApiClient.Models.CreateGoogleDelegationCredentialInput();
-            result.CreateMicrosoftDelegationCredentialInput = new global::Soenneker.CalCom.OpenApiClient.Models.CreateMicrosoftDelegationCredentialInput();
+            if("google".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.CreateGoogleDelegationCredentialInput = new global::Soenneker.CalCom.OpenApiClient.Models.CreateGoogleDelegationCredentialInput();
+            }
+            else if("office365".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.CreateMicrosoftDelegationCredentialInput = new global::Soenneker.CalCom.OpenApiClient.Models.CreateMicrosoftDelegationCredentialInput();
+            }
             return result;
         }
         /// <summary>
@@ -48,9 +55,13 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(CreateGoogleDelegationCredentialInput != null || CreateMicrosoftDelegationCredentialInput != null)
+            if(CreateGoogleDelegationCredentialInput != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(CreateGoogleDelegationCredentialInput, CreateMicrosoftDelegationCredentialInput);
+                return CreateGoogleDelegationCredentialInput.GetFieldDeserializers();
+            }
+            else if(CreateMicrosoftDelegationCredentialInput != null)
+            {
+                return CreateMicrosoftDelegationCredentialInput.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -61,7 +72,14 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.CreateGoogleDelegationCredentialInput>(null, CreateGoogleDelegationCredentialInput, CreateMicrosoftDelegationCredentialInput);
+            if(CreateGoogleDelegationCredentialInput != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.CreateGoogleDelegationCredentialInput>(null, CreateGoogleDelegationCredentialInput);
+            }
+            else if(CreateMicrosoftDelegationCredentialInput != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.CreateMicrosoftDelegationCredentialInput>(null, CreateMicrosoftDelegationCredentialInput);
+            }
         }
     }
 }

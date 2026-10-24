@@ -30,14 +30,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>Host&apos;s response to the invitation</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>Attendee&apos;s response to the invitation</summary>
         public global::Soenneker.CalCom.OpenApiClient.Models.CalendarEventHostResponseStatus? ResponseStatus { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.CalCom.OpenApiClient.Models.CalendarEventHostResponseStatus ResponseStatus { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.CalendarEventHost"/> and sets the default values.
         /// </summary>
@@ -65,7 +59,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             {
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "responseStatus", n => { ResponseStatus = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.CalendarEventHostResponseStatus>(global::Soenneker.CalCom.OpenApiClient.Models.CalendarEventHostResponseStatus.CreateFromDiscriminatorValue); } },
+                { "responseStatus", n => { ResponseStatus = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.CalendarEventHostResponseStatus>(); } },
             };
         }
         /// <summary>
@@ -77,7 +71,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("email", Email);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.CalendarEventHostResponseStatus>("responseStatus", ResponseStatus);
+            writer.WriteEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.CalendarEventHostResponseStatus>("responseStatus", ResponseStatus);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

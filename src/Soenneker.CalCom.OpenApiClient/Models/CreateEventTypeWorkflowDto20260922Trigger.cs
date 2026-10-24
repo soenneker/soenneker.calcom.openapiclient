@@ -117,53 +117,53 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeWorkflowDto20260922Trigger CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeWorkflowDto20260922Trigger();
-            if("OnAfterCalVideoGuestsNoShowTriggerDto".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("afterGuestsCalVideoNoShow".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.OnAfterCalVideoGuestsNoShowTriggerDto = new global::Soenneker.CalCom.OpenApiClient.Models.OnAfterCalVideoGuestsNoShowTriggerDto();
             }
-            else if("OnAfterCalVideoHostsNoShowTriggerDto".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("afterHostsCalVideoNoShow".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.OnAfterCalVideoHostsNoShowTriggerDto = new global::Soenneker.CalCom.OpenApiClient.Models.OnAfterCalVideoHostsNoShowTriggerDto();
             }
-            else if("OnAfterEventTriggerDto".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("afterEvent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.OnAfterEventTriggerDto = new global::Soenneker.CalCom.OpenApiClient.Models.OnAfterEventTriggerDto();
             }
-            else if("OnBeforeEventTriggerDto".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("beforeEvent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.OnBeforeEventTriggerDto = new global::Soenneker.CalCom.OpenApiClient.Models.OnBeforeEventTriggerDto();
             }
-            else if("OnCancelTriggerDto".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("eventCancelled".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.OnCancelTriggerDto = new global::Soenneker.CalCom.OpenApiClient.Models.OnCancelTriggerDto();
             }
-            else if("OnCreationTriggerDto".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("newEvent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.OnCreationTriggerDto = new global::Soenneker.CalCom.OpenApiClient.Models.OnCreationTriggerDto();
             }
-            else if("OnNoShowUpdateTriggerDto".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("bookingNoShowUpdated".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.OnNoShowUpdateTriggerDto = new global::Soenneker.CalCom.OpenApiClient.Models.OnNoShowUpdateTriggerDto();
             }
-            else if("OnPaidTriggerDto".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("bookingPaid".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.OnPaidTriggerDto = new global::Soenneker.CalCom.OpenApiClient.Models.OnPaidTriggerDto();
             }
-            else if("OnPaymentInitiatedTriggerDto".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("bookingPaymentInitiated".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.OnPaymentInitiatedTriggerDto = new global::Soenneker.CalCom.OpenApiClient.Models.OnPaymentInitiatedTriggerDto();
             }
-            else if("OnRejectedTriggerDto".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("bookingRejected".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.OnRejectedTriggerDto = new global::Soenneker.CalCom.OpenApiClient.Models.OnRejectedTriggerDto();
             }
-            else if("OnRequestedTriggerDto".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("bookingRequested".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.OnRequestedTriggerDto = new global::Soenneker.CalCom.OpenApiClient.Models.OnRequestedTriggerDto();
             }
-            else if("OnRescheduleTriggerDto".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("rescheduleEvent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.OnRescheduleTriggerDto = new global::Soenneker.CalCom.OpenApiClient.Models.OnRescheduleTriggerDto();
             }

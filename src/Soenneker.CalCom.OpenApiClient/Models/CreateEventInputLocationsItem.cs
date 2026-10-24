@@ -53,21 +53,21 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.CreateEventInputLocationsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.CalCom.OpenApiClient.Models.CreateEventInputLocationsItem();
-            if("EventAddressLocationInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("address".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EventAddressLocationInput = new global::Soenneker.CalCom.OpenApiClient.Models.EventAddressLocationInput();
             }
-            else if("EventIntegrationLocationInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("integration".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EventIntegrationLocationInput = new global::Soenneker.CalCom.OpenApiClient.Models.EventIntegrationLocationInput();
             }
-            else if("EventLinkLocationInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("link".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EventLinkLocationInput = new global::Soenneker.CalCom.OpenApiClient.Models.EventLinkLocationInput();
             }
-            else if("EventOrganizersDefaultAppLocationInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("organizersDefaultApp".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EventOrganizersDefaultAppLocationInput = new global::Soenneker.CalCom.OpenApiClient.Models.EventOrganizersDefaultAppLocationInput();
             }

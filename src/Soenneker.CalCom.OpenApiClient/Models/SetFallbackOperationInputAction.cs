@@ -45,17 +45,17 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.SetFallbackOperationInputAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.CalCom.OpenApiClient.Models.SetFallbackOperationInputAction();
-            if("CustomPageMessageActionInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("customPageMessage".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CustomPageMessageActionInput = new global::Soenneker.CalCom.OpenApiClient.Models.CustomPageMessageActionInput();
             }
-            else if("EventTypeRedirectActionInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("eventTypeRedirectUrl".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EventTypeRedirectActionInput = new global::Soenneker.CalCom.OpenApiClient.Models.EventTypeRedirectActionInput();
             }
-            else if("ExternalRedirectUrlActionInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("externalRedirectUrl".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ExternalRedirectUrlActionInput = new global::Soenneker.CalCom.OpenApiClient.Models.ExternalRedirectUrlActionInput();
             }

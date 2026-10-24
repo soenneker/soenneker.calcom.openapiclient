@@ -35,13 +35,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>Indicates if this attendee&apos;s attendance is optional</summary>
         public bool? Optional { get; set; }
         /// <summary>Attendee&apos;s response to the invitation</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
         public global::Soenneker.CalCom.OpenApiClient.Models.CalendarEventAttendeeResponseStatus? ResponseStatus { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.CalCom.OpenApiClient.Models.CalendarEventAttendeeResponseStatus ResponseStatus { get; set; }
-#endif
         /// <summary>Indicates if this attendee is the current user</summary>
         public bool? Self { get; set; }
         /// <summary>
@@ -73,7 +67,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
                 { "host", n => { Host = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "optional", n => { Optional = n.GetBoolValue(); } },
-                { "responseStatus", n => { ResponseStatus = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.CalendarEventAttendeeResponseStatus>(global::Soenneker.CalCom.OpenApiClient.Models.CalendarEventAttendeeResponseStatus.CreateFromDiscriminatorValue); } },
+                { "responseStatus", n => { ResponseStatus = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.CalendarEventAttendeeResponseStatus>(); } },
                 { "self", n => { Self = n.GetBoolValue(); } },
             };
         }
@@ -88,7 +82,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteBoolValue("host", Host);
             writer.WriteStringValue("name", Name);
             writer.WriteBoolValue("optional", Optional);
-            writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.CalendarEventAttendeeResponseStatus>("responseStatus", ResponseStatus);
+            writer.WriteEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.CalendarEventAttendeeResponseStatus>("responseStatus", ResponseStatus);
             writer.WriteBoolValue("self", Self);
             writer.WriteAdditionalData(AdditionalData);
         }

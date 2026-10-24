@@ -37,13 +37,13 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.UpdateFormWorkflowDtoTrigger CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.CalCom.OpenApiClient.Models.UpdateFormWorkflowDtoTrigger();
-            if("OnFormSubmittedNoEventTriggerDto".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("formSubmittedNoEvent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.OnFormSubmittedNoEventTriggerDto = new global::Soenneker.CalCom.OpenApiClient.Models.OnFormSubmittedNoEventTriggerDto();
             }
-            else if("OnFormSubmittedTriggerDto".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("formSubmitted".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.OnFormSubmittedTriggerDto = new global::Soenneker.CalCom.OpenApiClient.Models.OnFormSubmittedTriggerDto();
             }

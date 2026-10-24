@@ -7,20 +7,188 @@ using System.IO;
 using System;
 namespace Soenneker.CalCom.OpenApiClient.Models
 {
+    /// <summary>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember1"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember10"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember11"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember12"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember13"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember14"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember15"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember16"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember17"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember18"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember19"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember2"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember20"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember21"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember22"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember3"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember4"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember5"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember6"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember7"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember8"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember9"/>
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class PatchBookingFieldsInput20260612BookingFieldsItem : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class PatchBookingFieldsInput20260612BookingFieldsItem : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItem"/> and sets the default values.
-        /// </summary>
-        public PatchBookingFieldsInput20260612BookingFieldsItem()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember1? PatchBookingFieldsInput20260612BookingFieldsItemMember1 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember1 PatchBookingFieldsInput20260612BookingFieldsItemMember1 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember10"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember10? PatchBookingFieldsInput20260612BookingFieldsItemMember10 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember10 PatchBookingFieldsInput20260612BookingFieldsItemMember10 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember11"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember11? PatchBookingFieldsInput20260612BookingFieldsItemMember11 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember11 PatchBookingFieldsInput20260612BookingFieldsItemMember11 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember12"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember12? PatchBookingFieldsInput20260612BookingFieldsItemMember12 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember12 PatchBookingFieldsInput20260612BookingFieldsItemMember12 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember13"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember13? PatchBookingFieldsInput20260612BookingFieldsItemMember13 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember13 PatchBookingFieldsInput20260612BookingFieldsItemMember13 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember14"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember14? PatchBookingFieldsInput20260612BookingFieldsItemMember14 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember14 PatchBookingFieldsInput20260612BookingFieldsItemMember14 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember15"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember15? PatchBookingFieldsInput20260612BookingFieldsItemMember15 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember15 PatchBookingFieldsInput20260612BookingFieldsItemMember15 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember16"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember16? PatchBookingFieldsInput20260612BookingFieldsItemMember16 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember16 PatchBookingFieldsInput20260612BookingFieldsItemMember16 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember17"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember17? PatchBookingFieldsInput20260612BookingFieldsItemMember17 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember17 PatchBookingFieldsInput20260612BookingFieldsItemMember17 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember18"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember18? PatchBookingFieldsInput20260612BookingFieldsItemMember18 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember18 PatchBookingFieldsInput20260612BookingFieldsItemMember18 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember19"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember19? PatchBookingFieldsInput20260612BookingFieldsItemMember19 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember19 PatchBookingFieldsInput20260612BookingFieldsItemMember19 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember2? PatchBookingFieldsInput20260612BookingFieldsItemMember2 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember2 PatchBookingFieldsInput20260612BookingFieldsItemMember2 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember20"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember20? PatchBookingFieldsInput20260612BookingFieldsItemMember20 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember20 PatchBookingFieldsInput20260612BookingFieldsItemMember20 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember21"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember21? PatchBookingFieldsInput20260612BookingFieldsItemMember21 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember21 PatchBookingFieldsInput20260612BookingFieldsItemMember21 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember22"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember22? PatchBookingFieldsInput20260612BookingFieldsItemMember22 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember22 PatchBookingFieldsInput20260612BookingFieldsItemMember22 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember3"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember3? PatchBookingFieldsInput20260612BookingFieldsItemMember3 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember3 PatchBookingFieldsInput20260612BookingFieldsItemMember3 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember4"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember4? PatchBookingFieldsInput20260612BookingFieldsItemMember4 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember4 PatchBookingFieldsInput20260612BookingFieldsItemMember4 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember5"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember5? PatchBookingFieldsInput20260612BookingFieldsItemMember5 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember5 PatchBookingFieldsInput20260612BookingFieldsItemMember5 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember6"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember6? PatchBookingFieldsInput20260612BookingFieldsItemMember6 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember6 PatchBookingFieldsInput20260612BookingFieldsItemMember6 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember7"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember7? PatchBookingFieldsInput20260612BookingFieldsItemMember7 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember7 PatchBookingFieldsInput20260612BookingFieldsItemMember7 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember8"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember8? PatchBookingFieldsInput20260612BookingFieldsItemMember8 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember8 PatchBookingFieldsInput20260612BookingFieldsItemMember8 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember9"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember9? PatchBookingFieldsInput20260612BookingFieldsItemMember9 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember9 PatchBookingFieldsInput20260612BookingFieldsItemMember9 { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -29,7 +197,30 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItem();
+            var result = new global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItem();
+            result.PatchBookingFieldsInput20260612BookingFieldsItemMember1 = new global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember1();
+            result.PatchBookingFieldsInput20260612BookingFieldsItemMember10 = new global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember10();
+            result.PatchBookingFieldsInput20260612BookingFieldsItemMember11 = new global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember11();
+            result.PatchBookingFieldsInput20260612BookingFieldsItemMember12 = new global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember12();
+            result.PatchBookingFieldsInput20260612BookingFieldsItemMember13 = new global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember13();
+            result.PatchBookingFieldsInput20260612BookingFieldsItemMember14 = new global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember14();
+            result.PatchBookingFieldsInput20260612BookingFieldsItemMember15 = new global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember15();
+            result.PatchBookingFieldsInput20260612BookingFieldsItemMember16 = new global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember16();
+            result.PatchBookingFieldsInput20260612BookingFieldsItemMember17 = new global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember17();
+            result.PatchBookingFieldsInput20260612BookingFieldsItemMember18 = new global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember18();
+            result.PatchBookingFieldsInput20260612BookingFieldsItemMember19 = new global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember19();
+            result.PatchBookingFieldsInput20260612BookingFieldsItemMember2 = new global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember2();
+            result.PatchBookingFieldsInput20260612BookingFieldsItemMember20 = new global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember20();
+            result.PatchBookingFieldsInput20260612BookingFieldsItemMember21 = new global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember21();
+            result.PatchBookingFieldsInput20260612BookingFieldsItemMember22 = new global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember22();
+            result.PatchBookingFieldsInput20260612BookingFieldsItemMember3 = new global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember3();
+            result.PatchBookingFieldsInput20260612BookingFieldsItemMember4 = new global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember4();
+            result.PatchBookingFieldsInput20260612BookingFieldsItemMember5 = new global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember5();
+            result.PatchBookingFieldsInput20260612BookingFieldsItemMember6 = new global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember6();
+            result.PatchBookingFieldsInput20260612BookingFieldsItemMember7 = new global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember7();
+            result.PatchBookingFieldsInput20260612BookingFieldsItemMember8 = new global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember8();
+            result.PatchBookingFieldsInput20260612BookingFieldsItemMember9 = new global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember9();
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,9 +228,11 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(PatchBookingFieldsInput20260612BookingFieldsItemMember1 != null || PatchBookingFieldsInput20260612BookingFieldsItemMember10 != null || PatchBookingFieldsInput20260612BookingFieldsItemMember11 != null || PatchBookingFieldsInput20260612BookingFieldsItemMember12 != null || PatchBookingFieldsInput20260612BookingFieldsItemMember13 != null || PatchBookingFieldsInput20260612BookingFieldsItemMember14 != null || PatchBookingFieldsInput20260612BookingFieldsItemMember15 != null || PatchBookingFieldsInput20260612BookingFieldsItemMember16 != null || PatchBookingFieldsInput20260612BookingFieldsItemMember17 != null || PatchBookingFieldsInput20260612BookingFieldsItemMember18 != null || PatchBookingFieldsInput20260612BookingFieldsItemMember19 != null || PatchBookingFieldsInput20260612BookingFieldsItemMember2 != null || PatchBookingFieldsInput20260612BookingFieldsItemMember20 != null || PatchBookingFieldsInput20260612BookingFieldsItemMember21 != null || PatchBookingFieldsInput20260612BookingFieldsItemMember22 != null || PatchBookingFieldsInput20260612BookingFieldsItemMember3 != null || PatchBookingFieldsInput20260612BookingFieldsItemMember4 != null || PatchBookingFieldsInput20260612BookingFieldsItemMember5 != null || PatchBookingFieldsInput20260612BookingFieldsItemMember6 != null || PatchBookingFieldsInput20260612BookingFieldsItemMember7 != null || PatchBookingFieldsInput20260612BookingFieldsItemMember8 != null || PatchBookingFieldsInput20260612BookingFieldsItemMember9 != null)
             {
-            };
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(PatchBookingFieldsInput20260612BookingFieldsItemMember1, PatchBookingFieldsInput20260612BookingFieldsItemMember10, PatchBookingFieldsInput20260612BookingFieldsItemMember11, PatchBookingFieldsInput20260612BookingFieldsItemMember12, PatchBookingFieldsInput20260612BookingFieldsItemMember13, PatchBookingFieldsInput20260612BookingFieldsItemMember14, PatchBookingFieldsInput20260612BookingFieldsItemMember15, PatchBookingFieldsInput20260612BookingFieldsItemMember16, PatchBookingFieldsInput20260612BookingFieldsItemMember17, PatchBookingFieldsInput20260612BookingFieldsItemMember18, PatchBookingFieldsInput20260612BookingFieldsItemMember19, PatchBookingFieldsInput20260612BookingFieldsItemMember2, PatchBookingFieldsInput20260612BookingFieldsItemMember20, PatchBookingFieldsInput20260612BookingFieldsItemMember21, PatchBookingFieldsInput20260612BookingFieldsItemMember22, PatchBookingFieldsInput20260612BookingFieldsItemMember3, PatchBookingFieldsInput20260612BookingFieldsItemMember4, PatchBookingFieldsInput20260612BookingFieldsItemMember5, PatchBookingFieldsInput20260612BookingFieldsItemMember6, PatchBookingFieldsInput20260612BookingFieldsItemMember7, PatchBookingFieldsInput20260612BookingFieldsItemMember8, PatchBookingFieldsInput20260612BookingFieldsItemMember9);
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -48,7 +241,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteAdditionalData(AdditionalData);
+            writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItemMember1>(null, PatchBookingFieldsInput20260612BookingFieldsItemMember1, PatchBookingFieldsInput20260612BookingFieldsItemMember10, PatchBookingFieldsInput20260612BookingFieldsItemMember11, PatchBookingFieldsInput20260612BookingFieldsItemMember12, PatchBookingFieldsInput20260612BookingFieldsItemMember13, PatchBookingFieldsInput20260612BookingFieldsItemMember14, PatchBookingFieldsInput20260612BookingFieldsItemMember15, PatchBookingFieldsInput20260612BookingFieldsItemMember16, PatchBookingFieldsInput20260612BookingFieldsItemMember17, PatchBookingFieldsInput20260612BookingFieldsItemMember18, PatchBookingFieldsInput20260612BookingFieldsItemMember19, PatchBookingFieldsInput20260612BookingFieldsItemMember2, PatchBookingFieldsInput20260612BookingFieldsItemMember20, PatchBookingFieldsInput20260612BookingFieldsItemMember21, PatchBookingFieldsInput20260612BookingFieldsItemMember22, PatchBookingFieldsInput20260612BookingFieldsItemMember3, PatchBookingFieldsInput20260612BookingFieldsItemMember4, PatchBookingFieldsInput20260612BookingFieldsItemMember5, PatchBookingFieldsInput20260612BookingFieldsItemMember6, PatchBookingFieldsInput20260612BookingFieldsItemMember7, PatchBookingFieldsInput20260612BookingFieldsItemMember8, PatchBookingFieldsInput20260612BookingFieldsItemMember9);
         }
     }
 }

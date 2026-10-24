@@ -8,26 +8,26 @@ using System;
 namespace Soenneker.CalCom.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.CalCom.OpenApiClient.Models.AddGuestsOutput20240813DataBranch3"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.AddGuestsOutput20240813DataBranch6"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.BookingOutput20240813"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.GetRecurringSeatedBookingOutput20240813"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.GetSeatedBookingOutput20240813"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.RecurringBookingOutput20240813"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.CalCom.OpenApiClient.Models.BookingOutput20240813"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.GetRecurringSeatedBookingOutput20240813"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.GetSeatedBookingOutput20240813"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.RecurringBookingOutput20240813"/>, List&lt;global::Soenneker.CalCom.OpenApiClient.Models.GetRecurringSeatedBookingOutput20240813&gt;, List&lt;global::Soenneker.CalCom.OpenApiClient.Models.RecurringBookingOutput20240813&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AddGuestsOutput20240813Data : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.AddGuestsOutput20240813DataBranch3"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.GetRecurringSeatedBookingOutput20240813"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.AddGuestsOutput20240813DataBranch3? AddGuestsOutput20240813DataBranch3 { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.GetRecurringSeatedBookingOutput20240813? AddGuestsOutput20240813DataGetRecurringSeatedBookingOutput20240813 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.AddGuestsOutput20240813DataBranch3 AddGuestsOutput20240813DataBranch3 { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.GetRecurringSeatedBookingOutput20240813 AddGuestsOutput20240813DataGetRecurringSeatedBookingOutput20240813 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.AddGuestsOutput20240813DataBranch6"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.RecurringBookingOutput20240813"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.AddGuestsOutput20240813DataBranch6? AddGuestsOutput20240813DataBranch6 { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.RecurringBookingOutput20240813? AddGuestsOutput20240813DataRecurringBookingOutput20240813 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.AddGuestsOutput20240813DataBranch6 AddGuestsOutput20240813DataBranch6 { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.RecurringBookingOutput20240813 AddGuestsOutput20240813DataRecurringBookingOutput20240813 { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.BookingOutput20240813"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -37,13 +37,13 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 #else
         public global::Soenneker.CalCom.OpenApiClient.Models.BookingOutput20240813 BookingOutput20240813 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.GetRecurringSeatedBookingOutput20240813"/></summary>
+        /// <summary>Composed type representation for type List&lt;global::Soenneker.CalCom.OpenApiClient.Models.GetRecurringSeatedBookingOutput20240813&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.GetRecurringSeatedBookingOutput20240813? GetRecurringSeatedBookingOutput20240813 { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.GetRecurringSeatedBookingOutput20240813>? GetRecurringSeatedBookingOutput20240813 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.GetRecurringSeatedBookingOutput20240813 GetRecurringSeatedBookingOutput20240813 { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.GetRecurringSeatedBookingOutput20240813> GetRecurringSeatedBookingOutput20240813 { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.GetSeatedBookingOutput20240813"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -53,13 +53,13 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 #else
         public global::Soenneker.CalCom.OpenApiClient.Models.GetSeatedBookingOutput20240813 GetSeatedBookingOutput20240813 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.RecurringBookingOutput20240813"/></summary>
+        /// <summary>Composed type representation for type List&lt;global::Soenneker.CalCom.OpenApiClient.Models.RecurringBookingOutput20240813&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.RecurringBookingOutput20240813? RecurringBookingOutput20240813 { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.RecurringBookingOutput20240813>? RecurringBookingOutput20240813 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.RecurringBookingOutput20240813 RecurringBookingOutput20240813 { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.RecurringBookingOutput20240813> RecurringBookingOutput20240813 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -71,29 +71,29 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.CalCom.OpenApiClient.Models.AddGuestsOutput20240813Data();
-            if("AddGuestsOutput20240813DataBranch3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("GetRecurringSeatedBookingOutput20240813".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.AddGuestsOutput20240813DataBranch3 = new global::Soenneker.CalCom.OpenApiClient.Models.AddGuestsOutput20240813DataBranch3();
+                result.AddGuestsOutput20240813DataGetRecurringSeatedBookingOutput20240813 = new global::Soenneker.CalCom.OpenApiClient.Models.GetRecurringSeatedBookingOutput20240813();
             }
-            else if("AddGuestsOutput20240813DataBranch6".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("RecurringBookingOutput20240813".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.AddGuestsOutput20240813DataBranch6 = new global::Soenneker.CalCom.OpenApiClient.Models.AddGuestsOutput20240813DataBranch6();
+                result.AddGuestsOutput20240813DataRecurringBookingOutput20240813 = new global::Soenneker.CalCom.OpenApiClient.Models.RecurringBookingOutput20240813();
             }
             else if("BookingOutput20240813".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.BookingOutput20240813 = new global::Soenneker.CalCom.OpenApiClient.Models.BookingOutput20240813();
             }
-            else if("GetRecurringSeatedBookingOutput20240813".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.GetRecurringSeatedBookingOutput20240813 = new global::Soenneker.CalCom.OpenApiClient.Models.GetRecurringSeatedBookingOutput20240813();
-            }
             else if("GetSeatedBookingOutput20240813".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.GetSeatedBookingOutput20240813 = new global::Soenneker.CalCom.OpenApiClient.Models.GetSeatedBookingOutput20240813();
             }
-            else if("RecurringBookingOutput20240813".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.GetRecurringSeatedBookingOutput20240813>(global::Soenneker.CalCom.OpenApiClient.Models.GetRecurringSeatedBookingOutput20240813.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.CalCom.OpenApiClient.Models.GetRecurringSeatedBookingOutput20240813> getRecurringSeatedBookingOutput20240813Value)
             {
-                result.RecurringBookingOutput20240813 = new global::Soenneker.CalCom.OpenApiClient.Models.RecurringBookingOutput20240813();
+                result.GetRecurringSeatedBookingOutput20240813 = getRecurringSeatedBookingOutput20240813Value;
+            }
+            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.RecurringBookingOutput20240813>(global::Soenneker.CalCom.OpenApiClient.Models.RecurringBookingOutput20240813.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.CalCom.OpenApiClient.Models.RecurringBookingOutput20240813> recurringBookingOutput20240813Value)
+            {
+                result.RecurringBookingOutput20240813 = recurringBookingOutput20240813Value;
             }
             return result;
         }
@@ -103,29 +103,21 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(AddGuestsOutput20240813DataBranch3 != null)
+            if(AddGuestsOutput20240813DataGetRecurringSeatedBookingOutput20240813 != null)
             {
-                return AddGuestsOutput20240813DataBranch3.GetFieldDeserializers();
+                return AddGuestsOutput20240813DataGetRecurringSeatedBookingOutput20240813.GetFieldDeserializers();
             }
-            else if(AddGuestsOutput20240813DataBranch6 != null)
+            else if(AddGuestsOutput20240813DataRecurringBookingOutput20240813 != null)
             {
-                return AddGuestsOutput20240813DataBranch6.GetFieldDeserializers();
+                return AddGuestsOutput20240813DataRecurringBookingOutput20240813.GetFieldDeserializers();
             }
             else if(BookingOutput20240813 != null)
             {
                 return BookingOutput20240813.GetFieldDeserializers();
             }
-            else if(GetRecurringSeatedBookingOutput20240813 != null)
-            {
-                return GetRecurringSeatedBookingOutput20240813.GetFieldDeserializers();
-            }
             else if(GetSeatedBookingOutput20240813 != null)
             {
                 return GetSeatedBookingOutput20240813.GetFieldDeserializers();
-            }
-            else if(RecurringBookingOutput20240813 != null)
-            {
-                return RecurringBookingOutput20240813.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -136,29 +128,29 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(AddGuestsOutput20240813DataBranch3 != null)
+            if(AddGuestsOutput20240813DataGetRecurringSeatedBookingOutput20240813 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.AddGuestsOutput20240813DataBranch3>(null, AddGuestsOutput20240813DataBranch3);
+                writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.GetRecurringSeatedBookingOutput20240813>(null, AddGuestsOutput20240813DataGetRecurringSeatedBookingOutput20240813);
             }
-            else if(AddGuestsOutput20240813DataBranch6 != null)
+            else if(AddGuestsOutput20240813DataRecurringBookingOutput20240813 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.AddGuestsOutput20240813DataBranch6>(null, AddGuestsOutput20240813DataBranch6);
+                writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.RecurringBookingOutput20240813>(null, AddGuestsOutput20240813DataRecurringBookingOutput20240813);
             }
             else if(BookingOutput20240813 != null)
             {
                 writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.BookingOutput20240813>(null, BookingOutput20240813);
             }
-            else if(GetRecurringSeatedBookingOutput20240813 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.GetRecurringSeatedBookingOutput20240813>(null, GetRecurringSeatedBookingOutput20240813);
-            }
             else if(GetSeatedBookingOutput20240813 != null)
             {
                 writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.GetSeatedBookingOutput20240813>(null, GetSeatedBookingOutput20240813);
             }
+            else if(GetRecurringSeatedBookingOutput20240813 != null)
+            {
+                writer.WriteCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.GetRecurringSeatedBookingOutput20240813>(null, GetRecurringSeatedBookingOutput20240813);
+            }
             else if(RecurringBookingOutput20240813 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.RecurringBookingOutput20240813>(null, RecurringBookingOutput20240813);
+                writer.WriteCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.RecurringBookingOutput20240813>(null, RecurringBookingOutput20240813);
             }
         }
     }

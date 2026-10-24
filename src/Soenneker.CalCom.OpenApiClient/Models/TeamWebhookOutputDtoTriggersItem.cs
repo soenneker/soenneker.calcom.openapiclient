@@ -48,6 +48,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         #pragma warning disable CS1591
         BookingLocationUpdated,
         #pragma warning restore CS1591
+        [EnumMember(Value = "BOOKING_TITLE_UPDATED")]
+        #pragma warning disable CS1591
+        BookingTitleUpdated,
+        #pragma warning restore CS1591
         [EnumMember(Value = "BOOKING_REASSIGNED")]
         #pragma warning disable CS1591
         BookingReassigned,

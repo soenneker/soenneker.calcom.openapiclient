@@ -41,10 +41,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The sorting property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.RoutingInsightsPaginatedInput_sorting>? Sorting { get; set; }
+        public UntypedNode? Sorting { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.RoutingInsightsPaginatedInput_sorting> Sorting { get; set; }
+        public UntypedNode Sorting { get; set; }
 #endif
         /// <summary>Inclusive start date for routing insights</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -85,7 +85,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
                 { "offset", n => { Offset = n.GetDoubleValue(); } },
                 { "scope", n => { Scope = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.RoutingInsightsPaginatedInputScope>(); } },
                 { "selectedTeamId", n => { SelectedTeamId = n.GetDoubleValue(); } },
-                { "sorting", n => { Sorting = n.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.RoutingInsightsPaginatedInput_sorting>(global::Soenneker.CalCom.OpenApiClient.Models.RoutingInsightsPaginatedInput_sorting.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "sorting", n => { Sorting = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "startDate", n => { StartDate = n.GetStringValue(); } },
             };
         }
@@ -102,7 +102,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteDoubleValue("offset", Offset);
             writer.WriteEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.RoutingInsightsPaginatedInputScope>("scope", Scope);
             writer.WriteDoubleValue("selectedTeamId", SelectedTeamId);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.RoutingInsightsPaginatedInput_sorting>("sorting", Sorting);
+            writer.WriteObjectValue<UntypedNode>("sorting", Sorting);
             writer.WriteStringValue("startDate", StartDate);
             writer.WriteAdditionalData(AdditionalData);
         }

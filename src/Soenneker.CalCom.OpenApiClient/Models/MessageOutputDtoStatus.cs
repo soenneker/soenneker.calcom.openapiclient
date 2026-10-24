@@ -3,10 +3,14 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.CalCom.OpenApiClient.Models
 {
-    /// <summary>`SENDING` while it goes out, `SENT`, `PARTIALLY_SENT`, `NOT_SENT`, or `NOT_SENT_EVENT_UNSENDABLE` when the Event stopped accepting messages before it went out.</summary>
+    /// <summary>`SCHEDULED` while it waits for its time, `SENDING` while it goes out, `SENT`, `PARTIALLY_SENT`, `NOT_SENT`, `NOT_SENT_EVENT_UNSENDABLE` when the Event stopped accepting messages before it went out, or `CANCELLED` when it was cancelled before its time.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum MessageOutputDtoStatus
     {
+        [EnumMember(Value = "SCHEDULED")]
+        #pragma warning disable CS1591
+        Scheduled,
+        #pragma warning restore CS1591
         [EnumMember(Value = "SENDING")]
         #pragma warning disable CS1591
         Sending,
@@ -26,6 +30,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         [EnumMember(Value = "NOT_SENT_EVENT_UNSENDABLE")]
         #pragma warning disable CS1591
         NotSentEventUnsendable,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "CANCELLED")]
+        #pragma warning disable CS1591
+        Cancelled,
         #pragma warning restore CS1591
     }
 }

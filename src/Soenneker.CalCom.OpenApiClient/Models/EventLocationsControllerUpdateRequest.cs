@@ -53,21 +53,21 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.EventLocationsControllerUpdateRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.CalCom.OpenApiClient.Models.EventLocationsControllerUpdateRequest();
-            if("UpdateEventAddressLocationInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("address".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.UpdateEventAddressLocationInput = new global::Soenneker.CalCom.OpenApiClient.Models.UpdateEventAddressLocationInput();
             }
-            else if("UpdateEventIntegrationLocationInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("integration".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.UpdateEventIntegrationLocationInput = new global::Soenneker.CalCom.OpenApiClient.Models.UpdateEventIntegrationLocationInput();
             }
-            else if("UpdateEventLinkLocationInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("link".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.UpdateEventLinkLocationInput = new global::Soenneker.CalCom.OpenApiClient.Models.UpdateEventLinkLocationInput();
             }
-            else if("UpdateEventOrganizersDefaultAppLocationInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("organizersDefaultApp".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.UpdateEventOrganizersDefaultAppLocationInput = new global::Soenneker.CalCom.OpenApiClient.Models.UpdateEventOrganizersDefaultAppLocationInput();
             }

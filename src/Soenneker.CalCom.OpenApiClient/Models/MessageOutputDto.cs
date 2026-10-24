@@ -32,6 +32,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
+        /// <summary>When a scheduled message goes out, or was meant to. Absent for a message sent at once.</summary>
+        public DateTimeOffset? ScheduledAt { get; set; }
         /// <summary>The segment property</summary>
         public global::Soenneker.CalCom.OpenApiClient.Models.MessageOutputDtoSegment? Segment { get; set; }
         /// <summary>`null` once the sender&apos;s account is deleted.</summary>
@@ -42,7 +44,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 #else
         public global::Soenneker.CalCom.OpenApiClient.Models.MessageOutputDtoSender Sender { get; set; }
 #endif
-        /// <summary>`SENDING` while it goes out, `SENT`, `PARTIALLY_SENT`, `NOT_SENT`, or `NOT_SENT_EVENT_UNSENDABLE` when the Event stopped accepting messages before it went out.</summary>
+        /// <summary>`SCHEDULED` while it waits for its time, `SENDING` while it goes out, `SENT`, `PARTIALLY_SENT`, `NOT_SENT`, `NOT_SENT_EVENT_UNSENDABLE` when the Event stopped accepting messages before it went out, or `CANCELLED` when it was cancelled before its time.</summary>
         public global::Soenneker.CalCom.OpenApiClient.Models.MessageOutputDtoStatus? Status { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.MessageOutputDto"/> and sets the default values.
@@ -72,6 +74,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
                 { "counts", n => { Counts = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.MessageOutputDtoCounts>(global::Soenneker.CalCom.OpenApiClient.Models.MessageOutputDtoCounts.CreateFromDiscriminatorValue); } },
                 { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
+                { "scheduledAt", n => { ScheduledAt = n.GetDateTimeOffsetValue(); } },
                 { "segment", n => { Segment = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.MessageOutputDtoSegment>(); } },
                 { "sender", n => { Sender = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.MessageOutputDtoSender>(global::Soenneker.CalCom.OpenApiClient.Models.MessageOutputDtoSender.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.MessageOutputDtoStatus>(); } },
@@ -87,6 +90,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.MessageOutputDtoCounts>("counts", Counts);
             writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
             writer.WriteStringValue("id", Id);
+            writer.WriteDateTimeOffsetValue("scheduledAt", ScheduledAt);
             writer.WriteEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.MessageOutputDtoSegment>("segment", Segment);
             writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.MessageOutputDtoSender>("sender", Sender);
             writer.WriteEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.MessageOutputDtoStatus>("status", Status);
