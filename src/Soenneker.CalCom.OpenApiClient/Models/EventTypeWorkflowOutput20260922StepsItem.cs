@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.CalCom.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.CalCom.OpenApiClient.Models.DelayWorkflowStepOutputDto"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.EventTypeWorkflowStepOutputDto"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.FilterWorkflowStepOutputDto20260922"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.LeadEnrichmentWorkflowStepOutputDto"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PathsWorkflowStepOutputDto20260922"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.CalCom.OpenApiClient.Models.DelayWorkflowStepOutputDto"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.EventTypeWorkflowStepOutputDto"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.FilterWorkflowStepOutputDto20260922"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.LeadEnrichmentWorkflowStepOutputDto"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.PathsWorkflowStepOutputDto20260922"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.WebhookWorkflowStepOutputDto20260922"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EventTypeWorkflowOutput20260922StepsItem : IComposedTypeWrapper, IParsable
@@ -53,6 +53,14 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 #else
         public global::Soenneker.CalCom.OpenApiClient.Models.PathsWorkflowStepOutputDto20260922 PathsWorkflowStepOutputDto20260922 { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.WebhookWorkflowStepOutputDto20260922"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.CalCom.OpenApiClient.Models.WebhookWorkflowStepOutputDto20260922? WebhookWorkflowStepOutputDto20260922 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.CalCom.OpenApiClient.Models.WebhookWorkflowStepOutputDto20260922 WebhookWorkflowStepOutputDto20260922 { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -83,6 +91,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             {
                 result.PathsWorkflowStepOutputDto20260922 = new global::Soenneker.CalCom.OpenApiClient.Models.PathsWorkflowStepOutputDto20260922();
             }
+            else if("WebhookWorkflowStepOutputDto20260922".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.WebhookWorkflowStepOutputDto20260922 = new global::Soenneker.CalCom.OpenApiClient.Models.WebhookWorkflowStepOutputDto20260922();
+            }
             return result;
         }
         /// <summary>
@@ -110,6 +122,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             else if(PathsWorkflowStepOutputDto20260922 != null)
             {
                 return PathsWorkflowStepOutputDto20260922.GetFieldDeserializers();
+            }
+            else if(WebhookWorkflowStepOutputDto20260922 != null)
+            {
+                return WebhookWorkflowStepOutputDto20260922.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -139,6 +155,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             else if(PathsWorkflowStepOutputDto20260922 != null)
             {
                 writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.PathsWorkflowStepOutputDto20260922>(null, PathsWorkflowStepOutputDto20260922);
+            }
+            else if(WebhookWorkflowStepOutputDto20260922 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.WebhookWorkflowStepOutputDto20260922>(null, WebhookWorkflowStepOutputDto20260922);
             }
         }
     }

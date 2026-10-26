@@ -40372,6 +40372,45 @@
           }
         }
       },
+      "WebhookWorkflowStepOutputDto20260922": {
+        "required": [
+          "id",
+          "stepNumber",
+          "action",
+          "url",
+          "hasSecret"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "Workflow step id",
+            "example": 123
+          },
+          "stepNumber": {
+            "type": "number",
+            "description": "Step number in the workflow sequence",
+            "example": 1
+          },
+          "action": {
+            "$ref": "#/components/schemas/WebhookAction"
+          },
+          "url": {
+            "type": "string",
+            "description": "The HTTP or HTTPS URL that receives signed booking payloads."
+          },
+          "hasSecret": {
+            "type": "boolean",
+            "description": "Whether a signing secret is saved. The secret itself is never returned."
+          },
+          "pathId": {
+            "type": "string",
+            "description": "Id of the conditional path this step belongs to, so it only runs when that path\u0027s conditions match.",
+            "format": "uuid",
+            "example": "3f4c11a2-9b7e-4d15-8f0a-2f7de41b6c01"
+          }
+        }
+      },
       "EventTypeWorkflowActivationOutputDto": {
         "type": "object",
         "properties": {
@@ -41370,6 +41409,44 @@
           }
         }
       },
+      "WorkflowWebhookStepDto20260922": {
+        "required": [
+          "action",
+          "stepNumber",
+          "url"
+        ],
+        "type": "object",
+        "properties": {
+          "action": {
+            "$ref": "#/components/schemas/WebhookAction"
+          },
+          "stepNumber": {
+            "type": "number",
+            "description": "Step number in the workflow sequence",
+            "example": 1
+          },
+          "url": {
+            "maxLength": 2048,
+            "type": "string",
+            "description": "The HTTP or HTTPS URL that receives signed booking payloads.",
+            "format": "uri",
+            "example": "https://example.com/webhook"
+          },
+          "secret": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string",
+            "description": "HMAC key for X-Cal-Signature-256. This secret is write-only and is never returned.",
+            "writeOnly": true
+          },
+          "pathId": {
+            "type": "string",
+            "description": "Id of the conditional path this step belongs to, so it only runs when that path\u0027s conditions match. It must name a path defined in this request or already persisted on an echoed gate. Omit it for a step that always runs.",
+            "format": "uuid",
+            "example": "3f4c11a2-9b7e-4d15-8f0a-2f7de41b6c01"
+          }
+        }
+      },
       "EventTypeWorkflowTriggerDto": {
         "required": [
           "type"
@@ -41979,6 +42056,49 @@
             "type": "number",
             "description": "Unique identifier of the step you want to update, if adding a new step do not provide this id",
             "example": 67244
+          }
+        }
+      },
+      "UpdateWebhookWorkflowStepDto20260922": {
+        "required": [
+          "action",
+          "stepNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "action": {
+            "$ref": "#/components/schemas/WebhookAction"
+          },
+          "stepNumber": {
+            "type": "number",
+            "description": "Step number in the workflow sequence",
+            "example": 1
+          },
+          "id": {
+            "type": "number",
+            "description": "Workflow step id. Omit it when creating a new webhook step.",
+            "example": 123
+          },
+          "url": {
+            "maxLength": 2048,
+            "type": "string",
+            "description": "The HTTP or HTTPS URL that receives signed booking payloads. Omission keeps the saved URL.",
+            "format": "uri",
+            "example": "https://example.com/webhook"
+          },
+          "secret": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string",
+            "description": "HMAC key for X-Cal-Signature-256. Omission keeps the saved secret, null removes it, and a string replaces it. This secret is write-only and is never returned.",
+            "nullable": true,
+            "writeOnly": true
+          },
+          "pathId": {
+            "type": "string",
+            "description": "Id of the conditional path this step belongs to, so it only runs when that path\u0027s conditions match. It must name a path defined in this request or already persisted on an echoed gate. Omit it for a step that always runs.",
+            "format": "uuid",
+            "example": "3f4c11a2-9b7e-4d15-8f0a-2f7de41b6c01"
           }
         }
       },
@@ -60990,6 +61110,9 @@
           },
           {
             "$ref": "#/components/schemas/LeadEnrichmentWorkflowStepOutputDto"
+          },
+          {
+            "$ref": "#/components/schemas/WebhookWorkflowStepOutputDto20260922"
           }
         ]
       },
@@ -61321,6 +61444,9 @@
           },
           {
             "$ref": "#/components/schemas/WorkflowPhoneAttendeeStepDto20260922"
+          },
+          {
+            "$ref": "#/components/schemas/WorkflowWebhookStepDto20260922"
           }
         ]
       },
@@ -61582,6 +61708,9 @@
           },
           {
             "$ref": "#/components/schemas/UpdateLeadEnrichmentWorkflowStepDto20260922"
+          },
+          {
+            "$ref": "#/components/schemas/UpdateWebhookWorkflowStepDto20260922"
           }
         ]
       },
@@ -79035,6 +79164,24 @@
           ]
         }
       },
+      "WebhookAction": {
+        "enum": [
+          "webhook"
+        ],
+        "type": "string",
+        "description": "Action to perform",
+        "example": "webhook",
+        "x-ms-enum": {
+          "name": "WebhookAction",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "webhook",
+              "name": "Webhook"
+            }
+          ]
+        }
+      },
       "EventTypeWorkflowTriggerOutputDtoType": {
         "enum": [
           "beforeEvent",
@@ -85321,7 +85468,10 @@
           "organization.customDomain.delete",
           "tag.create",
           "tag.update",
-          "tag.delete"
+          "tag.delete",
+          "savedView.create",
+          "savedView.update",
+          "savedView.delete"
         ],
         "type": "string",
         "x-ms-enum": {
@@ -85727,6 +85877,18 @@
             {
               "value": "tag.delete",
               "name": "TagDelete"
+            },
+            {
+              "value": "savedView.create",
+              "name": "SavedViewCreate"
+            },
+            {
+              "value": "savedView.update",
+              "name": "SavedViewUpdate"
+            },
+            {
+              "value": "savedView.delete",
+              "name": "SavedViewDelete"
             }
           ]
         }
@@ -85854,7 +86016,10 @@
           "organization.customDomain.delete",
           "tag.create",
           "tag.update",
-          "tag.delete"
+          "tag.delete",
+          "savedView.create",
+          "savedView.update",
+          "savedView.delete"
         ],
         "type": "string",
         "x-ms-enum": {
@@ -86260,6 +86425,18 @@
             {
               "value": "tag.delete",
               "name": "TagDelete"
+            },
+            {
+              "value": "savedView.create",
+              "name": "SavedViewCreate"
+            },
+            {
+              "value": "savedView.update",
+              "name": "SavedViewUpdate"
+            },
+            {
+              "value": "savedView.delete",
+              "name": "SavedViewDelete"
             }
           ]
         }
@@ -86431,7 +86608,10 @@
           "organization.customDomain.delete",
           "tag.create",
           "tag.update",
-          "tag.delete"
+          "tag.delete",
+          "savedView.create",
+          "savedView.update",
+          "savedView.delete"
         ],
         "type": "string",
         "x-ms-enum": {
@@ -86837,6 +87017,18 @@
             {
               "value": "tag.delete",
               "name": "TagDelete"
+            },
+            {
+              "value": "savedView.create",
+              "name": "SavedViewCreate"
+            },
+            {
+              "value": "savedView.update",
+              "name": "SavedViewUpdate"
+            },
+            {
+              "value": "savedView.delete",
+              "name": "SavedViewDelete"
             }
           ]
         }
@@ -86986,7 +87178,10 @@
           "organization.customDomain.delete",
           "tag.create",
           "tag.update",
-          "tag.delete"
+          "tag.delete",
+          "savedView.create",
+          "savedView.update",
+          "savedView.delete"
         ],
         "type": "string",
         "x-ms-enum": {
@@ -87392,6 +87587,18 @@
             {
               "value": "tag.delete",
               "name": "TagDelete"
+            },
+            {
+              "value": "savedView.create",
+              "name": "SavedViewCreate"
+            },
+            {
+              "value": "savedView.update",
+              "name": "SavedViewUpdate"
+            },
+            {
+              "value": "savedView.delete",
+              "name": "SavedViewDelete"
             }
           ]
         }
@@ -87454,7 +87661,10 @@
           "featureOptIn.update",
           "tag.create",
           "tag.update",
-          "tag.delete"
+          "tag.delete",
+          "savedView.create",
+          "savedView.update",
+          "savedView.delete"
         ],
         "type": "string",
         "x-ms-enum": {
@@ -87688,6 +87898,18 @@
             {
               "value": "tag.delete",
               "name": "TagDelete"
+            },
+            {
+              "value": "savedView.create",
+              "name": "SavedViewCreate"
+            },
+            {
+              "value": "savedView.update",
+              "name": "SavedViewUpdate"
+            },
+            {
+              "value": "savedView.delete",
+              "name": "SavedViewDelete"
             }
           ]
         }
@@ -87772,7 +87994,10 @@
           "featureOptIn.update",
           "tag.create",
           "tag.update",
-          "tag.delete"
+          "tag.delete",
+          "savedView.create",
+          "savedView.update",
+          "savedView.delete"
         ],
         "type": "string",
         "x-ms-enum": {
@@ -88006,6 +88231,18 @@
             {
               "value": "tag.delete",
               "name": "TagDelete"
+            },
+            {
+              "value": "savedView.create",
+              "name": "SavedViewCreate"
+            },
+            {
+              "value": "savedView.update",
+              "name": "SavedViewUpdate"
+            },
+            {
+              "value": "savedView.delete",
+              "name": "SavedViewDelete"
             }
           ]
         }
@@ -88134,7 +88371,10 @@
           "featureOptIn.update",
           "tag.create",
           "tag.update",
-          "tag.delete"
+          "tag.delete",
+          "savedView.create",
+          "savedView.update",
+          "savedView.delete"
         ],
         "type": "string",
         "x-ms-enum": {
@@ -88368,6 +88608,18 @@
             {
               "value": "tag.delete",
               "name": "TagDelete"
+            },
+            {
+              "value": "savedView.create",
+              "name": "SavedViewCreate"
+            },
+            {
+              "value": "savedView.update",
+              "name": "SavedViewUpdate"
+            },
+            {
+              "value": "savedView.delete",
+              "name": "SavedViewDelete"
             }
           ]
         }
@@ -88474,7 +88726,10 @@
           "featureOptIn.update",
           "tag.create",
           "tag.update",
-          "tag.delete"
+          "tag.delete",
+          "savedView.create",
+          "savedView.update",
+          "savedView.delete"
         ],
         "type": "string",
         "x-ms-enum": {
@@ -88708,6 +88963,18 @@
             {
               "value": "tag.delete",
               "name": "TagDelete"
+            },
+            {
+              "value": "savedView.create",
+              "name": "SavedViewCreate"
+            },
+            {
+              "value": "savedView.update",
+              "name": "SavedViewUpdate"
+            },
+            {
+              "value": "savedView.delete",
+              "name": "SavedViewDelete"
             }
           ]
         }
@@ -99802,7 +100069,10 @@
           "organization.customDomain.delete",
           "tag.create",
           "tag.update",
-          "tag.delete"
+          "tag.delete",
+          "savedView.create",
+          "savedView.update",
+          "savedView.delete"
         ],
         "type": "string",
         "x-ms-enum": {
@@ -100208,6 +100478,18 @@
             {
               "value": "tag.delete",
               "name": "TagDelete"
+            },
+            {
+              "value": "savedView.create",
+              "name": "SavedViewCreate"
+            },
+            {
+              "value": "savedView.update",
+              "name": "SavedViewUpdate"
+            },
+            {
+              "value": "savedView.delete",
+              "name": "SavedViewDelete"
             }
           ]
         }
@@ -100699,7 +100981,10 @@
           "featureOptIn.update",
           "tag.create",
           "tag.update",
-          "tag.delete"
+          "tag.delete",
+          "savedView.create",
+          "savedView.update",
+          "savedView.delete"
         ],
         "type": "string",
         "x-ms-enum": {
@@ -100933,6 +101218,18 @@
             {
               "value": "tag.delete",
               "name": "TagDelete"
+            },
+            {
+              "value": "savedView.create",
+              "name": "SavedViewCreate"
+            },
+            {
+              "value": "savedView.update",
+              "name": "SavedViewUpdate"
+            },
+            {
+              "value": "savedView.delete",
+              "name": "SavedViewDelete"
             }
           ]
         }

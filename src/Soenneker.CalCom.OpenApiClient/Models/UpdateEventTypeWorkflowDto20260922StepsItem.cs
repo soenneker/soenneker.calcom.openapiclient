@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.CalCom.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UpdateDelayWorkflowStepDto20260922"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UpdateEmailAddressWorkflowStepDto20260922"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UpdateEmailAttendeeWorkflowStepDto20260922"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UpdateEmailHostWorkflowStepDto20260922"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UpdateFilterWorkflowStepDto20260922"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UpdateLeadEnrichmentWorkflowStepDto20260922"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UpdatePathsWorkflowStepDto20260922"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UpdatePhoneAttendeeWorkflowStepDto20260922"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UpdatePhoneNumberWorkflowStepDto20260922"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UpdatePhoneWhatsAppNumberWorkflowStepDto20260922"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UpdateWhatsAppAttendeePhoneWorkflowStepDto20260922"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UpdateDelayWorkflowStepDto20260922"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UpdateEmailAddressWorkflowStepDto20260922"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UpdateEmailAttendeeWorkflowStepDto20260922"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UpdateEmailHostWorkflowStepDto20260922"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UpdateFilterWorkflowStepDto20260922"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UpdateLeadEnrichmentWorkflowStepDto20260922"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UpdatePathsWorkflowStepDto20260922"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UpdatePhoneAttendeeWorkflowStepDto20260922"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UpdatePhoneNumberWorkflowStepDto20260922"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UpdatePhoneWhatsAppNumberWorkflowStepDto20260922"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UpdateWebhookWorkflowStepDto20260922"/>, <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UpdateWhatsAppAttendeePhoneWorkflowStepDto20260922"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UpdateEventTypeWorkflowDto20260922StepsItem : IComposedTypeWrapper, IParsable
@@ -93,6 +93,14 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 #else
         public global::Soenneker.CalCom.OpenApiClient.Models.UpdatePhoneWhatsAppNumberWorkflowStepDto20260922 UpdatePhoneWhatsAppNumberWorkflowStepDto20260922 { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UpdateWebhookWorkflowStepDto20260922"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.CalCom.OpenApiClient.Models.UpdateWebhookWorkflowStepDto20260922? UpdateWebhookWorkflowStepDto20260922 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.CalCom.OpenApiClient.Models.UpdateWebhookWorkflowStepDto20260922 UpdateWebhookWorkflowStepDto20260922 { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UpdateWhatsAppAttendeePhoneWorkflowStepDto20260922"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -151,6 +159,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             {
                 result.UpdatePhoneWhatsAppNumberWorkflowStepDto20260922 = new global::Soenneker.CalCom.OpenApiClient.Models.UpdatePhoneWhatsAppNumberWorkflowStepDto20260922();
             }
+            else if("UpdateWebhookWorkflowStepDto20260922".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.UpdateWebhookWorkflowStepDto20260922 = new global::Soenneker.CalCom.OpenApiClient.Models.UpdateWebhookWorkflowStepDto20260922();
+            }
             else if("UpdateWhatsAppAttendeePhoneWorkflowStepDto20260922".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.UpdateWhatsAppAttendeePhoneWorkflowStepDto20260922 = new global::Soenneker.CalCom.OpenApiClient.Models.UpdateWhatsAppAttendeePhoneWorkflowStepDto20260922();
@@ -202,6 +214,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             else if(UpdatePhoneWhatsAppNumberWorkflowStepDto20260922 != null)
             {
                 return UpdatePhoneWhatsAppNumberWorkflowStepDto20260922.GetFieldDeserializers();
+            }
+            else if(UpdateWebhookWorkflowStepDto20260922 != null)
+            {
+                return UpdateWebhookWorkflowStepDto20260922.GetFieldDeserializers();
             }
             else if(UpdateWhatsAppAttendeePhoneWorkflowStepDto20260922 != null)
             {
@@ -255,6 +271,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             else if(UpdatePhoneWhatsAppNumberWorkflowStepDto20260922 != null)
             {
                 writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.UpdatePhoneWhatsAppNumberWorkflowStepDto20260922>(null, UpdatePhoneWhatsAppNumberWorkflowStepDto20260922);
+            }
+            else if(UpdateWebhookWorkflowStepDto20260922 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.UpdateWebhookWorkflowStepDto20260922>(null, UpdateWebhookWorkflowStepDto20260922);
             }
             else if(UpdateWhatsAppAttendeePhoneWorkflowStepDto20260922 != null)
             {

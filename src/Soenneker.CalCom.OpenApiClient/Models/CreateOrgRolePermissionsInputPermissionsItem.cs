@@ -408,5 +408,17 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         #pragma warning disable CS1591
         TagDelete,
         #pragma warning restore CS1591
+        [EnumMember(Value = "savedView.create")]
+        #pragma warning disable CS1591
+        SavedViewCreate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "savedView.update")]
+        #pragma warning disable CS1591
+        SavedViewUpdate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "savedView.delete")]
+        #pragma warning disable CS1591
+        SavedViewDelete,
+        #pragma warning restore CS1591
     }
 }

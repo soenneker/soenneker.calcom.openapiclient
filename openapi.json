@@ -3709,7 +3709,10 @@
                   "organization.customDomain.delete",
                   "tag.create",
                   "tag.update",
-                  "tag.delete"
+                  "tag.delete",
+                  "savedView.create",
+                  "savedView.update",
+                  "savedView.delete"
                 ]
               }
             }
@@ -7846,7 +7849,10 @@
                   "featureOptIn.update",
                   "tag.create",
                   "tag.update",
-                  "tag.delete"
+                  "tag.delete",
+                  "savedView.create",
+                  "savedView.update",
+                  "savedView.delete"
                 ]
               }
             }
@@ -42374,6 +42380,42 @@
         },
         "required": ["id", "stepNumber", "action", "gatedPathId", "conditions", "matches"]
       },
+      "WebhookWorkflowStepOutputDto_2026_09_22": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "Workflow step id",
+            "example": 123
+          },
+          "stepNumber": {
+            "type": "number",
+            "description": "Step number in the workflow sequence",
+            "example": 1
+          },
+          "action": {
+            "type": "string",
+            "enum": ["webhook"],
+            "description": "Action to perform",
+            "example": "webhook"
+          },
+          "url": {
+            "type": "string",
+            "description": "The HTTP or HTTPS URL that receives signed booking payloads."
+          },
+          "hasSecret": {
+            "type": "boolean",
+            "description": "Whether a signing secret is saved. The secret itself is never returned."
+          },
+          "pathId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Id of the conditional path this step belongs to, so it only runs when that path's conditions match.",
+            "example": "3f4c11a2-9b7e-4d15-8f0a-2f7de41b6c01"
+          }
+        },
+        "required": ["id", "stepNumber", "action", "url", "hasSecret"]
+      },
       "EventTypeWorkflowActivationOutputDto": {
         "type": "object",
         "properties": {
@@ -42507,6 +42549,10 @@
                 {
                   "title": "Lead enrichment step",
                   "$ref": "#/components/schemas/LeadEnrichmentWorkflowStepOutputDto"
+                },
+                {
+                  "title": "Webhook step",
+                  "$ref": "#/components/schemas/WebhookWorkflowStepOutputDto_2026_09_22"
                 }
               ]
             }
@@ -43919,6 +43965,43 @@
         },
         "required": ["action", "stepNumber", "recipient", "template", "sender", "message"]
       },
+      "WorkflowWebhookStepDto_2026_09_22": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": ["webhook"],
+            "description": "Action to perform",
+            "example": "webhook"
+          },
+          "stepNumber": {
+            "type": "number",
+            "description": "Step number in the workflow sequence",
+            "example": 1
+          },
+          "url": {
+            "type": "string",
+            "maxLength": 2048,
+            "format": "uri",
+            "description": "The HTTP or HTTPS URL that receives signed booking payloads.",
+            "example": "https://example.com/webhook"
+          },
+          "secret": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255,
+            "description": "HMAC key for X-Cal-Signature-256. This secret is write-only and is never returned.",
+            "writeOnly": true
+          },
+          "pathId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Id of the conditional path this step belongs to, so it only runs when that path's conditions match. It must name a path defined in this request or already persisted on an echoed gate. Omit it for a step that always runs.",
+            "example": "3f4c11a2-9b7e-4d15-8f0a-2f7de41b6c01"
+          }
+        },
+        "required": ["action", "stepNumber", "url"]
+      },
       "EventTypeWorkflowTriggerDto": {
         "type": "object",
         "properties": {
@@ -44075,6 +44158,10 @@
                 {
                   "title": "SMS Attendee",
                   "$ref": "#/components/schemas/WorkflowPhoneAttendeeStepDto_2026_09_22"
+                },
+                {
+                  "title": "Webhook",
+                  "$ref": "#/components/schemas/WorkflowWebhookStepDto_2026_09_22"
                 }
               ]
             }
@@ -45108,6 +45195,49 @@
         },
         "required": ["action", "stepNumber", "recipient", "template", "sender", "verifiedPhoneId", "message"]
       },
+      "UpdateWebhookWorkflowStepDto_2026_09_22": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": ["webhook"],
+            "description": "Action to perform",
+            "example": "webhook"
+          },
+          "stepNumber": {
+            "type": "number",
+            "description": "Step number in the workflow sequence",
+            "example": 1
+          },
+          "id": {
+            "type": "number",
+            "description": "Workflow step id. Omit it when creating a new webhook step.",
+            "example": 123
+          },
+          "url": {
+            "type": "string",
+            "maxLength": 2048,
+            "format": "uri",
+            "description": "The HTTP or HTTPS URL that receives signed booking payloads. Omission keeps the saved URL.",
+            "example": "https://example.com/webhook"
+          },
+          "secret": {
+            "type": "string",
+            "nullable": true,
+            "minLength": 1,
+            "maxLength": 255,
+            "description": "HMAC key for X-Cal-Signature-256. Omission keeps the saved secret, null removes it, and a string replaces it. This secret is write-only and is never returned.",
+            "writeOnly": true
+          },
+          "pathId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Id of the conditional path this step belongs to, so it only runs when that path's conditions match. It must name a path defined in this request or already persisted on an echoed gate. Omit it for a step that always runs.",
+            "example": "3f4c11a2-9b7e-4d15-8f0a-2f7de41b6c01"
+          }
+        },
+        "required": ["action", "stepNumber"]
+      },
       "UpdateEventTypeWorkflowDto_2026_09_22": {
         "type": "object",
         "properties": {
@@ -45226,6 +45356,10 @@
                 {
                   "title": "Lead enrichment (existing step)",
                   "$ref": "#/components/schemas/UpdateLeadEnrichmentWorkflowStepDto_2026_09_22"
+                },
+                {
+                  "title": "Webhook",
+                  "$ref": "#/components/schemas/UpdateWebhookWorkflowStepDto_2026_09_22"
                 }
               ]
             }
@@ -46707,7 +46841,10 @@
                 "organization.customDomain.delete",
                 "tag.create",
                 "tag.update",
-                "tag.delete"
+                "tag.delete",
+                "savedView.create",
+                "savedView.update",
+                "savedView.delete"
               ]
             },
             "description": "Permissions for this role (format: resource.action). On update, this field replaces the entire permission set for the role (full replace). Use granular permission endpoints for one-by-one changes.",
@@ -46858,7 +46995,10 @@
                 "organization.customDomain.delete",
                 "tag.create",
                 "tag.update",
-                "tag.delete"
+                "tag.delete",
+                "savedView.create",
+                "savedView.update",
+                "savedView.delete"
               ]
             }
           },
@@ -47033,7 +47173,10 @@
                 "organization.customDomain.delete",
                 "tag.create",
                 "tag.update",
-                "tag.delete"
+                "tag.delete",
+                "savedView.create",
+                "savedView.update",
+                "savedView.delete"
               ]
             },
             "description": "Permissions for this role (format: resource.action). On update, this field replaces the entire permission set for the role (full replace). Use granular permission endpoints for one-by-one changes.",
@@ -47181,7 +47324,10 @@
                 "organization.customDomain.delete",
                 "tag.create",
                 "tag.update",
-                "tag.delete"
+                "tag.delete",
+                "savedView.create",
+                "savedView.update",
+                "savedView.delete"
               ]
             },
             "description": "Permissions to add (format: resource.action)",
@@ -47279,7 +47425,10 @@
                 "featureOptIn.update",
                 "tag.create",
                 "tag.update",
-                "tag.delete"
+                "tag.delete",
+                "savedView.create",
+                "savedView.update",
+                "savedView.delete"
               ]
             },
             "description": "Permissions for this role (format: resource.action). On update, this field replaces the entire permission set for the role (full replace). Use granular permission endpoints for one-by-one changes.",
@@ -47387,7 +47536,10 @@
                 "featureOptIn.update",
                 "tag.create",
                 "tag.update",
-                "tag.delete"
+                "tag.delete",
+                "savedView.create",
+                "savedView.update",
+                "savedView.delete"
               ]
             }
           },
@@ -47519,7 +47671,10 @@
                 "featureOptIn.update",
                 "tag.create",
                 "tag.update",
-                "tag.delete"
+                "tag.delete",
+                "savedView.create",
+                "savedView.update",
+                "savedView.delete"
               ]
             },
             "description": "Permissions for this role (format: resource.action). On update, this field replaces the entire permission set for the role (full replace). Use granular permission endpoints for one-by-one changes.",
@@ -47624,7 +47779,10 @@
                 "featureOptIn.update",
                 "tag.create",
                 "tag.update",
-                "tag.delete"
+                "tag.delete",
+                "savedView.create",
+                "savedView.update",
+                "savedView.delete"
               ]
             },
             "description": "Permissions to add (format: resource.action)",
