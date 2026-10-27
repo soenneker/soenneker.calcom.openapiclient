@@ -37,15 +37,13 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.CreateTeamEventTypeOutput20260612Data CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.CalCom.OpenApiClient.Models.CreateTeamEventTypeOutput20260612Data();
-            if("TeamEventTypeOutput20260612".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.CreateTeamEventTypeOutput20260612DataTeamEventTypeOutput20260612 = new global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612();
-            }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612>(global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612> teamEventTypeOutput20260612Value)
+            if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612>(global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612> teamEventTypeOutput20260612Value)
             {
                 result.TeamEventTypeOutput20260612 = teamEventTypeOutput20260612Value;
+            }
+            else {
+                result.CreateTeamEventTypeOutput20260612DataTeamEventTypeOutput20260612 = new global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612();
             }
             return result;
         }
@@ -57,7 +55,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         {
             if(CreateTeamEventTypeOutput20260612DataTeamEventTypeOutput20260612 != null)
             {
-                return CreateTeamEventTypeOutput20260612DataTeamEventTypeOutput20260612.GetFieldDeserializers();
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(CreateTeamEventTypeOutput20260612DataTeamEventTypeOutput20260612);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -68,13 +66,12 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(CreateTeamEventTypeOutput20260612DataTeamEventTypeOutput20260612 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612>(null, CreateTeamEventTypeOutput20260612DataTeamEventTypeOutput20260612);
-            }
-            else if(TeamEventTypeOutput20260612 != null)
+            if(TeamEventTypeOutput20260612 != null)
             {
                 writer.WriteCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612>(null, TeamEventTypeOutput20260612);
+            }
+            else {
+                writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612>(null, CreateTeamEventTypeOutput20260612DataTeamEventTypeOutput20260612);
             }
         }
     }

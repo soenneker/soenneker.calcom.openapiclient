@@ -62,6 +62,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 #endif
         /// <summary>Flag indicating if the booking is an instant booking. Only available for team events.</summary>
         public bool? Instant { get; set; }
+        /// <summary>How many seconds hosts have to accept the instant meeting. It can only shorten the event type&apos;s instant meeting expiry setting, which defaults to 90 seconds: a longer value is capped to that setting, and leaving it out uses the setting. The applied value is returned as instantMeetingExpiresInSeconds.</summary>
+        public double? InstantMeetingExpiresInSeconds { get; set; }
         /// <summary>The booker&apos;s answer to the lead enrichment opt-out, for an event type with a workflow that looks bookers up with lead enrichment. Send `true` when the booker ticked the opt-out and `false` when they were shown it and left it unticked. Sending `false` asserts that the booker saw the opt-out. Leave it out when the booker was not shown it: a booking without an answer is never looked up.</summary>
         public bool? LeadEnrichmentOptOut { get; set; }
         /// <summary>If it is an event type that has multiple possible lengths that attendee can pick from, you can pass the desired booking length here.    If not provided then event type default length will be used for the booking.</summary>
@@ -109,7 +111,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 #endif
         /// <summary>When true, booking limit checks (event type, team, and per-host count and duration limits) are bypassed for an authenticated user who has access through the existing event owner, host, assigned user, team admin or organization admin checks. Team- and organization-scoped keys are restricted to events in their stored team or organization. Otherwise this parameter is silently ignored. Only supported on the 2026-02-25 and 2026-05-01 API versions.</summary>
         public bool? SkipBookingLimits { get; set; }
-        /// <summary>The start time of the booking in ISO 8601 format in UTC timezone.</summary>
+        /// <summary>The start time of the instant meeting in ISO 8601 format in UTC timezone. Defaults to the time the request is received.</summary>
         public DateTimeOffset? Start { get; set; }
         /// <summary>Team slug for team that owns event type for which slots are fetched. Required along with eventTypeSlug and optionally organizationSlug if the team is part of organization</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -161,6 +163,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
                 { "eventTypeSlug", n => { EventTypeSlug = n.GetStringValue(); } },
                 { "guests", n => { Guests = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "instant", n => { Instant = n.GetBoolValue(); } },
+                { "instantMeetingExpiresInSeconds", n => { InstantMeetingExpiresInSeconds = n.GetDoubleValue(); } },
                 { "leadEnrichmentOptOut", n => { LeadEnrichmentOptOut = n.GetBoolValue(); } },
                 { "lengthInMinutes", n => { LengthInMinutes = n.GetDoubleValue(); } },
                 { "location", n => { Location = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.CreateInstantBookingInput20240813Location>(global::Soenneker.CalCom.OpenApiClient.Models.CreateInstantBookingInput20240813Location.CreateFromDiscriminatorValue); } },
@@ -190,6 +193,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteStringValue("eventTypeSlug", EventTypeSlug);
             writer.WriteCollectionOfPrimitiveValues<string>("guests", Guests);
             writer.WriteBoolValue("instant", Instant);
+            writer.WriteDoubleValue("instantMeetingExpiresInSeconds", InstantMeetingExpiresInSeconds);
             writer.WriteBoolValue("leadEnrichmentOptOut", LeadEnrichmentOptOut);
             writer.WriteDoubleValue("lengthInMinutes", LengthInMinutes);
             writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.CreateInstantBookingInput20240813Location>("location", Location);

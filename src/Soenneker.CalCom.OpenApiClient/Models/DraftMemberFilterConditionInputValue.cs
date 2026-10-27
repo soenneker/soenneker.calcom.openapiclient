@@ -49,7 +49,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             {
                 result.String = stringValue;
             }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.DraftMemberFilterConditionInputValueMember1>(global::Soenneker.CalCom.OpenApiClient.Models.DraftMemberFilterConditionInputValueMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.CalCom.OpenApiClient.Models.DraftMemberFilterConditionInputValueMember1> draftMemberFilterConditionInputValueMember1Value)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.DraftMemberFilterConditionInputValueMember1>(global::Soenneker.CalCom.OpenApiClient.Models.DraftMemberFilterConditionInputValueMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.CalCom.OpenApiClient.Models.DraftMemberFilterConditionInputValueMember1> draftMemberFilterConditionInputValueMember1Value)
             {
                 result.DraftMemberFilterConditionInputValueMember1 = draftMemberFilterConditionInputValueMember1Value;
             }

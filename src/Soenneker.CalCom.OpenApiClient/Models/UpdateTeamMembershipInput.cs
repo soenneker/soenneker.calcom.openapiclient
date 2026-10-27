@@ -12,7 +12,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     public partial class UpdateTeamMembershipInput : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The accepted property</summary>
+        /// <summary>Setting `true` on a pending membership is only allowed when the team is an organization sub-team and the user is already an accepted member of the organization, or when the user is a managed user of the team&apos;s OAuth client; otherwise the request returns 403.</summary>
         public bool? Accepted { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }

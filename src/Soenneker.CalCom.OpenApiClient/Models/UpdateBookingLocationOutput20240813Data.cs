@@ -87,11 +87,11 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             {
                 result.UpdateBookingLocationOutput20240813DataRecurringBookingOutput20240813 = new global::Soenneker.CalCom.OpenApiClient.Models.RecurringBookingOutput20240813();
             }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.GetRecurringSeatedBookingOutput20240813>(global::Soenneker.CalCom.OpenApiClient.Models.GetRecurringSeatedBookingOutput20240813.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.CalCom.OpenApiClient.Models.GetRecurringSeatedBookingOutput20240813> getRecurringSeatedBookingOutput20240813Value)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.GetRecurringSeatedBookingOutput20240813>(global::Soenneker.CalCom.OpenApiClient.Models.GetRecurringSeatedBookingOutput20240813.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.CalCom.OpenApiClient.Models.GetRecurringSeatedBookingOutput20240813> getRecurringSeatedBookingOutput20240813Value)
             {
                 result.GetRecurringSeatedBookingOutput20240813 = getRecurringSeatedBookingOutput20240813Value;
             }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.RecurringBookingOutput20240813>(global::Soenneker.CalCom.OpenApiClient.Models.RecurringBookingOutput20240813.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.CalCom.OpenApiClient.Models.RecurringBookingOutput20240813> recurringBookingOutput20240813Value)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.RecurringBookingOutput20240813>(global::Soenneker.CalCom.OpenApiClient.Models.RecurringBookingOutput20240813.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.CalCom.OpenApiClient.Models.RecurringBookingOutput20240813> recurringBookingOutput20240813Value)
             {
                 result.RecurringBookingOutput20240813 = recurringBookingOutput20240813Value;
             }

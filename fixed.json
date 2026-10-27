@@ -11836,7 +11836,7 @@
           "Bookings"
         ],
         "summary": "Create a booking",
-        "description": "\n      POST /v2/bookings is used to create regular bookings, recurring bookings and instant bookings. The request bodies for all 3 are almost the same except:\n      If eventTypeId in the request body is id of a regular event, then regular booking is created.\n\n      If it is an id of a recurring event type, then recurring booking is created.\n\n      Meaning that the request bodies are equal but the outcome depends on what kind of event type it is with the goal of making it as seamless for developers as possible.\n\n      For team event types it is possible to create instant meeting. To do that just pass \u0060\u0022instant\u0022: true\u0060 to the request body.\n\n      The start needs to be in UTC aka if the timezone is GMT\u002B2 in Rome and meeting should start at 11, then UTC time should have hours 09:00 aka without time zone.\n\n      Finally, there are 2 ways to book an event type belonging to an individual user:\n      1. Provide \u0060eventTypeId\u0060 in the request body.\n      2. Provide \u0060eventTypeSlug\u0060 and \u0060username\u0060 and optionally \u0060organizationSlug\u0060 if the user with the username is within an organization.\n\n      And 2 ways to book and event type belonging to a team:\n      1. Provide \u0060eventTypeId\u0060 in the request body.\n      2. Provide \u0060eventTypeSlug\u0060 and \u0060teamSlug\u0060 and optionally \u0060organizationSlug\u0060 if the team with the teamSlug is within an organization.\n\n      If you are creating a seated booking for an event type with \u0027show attendees\u0027 disabled, then to retrieve attendees in the response either set \u0027show attendees\u0027 to true on event type level or\n      you have to provide an authentication method of event type owner, host, team admin or owner or org admin or owner.\n\n      For event types that have SMS reminders workflow, you need to pass the attendee\u0027s phone number in the request body via \u0060attendee.phoneNumber\u0060 (e.g., \u0022\u002B19876543210\u0022 in international format). This is an optional field, but becomes required when SMS reminders are enabled for the event type. For the complete attendee object structure, see the [attendee object](https://cal.com/docs/api-reference/v2/bookings/create-a-booking#body-attendee) documentation.\n\n      \u003CNote\u003EPlease make sure to pass in the cal-api-version header value as mentioned in the Headers section. Not passing the correct value will default to an older version of this endpoint.\u003C/Note\u003E\n      ",
+        "description": "\n      POST /v2/bookings is used to create regular bookings, recurring bookings and instant bookings. The request bodies for all 3 are almost the same except:\n      If eventTypeId in the request body is id of a regular event, then regular booking is created.\n\n      If it is an id of a recurring event type, then recurring booking is created.\n\n      Meaning that the request bodies are equal but the outcome depends on what kind of event type it is with the goal of making it as seamless for developers as possible.\n\n      For team event types it is possible to create instant meeting. To do that just pass \u0060\u0022instant\u0022: true\u0060 to the request body. If the event type has an instant meeting schedule, requests made outside it, or too close to its end for the meeting to fit, are rejected with a 400.\n\n      The start needs to be in UTC aka if the timezone is GMT\u002B2 in Rome and meeting should start at 11, then UTC time should have hours 09:00 aka without time zone.\n\n      Finally, there are 2 ways to book an event type belonging to an individual user:\n      1. Provide \u0060eventTypeId\u0060 in the request body.\n      2. Provide \u0060eventTypeSlug\u0060 and \u0060username\u0060 and optionally \u0060organizationSlug\u0060 if the user with the username is within an organization.\n\n      And 2 ways to book and event type belonging to a team:\n      1. Provide \u0060eventTypeId\u0060 in the request body.\n      2. Provide \u0060eventTypeSlug\u0060 and \u0060teamSlug\u0060 and optionally \u0060organizationSlug\u0060 if the team with the teamSlug is within an organization.\n\n      If you are creating a seated booking for an event type with \u0027show attendees\u0027 disabled, then to retrieve attendees in the response either set \u0027show attendees\u0027 to true on event type level or\n      you have to provide an authentication method of event type owner, host, team admin or owner or org admin or owner.\n\n      For event types that have SMS reminders workflow, you need to pass the attendee\u0027s phone number in the request body via \u0060attendee.phoneNumber\u0060 (e.g., \u0022\u002B19876543210\u0022 in international format). This is an optional field, but becomes required when SMS reminders are enabled for the event type. For the complete attendee object structure, see the [attendee object](https://cal.com/docs/api-reference/v2/bookings/create-a-booking#body-attendee) documentation.\n\n      \u003CNote\u003EPlease make sure to pass in the cal-api-version header value as mentioned in the Headers section. Not passing the correct value will default to an older version of this endpoint.\u003C/Note\u003E\n      ",
         "operationId": "BookingsController20260225CreateBooking",
         "parameters": [
           {
@@ -26869,7 +26869,7 @@
         },
         "x-mcp": {
           "name": "create_team_membership",
-          "guidance": "Add a user to a team. Required: userId (must be a real user ID from the system). Optional: role (defaults to MEMBER), accepted, disableImpersonation. Ask the user for the userId \u2014 never guess."
+          "guidance": "Add a user to a team. Required: userId (must be a real user ID from the system). Optional: role (defaults to MEMBER), accepted, disableImpersonation. accepted: true is applied only to an accepted member of the parent organization or a managed user of the team\u0027s OAuth client; anyone else is added as a pending invite they have to accept. Ask the user for the userId \u2014 never guess."
         },
         "x-oauth-scopes": [
           "TEAM_MEMBERSHIP_WRITE"
@@ -27097,7 +27097,7 @@
         },
         "x-mcp": {
           "name": "update_team_membership",
-          "guidance": "Update a team membership. Can change accepted status, role, or impersonation settings. Use get_team_memberships to find the membershipId \u2014 never guess."
+          "guidance": "Update a team membership. Can change accepted status, role, or impersonation settings. accepted: true on a pending membership is allowed only for an accepted member of the parent organization or a managed user of the team\u0027s OAuth client; otherwise it returns 403. Use get_team_memberships to find the membershipId \u2014 never guess."
         },
         "x-oauth-scopes": [
           "TEAM_MEMBERSHIP_WRITE"
@@ -48528,18 +48528,11 @@
       },
       "CreateInstantBookingInput20240813": {
         "required": [
-          "start",
           "attendee",
           "instant"
         ],
         "type": "object",
         "properties": {
-          "start": {
-            "type": "string",
-            "description": "The start time of the booking in ISO 8601 format in UTC timezone.",
-            "format": "date-time",
-            "example": "2024-08-13T09:00:00Z"
-          },
           "attendee": {
             "$ref": "#/components/schemas/CreateInstantBookingInput20240813Attendee"
           },
@@ -48629,10 +48622,22 @@
             "description": "When true, booking limit checks (event type, team, and per-host count and duration limits) are bypassed for an authenticated user who has access through the existing event owner, host, assigned user, team admin or organization admin checks. Team- and organization-scoped keys are restricted to events in their stored team or organization. Otherwise this parameter is silently ignored. Only supported on the 2026-02-25 and 2026-05-01 API versions.",
             "example": true
           },
+          "start": {
+            "type": "string",
+            "description": "The start time of the instant meeting in ISO 8601 format in UTC timezone. Defaults to the time the request is received.",
+            "format": "date-time",
+            "example": "2024-08-13T09:00:00Z"
+          },
           "instant": {
             "type": "boolean",
             "description": "Flag indicating if the booking is an instant booking. Only available for team events.",
             "example": true
+          },
+          "instantMeetingExpiresInSeconds": {
+            "minimum": 1,
+            "type": "number",
+            "description": "How many seconds hosts have to accept the instant meeting. It can only shorten the event type\u0027s instant meeting expiry setting, which defaults to 90 seconds: a longer value is capped to that setting, and leaving it out uses the setting. The applied value is returned as instantMeetingExpiresInSeconds.",
+            "example": 120
           }
         }
       },
@@ -49008,6 +49013,181 @@
           },
           "bookingFieldsResponses": {
             "$ref": "#/components/schemas/BookingOutput20240813BookingFieldsResponsesProperty"
+          }
+        }
+      },
+      "InstantBookingOutput20240813": {
+        "required": [
+          "id",
+          "uid",
+          "title",
+          "description",
+          "hosts",
+          "status",
+          "start",
+          "end",
+          "duration",
+          "eventTypeId",
+          "eventType",
+          "location",
+          "absentHost",
+          "createdAt",
+          "updatedAt",
+          "attendees",
+          "bookingFieldsResponses",
+          "instantMeetingExpiresAt",
+          "instantMeetingExpiresInSeconds"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 123
+          },
+          "uid": {
+            "type": "string",
+            "example": "booking_uid_123"
+          },
+          "title": {
+            "type": "string",
+            "example": "Consultation"
+          },
+          "description": {
+            "type": "string",
+            "example": "Learn how to integrate scheduling into marketplace."
+          },
+          "hosts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BookingHost"
+            }
+          },
+          "status": {
+            "$ref": "#/components/schemas/InstantBookingOutput20240813Status"
+          },
+          "cancellationReason": {
+            "type": "string",
+            "example": "User requested cancellation"
+          },
+          "cancelledByEmail": {
+            "type": "string",
+            "format": "email",
+            "example": "canceller@example.com"
+          },
+          "reschedulingReason": {
+            "type": "string",
+            "example": "User rescheduled the event"
+          },
+          "rescheduledByEmail": {
+            "type": "string",
+            "format": "email",
+            "example": "rescheduler@example.com"
+          },
+          "rescheduledFromUid": {
+            "type": "string",
+            "description": "UID of the previous booking from which this booking was rescheduled.",
+            "example": "previous_uid_123"
+          },
+          "rescheduledToUid": {
+            "type": "string",
+            "description": "UID of the new booking to which this booking was rescheduled.",
+            "example": "new_uid_456"
+          },
+          "start": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2024-08-13T15:30:00Z"
+          },
+          "end": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2024-08-13T16:30:00Z"
+          },
+          "duration": {
+            "type": "number",
+            "example": 60
+          },
+          "eventTypeId": {
+            "type": "number",
+            "description": "Deprecated - rely on \u0027eventType\u0027 object containing the id instead.",
+            "example": 50,
+            "deprecated": true
+          },
+          "eventType": {
+            "$ref": "#/components/schemas/EventType"
+          },
+          "eventUuid": {
+            "type": "string",
+            "description": "UUID of the Event this booking belongs to. Pass it to \u0060GET /v2/events/{uuid}\u0060 to fetch the Event. \u0060null\u0060 when the booking is not for an Event.",
+            "nullable": true,
+            "example": "0199b5d2-7c1e-7f3a-9b4d-2e6f8a1c3d5e"
+          },
+          "meetingUrl": {
+            "type": "string",
+            "description": "Deprecated - rely on \u0027location\u0027 field instead.",
+            "format": "uri",
+            "example": "https://example.com/recurring-meeting",
+            "deprecated": true
+          },
+          "location": {
+            "type": "string",
+            "example": "https://example.com/meeting"
+          },
+          "absentHost": {
+            "type": "boolean",
+            "example": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2024-08-13T15:30:00Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2024-08-13T15:30:00Z"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/InstantBookingOutput20240813MetadataProperty"
+          },
+          "rating": {
+            "type": "number",
+            "example": 4
+          },
+          "icsUid": {
+            "type": "string",
+            "description": "UID of ICS event.",
+            "example": "ics_uid_123"
+          },
+          "attendees": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BookingAttendee"
+            }
+          },
+          "guests": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "guest1@example.com",
+              "guest2@example.com"
+            ]
+          },
+          "bookingFieldsResponses": {
+            "$ref": "#/components/schemas/InstantBookingOutput20240813BookingFieldsResponsesProperty"
+          },
+          "instantMeetingExpiresAt": {
+            "type": "string",
+            "description": "When the instant meeting request expires if no host has accepted it.",
+            "example": "2024-08-13T15:32:00.000Z"
+          },
+          "instantMeetingExpiresInSeconds": {
+            "type": "number",
+            "description": "The seconds hosts have to accept the instant meeting: the requested instantMeetingExpiresInSeconds capped to the event type\u0027s instant meeting expiry setting, or that setting when none was requested.",
+            "example": 120
           }
         }
       },
@@ -51269,6 +51449,7 @@
           },
           "accepted": {
             "type": "boolean",
+            "description": "Only applied when the team is an organization sub-team and the user is already an accepted member of the organization, or when the user is a managed user of the team\u0027s OAuth client. Otherwise the membership is created as a pending invite (\u0060accepted: false\u0060) that the user has to accept.",
             "default": false
           },
           "role": {
@@ -51329,7 +51510,8 @@
         "type": "object",
         "properties": {
           "accepted": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Setting \u0060true\u0060 on a pending membership is only allowed when the team is an organization sub-team and the user is already an accepted member of the organization, or when the user is a managed user of the team\u0027s OAuth client; otherwise the request returns 403."
           },
           "role": {
             "$ref": "#/components/schemas/UpdateTeamMembershipInputRole"
@@ -58707,7 +58889,7 @@
         "description": "CRM app settings configured for this event type, mirroring the event type Apps tab toggles."
       },
       "CreateTeamEventTypeOutput20260612Data": {
-        "oneOf": [
+        "anyOf": [
           {
             "$ref": "#/components/schemas/TeamEventTypeOutput20260612"
           },
@@ -59140,7 +59322,7 @@
         "description": "CRM app settings for the event type, mirroring the event type Apps tab toggles. The credential is resolved server-side \u2014 the app must be installed for the event type owner."
       },
       "UpdateTeamEventTypeOutput20260612Data": {
-        "oneOf": [
+        "anyOf": [
           {
             "$ref": "#/components/schemas/TeamEventTypeOutput20260612"
           },
@@ -65214,6 +65396,9 @@
             "$ref": "#/components/schemas/BookingOutput20240813"
           },
           {
+            "$ref": "#/components/schemas/InstantBookingOutput20240813"
+          },
+          {
             "title": "Recurring Bookings (array)",
             "type": "array",
             "items": {
@@ -67514,6 +67699,22 @@
           "customField": "customValue"
         }
       },
+      "InstantBookingOutput20240813Metadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "example": {
+          "key": "value"
+        }
+      },
+      "InstantBookingOutput20240813BookingFieldsResponses": {
+        "type": "object",
+        "description": "Booking field responses consisting of an object with booking field slug as keys and user response as values.",
+        "example": {
+          "customField": "customValue"
+        }
+      },
       "RecurringBookingOutput20240813Metadata": {
         "type": "object",
         "additionalProperties": {
@@ -68502,6 +68703,22 @@
         }
       },
       "BookingOutput20240813BookingFieldsResponsesProperty": {
+        "type": "object",
+        "description": "Booking field responses consisting of an object with booking field slug as keys and user response as values.",
+        "example": {
+          "customField": "customValue"
+        }
+      },
+      "InstantBookingOutput20240813MetadataProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "example": {
+          "key": "value"
+        }
+      },
+      "InstantBookingOutput20240813BookingFieldsResponsesProperty": {
         "type": "object",
         "description": "Booking field responses consisting of an object with booking field slug as keys and user response as values.",
         "example": {
@@ -91648,6 +91865,44 @@
         "example": "accepted",
         "x-ms-enum": {
           "name": "BookingOutput20240813Status",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "cancelled",
+              "name": "Cancelled"
+            },
+            {
+              "value": "accepted",
+              "name": "Accepted"
+            },
+            {
+              "value": "rejected",
+              "name": "Rejected"
+            },
+            {
+              "value": "pending",
+              "name": "Pending"
+            },
+            {
+              "value": "awaiting_host",
+              "name": "AwaitingHost"
+            }
+          ]
+        }
+      },
+      "InstantBookingOutput20240813Status": {
+        "enum": [
+          "cancelled",
+          "accepted",
+          "rejected",
+          "pending",
+          "awaiting_host"
+        ],
+        "type": "string",
+        "description": "\u0060awaiting_host\u0060 is an instant meeting that is live and waiting for a host to join.",
+        "example": "accepted",
+        "x-ms-enum": {
+          "name": "InstantBookingOutput20240813Status",
           "modelAsString": false,
           "values": [
             {
