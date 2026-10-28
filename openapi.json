@@ -13447,7 +13447,7 @@
     },
     "/v2/bookings/{bookingUid}/seats/decline": {
       "post": {
-        "description": "Decline selected seats on a booking whose event type requires confirmation and has seats. The authorization header refers to a host who can update the booking.\n\n`declinedSeatUids` lists seats that were waiting or confirmed and are now declined. Seats that were already declined stay declined and are omitted. A confirmed seat can be declined.\n\n`POST /v2/bookings/:bookingUid/decline` refuses these bookings. Pass each seat's `seatUid` here instead.\n\nAvailable with `cal-api-version` `2024-08-13`, `2026-02-25`, and `2026-05-01`.\n\nIf accessed using an OAuth access token, the `BOOKING_WRITE` scope is required.\n    ",
+        "description": "Decline selected seats on a booking whose event type requires confirmation and has seats. The authorization header refers to a host who can update the booking.\n\n`declinedSeatUids` lists seats that were waiting or confirmed and are now declined. Seats that were already declined stay declined and are omitted. A confirmed seat can be declined. An optional `reason` is stored on each declined seat and included in its decline email and booking-rejected workflow.\n\n`POST /v2/bookings/:bookingUid/decline` refuses these bookings. Pass each seat's `seatUid` here instead.\n\nAvailable with `cal-api-version` `2024-08-13`, `2026-02-25`, and `2026-05-01`.\n\nIf accessed using an OAuth access token, the `BOOKING_WRITE` scope is required.\n    ",
         "operationId": "BookingsController_2026_02_25_declineBookingSeats",
         "parameters": [
           {
@@ -13505,7 +13505,7 @@
         "tags": ["Bookings"],
         "x-mcp": {
           "name": "decline_booking_seats",
-          "guidance": "Decline selected seats on a confirmation-required seated booking. Waiting and confirmed seats can be declined. Pass seatUids from the booking. POST /bookings/{bookingUid}/decline refuses these bookings.",
+          "guidance": "Decline selected seats on a confirmation-required seated booking. Waiting and confirmed seats can be declined. Pass seatUids from the booking. An optional reason is stored on each declined seat. POST /bookings/{bookingUid}/decline refuses these bookings.",
           "hints": {
             "idempotent": true
           }
@@ -56252,6 +56252,12 @@
               "type": "string",
               "minLength": 1
             }
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 1000,
+            "example": "No availability that week",
+            "description": "Reason for declining these seats. Shown on each declined seat's email and in that seat's booking-rejected workflow. Omit it to decline without a reason."
           }
         },
         "required": ["seatUids"]

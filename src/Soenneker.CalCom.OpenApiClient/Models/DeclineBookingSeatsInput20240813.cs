@@ -14,6 +14,14 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Reason for declining these seats. Shown on each declined seat&apos;s email and in that seat&apos;s booking-rejected workflow. Omit it to decline without a reason.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Reason { get; set; }
+#nullable restore
+#else
+        public string Reason { get; set; }
+#endif
         /// <summary>Seat UIDs to decline. A waiting or confirmed seat becomes declined. A seat that is already declined stays declined. Duplicate UIDs in one request are declined once.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -47,6 +55,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "reason", n => { Reason = n.GetStringValue(); } },
                 { "seatUids", n => { SeatUids = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
@@ -57,6 +66,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("reason", Reason);
             writer.WriteCollectionOfPrimitiveValues<string>("seatUids", SeatUids);
             writer.WriteAdditionalData(AdditionalData);
         }
