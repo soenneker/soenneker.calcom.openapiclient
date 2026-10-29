@@ -26760,7 +26760,7 @@
           "Teams / Invite"
         ],
         "summary": "Create team invite link",
-        "description": "Required membership role: \u0060team admin\u0060. PBAC permission: \u0060team.invite\u0060. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the \u0060TEAM_MEMBERSHIP_WRITE\u0060 scope is required.",
+        "description": "Required membership role: \u0060team admin\u0060. PBAC permission: \u0060team.invite\u0060, or \u0060organization.invite\u0060 when the team id is an organization. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the \u0060TEAM_MEMBERSHIP_WRITE\u0060 scope is required.",
         "operationId": "TeamsInviteControllerCreateInvite",
         "parameters": [
           {

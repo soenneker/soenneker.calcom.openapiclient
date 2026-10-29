@@ -26901,7 +26901,7 @@
     },
     "/v2/teams/{teamId}/invite": {
       "post": {
-        "description": "Required membership role: `team admin`. PBAC permission: `team.invite`. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the `TEAM_MEMBERSHIP_WRITE` scope is required.",
+        "description": "Required membership role: `team admin`. PBAC permission: `team.invite`, or `organization.invite` when the team id is an organization. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the `TEAM_MEMBERSHIP_WRITE` scope is required.",
         "operationId": "TeamsInviteController_createInvite",
         "parameters": [
           {
@@ -30275,9 +30275,9 @@
         "type": "object",
         "properties": {
           "mode": {
-            "enum": ["inherit", "standard", "custom"],
             "type": "string",
             "description": "Template source. `inherit` uses the organization default, `standard` uses Cal.com's standard description, and `custom` uses this object's template.",
+            "enum": ["inherit", "standard", "custom"],
             "example": "custom"
           },
           "template": {
@@ -33802,8 +33802,8 @@
           },
           "schedulingType": {
             "nullable": true,
-            "enum": ["roundRobin", "collective", "managed"],
-            "type": "string"
+            "type": "string",
+            "enum": ["roundRobin", "collective", "managed"]
           },
           "team": {
             "$ref": "#/components/schemas/EventTypeTeam"
@@ -34028,9 +34028,9 @@
         "type": "object",
         "properties": {
           "mode": {
-            "enum": ["inherit", "standard", "custom"],
             "type": "string",
             "description": "The effective source selected for this event type.",
+            "enum": ["inherit", "standard", "custom"],
             "example": "custom"
           },
           "template": {
@@ -34074,8 +34074,8 @@
         "type": "object",
         "properties": {
           "status": {
-            "type": "string",
             "enum": ["success"],
+            "type": "string",
             "example": "success"
           },
           "data": {
@@ -34589,8 +34589,8 @@
             "description": "Allows this update to affect upcoming bookings when a live confirmation session exists. Not stored and not returned. `true` confirms the edit:\n- Turning seats off cancels every attendee and booking attempt, and new bookings are taken one at a time.\n- Turning confirmation off rejects pending requests, leaves accepted attendees, and confirms new booking attempts until the seats are full.\n- Setting the seat cap below the seats already accepted keeps existing bookings and their seats, and applies the lower cap to new bookings and later confirmations.\n`false` and omitting the field leave the update refused when it would affect upcoming bookings."
           },
           "schedulingType": {
-            "enum": ["collective", "roundRobin"],
             "type": "string",
+            "enum": ["collective", "roundRobin"],
             "example": "collective",
             "description": "The scheduling type for the team event - collective or roundRobin. ❗If you change scheduling type you must also provide `hosts` or `assignAllTeamMembers` in the request body, otherwise the event type will have no hosts - this is required because\n      in case of collective event type all hosts are mandatory but in case of round robin some or non can be mandatory so we can't predict how you want the hosts to be setup which is why you must provide that information.  If you want to convert round robin or collective into managed or managed into round robin or collective then you will have to create a new team event type and delete old one."
           },
@@ -38208,9 +38208,9 @@
         "type": "object",
         "properties": {
           "mode": {
-            "enum": ["inherit", "custom"],
             "type": "string",
             "description": "Whether the organization uses the standard description or its custom default.",
+            "enum": ["inherit", "custom"],
             "example": "custom"
           },
           "template": {
@@ -38238,8 +38238,8 @@
         "type": "object",
         "properties": {
           "status": {
-            "type": "string",
             "enum": ["success"],
+            "type": "string",
             "example": "success"
           },
           "data": {
@@ -40370,8 +40370,8 @@
             "example": 1
           },
           "action": {
-            "type": "string",
             "enum": ["paths"],
+            "type": "string",
             "description": "The step that splits the workflow into conditional paths; include this step by id when updating the workflow's steps.",
             "example": "paths"
           },
@@ -40404,8 +40404,8 @@
             "example": 1
           },
           "action": {
-            "type": "string",
             "enum": ["filter"],
+            "type": "string",
             "description": "The step that gates every step after it on a set of conditions; include this step by id when updating the workflow's steps.",
             "example": "filter"
           },
@@ -40466,8 +40466,8 @@
             "example": 1
           },
           "action": {
-            "type": "string",
             "enum": ["delay"],
+            "type": "string",
             "description": "A wait before the next sending step. Its duration is read-only through the API and can only be edited in the Cal.com app; include this step by id when updating the workflow's steps.",
             "example": "delay"
           },
@@ -40501,8 +40501,8 @@
             "example": 1
           },
           "action": {
-            "type": "string",
             "enum": ["lead_enrichment"],
+            "type": "string",
             "description": "The step that looks the attendee or form submitter up with the lead enrichment provider when the workflow runs; the steps after it can use the result in their conditions and messages. It can only be added or configured in the Cal.com app; include this step by id when updating the workflow's steps.",
             "example": "lead_enrichment"
           },
@@ -40606,8 +40606,8 @@
             "format": "date-time"
           },
           "type": {
-            "type": "string",
             "enum": ["routing-form"],
+            "type": "string",
             "description": "type of the workflow",
             "example": "routing-form",
             "default": "routing-form"
@@ -40701,9 +40701,9 @@
         "type": "object",
         "properties": {
           "type": {
-            "type": "string",
             "default": "formSubmitted",
             "enum": ["formSubmitted"],
+            "type": "string",
             "description": "Trigger type for the workflow",
             "example": "formSubmitted"
           }
@@ -40740,9 +40740,9 @@
             ]
           },
           "type": {
-            "type": "string",
             "default": "formSubmittedNoEvent",
             "enum": ["formSubmittedNoEvent"],
+            "type": "string",
             "description": "Trigger type for the workflow",
             "example": "formSubmittedNoEvent"
           }
@@ -41115,8 +41115,8 @@
         "type": "object",
         "properties": {
           "action": {
-            "type": "string",
             "enum": ["delay"],
+            "type": "string",
             "description": "Marks an existing delay step. Delays can only be created or edited in the Cal.com app. When updating steps, include this step as { action: \"delay\", id } using the id returned by GET so the wait is preserved. Its position is fixed, so it takes no stepNumber: an update that moves another step to the other side of it, or reuses the stepNumber GET returned for it, is rejected.",
             "example": "delay"
           },
@@ -41528,8 +41528,8 @@
         "type": "object",
         "properties": {
           "action": {
-            "type": "string",
             "enum": ["filter"],
+            "type": "string",
             "description": "Marks the step that gates everything after it on a set of conditions. Those conditions can only be edited in the Cal.com app. When updating steps, include this step as { action: \"filter\", id } using the id returned by GET so the gate is preserved. Its position relative to the steps it gates is fixed, so it takes no stepNumber.",
             "example": "filter"
           },
@@ -41545,8 +41545,8 @@
         "type": "object",
         "properties": {
           "action": {
-            "type": "string",
             "enum": ["lead_enrichment"],
+            "type": "string",
             "description": "Marks the step that looks the attendee or form submitter up with the lead enrichment provider before the steps after it run. It can only be added or configured in the Cal.com app. When updating steps, include this step as { action: \"lead_enrichment\", id } using the id returned by GET so the lookup is preserved. Its position is fixed, so it takes no stepNumber: an update that moves another step to the other side of it, or reuses the stepNumber GET returned for it, is rejected.",
             "example": "lead_enrichment"
           },
@@ -41562,8 +41562,8 @@
         "type": "object",
         "properties": {
           "action": {
-            "type": "string",
             "enum": ["paths"],
+            "type": "string",
             "description": "Marks the step that splits the workflow into conditional paths. Paths and their conditions can only be edited in the Cal.com app. When updating steps, include this step as { action: \"paths\", id } using the id returned by GET so the split is preserved. It is always placed after every step outside a path, followed by the steps inside its paths, so it takes no stepNumber.",
             "example": "paths"
           },
@@ -42316,8 +42316,8 @@
             "example": 1
           },
           "action": {
-            "type": "string",
             "enum": ["paths"],
+            "type": "string",
             "description": "The step that splits the workflow into conditional paths; include this step by id when updating the workflow's steps.",
             "example": "paths"
           },
@@ -42349,8 +42349,8 @@
             "example": 1
           },
           "action": {
-            "type": "string",
             "enum": ["filter"],
+            "type": "string",
             "description": "The step that gates every step after it on a set of conditions; include this step by id when updating the workflow's steps.",
             "example": "filter"
           },
@@ -42394,8 +42394,8 @@
             "example": 1
           },
           "action": {
-            "type": "string",
             "enum": ["webhook"],
+            "type": "string",
             "description": "Action to perform",
             "example": "webhook"
           },
@@ -42504,8 +42504,8 @@
             "format": "date-time"
           },
           "type": {
-            "type": "string",
             "enum": ["event-type"],
+            "type": "string",
             "description": "type of the workflow",
             "example": "event-type",
             "default": "event-type"
@@ -42707,8 +42707,8 @@
         "type": "object",
         "properties": {
           "status": {
-            "type": "string",
             "enum": ["success"],
+            "type": "string",
             "example": "success"
           },
           "data": {
@@ -42810,8 +42810,8 @@
         "type": "object",
         "properties": {
           "action": {
-            "type": "string",
             "enum": ["paths"],
+            "type": "string",
             "description": "Marks the step that splits the workflow into conditional paths. It is always placed after every step outside a path, followed by the steps inside its paths, so it takes no stepNumber. Send `paths` to author the split and omit this step to delete it.",
             "example": "paths"
           },
@@ -42836,8 +42836,8 @@
         "type": "object",
         "properties": {
           "action": {
-            "type": "string",
             "enum": ["filter"],
+            "type": "string",
             "description": "Marks the step that gates everything after it on a set of conditions. Its position relative to the steps it gates is fixed, so it takes no stepNumber. Send `conditions` to author the gate and omit this step to delete it.",
             "example": "filter"
           },
@@ -42882,9 +42882,9 @@
             ]
           },
           "type": {
-            "type": "string",
             "default": "beforeEvent",
             "enum": ["beforeEvent"],
+            "type": "string",
             "description": "Trigger type for the workflow",
             "example": "beforeEvent"
           }
@@ -42903,9 +42903,9 @@
             ]
           },
           "type": {
-            "type": "string",
             "default": "afterEvent",
             "enum": ["afterEvent"],
+            "type": "string",
             "description": "Trigger type for the workflow",
             "example": "afterEvent"
           }
@@ -42916,9 +42916,9 @@
         "type": "object",
         "properties": {
           "type": {
-            "type": "string",
             "default": "eventCancelled",
             "enum": ["eventCancelled"],
+            "type": "string",
             "description": "Trigger type for the workflow"
           }
         },
@@ -42928,9 +42928,9 @@
         "type": "object",
         "properties": {
           "type": {
-            "type": "string",
             "default": "newEvent",
             "enum": ["newEvent"],
+            "type": "string",
             "description": "Trigger type for the workflow"
           }
         },
@@ -42940,9 +42940,9 @@
         "type": "object",
         "properties": {
           "type": {
-            "type": "string",
             "default": "rescheduleEvent",
             "enum": ["rescheduleEvent"],
+            "type": "string",
             "description": "Trigger type for the workflow"
           }
         },
@@ -42952,9 +42952,9 @@
         "type": "object",
         "properties": {
           "type": {
-            "type": "string",
             "default": "bookingNoShowUpdated",
             "enum": ["bookingNoShowUpdated"],
+            "type": "string",
             "description": "Trigger type for the workflow"
           }
         },
@@ -42964,9 +42964,9 @@
         "type": "object",
         "properties": {
           "type": {
-            "type": "string",
             "default": "bookingRejected",
             "enum": ["bookingRejected"],
+            "type": "string",
             "description": "Trigger type for the workflow"
           }
         },
@@ -42976,9 +42976,9 @@
         "type": "object",
         "properties": {
           "type": {
-            "type": "string",
             "default": "bookingRequested",
             "enum": ["bookingRequested"],
+            "type": "string",
             "description": "Trigger type for the workflow"
           }
         },
@@ -42988,9 +42988,9 @@
         "type": "object",
         "properties": {
           "type": {
-            "type": "string",
             "default": "bookingPaymentInitiated",
             "enum": ["bookingPaymentInitiated"],
+            "type": "string",
             "description": "Trigger type for the workflow"
           }
         },
@@ -43000,9 +43000,9 @@
         "type": "object",
         "properties": {
           "type": {
-            "type": "string",
             "default": "bookingPaid",
             "enum": ["bookingPaid"],
+            "type": "string",
             "description": "Trigger type for the workflow"
           }
         },
@@ -43020,9 +43020,9 @@
             ]
           },
           "type": {
-            "type": "string",
             "default": "afterGuestsCalVideoNoShow",
             "enum": ["afterGuestsCalVideoNoShow"],
+            "type": "string",
             "description": "Trigger type for the workflow",
             "example": "afterGuestsCalVideoNoShow"
           }
@@ -43041,9 +43041,9 @@
             ]
           },
           "type": {
-            "type": "string",
             "default": "afterHostsCalVideoNoShow",
             "enum": ["afterHostsCalVideoNoShow"],
+            "type": "string",
             "description": "Trigger type for the workflow",
             "example": "afterHostsCalVideoNoShow"
           }
@@ -43969,8 +43969,8 @@
         "type": "object",
         "properties": {
           "action": {
-            "type": "string",
             "enum": ["webhook"],
+            "type": "string",
             "description": "Action to perform",
             "example": "webhook"
           },
@@ -44587,8 +44587,8 @@
         "type": "object",
         "properties": {
           "action": {
-            "type": "string",
             "enum": ["filter"],
+            "type": "string",
             "description": "Marks the step that gates everything after it on a set of conditions. Its position relative to the steps it gates is fixed, so it takes no stepNumber. Send `conditions` to author the gate and omit this step to delete it.",
             "example": "filter"
           },
@@ -44630,8 +44630,8 @@
         "type": "object",
         "properties": {
           "action": {
-            "type": "string",
             "enum": ["paths"],
+            "type": "string",
             "description": "Marks the step that splits the workflow into conditional paths. It is always placed after every step outside a path, followed by the steps inside its paths, so it takes no stepNumber. Send `paths` to author the split and omit this step to delete it.",
             "example": "paths"
           },
@@ -44661,8 +44661,8 @@
         "type": "object",
         "properties": {
           "action": {
-            "type": "string",
             "enum": ["delay"],
+            "type": "string",
             "description": "Marks an existing delay step. Delays can only be created or edited in the Cal.com app. When updating steps, include this step as { action: \"delay\", id } using the id returned by GET so the wait is preserved. Its position is fixed, so it takes no stepNumber: an update that moves another step to the other side of it, or reuses the stepNumber GET returned for it, is rejected.",
             "example": "delay"
           },
@@ -44678,8 +44678,8 @@
         "type": "object",
         "properties": {
           "action": {
-            "type": "string",
             "enum": ["lead_enrichment"],
+            "type": "string",
             "description": "Marks the step that looks the attendee up with the lead enrichment provider before the steps after it run. It can only be added or configured in the Cal.com app. When updating steps, include this step as { action: \"lead_enrichment\", id } using the id returned by GET so the lookup is preserved. Its position is fixed, so it takes no stepNumber: an update that moves another step to the other side of it, or reuses the stepNumber GET returned for it, is rejected.",
             "example": "lead_enrichment"
           },
@@ -45199,8 +45199,8 @@
         "type": "object",
         "properties": {
           "action": {
-            "type": "string",
             "enum": ["webhook"],
+            "type": "string",
             "description": "Action to perform",
             "example": "webhook"
           },
@@ -45722,8 +45722,8 @@
             "type": "string"
           },
           "workspacePlatformSlug": {
-            "type": "string",
-            "enum": ["google"]
+            "enum": ["google"],
+            "type": "string"
           },
           "serviceAccountKey": {
             "$ref": "#/components/schemas/GoogleServiceAccountKeyInput"
@@ -45753,8 +45753,8 @@
             "type": "string"
           },
           "workspacePlatformSlug": {
-            "type": "string",
-            "enum": ["office365"]
+            "enum": ["office365"],
+            "type": "string"
           },
           "serviceAccountKey": {
             "$ref": "#/components/schemas/MicrosoftServiceAccountKeyInput"
@@ -47340,8 +47340,8 @@
         "type": "object",
         "properties": {
           "status": {
-            "type": "string",
             "enum": ["success"],
+            "type": "string",
             "example": "success"
           },
           "data": {
@@ -47795,8 +47795,8 @@
         "type": "object",
         "properties": {
           "status": {
-            "type": "string",
             "enum": ["success"],
+            "type": "string",
             "example": "success"
           },
           "data": {
@@ -47917,8 +47917,8 @@
             }
           },
           "crmRecordOwnerFallbackMode": {
-            "enum": ["relationship", "attributeRules"],
             "type": "string",
+            "enum": ["relationship", "attributeRules"],
             "description": "The CRM owner fallback strategy used for this routing result.",
             "example": "relationship"
           }
@@ -48177,8 +48177,8 @@
         "type": "object",
         "properties": {
           "type": {
-            "enum": ["customPageMessage", "externalRedirectUrl", "eventTypeRedirectUrl"],
             "type": "string",
+            "enum": ["customPageMessage", "externalRedirectUrl", "eventTypeRedirectUrl"],
             "description": "For eventTypeRedirectUrl, value is the `team-slug/event-slug` path of the routed-to event type"
           },
           "value": {
@@ -48206,8 +48206,8 @@
             "example": "Enterprise leads"
           },
           "kind": {
-            "enum": ["route", "router", "fallback"],
-            "type": "string"
+            "type": "string",
+            "enum": ["route", "router", "fallback"]
           },
           "action": {
             "nullable": true,
@@ -48542,8 +48542,8 @@
         "properties": {
           "match": {
             "default": "all",
-            "enum": ["all", "any"],
-            "type": "string"
+            "type": "string",
+            "enum": ["all", "any"]
           },
           "conditions": {
             "minItems": 1,
@@ -48564,8 +48564,8 @@
           },
           "match": {
             "default": "all",
-            "enum": ["all", "any"],
-            "type": "string"
+            "type": "string",
+            "enum": ["all", "any"]
           },
           "conditions": {
             "minItems": 1,
@@ -48782,8 +48782,8 @@
         "type": "object",
         "properties": {
           "type": {
-            "enum": ["add", "replace", "remove", "move", "setFallback", "addMissingFallback"],
-            "type": "string"
+            "type": "string",
+            "enum": ["add", "replace", "remove", "move", "setFallback", "addMissingFallback"]
           },
           "routeId": {
             "type": "string",
@@ -48809,8 +48809,8 @@
             "example": "Enterprise leads"
           },
           "kind": {
-            "enum": ["route", "router", "fallback"],
-            "type": "string"
+            "type": "string",
+            "enum": ["route", "router", "fallback"]
           },
           "action": {
             "nullable": true,
@@ -49073,8 +49073,8 @@
         "type": "object",
         "properties": {
           "type": {
-            "enum": ["add", "update", "remove"],
-            "type": "string"
+            "type": "string",
+            "enum": ["add", "update", "remove"]
           },
           "fieldId": {
             "type": "string",
@@ -51655,8 +51655,8 @@
             "description": "Event type ID"
           },
           "schedulingType": {
-            "enum": ["roundRobin", "collective", "managed"],
             "type": "string",
+            "enum": ["roundRobin", "collective", "managed"],
             "example": "roundRobin",
             "description": "The scheduling type of this event type. Determines which fields are populated."
           },
@@ -53293,8 +53293,8 @@
           },
           "schedulingType": {
             "nullable": true,
-            "enum": ["roundRobin", "collective", "managed"],
-            "type": "string"
+            "type": "string",
+            "enum": ["roundRobin", "collective", "managed"]
           },
           "team": {
             "$ref": "#/components/schemas/EventTypeTeam"
@@ -54385,8 +54385,8 @@
             }
           },
           "status": {
-            "enum": ["cancelled", "accepted", "rejected", "pending", "awaiting_host"],
             "type": "string",
+            "enum": ["cancelled", "accepted", "rejected", "pending", "awaiting_host"],
             "example": "accepted",
             "description": "`awaiting_host` is an instant meeting that is live and waiting for a host to join."
           },
@@ -54559,8 +54559,8 @@
             }
           },
           "status": {
-            "enum": ["cancelled", "accepted", "rejected", "pending", "awaiting_host"],
             "type": "string",
+            "enum": ["cancelled", "accepted", "rejected", "pending", "awaiting_host"],
             "example": "accepted",
             "description": "`awaiting_host` is an instant meeting that is live and waiting for a host to join."
           },
@@ -54745,8 +54745,8 @@
             }
           },
           "status": {
-            "enum": ["cancelled", "accepted", "rejected", "pending", "awaiting_host"],
             "type": "string",
+            "enum": ["cancelled", "accepted", "rejected", "pending", "awaiting_host"],
             "example": "accepted",
             "description": "`awaiting_host` is an instant meeting that is live and waiting for a host to join."
           },
@@ -55009,8 +55009,8 @@
             "description": "Present on API version 2026-02-25 and later when this attendee was loaded from a cancelled seat. Omitted for occupied seats."
           },
           "confirmationStatus": {
-            "enum": ["pending", "accepted", "rejected"],
             "type": "string",
+            "enum": ["pending", "accepted", "rejected"],
             "example": "accepted",
             "description": "Confirmation verdict of this live seat. Omitted when the attendee has no live seat. An attendee loaded from a cancelled seat has status cancelled and does not include confirmationStatus."
           }
@@ -55051,8 +55051,8 @@
             }
           },
           "status": {
-            "enum": ["cancelled", "accepted", "rejected", "pending", "awaiting_host"],
             "type": "string",
+            "enum": ["cancelled", "accepted", "rejected", "pending", "awaiting_host"],
             "example": "accepted",
             "description": "`awaiting_host` is an instant meeting that is live and waiting for a host to join."
           },
@@ -55214,8 +55214,8 @@
             }
           },
           "status": {
-            "enum": ["cancelled", "accepted", "rejected", "pending", "awaiting_host"],
             "type": "string",
+            "enum": ["cancelled", "accepted", "rejected", "pending", "awaiting_host"],
             "example": "accepted",
             "description": "`awaiting_host` is an instant meeting that is live and waiting for a host to join."
           },
@@ -55424,8 +55424,8 @@
             }
           },
           "status": {
-            "enum": ["cancelled", "accepted", "rejected", "pending", "awaiting_host"],
             "type": "string",
+            "enum": ["cancelled", "accepted", "rejected", "pending", "awaiting_host"],
             "example": "accepted",
             "description": "`awaiting_host` is an instant meeting that is live and waiting for a host to join."
           },
@@ -55582,8 +55582,8 @@
             }
           },
           "status": {
-            "enum": ["cancelled", "accepted", "rejected", "pending", "awaiting_host"],
             "type": "string",
+            "enum": ["cancelled", "accepted", "rejected", "pending", "awaiting_host"],
             "example": "accepted",
             "description": "`awaiting_host` is an instant meeting that is live and waiting for a host to join."
           },
@@ -60565,9 +60565,9 @@
             "nullable": true
           },
           "status": {
-            "enum": ["draft", "published", "cancelled"],
             "type": "string",
-            "description": "Lifecycle status that summarises hidden, publishedAt and cancelledAt: cancelled when the Event was cancelled, published once published, draft otherwise."
+            "description": "Lifecycle status that summarises hidden, publishedAt and cancelledAt: cancelled when the Event was cancelled, published once published, draft otherwise.",
+            "enum": ["draft", "published", "cancelled"]
           },
           "locations": {
             "type": "array",
@@ -64154,8 +64154,8 @@
             "type": "string"
           },
           "mode": {
-            "enum": ["SHARED", "PER_EVENT"],
-            "type": "string"
+            "type": "string",
+            "enum": ["SHARED", "PER_EVENT"]
           },
           "archived": {
             "type": "boolean",
@@ -64224,8 +64224,8 @@
         "type": "object",
         "properties": {
           "status": {
-            "type": "string",
-            "enum": ["success"]
+            "enum": ["success"],
+            "type": "string"
           },
           "data": {
             "$ref": "#/components/schemas/BookingLimitPoolsData"
@@ -64264,8 +64264,8 @@
             "example": "Engineering interviews"
           },
           "mode": {
-            "enum": ["SHARED", "PER_EVENT"],
             "type": "string",
+            "enum": ["SHARED", "PER_EVENT"],
             "description": "SHARED: each host has one allowance across every event in the pool. PER_EVENT: the same allowance applies to each event separately."
           },
           "eventTypeIds": {
@@ -64287,8 +64287,8 @@
         "type": "object",
         "properties": {
           "status": {
-            "type": "string",
-            "enum": ["success"]
+            "enum": ["success"],
+            "type": "string"
           },
           "data": {
             "$ref": "#/components/schemas/BookingLimitPoolOutput"
@@ -64327,8 +64327,8 @@
             "example": "Engineering interviews"
           },
           "mode": {
-            "enum": ["SHARED", "PER_EVENT"],
             "type": "string",
+            "enum": ["SHARED", "PER_EVENT"],
             "description": "Changing the mode keeps every host's own limit."
           },
           "eventTypeIds": {
@@ -64395,8 +64395,8 @@
         "type": "object",
         "properties": {
           "status": {
-            "type": "string",
-            "enum": ["success"]
+            "enum": ["success"],
+            "type": "string"
           },
           "data": {
             "$ref": "#/components/schemas/BookingLimitPoolHostsData"
@@ -64449,8 +64449,8 @@
         "type": "object",
         "properties": {
           "status": {
-            "type": "string",
-            "enum": ["success"]
+            "enum": ["success"],
+            "type": "string"
           },
           "data": {
             "$ref": "#/components/schemas/BookingLimitPoolHostOutput"
@@ -64481,8 +64481,8 @@
             "example": "ExponentPushToken[xxxxxxxxxxxxxxxxxxxxxx]"
           },
           "platform": {
-            "enum": ["IOS", "ANDROID"],
             "type": "string",
+            "enum": ["IOS", "ANDROID"],
             "description": "Mobile platform",
             "example": "IOS"
           },
@@ -64586,8 +64586,8 @@
         "type": "object",
         "properties": {
           "status": {
-            "type": "string",
             "enum": ["success"],
+            "type": "string",
             "example": "success"
           },
           "data": {
