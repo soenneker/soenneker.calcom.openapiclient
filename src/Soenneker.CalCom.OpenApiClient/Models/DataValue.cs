@@ -17,8 +17,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("agentId") is { } nullNodeAgentId && nullNodeAgentId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentId = null;
-            if (parseNode.GetChildNode("callId") is { } nullNodeCallId && nullNodeCallId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallId = null;
+            if (parseNode.GetChildNode("agentId") is null) { _explicitNullValueAgentId = default!; _explicitNullProperties?.Remove("agentId"); }
+            else if (parseNode.GetChildNode("agentId") is { } nullNodeAgentId && nullNodeAgentId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentId = null;
+            if (parseNode.GetChildNode("callId") is null) { _explicitNullValueCallId = default!; _explicitNullProperties?.Remove("callId"); }
+            else if (parseNode.GetChildNode("callId") is { } nullNodeCallId && nullNodeCallId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The agentId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AgentId { get => _explicitNullValueAgentId; set { _explicitNullValueAgentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agentId"); else _explicitNullProperties?.Remove("agentId"); } }
+        public string? AgentId { get => _explicitNullValueAgentId; set { _explicitNullValueAgentId = value; AdditionalData?.Remove("agentId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agentId"); else _explicitNullProperties?.Remove("agentId"); } }
         private string? _explicitNullValueAgentId = default!;
 #nullable restore
 #else
-        public string AgentId { get => _explicitNullValueAgentId; set { _explicitNullValueAgentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agentId"); else _explicitNullProperties?.Remove("agentId"); } }
+        public string AgentId { get => _explicitNullValueAgentId; set { _explicitNullValueAgentId = value; AdditionalData?.Remove("agentId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agentId"); else _explicitNullProperties?.Remove("agentId"); } }
         private string _explicitNullValueAgentId = default!;
 #endif
         /// <summary>The callId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallId { get => _explicitNullValueCallId; set { _explicitNullValueCallId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("callId"); else _explicitNullProperties?.Remove("callId"); } }
+        public string? CallId { get => _explicitNullValueCallId; set { _explicitNullValueCallId = value; AdditionalData?.Remove("callId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("callId"); else _explicitNullProperties?.Remove("callId"); } }
         private string? _explicitNullValueCallId = default!;
 #nullable restore
 #else
-        public string CallId { get => _explicitNullValueCallId; set { _explicitNullValueCallId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("callId"); else _explicitNullProperties?.Remove("callId"); } }
+        public string CallId { get => _explicitNullValueCallId; set { _explicitNullValueCallId = value; AdditionalData?.Remove("callId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("callId"); else _explicitNullProperties?.Remove("callId"); } }
         private string _explicitNullValueCallId = default!;
 #endif
         /// <summary>

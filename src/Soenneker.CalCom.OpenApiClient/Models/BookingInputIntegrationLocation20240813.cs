@@ -17,23 +17,25 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("integration") is { } nullNodeIntegration && nullNodeIntegration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Integration = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("integration") is null) { _explicitNullValueIntegration = default!; _explicitNullProperties?.Remove("integration"); }
+            else if (parseNode.GetChildNode("integration") is { } nullNodeIntegration && nullNodeIntegration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Integration = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The integration property</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.BookingInputIntegrationLocation20240813Integration? Integration { get => _explicitNullValueIntegration; set { _explicitNullValueIntegration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("integration"); else _explicitNullProperties?.Remove("integration"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.BookingInputIntegrationLocation20240813Integration? Integration { get => _explicitNullValueIntegration; set { _explicitNullValueIntegration = value; AdditionalData?.Remove("integration"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("integration"); else _explicitNullProperties?.Remove("integration"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.BookingInputIntegrationLocation20240813Integration? _explicitNullValueIntegration = default!;
         /// <summary>only allowed value for type is `integration`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public string? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private string? _explicitNullValueType = default!;
 #nullable restore
 #else
-        public string Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public string Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private string _explicitNullValueType = default!;
 #endif
         /// <summary>
@@ -61,7 +63,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "integration", n => { Integration = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.BookingInputIntegrationLocation20240813Integration>(); } },
+                { "integration", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.BookingInputIntegrationLocation20240813Integration>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueIntegration = default; _explicitNullProperties?.Remove("integration"); AdditionalData["integration"] = unknown; } else { Integration = parsed; AdditionalData.Remove("integration"); } } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
         }

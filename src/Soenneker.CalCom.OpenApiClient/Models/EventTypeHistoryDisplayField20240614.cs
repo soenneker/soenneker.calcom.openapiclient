@@ -17,8 +17,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("fieldValue") is { } nullNodeFieldValue && nullNodeFieldValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FieldValue = null;
-            if (parseNode.GetChildNode("label") is { } nullNodeLabel && nullNodeLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Label = null;
+            if (parseNode.GetChildNode("fieldValue") is null) { _explicitNullValueFieldValue = default!; _explicitNullProperties?.Remove("fieldValue"); }
+            else if (parseNode.GetChildNode("fieldValue") is { } nullNodeFieldValue && nullNodeFieldValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FieldValue = null;
+            if (parseNode.GetChildNode("label") is null) { _explicitNullValueLabel = default!; _explicitNullProperties?.Remove("label"); }
+            else if (parseNode.GetChildNode("label") is { } nullNodeLabel && nullNodeLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Label = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The field value, discriminated by `type`. Each variant includes only its relevant required fields.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.EventTypeHistoryDisplayField20240614FieldValue? FieldValue { get => _explicitNullValueFieldValue; set { _explicitNullValueFieldValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fieldValue"); else _explicitNullProperties?.Remove("fieldValue"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.EventTypeHistoryDisplayField20240614FieldValue? FieldValue { get => _explicitNullValueFieldValue; set { _explicitNullValueFieldValue = value; AdditionalData?.Remove("fieldValue"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fieldValue"); else _explicitNullProperties?.Remove("fieldValue"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.EventTypeHistoryDisplayField20240614FieldValue? _explicitNullValueFieldValue = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.EventTypeHistoryDisplayField20240614FieldValue FieldValue { get => _explicitNullValueFieldValue; set { _explicitNullValueFieldValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fieldValue"); else _explicitNullProperties?.Remove("fieldValue"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.EventTypeHistoryDisplayField20240614FieldValue FieldValue { get => _explicitNullValueFieldValue; set { _explicitNullValueFieldValue = value; AdditionalData?.Remove("fieldValue"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fieldValue"); else _explicitNullProperties?.Remove("fieldValue"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.EventTypeHistoryDisplayField20240614FieldValue _explicitNullValueFieldValue = default!;
 #endif
         /// <summary>Human-readable English label for the changed field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Label { get => _explicitNullValueLabel; set { _explicitNullValueLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("label"); else _explicitNullProperties?.Remove("label"); } }
+        public string? Label { get => _explicitNullValueLabel; set { _explicitNullValueLabel = value; AdditionalData?.Remove("label"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("label"); else _explicitNullProperties?.Remove("label"); } }
         private string? _explicitNullValueLabel = default!;
 #nullable restore
 #else
-        public string Label { get => _explicitNullValueLabel; set { _explicitNullValueLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("label"); else _explicitNullProperties?.Remove("label"); } }
+        public string Label { get => _explicitNullValueLabel; set { _explicitNullValueLabel = value; AdditionalData?.Remove("label"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("label"); else _explicitNullProperties?.Remove("label"); } }
         private string _explicitNullValueLabel = default!;
 #endif
         /// <summary>

@@ -17,10 +17,14 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("binding") is { } nullNodeBinding && nullNodeBinding.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Binding = null;
-            if (parseNode.GetChildNode("timeZone") is { } nullNodeTimeZone && nullNodeTimeZone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeZone = null;
-            if (parseNode.GetChildNode("user") is { } nullNodeUser && nullNodeUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) User = null;
-            if (parseNode.GetChildNode("userUuid") is { } nullNodeUserUuid && nullNodeUserUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserUuid = null;
+            if (parseNode.GetChildNode("binding") is null) { _explicitNullValueBinding = default!; _explicitNullProperties?.Remove("binding"); }
+            else if (parseNode.GetChildNode("binding") is { } nullNodeBinding && nullNodeBinding.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Binding = null;
+            if (parseNode.GetChildNode("timeZone") is null) { _explicitNullValueTimeZone = default!; _explicitNullProperties?.Remove("timeZone"); }
+            else if (parseNode.GetChildNode("timeZone") is { } nullNodeTimeZone && nullNodeTimeZone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeZone = null;
+            if (parseNode.GetChildNode("user") is null) { _explicitNullValueUser = default!; _explicitNullProperties?.Remove("user"); }
+            else if (parseNode.GetChildNode("user") is { } nullNodeUser && nullNodeUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) User = null;
+            if (parseNode.GetChildNode("userUuid") is null) { _explicitNullValueUserUuid = default!; _explicitNullProperties?.Remove("userUuid"); }
+            else if (parseNode.GetChildNode("userUuid") is { } nullNodeUserUuid && nullNodeUserUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserUuid = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,35 +32,35 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The limit with the least room left across the event type&apos;s limit and the user&apos;s global limit; null when neither applies. Team booking limits are not included yet.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.UserBookingLimitsUsageOutputBinding? Binding { get => _explicitNullValueBinding; set { _explicitNullValueBinding = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("binding"); else _explicitNullProperties?.Remove("binding"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.UserBookingLimitsUsageOutputBinding? Binding { get => _explicitNullValueBinding; set { _explicitNullValueBinding = value; AdditionalData?.Remove("binding"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("binding"); else _explicitNullProperties?.Remove("binding"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.UserBookingLimitsUsageOutputBinding? _explicitNullValueBinding = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.UserBookingLimitsUsageOutputBinding Binding { get => _explicitNullValueBinding; set { _explicitNullValueBinding = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("binding"); else _explicitNullProperties?.Remove("binding"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.UserBookingLimitsUsageOutputBinding Binding { get => _explicitNullValueBinding; set { _explicitNullValueBinding = value; AdditionalData?.Remove("binding"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("binding"); else _explicitNullProperties?.Remove("binding"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.UserBookingLimitsUsageOutputBinding _explicitNullValueBinding = default!;
 #endif
         /// <summary>Time zone the user&apos;s own periods are counted in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TimeZone { get => _explicitNullValueTimeZone; set { _explicitNullValueTimeZone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeZone"); else _explicitNullProperties?.Remove("timeZone"); } }
+        public string? TimeZone { get => _explicitNullValueTimeZone; set { _explicitNullValueTimeZone = value; AdditionalData?.Remove("timeZone"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeZone"); else _explicitNullProperties?.Remove("timeZone"); } }
         private string? _explicitNullValueTimeZone = default!;
 #nullable restore
 #else
-        public string TimeZone { get => _explicitNullValueTimeZone; set { _explicitNullValueTimeZone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeZone"); else _explicitNullProperties?.Remove("timeZone"); } }
+        public string TimeZone { get => _explicitNullValueTimeZone; set { _explicitNullValueTimeZone = value; AdditionalData?.Remove("timeZone"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeZone"); else _explicitNullProperties?.Remove("timeZone"); } }
         private string _explicitNullValueTimeZone = default!;
 #endif
         /// <summary>The user&apos;s global booking limit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.UserBookingLimitsUsageOutputUser? User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.UserBookingLimitsUsageOutputUser? User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; AdditionalData?.Remove("user"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.UserBookingLimitsUsageOutputUser? _explicitNullValueUser = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.UserBookingLimitsUsageOutputUser User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.UserBookingLimitsUsageOutputUser User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; AdditionalData?.Remove("user"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.UserBookingLimitsUsageOutputUser _explicitNullValueUser = default!;
 #endif
         /// <summary>The userUuid property</summary>
-        public Guid? UserUuid { get => _explicitNullValueUserUuid; set { _explicitNullValueUserUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userUuid"); else _explicitNullProperties?.Remove("userUuid"); } }
+        public Guid? UserUuid { get => _explicitNullValueUserUuid; set { _explicitNullValueUserUuid = value; AdditionalData?.Remove("userUuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userUuid"); else _explicitNullProperties?.Remove("userUuid"); } }
         private Guid? _explicitNullValueUserUuid = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UserBookingLimitsUsageOutput"/> and sets the default values.

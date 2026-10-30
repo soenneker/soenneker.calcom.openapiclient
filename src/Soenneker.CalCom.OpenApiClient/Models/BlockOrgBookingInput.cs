@@ -17,23 +17,25 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("blockType") is { } nullNodeBlockType && nullNodeBlockType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockType = null;
-            if (parseNode.GetChildNode("bookingUid") is { } nullNodeBookingUid && nullNodeBookingUid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingUid = null;
+            if (parseNode.GetChildNode("blockType") is null) { _explicitNullValueBlockType = default!; _explicitNullProperties?.Remove("blockType"); }
+            else if (parseNode.GetChildNode("blockType") is { } nullNodeBlockType && nullNodeBlockType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockType = null;
+            if (parseNode.GetChildNode("bookingUid") is null) { _explicitNullValueBookingUid = default!; _explicitNullProperties?.Remove("bookingUid"); }
+            else if (parseNode.GetChildNode("bookingUid") is { } nullNodeBookingUid && nullNodeBookingUid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingUid = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether to block by email or domain. EMAIL blocks the specific booker email. DOMAIN blocks all emails from the same domain.</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.BlockOrgBookingInputBlockType? BlockType { get => _explicitNullValueBlockType; set { _explicitNullValueBlockType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blockType"); else _explicitNullProperties?.Remove("blockType"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.BlockOrgBookingInputBlockType? BlockType { get => _explicitNullValueBlockType; set { _explicitNullValueBlockType = value; AdditionalData?.Remove("blockType"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blockType"); else _explicitNullProperties?.Remove("blockType"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.BlockOrgBookingInputBlockType? _explicitNullValueBlockType = default!;
         /// <summary>The UID of the booking whose attendee should be blocked</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BookingUid { get => _explicitNullValueBookingUid; set { _explicitNullValueBookingUid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUid"); else _explicitNullProperties?.Remove("bookingUid"); } }
+        public string? BookingUid { get => _explicitNullValueBookingUid; set { _explicitNullValueBookingUid = value; AdditionalData?.Remove("bookingUid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUid"); else _explicitNullProperties?.Remove("bookingUid"); } }
         private string? _explicitNullValueBookingUid = default!;
 #nullable restore
 #else
-        public string BookingUid { get => _explicitNullValueBookingUid; set { _explicitNullValueBookingUid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUid"); else _explicitNullProperties?.Remove("bookingUid"); } }
+        public string BookingUid { get => _explicitNullValueBookingUid; set { _explicitNullValueBookingUid = value; AdditionalData?.Remove("bookingUid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUid"); else _explicitNullProperties?.Remove("bookingUid"); } }
         private string _explicitNullValueBookingUid = default!;
 #endif
         /// <summary>
@@ -61,7 +63,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "blockType", n => { BlockType = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.BlockOrgBookingInputBlockType>(); } },
+                { "blockType", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.BlockOrgBookingInputBlockType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueBlockType = default; _explicitNullProperties?.Remove("blockType"); AdditionalData["blockType"] = unknown; } else { BlockType = parsed; AdditionalData.Remove("blockType"); } } },
                 { "bookingUid", n => { BookingUid = n.GetStringValue(); } },
             };
         }

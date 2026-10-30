@@ -18,23 +18,25 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("mode") is { } nullNodeMode && nullNodeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mode = null;
-            if (parseNode.GetChildNode("template") is { } nullNodeTemplate && nullNodeTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Template = null;
+            if (parseNode.GetChildNode("mode") is null) { _explicitNullValueMode = default!; _explicitNullProperties?.Remove("mode"); }
+            else if (parseNode.GetChildNode("mode") is { } nullNodeMode && nullNodeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mode = null;
+            if (parseNode.GetChildNode("template") is null) { _explicitNullValueTemplate = default!; _explicitNullProperties?.Remove("template"); }
+            else if (parseNode.GetChildNode("template") is { } nullNodeTemplate && nullNodeTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Template = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Template source. `inherit` uses the organization default, `standard` uses Cal.com&apos;s standard description, and `custom` uses this object&apos;s template.</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.CalendarInviteTemplateInput20240614Mode? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CalendarInviteTemplateInput20240614Mode? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; AdditionalData?.Remove("mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.CalendarInviteTemplateInput20240614Mode? _explicitNullValueMode = default!;
         /// <summary>Custom Markdown description. Required only when mode is custom; maximum length is 5000 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Template { get => _explicitNullValueTemplate; set { _explicitNullValueTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("template"); else _explicitNullProperties?.Remove("template"); } }
+        public string? Template { get => _explicitNullValueTemplate; set { _explicitNullValueTemplate = value; AdditionalData?.Remove("template"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("template"); else _explicitNullProperties?.Remove("template"); } }
         private string? _explicitNullValueTemplate = default!;
 #nullable restore
 #else
-        public string Template { get => _explicitNullValueTemplate; set { _explicitNullValueTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("template"); else _explicitNullProperties?.Remove("template"); } }
+        public string Template { get => _explicitNullValueTemplate; set { _explicitNullValueTemplate = value; AdditionalData?.Remove("template"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("template"); else _explicitNullProperties?.Remove("template"); } }
         private string _explicitNullValueTemplate = default!;
 #endif
         /// <summary>
@@ -62,7 +64,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.CalendarInviteTemplateInput20240614Mode>(); } },
+                { "mode", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.CalendarInviteTemplateInput20240614Mode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMode = default; _explicitNullProperties?.Remove("mode"); AdditionalData["mode"] = unknown; } else { Mode = parsed; AdditionalData.Remove("mode"); } } },
                 { "template", n => { Template = n.GetStringValue(); } },
             };
         }

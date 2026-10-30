@@ -17,25 +17,29 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("mandatory") is { } nullNodeMandatory && nullNodeMandatory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mandatory = null;
-            if (parseNode.GetChildNode("priority") is { } nullNodePriority && nullNodePriority.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Priority = null;
-            if (parseNode.GetChildNode("userId") is { } nullNodeUserId && nullNodeUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserId = null;
-            if (parseNode.GetChildNode("weight") is { } nullNodeWeight && nullNodeWeight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Weight = null;
+            if (parseNode.GetChildNode("mandatory") is null) { _explicitNullValueMandatory = default!; _explicitNullProperties?.Remove("mandatory"); }
+            else if (parseNode.GetChildNode("mandatory") is { } nullNodeMandatory && nullNodeMandatory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mandatory = null;
+            if (parseNode.GetChildNode("priority") is null) { _explicitNullValuePriority = default!; _explicitNullProperties?.Remove("priority"); }
+            else if (parseNode.GetChildNode("priority") is { } nullNodePriority && nullNodePriority.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Priority = null;
+            if (parseNode.GetChildNode("userId") is null) { _explicitNullValueUserId = default!; _explicitNullProperties?.Remove("userId"); }
+            else if (parseNode.GetChildNode("userId") is { } nullNodeUserId && nullNodeUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserId = null;
+            if (parseNode.GetChildNode("weight") is null) { _explicitNullValueWeight = default!; _explicitNullProperties?.Remove("weight"); }
+            else if (parseNode.GetChildNode("weight") is { } nullNodeWeight && nullNodeWeight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Weight = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Only relevant for round robin event types. If true then the user must attend the round robin event always (fixed host). This may be combined with `assignAllTeamMembers: true` on round robin event types — entries marked `mandatory: true` become fixed hosts while every other team member fills the round robin pool.</summary>
-        public bool? Mandatory { get => _explicitNullValueMandatory; set { _explicitNullValueMandatory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mandatory"); else _explicitNullProperties?.Remove("mandatory"); } }
+        public bool? Mandatory { get => _explicitNullValueMandatory; set { _explicitNullValueMandatory = value; AdditionalData?.Remove("mandatory"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mandatory"); else _explicitNullProperties?.Remove("mandatory"); } }
         private bool? _explicitNullValueMandatory = default!;
         /// <summary>The priority property</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.HostPriority? Priority { get => _explicitNullValuePriority; set { _explicitNullValuePriority = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("priority"); else _explicitNullProperties?.Remove("priority"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.HostPriority? Priority { get => _explicitNullValuePriority; set { _explicitNullValuePriority = value; AdditionalData?.Remove("priority"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("priority"); else _explicitNullProperties?.Remove("priority"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.HostPriority? _explicitNullValuePriority = default!;
         /// <summary>Which user is the host of this event</summary>
-        public double? UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userId"); else _explicitNullProperties?.Remove("userId"); } }
+        public double? UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; AdditionalData?.Remove("userId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userId"); else _explicitNullProperties?.Remove("userId"); } }
         private double? _explicitNullValueUserId = default!;
         /// <summary>Only relevant for round robin event types with `isRRWeightsEnabled: true`. Relative share of bookings this host receives - a host with weight 200 gets twice as many bookings as a host with weight 100. Defaults to 100.</summary>
-        public double? Weight { get => _explicitNullValueWeight; set { _explicitNullValueWeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("weight"); else _explicitNullProperties?.Remove("weight"); } }
+        public double? Weight { get => _explicitNullValueWeight; set { _explicitNullValueWeight = value; AdditionalData?.Remove("weight"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("weight"); else _explicitNullProperties?.Remove("weight"); } }
         private double? _explicitNullValueWeight = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.Host"/> and sets the default values.
@@ -64,7 +68,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "mandatory", n => { Mandatory = n.GetBoolValue(); } },
-                { "priority", n => { Priority = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.HostPriority>(); } },
+                { "priority", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.HostPriority>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValuePriority = default; _explicitNullProperties?.Remove("priority"); AdditionalData["priority"] = unknown; } else { Priority = parsed; AdditionalData.Remove("priority"); } } },
                 { "userId", n => { UserId = n.GetDoubleValue(); } },
                 { "weight", n => { Weight = n.GetDoubleValue(); } },
             };

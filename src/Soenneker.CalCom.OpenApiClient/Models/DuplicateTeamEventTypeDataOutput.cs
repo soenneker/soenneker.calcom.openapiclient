@@ -17,45 +17,49 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("destinationCalendarDropped") is { } nullNodeDestinationCalendarDropped && nullNodeDestinationCalendarDropped.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DestinationCalendarDropped = null;
-            if (parseNode.GetChildNode("droppedHostUserIds") is { } nullNodeDroppedHostUserIds && nullNodeDroppedHostUserIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DroppedHostUserIds = null;
-            if (parseNode.GetChildNode("droppedWorkflowIds") is { } nullNodeDroppedWorkflowIds && nullNodeDroppedWorkflowIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DroppedWorkflowIds = null;
-            if (parseNode.GetChildNode("eventType") is { } nullNodeEventType && nullNodeEventType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventType = null;
+            if (parseNode.GetChildNode("destinationCalendarDropped") is null) { _explicitNullValueDestinationCalendarDropped = default!; _explicitNullProperties?.Remove("destinationCalendarDropped"); }
+            else if (parseNode.GetChildNode("destinationCalendarDropped") is { } nullNodeDestinationCalendarDropped && nullNodeDestinationCalendarDropped.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DestinationCalendarDropped = null;
+            if (parseNode.GetChildNode("droppedHostUserIds") is null) { _explicitNullValueDroppedHostUserIds = default!; _explicitNullProperties?.Remove("droppedHostUserIds"); }
+            else if (parseNode.GetChildNode("droppedHostUserIds") is { } nullNodeDroppedHostUserIds && nullNodeDroppedHostUserIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DroppedHostUserIds = null;
+            if (parseNode.GetChildNode("droppedWorkflowIds") is null) { _explicitNullValueDroppedWorkflowIds = default!; _explicitNullProperties?.Remove("droppedWorkflowIds"); }
+            else if (parseNode.GetChildNode("droppedWorkflowIds") is { } nullNodeDroppedWorkflowIds && nullNodeDroppedWorkflowIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DroppedWorkflowIds = null;
+            if (parseNode.GetChildNode("eventType") is null) { _explicitNullValueEventType = default!; _explicitNullProperties?.Remove("eventType"); }
+            else if (parseNode.GetChildNode("eventType") is { } nullNodeEventType && nullNodeEventType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>True when the source&apos;s destination calendar was left off the copy because the caller cannot set it, for example because the caller is not a host of the copy or the calendar is another member&apos;s connection.</summary>
-        public bool? DestinationCalendarDropped { get => _explicitNullValueDestinationCalendarDropped; set { _explicitNullValueDestinationCalendarDropped = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destinationCalendarDropped"); else _explicitNullProperties?.Remove("destinationCalendarDropped"); } }
+        public bool? DestinationCalendarDropped { get => _explicitNullValueDestinationCalendarDropped; set { _explicitNullValueDestinationCalendarDropped = value; AdditionalData?.Remove("destinationCalendarDropped"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destinationCalendarDropped"); else _explicitNullProperties?.Remove("destinationCalendarDropped"); } }
         private bool? _explicitNullValueDestinationCalendarDropped = default!;
         /// <summary>Ids of the source&apos;s hosts and assigned users that are not accepted members of the target team, so the copy does not include them. Empty when the copy stays in the source&apos;s team.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<double?>? DroppedHostUserIds { get => _explicitNullValueDroppedHostUserIds; set { _explicitNullValueDroppedHostUserIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droppedHostUserIds"); else _explicitNullProperties?.Remove("droppedHostUserIds"); } }
+        public List<double?>? DroppedHostUserIds { get => _explicitNullValueDroppedHostUserIds; set { _explicitNullValueDroppedHostUserIds = value; AdditionalData?.Remove("droppedHostUserIds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droppedHostUserIds"); else _explicitNullProperties?.Remove("droppedHostUserIds"); } }
         private List<double?>? _explicitNullValueDroppedHostUserIds = default!;
 #nullable restore
 #else
-        public List<double?> DroppedHostUserIds { get => _explicitNullValueDroppedHostUserIds; set { _explicitNullValueDroppedHostUserIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droppedHostUserIds"); else _explicitNullProperties?.Remove("droppedHostUserIds"); } }
+        public List<double?> DroppedHostUserIds { get => _explicitNullValueDroppedHostUserIds; set { _explicitNullValueDroppedHostUserIds = value; AdditionalData?.Remove("droppedHostUserIds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droppedHostUserIds"); else _explicitNullProperties?.Remove("droppedHostUserIds"); } }
         private List<double?> _explicitNullValueDroppedHostUserIds = default!;
 #endif
         /// <summary>Ids of the workflows active on the source that were not activated on the copy, because workflows are not carried across teams. Empty when the copy stays in the source&apos;s team.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<double?>? DroppedWorkflowIds { get => _explicitNullValueDroppedWorkflowIds; set { _explicitNullValueDroppedWorkflowIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droppedWorkflowIds"); else _explicitNullProperties?.Remove("droppedWorkflowIds"); } }
+        public List<double?>? DroppedWorkflowIds { get => _explicitNullValueDroppedWorkflowIds; set { _explicitNullValueDroppedWorkflowIds = value; AdditionalData?.Remove("droppedWorkflowIds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droppedWorkflowIds"); else _explicitNullProperties?.Remove("droppedWorkflowIds"); } }
         private List<double?>? _explicitNullValueDroppedWorkflowIds = default!;
 #nullable restore
 #else
-        public List<double?> DroppedWorkflowIds { get => _explicitNullValueDroppedWorkflowIds; set { _explicitNullValueDroppedWorkflowIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droppedWorkflowIds"); else _explicitNullProperties?.Remove("droppedWorkflowIds"); } }
+        public List<double?> DroppedWorkflowIds { get => _explicitNullValueDroppedWorkflowIds; set { _explicitNullValueDroppedWorkflowIds = value; AdditionalData?.Remove("droppedWorkflowIds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droppedWorkflowIds"); else _explicitNullProperties?.Remove("droppedWorkflowIds"); } }
         private List<double?> _explicitNullValueDroppedWorkflowIds = default!;
 #endif
         /// <summary>The new event type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.DuplicateTeamEventTypeDataOutputEventType? EventType { get => _explicitNullValueEventType; set { _explicitNullValueEventType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventType"); else _explicitNullProperties?.Remove("eventType"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.DuplicateTeamEventTypeDataOutputEventType? EventType { get => _explicitNullValueEventType; set { _explicitNullValueEventType = value; AdditionalData?.Remove("eventType"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventType"); else _explicitNullProperties?.Remove("eventType"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.DuplicateTeamEventTypeDataOutputEventType? _explicitNullValueEventType = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.DuplicateTeamEventTypeDataOutputEventType EventType { get => _explicitNullValueEventType; set { _explicitNullValueEventType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventType"); else _explicitNullProperties?.Remove("eventType"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.DuplicateTeamEventTypeDataOutputEventType EventType { get => _explicitNullValueEventType; set { _explicitNullValueEventType = value; AdditionalData?.Remove("eventType"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventType"); else _explicitNullProperties?.Remove("eventType"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.DuplicateTeamEventTypeDataOutputEventType _explicitNullValueEventType = default!;
 #endif
         /// <summary>

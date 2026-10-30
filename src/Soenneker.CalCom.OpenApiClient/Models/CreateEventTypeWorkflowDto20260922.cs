@@ -17,20 +17,24 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("activation") is { } nullNodeActivation && nullNodeActivation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Activation = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("steps") is { } nullNodeSteps && nullNodeSteps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Steps = null;
-            if (parseNode.GetChildNode("trigger") is { } nullNodeTrigger && nullNodeTrigger.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Trigger = null;
+            if (parseNode.GetChildNode("activation") is null) { _explicitNullValueActivation = default!; _explicitNullProperties?.Remove("activation"); }
+            else if (parseNode.GetChildNode("activation") is { } nullNodeActivation && nullNodeActivation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Activation = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("steps") is null) { _explicitNullValueSteps = default!; _explicitNullProperties?.Remove("steps"); }
+            else if (parseNode.GetChildNode("steps") is { } nullNodeSteps && nullNodeSteps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Steps = null;
+            if (parseNode.GetChildNode("trigger") is null) { _explicitNullValueTrigger = default!; _explicitNullProperties?.Remove("trigger"); }
+            else if (parseNode.GetChildNode("trigger") is { } nullNodeTrigger && nullNodeTrigger.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Trigger = null;
         }
 
         /// <summary>Activation settings for the workflow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeWorkflowDto20260922Activation? Activation { get => _explicitNullValueActivation; set { _explicitNullValueActivation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activation"); else _explicitNullProperties?.Remove("activation"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeWorkflowDto20260922Activation? Activation { get => _explicitNullValueActivation; set { _explicitNullValueActivation = value; AdditionalData?.Remove("activation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activation"); else _explicitNullProperties?.Remove("activation"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeWorkflowDto20260922Activation? _explicitNullValueActivation = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeWorkflowDto20260922Activation Activation { get => _explicitNullValueActivation; set { _explicitNullValueActivation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activation"); else _explicitNullProperties?.Remove("activation"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeWorkflowDto20260922Activation Activation { get => _explicitNullValueActivation; set { _explicitNullValueActivation = value; AdditionalData?.Remove("activation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activation"); else _explicitNullProperties?.Remove("activation"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeWorkflowDto20260922Activation _explicitNullValueActivation = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -38,31 +42,31 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>Name of the workflow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>Steps to execute as part of the event-type workflow, allowed steps are email_host,email_attendee,email_address,sms_attendee,sms_number,whatsapp_attendee,whatsapp_number,cal_ai_phone_call,paths,filter</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeWorkflowDto20260922StepsItem>? Steps { get => _explicitNullValueSteps; set { _explicitNullValueSteps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("steps"); else _explicitNullProperties?.Remove("steps"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeWorkflowDto20260922StepsItem>? Steps { get => _explicitNullValueSteps; set { _explicitNullValueSteps = value; AdditionalData?.Remove("steps"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("steps"); else _explicitNullProperties?.Remove("steps"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeWorkflowDto20260922StepsItem>? _explicitNullValueSteps = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeWorkflowDto20260922StepsItem> Steps { get => _explicitNullValueSteps; set { _explicitNullValueSteps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("steps"); else _explicitNullProperties?.Remove("steps"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeWorkflowDto20260922StepsItem> Steps { get => _explicitNullValueSteps; set { _explicitNullValueSteps = value; AdditionalData?.Remove("steps"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("steps"); else _explicitNullProperties?.Remove("steps"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeWorkflowDto20260922StepsItem> _explicitNullValueSteps = default!;
 #endif
         /// <summary>Trigger configuration for the event-type workflow, allowed triggers are beforeEvent,eventCancelled,newEvent,afterEvent,rescheduleEvent,afterHostsCalVideoNoShow,afterGuestsCalVideoNoShow,bookingRejected,bookingRequested,bookingPaymentInitiated,bookingPaid,bookingNoShowUpdated</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeWorkflowDto20260922Trigger? Trigger { get => _explicitNullValueTrigger; set { _explicitNullValueTrigger = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger"); else _explicitNullProperties?.Remove("trigger"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeWorkflowDto20260922Trigger? Trigger { get => _explicitNullValueTrigger; set { _explicitNullValueTrigger = value; AdditionalData?.Remove("trigger"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger"); else _explicitNullProperties?.Remove("trigger"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeWorkflowDto20260922Trigger? _explicitNullValueTrigger = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeWorkflowDto20260922Trigger Trigger { get => _explicitNullValueTrigger; set { _explicitNullValueTrigger = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger"); else _explicitNullProperties?.Remove("trigger"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeWorkflowDto20260922Trigger Trigger { get => _explicitNullValueTrigger; set { _explicitNullValueTrigger = value; AdditionalData?.Remove("trigger"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger"); else _explicitNullProperties?.Remove("trigger"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeWorkflowDto20260922Trigger _explicitNullValueTrigger = default!;
 #endif
         /// <summary>

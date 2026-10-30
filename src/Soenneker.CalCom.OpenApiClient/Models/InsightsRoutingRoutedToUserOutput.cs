@@ -17,12 +17,18 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("avatarUrl") is { } nullNodeAvatarUrl && nullNodeAvatarUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvatarUrl = null;
-            if (parseNode.GetChildNode("email") is { } nullNodeEmail && nullNodeEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Email = null;
-            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("performance") is { } nullNodePerformance && nullNodePerformance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Performance = null;
-            if (parseNode.GetChildNode("totalBookings") is { } nullNodeTotalBookings && nullNodeTotalBookings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalBookings = null;
+            if (parseNode.GetChildNode("avatarUrl") is null) { _explicitNullValueAvatarUrl = default!; _explicitNullProperties?.Remove("avatarUrl"); }
+            else if (parseNode.GetChildNode("avatarUrl") is { } nullNodeAvatarUrl && nullNodeAvatarUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvatarUrl = null;
+            if (parseNode.GetChildNode("email") is null) { _explicitNullValueEmail = default!; _explicitNullProperties?.Remove("email"); }
+            else if (parseNode.GetChildNode("email") is { } nullNodeEmail && nullNodeEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Email = null;
+            if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
+            else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("performance") is null) { _explicitNullValuePerformance = default!; _explicitNullProperties?.Remove("performance"); }
+            else if (parseNode.GetChildNode("performance") is { } nullNodePerformance && nullNodePerformance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Performance = null;
+            if (parseNode.GetChildNode("totalBookings") is null) { _explicitNullValueTotalBookings = default!; _explicitNullProperties?.Remove("totalBookings"); }
+            else if (parseNode.GetChildNode("totalBookings") is { } nullNodeTotalBookings && nullNodeTotalBookings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalBookings = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,48 +36,48 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The avatarUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingRoutedToUserOutputAvatarUrlProperty? AvatarUrl { get => _explicitNullValueAvatarUrl; set { _explicitNullValueAvatarUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("avatarUrl"); else _explicitNullProperties?.Remove("avatarUrl"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingRoutedToUserOutputAvatarUrlProperty? AvatarUrl { get => _explicitNullValueAvatarUrl; set { _explicitNullValueAvatarUrl = value; AdditionalData?.Remove("avatarUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("avatarUrl"); else _explicitNullProperties?.Remove("avatarUrl"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingRoutedToUserOutputAvatarUrlProperty? _explicitNullValueAvatarUrl = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingRoutedToUserOutputAvatarUrlProperty AvatarUrl { get => _explicitNullValueAvatarUrl; set { _explicitNullValueAvatarUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("avatarUrl"); else _explicitNullProperties?.Remove("avatarUrl"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingRoutedToUserOutputAvatarUrlProperty AvatarUrl { get => _explicitNullValueAvatarUrl; set { _explicitNullValueAvatarUrl = value; AdditionalData?.Remove("avatarUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("avatarUrl"); else _explicitNullProperties?.Remove("avatarUrl"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingRoutedToUserOutputAvatarUrlProperty _explicitNullValueAvatarUrl = default!;
 #endif
         /// <summary>The email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingRoutedToUserOutputEmailProperty? Email { get => _explicitNullValueEmail; set { _explicitNullValueEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email"); else _explicitNullProperties?.Remove("email"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingRoutedToUserOutputEmailProperty? Email { get => _explicitNullValueEmail; set { _explicitNullValueEmail = value; AdditionalData?.Remove("email"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email"); else _explicitNullProperties?.Remove("email"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingRoutedToUserOutputEmailProperty? _explicitNullValueEmail = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingRoutedToUserOutputEmailProperty Email { get => _explicitNullValueEmail; set { _explicitNullValueEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email"); else _explicitNullProperties?.Remove("email"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingRoutedToUserOutputEmailProperty Email { get => _explicitNullValueEmail; set { _explicitNullValueEmail = value; AdditionalData?.Remove("email"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email"); else _explicitNullProperties?.Remove("email"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingRoutedToUserOutputEmailProperty _explicitNullValueEmail = default!;
 #endif
         /// <summary>The id property</summary>
-        public double? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public double? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private double? _explicitNullValueId = default!;
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>The performance property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Performance { get => _explicitNullValuePerformance; set { _explicitNullValuePerformance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("performance"); else _explicitNullProperties?.Remove("performance"); } }
+        public string? Performance { get => _explicitNullValuePerformance; set { _explicitNullValuePerformance = value; AdditionalData?.Remove("performance"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("performance"); else _explicitNullProperties?.Remove("performance"); } }
         private string? _explicitNullValuePerformance = default!;
 #nullable restore
 #else
-        public string Performance { get => _explicitNullValuePerformance; set { _explicitNullValuePerformance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("performance"); else _explicitNullProperties?.Remove("performance"); } }
+        public string Performance { get => _explicitNullValuePerformance; set { _explicitNullValuePerformance = value; AdditionalData?.Remove("performance"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("performance"); else _explicitNullProperties?.Remove("performance"); } }
         private string _explicitNullValuePerformance = default!;
 #endif
         /// <summary>The totalBookings property</summary>
-        public double? TotalBookings { get => _explicitNullValueTotalBookings; set { _explicitNullValueTotalBookings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("totalBookings"); else _explicitNullProperties?.Remove("totalBookings"); } }
+        public double? TotalBookings { get => _explicitNullValueTotalBookings; set { _explicitNullValueTotalBookings = value; AdditionalData?.Remove("totalBookings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("totalBookings"); else _explicitNullProperties?.Remove("totalBookings"); } }
         private double? _explicitNullValueTotalBookings = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingRoutedToUserOutput"/> and sets the default values.

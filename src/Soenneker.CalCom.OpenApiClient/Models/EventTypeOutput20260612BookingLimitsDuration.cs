@@ -54,8 +54,14 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             }
             
             var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
-            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("disabled") != null))();
-            if (result.BaseBookingLimitsDuration20240614 == null && result.Disabled20240614 == null && matchesUnionBranch0) result.Disabled20240614 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.Disabled20240614(), parseNode);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && ((!shapeMembers1.ContainsKey("day") || (((shapeMembers1["day"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger or global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong or global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal)))) && (!shapeMembers1.ContainsKey("week") || (((shapeMembers1["week"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger or global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong or global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal)))) && (!shapeMembers1.ContainsKey("month") || (((shapeMembers1["month"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger or global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong or global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal)))) && (!shapeMembers1.ContainsKey("year") || (((shapeMembers1["year"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger or global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong or global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal)))) && (!shapeMembers1.ContainsKey("disabled") || (((shapeMembers1["disabled"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedBoolean)))))))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("disabled") && (!shapeMembers1.ContainsKey("disabled") || (((shapeMembers1["disabled"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedBoolean)))))))))();
+            int matchingUnionBranches = 0;
+            if (matchesUnionBranch0) matchingUnionBranches++;
+            if (matchesUnionBranch1) matchingUnionBranches++;
+            bool noSelectedUnionBranch = result.BaseBookingLimitsDuration20240614 == null && result.Disabled20240614 == null;
+            if (noSelectedUnionBranch && matchesUnionBranch0 && matchingUnionBranches == 1) result.BaseBookingLimitsDuration20240614 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.BaseBookingLimitsDuration20240614(), parseNode);
+            if (noSelectedUnionBranch && matchesUnionBranch1 && matchingUnionBranches == 1) result.Disabled20240614 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.Disabled20240614(), parseNode);
             if (result.BaseBookingLimitsDuration20240614 == null && result.Disabled20240614 == null) result.UnrecognizedValue = unionPayload;
 return result;
         }
@@ -65,6 +71,8 @@ return result;
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
+
             if(BaseBookingLimitsDuration20240614 != null)
             {
                 return BaseBookingLimitsDuration20240614.GetFieldDeserializers();
@@ -83,8 +91,11 @@ return result;
         {
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
             if (BaseBookingLimitsDuration20240614 == null && Disabled20240614 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
-            if (BaseBookingLimitsDuration20240614 != null && Disabled20240614 == null) { if (BaseBookingLimitsDuration20240614 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, BaseBookingLimitsDuration20240614); return; }
-            if (Disabled20240614 != null && BaseBookingLimitsDuration20240614 == null) { if (Disabled20240614 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, Disabled20240614); return; }
+            int selectedUnionBranches = 0;
+            if (BaseBookingLimitsDuration20240614 != null) selectedUnionBranches++;
+            if (Disabled20240614 != null) selectedUnionBranches++;
+            if (BaseBookingLimitsDuration20240614 != null && selectedUnionBranches == 1) { if (BaseBookingLimitsDuration20240614 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, BaseBookingLimitsDuration20240614); return; }
+            if (Disabled20240614 != null && selectedUnionBranches == 1) { if (Disabled20240614 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, Disabled20240614); return; }
 
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(BaseBookingLimitsDuration20240614 != null)

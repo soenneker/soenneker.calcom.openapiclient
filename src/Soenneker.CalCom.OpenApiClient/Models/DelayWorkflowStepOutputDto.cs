@@ -17,43 +17,48 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("action") is { } nullNodeAction && nullNodeAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Action = null;
-            if (parseNode.GetChildNode("delay") is { } nullNodeDelay && nullNodeDelay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Delay = null;
-            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
-            if (parseNode.GetChildNode("pathId") is { } nullNodePathId && nullNodePathId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PathId = null;
-            if (parseNode.GetChildNode("stepNumber") is { } nullNodeStepNumber && nullNodeStepNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StepNumber = null;
+            if (parseNode.GetChildNode("action") is null) { _explicitNullValueAction = default!; _explicitNullProperties?.Remove("action"); }
+            else if (parseNode.GetChildNode("action") is { } nullNodeAction && nullNodeAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Action = null;
+            if (parseNode.GetChildNode("delay") is null) { _explicitNullValueDelay = default!; _explicitNullProperties?.Remove("delay"); }
+            else if (parseNode.GetChildNode("delay") is { } nullNodeDelay && nullNodeDelay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Delay = null;
+            if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
+            else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("pathId") is null) { _explicitNullValuePathId = default!; _explicitNullProperties?.Remove("pathId"); }
+            else if (parseNode.GetChildNode("pathId") is { } nullNodePathId && nullNodePathId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PathId = null;
+            if (parseNode.GetChildNode("stepNumber") is null) { _explicitNullValueStepNumber = default!; _explicitNullProperties?.Remove("stepNumber"); }
+            else if (parseNode.GetChildNode("stepNumber") is { } nullNodeStepNumber && nullNodeStepNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StepNumber = null;
         }
 
         /// <summary>A wait before the next sending step. Its duration is read-only through the API and can only be edited in the Cal.com app; include this step by id when updating the workflow&apos;s steps.</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.DelayAction? Action { get => _explicitNullValueAction; set { _explicitNullValueAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action"); else _explicitNullProperties?.Remove("action"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.DelayAction? Action { get => _explicitNullValueAction; set { _explicitNullValueAction = value; AdditionalData?.Remove("action"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action"); else _explicitNullProperties?.Remove("action"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.DelayAction? _explicitNullValueAction = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>How long this step waits. Absent when the step has no stored duration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.DelayWorkflowStepOutputDtoDelay? Delay { get => _explicitNullValueDelay; set { _explicitNullValueDelay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delay"); else _explicitNullProperties?.Remove("delay"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.DelayWorkflowStepOutputDtoDelay? Delay { get => _explicitNullValueDelay; set { _explicitNullValueDelay = value; AdditionalData?.Remove("delay"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delay"); else _explicitNullProperties?.Remove("delay"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.DelayWorkflowStepOutputDtoDelay? _explicitNullValueDelay = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.DelayWorkflowStepOutputDtoDelay Delay { get => _explicitNullValueDelay; set { _explicitNullValueDelay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delay"); else _explicitNullProperties?.Remove("delay"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.DelayWorkflowStepOutputDtoDelay Delay { get => _explicitNullValueDelay; set { _explicitNullValueDelay = value; AdditionalData?.Remove("delay"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delay"); else _explicitNullProperties?.Remove("delay"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.DelayWorkflowStepOutputDtoDelay _explicitNullValueDelay = default!;
 #endif
         /// <summary>Unique identifier of the step</summary>
-        public double? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public double? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private double? _explicitNullValueId = default!;
         /// <summary>Id of the conditional path this delay belongs to, when it sits inside a split branch or a filter. Absent at the top level.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PathId { get => _explicitNullValuePathId; set { _explicitNullValuePathId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pathId"); else _explicitNullProperties?.Remove("pathId"); } }
+        public string? PathId { get => _explicitNullValuePathId; set { _explicitNullValuePathId = value; AdditionalData?.Remove("pathId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pathId"); else _explicitNullProperties?.Remove("pathId"); } }
         private string? _explicitNullValuePathId = default!;
 #nullable restore
 #else
-        public string PathId { get => _explicitNullValuePathId; set { _explicitNullValuePathId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pathId"); else _explicitNullProperties?.Remove("pathId"); } }
+        public string PathId { get => _explicitNullValuePathId; set { _explicitNullValuePathId = value; AdditionalData?.Remove("pathId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pathId"); else _explicitNullProperties?.Remove("pathId"); } }
         private string _explicitNullValuePathId = default!;
 #endif
         /// <summary>Step number in the workflow sequence</summary>
-        public double? StepNumber { get => _explicitNullValueStepNumber; set { _explicitNullValueStepNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stepNumber"); else _explicitNullProperties?.Remove("stepNumber"); } }
+        public double? StepNumber { get => _explicitNullValueStepNumber; set { _explicitNullValueStepNumber = value; AdditionalData?.Remove("stepNumber"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stepNumber"); else _explicitNullProperties?.Remove("stepNumber"); } }
         private double? _explicitNullValueStepNumber = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.DelayWorkflowStepOutputDto"/> and sets the default values.
@@ -80,7 +85,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "action", n => { Action = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.DelayAction>(); } },
+                { "action", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.DelayAction>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAction = default; _explicitNullProperties?.Remove("action"); AdditionalData["action"] = unknown; } else { Action = parsed; AdditionalData.Remove("action"); } } },
                 { "delay", n => { Delay = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.DelayWorkflowStepOutputDtoDelay>(global::Soenneker.CalCom.OpenApiClient.Models.DelayWorkflowStepOutputDtoDelay.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetDoubleValue(); } },
                 { "pathId", n => { PathId = n.GetStringValue(); } },

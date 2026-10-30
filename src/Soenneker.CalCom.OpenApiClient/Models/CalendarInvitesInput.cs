@@ -17,8 +17,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("guest") is { } nullNodeGuest && nullNodeGuest.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Guest = null;
-            if (parseNode.GetChildNode("host") is { } nullNodeHost && nullNodeHost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Host = null;
+            if (parseNode.GetChildNode("guest") is null) { _explicitNullValueGuest = default!; _explicitNullProperties?.Remove("guest"); }
+            else if (parseNode.GetChildNode("guest") is { } nullNodeGuest && nullNodeGuest.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Guest = null;
+            if (parseNode.GetChildNode("host") is null) { _explicitNullValueHost = default!; _explicitNullProperties?.Remove("host"); }
+            else if (parseNode.GetChildNode("host") is { } nullNodeHost && nullNodeHost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Host = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>Guest calendar-invite description settings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.CalendarInvitesInputGuest? Guest { get => _explicitNullValueGuest; set { _explicitNullValueGuest = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guest"); else _explicitNullProperties?.Remove("guest"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CalendarInvitesInputGuest? Guest { get => _explicitNullValueGuest; set { _explicitNullValueGuest = value; AdditionalData?.Remove("guest"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guest"); else _explicitNullProperties?.Remove("guest"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.CalendarInvitesInputGuest? _explicitNullValueGuest = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.CalendarInvitesInputGuest Guest { get => _explicitNullValueGuest; set { _explicitNullValueGuest = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guest"); else _explicitNullProperties?.Remove("guest"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CalendarInvitesInputGuest Guest { get => _explicitNullValueGuest; set { _explicitNullValueGuest = value; AdditionalData?.Remove("guest"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guest"); else _explicitNullProperties?.Remove("guest"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.CalendarInvitesInputGuest _explicitNullValueGuest = default!;
 #endif
         /// <summary>Host calendar-invite description settings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.CalendarInvitesInputHost? Host { get => _explicitNullValueHost; set { _explicitNullValueHost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("host"); else _explicitNullProperties?.Remove("host"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CalendarInvitesInputHost? Host { get => _explicitNullValueHost; set { _explicitNullValueHost = value; AdditionalData?.Remove("host"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("host"); else _explicitNullProperties?.Remove("host"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.CalendarInvitesInputHost? _explicitNullValueHost = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.CalendarInvitesInputHost Host { get => _explicitNullValueHost; set { _explicitNullValueHost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("host"); else _explicitNullProperties?.Remove("host"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CalendarInvitesInputHost Host { get => _explicitNullValueHost; set { _explicitNullValueHost = value; AdditionalData?.Remove("host"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("host"); else _explicitNullProperties?.Remove("host"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.CalendarInvitesInputHost _explicitNullValueHost = default!;
 #endif
         /// <summary>

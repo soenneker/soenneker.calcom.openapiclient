@@ -54,8 +54,14 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             }
             
             var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
-            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("seatUid") != null))();
-            if (result.CancelBookingInput20240813 == null && result.CancelSeatedBookingInput20240813 == null && matchesUnionBranch0) result.CancelSeatedBookingInput20240813 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.CancelSeatedBookingInput20240813(), parseNode);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && ((!shapeMembers1.ContainsKey("cancellationReason") || (((shapeMembers1["cancellationReason"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("cancelSubsequentBookings") || (((shapeMembers1["cancelSubsequentBookings"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedBoolean)))))))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("seatUid") && (!shapeMembers1.ContainsKey("seatUid") || (((shapeMembers1["seatUid"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("cancellationReason") || (((shapeMembers1["cancellationReason"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))))))))();
+            int matchingUnionBranches = 0;
+            if (matchesUnionBranch0) matchingUnionBranches++;
+            if (matchesUnionBranch1) matchingUnionBranches++;
+            bool noSelectedUnionBranch = result.CancelBookingInput20240813 == null && result.CancelSeatedBookingInput20240813 == null;
+            if (noSelectedUnionBranch && matchesUnionBranch0 && matchingUnionBranches == 1) result.CancelBookingInput20240813 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.CancelBookingInput20240813(), parseNode);
+            if (noSelectedUnionBranch && matchesUnionBranch1 && matchingUnionBranches == 1) result.CancelSeatedBookingInput20240813 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.CancelSeatedBookingInput20240813(), parseNode);
             if (result.CancelBookingInput20240813 == null && result.CancelSeatedBookingInput20240813 == null) result.UnrecognizedValue = unionPayload;
 return result;
         }
@@ -65,6 +71,8 @@ return result;
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
+
             if(CancelBookingInput20240813 != null)
             {
                 return CancelBookingInput20240813.GetFieldDeserializers();
@@ -83,8 +91,11 @@ return result;
         {
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
             if (CancelBookingInput20240813 == null && CancelSeatedBookingInput20240813 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
-            if (CancelBookingInput20240813 != null && CancelSeatedBookingInput20240813 == null) { if (CancelBookingInput20240813 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, CancelBookingInput20240813); return; }
-            if (CancelSeatedBookingInput20240813 != null && CancelBookingInput20240813 == null) { if (CancelSeatedBookingInput20240813 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, CancelSeatedBookingInput20240813); return; }
+            int selectedUnionBranches = 0;
+            if (CancelBookingInput20240813 != null) selectedUnionBranches++;
+            if (CancelSeatedBookingInput20240813 != null) selectedUnionBranches++;
+            if (CancelBookingInput20240813 != null && selectedUnionBranches == 1) { if (CancelBookingInput20240813 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, CancelBookingInput20240813); return; }
+            if (CancelSeatedBookingInput20240813 != null && selectedUnionBranches == 1) { if (CancelSeatedBookingInput20240813 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, CancelSeatedBookingInput20240813); return; }
 
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(CancelBookingInput20240813 != null)

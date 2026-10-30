@@ -18,11 +18,16 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("auditLogs") is { } nullNodeAuditLogs && nullNodeAuditLogs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuditLogs = null;
-            if (parseNode.GetChildNode("hasMore") is { } nullNodeHasMore && nullNodeHasMore.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasMore = null;
-            if (parseNode.GetChildNode("membershipId") is { } nullNodeMembershipId && nullNodeMembershipId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MembershipId = null;
-            if (parseNode.GetChildNode("nextCursor") is { } nullNodeNextCursor && nullNodeNextCursor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextCursor = null;
-            if (parseNode.GetChildNode("userId") is { } nullNodeUserId && nullNodeUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserId = null;
+            if (parseNode.GetChildNode("auditLogs") is null) { _explicitNullValueAuditLogs = default!; _explicitNullProperties?.Remove("auditLogs"); }
+            else if (parseNode.GetChildNode("auditLogs") is { } nullNodeAuditLogs && nullNodeAuditLogs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuditLogs = null;
+            if (parseNode.GetChildNode("hasMore") is null) { _explicitNullValueHasMore = default!; _explicitNullProperties?.Remove("hasMore"); }
+            else if (parseNode.GetChildNode("hasMore") is { } nullNodeHasMore && nullNodeHasMore.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasMore = null;
+            if (parseNode.GetChildNode("membershipId") is null) { _explicitNullValueMembershipId = default!; _explicitNullProperties?.Remove("membershipId"); }
+            else if (parseNode.GetChildNode("membershipId") is { } nullNodeMembershipId && nullNodeMembershipId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MembershipId = null;
+            if (parseNode.GetChildNode("nextCursor") is null) { _explicitNullValueNextCursor = default!; _explicitNullProperties?.Remove("nextCursor"); }
+            else if (parseNode.GetChildNode("nextCursor") is { } nullNodeNextCursor && nullNodeNextCursor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextCursor = null;
+            if (parseNode.GetChildNode("userId") is null) { _explicitNullValueUserId = default!; _explicitNullProperties?.Remove("userId"); }
+            else if (parseNode.GetChildNode("userId") is { } nullNodeUserId && nullNodeUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,31 +35,31 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The paginated audit log entries for the user&apos;s attribute assignments.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.AttributeAssignmentHistoryLogOutput>? AuditLogs { get => _explicitNullValueAuditLogs; set { _explicitNullValueAuditLogs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auditLogs"); else _explicitNullProperties?.Remove("auditLogs"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.AttributeAssignmentHistoryLogOutput>? AuditLogs { get => _explicitNullValueAuditLogs; set { _explicitNullValueAuditLogs = value; AdditionalData?.Remove("auditLogs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auditLogs"); else _explicitNullProperties?.Remove("auditLogs"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.AttributeAssignmentHistoryLogOutput>? _explicitNullValueAuditLogs = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.AttributeAssignmentHistoryLogOutput> AuditLogs { get => _explicitNullValueAuditLogs; set { _explicitNullValueAuditLogs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auditLogs"); else _explicitNullProperties?.Remove("auditLogs"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.AttributeAssignmentHistoryLogOutput> AuditLogs { get => _explicitNullValueAuditLogs; set { _explicitNullValueAuditLogs = value; AdditionalData?.Remove("auditLogs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auditLogs"); else _explicitNullProperties?.Remove("auditLogs"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.AttributeAssignmentHistoryLogOutput> _explicitNullValueAuditLogs = default!;
 #endif
         /// <summary>Whether additional audit log entries are available after this page.</summary>
-        public bool? HasMore { get => _explicitNullValueHasMore; set { _explicitNullValueHasMore = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hasMore"); else _explicitNullProperties?.Remove("hasMore"); } }
+        public bool? HasMore { get => _explicitNullValueHasMore; set { _explicitNullValueHasMore = value; AdditionalData?.Remove("hasMore"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hasMore"); else _explicitNullProperties?.Remove("hasMore"); } }
         private bool? _explicitNullValueHasMore = default!;
         /// <summary>The organization membership ID for the requested user.</summary>
-        public double? MembershipId { get => _explicitNullValueMembershipId; set { _explicitNullValueMembershipId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("membershipId"); else _explicitNullProperties?.Remove("membershipId"); } }
+        public double? MembershipId { get => _explicitNullValueMembershipId; set { _explicitNullValueMembershipId = value; AdditionalData?.Remove("membershipId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("membershipId"); else _explicitNullProperties?.Remove("membershipId"); } }
         private double? _explicitNullValueMembershipId = default!;
         /// <summary>The cursor to pass to the next request when more audit logs are available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NextCursor { get => _explicitNullValueNextCursor; set { _explicitNullValueNextCursor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nextCursor"); else _explicitNullProperties?.Remove("nextCursor"); } }
+        public string? NextCursor { get => _explicitNullValueNextCursor; set { _explicitNullValueNextCursor = value; AdditionalData?.Remove("nextCursor"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nextCursor"); else _explicitNullProperties?.Remove("nextCursor"); } }
         private string? _explicitNullValueNextCursor = default!;
 #nullable restore
 #else
-        public string NextCursor { get => _explicitNullValueNextCursor; set { _explicitNullValueNextCursor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nextCursor"); else _explicitNullProperties?.Remove("nextCursor"); } }
+        public string NextCursor { get => _explicitNullValueNextCursor; set { _explicitNullValueNextCursor = value; AdditionalData?.Remove("nextCursor"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nextCursor"); else _explicitNullProperties?.Remove("nextCursor"); } }
         private string _explicitNullValueNextCursor = default!;
 #endif
         /// <summary>The ID of the user whose attribute assignment history was requested.</summary>
-        public double? UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userId"); else _explicitNullProperties?.Remove("userId"); } }
+        public double? UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; AdditionalData?.Remove("userId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userId"); else _explicitNullProperties?.Remove("userId"); } }
         private double? _explicitNullValueUserId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.GetAttributeAssignmentHistoryOutputData"/> and sets the default values.

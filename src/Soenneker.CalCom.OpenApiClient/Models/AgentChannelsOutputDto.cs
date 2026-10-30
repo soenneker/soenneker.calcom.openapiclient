@@ -17,21 +17,24 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("imessage") is { } nullNodeImessage && nullNodeImessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Imessage = null;
-            if (parseNode.GetChildNode("slack") is { } nullNodeSlack && nullNodeSlack.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Slack = null;
-            if (parseNode.GetChildNode("telegram") is { } nullNodeTelegram && nullNodeTelegram.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Telegram = null;
+            if (parseNode.GetChildNode("imessage") is null) { _explicitNullValueImessage = default!; _explicitNullProperties?.Remove("imessage"); }
+            else if (parseNode.GetChildNode("imessage") is { } nullNodeImessage && nullNodeImessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Imessage = null;
+            if (parseNode.GetChildNode("slack") is null) { _explicitNullValueSlack = default!; _explicitNullProperties?.Remove("slack"); }
+            else if (parseNode.GetChildNode("slack") is { } nullNodeSlack && nullNodeSlack.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Slack = null;
+            if (parseNode.GetChildNode("telegram") is null) { _explicitNullValueTelegram = default!; _explicitNullProperties?.Remove("telegram"); }
+            else if (parseNode.GetChildNode("telegram") is { } nullNodeTelegram && nullNodeTelegram.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Telegram = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The imessage property</summary>
-        public bool? Imessage { get => _explicitNullValueImessage; set { _explicitNullValueImessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("imessage"); else _explicitNullProperties?.Remove("imessage"); } }
+        public bool? Imessage { get => _explicitNullValueImessage; set { _explicitNullValueImessage = value; AdditionalData?.Remove("imessage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("imessage"); else _explicitNullProperties?.Remove("imessage"); } }
         private bool? _explicitNullValueImessage = default!;
         /// <summary>The slack property</summary>
-        public bool? Slack { get => _explicitNullValueSlack; set { _explicitNullValueSlack = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack"); else _explicitNullProperties?.Remove("slack"); } }
+        public bool? Slack { get => _explicitNullValueSlack; set { _explicitNullValueSlack = value; AdditionalData?.Remove("slack"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack"); else _explicitNullProperties?.Remove("slack"); } }
         private bool? _explicitNullValueSlack = default!;
         /// <summary>The telegram property</summary>
-        public bool? Telegram { get => _explicitNullValueTelegram; set { _explicitNullValueTelegram = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("telegram"); else _explicitNullProperties?.Remove("telegram"); } }
+        public bool? Telegram { get => _explicitNullValueTelegram; set { _explicitNullValueTelegram = value; AdditionalData?.Remove("telegram"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("telegram"); else _explicitNullProperties?.Remove("telegram"); } }
         private bool? _explicitNullValueTelegram = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.AgentChannelsOutputDto"/> and sets the default values.

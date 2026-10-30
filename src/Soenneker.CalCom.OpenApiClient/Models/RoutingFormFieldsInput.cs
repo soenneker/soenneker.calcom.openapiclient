@@ -17,9 +17,12 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("routingFormId") is { } nullNodeRoutingFormId && nullNodeRoutingFormId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoutingFormId = null;
-            if (parseNode.GetChildNode("scope") is { } nullNodeScope && nullNodeScope.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scope = null;
-            if (parseNode.GetChildNode("selectedTeamId") is { } nullNodeSelectedTeamId && nullNodeSelectedTeamId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectedTeamId = null;
+            if (parseNode.GetChildNode("routingFormId") is null) { _explicitNullValueRoutingFormId = default!; _explicitNullProperties?.Remove("routingFormId"); }
+            else if (parseNode.GetChildNode("routingFormId") is { } nullNodeRoutingFormId && nullNodeRoutingFormId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoutingFormId = null;
+            if (parseNode.GetChildNode("scope") is null) { _explicitNullValueScope = default!; _explicitNullProperties?.Remove("scope"); }
+            else if (parseNode.GetChildNode("scope") is { } nullNodeScope && nullNodeScope.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scope = null;
+            if (parseNode.GetChildNode("selectedTeamId") is null) { _explicitNullValueSelectedTeamId = default!; _explicitNullProperties?.Remove("selectedTeamId"); }
+            else if (parseNode.GetChildNode("selectedTeamId") is { } nullNodeSelectedTeamId && nullNodeSelectedTeamId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectedTeamId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,18 +30,18 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>Routing form ID to filter fields</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RoutingFormId { get => _explicitNullValueRoutingFormId; set { _explicitNullValueRoutingFormId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routingFormId"); else _explicitNullProperties?.Remove("routingFormId"); } }
+        public string? RoutingFormId { get => _explicitNullValueRoutingFormId; set { _explicitNullValueRoutingFormId = value; AdditionalData?.Remove("routingFormId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routingFormId"); else _explicitNullProperties?.Remove("routingFormId"); } }
         private string? _explicitNullValueRoutingFormId = default!;
 #nullable restore
 #else
-        public string RoutingFormId { get => _explicitNullValueRoutingFormId; set { _explicitNullValueRoutingFormId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routingFormId"); else _explicitNullProperties?.Remove("routingFormId"); } }
+        public string RoutingFormId { get => _explicitNullValueRoutingFormId; set { _explicitNullValueRoutingFormId = value; AdditionalData?.Remove("routingFormId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routingFormId"); else _explicitNullProperties?.Remove("routingFormId"); } }
         private string _explicitNullValueRoutingFormId = default!;
 #endif
         /// <summary>The scope property</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.RoutingFormFieldsInputScope? Scope { get => _explicitNullValueScope; set { _explicitNullValueScope = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scope"); else _explicitNullProperties?.Remove("scope"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.RoutingFormFieldsInputScope? Scope { get => _explicitNullValueScope; set { _explicitNullValueScope = value; AdditionalData?.Remove("scope"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scope"); else _explicitNullProperties?.Remove("scope"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.RoutingFormFieldsInputScope? _explicitNullValueScope = default!;
         /// <summary>Team ID for team-scoped routing insights</summary>
-        public double? SelectedTeamId { get => _explicitNullValueSelectedTeamId; set { _explicitNullValueSelectedTeamId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selectedTeamId"); else _explicitNullProperties?.Remove("selectedTeamId"); } }
+        public double? SelectedTeamId { get => _explicitNullValueSelectedTeamId; set { _explicitNullValueSelectedTeamId = value; AdditionalData?.Remove("selectedTeamId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selectedTeamId"); else _explicitNullProperties?.Remove("selectedTeamId"); } }
         private double? _explicitNullValueSelectedTeamId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.RoutingFormFieldsInput"/> and sets the default values.
@@ -66,7 +69,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "routingFormId", n => { RoutingFormId = n.GetStringValue(); } },
-                { "scope", n => { Scope = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.RoutingFormFieldsInputScope>(); } },
+                { "scope", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.RoutingFormFieldsInputScope>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueScope = default; _explicitNullProperties?.Remove("scope"); AdditionalData["scope"] = unknown; } else { Scope = parsed; AdditionalData.Remove("scope"); } } },
                 { "selectedTeamId", n => { SelectedTeamId = n.GetDoubleValue(); } },
             };
         }

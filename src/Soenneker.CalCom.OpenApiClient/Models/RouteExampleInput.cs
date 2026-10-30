@@ -17,8 +17,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("answers") is { } nullNodeAnswers && nullNodeAnswers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Answers = null;
-            if (parseNode.GetChildNode("expectedRoute") is { } nullNodeExpectedRoute && nullNodeExpectedRoute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpectedRoute = null;
+            if (parseNode.GetChildNode("answers") is null) { _explicitNullValueAnswers = default!; _explicitNullProperties?.Remove("answers"); }
+            else if (parseNode.GetChildNode("answers") is { } nullNodeAnswers && nullNodeAnswers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Answers = null;
+            if (parseNode.GetChildNode("expectedRoute") is null) { _explicitNullValueExpectedRoute = default!; _explicitNullProperties?.Remove("expectedRoute"); }
+            else if (parseNode.GetChildNode("expectedRoute") is { } nullNodeExpectedRoute && nullNodeExpectedRoute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpectedRoute = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The answers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.RouteExampleInputAnswersProperty? Answers { get => _explicitNullValueAnswers; set { _explicitNullValueAnswers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("answers"); else _explicitNullProperties?.Remove("answers"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.RouteExampleInputAnswersProperty? Answers { get => _explicitNullValueAnswers; set { _explicitNullValueAnswers = value; AdditionalData?.Remove("answers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("answers"); else _explicitNullProperties?.Remove("answers"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.RouteExampleInputAnswersProperty? _explicitNullValueAnswers = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.RouteExampleInputAnswersProperty Answers { get => _explicitNullValueAnswers; set { _explicitNullValueAnswers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("answers"); else _explicitNullProperties?.Remove("answers"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.RouteExampleInputAnswersProperty Answers { get => _explicitNullValueAnswers; set { _explicitNullValueAnswers = value; AdditionalData?.Remove("answers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("answers"); else _explicitNullProperties?.Remove("answers"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.RouteExampleInputAnswersProperty _explicitNullValueAnswers = default!;
 #endif
         /// <summary>The route&apos;s exact name, or the event-type slug it redirects to. Null when the answers should fall through to the fallback; a route id is also accepted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExpectedRoute { get => _explicitNullValueExpectedRoute; set { _explicitNullValueExpectedRoute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expectedRoute"); else _explicitNullProperties?.Remove("expectedRoute"); } }
+        public string? ExpectedRoute { get => _explicitNullValueExpectedRoute; set { _explicitNullValueExpectedRoute = value; AdditionalData?.Remove("expectedRoute"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expectedRoute"); else _explicitNullProperties?.Remove("expectedRoute"); } }
         private string? _explicitNullValueExpectedRoute = default!;
 #nullable restore
 #else
-        public string ExpectedRoute { get => _explicitNullValueExpectedRoute; set { _explicitNullValueExpectedRoute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expectedRoute"); else _explicitNullProperties?.Remove("expectedRoute"); } }
+        public string ExpectedRoute { get => _explicitNullValueExpectedRoute; set { _explicitNullValueExpectedRoute = value; AdditionalData?.Remove("expectedRoute"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expectedRoute"); else _explicitNullProperties?.Remove("expectedRoute"); } }
         private string _explicitNullValueExpectedRoute = default!;
 #endif
         /// <summary>

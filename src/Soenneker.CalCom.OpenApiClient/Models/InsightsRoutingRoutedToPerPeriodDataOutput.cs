@@ -17,8 +17,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("periodStats") is { } nullNodePeriodStats && nullNodePeriodStats.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PeriodStats = null;
-            if (parseNode.GetChildNode("users") is { } nullNodeUsers && nullNodeUsers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Users = null;
+            if (parseNode.GetChildNode("periodStats") is null) { _explicitNullValuePeriodStats = default!; _explicitNullProperties?.Remove("periodStats"); }
+            else if (parseNode.GetChildNode("periodStats") is { } nullNodePeriodStats && nullNodePeriodStats.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PeriodStats = null;
+            if (parseNode.GetChildNode("users") is null) { _explicitNullValueUsers = default!; _explicitNullProperties?.Remove("users"); }
+            else if (parseNode.GetChildNode("users") is { } nullNodeUsers && nullNodeUsers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Users = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The periodStats property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingRoutedToPeriodStatsOutput? PeriodStats { get => _explicitNullValuePeriodStats; set { _explicitNullValuePeriodStats = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("periodStats"); else _explicitNullProperties?.Remove("periodStats"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingRoutedToPeriodStatsOutput? PeriodStats { get => _explicitNullValuePeriodStats; set { _explicitNullValuePeriodStats = value; AdditionalData?.Remove("periodStats"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("periodStats"); else _explicitNullProperties?.Remove("periodStats"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingRoutedToPeriodStatsOutput? _explicitNullValuePeriodStats = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingRoutedToPeriodStatsOutput PeriodStats { get => _explicitNullValuePeriodStats; set { _explicitNullValuePeriodStats = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("periodStats"); else _explicitNullProperties?.Remove("periodStats"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingRoutedToPeriodStatsOutput PeriodStats { get => _explicitNullValuePeriodStats; set { _explicitNullValuePeriodStats = value; AdditionalData?.Remove("periodStats"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("periodStats"); else _explicitNullProperties?.Remove("periodStats"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingRoutedToPeriodStatsOutput _explicitNullValuePeriodStats = default!;
 #endif
         /// <summary>The users property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingRoutedToUsersOutput? Users { get => _explicitNullValueUsers; set { _explicitNullValueUsers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("users"); else _explicitNullProperties?.Remove("users"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingRoutedToUsersOutput? Users { get => _explicitNullValueUsers; set { _explicitNullValueUsers = value; AdditionalData?.Remove("users"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("users"); else _explicitNullProperties?.Remove("users"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingRoutedToUsersOutput? _explicitNullValueUsers = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingRoutedToUsersOutput Users { get => _explicitNullValueUsers; set { _explicitNullValueUsers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("users"); else _explicitNullProperties?.Remove("users"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingRoutedToUsersOutput Users { get => _explicitNullValueUsers; set { _explicitNullValueUsers = value; AdditionalData?.Remove("users"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("users"); else _explicitNullProperties?.Remove("users"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingRoutedToUsersOutput _explicitNullValueUsers = default!;
 #endif
         /// <summary>

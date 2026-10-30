@@ -17,8 +17,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("emails") is { } nullNodeEmails && nullNodeEmails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Emails = null;
-            if (parseNode.GetChildNode("hostNote") is { } nullNodeHostNote && nullNodeHostNote.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HostNote = null;
+            if (parseNode.GetChildNode("emails") is null) { _explicitNullValueEmails = default!; _explicitNullProperties?.Remove("emails"); }
+            else if (parseNode.GetChildNode("emails") is { } nullNodeEmails && nullNodeEmails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Emails = null;
+            if (parseNode.GetChildNode("hostNote") is null) { _explicitNullValueHostNote = default!; _explicitNullProperties?.Remove("hostNote"); }
+            else if (parseNode.GetChildNode("hostNote") is { } nullNodeHostNote && nullNodeHostNote.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HostNote = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>Email addresses to invite. Between 1 and 200 per request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Emails { get => _explicitNullValueEmails; set { _explicitNullValueEmails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emails"); else _explicitNullProperties?.Remove("emails"); } }
+        public List<string>? Emails { get => _explicitNullValueEmails; set { _explicitNullValueEmails = value; AdditionalData?.Remove("emails"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emails"); else _explicitNullProperties?.Remove("emails"); } }
         private List<string>? _explicitNullValueEmails = default!;
 #nullable restore
 #else
-        public List<string> Emails { get => _explicitNullValueEmails; set { _explicitNullValueEmails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emails"); else _explicitNullProperties?.Remove("emails"); } }
+        public List<string> Emails { get => _explicitNullValueEmails; set { _explicitNullValueEmails = value; AdditionalData?.Remove("emails"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emails"); else _explicitNullProperties?.Remove("emails"); } }
         private List<string> _explicitNullValueEmails = default!;
 #endif
         /// <summary>A personal note from the host, included in the invitation email.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HostNote { get => _explicitNullValueHostNote; set { _explicitNullValueHostNote = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hostNote"); else _explicitNullProperties?.Remove("hostNote"); } }
+        public string? HostNote { get => _explicitNullValueHostNote; set { _explicitNullValueHostNote = value; AdditionalData?.Remove("hostNote"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hostNote"); else _explicitNullProperties?.Remove("hostNote"); } }
         private string? _explicitNullValueHostNote = default!;
 #nullable restore
 #else
-        public string HostNote { get => _explicitNullValueHostNote; set { _explicitNullValueHostNote = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hostNote"); else _explicitNullProperties?.Remove("hostNote"); } }
+        public string HostNote { get => _explicitNullValueHostNote; set { _explicitNullValueHostNote = value; AdditionalData?.Remove("hostNote"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hostNote"); else _explicitNullProperties?.Remove("hostNote"); } }
         private string _explicitNullValueHostNote = default!;
 #endif
         /// <summary>

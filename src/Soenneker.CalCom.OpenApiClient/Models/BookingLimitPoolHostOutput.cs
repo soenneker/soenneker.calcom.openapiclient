@@ -17,9 +17,12 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("effectiveLimit") is { } nullNodeEffectiveLimit && nullNodeEffectiveLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EffectiveLimit = null;
-            if (parseNode.GetChildNode("hostLimit") is { } nullNodeHostLimit && nullNodeHostLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HostLimit = null;
-            if (parseNode.GetChildNode("userId") is { } nullNodeUserId && nullNodeUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserId = null;
+            if (parseNode.GetChildNode("effectiveLimit") is null) { _explicitNullValueEffectiveLimit = default!; _explicitNullProperties?.Remove("effectiveLimit"); }
+            else if (parseNode.GetChildNode("effectiveLimit") is { } nullNodeEffectiveLimit && nullNodeEffectiveLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EffectiveLimit = null;
+            if (parseNode.GetChildNode("hostLimit") is null) { _explicitNullValueHostLimit = default!; _explicitNullProperties?.Remove("hostLimit"); }
+            else if (parseNode.GetChildNode("hostLimit") is { } nullNodeHostLimit && nullNodeHostLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HostLimit = null;
+            if (parseNode.GetChildNode("userId") is null) { _explicitNullValueUserId = default!; _explicitNullProperties?.Remove("userId"); }
+            else if (parseNode.GetChildNode("userId") is { } nullNodeUserId && nullNodeUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,25 +30,25 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The limits enforced for this host.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostOutputEffectiveLimit? EffectiveLimit { get => _explicitNullValueEffectiveLimit; set { _explicitNullValueEffectiveLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effectiveLimit"); else _explicitNullProperties?.Remove("effectiveLimit"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostOutputEffectiveLimit? EffectiveLimit { get => _explicitNullValueEffectiveLimit; set { _explicitNullValueEffectiveLimit = value; AdditionalData?.Remove("effectiveLimit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effectiveLimit"); else _explicitNullProperties?.Remove("effectiveLimit"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostOutputEffectiveLimit? _explicitNullValueEffectiveLimit = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostOutputEffectiveLimit EffectiveLimit { get => _explicitNullValueEffectiveLimit; set { _explicitNullValueEffectiveLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effectiveLimit"); else _explicitNullProperties?.Remove("effectiveLimit"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostOutputEffectiveLimit EffectiveLimit { get => _explicitNullValueEffectiveLimit; set { _explicitNullValueEffectiveLimit = value; AdditionalData?.Remove("effectiveLimit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effectiveLimit"); else _explicitNullProperties?.Remove("effectiveLimit"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostOutputEffectiveLimit _explicitNullValueEffectiveLimit = default!;
 #endif
         /// <summary>The host&apos;s own limits; null while every interval uses the pool&apos;s limits.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostOutputHostLimit? HostLimit { get => _explicitNullValueHostLimit; set { _explicitNullValueHostLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hostLimit"); else _explicitNullProperties?.Remove("hostLimit"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostOutputHostLimit? HostLimit { get => _explicitNullValueHostLimit; set { _explicitNullValueHostLimit = value; AdditionalData?.Remove("hostLimit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hostLimit"); else _explicitNullProperties?.Remove("hostLimit"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostOutputHostLimit? _explicitNullValueHostLimit = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostOutputHostLimit HostLimit { get => _explicitNullValueHostLimit; set { _explicitNullValueHostLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hostLimit"); else _explicitNullProperties?.Remove("hostLimit"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostOutputHostLimit HostLimit { get => _explicitNullValueHostLimit; set { _explicitNullValueHostLimit = value; AdditionalData?.Remove("hostLimit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hostLimit"); else _explicitNullProperties?.Remove("hostLimit"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostOutputHostLimit _explicitNullValueHostLimit = default!;
 #endif
         /// <summary>The userId property</summary>
-        public Guid? UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userId"); else _explicitNullProperties?.Remove("userId"); } }
+        public Guid? UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; AdditionalData?.Remove("userId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userId"); else _explicitNullProperties?.Remove("userId"); } }
         private Guid? _explicitNullValueUserId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostOutput"/> and sets the default values.

@@ -18,8 +18,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("auditLogs") is { } nullNodeAuditLogs && nullNodeAuditLogs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuditLogs = null;
-            if (parseNode.GetChildNode("eventTypeId") is { } nullNodeEventTypeId && nullNodeEventTypeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventTypeId = null;
+            if (parseNode.GetChildNode("auditLogs") is null) { _explicitNullValueAuditLogs = default!; _explicitNullProperties?.Remove("auditLogs"); }
+            else if (parseNode.GetChildNode("auditLogs") is { } nullNodeAuditLogs && nullNodeAuditLogs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuditLogs = null;
+            if (parseNode.GetChildNode("eventTypeId") is null) { _explicitNullValueEventTypeId = default!; _explicitNullProperties?.Remove("eventTypeId"); }
+            else if (parseNode.GetChildNode("eventTypeId") is { } nullNodeEventTypeId && nullNodeEventTypeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventTypeId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,15 +29,15 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>List of audit log entries for the event type, ordered by most recent first.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.EventTypeHistoryAuditLog20240614>? AuditLogs { get => _explicitNullValueAuditLogs; set { _explicitNullValueAuditLogs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auditLogs"); else _explicitNullProperties?.Remove("auditLogs"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.EventTypeHistoryAuditLog20240614>? AuditLogs { get => _explicitNullValueAuditLogs; set { _explicitNullValueAuditLogs = value; AdditionalData?.Remove("auditLogs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auditLogs"); else _explicitNullProperties?.Remove("auditLogs"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.EventTypeHistoryAuditLog20240614>? _explicitNullValueAuditLogs = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.EventTypeHistoryAuditLog20240614> AuditLogs { get => _explicitNullValueAuditLogs; set { _explicitNullValueAuditLogs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auditLogs"); else _explicitNullProperties?.Remove("auditLogs"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.EventTypeHistoryAuditLog20240614> AuditLogs { get => _explicitNullValueAuditLogs; set { _explicitNullValueAuditLogs = value; AdditionalData?.Remove("auditLogs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auditLogs"); else _explicitNullProperties?.Remove("auditLogs"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.EventTypeHistoryAuditLog20240614> _explicitNullValueAuditLogs = default!;
 #endif
         /// <summary>The ID of the event type whose history is being returned.</summary>
-        public double? EventTypeId { get => _explicitNullValueEventTypeId; set { _explicitNullValueEventTypeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeId"); else _explicitNullProperties?.Remove("eventTypeId"); } }
+        public double? EventTypeId { get => _explicitNullValueEventTypeId; set { _explicitNullValueEventTypeId = value; AdditionalData?.Remove("eventTypeId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeId"); else _explicitNullProperties?.Remove("eventTypeId"); } }
         private double? _explicitNullValueEventTypeId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.GetEventTypeHistoryOutput20240614Data"/> and sets the default values.

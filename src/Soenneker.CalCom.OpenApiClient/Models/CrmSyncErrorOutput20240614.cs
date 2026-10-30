@@ -17,18 +17,30 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("appSlug") is { } nullNodeAppSlug && nullNodeAppSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppSlug = null;
-            if (parseNode.GetChildNode("bookingUid") is { } nullNodeBookingUid && nullNodeBookingUid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingUid = null;
-            if (parseNode.GetChildNode("credentialId") is { } nullNodeCredentialId && nullNodeCredentialId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CredentialId = null;
-            if (parseNode.GetChildNode("dismissedAt") is { } nullNodeDismissedAt && nullNodeDismissedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DismissedAt = null;
-            if (parseNode.GetChildNode("droppedFields") is { } nullNodeDroppedFields && nullNodeDroppedFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DroppedFields = null;
-            if (parseNode.GetChildNode("errorCode") is { } nullNodeErrorCode && nullNodeErrorCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorCode = null;
-            if (parseNode.GetChildNode("errorMessage") is { } nullNodeErrorMessage && nullNodeErrorMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorMessage = null;
-            if (parseNode.GetChildNode("eventCreated") is { } nullNodeEventCreated && nullNodeEventCreated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventCreated = null;
-            if (parseNode.GetChildNode("eventTypeId") is { } nullNodeEventTypeId && nullNodeEventTypeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventTypeId = null;
-            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
-            if (parseNode.GetChildNode("rawMessage") is { } nullNodeRawMessage && nullNodeRawMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RawMessage = null;
-            if (parseNode.GetChildNode("timestamp") is { } nullNodeTimestamp && nullNodeTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timestamp = null;
+            if (parseNode.GetChildNode("appSlug") is null) { _explicitNullValueAppSlug = default!; _explicitNullProperties?.Remove("appSlug"); }
+            else if (parseNode.GetChildNode("appSlug") is { } nullNodeAppSlug && nullNodeAppSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppSlug = null;
+            if (parseNode.GetChildNode("bookingUid") is null) { _explicitNullValueBookingUid = default!; _explicitNullProperties?.Remove("bookingUid"); }
+            else if (parseNode.GetChildNode("bookingUid") is { } nullNodeBookingUid && nullNodeBookingUid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingUid = null;
+            if (parseNode.GetChildNode("credentialId") is null) { _explicitNullValueCredentialId = default!; _explicitNullProperties?.Remove("credentialId"); }
+            else if (parseNode.GetChildNode("credentialId") is { } nullNodeCredentialId && nullNodeCredentialId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CredentialId = null;
+            if (parseNode.GetChildNode("dismissedAt") is null) { _explicitNullValueDismissedAt = default!; _explicitNullProperties?.Remove("dismissedAt"); }
+            else if (parseNode.GetChildNode("dismissedAt") is { } nullNodeDismissedAt && nullNodeDismissedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DismissedAt = null;
+            if (parseNode.GetChildNode("droppedFields") is null) { _explicitNullValueDroppedFields = default!; _explicitNullProperties?.Remove("droppedFields"); }
+            else if (parseNode.GetChildNode("droppedFields") is { } nullNodeDroppedFields && nullNodeDroppedFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DroppedFields = null;
+            if (parseNode.GetChildNode("errorCode") is null) { _explicitNullValueErrorCode = default!; _explicitNullProperties?.Remove("errorCode"); }
+            else if (parseNode.GetChildNode("errorCode") is { } nullNodeErrorCode && nullNodeErrorCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorCode = null;
+            if (parseNode.GetChildNode("errorMessage") is null) { _explicitNullValueErrorMessage = default!; _explicitNullProperties?.Remove("errorMessage"); }
+            else if (parseNode.GetChildNode("errorMessage") is { } nullNodeErrorMessage && nullNodeErrorMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorMessage = null;
+            if (parseNode.GetChildNode("eventCreated") is null) { _explicitNullValueEventCreated = default!; _explicitNullProperties?.Remove("eventCreated"); }
+            else if (parseNode.GetChildNode("eventCreated") is { } nullNodeEventCreated && nullNodeEventCreated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventCreated = null;
+            if (parseNode.GetChildNode("eventTypeId") is null) { _explicitNullValueEventTypeId = default!; _explicitNullProperties?.Remove("eventTypeId"); }
+            else if (parseNode.GetChildNode("eventTypeId") is { } nullNodeEventTypeId && nullNodeEventTypeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventTypeId = null;
+            if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
+            else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("rawMessage") is null) { _explicitNullValueRawMessage = default!; _explicitNullProperties?.Remove("rawMessage"); }
+            else if (parseNode.GetChildNode("rawMessage") is { } nullNodeRawMessage && nullNodeRawMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RawMessage = null;
+            if (parseNode.GetChildNode("timestamp") is null) { _explicitNullValueTimestamp = default!; _explicitNullProperties?.Remove("timestamp"); }
+            else if (parseNode.GetChildNode("timestamp") is { } nullNodeTimestamp && nullNodeTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timestamp = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -36,100 +48,100 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>CRM app slug that produced the error.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AppSlug { get => _explicitNullValueAppSlug; set { _explicitNullValueAppSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("appSlug"); else _explicitNullProperties?.Remove("appSlug"); } }
+        public string? AppSlug { get => _explicitNullValueAppSlug; set { _explicitNullValueAppSlug = value; AdditionalData?.Remove("appSlug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("appSlug"); else _explicitNullProperties?.Remove("appSlug"); } }
         private string? _explicitNullValueAppSlug = default!;
 #nullable restore
 #else
-        public string AppSlug { get => _explicitNullValueAppSlug; set { _explicitNullValueAppSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("appSlug"); else _explicitNullProperties?.Remove("appSlug"); } }
+        public string AppSlug { get => _explicitNullValueAppSlug; set { _explicitNullValueAppSlug = value; AdditionalData?.Remove("appSlug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("appSlug"); else _explicitNullProperties?.Remove("appSlug"); } }
         private string _explicitNullValueAppSlug = default!;
 #endif
         /// <summary>Booking UID associated with the CRM sync error, when available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BookingUid { get => _explicitNullValueBookingUid; set { _explicitNullValueBookingUid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUid"); else _explicitNullProperties?.Remove("bookingUid"); } }
+        public string? BookingUid { get => _explicitNullValueBookingUid; set { _explicitNullValueBookingUid = value; AdditionalData?.Remove("bookingUid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUid"); else _explicitNullProperties?.Remove("bookingUid"); } }
         private string? _explicitNullValueBookingUid = default!;
 #nullable restore
 #else
-        public string BookingUid { get => _explicitNullValueBookingUid; set { _explicitNullValueBookingUid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUid"); else _explicitNullProperties?.Remove("bookingUid"); } }
+        public string BookingUid { get => _explicitNullValueBookingUid; set { _explicitNullValueBookingUid = value; AdditionalData?.Remove("bookingUid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUid"); else _explicitNullProperties?.Remove("bookingUid"); } }
         private string _explicitNullValueBookingUid = default!;
 #endif
         /// <summary>Credential ID that produced the CRM sync error.</summary>
-        public double? CredentialId { get => _explicitNullValueCredentialId; set { _explicitNullValueCredentialId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credentialId"); else _explicitNullProperties?.Remove("credentialId"); } }
+        public double? CredentialId { get => _explicitNullValueCredentialId; set { _explicitNullValueCredentialId = value; AdditionalData?.Remove("credentialId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credentialId"); else _explicitNullProperties?.Remove("credentialId"); } }
         private double? _explicitNullValueCredentialId = default!;
         /// <summary>Timestamp when the CRM sync error was dismissed. Null means the error is active.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DismissedAt { get => _explicitNullValueDismissedAt; set { _explicitNullValueDismissedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissedAt"); else _explicitNullProperties?.Remove("dismissedAt"); } }
+        public string? DismissedAt { get => _explicitNullValueDismissedAt; set { _explicitNullValueDismissedAt = value; AdditionalData?.Remove("dismissedAt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissedAt"); else _explicitNullProperties?.Remove("dismissedAt"); } }
         private string? _explicitNullValueDismissedAt = default!;
 #nullable restore
 #else
-        public string DismissedAt { get => _explicitNullValueDismissedAt; set { _explicitNullValueDismissedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissedAt"); else _explicitNullProperties?.Remove("dismissedAt"); } }
+        public string DismissedAt { get => _explicitNullValueDismissedAt; set { _explicitNullValueDismissedAt = value; AdditionalData?.Remove("dismissedAt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissedAt"); else _explicitNullProperties?.Remove("dismissedAt"); } }
         private string _explicitNullValueDismissedAt = default!;
 #endif
         /// <summary>CRM fields dropped or attempted during sync error handling.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? DroppedFields { get => _explicitNullValueDroppedFields; set { _explicitNullValueDroppedFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droppedFields"); else _explicitNullProperties?.Remove("droppedFields"); } }
+        public List<string>? DroppedFields { get => _explicitNullValueDroppedFields; set { _explicitNullValueDroppedFields = value; AdditionalData?.Remove("droppedFields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droppedFields"); else _explicitNullProperties?.Remove("droppedFields"); } }
         private List<string>? _explicitNullValueDroppedFields = default!;
 #nullable restore
 #else
-        public List<string> DroppedFields { get => _explicitNullValueDroppedFields; set { _explicitNullValueDroppedFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droppedFields"); else _explicitNullProperties?.Remove("droppedFields"); } }
+        public List<string> DroppedFields { get => _explicitNullValueDroppedFields; set { _explicitNullValueDroppedFields = value; AdditionalData?.Remove("droppedFields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("droppedFields"); else _explicitNullProperties?.Remove("droppedFields"); } }
         private List<string> _explicitNullValueDroppedFields = default!;
 #endif
         /// <summary>Provider-specific CRM error code.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ErrorCode { get => _explicitNullValueErrorCode; set { _explicitNullValueErrorCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errorCode"); else _explicitNullProperties?.Remove("errorCode"); } }
+        public string? ErrorCode { get => _explicitNullValueErrorCode; set { _explicitNullValueErrorCode = value; AdditionalData?.Remove("errorCode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errorCode"); else _explicitNullProperties?.Remove("errorCode"); } }
         private string? _explicitNullValueErrorCode = default!;
 #nullable restore
 #else
-        public string ErrorCode { get => _explicitNullValueErrorCode; set { _explicitNullValueErrorCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errorCode"); else _explicitNullProperties?.Remove("errorCode"); } }
+        public string ErrorCode { get => _explicitNullValueErrorCode; set { _explicitNullValueErrorCode = value; AdditionalData?.Remove("errorCode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errorCode"); else _explicitNullProperties?.Remove("errorCode"); } }
         private string _explicitNullValueErrorCode = default!;
 #endif
         /// <summary>Human-readable CRM error message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ErrorMessage { get => _explicitNullValueErrorMessage; set { _explicitNullValueErrorMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errorMessage"); else _explicitNullProperties?.Remove("errorMessage"); } }
+        public string? ErrorMessage { get => _explicitNullValueErrorMessage; set { _explicitNullValueErrorMessage = value; AdditionalData?.Remove("errorMessage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errorMessage"); else _explicitNullProperties?.Remove("errorMessage"); } }
         private string? _explicitNullValueErrorMessage = default!;
 #nullable restore
 #else
-        public string ErrorMessage { get => _explicitNullValueErrorMessage; set { _explicitNullValueErrorMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errorMessage"); else _explicitNullProperties?.Remove("errorMessage"); } }
+        public string ErrorMessage { get => _explicitNullValueErrorMessage; set { _explicitNullValueErrorMessage = value; AdditionalData?.Remove("errorMessage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errorMessage"); else _explicitNullProperties?.Remove("errorMessage"); } }
         private string _explicitNullValueErrorMessage = default!;
 #endif
         /// <summary>Whether the CRM event was created before the error was recorded.</summary>
-        public bool? EventCreated { get => _explicitNullValueEventCreated; set { _explicitNullValueEventCreated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventCreated"); else _explicitNullProperties?.Remove("eventCreated"); } }
+        public bool? EventCreated { get => _explicitNullValueEventCreated; set { _explicitNullValueEventCreated = value; AdditionalData?.Remove("eventCreated"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventCreated"); else _explicitNullProperties?.Remove("eventCreated"); } }
         private bool? _explicitNullValueEventCreated = default!;
         /// <summary>Event type ID where the CRM sync error occurred.</summary>
-        public double? EventTypeId { get => _explicitNullValueEventTypeId; set { _explicitNullValueEventTypeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeId"); else _explicitNullProperties?.Remove("eventTypeId"); } }
+        public double? EventTypeId { get => _explicitNullValueEventTypeId; set { _explicitNullValueEventTypeId = value; AdditionalData?.Remove("eventTypeId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeId"); else _explicitNullProperties?.Remove("eventTypeId"); } }
         private double? _explicitNullValueEventTypeId = default!;
         /// <summary>Unique CRM sync error ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string _explicitNullValueId = default!;
 #endif
         /// <summary>Raw provider error message, when available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RawMessage { get => _explicitNullValueRawMessage; set { _explicitNullValueRawMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rawMessage"); else _explicitNullProperties?.Remove("rawMessage"); } }
+        public string? RawMessage { get => _explicitNullValueRawMessage; set { _explicitNullValueRawMessage = value; AdditionalData?.Remove("rawMessage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rawMessage"); else _explicitNullProperties?.Remove("rawMessage"); } }
         private string? _explicitNullValueRawMessage = default!;
 #nullable restore
 #else
-        public string RawMessage { get => _explicitNullValueRawMessage; set { _explicitNullValueRawMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rawMessage"); else _explicitNullProperties?.Remove("rawMessage"); } }
+        public string RawMessage { get => _explicitNullValueRawMessage; set { _explicitNullValueRawMessage = value; AdditionalData?.Remove("rawMessage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rawMessage"); else _explicitNullProperties?.Remove("rawMessage"); } }
         private string _explicitNullValueRawMessage = default!;
 #endif
         /// <summary>Timestamp when the CRM sync error was recorded.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Timestamp { get => _explicitNullValueTimestamp; set { _explicitNullValueTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timestamp"); else _explicitNullProperties?.Remove("timestamp"); } }
+        public string? Timestamp { get => _explicitNullValueTimestamp; set { _explicitNullValueTimestamp = value; AdditionalData?.Remove("timestamp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timestamp"); else _explicitNullProperties?.Remove("timestamp"); } }
         private string? _explicitNullValueTimestamp = default!;
 #nullable restore
 #else
-        public string Timestamp { get => _explicitNullValueTimestamp; set { _explicitNullValueTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timestamp"); else _explicitNullProperties?.Remove("timestamp"); } }
+        public string Timestamp { get => _explicitNullValueTimestamp; set { _explicitNullValueTimestamp = value; AdditionalData?.Remove("timestamp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timestamp"); else _explicitNullProperties?.Remove("timestamp"); } }
         private string _explicitNullValueTimestamp = default!;
 #endif
         /// <summary>

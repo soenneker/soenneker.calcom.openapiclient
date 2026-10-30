@@ -17,25 +17,29 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("accepted") is { } nullNodeAccepted && nullNodeAccepted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Accepted = null;
-            if (parseNode.GetChildNode("disableImpersonation") is { } nullNodeDisableImpersonation && nullNodeDisableImpersonation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisableImpersonation = null;
-            if (parseNode.GetChildNode("role") is { } nullNodeRole && nullNodeRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Role = null;
-            if (parseNode.GetChildNode("userId") is { } nullNodeUserId && nullNodeUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserId = null;
+            if (parseNode.GetChildNode("accepted") is null) { _explicitNullValueAccepted = default!; _explicitNullProperties?.Remove("accepted"); }
+            else if (parseNode.GetChildNode("accepted") is { } nullNodeAccepted && nullNodeAccepted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Accepted = null;
+            if (parseNode.GetChildNode("disableImpersonation") is null) { _explicitNullValueDisableImpersonation = default!; _explicitNullProperties?.Remove("disableImpersonation"); }
+            else if (parseNode.GetChildNode("disableImpersonation") is { } nullNodeDisableImpersonation && nullNodeDisableImpersonation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisableImpersonation = null;
+            if (parseNode.GetChildNode("role") is null) { _explicitNullValueRole = default!; _explicitNullProperties?.Remove("role"); }
+            else if (parseNode.GetChildNode("role") is { } nullNodeRole && nullNodeRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Role = null;
+            if (parseNode.GetChildNode("userId") is null) { _explicitNullValueUserId = default!; _explicitNullProperties?.Remove("userId"); }
+            else if (parseNode.GetChildNode("userId") is { } nullNodeUserId && nullNodeUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserId = null;
         }
 
         /// <summary>The accepted property</summary>
-        public bool? Accepted { get => _explicitNullValueAccepted; set { _explicitNullValueAccepted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accepted"); else _explicitNullProperties?.Remove("accepted"); } }
+        public bool? Accepted { get => _explicitNullValueAccepted; set { _explicitNullValueAccepted = value; AdditionalData?.Remove("accepted"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accepted"); else _explicitNullProperties?.Remove("accepted"); } }
         private bool? _explicitNullValueAccepted = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The disableImpersonation property</summary>
-        public bool? DisableImpersonation { get => _explicitNullValueDisableImpersonation; set { _explicitNullValueDisableImpersonation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disableImpersonation"); else _explicitNullProperties?.Remove("disableImpersonation"); } }
+        public bool? DisableImpersonation { get => _explicitNullValueDisableImpersonation; set { _explicitNullValueDisableImpersonation = value; AdditionalData?.Remove("disableImpersonation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disableImpersonation"); else _explicitNullProperties?.Remove("disableImpersonation"); } }
         private bool? _explicitNullValueDisableImpersonation = default!;
         /// <summary>If you are platform customer then managed users should only have MEMBER role.</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.CreateOrgMembershipDtoRole? Role { get => _explicitNullValueRole; set { _explicitNullValueRole = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role"); else _explicitNullProperties?.Remove("role"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CreateOrgMembershipDtoRole? Role { get => _explicitNullValueRole; set { _explicitNullValueRole = value; AdditionalData?.Remove("role"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role"); else _explicitNullProperties?.Remove("role"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.CreateOrgMembershipDtoRole? _explicitNullValueRole = default!;
         /// <summary>The userId property</summary>
-        public double? UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userId"); else _explicitNullProperties?.Remove("userId"); } }
+        public double? UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; AdditionalData?.Remove("userId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userId"); else _explicitNullProperties?.Remove("userId"); } }
         private double? _explicitNullValueUserId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.CreateOrgMembershipDto"/> and sets the default values.
@@ -66,7 +70,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             {
                 { "accepted", n => { Accepted = n.GetBoolValue(); } },
                 { "disableImpersonation", n => { DisableImpersonation = n.GetBoolValue(); } },
-                { "role", n => { Role = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.CreateOrgMembershipDtoRole>(); } },
+                { "role", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.CreateOrgMembershipDtoRole>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRole = default; _explicitNullProperties?.Remove("role"); AdditionalData["role"] = unknown; } else { Role = parsed; AdditionalData.Remove("role"); } } },
                 { "userId", n => { UserId = n.GetDoubleValue(); } },
             };
         }

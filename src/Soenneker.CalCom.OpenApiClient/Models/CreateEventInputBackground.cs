@@ -18,8 +18,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("colors") is { } nullNodeColors && nullNodeColors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Colors = null;
-            if (parseNode.GetChildNode("effect") is { } nullNodeEffect && nullNodeEffect.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Effect = null;
+            if (parseNode.GetChildNode("colors") is null) { _explicitNullValueColors = default!; _explicitNullProperties?.Remove("colors"); }
+            else if (parseNode.GetChildNode("colors") is { } nullNodeColors && nullNodeColors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Colors = null;
+            if (parseNode.GetChildNode("effect") is null) { _explicitNullValueEffect = default!; _explicitNullProperties?.Remove("effect"); }
+            else if (parseNode.GetChildNode("effect") is { } nullNodeEffect && nullNodeEffect.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Effect = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,15 +29,15 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>Exactly three hex colors the effect is drawn with.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Colors { get => _explicitNullValueColors; set { _explicitNullValueColors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("colors"); else _explicitNullProperties?.Remove("colors"); } }
+        public List<string>? Colors { get => _explicitNullValueColors; set { _explicitNullValueColors = value; AdditionalData?.Remove("colors"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("colors"); else _explicitNullProperties?.Remove("colors"); } }
         private List<string>? _explicitNullValueColors = default!;
 #nullable restore
 #else
-        public List<string> Colors { get => _explicitNullValueColors; set { _explicitNullValueColors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("colors"); else _explicitNullProperties?.Remove("colors"); } }
+        public List<string> Colors { get => _explicitNullValueColors; set { _explicitNullValueColors = value; AdditionalData?.Remove("colors"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("colors"); else _explicitNullProperties?.Remove("colors"); } }
         private List<string> _explicitNullValueColors = default!;
 #endif
         /// <summary>Which animated effect renders.</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.EventBackgroundInputEffect? Effect { get => _explicitNullValueEffect; set { _explicitNullValueEffect = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effect"); else _explicitNullProperties?.Remove("effect"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.EventBackgroundInputEffect? Effect { get => _explicitNullValueEffect; set { _explicitNullValueEffect = value; AdditionalData?.Remove("effect"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effect"); else _explicitNullProperties?.Remove("effect"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.EventBackgroundInputEffect? _explicitNullValueEffect = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.CreateEventInputBackground"/> and sets the default values.
@@ -63,7 +65,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "colors", n => { Colors = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "effect", n => { Effect = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.EventBackgroundInputEffect>(); } },
+                { "effect", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.EventBackgroundInputEffect>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueEffect = default; _explicitNullProperties?.Remove("effect"); AdditionalData["effect"] = unknown; } else { Effect = parsed; AdditionalData.Remove("effect"); } } },
             };
         }
         /// <summary>

@@ -17,11 +17,16 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("calendars") is { } nullNodeCalendars && nullNodeCalendars.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Calendars = null;
-            if (parseNode.GetChildNode("credentialId") is { } nullNodeCredentialId && nullNodeCredentialId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CredentialId = null;
-            if (parseNode.GetChildNode("delegationCredentialId") is { } nullNodeDelegationCredentialId && nullNodeDelegationCredentialId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DelegationCredentialId = null;
-            if (parseNode.GetChildNode("integration") is { } nullNodeIntegration && nullNodeIntegration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Integration = null;
-            if (parseNode.GetChildNode("primary") is { } nullNodePrimary && nullNodePrimary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Primary = null;
+            if (parseNode.GetChildNode("calendars") is null) { _explicitNullValueCalendars = default!; _explicitNullProperties?.Remove("calendars"); }
+            else if (parseNode.GetChildNode("calendars") is { } nullNodeCalendars && nullNodeCalendars.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Calendars = null;
+            if (parseNode.GetChildNode("credentialId") is null) { _explicitNullValueCredentialId = default!; _explicitNullProperties?.Remove("credentialId"); }
+            else if (parseNode.GetChildNode("credentialId") is { } nullNodeCredentialId && nullNodeCredentialId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CredentialId = null;
+            if (parseNode.GetChildNode("delegationCredentialId") is null) { _explicitNullValueDelegationCredentialId = default!; _explicitNullProperties?.Remove("delegationCredentialId"); }
+            else if (parseNode.GetChildNode("delegationCredentialId") is { } nullNodeDelegationCredentialId && nullNodeDelegationCredentialId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DelegationCredentialId = null;
+            if (parseNode.GetChildNode("integration") is null) { _explicitNullValueIntegration = default!; _explicitNullProperties?.Remove("integration"); }
+            else if (parseNode.GetChildNode("integration") is { } nullNodeIntegration && nullNodeIntegration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Integration = null;
+            if (parseNode.GetChildNode("primary") is null) { _explicitNullValuePrimary = default!; _explicitNullProperties?.Remove("primary"); }
+            else if (parseNode.GetChildNode("primary") is { } nullNodePrimary && nullNodePrimary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Primary = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,44 +34,44 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The calendars property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.Calendar>? Calendars { get => _explicitNullValueCalendars; set { _explicitNullValueCalendars = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("calendars"); else _explicitNullProperties?.Remove("calendars"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.Calendar>? Calendars { get => _explicitNullValueCalendars; set { _explicitNullValueCalendars = value; AdditionalData?.Remove("calendars"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("calendars"); else _explicitNullProperties?.Remove("calendars"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.Calendar>? _explicitNullValueCalendars = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.Calendar> Calendars { get => _explicitNullValueCalendars; set { _explicitNullValueCalendars = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("calendars"); else _explicitNullProperties?.Remove("calendars"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.Calendar> Calendars { get => _explicitNullValueCalendars; set { _explicitNullValueCalendars = value; AdditionalData?.Remove("calendars"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("calendars"); else _explicitNullProperties?.Remove("calendars"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.Calendar> _explicitNullValueCalendars = default!;
 #endif
         /// <summary>The credentialId property</summary>
-        public double? CredentialId { get => _explicitNullValueCredentialId; set { _explicitNullValueCredentialId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credentialId"); else _explicitNullProperties?.Remove("credentialId"); } }
+        public double? CredentialId { get => _explicitNullValueCredentialId; set { _explicitNullValueCredentialId = value; AdditionalData?.Remove("credentialId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credentialId"); else _explicitNullProperties?.Remove("credentialId"); } }
         private double? _explicitNullValueCredentialId = default!;
         /// <summary>The delegationCredentialId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DelegationCredentialId { get => _explicitNullValueDelegationCredentialId; set { _explicitNullValueDelegationCredentialId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delegationCredentialId"); else _explicitNullProperties?.Remove("delegationCredentialId"); } }
+        public string? DelegationCredentialId { get => _explicitNullValueDelegationCredentialId; set { _explicitNullValueDelegationCredentialId = value; AdditionalData?.Remove("delegationCredentialId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delegationCredentialId"); else _explicitNullProperties?.Remove("delegationCredentialId"); } }
         private string? _explicitNullValueDelegationCredentialId = default!;
 #nullable restore
 #else
-        public string DelegationCredentialId { get => _explicitNullValueDelegationCredentialId; set { _explicitNullValueDelegationCredentialId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delegationCredentialId"); else _explicitNullProperties?.Remove("delegationCredentialId"); } }
+        public string DelegationCredentialId { get => _explicitNullValueDelegationCredentialId; set { _explicitNullValueDelegationCredentialId = value; AdditionalData?.Remove("delegationCredentialId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delegationCredentialId"); else _explicitNullProperties?.Remove("delegationCredentialId"); } }
         private string _explicitNullValueDelegationCredentialId = default!;
 #endif
         /// <summary>The integration property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.Integration? Integration { get => _explicitNullValueIntegration; set { _explicitNullValueIntegration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("integration"); else _explicitNullProperties?.Remove("integration"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.Integration? Integration { get => _explicitNullValueIntegration; set { _explicitNullValueIntegration = value; AdditionalData?.Remove("integration"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("integration"); else _explicitNullProperties?.Remove("integration"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.Integration? _explicitNullValueIntegration = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.Integration Integration { get => _explicitNullValueIntegration; set { _explicitNullValueIntegration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("integration"); else _explicitNullProperties?.Remove("integration"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.Integration Integration { get => _explicitNullValueIntegration; set { _explicitNullValueIntegration = value; AdditionalData?.Remove("integration"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("integration"); else _explicitNullProperties?.Remove("integration"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.Integration _explicitNullValueIntegration = default!;
 #endif
         /// <summary>The primary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.Primary? Primary { get => _explicitNullValuePrimary; set { _explicitNullValuePrimary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primary"); else _explicitNullProperties?.Remove("primary"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.Primary? Primary { get => _explicitNullValuePrimary; set { _explicitNullValuePrimary = value; AdditionalData?.Remove("primary"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primary"); else _explicitNullProperties?.Remove("primary"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.Primary? _explicitNullValuePrimary = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.Primary Primary { get => _explicitNullValuePrimary; set { _explicitNullValuePrimary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primary"); else _explicitNullProperties?.Remove("primary"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.Primary Primary { get => _explicitNullValuePrimary; set { _explicitNullValuePrimary = value; AdditionalData?.Remove("primary"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primary"); else _explicitNullProperties?.Remove("primary"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.Primary _explicitNullValuePrimary = default!;
 #endif
         /// <summary>

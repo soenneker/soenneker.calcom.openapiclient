@@ -17,80 +17,89 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("active") is { } nullNodeActive && nullNodeActive.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Active = null;
-            if (parseNode.GetChildNode("customHeaders") is { } nullNodeCustomHeaders && nullNodeCustomHeaders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomHeaders = null;
-            if (parseNode.GetChildNode("payloadTemplate") is { } nullNodePayloadTemplate && nullNodePayloadTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PayloadTemplate = null;
-            if (parseNode.GetChildNode("secret") is { } nullNodeSecret && nullNodeSecret.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Secret = null;
-            if (parseNode.GetChildNode("subscriberUrl") is { } nullNodeSubscriberUrl && nullNodeSubscriberUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubscriberUrl = null;
-            if (parseNode.GetChildNode("time") is { } nullNodeTime && nullNodeTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Time = null;
-            if (parseNode.GetChildNode("timeUnit") is { } nullNodeTimeUnit && nullNodeTimeUnit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeUnit = null;
-            if (parseNode.GetChildNode("triggers") is { } nullNodeTriggers && nullNodeTriggers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Triggers = null;
-            if (parseNode.GetChildNode("version") is { } nullNodeVersion && nullNodeVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Version = null;
+            if (parseNode.GetChildNode("active") is null) { _explicitNullValueActive = default!; _explicitNullProperties?.Remove("active"); }
+            else if (parseNode.GetChildNode("active") is { } nullNodeActive && nullNodeActive.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Active = null;
+            if (parseNode.GetChildNode("customHeaders") is null) { _explicitNullValueCustomHeaders = default!; _explicitNullProperties?.Remove("customHeaders"); }
+            else if (parseNode.GetChildNode("customHeaders") is { } nullNodeCustomHeaders && nullNodeCustomHeaders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomHeaders = null;
+            if (parseNode.GetChildNode("payloadTemplate") is null) { _explicitNullValuePayloadTemplate = default!; _explicitNullProperties?.Remove("payloadTemplate"); }
+            else if (parseNode.GetChildNode("payloadTemplate") is { } nullNodePayloadTemplate && nullNodePayloadTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PayloadTemplate = null;
+            if (parseNode.GetChildNode("secret") is null) { _explicitNullValueSecret = default!; _explicitNullProperties?.Remove("secret"); }
+            else if (parseNode.GetChildNode("secret") is { } nullNodeSecret && nullNodeSecret.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Secret = null;
+            if (parseNode.GetChildNode("subscriberUrl") is null) { _explicitNullValueSubscriberUrl = default!; _explicitNullProperties?.Remove("subscriberUrl"); }
+            else if (parseNode.GetChildNode("subscriberUrl") is { } nullNodeSubscriberUrl && nullNodeSubscriberUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubscriberUrl = null;
+            if (parseNode.GetChildNode("time") is null) { _explicitNullValueTime = default!; _explicitNullProperties?.Remove("time"); }
+            else if (parseNode.GetChildNode("time") is { } nullNodeTime && nullNodeTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Time = null;
+            if (parseNode.GetChildNode("timeUnit") is null) { _explicitNullValueTimeUnit = default!; _explicitNullProperties?.Remove("timeUnit"); }
+            else if (parseNode.GetChildNode("timeUnit") is { } nullNodeTimeUnit && nullNodeTimeUnit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeUnit = null;
+            if (parseNode.GetChildNode("triggers") is null) { _explicitNullValueTriggers = default!; _explicitNullProperties?.Remove("triggers"); }
+            else if (parseNode.GetChildNode("triggers") is { } nullNodeTriggers && nullNodeTriggers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Triggers = null;
+            if (parseNode.GetChildNode("version") is null) { _explicitNullValueVersion = default!; _explicitNullProperties?.Remove("version"); }
+            else if (parseNode.GetChildNode("version") is { } nullNodeVersion && nullNodeVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Version = null;
         }
 
         /// <summary>The active property</summary>
-        public bool? Active { get => _explicitNullValueActive; set { _explicitNullValueActive = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active"); else _explicitNullProperties?.Remove("active"); } }
+        public bool? Active { get => _explicitNullValueActive; set { _explicitNullValueActive = value; AdditionalData?.Remove("active"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active"); else _explicitNullProperties?.Remove("active"); } }
         private bool? _explicitNullValueActive = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Static HTTP headers sent on every webhook delivery (e.g. Authorization). Max 10 headers, values up to 4 KiB, stored encrypted and redacted on read. Changing `subscriberUrl` drops the stored values unless you send them again. An instance without the webhook header keyring (`CALCOM_KEYRING_WEBHOOK_HEADERS`) answers 400 to any request that sends headers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.WebhookCustomHeaderInput>? CustomHeaders { get => _explicitNullValueCustomHeaders; set { _explicitNullValueCustomHeaders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customHeaders"); else _explicitNullProperties?.Remove("customHeaders"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.WebhookCustomHeaderInput>? CustomHeaders { get => _explicitNullValueCustomHeaders; set { _explicitNullValueCustomHeaders = value; AdditionalData?.Remove("customHeaders"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customHeaders"); else _explicitNullProperties?.Remove("customHeaders"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.WebhookCustomHeaderInput>? _explicitNullValueCustomHeaders = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.WebhookCustomHeaderInput> CustomHeaders { get => _explicitNullValueCustomHeaders; set { _explicitNullValueCustomHeaders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customHeaders"); else _explicitNullProperties?.Remove("customHeaders"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.WebhookCustomHeaderInput> CustomHeaders { get => _explicitNullValueCustomHeaders; set { _explicitNullValueCustomHeaders = value; AdditionalData?.Remove("customHeaders"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customHeaders"); else _explicitNullProperties?.Remove("customHeaders"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.WebhookCustomHeaderInput> _explicitNullValueCustomHeaders = default!;
 #endif
         /// <summary>The template of the payload that will be sent to the subscriberUrl, check cal.com/docs/core-features/webhooks for more information</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PayloadTemplate { get => _explicitNullValuePayloadTemplate; set { _explicitNullValuePayloadTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payloadTemplate"); else _explicitNullProperties?.Remove("payloadTemplate"); } }
+        public string? PayloadTemplate { get => _explicitNullValuePayloadTemplate; set { _explicitNullValuePayloadTemplate = value; AdditionalData?.Remove("payloadTemplate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payloadTemplate"); else _explicitNullProperties?.Remove("payloadTemplate"); } }
         private string? _explicitNullValuePayloadTemplate = default!;
 #nullable restore
 #else
-        public string PayloadTemplate { get => _explicitNullValuePayloadTemplate; set { _explicitNullValuePayloadTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payloadTemplate"); else _explicitNullProperties?.Remove("payloadTemplate"); } }
+        public string PayloadTemplate { get => _explicitNullValuePayloadTemplate; set { _explicitNullValuePayloadTemplate = value; AdditionalData?.Remove("payloadTemplate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payloadTemplate"); else _explicitNullProperties?.Remove("payloadTemplate"); } }
         private string _explicitNullValuePayloadTemplate = default!;
 #endif
         /// <summary>The secret property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Secret { get => _explicitNullValueSecret; set { _explicitNullValueSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret"); else _explicitNullProperties?.Remove("secret"); } }
+        public string? Secret { get => _explicitNullValueSecret; set { _explicitNullValueSecret = value; AdditionalData?.Remove("secret"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret"); else _explicitNullProperties?.Remove("secret"); } }
         private string? _explicitNullValueSecret = default!;
 #nullable restore
 #else
-        public string Secret { get => _explicitNullValueSecret; set { _explicitNullValueSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret"); else _explicitNullProperties?.Remove("secret"); } }
+        public string Secret { get => _explicitNullValueSecret; set { _explicitNullValueSecret = value; AdditionalData?.Remove("secret"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret"); else _explicitNullProperties?.Remove("secret"); } }
         private string _explicitNullValueSecret = default!;
 #endif
         /// <summary>The subscriberUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SubscriberUrl { get => _explicitNullValueSubscriberUrl; set { _explicitNullValueSubscriberUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscriberUrl"); else _explicitNullProperties?.Remove("subscriberUrl"); } }
+        public string? SubscriberUrl { get => _explicitNullValueSubscriberUrl; set { _explicitNullValueSubscriberUrl = value; AdditionalData?.Remove("subscriberUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscriberUrl"); else _explicitNullProperties?.Remove("subscriberUrl"); } }
         private string? _explicitNullValueSubscriberUrl = default!;
 #nullable restore
 #else
-        public string SubscriberUrl { get => _explicitNullValueSubscriberUrl; set { _explicitNullValueSubscriberUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscriberUrl"); else _explicitNullProperties?.Remove("subscriberUrl"); } }
+        public string SubscriberUrl { get => _explicitNullValueSubscriberUrl; set { _explicitNullValueSubscriberUrl = value; AdditionalData?.Remove("subscriberUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscriberUrl"); else _explicitNullProperties?.Remove("subscriberUrl"); } }
         private string _explicitNullValueSubscriberUrl = default!;
 #endif
         /// <summary>How long after the booking start time the no-show triggers are evaluated. Required, together with timeUnit, when subscribing to AFTER_HOSTS_CAL_VIDEO_NO_SHOW or AFTER_GUESTS_CAL_VIDEO_NO_SHOW</summary>
-        public double? Time { get => _explicitNullValueTime; set { _explicitNullValueTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("time"); else _explicitNullProperties?.Remove("time"); } }
+        public double? Time { get => _explicitNullValueTime; set { _explicitNullValueTime = value; AdditionalData?.Remove("time"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("time"); else _explicitNullProperties?.Remove("time"); } }
         private double? _explicitNullValueTime = default!;
         /// <summary>The unit of the no-show time value</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.CreateWebhookInputDtoTimeUnit? TimeUnit { get => _explicitNullValueTimeUnit; set { _explicitNullValueTimeUnit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeUnit"); else _explicitNullProperties?.Remove("timeUnit"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CreateWebhookInputDtoTimeUnit? TimeUnit { get => _explicitNullValueTimeUnit; set { _explicitNullValueTimeUnit = value; AdditionalData?.Remove("timeUnit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeUnit"); else _explicitNullProperties?.Remove("timeUnit"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.CreateWebhookInputDtoTimeUnit? _explicitNullValueTimeUnit = default!;
         /// <summary>The triggers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.CreateWebhookInputDtoTriggersItem?>? Triggers { get => _explicitNullValueTriggers; set { _explicitNullValueTriggers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggers"); else _explicitNullProperties?.Remove("triggers"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.CreateWebhookInputDtoTriggersItem?>? Triggers { get => _explicitNullValueTriggers; set { _explicitNullValueTriggers = value; AdditionalData?.Remove("triggers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggers"); else _explicitNullProperties?.Remove("triggers"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.CreateWebhookInputDtoTriggersItem?>? _explicitNullValueTriggers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.CreateWebhookInputDtoTriggersItem?> Triggers { get => _explicitNullValueTriggers; set { _explicitNullValueTriggers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggers"); else _explicitNullProperties?.Remove("triggers"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.CreateWebhookInputDtoTriggersItem?> Triggers { get => _explicitNullValueTriggers; set { _explicitNullValueTriggers = value; AdditionalData?.Remove("triggers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggers"); else _explicitNullProperties?.Remove("triggers"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.CreateWebhookInputDtoTriggersItem?> _explicitNullValueTriggers = default!;
 #endif
         /// <summary>The payload format version of the webhook. Version 2026-07-27 adds generated ICS calendar content (`attendeeIcsContent`, `organizerIcsContent`) to BOOKING_CREATED, BOOKING_RESCHEDULED, BOOKING_CANCELLED, BOOKING_SEAT_ACCEPTED, and BOOKING_PAID (when the payment accepted the booking) payloads. Every version&apos;s builder-produced payload carries a `payload.platformOAuthClientId` field naming the owning platform OAuth client (`null` for non-platform events; for the flat-delivered MEETING_STARTED/MEETING_ENDED bodies the field appears at the top level of the body). Zapier deliveries, custom payload templates that do not reference the field, the `AFTER_HOSTS_CAL_VIDEO_NO_SHOW` / `AFTER_GUESTS_CAL_VIDEO_NO_SHOW` bodies (delivered verbatim from the fire-time blob, never built) and the legacy `FORM_SUBMITTED_NO_EVENT` fallback delivery omit it.</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.CreateWebhookInputDtoVersion? Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CreateWebhookInputDtoVersion? Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; AdditionalData?.Remove("version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.CreateWebhookInputDtoVersion? _explicitNullValueVersion = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.CreateWebhookInputDto"/> and sets the default values.
@@ -123,9 +132,9 @@ namespace Soenneker.CalCom.OpenApiClient.Models
                 { "secret", n => { Secret = n.GetStringValue(); } },
                 { "subscriberUrl", n => { SubscriberUrl = n.GetStringValue(); } },
                 { "time", n => { Time = n.GetDoubleValue(); } },
-                { "timeUnit", n => { TimeUnit = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.CreateWebhookInputDtoTimeUnit>(); } },
+                { "timeUnit", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.CreateWebhookInputDtoTimeUnit>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTimeUnit = default; _explicitNullProperties?.Remove("timeUnit"); AdditionalData["timeUnit"] = unknown; } else { TimeUnit = parsed; AdditionalData.Remove("timeUnit"); } } },
                 { "triggers", n => { Triggers = n.GetCollectionOfEnumValues<global::Soenneker.CalCom.OpenApiClient.Models.CreateWebhookInputDtoTriggersItem>()?.AsList(); } },
-                { "version", n => { Version = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.CreateWebhookInputDtoVersion>(); } },
+                { "version", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.CreateWebhookInputDtoVersion>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueVersion = default; _explicitNullProperties?.Remove("version"); AdditionalData["version"] = unknown; } else { Version = parsed; AdditionalData.Remove("version"); } } },
             };
         }
         /// <summary>

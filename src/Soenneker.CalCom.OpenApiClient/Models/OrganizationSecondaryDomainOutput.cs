@@ -17,58 +17,65 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("createdAt") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
-            if (parseNode.GetChildNode("domain") is { } nullNodeDomain && nullNodeDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Domain = null;
-            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
-            if (parseNode.GetChildNode("usernameSuffix") is { } nullNodeUsernameSuffix && nullNodeUsernameSuffix.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsernameSuffix = null;
-            if (parseNode.GetChildNode("verificationRecord") is { } nullNodeVerificationRecord && nullNodeVerificationRecord.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerificationRecord = null;
-            if (parseNode.GetChildNode("verified") is { } nullNodeVerified && nullNodeVerified.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Verified = null;
-            if (parseNode.GetChildNode("verifiedAt") is { } nullNodeVerifiedAt && nullNodeVerifiedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerifiedAt = null;
+            if (parseNode.GetChildNode("createdAt") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("createdAt"); }
+            else if (parseNode.GetChildNode("createdAt") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("domain") is null) { _explicitNullValueDomain = default!; _explicitNullProperties?.Remove("domain"); }
+            else if (parseNode.GetChildNode("domain") is { } nullNodeDomain && nullNodeDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Domain = null;
+            if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
+            else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("usernameSuffix") is null) { _explicitNullValueUsernameSuffix = default!; _explicitNullProperties?.Remove("usernameSuffix"); }
+            else if (parseNode.GetChildNode("usernameSuffix") is { } nullNodeUsernameSuffix && nullNodeUsernameSuffix.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsernameSuffix = null;
+            if (parseNode.GetChildNode("verificationRecord") is null) { _explicitNullValueVerificationRecord = default!; _explicitNullProperties?.Remove("verificationRecord"); }
+            else if (parseNode.GetChildNode("verificationRecord") is { } nullNodeVerificationRecord && nullNodeVerificationRecord.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerificationRecord = null;
+            if (parseNode.GetChildNode("verified") is null) { _explicitNullValueVerified = default!; _explicitNullProperties?.Remove("verified"); }
+            else if (parseNode.GetChildNode("verified") is { } nullNodeVerified && nullNodeVerified.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Verified = null;
+            if (parseNode.GetChildNode("verifiedAt") is null) { _explicitNullValueVerifiedAt = default!; _explicitNullProperties?.Remove("verifiedAt"); }
+            else if (parseNode.GetChildNode("verifiedAt") is { } nullNodeVerifiedAt && nullNodeVerifiedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerifiedAt = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The createdAt property</summary>
-        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("createdAt"); else _explicitNullProperties?.Remove("createdAt"); } }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("createdAt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("createdAt"); else _explicitNullProperties?.Remove("createdAt"); } }
         private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The domain property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
+        public string? Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; AdditionalData?.Remove("domain"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
         private string? _explicitNullValueDomain = default!;
 #nullable restore
 #else
-        public string Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
+        public string Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; AdditionalData?.Remove("domain"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
         private string _explicitNullValueDomain = default!;
 #endif
         /// <summary>The id property</summary>
-        public double? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public double? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private double? _explicitNullValueId = default!;
         /// <summary>Usernames of members with this email domain end with -&lt;usernameSuffix&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UsernameSuffix { get => _explicitNullValueUsernameSuffix; set { _explicitNullValueUsernameSuffix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usernameSuffix"); else _explicitNullProperties?.Remove("usernameSuffix"); } }
+        public string? UsernameSuffix { get => _explicitNullValueUsernameSuffix; set { _explicitNullValueUsernameSuffix = value; AdditionalData?.Remove("usernameSuffix"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usernameSuffix"); else _explicitNullProperties?.Remove("usernameSuffix"); } }
         private string? _explicitNullValueUsernameSuffix = default!;
 #nullable restore
 #else
-        public string UsernameSuffix { get => _explicitNullValueUsernameSuffix; set { _explicitNullValueUsernameSuffix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usernameSuffix"); else _explicitNullProperties?.Remove("usernameSuffix"); } }
+        public string UsernameSuffix { get => _explicitNullValueUsernameSuffix; set { _explicitNullValueUsernameSuffix = value; AdditionalData?.Remove("usernameSuffix"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usernameSuffix"); else _explicitNullProperties?.Remove("usernameSuffix"); } }
         private string _explicitNullValueUsernameSuffix = default!;
 #endif
         /// <summary>DNS record that must be published to verify ownership of the domain</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.OrganizationSecondaryDomainOutputVerificationRecord? VerificationRecord { get => _explicitNullValueVerificationRecord; set { _explicitNullValueVerificationRecord = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verificationRecord"); else _explicitNullProperties?.Remove("verificationRecord"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.OrganizationSecondaryDomainOutputVerificationRecord? VerificationRecord { get => _explicitNullValueVerificationRecord; set { _explicitNullValueVerificationRecord = value; AdditionalData?.Remove("verificationRecord"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verificationRecord"); else _explicitNullProperties?.Remove("verificationRecord"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.OrganizationSecondaryDomainOutputVerificationRecord? _explicitNullValueVerificationRecord = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.OrganizationSecondaryDomainOutputVerificationRecord VerificationRecord { get => _explicitNullValueVerificationRecord; set { _explicitNullValueVerificationRecord = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verificationRecord"); else _explicitNullProperties?.Remove("verificationRecord"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.OrganizationSecondaryDomainOutputVerificationRecord VerificationRecord { get => _explicitNullValueVerificationRecord; set { _explicitNullValueVerificationRecord = value; AdditionalData?.Remove("verificationRecord"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verificationRecord"); else _explicitNullProperties?.Remove("verificationRecord"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.OrganizationSecondaryDomainOutputVerificationRecord _explicitNullValueVerificationRecord = default!;
 #endif
         /// <summary>The verified property</summary>
-        public bool? Verified { get => _explicitNullValueVerified; set { _explicitNullValueVerified = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verified"); else _explicitNullProperties?.Remove("verified"); } }
+        public bool? Verified { get => _explicitNullValueVerified; set { _explicitNullValueVerified = value; AdditionalData?.Remove("verified"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verified"); else _explicitNullProperties?.Remove("verified"); } }
         private bool? _explicitNullValueVerified = default!;
         /// <summary>The verifiedAt property</summary>
-        public DateTimeOffset? VerifiedAt { get => _explicitNullValueVerifiedAt; set { _explicitNullValueVerifiedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verifiedAt"); else _explicitNullProperties?.Remove("verifiedAt"); } }
+        public DateTimeOffset? VerifiedAt { get => _explicitNullValueVerifiedAt; set { _explicitNullValueVerifiedAt = value; AdditionalData?.Remove("verifiedAt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verifiedAt"); else _explicitNullProperties?.Remove("verifiedAt"); } }
         private DateTimeOffset? _explicitNullValueVerifiedAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.OrganizationSecondaryDomainOutput"/> and sets the default values.

@@ -17,9 +17,12 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("locationId") is { } nullNodeLocationId && nullNodeLocationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LocationId = null;
-            if (parseNode.GetChildNode("retry") is { } nullNodeRetry && nullNodeRetry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Retry = null;
-            if (parseNode.GetChildNode("search") is { } nullNodeSearch && nullNodeSearch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Search = null;
+            if (parseNode.GetChildNode("locationId") is null) { _explicitNullValueLocationId = default!; _explicitNullProperties?.Remove("locationId"); }
+            else if (parseNode.GetChildNode("locationId") is { } nullNodeLocationId && nullNodeLocationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LocationId = null;
+            if (parseNode.GetChildNode("retry") is null) { _explicitNullValueRetry = default!; _explicitNullProperties?.Remove("retry"); }
+            else if (parseNode.GetChildNode("retry") is { } nullNodeRetry && nullNodeRetry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Retry = null;
+            if (parseNode.GetChildNode("search") is null) { _explicitNullValueSearch = default!; _explicitNullProperties?.Remove("search"); }
+            else if (parseNode.GetChildNode("search") is { } nullNodeSearch && nullNodeSearch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Search = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,24 +30,24 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>Only approve guests who registered for this location.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LocationId { get => _explicitNullValueLocationId; set { _explicitNullValueLocationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locationId"); else _explicitNullProperties?.Remove("locationId"); } }
+        public string? LocationId { get => _explicitNullValueLocationId; set { _explicitNullValueLocationId = value; AdditionalData?.Remove("locationId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locationId"); else _explicitNullProperties?.Remove("locationId"); } }
         private string? _explicitNullValueLocationId = default!;
 #nullable restore
 #else
-        public string LocationId { get => _explicitNullValueLocationId; set { _explicitNullValueLocationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locationId"); else _explicitNullProperties?.Remove("locationId"); } }
+        public string LocationId { get => _explicitNullValueLocationId; set { _explicitNullValueLocationId = value; AdditionalData?.Remove("locationId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locationId"); else _explicitNullProperties?.Remove("locationId"); } }
         private string _explicitNullValueLocationId = default!;
 #endif
         /// <summary>Paid Events only: when the previous approve-all failed, approve the guests it had not reached instead of reading the pending guests again.</summary>
-        public bool? Retry { get => _explicitNullValueRetry; set { _explicitNullValueRetry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retry"); else _explicitNullProperties?.Remove("retry"); } }
+        public bool? Retry { get => _explicitNullValueRetry; set { _explicitNullValueRetry = value; AdditionalData?.Remove("retry"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retry"); else _explicitNullProperties?.Remove("retry"); } }
         private bool? _explicitNullValueRetry = default!;
         /// <summary>Only approve guests whose name or email contains this text, case-insensitive.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Search { get => _explicitNullValueSearch; set { _explicitNullValueSearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search"); else _explicitNullProperties?.Remove("search"); } }
+        public string? Search { get => _explicitNullValueSearch; set { _explicitNullValueSearch = value; AdditionalData?.Remove("search"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search"); else _explicitNullProperties?.Remove("search"); } }
         private string? _explicitNullValueSearch = default!;
 #nullable restore
 #else
-        public string Search { get => _explicitNullValueSearch; set { _explicitNullValueSearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search"); else _explicitNullProperties?.Remove("search"); } }
+        public string Search { get => _explicitNullValueSearch; set { _explicitNullValueSearch = value; AdditionalData?.Remove("search"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search"); else _explicitNullProperties?.Remove("search"); } }
         private string _explicitNullValueSearch = default!;
 #endif
         /// <summary>

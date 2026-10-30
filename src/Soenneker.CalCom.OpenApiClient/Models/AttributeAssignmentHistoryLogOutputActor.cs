@@ -18,10 +18,14 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("displayAvatar") is { } nullNodeDisplayAvatar && nullNodeDisplayAvatar.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayAvatar = null;
-            if (parseNode.GetChildNode("displayEmail") is { } nullNodeDisplayEmail && nullNodeDisplayEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayEmail = null;
-            if (parseNode.GetChildNode("displayName") is { } nullNodeDisplayName && nullNodeDisplayName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayName = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("displayAvatar") is null) { _explicitNullValueDisplayAvatar = default!; _explicitNullProperties?.Remove("displayAvatar"); }
+            else if (parseNode.GetChildNode("displayAvatar") is { } nullNodeDisplayAvatar && nullNodeDisplayAvatar.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayAvatar = null;
+            if (parseNode.GetChildNode("displayEmail") is null) { _explicitNullValueDisplayEmail = default!; _explicitNullProperties?.Remove("displayEmail"); }
+            else if (parseNode.GetChildNode("displayEmail") is { } nullNodeDisplayEmail && nullNodeDisplayEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayEmail = null;
+            if (parseNode.GetChildNode("displayName") is null) { _explicitNullValueDisplayName = default!; _explicitNullProperties?.Remove("displayName"); }
+            else if (parseNode.GetChildNode("displayName") is { } nullNodeDisplayName && nullNodeDisplayName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayName = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,41 +33,41 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The avatar URL of the actor when one is available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DisplayAvatar { get => _explicitNullValueDisplayAvatar; set { _explicitNullValueDisplayAvatar = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("displayAvatar"); else _explicitNullProperties?.Remove("displayAvatar"); } }
+        public string? DisplayAvatar { get => _explicitNullValueDisplayAvatar; set { _explicitNullValueDisplayAvatar = value; AdditionalData?.Remove("displayAvatar"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("displayAvatar"); else _explicitNullProperties?.Remove("displayAvatar"); } }
         private string? _explicitNullValueDisplayAvatar = default!;
 #nullable restore
 #else
-        public string DisplayAvatar { get => _explicitNullValueDisplayAvatar; set { _explicitNullValueDisplayAvatar = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("displayAvatar"); else _explicitNullProperties?.Remove("displayAvatar"); } }
+        public string DisplayAvatar { get => _explicitNullValueDisplayAvatar; set { _explicitNullValueDisplayAvatar = value; AdditionalData?.Remove("displayAvatar"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("displayAvatar"); else _explicitNullProperties?.Remove("displayAvatar"); } }
         private string _explicitNullValueDisplayAvatar = default!;
 #endif
         /// <summary>The email address of the actor when one is available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DisplayEmail { get => _explicitNullValueDisplayEmail; set { _explicitNullValueDisplayEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("displayEmail"); else _explicitNullProperties?.Remove("displayEmail"); } }
+        public string? DisplayEmail { get => _explicitNullValueDisplayEmail; set { _explicitNullValueDisplayEmail = value; AdditionalData?.Remove("displayEmail"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("displayEmail"); else _explicitNullProperties?.Remove("displayEmail"); } }
         private string? _explicitNullValueDisplayEmail = default!;
 #nullable restore
 #else
-        public string DisplayEmail { get => _explicitNullValueDisplayEmail; set { _explicitNullValueDisplayEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("displayEmail"); else _explicitNullProperties?.Remove("displayEmail"); } }
+        public string DisplayEmail { get => _explicitNullValueDisplayEmail; set { _explicitNullValueDisplayEmail = value; AdditionalData?.Remove("displayEmail"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("displayEmail"); else _explicitNullProperties?.Remove("displayEmail"); } }
         private string _explicitNullValueDisplayEmail = default!;
 #endif
         /// <summary>The human-readable name of the actor that made the change.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("displayName"); else _explicitNullProperties?.Remove("displayName"); } }
+        public string? DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; AdditionalData?.Remove("displayName"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("displayName"); else _explicitNullProperties?.Remove("displayName"); } }
         private string? _explicitNullValueDisplayName = default!;
 #nullable restore
 #else
-        public string DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("displayName"); else _explicitNullProperties?.Remove("displayName"); } }
+        public string DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; AdditionalData?.Remove("displayName"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("displayName"); else _explicitNullProperties?.Remove("displayName"); } }
         private string _explicitNullValueDisplayName = default!;
 #endif
         /// <summary>The type of actor that made the attribute assignment change.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public string? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private string? _explicitNullValueType = default!;
 #nullable restore
 #else
-        public string Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public string Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private string _explicitNullValueType = default!;
 #endif
         /// <summary>

@@ -17,7 +17,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("coverImageUrl") is { } nullNodeCoverImageUrl && nullNodeCoverImageUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CoverImageUrl = null;
+            if (parseNode.GetChildNode("coverImageUrl") is null) { _explicitNullValueCoverImageUrl = default!; _explicitNullProperties?.Remove("coverImageUrl"); }
+            else if (parseNode.GetChildNode("coverImageUrl") is { } nullNodeCoverImageUrl && nullNodeCoverImageUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CoverImageUrl = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>Always `null` once removed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CoverImageUrl { get => _explicitNullValueCoverImageUrl; set { _explicitNullValueCoverImageUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coverImageUrl"); else _explicitNullProperties?.Remove("coverImageUrl"); } }
+        public string? CoverImageUrl { get => _explicitNullValueCoverImageUrl; set { _explicitNullValueCoverImageUrl = value; AdditionalData?.Remove("coverImageUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coverImageUrl"); else _explicitNullProperties?.Remove("coverImageUrl"); } }
         private string? _explicitNullValueCoverImageUrl = default!;
 #nullable restore
 #else
-        public string CoverImageUrl { get => _explicitNullValueCoverImageUrl; set { _explicitNullValueCoverImageUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coverImageUrl"); else _explicitNullProperties?.Remove("coverImageUrl"); } }
+        public string CoverImageUrl { get => _explicitNullValueCoverImageUrl; set { _explicitNullValueCoverImageUrl = value; AdditionalData?.Remove("coverImageUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coverImageUrl"); else _explicitNullProperties?.Remove("coverImageUrl"); } }
         private string _explicitNullValueCoverImageUrl = default!;
 #endif
         /// <summary>

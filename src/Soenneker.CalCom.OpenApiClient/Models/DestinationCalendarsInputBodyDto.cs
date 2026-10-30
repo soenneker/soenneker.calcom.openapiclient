@@ -17,9 +17,12 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("delegationCredentialId") is { } nullNodeDelegationCredentialId && nullNodeDelegationCredentialId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DelegationCredentialId = null;
-            if (parseNode.GetChildNode("externalId") is { } nullNodeExternalId && nullNodeExternalId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExternalId = null;
-            if (parseNode.GetChildNode("integration") is { } nullNodeIntegration && nullNodeIntegration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Integration = null;
+            if (parseNode.GetChildNode("delegationCredentialId") is null) { _explicitNullValueDelegationCredentialId = default!; _explicitNullProperties?.Remove("delegationCredentialId"); }
+            else if (parseNode.GetChildNode("delegationCredentialId") is { } nullNodeDelegationCredentialId && nullNodeDelegationCredentialId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DelegationCredentialId = null;
+            if (parseNode.GetChildNode("externalId") is null) { _explicitNullValueExternalId = default!; _explicitNullProperties?.Remove("externalId"); }
+            else if (parseNode.GetChildNode("externalId") is { } nullNodeExternalId && nullNodeExternalId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExternalId = null;
+            if (parseNode.GetChildNode("integration") is null) { _explicitNullValueIntegration = default!; _explicitNullProperties?.Remove("integration"); }
+            else if (parseNode.GetChildNode("integration") is { } nullNodeIntegration && nullNodeIntegration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Integration = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,25 +30,25 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The delegationCredentialId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DelegationCredentialId { get => _explicitNullValueDelegationCredentialId; set { _explicitNullValueDelegationCredentialId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delegationCredentialId"); else _explicitNullProperties?.Remove("delegationCredentialId"); } }
+        public string? DelegationCredentialId { get => _explicitNullValueDelegationCredentialId; set { _explicitNullValueDelegationCredentialId = value; AdditionalData?.Remove("delegationCredentialId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delegationCredentialId"); else _explicitNullProperties?.Remove("delegationCredentialId"); } }
         private string? _explicitNullValueDelegationCredentialId = default!;
 #nullable restore
 #else
-        public string DelegationCredentialId { get => _explicitNullValueDelegationCredentialId; set { _explicitNullValueDelegationCredentialId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delegationCredentialId"); else _explicitNullProperties?.Remove("delegationCredentialId"); } }
+        public string DelegationCredentialId { get => _explicitNullValueDelegationCredentialId; set { _explicitNullValueDelegationCredentialId = value; AdditionalData?.Remove("delegationCredentialId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delegationCredentialId"); else _explicitNullProperties?.Remove("delegationCredentialId"); } }
         private string _explicitNullValueDelegationCredentialId = default!;
 #endif
         /// <summary>Unique identifier used to represent the specific calendar, as returned by the /calendars endpoint</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExternalId { get => _explicitNullValueExternalId; set { _explicitNullValueExternalId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("externalId"); else _explicitNullProperties?.Remove("externalId"); } }
+        public string? ExternalId { get => _explicitNullValueExternalId; set { _explicitNullValueExternalId = value; AdditionalData?.Remove("externalId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("externalId"); else _explicitNullProperties?.Remove("externalId"); } }
         private string? _explicitNullValueExternalId = default!;
 #nullable restore
 #else
-        public string ExternalId { get => _explicitNullValueExternalId; set { _explicitNullValueExternalId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("externalId"); else _explicitNullProperties?.Remove("externalId"); } }
+        public string ExternalId { get => _explicitNullValueExternalId; set { _explicitNullValueExternalId = value; AdditionalData?.Remove("externalId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("externalId"); else _explicitNullProperties?.Remove("externalId"); } }
         private string _explicitNullValueExternalId = default!;
 #endif
         /// <summary>The calendar service you want to integrate, as returned by the /calendars endpoint</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.DestinationCalendarsInputBodyDtoIntegration? Integration { get => _explicitNullValueIntegration; set { _explicitNullValueIntegration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("integration"); else _explicitNullProperties?.Remove("integration"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.DestinationCalendarsInputBodyDtoIntegration? Integration { get => _explicitNullValueIntegration; set { _explicitNullValueIntegration = value; AdditionalData?.Remove("integration"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("integration"); else _explicitNullProperties?.Remove("integration"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.DestinationCalendarsInputBodyDtoIntegration? _explicitNullValueIntegration = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.DestinationCalendarsInputBodyDto"/> and sets the default values.
@@ -74,7 +77,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             {
                 { "delegationCredentialId", n => { DelegationCredentialId = n.GetStringValue(); } },
                 { "externalId", n => { ExternalId = n.GetStringValue(); } },
-                { "integration", n => { Integration = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.DestinationCalendarsInputBodyDtoIntegration>(); } },
+                { "integration", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.DestinationCalendarsInputBodyDtoIntegration>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueIntegration = default; _explicitNullProperties?.Remove("integration"); AdditionalData["integration"] = unknown; } else { Integration = parsed; AdditionalData.Remove("integration"); } } },
             };
         }
         /// <summary>

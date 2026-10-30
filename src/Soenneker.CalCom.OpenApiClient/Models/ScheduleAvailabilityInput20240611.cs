@@ -17,9 +17,12 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("days") is { } nullNodeDays && nullNodeDays.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Days = null;
-            if (parseNode.GetChildNode("endTime") is { } nullNodeEndTime && nullNodeEndTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndTime = null;
-            if (parseNode.GetChildNode("startTime") is { } nullNodeStartTime && nullNodeStartTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartTime = null;
+            if (parseNode.GetChildNode("days") is null) { _explicitNullValueDays = default!; _explicitNullProperties?.Remove("days"); }
+            else if (parseNode.GetChildNode("days") is { } nullNodeDays && nullNodeDays.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Days = null;
+            if (parseNode.GetChildNode("endTime") is null) { _explicitNullValueEndTime = default!; _explicitNullProperties?.Remove("endTime"); }
+            else if (parseNode.GetChildNode("endTime") is { } nullNodeEndTime && nullNodeEndTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndTime = null;
+            if (parseNode.GetChildNode("startTime") is null) { _explicitNullValueStartTime = default!; _explicitNullProperties?.Remove("startTime"); }
+            else if (parseNode.GetChildNode("startTime") is { } nullNodeStartTime && nullNodeStartTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartTime = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,31 +30,31 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>Array of days when schedule is active.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.ScheduleAvailabilityInput20240611DaysItem?>? Days { get => _explicitNullValueDays; set { _explicitNullValueDays = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("days"); else _explicitNullProperties?.Remove("days"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.ScheduleAvailabilityInput20240611DaysItem?>? Days { get => _explicitNullValueDays; set { _explicitNullValueDays = value; AdditionalData?.Remove("days"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("days"); else _explicitNullProperties?.Remove("days"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.ScheduleAvailabilityInput20240611DaysItem?>? _explicitNullValueDays = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.ScheduleAvailabilityInput20240611DaysItem?> Days { get => _explicitNullValueDays; set { _explicitNullValueDays = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("days"); else _explicitNullProperties?.Remove("days"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.ScheduleAvailabilityInput20240611DaysItem?> Days { get => _explicitNullValueDays; set { _explicitNullValueDays = value; AdditionalData?.Remove("days"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("days"); else _explicitNullProperties?.Remove("days"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.ScheduleAvailabilityInput20240611DaysItem?> _explicitNullValueDays = default!;
 #endif
         /// <summary>endTime must be a valid time in format HH:MM e.g. 15:00</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EndTime { get => _explicitNullValueEndTime; set { _explicitNullValueEndTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("endTime"); else _explicitNullProperties?.Remove("endTime"); } }
+        public string? EndTime { get => _explicitNullValueEndTime; set { _explicitNullValueEndTime = value; AdditionalData?.Remove("endTime"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("endTime"); else _explicitNullProperties?.Remove("endTime"); } }
         private string? _explicitNullValueEndTime = default!;
 #nullable restore
 #else
-        public string EndTime { get => _explicitNullValueEndTime; set { _explicitNullValueEndTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("endTime"); else _explicitNullProperties?.Remove("endTime"); } }
+        public string EndTime { get => _explicitNullValueEndTime; set { _explicitNullValueEndTime = value; AdditionalData?.Remove("endTime"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("endTime"); else _explicitNullProperties?.Remove("endTime"); } }
         private string _explicitNullValueEndTime = default!;
 #endif
         /// <summary>startTime must be a valid time in format HH:MM e.g. 08:00</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StartTime { get => _explicitNullValueStartTime; set { _explicitNullValueStartTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("startTime"); else _explicitNullProperties?.Remove("startTime"); } }
+        public string? StartTime { get => _explicitNullValueStartTime; set { _explicitNullValueStartTime = value; AdditionalData?.Remove("startTime"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("startTime"); else _explicitNullProperties?.Remove("startTime"); } }
         private string? _explicitNullValueStartTime = default!;
 #nullable restore
 #else
-        public string StartTime { get => _explicitNullValueStartTime; set { _explicitNullValueStartTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("startTime"); else _explicitNullProperties?.Remove("startTime"); } }
+        public string StartTime { get => _explicitNullValueStartTime; set { _explicitNullValueStartTime = value; AdditionalData?.Remove("startTime"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("startTime"); else _explicitNullProperties?.Remove("startTime"); } }
         private string _explicitNullValueStartTime = default!;
 #endif
         /// <summary>

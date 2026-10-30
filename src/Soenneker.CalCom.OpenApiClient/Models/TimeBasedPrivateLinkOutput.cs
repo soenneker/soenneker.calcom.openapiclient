@@ -17,11 +17,16 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("bookingUrl") is { } nullNodeBookingUrl && nullNodeBookingUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingUrl = null;
-            if (parseNode.GetChildNode("eventTypeId") is { } nullNodeEventTypeId && nullNodeEventTypeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventTypeId = null;
-            if (parseNode.GetChildNode("expiresAt") is { } nullNodeExpiresAt && nullNodeExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresAt = null;
-            if (parseNode.GetChildNode("isExpired") is { } nullNodeIsExpired && nullNodeIsExpired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsExpired = null;
-            if (parseNode.GetChildNode("linkId") is { } nullNodeLinkId && nullNodeLinkId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LinkId = null;
+            if (parseNode.GetChildNode("bookingUrl") is null) { _explicitNullValueBookingUrl = default!; _explicitNullProperties?.Remove("bookingUrl"); }
+            else if (parseNode.GetChildNode("bookingUrl") is { } nullNodeBookingUrl && nullNodeBookingUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingUrl = null;
+            if (parseNode.GetChildNode("eventTypeId") is null) { _explicitNullValueEventTypeId = default!; _explicitNullProperties?.Remove("eventTypeId"); }
+            else if (parseNode.GetChildNode("eventTypeId") is { } nullNodeEventTypeId && nullNodeEventTypeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventTypeId = null;
+            if (parseNode.GetChildNode("expiresAt") is null) { _explicitNullValueExpiresAt = default!; _explicitNullProperties?.Remove("expiresAt"); }
+            else if (parseNode.GetChildNode("expiresAt") is { } nullNodeExpiresAt && nullNodeExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresAt = null;
+            if (parseNode.GetChildNode("isExpired") is null) { _explicitNullValueIsExpired = default!; _explicitNullProperties?.Remove("isExpired"); }
+            else if (parseNode.GetChildNode("isExpired") is { } nullNodeIsExpired && nullNodeIsExpired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsExpired = null;
+            if (parseNode.GetChildNode("linkId") is null) { _explicitNullValueLinkId = default!; _explicitNullProperties?.Remove("linkId"); }
+            else if (parseNode.GetChildNode("linkId") is { } nullNodeLinkId && nullNodeLinkId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LinkId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,30 +34,30 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>Full booking URL for this private link (deprecated endpoints return hash-only URL without event slug)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BookingUrl { get => _explicitNullValueBookingUrl; set { _explicitNullValueBookingUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUrl"); else _explicitNullProperties?.Remove("bookingUrl"); } }
+        public string? BookingUrl { get => _explicitNullValueBookingUrl; set { _explicitNullValueBookingUrl = value; AdditionalData?.Remove("bookingUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUrl"); else _explicitNullProperties?.Remove("bookingUrl"); } }
         private string? _explicitNullValueBookingUrl = default!;
 #nullable restore
 #else
-        public string BookingUrl { get => _explicitNullValueBookingUrl; set { _explicitNullValueBookingUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUrl"); else _explicitNullProperties?.Remove("bookingUrl"); } }
+        public string BookingUrl { get => _explicitNullValueBookingUrl; set { _explicitNullValueBookingUrl = value; AdditionalData?.Remove("bookingUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUrl"); else _explicitNullProperties?.Remove("bookingUrl"); } }
         private string _explicitNullValueBookingUrl = default!;
 #endif
         /// <summary>Event type ID this link belongs to</summary>
-        public double? EventTypeId { get => _explicitNullValueEventTypeId; set { _explicitNullValueEventTypeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeId"); else _explicitNullProperties?.Remove("eventTypeId"); } }
+        public double? EventTypeId { get => _explicitNullValueEventTypeId; set { _explicitNullValueEventTypeId = value; AdditionalData?.Remove("eventTypeId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeId"); else _explicitNullProperties?.Remove("eventTypeId"); } }
         private double? _explicitNullValueEventTypeId = default!;
         /// <summary>Expiration date for this time-based link</summary>
-        public DateTimeOffset? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expiresAt"); else _explicitNullProperties?.Remove("expiresAt"); } }
+        public DateTimeOffset? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; AdditionalData?.Remove("expiresAt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expiresAt"); else _explicitNullProperties?.Remove("expiresAt"); } }
         private DateTimeOffset? _explicitNullValueExpiresAt = default!;
         /// <summary>Whether the link is currently expired</summary>
-        public bool? IsExpired { get => _explicitNullValueIsExpired; set { _explicitNullValueIsExpired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("isExpired"); else _explicitNullProperties?.Remove("isExpired"); } }
+        public bool? IsExpired { get => _explicitNullValueIsExpired; set { _explicitNullValueIsExpired = value; AdditionalData?.Remove("isExpired"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("isExpired"); else _explicitNullProperties?.Remove("isExpired"); } }
         private bool? _explicitNullValueIsExpired = default!;
         /// <summary>The private link ID</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LinkId { get => _explicitNullValueLinkId; set { _explicitNullValueLinkId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("linkId"); else _explicitNullProperties?.Remove("linkId"); } }
+        public string? LinkId { get => _explicitNullValueLinkId; set { _explicitNullValueLinkId = value; AdditionalData?.Remove("linkId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("linkId"); else _explicitNullProperties?.Remove("linkId"); } }
         private string? _explicitNullValueLinkId = default!;
 #nullable restore
 #else
-        public string LinkId { get => _explicitNullValueLinkId; set { _explicitNullValueLinkId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("linkId"); else _explicitNullProperties?.Remove("linkId"); } }
+        public string LinkId { get => _explicitNullValueLinkId; set { _explicitNullValueLinkId = value; AdditionalData?.Remove("linkId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("linkId"); else _explicitNullProperties?.Remove("linkId"); } }
         private string _explicitNullValueLinkId = default!;
 #endif
         /// <summary>

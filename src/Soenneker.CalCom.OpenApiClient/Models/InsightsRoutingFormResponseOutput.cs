@@ -17,35 +17,64 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("bookingAssignmentReason") is { } nullNodeBookingAssignmentReason && nullNodeBookingAssignmentReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingAssignmentReason = null;
-            if (parseNode.GetChildNode("bookingAttendees") is { } nullNodeBookingAttendees && nullNodeBookingAttendees.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingAttendees = null;
-            if (parseNode.GetChildNode("bookingCreatedAt") is { } nullNodeBookingCreatedAt && nullNodeBookingCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingCreatedAt = null;
-            if (parseNode.GetChildNode("bookingEndTime") is { } nullNodeBookingEndTime && nullNodeBookingEndTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingEndTime = null;
-            if (parseNode.GetChildNode("bookingId") is { } nullNodeBookingId && nullNodeBookingId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingId = null;
-            if (parseNode.GetChildNode("bookingStartTime") is { } nullNodeBookingStartTime && nullNodeBookingStartTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingStartTime = null;
-            if (parseNode.GetChildNode("bookingStatus") is { } nullNodeBookingStatus && nullNodeBookingStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingStatus = null;
-            if (parseNode.GetChildNode("bookingStatusOrder") is { } nullNodeBookingStatusOrder && nullNodeBookingStatusOrder.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingStatusOrder = null;
-            if (parseNode.GetChildNode("bookingUid") is { } nullNodeBookingUid && nullNodeBookingUid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingUid = null;
-            if (parseNode.GetChildNode("bookingUserAvatarUrl") is { } nullNodeBookingUserAvatarUrl && nullNodeBookingUserAvatarUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingUserAvatarUrl = null;
-            if (parseNode.GetChildNode("bookingUserEmail") is { } nullNodeBookingUserEmail && nullNodeBookingUserEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingUserEmail = null;
-            if (parseNode.GetChildNode("bookingUserId") is { } nullNodeBookingUserId && nullNodeBookingUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingUserId = null;
-            if (parseNode.GetChildNode("bookingUserName") is { } nullNodeBookingUserName && nullNodeBookingUserName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingUserName = null;
-            if (parseNode.GetChildNode("createdAt") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
-            if (parseNode.GetChildNode("eventTypeId") is { } nullNodeEventTypeId && nullNodeEventTypeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventTypeId = null;
-            if (parseNode.GetChildNode("eventTypeParentId") is { } nullNodeEventTypeParentId && nullNodeEventTypeParentId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventTypeParentId = null;
-            if (parseNode.GetChildNode("eventTypeSchedulingType") is { } nullNodeEventTypeSchedulingType && nullNodeEventTypeSchedulingType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventTypeSchedulingType = null;
-            if (parseNode.GetChildNode("fields") is { } nullNodeFields && nullNodeFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fields = null;
-            if (parseNode.GetChildNode("formId") is { } nullNodeFormId && nullNodeFormId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FormId = null;
-            if (parseNode.GetChildNode("formName") is { } nullNodeFormName && nullNodeFormName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FormName = null;
-            if (parseNode.GetChildNode("formTeamId") is { } nullNodeFormTeamId && nullNodeFormTeamId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FormTeamId = null;
-            if (parseNode.GetChildNode("formUserId") is { } nullNodeFormUserId && nullNodeFormUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FormUserId = null;
-            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
-            if (parseNode.GetChildNode("utm_campaign") is { } nullNodeUtmCampaign && nullNodeUtmCampaign.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UtmCampaign = null;
-            if (parseNode.GetChildNode("utm_content") is { } nullNodeUtmContent && nullNodeUtmContent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UtmContent = null;
-            if (parseNode.GetChildNode("utm_medium") is { } nullNodeUtmMedium && nullNodeUtmMedium.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UtmMedium = null;
-            if (parseNode.GetChildNode("utm_source") is { } nullNodeUtmSource && nullNodeUtmSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UtmSource = null;
-            if (parseNode.GetChildNode("utm_term") is { } nullNodeUtmTerm && nullNodeUtmTerm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UtmTerm = null;
-            if (parseNode.GetChildNode("uuid") is { } nullNodeUuid && nullNodeUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Uuid = null;
+            if (parseNode.GetChildNode("bookingAssignmentReason") is null) { _explicitNullValueBookingAssignmentReason = default!; _explicitNullProperties?.Remove("bookingAssignmentReason"); }
+            else if (parseNode.GetChildNode("bookingAssignmentReason") is { } nullNodeBookingAssignmentReason && nullNodeBookingAssignmentReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingAssignmentReason = null;
+            if (parseNode.GetChildNode("bookingAttendees") is null) { _explicitNullValueBookingAttendees = default!; _explicitNullProperties?.Remove("bookingAttendees"); }
+            else if (parseNode.GetChildNode("bookingAttendees") is { } nullNodeBookingAttendees && nullNodeBookingAttendees.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingAttendees = null;
+            if (parseNode.GetChildNode("bookingCreatedAt") is null) { _explicitNullValueBookingCreatedAt = default!; _explicitNullProperties?.Remove("bookingCreatedAt"); }
+            else if (parseNode.GetChildNode("bookingCreatedAt") is { } nullNodeBookingCreatedAt && nullNodeBookingCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingCreatedAt = null;
+            if (parseNode.GetChildNode("bookingEndTime") is null) { _explicitNullValueBookingEndTime = default!; _explicitNullProperties?.Remove("bookingEndTime"); }
+            else if (parseNode.GetChildNode("bookingEndTime") is { } nullNodeBookingEndTime && nullNodeBookingEndTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingEndTime = null;
+            if (parseNode.GetChildNode("bookingId") is null) { _explicitNullValueBookingId = default!; _explicitNullProperties?.Remove("bookingId"); }
+            else if (parseNode.GetChildNode("bookingId") is { } nullNodeBookingId && nullNodeBookingId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingId = null;
+            if (parseNode.GetChildNode("bookingStartTime") is null) { _explicitNullValueBookingStartTime = default!; _explicitNullProperties?.Remove("bookingStartTime"); }
+            else if (parseNode.GetChildNode("bookingStartTime") is { } nullNodeBookingStartTime && nullNodeBookingStartTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingStartTime = null;
+            if (parseNode.GetChildNode("bookingStatus") is null) { _explicitNullValueBookingStatus = default!; _explicitNullProperties?.Remove("bookingStatus"); }
+            else if (parseNode.GetChildNode("bookingStatus") is { } nullNodeBookingStatus && nullNodeBookingStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingStatus = null;
+            if (parseNode.GetChildNode("bookingStatusOrder") is null) { _explicitNullValueBookingStatusOrder = default!; _explicitNullProperties?.Remove("bookingStatusOrder"); }
+            else if (parseNode.GetChildNode("bookingStatusOrder") is { } nullNodeBookingStatusOrder && nullNodeBookingStatusOrder.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingStatusOrder = null;
+            if (parseNode.GetChildNode("bookingUid") is null) { _explicitNullValueBookingUid = default!; _explicitNullProperties?.Remove("bookingUid"); }
+            else if (parseNode.GetChildNode("bookingUid") is { } nullNodeBookingUid && nullNodeBookingUid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingUid = null;
+            if (parseNode.GetChildNode("bookingUserAvatarUrl") is null) { _explicitNullValueBookingUserAvatarUrl = default!; _explicitNullProperties?.Remove("bookingUserAvatarUrl"); }
+            else if (parseNode.GetChildNode("bookingUserAvatarUrl") is { } nullNodeBookingUserAvatarUrl && nullNodeBookingUserAvatarUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingUserAvatarUrl = null;
+            if (parseNode.GetChildNode("bookingUserEmail") is null) { _explicitNullValueBookingUserEmail = default!; _explicitNullProperties?.Remove("bookingUserEmail"); }
+            else if (parseNode.GetChildNode("bookingUserEmail") is { } nullNodeBookingUserEmail && nullNodeBookingUserEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingUserEmail = null;
+            if (parseNode.GetChildNode("bookingUserId") is null) { _explicitNullValueBookingUserId = default!; _explicitNullProperties?.Remove("bookingUserId"); }
+            else if (parseNode.GetChildNode("bookingUserId") is { } nullNodeBookingUserId && nullNodeBookingUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingUserId = null;
+            if (parseNode.GetChildNode("bookingUserName") is null) { _explicitNullValueBookingUserName = default!; _explicitNullProperties?.Remove("bookingUserName"); }
+            else if (parseNode.GetChildNode("bookingUserName") is { } nullNodeBookingUserName && nullNodeBookingUserName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingUserName = null;
+            if (parseNode.GetChildNode("createdAt") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("createdAt"); }
+            else if (parseNode.GetChildNode("createdAt") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("eventTypeId") is null) { _explicitNullValueEventTypeId = default!; _explicitNullProperties?.Remove("eventTypeId"); }
+            else if (parseNode.GetChildNode("eventTypeId") is { } nullNodeEventTypeId && nullNodeEventTypeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventTypeId = null;
+            if (parseNode.GetChildNode("eventTypeParentId") is null) { _explicitNullValueEventTypeParentId = default!; _explicitNullProperties?.Remove("eventTypeParentId"); }
+            else if (parseNode.GetChildNode("eventTypeParentId") is { } nullNodeEventTypeParentId && nullNodeEventTypeParentId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventTypeParentId = null;
+            if (parseNode.GetChildNode("eventTypeSchedulingType") is null) { _explicitNullValueEventTypeSchedulingType = default!; _explicitNullProperties?.Remove("eventTypeSchedulingType"); }
+            else if (parseNode.GetChildNode("eventTypeSchedulingType") is { } nullNodeEventTypeSchedulingType && nullNodeEventTypeSchedulingType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventTypeSchedulingType = null;
+            if (parseNode.GetChildNode("fields") is null) { _explicitNullValueFields = default!; _explicitNullProperties?.Remove("fields"); }
+            else if (parseNode.GetChildNode("fields") is { } nullNodeFields && nullNodeFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fields = null;
+            if (parseNode.GetChildNode("formId") is null) { _explicitNullValueFormId = default!; _explicitNullProperties?.Remove("formId"); }
+            else if (parseNode.GetChildNode("formId") is { } nullNodeFormId && nullNodeFormId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FormId = null;
+            if (parseNode.GetChildNode("formName") is null) { _explicitNullValueFormName = default!; _explicitNullProperties?.Remove("formName"); }
+            else if (parseNode.GetChildNode("formName") is { } nullNodeFormName && nullNodeFormName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FormName = null;
+            if (parseNode.GetChildNode("formTeamId") is null) { _explicitNullValueFormTeamId = default!; _explicitNullProperties?.Remove("formTeamId"); }
+            else if (parseNode.GetChildNode("formTeamId") is { } nullNodeFormTeamId && nullNodeFormTeamId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FormTeamId = null;
+            if (parseNode.GetChildNode("formUserId") is null) { _explicitNullValueFormUserId = default!; _explicitNullProperties?.Remove("formUserId"); }
+            else if (parseNode.GetChildNode("formUserId") is { } nullNodeFormUserId && nullNodeFormUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FormUserId = null;
+            if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
+            else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("utm_campaign") is null) { _explicitNullValueUtmCampaign = default!; _explicitNullProperties?.Remove("utm_campaign"); }
+            else if (parseNode.GetChildNode("utm_campaign") is { } nullNodeUtmCampaign && nullNodeUtmCampaign.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UtmCampaign = null;
+            if (parseNode.GetChildNode("utm_content") is null) { _explicitNullValueUtmContent = default!; _explicitNullProperties?.Remove("utm_content"); }
+            else if (parseNode.GetChildNode("utm_content") is { } nullNodeUtmContent && nullNodeUtmContent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UtmContent = null;
+            if (parseNode.GetChildNode("utm_medium") is null) { _explicitNullValueUtmMedium = default!; _explicitNullProperties?.Remove("utm_medium"); }
+            else if (parseNode.GetChildNode("utm_medium") is { } nullNodeUtmMedium && nullNodeUtmMedium.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UtmMedium = null;
+            if (parseNode.GetChildNode("utm_source") is null) { _explicitNullValueUtmSource = default!; _explicitNullProperties?.Remove("utm_source"); }
+            else if (parseNode.GetChildNode("utm_source") is { } nullNodeUtmSource && nullNodeUtmSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UtmSource = null;
+            if (parseNode.GetChildNode("utm_term") is null) { _explicitNullValueUtmTerm = default!; _explicitNullProperties?.Remove("utm_term"); }
+            else if (parseNode.GetChildNode("utm_term") is { } nullNodeUtmTerm && nullNodeUtmTerm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UtmTerm = null;
+            if (parseNode.GetChildNode("uuid") is null) { _explicitNullValueUuid = default!; _explicitNullProperties?.Remove("uuid"); }
+            else if (parseNode.GetChildNode("uuid") is { } nullNodeUuid && nullNodeUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Uuid = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -53,207 +82,207 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The bookingAssignmentReason property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BookingAssignmentReason { get => _explicitNullValueBookingAssignmentReason; set { _explicitNullValueBookingAssignmentReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingAssignmentReason"); else _explicitNullProperties?.Remove("bookingAssignmentReason"); } }
+        public string? BookingAssignmentReason { get => _explicitNullValueBookingAssignmentReason; set { _explicitNullValueBookingAssignmentReason = value; AdditionalData?.Remove("bookingAssignmentReason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingAssignmentReason"); else _explicitNullProperties?.Remove("bookingAssignmentReason"); } }
         private string? _explicitNullValueBookingAssignmentReason = default!;
 #nullable restore
 #else
-        public string BookingAssignmentReason { get => _explicitNullValueBookingAssignmentReason; set { _explicitNullValueBookingAssignmentReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingAssignmentReason"); else _explicitNullProperties?.Remove("bookingAssignmentReason"); } }
+        public string BookingAssignmentReason { get => _explicitNullValueBookingAssignmentReason; set { _explicitNullValueBookingAssignmentReason = value; AdditionalData?.Remove("bookingAssignmentReason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingAssignmentReason"); else _explicitNullProperties?.Remove("bookingAssignmentReason"); } }
         private string _explicitNullValueBookingAssignmentReason = default!;
 #endif
         /// <summary>The bookingAttendees property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingBookingAttendeeOutput>? BookingAttendees { get => _explicitNullValueBookingAttendees; set { _explicitNullValueBookingAttendees = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingAttendees"); else _explicitNullProperties?.Remove("bookingAttendees"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingBookingAttendeeOutput>? BookingAttendees { get => _explicitNullValueBookingAttendees; set { _explicitNullValueBookingAttendees = value; AdditionalData?.Remove("bookingAttendees"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingAttendees"); else _explicitNullProperties?.Remove("bookingAttendees"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingBookingAttendeeOutput>? _explicitNullValueBookingAttendees = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingBookingAttendeeOutput> BookingAttendees { get => _explicitNullValueBookingAttendees; set { _explicitNullValueBookingAttendees = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingAttendees"); else _explicitNullProperties?.Remove("bookingAttendees"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingBookingAttendeeOutput> BookingAttendees { get => _explicitNullValueBookingAttendees; set { _explicitNullValueBookingAttendees = value; AdditionalData?.Remove("bookingAttendees"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingAttendees"); else _explicitNullProperties?.Remove("bookingAttendees"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingBookingAttendeeOutput> _explicitNullValueBookingAttendees = default!;
 #endif
         /// <summary>The bookingCreatedAt property</summary>
-        public DateTimeOffset? BookingCreatedAt { get => _explicitNullValueBookingCreatedAt; set { _explicitNullValueBookingCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingCreatedAt"); else _explicitNullProperties?.Remove("bookingCreatedAt"); } }
+        public DateTimeOffset? BookingCreatedAt { get => _explicitNullValueBookingCreatedAt; set { _explicitNullValueBookingCreatedAt = value; AdditionalData?.Remove("bookingCreatedAt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingCreatedAt"); else _explicitNullProperties?.Remove("bookingCreatedAt"); } }
         private DateTimeOffset? _explicitNullValueBookingCreatedAt = default!;
         /// <summary>The bookingEndTime property</summary>
-        public DateTimeOffset? BookingEndTime { get => _explicitNullValueBookingEndTime; set { _explicitNullValueBookingEndTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingEndTime"); else _explicitNullProperties?.Remove("bookingEndTime"); } }
+        public DateTimeOffset? BookingEndTime { get => _explicitNullValueBookingEndTime; set { _explicitNullValueBookingEndTime = value; AdditionalData?.Remove("bookingEndTime"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingEndTime"); else _explicitNullProperties?.Remove("bookingEndTime"); } }
         private DateTimeOffset? _explicitNullValueBookingEndTime = default!;
         /// <summary>The bookingId property</summary>
-        public double? BookingId { get => _explicitNullValueBookingId; set { _explicitNullValueBookingId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingId"); else _explicitNullProperties?.Remove("bookingId"); } }
+        public double? BookingId { get => _explicitNullValueBookingId; set { _explicitNullValueBookingId = value; AdditionalData?.Remove("bookingId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingId"); else _explicitNullProperties?.Remove("bookingId"); } }
         private double? _explicitNullValueBookingId = default!;
         /// <summary>The bookingStartTime property</summary>
-        public DateTimeOffset? BookingStartTime { get => _explicitNullValueBookingStartTime; set { _explicitNullValueBookingStartTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingStartTime"); else _explicitNullProperties?.Remove("bookingStartTime"); } }
+        public DateTimeOffset? BookingStartTime { get => _explicitNullValueBookingStartTime; set { _explicitNullValueBookingStartTime = value; AdditionalData?.Remove("bookingStartTime"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingStartTime"); else _explicitNullProperties?.Remove("bookingStartTime"); } }
         private DateTimeOffset? _explicitNullValueBookingStartTime = default!;
         /// <summary>The bookingStatus property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BookingStatus { get => _explicitNullValueBookingStatus; set { _explicitNullValueBookingStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingStatus"); else _explicitNullProperties?.Remove("bookingStatus"); } }
+        public string? BookingStatus { get => _explicitNullValueBookingStatus; set { _explicitNullValueBookingStatus = value; AdditionalData?.Remove("bookingStatus"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingStatus"); else _explicitNullProperties?.Remove("bookingStatus"); } }
         private string? _explicitNullValueBookingStatus = default!;
 #nullable restore
 #else
-        public string BookingStatus { get => _explicitNullValueBookingStatus; set { _explicitNullValueBookingStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingStatus"); else _explicitNullProperties?.Remove("bookingStatus"); } }
+        public string BookingStatus { get => _explicitNullValueBookingStatus; set { _explicitNullValueBookingStatus = value; AdditionalData?.Remove("bookingStatus"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingStatus"); else _explicitNullProperties?.Remove("bookingStatus"); } }
         private string _explicitNullValueBookingStatus = default!;
 #endif
         /// <summary>The bookingStatusOrder property</summary>
-        public double? BookingStatusOrder { get => _explicitNullValueBookingStatusOrder; set { _explicitNullValueBookingStatusOrder = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingStatusOrder"); else _explicitNullProperties?.Remove("bookingStatusOrder"); } }
+        public double? BookingStatusOrder { get => _explicitNullValueBookingStatusOrder; set { _explicitNullValueBookingStatusOrder = value; AdditionalData?.Remove("bookingStatusOrder"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingStatusOrder"); else _explicitNullProperties?.Remove("bookingStatusOrder"); } }
         private double? _explicitNullValueBookingStatusOrder = default!;
         /// <summary>The bookingUid property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BookingUid { get => _explicitNullValueBookingUid; set { _explicitNullValueBookingUid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUid"); else _explicitNullProperties?.Remove("bookingUid"); } }
+        public string? BookingUid { get => _explicitNullValueBookingUid; set { _explicitNullValueBookingUid = value; AdditionalData?.Remove("bookingUid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUid"); else _explicitNullProperties?.Remove("bookingUid"); } }
         private string? _explicitNullValueBookingUid = default!;
 #nullable restore
 #else
-        public string BookingUid { get => _explicitNullValueBookingUid; set { _explicitNullValueBookingUid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUid"); else _explicitNullProperties?.Remove("bookingUid"); } }
+        public string BookingUid { get => _explicitNullValueBookingUid; set { _explicitNullValueBookingUid = value; AdditionalData?.Remove("bookingUid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUid"); else _explicitNullProperties?.Remove("bookingUid"); } }
         private string _explicitNullValueBookingUid = default!;
 #endif
         /// <summary>The bookingUserAvatarUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BookingUserAvatarUrl { get => _explicitNullValueBookingUserAvatarUrl; set { _explicitNullValueBookingUserAvatarUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUserAvatarUrl"); else _explicitNullProperties?.Remove("bookingUserAvatarUrl"); } }
+        public string? BookingUserAvatarUrl { get => _explicitNullValueBookingUserAvatarUrl; set { _explicitNullValueBookingUserAvatarUrl = value; AdditionalData?.Remove("bookingUserAvatarUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUserAvatarUrl"); else _explicitNullProperties?.Remove("bookingUserAvatarUrl"); } }
         private string? _explicitNullValueBookingUserAvatarUrl = default!;
 #nullable restore
 #else
-        public string BookingUserAvatarUrl { get => _explicitNullValueBookingUserAvatarUrl; set { _explicitNullValueBookingUserAvatarUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUserAvatarUrl"); else _explicitNullProperties?.Remove("bookingUserAvatarUrl"); } }
+        public string BookingUserAvatarUrl { get => _explicitNullValueBookingUserAvatarUrl; set { _explicitNullValueBookingUserAvatarUrl = value; AdditionalData?.Remove("bookingUserAvatarUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUserAvatarUrl"); else _explicitNullProperties?.Remove("bookingUserAvatarUrl"); } }
         private string _explicitNullValueBookingUserAvatarUrl = default!;
 #endif
         /// <summary>The bookingUserEmail property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BookingUserEmail { get => _explicitNullValueBookingUserEmail; set { _explicitNullValueBookingUserEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUserEmail"); else _explicitNullProperties?.Remove("bookingUserEmail"); } }
+        public string? BookingUserEmail { get => _explicitNullValueBookingUserEmail; set { _explicitNullValueBookingUserEmail = value; AdditionalData?.Remove("bookingUserEmail"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUserEmail"); else _explicitNullProperties?.Remove("bookingUserEmail"); } }
         private string? _explicitNullValueBookingUserEmail = default!;
 #nullable restore
 #else
-        public string BookingUserEmail { get => _explicitNullValueBookingUserEmail; set { _explicitNullValueBookingUserEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUserEmail"); else _explicitNullProperties?.Remove("bookingUserEmail"); } }
+        public string BookingUserEmail { get => _explicitNullValueBookingUserEmail; set { _explicitNullValueBookingUserEmail = value; AdditionalData?.Remove("bookingUserEmail"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUserEmail"); else _explicitNullProperties?.Remove("bookingUserEmail"); } }
         private string _explicitNullValueBookingUserEmail = default!;
 #endif
         /// <summary>The bookingUserId property</summary>
-        public double? BookingUserId { get => _explicitNullValueBookingUserId; set { _explicitNullValueBookingUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUserId"); else _explicitNullProperties?.Remove("bookingUserId"); } }
+        public double? BookingUserId { get => _explicitNullValueBookingUserId; set { _explicitNullValueBookingUserId = value; AdditionalData?.Remove("bookingUserId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUserId"); else _explicitNullProperties?.Remove("bookingUserId"); } }
         private double? _explicitNullValueBookingUserId = default!;
         /// <summary>The bookingUserName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BookingUserName { get => _explicitNullValueBookingUserName; set { _explicitNullValueBookingUserName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUserName"); else _explicitNullProperties?.Remove("bookingUserName"); } }
+        public string? BookingUserName { get => _explicitNullValueBookingUserName; set { _explicitNullValueBookingUserName = value; AdditionalData?.Remove("bookingUserName"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUserName"); else _explicitNullProperties?.Remove("bookingUserName"); } }
         private string? _explicitNullValueBookingUserName = default!;
 #nullable restore
 #else
-        public string BookingUserName { get => _explicitNullValueBookingUserName; set { _explicitNullValueBookingUserName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUserName"); else _explicitNullProperties?.Remove("bookingUserName"); } }
+        public string BookingUserName { get => _explicitNullValueBookingUserName; set { _explicitNullValueBookingUserName = value; AdditionalData?.Remove("bookingUserName"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUserName"); else _explicitNullProperties?.Remove("bookingUserName"); } }
         private string _explicitNullValueBookingUserName = default!;
 #endif
         /// <summary>The createdAt property</summary>
-        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("createdAt"); else _explicitNullProperties?.Remove("createdAt"); } }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("createdAt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("createdAt"); else _explicitNullProperties?.Remove("createdAt"); } }
         private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The eventTypeId property</summary>
-        public double? EventTypeId { get => _explicitNullValueEventTypeId; set { _explicitNullValueEventTypeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeId"); else _explicitNullProperties?.Remove("eventTypeId"); } }
+        public double? EventTypeId { get => _explicitNullValueEventTypeId; set { _explicitNullValueEventTypeId = value; AdditionalData?.Remove("eventTypeId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeId"); else _explicitNullProperties?.Remove("eventTypeId"); } }
         private double? _explicitNullValueEventTypeId = default!;
         /// <summary>The eventTypeParentId property</summary>
-        public double? EventTypeParentId { get => _explicitNullValueEventTypeParentId; set { _explicitNullValueEventTypeParentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeParentId"); else _explicitNullProperties?.Remove("eventTypeParentId"); } }
+        public double? EventTypeParentId { get => _explicitNullValueEventTypeParentId; set { _explicitNullValueEventTypeParentId = value; AdditionalData?.Remove("eventTypeParentId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeParentId"); else _explicitNullProperties?.Remove("eventTypeParentId"); } }
         private double? _explicitNullValueEventTypeParentId = default!;
         /// <summary>The eventTypeSchedulingType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EventTypeSchedulingType { get => _explicitNullValueEventTypeSchedulingType; set { _explicitNullValueEventTypeSchedulingType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeSchedulingType"); else _explicitNullProperties?.Remove("eventTypeSchedulingType"); } }
+        public string? EventTypeSchedulingType { get => _explicitNullValueEventTypeSchedulingType; set { _explicitNullValueEventTypeSchedulingType = value; AdditionalData?.Remove("eventTypeSchedulingType"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeSchedulingType"); else _explicitNullProperties?.Remove("eventTypeSchedulingType"); } }
         private string? _explicitNullValueEventTypeSchedulingType = default!;
 #nullable restore
 #else
-        public string EventTypeSchedulingType { get => _explicitNullValueEventTypeSchedulingType; set { _explicitNullValueEventTypeSchedulingType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeSchedulingType"); else _explicitNullProperties?.Remove("eventTypeSchedulingType"); } }
+        public string EventTypeSchedulingType { get => _explicitNullValueEventTypeSchedulingType; set { _explicitNullValueEventTypeSchedulingType = value; AdditionalData?.Remove("eventTypeSchedulingType"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeSchedulingType"); else _explicitNullProperties?.Remove("eventTypeSchedulingType"); } }
         private string _explicitNullValueEventTypeSchedulingType = default!;
 #endif
         /// <summary>The fields property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingResponseFieldOutput>? Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingResponseFieldOutput>? Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; AdditionalData?.Remove("fields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingResponseFieldOutput>? _explicitNullValueFields = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingResponseFieldOutput> Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingResponseFieldOutput> Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; AdditionalData?.Remove("fields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.InsightsRoutingResponseFieldOutput> _explicitNullValueFields = default!;
 #endif
         /// <summary>The formId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FormId { get => _explicitNullValueFormId; set { _explicitNullValueFormId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("formId"); else _explicitNullProperties?.Remove("formId"); } }
+        public string? FormId { get => _explicitNullValueFormId; set { _explicitNullValueFormId = value; AdditionalData?.Remove("formId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("formId"); else _explicitNullProperties?.Remove("formId"); } }
         private string? _explicitNullValueFormId = default!;
 #nullable restore
 #else
-        public string FormId { get => _explicitNullValueFormId; set { _explicitNullValueFormId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("formId"); else _explicitNullProperties?.Remove("formId"); } }
+        public string FormId { get => _explicitNullValueFormId; set { _explicitNullValueFormId = value; AdditionalData?.Remove("formId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("formId"); else _explicitNullProperties?.Remove("formId"); } }
         private string _explicitNullValueFormId = default!;
 #endif
         /// <summary>The formName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FormName { get => _explicitNullValueFormName; set { _explicitNullValueFormName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("formName"); else _explicitNullProperties?.Remove("formName"); } }
+        public string? FormName { get => _explicitNullValueFormName; set { _explicitNullValueFormName = value; AdditionalData?.Remove("formName"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("formName"); else _explicitNullProperties?.Remove("formName"); } }
         private string? _explicitNullValueFormName = default!;
 #nullable restore
 #else
-        public string FormName { get => _explicitNullValueFormName; set { _explicitNullValueFormName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("formName"); else _explicitNullProperties?.Remove("formName"); } }
+        public string FormName { get => _explicitNullValueFormName; set { _explicitNullValueFormName = value; AdditionalData?.Remove("formName"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("formName"); else _explicitNullProperties?.Remove("formName"); } }
         private string _explicitNullValueFormName = default!;
 #endif
         /// <summary>The formTeamId property</summary>
-        public double? FormTeamId { get => _explicitNullValueFormTeamId; set { _explicitNullValueFormTeamId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("formTeamId"); else _explicitNullProperties?.Remove("formTeamId"); } }
+        public double? FormTeamId { get => _explicitNullValueFormTeamId; set { _explicitNullValueFormTeamId = value; AdditionalData?.Remove("formTeamId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("formTeamId"); else _explicitNullProperties?.Remove("formTeamId"); } }
         private double? _explicitNullValueFormTeamId = default!;
         /// <summary>The formUserId property</summary>
-        public double? FormUserId { get => _explicitNullValueFormUserId; set { _explicitNullValueFormUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("formUserId"); else _explicitNullProperties?.Remove("formUserId"); } }
+        public double? FormUserId { get => _explicitNullValueFormUserId; set { _explicitNullValueFormUserId = value; AdditionalData?.Remove("formUserId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("formUserId"); else _explicitNullProperties?.Remove("formUserId"); } }
         private double? _explicitNullValueFormUserId = default!;
         /// <summary>The id property</summary>
-        public double? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public double? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private double? _explicitNullValueId = default!;
         /// <summary>The utm_campaign property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UtmCampaign { get => _explicitNullValueUtmCampaign; set { _explicitNullValueUtmCampaign = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("utm_campaign"); else _explicitNullProperties?.Remove("utm_campaign"); } }
+        public string? UtmCampaign { get => _explicitNullValueUtmCampaign; set { _explicitNullValueUtmCampaign = value; AdditionalData?.Remove("utm_campaign"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("utm_campaign"); else _explicitNullProperties?.Remove("utm_campaign"); } }
         private string? _explicitNullValueUtmCampaign = default!;
 #nullable restore
 #else
-        public string UtmCampaign { get => _explicitNullValueUtmCampaign; set { _explicitNullValueUtmCampaign = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("utm_campaign"); else _explicitNullProperties?.Remove("utm_campaign"); } }
+        public string UtmCampaign { get => _explicitNullValueUtmCampaign; set { _explicitNullValueUtmCampaign = value; AdditionalData?.Remove("utm_campaign"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("utm_campaign"); else _explicitNullProperties?.Remove("utm_campaign"); } }
         private string _explicitNullValueUtmCampaign = default!;
 #endif
         /// <summary>The utm_content property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UtmContent { get => _explicitNullValueUtmContent; set { _explicitNullValueUtmContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("utm_content"); else _explicitNullProperties?.Remove("utm_content"); } }
+        public string? UtmContent { get => _explicitNullValueUtmContent; set { _explicitNullValueUtmContent = value; AdditionalData?.Remove("utm_content"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("utm_content"); else _explicitNullProperties?.Remove("utm_content"); } }
         private string? _explicitNullValueUtmContent = default!;
 #nullable restore
 #else
-        public string UtmContent { get => _explicitNullValueUtmContent; set { _explicitNullValueUtmContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("utm_content"); else _explicitNullProperties?.Remove("utm_content"); } }
+        public string UtmContent { get => _explicitNullValueUtmContent; set { _explicitNullValueUtmContent = value; AdditionalData?.Remove("utm_content"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("utm_content"); else _explicitNullProperties?.Remove("utm_content"); } }
         private string _explicitNullValueUtmContent = default!;
 #endif
         /// <summary>The utm_medium property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UtmMedium { get => _explicitNullValueUtmMedium; set { _explicitNullValueUtmMedium = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("utm_medium"); else _explicitNullProperties?.Remove("utm_medium"); } }
+        public string? UtmMedium { get => _explicitNullValueUtmMedium; set { _explicitNullValueUtmMedium = value; AdditionalData?.Remove("utm_medium"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("utm_medium"); else _explicitNullProperties?.Remove("utm_medium"); } }
         private string? _explicitNullValueUtmMedium = default!;
 #nullable restore
 #else
-        public string UtmMedium { get => _explicitNullValueUtmMedium; set { _explicitNullValueUtmMedium = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("utm_medium"); else _explicitNullProperties?.Remove("utm_medium"); } }
+        public string UtmMedium { get => _explicitNullValueUtmMedium; set { _explicitNullValueUtmMedium = value; AdditionalData?.Remove("utm_medium"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("utm_medium"); else _explicitNullProperties?.Remove("utm_medium"); } }
         private string _explicitNullValueUtmMedium = default!;
 #endif
         /// <summary>The utm_source property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UtmSource { get => _explicitNullValueUtmSource; set { _explicitNullValueUtmSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("utm_source"); else _explicitNullProperties?.Remove("utm_source"); } }
+        public string? UtmSource { get => _explicitNullValueUtmSource; set { _explicitNullValueUtmSource = value; AdditionalData?.Remove("utm_source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("utm_source"); else _explicitNullProperties?.Remove("utm_source"); } }
         private string? _explicitNullValueUtmSource = default!;
 #nullable restore
 #else
-        public string UtmSource { get => _explicitNullValueUtmSource; set { _explicitNullValueUtmSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("utm_source"); else _explicitNullProperties?.Remove("utm_source"); } }
+        public string UtmSource { get => _explicitNullValueUtmSource; set { _explicitNullValueUtmSource = value; AdditionalData?.Remove("utm_source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("utm_source"); else _explicitNullProperties?.Remove("utm_source"); } }
         private string _explicitNullValueUtmSource = default!;
 #endif
         /// <summary>The utm_term property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UtmTerm { get => _explicitNullValueUtmTerm; set { _explicitNullValueUtmTerm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("utm_term"); else _explicitNullProperties?.Remove("utm_term"); } }
+        public string? UtmTerm { get => _explicitNullValueUtmTerm; set { _explicitNullValueUtmTerm = value; AdditionalData?.Remove("utm_term"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("utm_term"); else _explicitNullProperties?.Remove("utm_term"); } }
         private string? _explicitNullValueUtmTerm = default!;
 #nullable restore
 #else
-        public string UtmTerm { get => _explicitNullValueUtmTerm; set { _explicitNullValueUtmTerm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("utm_term"); else _explicitNullProperties?.Remove("utm_term"); } }
+        public string UtmTerm { get => _explicitNullValueUtmTerm; set { _explicitNullValueUtmTerm = value; AdditionalData?.Remove("utm_term"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("utm_term"); else _explicitNullProperties?.Remove("utm_term"); } }
         private string _explicitNullValueUtmTerm = default!;
 #endif
         /// <summary>The uuid property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Uuid { get => _explicitNullValueUuid; set { _explicitNullValueUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uuid"); else _explicitNullProperties?.Remove("uuid"); } }
+        public string? Uuid { get => _explicitNullValueUuid; set { _explicitNullValueUuid = value; AdditionalData?.Remove("uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uuid"); else _explicitNullProperties?.Remove("uuid"); } }
         private string? _explicitNullValueUuid = default!;
 #nullable restore
 #else
-        public string Uuid { get => _explicitNullValueUuid; set { _explicitNullValueUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uuid"); else _explicitNullProperties?.Remove("uuid"); } }
+        public string Uuid { get => _explicitNullValueUuid; set { _explicitNullValueUuid = value; AdditionalData?.Remove("uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uuid"); else _explicitNullProperties?.Remove("uuid"); } }
         private string _explicitNullValueUuid = default!;
 #endif
         /// <summary>

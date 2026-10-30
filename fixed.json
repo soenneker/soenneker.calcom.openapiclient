@@ -18972,7 +18972,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/EventLocationsControllerAddRequest"
+                "$ref": "#/components/schemas/CreateEventInputLocationsItem"
               }
             }
           },
@@ -31588,20 +31588,20 @@
             "description": "If you want that this event has different schedule than user\u0027s default one you can specify it here."
           },
           "bookingLimitsCount": {
-            "$ref": "#/components/schemas/CreateTeamEventTypeInput20260612BookingLimitsCount"
+            "$ref": "#/components/schemas/CreateEventTypeInput20260612BookingLimitsCount"
           },
           "bookerActiveBookingsLimit": {
-            "$ref": "#/components/schemas/CreateTeamEventTypeInput20260612BookerActiveBookingsLimit"
+            "$ref": "#/components/schemas/CreateEventTypeInput20260612BookerActiveBookingsLimit"
           },
           "onlyShowFirstAvailableSlot": {
             "type": "boolean",
             "description": "This will limit your availability for this event type to one slot per day, scheduled at the earliest available time."
           },
           "bookingLimitsDuration": {
-            "$ref": "#/components/schemas/CreateTeamEventTypeInput20260612BookingLimitsDuration"
+            "$ref": "#/components/schemas/CreateEventTypeInput20260612BookingLimitsDuration"
           },
           "bookingWindow": {
-            "$ref": "#/components/schemas/CreateTeamEventTypeInput20260612BookingWindow"
+            "$ref": "#/components/schemas/CreateEventTypeInput20260612BookingWindow"
           },
           "offsetStart": {
             "minimum": 0,
@@ -31612,10 +31612,10 @@
             "$ref": "#/components/schemas/CreateTeamEventTypeInput20260612BookerLayouts"
           },
           "confirmationPolicy": {
-            "$ref": "#/components/schemas/CreateTeamEventTypeInput20260612ConfirmationPolicy"
+            "$ref": "#/components/schemas/CreateEventTypeInput20260612ConfirmationPolicy"
           },
           "recurrence": {
-            "$ref": "#/components/schemas/CreateTeamEventTypeInput20260612Recurrence"
+            "$ref": "#/components/schemas/CreateEventTypeInput20260612Recurrence"
           },
           "requiresBookerEmailVerification": {
             "type": "boolean"
@@ -31637,7 +31637,7 @@
             "$ref": "#/components/schemas/EventTypeColor20240614"
           },
           "seats": {
-            "$ref": "#/components/schemas/CreateTeamEventTypeInput20260612Seats"
+            "$ref": "#/components/schemas/CreateEventTypeInput20260612Seats"
           },
           "customName": {
             "type": "string",
@@ -31755,7 +31755,7 @@
           "bookingFields": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CreateTeamEventTypeInput20260612BookingFieldsItem"
+              "$ref": "#/components/schemas/BookingFieldsInput20260612BookingFieldsItem"
             },
             "description": "Booking fields for the event type. Omit this property to use the default fields. Provide an array to customize default fields or add custom booking fields. At least one of \u0060email\u0060 or \u0060attendeePhoneNumber\u0060 must be visible and required. The array cannot be empty, contain duplicate default fields or custom slugs, or use a default field\u0027s slug for a custom field. Omitted default fields are added with their default settings. Workflow-added fields are read-only and ignored."
           },
@@ -33224,7 +33224,7 @@
           "locations": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/TeamEventTypeOutput20260612LocationsItem"
+              "$ref": "#/components/schemas/EventTypeOutput20260612LocationsItem"
             }
           },
           "disableGuests": {
@@ -33286,7 +33286,7 @@
             "nullable": true
           },
           "bookingLimitsCount": {
-            "$ref": "#/components/schemas/TeamEventTypeOutput20260612BookingLimitsCount"
+            "$ref": "#/components/schemas/EventTypeOutput20260612BookingLimitsCount"
           },
           "bookerActiveBookingsLimit": {
             "$ref": "#/components/schemas/BookerActiveBookingsLimitOutput20240614"
@@ -33295,12 +33295,12 @@
             "type": "boolean"
           },
           "bookingLimitsDuration": {
-            "$ref": "#/components/schemas/TeamEventTypeOutput20260612BookingLimitsDuration"
+            "$ref": "#/components/schemas/EventTypeOutput20260612BookingLimitsDuration"
           },
           "bookingWindow": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/TeamEventTypeOutput20260612BookingWindowItem"
+              "$ref": "#/components/schemas/EventTypeOutput20260612BookingWindowItem"
             },
             "description": "Limit how far in the future this event can be booked"
           },
@@ -33308,7 +33308,7 @@
             "$ref": "#/components/schemas/BookerLayouts20240614"
           },
           "confirmationPolicy": {
-            "$ref": "#/components/schemas/TeamEventTypeOutput20260612ConfirmationPolicy"
+            "$ref": "#/components/schemas/EventTypeOutput20260612ConfirmationPolicy"
           },
           "bookingProposalCount": {
             "type": "number",
@@ -33458,7 +33458,7 @@
           "bookingFields": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/TeamEventTypeOutput20260612BookingFieldsItem"
+              "$ref": "#/components/schemas/BookingFieldsOutputData20260612BookingFieldsItem"
             },
             "description": "The event type\u0027s default, custom, and workflow-added booking fields."
           },
@@ -33751,20 +33751,20 @@
             "description": "If you want that this event has different schedule than user\u0027s default one you can specify it here."
           },
           "bookingLimitsCount": {
-            "$ref": "#/components/schemas/UpdateTeamEventTypeInput20260612BookingLimitsCount"
+            "$ref": "#/components/schemas/CreateEventTypeInput20260612BookingLimitsCount"
           },
           "bookerActiveBookingsLimit": {
-            "$ref": "#/components/schemas/UpdateTeamEventTypeInput20260612BookerActiveBookingsLimit"
+            "$ref": "#/components/schemas/CreateEventTypeInput20260612BookerActiveBookingsLimit"
           },
           "onlyShowFirstAvailableSlot": {
             "type": "boolean",
             "description": "This will limit your availability for this event type to one slot per day, scheduled at the earliest available time."
           },
           "bookingLimitsDuration": {
-            "$ref": "#/components/schemas/UpdateTeamEventTypeInput20260612BookingLimitsDuration"
+            "$ref": "#/components/schemas/CreateEventTypeInput20260612BookingLimitsDuration"
           },
           "bookingWindow": {
-            "$ref": "#/components/schemas/UpdateTeamEventTypeInput20260612BookingWindow"
+            "$ref": "#/components/schemas/CreateEventTypeInput20260612BookingWindow"
           },
           "offsetStart": {
             "type": "number",
@@ -33774,7 +33774,7 @@
             "$ref": "#/components/schemas/UpdateTeamEventTypeInput20260612BookerLayouts"
           },
           "confirmationPolicy": {
-            "$ref": "#/components/schemas/UpdateTeamEventTypeInput20260612ConfirmationPolicy"
+            "$ref": "#/components/schemas/CreateEventTypeInput20260612ConfirmationPolicy"
           },
           "bookingProposalCount": {
             "type": "number",
@@ -33782,7 +33782,7 @@
             "nullable": true
           },
           "recurrence": {
-            "$ref": "#/components/schemas/UpdateTeamEventTypeInput20260612Recurrence"
+            "$ref": "#/components/schemas/CreateEventTypeInput20260612Recurrence"
           },
           "requiresBookerEmailVerification": {
             "type": "boolean"
@@ -33804,7 +33804,7 @@
             "$ref": "#/components/schemas/EventTypeColor20240614"
           },
           "seats": {
-            "$ref": "#/components/schemas/UpdateTeamEventTypeInput20260612Seats"
+            "$ref": "#/components/schemas/CreateEventTypeInput20260612Seats"
           },
           "customName": {
             "type": "string",
@@ -33906,7 +33906,7 @@
           "locations": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/UpdateTeamEventTypeInput20260612LocationsItem"
+              "$ref": "#/components/schemas/CreateTeamEventTypeInput20260612LocationsItem"
             },
             "description": "Locations where the event will take place. If not provided, cal video link will be used as the location. Note: Setting a location to a conferencing app does not install the app - the app must already be installed. Via API, only Google Meet (google-meet), Microsoft Teams (office365-video), and Zoom (zoom) can be installed. Cal Video (cal-video) is installed by default. All other conferencing apps must be connected via the Cal.com web app and are not available for Platform plan customers. You can only set an event type location to an app that has already been installed or connected."
           },
@@ -33925,7 +33925,7 @@
           "bookingFields": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/UpdateTeamEventTypeInput20260612BookingFieldsItem"
+              "$ref": "#/components/schemas/BookingFieldsInput20260612BookingFieldsItem"
             },
             "description": "Booking fields for the event type. Omit this property to keep the current fields. Provide an array to replace them, customize default fields, or add custom booking fields. At least one of \u0060email\u0060 or \u0060attendeePhoneNumber\u0060 must be visible and required. The array cannot be empty, contain duplicate default fields or custom slugs, or use a default field\u0027s slug for a custom field. Omitted default fields are restored with their default settings. Workflow-added fields are read-only and ignored."
           },
@@ -33945,7 +33945,7 @@
             "$ref": "#/components/schemas/UpdateTeamEventTypeOutput20260612Status"
           },
           "data": {
-            "$ref": "#/components/schemas/UpdateTeamEventTypeOutput20260612Data"
+            "$ref": "#/components/schemas/CreateTeamEventTypeOutput20260612Data"
           }
         }
       },
@@ -40157,7 +40157,7 @@
             "example": "Rounting-form Test Workflow"
           },
           "trigger": {
-            "$ref": "#/components/schemas/UpdateFormWorkflowDtoTrigger"
+            "$ref": "#/components/schemas/CreateFormWorkflowDtoTrigger"
           },
           "steps": {
             "minItems": 1,
@@ -42114,7 +42114,7 @@
             "$ref": "#/components/schemas/UpdateEventTypeWorkflowDto20260922Activation"
           },
           "trigger": {
-            "$ref": "#/components/schemas/UpdateEventTypeWorkflowDto20260922Trigger"
+            "$ref": "#/components/schemas/CreateEventTypeWorkflowDto20260922Trigger"
           },
           "steps": {
             "minItems": 1,
@@ -42968,7 +42968,7 @@
             "$ref": "#/components/schemas/UpdateDelegationCredentialOutputStatus"
           },
           "data": {
-            "$ref": "#/components/schemas/UpdateDelegationCredentialOutputData"
+            "$ref": "#/components/schemas/CreateDelegationCredentialOutputData"
           }
         }
       },
@@ -43046,7 +43046,7 @@
             "$ref": "#/components/schemas/DeleteDelegationCredentialOutputStatus"
           },
           "data": {
-            "$ref": "#/components/schemas/DeleteDelegationCredentialOutputData"
+            "$ref": "#/components/schemas/CreateDelegationCredentialOutputData"
           }
         }
       },
@@ -44514,7 +44514,7 @@
             "$ref": "#/components/schemas/DraftMemberFilterConditionInputOperator"
           },
           "value": {
-            "$ref": "#/components/schemas/DraftMemberFilterConditionInputValue"
+            "$ref": "#/components/schemas/DraftConditionInputValue"
           }
         }
       },
@@ -44655,7 +44655,7 @@
             "$ref": "#/components/schemas/SetFallbackType"
           },
           "action": {
-            "$ref": "#/components/schemas/SetFallbackOperationInputAction"
+            "$ref": "#/components/schemas/DraftRouteInputAction"
           }
         }
       },
@@ -45109,7 +45109,7 @@
             "type": "number"
           },
           "slots": {
-            "$ref": "#/components/schemas/ResponseSlotsOutputDataSlots"
+            "$ref": "#/components/schemas/CreateRoutingFormResponseOutputDataSlots"
           }
         }
       },
@@ -46420,7 +46420,7 @@
           "bookingFields": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CreateEventTypeInput20260612BookingFieldsItem"
+              "$ref": "#/components/schemas/BookingFieldsInput20260612BookingFieldsItem"
             },
             "description": "Booking fields for the event type. Omit this property to use the default fields. Provide an array to customize default fields or add custom booking fields. At least one of \u0060email\u0060 or \u0060attendeePhoneNumber\u0060 must be visible and required. The array cannot be empty, contain duplicate default fields or custom slugs, or use a default field\u0027s slug for a custom field. Omitted default fields are added with their default settings. Workflow-added fields are read-only and ignored."
           },
@@ -46746,7 +46746,7 @@
           "bookingFields": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/EventTypeOutput20260612BookingFieldsItem"
+              "$ref": "#/components/schemas/BookingFieldsOutputData20260612BookingFieldsItem"
             },
             "description": "The event type\u0027s booking fields \u2014 the default ones, any custom ones, and any added automatically by an attached workflow."
           },
@@ -47428,20 +47428,20 @@
             "description": "If you want that this event has different schedule than user\u0027s default one you can specify it here."
           },
           "bookingLimitsCount": {
-            "$ref": "#/components/schemas/UpdateEventTypeInput20260612BookingLimitsCount"
+            "$ref": "#/components/schemas/CreateEventTypeInput20260612BookingLimitsCount"
           },
           "bookerActiveBookingsLimit": {
-            "$ref": "#/components/schemas/UpdateEventTypeInput20260612BookerActiveBookingsLimit"
+            "$ref": "#/components/schemas/CreateEventTypeInput20260612BookerActiveBookingsLimit"
           },
           "onlyShowFirstAvailableSlot": {
             "type": "boolean",
             "description": "This will limit your availability for this event type to one slot per day, scheduled at the earliest available time."
           },
           "bookingLimitsDuration": {
-            "$ref": "#/components/schemas/UpdateEventTypeInput20260612BookingLimitsDuration"
+            "$ref": "#/components/schemas/CreateEventTypeInput20260612BookingLimitsDuration"
           },
           "bookingWindow": {
-            "$ref": "#/components/schemas/UpdateEventTypeInput20260612BookingWindow"
+            "$ref": "#/components/schemas/CreateEventTypeInput20260612BookingWindow"
           },
           "offsetStart": {
             "type": "number",
@@ -47451,7 +47451,7 @@
             "$ref": "#/components/schemas/UpdateEventTypeInput20260612BookerLayouts"
           },
           "confirmationPolicy": {
-            "$ref": "#/components/schemas/UpdateEventTypeInput20260612ConfirmationPolicy"
+            "$ref": "#/components/schemas/CreateEventTypeInput20260612ConfirmationPolicy"
           },
           "bookingProposalCount": {
             "type": "number",
@@ -47459,7 +47459,7 @@
             "nullable": true
           },
           "recurrence": {
-            "$ref": "#/components/schemas/UpdateEventTypeInput20260612Recurrence"
+            "$ref": "#/components/schemas/CreateEventTypeInput20260612Recurrence"
           },
           "requiresBookerEmailVerification": {
             "type": "boolean"
@@ -47481,7 +47481,7 @@
             "$ref": "#/components/schemas/EventTypeColor20240614"
           },
           "seats": {
-            "$ref": "#/components/schemas/UpdateEventTypeInput20260612Seats"
+            "$ref": "#/components/schemas/CreateEventTypeInput20260612Seats"
           },
           "customName": {
             "type": "string",
@@ -47569,14 +47569,14 @@
           "locations": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/UpdateEventTypeInput20260612LocationsItem"
+              "$ref": "#/components/schemas/CreateEventTypeInput20260612LocationsItem"
             },
             "description": "Locations where the event will take place. If not provided, cal video link will be used as the location. Note: Setting a location to a conferencing app does not install the app - the app must already be installed. Via API, only Google Meet (google-meet), Microsoft Teams (office365-video), and Zoom (zoom) can be installed. Cal Video (cal-video) is installed by default. All other conferencing apps must be connected via the Cal.com web app and are not available for Platform plan customers. You can only set an event type location to an app that has already been installed or connected."
           },
           "bookingFields": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/UpdateEventTypeInput20260612BookingFieldsItem"
+              "$ref": "#/components/schemas/BookingFieldsInput20260612BookingFieldsItem"
             },
             "description": "Booking fields for the event type. Omit this property to keep the current fields. Provide an array to replace them, customize default fields, or add custom booking fields. At least one of \u0060email\u0060 or \u0060attendeePhoneNumber\u0060 must be visible and required. The array cannot be empty, contain duplicate default fields or custom slugs, or use a default field\u0027s slug for a custom field. Omitted default fields are restored with their default settings. Workflow-added fields are read-only and ignored."
           },
@@ -47701,7 +47701,7 @@
           "locations": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/LinkOutputLocationsItem"
+              "$ref": "#/components/schemas/EventTypeOutput20260612LocationsItem"
             }
           },
           "disableGuests": {
@@ -47763,7 +47763,7 @@
             "nullable": true
           },
           "bookingLimitsCount": {
-            "$ref": "#/components/schemas/LinkOutputBookingLimitsCount"
+            "$ref": "#/components/schemas/EventTypeOutput20260612BookingLimitsCount"
           },
           "bookerActiveBookingsLimit": {
             "$ref": "#/components/schemas/BookerActiveBookingsLimitOutput20240614"
@@ -47772,12 +47772,12 @@
             "type": "boolean"
           },
           "bookingLimitsDuration": {
-            "$ref": "#/components/schemas/LinkOutputBookingLimitsDuration"
+            "$ref": "#/components/schemas/EventTypeOutput20260612BookingLimitsDuration"
           },
           "bookingWindow": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/LinkOutputBookingWindowItem"
+              "$ref": "#/components/schemas/EventTypeOutput20260612BookingWindowItem"
             },
             "description": "Limit how far in the future this event can be booked"
           },
@@ -47785,7 +47785,7 @@
             "$ref": "#/components/schemas/BookerLayouts20240614"
           },
           "confirmationPolicy": {
-            "$ref": "#/components/schemas/LinkOutputConfirmationPolicy"
+            "$ref": "#/components/schemas/EventTypeOutput20260612ConfirmationPolicy"
           },
           "bookingProposalCount": {
             "type": "number",
@@ -47905,7 +47905,7 @@
           "bookingFields": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/LinkOutputBookingFieldsItem"
+              "$ref": "#/components/schemas/BookingFieldsOutputData20260612BookingFieldsItem"
             },
             "description": "The event type\u0027s booking fields \u2014 the default ones, any custom ones, and any added automatically by an attached workflow."
           },
@@ -47987,7 +47987,7 @@
           "locations": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/TeamLinkOutputLocationsItem"
+              "$ref": "#/components/schemas/EventTypeOutput20260612LocationsItem"
             }
           },
           "disableGuests": {
@@ -48049,7 +48049,7 @@
             "nullable": true
           },
           "bookingLimitsCount": {
-            "$ref": "#/components/schemas/TeamLinkOutputBookingLimitsCount"
+            "$ref": "#/components/schemas/EventTypeOutput20260612BookingLimitsCount"
           },
           "bookerActiveBookingsLimit": {
             "$ref": "#/components/schemas/BookerActiveBookingsLimitOutput20240614"
@@ -48058,12 +48058,12 @@
             "type": "boolean"
           },
           "bookingLimitsDuration": {
-            "$ref": "#/components/schemas/TeamLinkOutputBookingLimitsDuration"
+            "$ref": "#/components/schemas/EventTypeOutput20260612BookingLimitsDuration"
           },
           "bookingWindow": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/TeamLinkOutputBookingWindowItem"
+              "$ref": "#/components/schemas/EventTypeOutput20260612BookingWindowItem"
             },
             "description": "Limit how far in the future this event can be booked"
           },
@@ -48071,7 +48071,7 @@
             "$ref": "#/components/schemas/BookerLayouts20240614"
           },
           "confirmationPolicy": {
-            "$ref": "#/components/schemas/TeamLinkOutputConfirmationPolicy"
+            "$ref": "#/components/schemas/EventTypeOutput20260612ConfirmationPolicy"
           },
           "bookingProposalCount": {
             "type": "number",
@@ -48216,7 +48216,7 @@
           "bookingFields": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/TeamLinkOutputBookingFieldsItem"
+              "$ref": "#/components/schemas/BookingFieldsOutputData20260612BookingFieldsItem"
             },
             "description": "The event type\u0027s default, custom, and workflow-added booking fields."
           },
@@ -48588,7 +48588,7 @@
             "deprecated": true
           },
           "location": {
-            "$ref": "#/components/schemas/CreateInstantBookingInput20240813Location"
+            "$ref": "#/components/schemas/CreateBookingInput20240813Location"
           },
           "metadata": {
             "$ref": "#/components/schemas/CreateInstantBookingInput20240813MetadataProperty"
@@ -48709,7 +48709,7 @@
             "deprecated": true
           },
           "location": {
-            "$ref": "#/components/schemas/CreateRecurringBookingInput20240813Location"
+            "$ref": "#/components/schemas/CreateBookingInput20240813Location"
           },
           "metadata": {
             "$ref": "#/components/schemas/CreateRecurringBookingInput20240813MetadataProperty"
@@ -50064,7 +50064,7 @@
             "$ref": "#/components/schemas/GetBookingOutput20240813Status"
           },
           "data": {
-            "$ref": "#/components/schemas/GetBookingOutput20240813Data"
+            "$ref": "#/components/schemas/AddGuestsOutput20240813Data"
           }
         }
       },
@@ -50338,7 +50338,7 @@
             "$ref": "#/components/schemas/CancelBookingOutput20240813Status"
           },
           "data": {
-            "$ref": "#/components/schemas/CancelBookingOutput20240813Data"
+            "$ref": "#/components/schemas/AddGuestsOutput20240813Data"
           }
         }
       },
@@ -51159,7 +51159,7 @@
             "$ref": "#/components/schemas/UpdateBookingLocationOutput20240813Status"
           },
           "data": {
-            "$ref": "#/components/schemas/UpdateBookingLocationOutput20240813Data"
+            "$ref": "#/components/schemas/AddGuestsOutput20240813Data"
           }
         }
       },
@@ -51435,7 +51435,7 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/GetBookingsOutput20260501DataItem"
+              "$ref": "#/components/schemas/GetBookingsOutput20240813DataItem"
             },
             "description": "Array of booking data, which can contain either BookingOutput objects or RecurringBookingOutput objects"
           },
@@ -54466,7 +54466,7 @@
           "locations": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/EventOutputDtoLocationsItem"
+              "$ref": "#/components/schemas/EventLocationsOutputResponseDtoDataItem"
             }
           },
           "coverImageUrl": {
@@ -54542,7 +54542,7 @@
           "registrationFields": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/EventOutputDtoRegistrationFieldsItem"
+              "$ref": "#/components/schemas/BookingFieldsOutputData20260612BookingFieldsItem"
             },
             "description": "Questions guests answer when registering. Always includes name and email."
           },
@@ -55127,7 +55127,7 @@
           "registrationFields": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CreateEventInputRegistrationFieldsItem"
+              "$ref": "#/components/schemas/BookingFieldsInput20260612BookingFieldsItem"
             },
             "description": "The questions guests answer when they register."
           },
@@ -55241,7 +55241,7 @@
           "registrationFields": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/UpdateEventInputRegistrationFieldsItem"
+              "$ref": "#/components/schemas/BookingFieldsInput20260612BookingFieldsItem"
             },
             "description": "The questions guests answer when they register."
           },
@@ -61939,7 +61939,7 @@
           "locations": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/TeamEventTypeOutput20260612LocationsItem"
+              "$ref": "#/components/schemas/EventTypeOutput20260612LocationsItem"
             }
           },
           "disableGuests": {
@@ -62001,7 +62001,7 @@
             "nullable": true
           },
           "bookingLimitsCount": {
-            "$ref": "#/components/schemas/TeamEventTypeOutput20260612BookingLimitsCount"
+            "$ref": "#/components/schemas/EventTypeOutput20260612BookingLimitsCount"
           },
           "bookerActiveBookingsLimit": {
             "$ref": "#/components/schemas/BookerActiveBookingsLimitOutput20240614"
@@ -62010,12 +62010,12 @@
             "type": "boolean"
           },
           "bookingLimitsDuration": {
-            "$ref": "#/components/schemas/TeamEventTypeOutput20260612BookingLimitsDuration"
+            "$ref": "#/components/schemas/EventTypeOutput20260612BookingLimitsDuration"
           },
           "bookingWindow": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/TeamEventTypeOutput20260612BookingWindowItem"
+              "$ref": "#/components/schemas/EventTypeOutput20260612BookingWindowItem"
             },
             "description": "Limit how far in the future this event can be booked"
           },
@@ -62023,7 +62023,7 @@
             "$ref": "#/components/schemas/BookerLayouts20240614"
           },
           "confirmationPolicy": {
-            "$ref": "#/components/schemas/TeamEventTypeOutput20260612ConfirmationPolicy"
+            "$ref": "#/components/schemas/EventTypeOutput20260612ConfirmationPolicy"
           },
           "bookingProposalCount": {
             "type": "number",
@@ -62173,7 +62173,7 @@
           "bookingFields": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/TeamEventTypeOutput20260612BookingFieldsItem"
+              "$ref": "#/components/schemas/BookingFieldsOutputData20260612BookingFieldsItem"
             },
             "description": "The event type\u0027s default, custom, and workflow-added booking fields."
           },
@@ -66846,7 +66846,7 @@
       "RouteExampleInputAnswers": {
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/RouteExampleInputAnswersAdditionalProperties"
+          "$ref": "#/components/schemas/DraftConditionInputValue"
         },
         "example": {
           "Company size": "51-200"
@@ -67856,7 +67856,7 @@
       "RouteExampleInputAnswersProperty": {
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/RouteExampleInputAnswersAdditionalProperties"
+          "$ref": "#/components/schemas/DraftConditionInputValue"
         },
         "example": {
           "Company size": "51-200"
@@ -70143,6 +70143,10 @@
           "modelAsString": false,
           "values": [
             {
+              "value": "",
+              "name": "EnumValue"
+            },
+            {
               "value": "en",
               "name": "En"
             },
@@ -71095,6 +71099,10 @@
           "name": "UpdateTeamEventTypeInput20260612InterfaceLanguage",
           "modelAsString": false,
           "values": [
+            {
+              "value": "",
+              "name": "EnumValue"
+            },
             {
               "value": "en",
               "name": "En"
@@ -89701,6 +89709,10 @@
           "modelAsString": false,
           "values": [
             {
+              "value": "",
+              "name": "EnumValue"
+            },
+            {
               "value": "en",
               "name": "En"
             },
@@ -90252,6 +90264,10 @@
           "name": "UpdateEventTypeInput20260612InterfaceLanguage",
           "modelAsString": false,
           "values": [
+            {
+              "value": "",
+              "name": "EnumValue"
+            },
             {
               "value": "en",
               "name": "En"

@@ -17,8 +17,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("eventTypes") is { } nullNodeEventTypes && nullNodeEventTypes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventTypes = null;
-            if (parseNode.GetChildNode("pools") is { } nullNodePools && nullNodePools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pools = null;
+            if (parseNode.GetChildNode("eventTypes") is null) { _explicitNullValueEventTypes = default!; _explicitNullProperties?.Remove("eventTypes"); }
+            else if (parseNode.GetChildNode("eventTypes") is { } nullNodeEventTypes && nullNodeEventTypes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventTypes = null;
+            if (parseNode.GetChildNode("pools") is null) { _explicitNullValuePools = default!; _explicitNullProperties?.Remove("pools"); }
+            else if (parseNode.GetChildNode("pools") is { } nullNodePools && nullNodePools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pools = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The team&apos;s round-robin event types that can be in a pool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolCandidateOutput>? EventTypes { get => _explicitNullValueEventTypes; set { _explicitNullValueEventTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypes"); else _explicitNullProperties?.Remove("eventTypes"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolCandidateOutput>? EventTypes { get => _explicitNullValueEventTypes; set { _explicitNullValueEventTypes = value; AdditionalData?.Remove("eventTypes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypes"); else _explicitNullProperties?.Remove("eventTypes"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolCandidateOutput>? _explicitNullValueEventTypes = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolCandidateOutput> EventTypes { get => _explicitNullValueEventTypes; set { _explicitNullValueEventTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypes"); else _explicitNullProperties?.Remove("eventTypes"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolCandidateOutput> EventTypes { get => _explicitNullValueEventTypes; set { _explicitNullValueEventTypes = value; AdditionalData?.Remove("eventTypes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypes"); else _explicitNullProperties?.Remove("eventTypes"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolCandidateOutput> _explicitNullValueEventTypes = default!;
 #endif
         /// <summary>The pools property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolOutput>? Pools { get => _explicitNullValuePools; set { _explicitNullValuePools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pools"); else _explicitNullProperties?.Remove("pools"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolOutput>? Pools { get => _explicitNullValuePools; set { _explicitNullValuePools = value; AdditionalData?.Remove("pools"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pools"); else _explicitNullProperties?.Remove("pools"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolOutput>? _explicitNullValuePools = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolOutput> Pools { get => _explicitNullValuePools; set { _explicitNullValuePools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pools"); else _explicitNullProperties?.Remove("pools"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolOutput> Pools { get => _explicitNullValuePools; set { _explicitNullValuePools = value; AdditionalData?.Remove("pools"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pools"); else _explicitNullProperties?.Remove("pools"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolOutput> _explicitNullValuePools = default!;
 #endif
         /// <summary>

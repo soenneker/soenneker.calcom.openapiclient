@@ -17,13 +17,20 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("eventTypeIds") is { } nullNodeEventTypeIds && nullNodeEventTypeIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventTypeIds = null;
-            if (parseNode.GetChildNode("mode") is { } nullNodeMode && nullNodeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mode = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("perDay") is { } nullNodePerDay && nullNodePerDay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerDay = null;
-            if (parseNode.GetChildNode("perMonth") is { } nullNodePerMonth && nullNodePerMonth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerMonth = null;
-            if (parseNode.GetChildNode("perWeek") is { } nullNodePerWeek && nullNodePerWeek.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerWeek = null;
-            if (parseNode.GetChildNode("perYear") is { } nullNodePerYear && nullNodePerYear.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerYear = null;
+            if (parseNode.GetChildNode("eventTypeIds") is null) { _explicitNullValueEventTypeIds = default!; _explicitNullProperties?.Remove("eventTypeIds"); }
+            else if (parseNode.GetChildNode("eventTypeIds") is { } nullNodeEventTypeIds && nullNodeEventTypeIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventTypeIds = null;
+            if (parseNode.GetChildNode("mode") is null) { _explicitNullValueMode = default!; _explicitNullProperties?.Remove("mode"); }
+            else if (parseNode.GetChildNode("mode") is { } nullNodeMode && nullNodeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mode = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("perDay") is null) { _explicitNullValuePerDay = default!; _explicitNullProperties?.Remove("perDay"); }
+            else if (parseNode.GetChildNode("perDay") is { } nullNodePerDay && nullNodePerDay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerDay = null;
+            if (parseNode.GetChildNode("perMonth") is null) { _explicitNullValuePerMonth = default!; _explicitNullProperties?.Remove("perMonth"); }
+            else if (parseNode.GetChildNode("perMonth") is { } nullNodePerMonth && nullNodePerMonth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerMonth = null;
+            if (parseNode.GetChildNode("perWeek") is null) { _explicitNullValuePerWeek = default!; _explicitNullProperties?.Remove("perWeek"); }
+            else if (parseNode.GetChildNode("perWeek") is { } nullNodePerWeek && nullNodePerWeek.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerWeek = null;
+            if (parseNode.GetChildNode("perYear") is null) { _explicitNullValuePerYear = default!; _explicitNullProperties?.Remove("perYear"); }
+            else if (parseNode.GetChildNode("perYear") is { } nullNodePerYear && nullNodePerYear.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerYear = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -31,37 +38,37 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>Round-robin event types of the team. Each event type can be in one pool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Guid?>? EventTypeIds { get => _explicitNullValueEventTypeIds; set { _explicitNullValueEventTypeIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeIds"); else _explicitNullProperties?.Remove("eventTypeIds"); } }
+        public List<Guid?>? EventTypeIds { get => _explicitNullValueEventTypeIds; set { _explicitNullValueEventTypeIds = value; AdditionalData?.Remove("eventTypeIds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeIds"); else _explicitNullProperties?.Remove("eventTypeIds"); } }
         private List<Guid?>? _explicitNullValueEventTypeIds = default!;
 #nullable restore
 #else
-        public List<Guid?> EventTypeIds { get => _explicitNullValueEventTypeIds; set { _explicitNullValueEventTypeIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeIds"); else _explicitNullProperties?.Remove("eventTypeIds"); } }
+        public List<Guid?> EventTypeIds { get => _explicitNullValueEventTypeIds; set { _explicitNullValueEventTypeIds = value; AdditionalData?.Remove("eventTypeIds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeIds"); else _explicitNullProperties?.Remove("eventTypeIds"); } }
         private List<Guid?> _explicitNullValueEventTypeIds = default!;
 #endif
         /// <summary>SHARED: each host has one allowance across every event in the pool. PER_EVENT: the same allowance applies to each event separately.</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.CreateBookingLimitPoolInputMode? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CreateBookingLimitPoolInputMode? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; AdditionalData?.Remove("mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.CreateBookingLimitPoolInputMode? _explicitNullValueMode = default!;
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>The perDay property</summary>
-        public double? PerDay { get => _explicitNullValuePerDay; set { _explicitNullValuePerDay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perDay"); else _explicitNullProperties?.Remove("perDay"); } }
+        public double? PerDay { get => _explicitNullValuePerDay; set { _explicitNullValuePerDay = value; AdditionalData?.Remove("perDay"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perDay"); else _explicitNullProperties?.Remove("perDay"); } }
         private double? _explicitNullValuePerDay = default!;
         /// <summary>The perMonth property</summary>
-        public double? PerMonth { get => _explicitNullValuePerMonth; set { _explicitNullValuePerMonth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perMonth"); else _explicitNullProperties?.Remove("perMonth"); } }
+        public double? PerMonth { get => _explicitNullValuePerMonth; set { _explicitNullValuePerMonth = value; AdditionalData?.Remove("perMonth"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perMonth"); else _explicitNullProperties?.Remove("perMonth"); } }
         private double? _explicitNullValuePerMonth = default!;
         /// <summary>The perWeek property</summary>
-        public double? PerWeek { get => _explicitNullValuePerWeek; set { _explicitNullValuePerWeek = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perWeek"); else _explicitNullProperties?.Remove("perWeek"); } }
+        public double? PerWeek { get => _explicitNullValuePerWeek; set { _explicitNullValuePerWeek = value; AdditionalData?.Remove("perWeek"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perWeek"); else _explicitNullProperties?.Remove("perWeek"); } }
         private double? _explicitNullValuePerWeek = default!;
         /// <summary>The perYear property</summary>
-        public double? PerYear { get => _explicitNullValuePerYear; set { _explicitNullValuePerYear = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perYear"); else _explicitNullProperties?.Remove("perYear"); } }
+        public double? PerYear { get => _explicitNullValuePerYear; set { _explicitNullValuePerYear = value; AdditionalData?.Remove("perYear"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perYear"); else _explicitNullProperties?.Remove("perYear"); } }
         private double? _explicitNullValuePerYear = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.CreateBookingLimitPoolInput"/> and sets the default values.
@@ -89,7 +96,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "eventTypeIds", n => { EventTypeIds = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
-                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.CreateBookingLimitPoolInputMode>(); } },
+                { "mode", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.CreateBookingLimitPoolInputMode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMode = default; _explicitNullProperties?.Remove("mode"); AdditionalData["mode"] = unknown; } else { Mode = parsed; AdditionalData.Remove("mode"); } } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "perDay", n => { PerDay = n.GetDoubleValue(); } },
                 { "perMonth", n => { PerMonth = n.GetDoubleValue(); } },

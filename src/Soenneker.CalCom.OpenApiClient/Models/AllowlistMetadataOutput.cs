@@ -17,7 +17,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("schemaVersion") is { } nullNodeSchemaVersion && nullNodeSchemaVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SchemaVersion = null;
+            if (parseNode.GetChildNode("schemaVersion") is null) { _explicitNullValueSchemaVersion = default!; _explicitNullProperties?.Remove("schemaVersion"); }
+            else if (parseNode.GetChildNode("schemaVersion") is { } nullNodeSchemaVersion && nullNodeSchemaVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SchemaVersion = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The schemaVersion property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SchemaVersion { get => _explicitNullValueSchemaVersion; set { _explicitNullValueSchemaVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schemaVersion"); else _explicitNullProperties?.Remove("schemaVersion"); } }
+        public string? SchemaVersion { get => _explicitNullValueSchemaVersion; set { _explicitNullValueSchemaVersion = value; AdditionalData?.Remove("schemaVersion"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schemaVersion"); else _explicitNullProperties?.Remove("schemaVersion"); } }
         private string? _explicitNullValueSchemaVersion = default!;
 #nullable restore
 #else
-        public string SchemaVersion { get => _explicitNullValueSchemaVersion; set { _explicitNullValueSchemaVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schemaVersion"); else _explicitNullProperties?.Remove("schemaVersion"); } }
+        public string SchemaVersion { get => _explicitNullValueSchemaVersion; set { _explicitNullValueSchemaVersion = value; AdditionalData?.Remove("schemaVersion"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schemaVersion"); else _explicitNullProperties?.Remove("schemaVersion"); } }
         private string _explicitNullValueSchemaVersion = default!;
 #endif
         /// <summary>

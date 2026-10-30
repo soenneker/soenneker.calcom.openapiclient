@@ -17,11 +17,16 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("content") is { } nullNodeContent && nullNodeContent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Content = null;
-            if (parseNode.GetChildNode("endTime") is { } nullNodeEndTime && nullNodeEndTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndTime = null;
-            if (parseNode.GetChildNode("people") is { } nullNodePeople && nullNodePeople.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) People = null;
-            if (parseNode.GetChildNode("startTime") is { } nullNodeStartTime && nullNodeStartTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartTime = null;
-            if (parseNode.GetChildNode("timeLabel") is { } nullNodeTimeLabel && nullNodeTimeLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeLabel = null;
+            if (parseNode.GetChildNode("content") is null) { _explicitNullValueContent = default!; _explicitNullProperties?.Remove("content"); }
+            else if (parseNode.GetChildNode("content") is { } nullNodeContent && nullNodeContent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Content = null;
+            if (parseNode.GetChildNode("endTime") is null) { _explicitNullValueEndTime = default!; _explicitNullProperties?.Remove("endTime"); }
+            else if (parseNode.GetChildNode("endTime") is { } nullNodeEndTime && nullNodeEndTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndTime = null;
+            if (parseNode.GetChildNode("people") is null) { _explicitNullValuePeople = default!; _explicitNullProperties?.Remove("people"); }
+            else if (parseNode.GetChildNode("people") is { } nullNodePeople && nullNodePeople.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) People = null;
+            if (parseNode.GetChildNode("startTime") is null) { _explicitNullValueStartTime = default!; _explicitNullProperties?.Remove("startTime"); }
+            else if (parseNode.GetChildNode("startTime") is { } nullNodeStartTime && nullNodeStartTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartTime = null;
+            if (parseNode.GetChildNode("timeLabel") is null) { _explicitNullValueTimeLabel = default!; _explicitNullProperties?.Remove("timeLabel"); }
+            else if (parseNode.GetChildNode("timeLabel") is { } nullNodeTimeLabel && nullNodeTimeLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeLabel = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,37 +34,37 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The content property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
+        public string? Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; AdditionalData?.Remove("content"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
         private string? _explicitNullValueContent = default!;
 #nullable restore
 #else
-        public string Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
+        public string Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; AdditionalData?.Remove("content"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
         private string _explicitNullValueContent = default!;
 #endif
         /// <summary>The endTime property</summary>
-        public DateTimeOffset? EndTime { get => _explicitNullValueEndTime; set { _explicitNullValueEndTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("endTime"); else _explicitNullProperties?.Remove("endTime"); } }
+        public DateTimeOffset? EndTime { get => _explicitNullValueEndTime; set { _explicitNullValueEndTime = value; AdditionalData?.Remove("endTime"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("endTime"); else _explicitNullProperties?.Remove("endTime"); } }
         private DateTimeOffset? _explicitNullValueEndTime = default!;
         /// <summary>The people property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.EventSchedulePersonOutput>? People { get => _explicitNullValuePeople; set { _explicitNullValuePeople = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("people"); else _explicitNullProperties?.Remove("people"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.EventSchedulePersonOutput>? People { get => _explicitNullValuePeople; set { _explicitNullValuePeople = value; AdditionalData?.Remove("people"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("people"); else _explicitNullProperties?.Remove("people"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.EventSchedulePersonOutput>? _explicitNullValuePeople = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.EventSchedulePersonOutput> People { get => _explicitNullValuePeople; set { _explicitNullValuePeople = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("people"); else _explicitNullProperties?.Remove("people"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.EventSchedulePersonOutput> People { get => _explicitNullValuePeople; set { _explicitNullValuePeople = value; AdditionalData?.Remove("people"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("people"); else _explicitNullProperties?.Remove("people"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.EventSchedulePersonOutput> _explicitNullValuePeople = default!;
 #endif
         /// <summary>The startTime property</summary>
-        public DateTimeOffset? StartTime { get => _explicitNullValueStartTime; set { _explicitNullValueStartTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("startTime"); else _explicitNullProperties?.Remove("startTime"); } }
+        public DateTimeOffset? StartTime { get => _explicitNullValueStartTime; set { _explicitNullValueStartTime = value; AdditionalData?.Remove("startTime"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("startTime"); else _explicitNullProperties?.Remove("startTime"); } }
         private DateTimeOffset? _explicitNullValueStartTime = default!;
         /// <summary>The timeLabel property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TimeLabel { get => _explicitNullValueTimeLabel; set { _explicitNullValueTimeLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeLabel"); else _explicitNullProperties?.Remove("timeLabel"); } }
+        public string? TimeLabel { get => _explicitNullValueTimeLabel; set { _explicitNullValueTimeLabel = value; AdditionalData?.Remove("timeLabel"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeLabel"); else _explicitNullProperties?.Remove("timeLabel"); } }
         private string? _explicitNullValueTimeLabel = default!;
 #nullable restore
 #else
-        public string TimeLabel { get => _explicitNullValueTimeLabel; set { _explicitNullValueTimeLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeLabel"); else _explicitNullProperties?.Remove("timeLabel"); } }
+        public string TimeLabel { get => _explicitNullValueTimeLabel; set { _explicitNullValueTimeLabel = value; AdditionalData?.Remove("timeLabel"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeLabel"); else _explicitNullProperties?.Remove("timeLabel"); } }
         private string _explicitNullValueTimeLabel = default!;
 #endif
         /// <summary>

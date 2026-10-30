@@ -17,8 +17,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("darkThemeHex") is { } nullNodeDarkThemeHex && nullNodeDarkThemeHex.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DarkThemeHex = null;
-            if (parseNode.GetChildNode("lightThemeHex") is { } nullNodeLightThemeHex && nullNodeLightThemeHex.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LightThemeHex = null;
+            if (parseNode.GetChildNode("darkThemeHex") is null) { _explicitNullValueDarkThemeHex = default!; _explicitNullProperties?.Remove("darkThemeHex"); }
+            else if (parseNode.GetChildNode("darkThemeHex") is { } nullNodeDarkThemeHex && nullNodeDarkThemeHex.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DarkThemeHex = null;
+            if (parseNode.GetChildNode("lightThemeHex") is null) { _explicitNullValueLightThemeHex = default!; _explicitNullProperties?.Remove("lightThemeHex"); }
+            else if (parseNode.GetChildNode("lightThemeHex") is { } nullNodeLightThemeHex && nullNodeLightThemeHex.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LightThemeHex = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>Color used for event types in dark theme</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DarkThemeHex { get => _explicitNullValueDarkThemeHex; set { _explicitNullValueDarkThemeHex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("darkThemeHex"); else _explicitNullProperties?.Remove("darkThemeHex"); } }
+        public string? DarkThemeHex { get => _explicitNullValueDarkThemeHex; set { _explicitNullValueDarkThemeHex = value; AdditionalData?.Remove("darkThemeHex"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("darkThemeHex"); else _explicitNullProperties?.Remove("darkThemeHex"); } }
         private string? _explicitNullValueDarkThemeHex = default!;
 #nullable restore
 #else
-        public string DarkThemeHex { get => _explicitNullValueDarkThemeHex; set { _explicitNullValueDarkThemeHex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("darkThemeHex"); else _explicitNullProperties?.Remove("darkThemeHex"); } }
+        public string DarkThemeHex { get => _explicitNullValueDarkThemeHex; set { _explicitNullValueDarkThemeHex = value; AdditionalData?.Remove("darkThemeHex"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("darkThemeHex"); else _explicitNullProperties?.Remove("darkThemeHex"); } }
         private string _explicitNullValueDarkThemeHex = default!;
 #endif
         /// <summary>Color used for event types in light theme</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LightThemeHex { get => _explicitNullValueLightThemeHex; set { _explicitNullValueLightThemeHex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lightThemeHex"); else _explicitNullProperties?.Remove("lightThemeHex"); } }
+        public string? LightThemeHex { get => _explicitNullValueLightThemeHex; set { _explicitNullValueLightThemeHex = value; AdditionalData?.Remove("lightThemeHex"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lightThemeHex"); else _explicitNullProperties?.Remove("lightThemeHex"); } }
         private string? _explicitNullValueLightThemeHex = default!;
 #nullable restore
 #else
-        public string LightThemeHex { get => _explicitNullValueLightThemeHex; set { _explicitNullValueLightThemeHex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lightThemeHex"); else _explicitNullProperties?.Remove("lightThemeHex"); } }
+        public string LightThemeHex { get => _explicitNullValueLightThemeHex; set { _explicitNullValueLightThemeHex = value; AdditionalData?.Remove("lightThemeHex"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lightThemeHex"); else _explicitNullProperties?.Remove("lightThemeHex"); } }
         private string _explicitNullValueLightThemeHex = default!;
 #endif
         /// <summary>

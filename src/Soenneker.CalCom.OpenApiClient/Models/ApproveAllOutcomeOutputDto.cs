@@ -17,36 +17,41 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("approvedCount") is { } nullNodeApprovedCount && nullNodeApprovedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApprovedCount = null;
-            if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
-            if (parseNode.GetChildNode("notSeatedCount") is { } nullNodeNotSeatedCount && nullNodeNotSeatedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NotSeatedCount = null;
-            if (parseNode.GetChildNode("operationId") is { } nullNodeOperationId && nullNodeOperationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OperationId = null;
-            if (parseNode.GetChildNode("total") is { } nullNodeTotal && nullNodeTotal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Total = null;
+            if (parseNode.GetChildNode("approvedCount") is null) { _explicitNullValueApprovedCount = default!; _explicitNullProperties?.Remove("approvedCount"); }
+            else if (parseNode.GetChildNode("approvedCount") is { } nullNodeApprovedCount && nullNodeApprovedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApprovedCount = null;
+            if (parseNode.GetChildNode("kind") is null) { _explicitNullValueKind = default!; _explicitNullProperties?.Remove("kind"); }
+            else if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
+            if (parseNode.GetChildNode("notSeatedCount") is null) { _explicitNullValueNotSeatedCount = default!; _explicitNullProperties?.Remove("notSeatedCount"); }
+            else if (parseNode.GetChildNode("notSeatedCount") is { } nullNodeNotSeatedCount && nullNodeNotSeatedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NotSeatedCount = null;
+            if (parseNode.GetChildNode("operationId") is null) { _explicitNullValueOperationId = default!; _explicitNullProperties?.Remove("operationId"); }
+            else if (parseNode.GetChildNode("operationId") is { } nullNodeOperationId && nullNodeOperationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OperationId = null;
+            if (parseNode.GetChildNode("total") is null) { _explicitNullValueTotal = default!; _explicitNullProperties?.Remove("total"); }
+            else if (parseNode.GetChildNode("total") is { } nullNodeTotal && nullNodeTotal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Total = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Set only when `kind` is `completed`. Guests approved; on a paid Event, guests sent a payment request.</summary>
-        public double? ApprovedCount { get => _explicitNullValueApprovedCount; set { _explicitNullValueApprovedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approvedCount"); else _explicitNullProperties?.Remove("approvedCount"); } }
+        public double? ApprovedCount { get => _explicitNullValueApprovedCount; set { _explicitNullValueApprovedCount = value; AdditionalData?.Remove("approvedCount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approvedCount"); else _explicitNullProperties?.Remove("approvedCount"); } }
         private double? _explicitNullValueApprovedCount = default!;
         /// <summary>`completed` when every pending guest was handled in this request. `started` when a paid Event&apos;s approval runs in the background.</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.ApproveAllOutcomeOutputDtoKind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.ApproveAllOutcomeOutputDtoKind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; AdditionalData?.Remove("kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.ApproveAllOutcomeOutputDtoKind? _explicitNullValueKind = default!;
         /// <summary>Set only when `kind` is `completed`. Guests left pending because the Event is full.</summary>
-        public double? NotSeatedCount { get => _explicitNullValueNotSeatedCount; set { _explicitNullValueNotSeatedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notSeatedCount"); else _explicitNullProperties?.Remove("notSeatedCount"); } }
+        public double? NotSeatedCount { get => _explicitNullValueNotSeatedCount; set { _explicitNullValueNotSeatedCount = value; AdditionalData?.Remove("notSeatedCount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notSeatedCount"); else _explicitNullProperties?.Remove("notSeatedCount"); } }
         private double? _explicitNullValueNotSeatedCount = default!;
         /// <summary>Set only when `kind` is `started`. Identifies the background approval.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OperationId { get => _explicitNullValueOperationId; set { _explicitNullValueOperationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("operationId"); else _explicitNullProperties?.Remove("operationId"); } }
+        public string? OperationId { get => _explicitNullValueOperationId; set { _explicitNullValueOperationId = value; AdditionalData?.Remove("operationId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("operationId"); else _explicitNullProperties?.Remove("operationId"); } }
         private string? _explicitNullValueOperationId = default!;
 #nullable restore
 #else
-        public string OperationId { get => _explicitNullValueOperationId; set { _explicitNullValueOperationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("operationId"); else _explicitNullProperties?.Remove("operationId"); } }
+        public string OperationId { get => _explicitNullValueOperationId; set { _explicitNullValueOperationId = value; AdditionalData?.Remove("operationId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("operationId"); else _explicitNullProperties?.Remove("operationId"); } }
         private string _explicitNullValueOperationId = default!;
 #endif
         /// <summary>Set only when `kind` is `started`. Guests the background approval will handle.</summary>
-        public double? Total { get => _explicitNullValueTotal; set { _explicitNullValueTotal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total"); else _explicitNullProperties?.Remove("total"); } }
+        public double? Total { get => _explicitNullValueTotal; set { _explicitNullValueTotal = value; AdditionalData?.Remove("total"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total"); else _explicitNullProperties?.Remove("total"); } }
         private double? _explicitNullValueTotal = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.ApproveAllOutcomeOutputDto"/> and sets the default values.
@@ -74,7 +79,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "approvedCount", n => { ApprovedCount = n.GetDoubleValue(); } },
-                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.ApproveAllOutcomeOutputDtoKind>(); } },
+                { "kind", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.ApproveAllOutcomeOutputDtoKind>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueKind = default; _explicitNullProperties?.Remove("kind"); AdditionalData["kind"] = unknown; } else { Kind = parsed; AdditionalData.Remove("kind"); } } },
                 { "notSeatedCount", n => { NotSeatedCount = n.GetDoubleValue(); } },
                 { "operationId", n => { OperationId = n.GetStringValue(); } },
                 { "total", n => { Total = n.GetDoubleValue(); } },

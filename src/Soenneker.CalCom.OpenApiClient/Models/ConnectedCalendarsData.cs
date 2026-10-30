@@ -17,8 +17,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("connectedCalendars") is { } nullNodeConnectedCalendars && nullNodeConnectedCalendars.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectedCalendars = null;
-            if (parseNode.GetChildNode("destinationCalendar") is { } nullNodeDestinationCalendar && nullNodeDestinationCalendar.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DestinationCalendar = null;
+            if (parseNode.GetChildNode("connectedCalendars") is null) { _explicitNullValueConnectedCalendars = default!; _explicitNullProperties?.Remove("connectedCalendars"); }
+            else if (parseNode.GetChildNode("connectedCalendars") is { } nullNodeConnectedCalendars && nullNodeConnectedCalendars.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectedCalendars = null;
+            if (parseNode.GetChildNode("destinationCalendar") is null) { _explicitNullValueDestinationCalendar = default!; _explicitNullProperties?.Remove("destinationCalendar"); }
+            else if (parseNode.GetChildNode("destinationCalendar") is { } nullNodeDestinationCalendar && nullNodeDestinationCalendar.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DestinationCalendar = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The connectedCalendars property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.ConnectedCalendar>? ConnectedCalendars { get => _explicitNullValueConnectedCalendars; set { _explicitNullValueConnectedCalendars = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connectedCalendars"); else _explicitNullProperties?.Remove("connectedCalendars"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.ConnectedCalendar>? ConnectedCalendars { get => _explicitNullValueConnectedCalendars; set { _explicitNullValueConnectedCalendars = value; AdditionalData?.Remove("connectedCalendars"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connectedCalendars"); else _explicitNullProperties?.Remove("connectedCalendars"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.ConnectedCalendar>? _explicitNullValueConnectedCalendars = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.ConnectedCalendar> ConnectedCalendars { get => _explicitNullValueConnectedCalendars; set { _explicitNullValueConnectedCalendars = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connectedCalendars"); else _explicitNullProperties?.Remove("connectedCalendars"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.ConnectedCalendar> ConnectedCalendars { get => _explicitNullValueConnectedCalendars; set { _explicitNullValueConnectedCalendars = value; AdditionalData?.Remove("connectedCalendars"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connectedCalendars"); else _explicitNullProperties?.Remove("connectedCalendars"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.ConnectedCalendar> _explicitNullValueConnectedCalendars = default!;
 #endif
         /// <summary>The destinationCalendar property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.DestinationCalendar? DestinationCalendar { get => _explicitNullValueDestinationCalendar; set { _explicitNullValueDestinationCalendar = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destinationCalendar"); else _explicitNullProperties?.Remove("destinationCalendar"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.DestinationCalendar? DestinationCalendar { get => _explicitNullValueDestinationCalendar; set { _explicitNullValueDestinationCalendar = value; AdditionalData?.Remove("destinationCalendar"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destinationCalendar"); else _explicitNullProperties?.Remove("destinationCalendar"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.DestinationCalendar? _explicitNullValueDestinationCalendar = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.DestinationCalendar DestinationCalendar { get => _explicitNullValueDestinationCalendar; set { _explicitNullValueDestinationCalendar = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destinationCalendar"); else _explicitNullProperties?.Remove("destinationCalendar"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.DestinationCalendar DestinationCalendar { get => _explicitNullValueDestinationCalendar; set { _explicitNullValueDestinationCalendar = value; AdditionalData?.Remove("destinationCalendar"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destinationCalendar"); else _explicitNullProperties?.Remove("destinationCalendar"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.DestinationCalendar _explicitNullValueDestinationCalendar = default!;
 #endif
         /// <summary>

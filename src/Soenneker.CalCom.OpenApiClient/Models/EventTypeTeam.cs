@@ -17,15 +17,24 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("bannerUrl") is { } nullNodeBannerUrl && nullNodeBannerUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BannerUrl = null;
-            if (parseNode.GetChildNode("brandColor") is { } nullNodeBrandColor && nullNodeBrandColor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BrandColor = null;
-            if (parseNode.GetChildNode("darkBrandColor") is { } nullNodeDarkBrandColor && nullNodeDarkBrandColor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DarkBrandColor = null;
-            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
-            if (parseNode.GetChildNode("logoUrl") is { } nullNodeLogoUrl && nullNodeLogoUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogoUrl = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("slug") is { } nullNodeSlug && nullNodeSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Slug = null;
-            if (parseNode.GetChildNode("theme") is { } nullNodeTheme && nullNodeTheme.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Theme = null;
-            if (parseNode.GetChildNode("weekStart") is { } nullNodeWeekStart && nullNodeWeekStart.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WeekStart = null;
+            if (parseNode.GetChildNode("bannerUrl") is null) { _explicitNullValueBannerUrl = default!; _explicitNullProperties?.Remove("bannerUrl"); }
+            else if (parseNode.GetChildNode("bannerUrl") is { } nullNodeBannerUrl && nullNodeBannerUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BannerUrl = null;
+            if (parseNode.GetChildNode("brandColor") is null) { _explicitNullValueBrandColor = default!; _explicitNullProperties?.Remove("brandColor"); }
+            else if (parseNode.GetChildNode("brandColor") is { } nullNodeBrandColor && nullNodeBrandColor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BrandColor = null;
+            if (parseNode.GetChildNode("darkBrandColor") is null) { _explicitNullValueDarkBrandColor = default!; _explicitNullProperties?.Remove("darkBrandColor"); }
+            else if (parseNode.GetChildNode("darkBrandColor") is { } nullNodeDarkBrandColor && nullNodeDarkBrandColor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DarkBrandColor = null;
+            if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
+            else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("logoUrl") is null) { _explicitNullValueLogoUrl = default!; _explicitNullProperties?.Remove("logoUrl"); }
+            else if (parseNode.GetChildNode("logoUrl") is { } nullNodeLogoUrl && nullNodeLogoUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogoUrl = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("slug") is null) { _explicitNullValueSlug = default!; _explicitNullProperties?.Remove("slug"); }
+            else if (parseNode.GetChildNode("slug") is { } nullNodeSlug && nullNodeSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Slug = null;
+            if (parseNode.GetChildNode("theme") is null) { _explicitNullValueTheme = default!; _explicitNullProperties?.Remove("theme"); }
+            else if (parseNode.GetChildNode("theme") is { } nullNodeTheme && nullNodeTheme.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Theme = null;
+            if (parseNode.GetChildNode("weekStart") is null) { _explicitNullValueWeekStart = default!; _explicitNullProperties?.Remove("weekStart"); }
+            else if (parseNode.GetChildNode("weekStart") is { } nullNodeWeekStart && nullNodeWeekStart.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WeekStart = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -33,84 +42,84 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The bannerUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BannerUrl { get => _explicitNullValueBannerUrl; set { _explicitNullValueBannerUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bannerUrl"); else _explicitNullProperties?.Remove("bannerUrl"); } }
+        public string? BannerUrl { get => _explicitNullValueBannerUrl; set { _explicitNullValueBannerUrl = value; AdditionalData?.Remove("bannerUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bannerUrl"); else _explicitNullProperties?.Remove("bannerUrl"); } }
         private string? _explicitNullValueBannerUrl = default!;
 #nullable restore
 #else
-        public string BannerUrl { get => _explicitNullValueBannerUrl; set { _explicitNullValueBannerUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bannerUrl"); else _explicitNullProperties?.Remove("bannerUrl"); } }
+        public string BannerUrl { get => _explicitNullValueBannerUrl; set { _explicitNullValueBannerUrl = value; AdditionalData?.Remove("bannerUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bannerUrl"); else _explicitNullProperties?.Remove("bannerUrl"); } }
         private string _explicitNullValueBannerUrl = default!;
 #endif
         /// <summary>The brandColor property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BrandColor { get => _explicitNullValueBrandColor; set { _explicitNullValueBrandColor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("brandColor"); else _explicitNullProperties?.Remove("brandColor"); } }
+        public string? BrandColor { get => _explicitNullValueBrandColor; set { _explicitNullValueBrandColor = value; AdditionalData?.Remove("brandColor"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("brandColor"); else _explicitNullProperties?.Remove("brandColor"); } }
         private string? _explicitNullValueBrandColor = default!;
 #nullable restore
 #else
-        public string BrandColor { get => _explicitNullValueBrandColor; set { _explicitNullValueBrandColor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("brandColor"); else _explicitNullProperties?.Remove("brandColor"); } }
+        public string BrandColor { get => _explicitNullValueBrandColor; set { _explicitNullValueBrandColor = value; AdditionalData?.Remove("brandColor"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("brandColor"); else _explicitNullProperties?.Remove("brandColor"); } }
         private string _explicitNullValueBrandColor = default!;
 #endif
         /// <summary>The darkBrandColor property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DarkBrandColor { get => _explicitNullValueDarkBrandColor; set { _explicitNullValueDarkBrandColor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("darkBrandColor"); else _explicitNullProperties?.Remove("darkBrandColor"); } }
+        public string? DarkBrandColor { get => _explicitNullValueDarkBrandColor; set { _explicitNullValueDarkBrandColor = value; AdditionalData?.Remove("darkBrandColor"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("darkBrandColor"); else _explicitNullProperties?.Remove("darkBrandColor"); } }
         private string? _explicitNullValueDarkBrandColor = default!;
 #nullable restore
 #else
-        public string DarkBrandColor { get => _explicitNullValueDarkBrandColor; set { _explicitNullValueDarkBrandColor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("darkBrandColor"); else _explicitNullProperties?.Remove("darkBrandColor"); } }
+        public string DarkBrandColor { get => _explicitNullValueDarkBrandColor; set { _explicitNullValueDarkBrandColor = value; AdditionalData?.Remove("darkBrandColor"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("darkBrandColor"); else _explicitNullProperties?.Remove("darkBrandColor"); } }
         private string _explicitNullValueDarkBrandColor = default!;
 #endif
         /// <summary>The id property</summary>
-        public double? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public double? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private double? _explicitNullValueId = default!;
         /// <summary>The logoUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LogoUrl { get => _explicitNullValueLogoUrl; set { _explicitNullValueLogoUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logoUrl"); else _explicitNullProperties?.Remove("logoUrl"); } }
+        public string? LogoUrl { get => _explicitNullValueLogoUrl; set { _explicitNullValueLogoUrl = value; AdditionalData?.Remove("logoUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logoUrl"); else _explicitNullProperties?.Remove("logoUrl"); } }
         private string? _explicitNullValueLogoUrl = default!;
 #nullable restore
 #else
-        public string LogoUrl { get => _explicitNullValueLogoUrl; set { _explicitNullValueLogoUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logoUrl"); else _explicitNullProperties?.Remove("logoUrl"); } }
+        public string LogoUrl { get => _explicitNullValueLogoUrl; set { _explicitNullValueLogoUrl = value; AdditionalData?.Remove("logoUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logoUrl"); else _explicitNullProperties?.Remove("logoUrl"); } }
         private string _explicitNullValueLogoUrl = default!;
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>The slug property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Slug { get => _explicitNullValueSlug; set { _explicitNullValueSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slug"); else _explicitNullProperties?.Remove("slug"); } }
+        public string? Slug { get => _explicitNullValueSlug; set { _explicitNullValueSlug = value; AdditionalData?.Remove("slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slug"); else _explicitNullProperties?.Remove("slug"); } }
         private string? _explicitNullValueSlug = default!;
 #nullable restore
 #else
-        public string Slug { get => _explicitNullValueSlug; set { _explicitNullValueSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slug"); else _explicitNullProperties?.Remove("slug"); } }
+        public string Slug { get => _explicitNullValueSlug; set { _explicitNullValueSlug = value; AdditionalData?.Remove("slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slug"); else _explicitNullProperties?.Remove("slug"); } }
         private string _explicitNullValueSlug = default!;
 #endif
         /// <summary>The theme property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Theme { get => _explicitNullValueTheme; set { _explicitNullValueTheme = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("theme"); else _explicitNullProperties?.Remove("theme"); } }
+        public string? Theme { get => _explicitNullValueTheme; set { _explicitNullValueTheme = value; AdditionalData?.Remove("theme"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("theme"); else _explicitNullProperties?.Remove("theme"); } }
         private string? _explicitNullValueTheme = default!;
 #nullable restore
 #else
-        public string Theme { get => _explicitNullValueTheme; set { _explicitNullValueTheme = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("theme"); else _explicitNullProperties?.Remove("theme"); } }
+        public string Theme { get => _explicitNullValueTheme; set { _explicitNullValueTheme = value; AdditionalData?.Remove("theme"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("theme"); else _explicitNullProperties?.Remove("theme"); } }
         private string _explicitNullValueTheme = default!;
 #endif
         /// <summary>The weekStart property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WeekStart { get => _explicitNullValueWeekStart; set { _explicitNullValueWeekStart = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("weekStart"); else _explicitNullProperties?.Remove("weekStart"); } }
+        public string? WeekStart { get => _explicitNullValueWeekStart; set { _explicitNullValueWeekStart = value; AdditionalData?.Remove("weekStart"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("weekStart"); else _explicitNullProperties?.Remove("weekStart"); } }
         private string? _explicitNullValueWeekStart = default!;
 #nullable restore
 #else
-        public string WeekStart { get => _explicitNullValueWeekStart; set { _explicitNullValueWeekStart = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("weekStart"); else _explicitNullProperties?.Remove("weekStart"); } }
+        public string WeekStart { get => _explicitNullValueWeekStart; set { _explicitNullValueWeekStart = value; AdditionalData?.Remove("weekStart"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("weekStart"); else _explicitNullProperties?.Remove("weekStart"); } }
         private string _explicitNullValueWeekStart = default!;
 #endif
         /// <summary>

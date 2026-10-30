@@ -17,8 +17,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("form") is { } nullNodeForm && nullNodeForm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Form = null;
-            if (parseNode.GetChildNode("responses") is { } nullNodeResponses && nullNodeResponses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Responses = null;
+            if (parseNode.GetChildNode("form") is null) { _explicitNullValueForm = default!; _explicitNullProperties?.Remove("form"); }
+            else if (parseNode.GetChildNode("form") is { } nullNodeForm && nullNodeForm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Form = null;
+            if (parseNode.GetChildNode("responses") is null) { _explicitNullValueResponses = default!; _explicitNullProperties?.Remove("responses"); }
+            else if (parseNode.GetChildNode("responses") is { } nullNodeResponses && nullNodeResponses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Responses = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The form property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.RoutingTraceFormOutput20240813? Form { get => _explicitNullValueForm; set { _explicitNullValueForm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("form"); else _explicitNullProperties?.Remove("form"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.RoutingTraceFormOutput20240813? Form { get => _explicitNullValueForm; set { _explicitNullValueForm = value; AdditionalData?.Remove("form"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("form"); else _explicitNullProperties?.Remove("form"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.RoutingTraceFormOutput20240813? _explicitNullValueForm = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.RoutingTraceFormOutput20240813 Form { get => _explicitNullValueForm; set { _explicitNullValueForm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("form"); else _explicitNullProperties?.Remove("form"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.RoutingTraceFormOutput20240813 Form { get => _explicitNullValueForm; set { _explicitNullValueForm = value; AdditionalData?.Remove("form"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("form"); else _explicitNullProperties?.Remove("form"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.RoutingTraceFormOutput20240813 _explicitNullValueForm = default!;
 #endif
         /// <summary>The responses property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.RoutingTraceFormResponseOutput20240813>? Responses { get => _explicitNullValueResponses; set { _explicitNullValueResponses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("responses"); else _explicitNullProperties?.Remove("responses"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.RoutingTraceFormResponseOutput20240813>? Responses { get => _explicitNullValueResponses; set { _explicitNullValueResponses = value; AdditionalData?.Remove("responses"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("responses"); else _explicitNullProperties?.Remove("responses"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.RoutingTraceFormResponseOutput20240813>? _explicitNullValueResponses = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.RoutingTraceFormResponseOutput20240813> Responses { get => _explicitNullValueResponses; set { _explicitNullValueResponses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("responses"); else _explicitNullProperties?.Remove("responses"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.RoutingTraceFormResponseOutput20240813> Responses { get => _explicitNullValueResponses; set { _explicitNullValueResponses = value; AdditionalData?.Remove("responses"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("responses"); else _explicitNullProperties?.Remove("responses"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.RoutingTraceFormResponseOutput20240813> _explicitNullValueResponses = default!;
 #endif
         /// <summary>

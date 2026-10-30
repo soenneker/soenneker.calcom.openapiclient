@@ -17,12 +17,18 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("attendees") is { } nullNodeAttendees && nullNodeAttendees.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Attendees = null;
-            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
-            if (parseNode.GetChildNode("end") is { } nullNodeEnd && nullNodeEnd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) End = null;
-            if (parseNode.GetChildNode("start") is { } nullNodeStart && nullNodeStart.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Start = null;
-            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
-            if (parseNode.GetChildNode("title") is { } nullNodeTitle && nullNodeTitle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Title = null;
+            if (parseNode.GetChildNode("attendees") is null) { _explicitNullValueAttendees = default!; _explicitNullProperties?.Remove("attendees"); }
+            else if (parseNode.GetChildNode("attendees") is { } nullNodeAttendees && nullNodeAttendees.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Attendees = null;
+            if (parseNode.GetChildNode("description") is null) { _explicitNullValueDescription = default!; _explicitNullProperties?.Remove("description"); }
+            else if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("end") is null) { _explicitNullValueEnd = default!; _explicitNullProperties?.Remove("end"); }
+            else if (parseNode.GetChildNode("end") is { } nullNodeEnd && nullNodeEnd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) End = null;
+            if (parseNode.GetChildNode("start") is null) { _explicitNullValueStart = default!; _explicitNullProperties?.Remove("start"); }
+            else if (parseNode.GetChildNode("start") is { } nullNodeStart && nullNodeStart.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Start = null;
+            if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
+            else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("title") is null) { _explicitNullValueTitle = default!; _explicitNullProperties?.Remove("title"); }
+            else if (parseNode.GetChildNode("title") is { } nullNodeTitle && nullNodeTitle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Title = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,54 +36,54 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>List of attendees. CAUTION: You must pass the entire array with all updated values. Any attendees not included in this array will be removed from the event.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.UpdateCalendarEventAttendee>? Attendees { get => _explicitNullValueAttendees; set { _explicitNullValueAttendees = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attendees"); else _explicitNullProperties?.Remove("attendees"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.UpdateCalendarEventAttendee>? Attendees { get => _explicitNullValueAttendees; set { _explicitNullValueAttendees = value; AdditionalData?.Remove("attendees"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attendees"); else _explicitNullProperties?.Remove("attendees"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.UpdateCalendarEventAttendee>? _explicitNullValueAttendees = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.UpdateCalendarEventAttendee> Attendees { get => _explicitNullValueAttendees; set { _explicitNullValueAttendees = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attendees"); else _explicitNullProperties?.Remove("attendees"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.UpdateCalendarEventAttendee> Attendees { get => _explicitNullValueAttendees; set { _explicitNullValueAttendees = value; AdditionalData?.Remove("attendees"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attendees"); else _explicitNullProperties?.Remove("attendees"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.UpdateCalendarEventAttendee> _explicitNullValueAttendees = default!;
 #endif
         /// <summary>Detailed description of the calendar event</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; AdditionalData?.Remove("description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
         private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; AdditionalData?.Remove("description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
         private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>End date and time of the calendar event with timezone information</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.UpdateUnifiedCalendarEventInputEnd? End { get => _explicitNullValueEnd; set { _explicitNullValueEnd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end"); else _explicitNullProperties?.Remove("end"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.UpdateUnifiedCalendarEventInputEnd? End { get => _explicitNullValueEnd; set { _explicitNullValueEnd = value; AdditionalData?.Remove("end"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end"); else _explicitNullProperties?.Remove("end"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.UpdateUnifiedCalendarEventInputEnd? _explicitNullValueEnd = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.UpdateUnifiedCalendarEventInputEnd End { get => _explicitNullValueEnd; set { _explicitNullValueEnd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end"); else _explicitNullProperties?.Remove("end"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.UpdateUnifiedCalendarEventInputEnd End { get => _explicitNullValueEnd; set { _explicitNullValueEnd = value; AdditionalData?.Remove("end"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end"); else _explicitNullProperties?.Remove("end"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.UpdateUnifiedCalendarEventInputEnd _explicitNullValueEnd = default!;
 #endif
         /// <summary>Start date and time of the calendar event with timezone information</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.UpdateUnifiedCalendarEventInputStart? Start { get => _explicitNullValueStart; set { _explicitNullValueStart = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start"); else _explicitNullProperties?.Remove("start"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.UpdateUnifiedCalendarEventInputStart? Start { get => _explicitNullValueStart; set { _explicitNullValueStart = value; AdditionalData?.Remove("start"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start"); else _explicitNullProperties?.Remove("start"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.UpdateUnifiedCalendarEventInputStart? _explicitNullValueStart = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.UpdateUnifiedCalendarEventInputStart Start { get => _explicitNullValueStart; set { _explicitNullValueStart = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start"); else _explicitNullProperties?.Remove("start"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.UpdateUnifiedCalendarEventInputStart Start { get => _explicitNullValueStart; set { _explicitNullValueStart = value; AdditionalData?.Remove("start"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start"); else _explicitNullProperties?.Remove("start"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.UpdateUnifiedCalendarEventInputStart _explicitNullValueStart = default!;
 #endif
         /// <summary>Status of the event (accepted, pending, declined, cancelled)</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.UpdateUnifiedCalendarEventInputStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.UpdateUnifiedCalendarEventInputStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.UpdateUnifiedCalendarEventInputStatus? _explicitNullValueStatus = default!;
         /// <summary>Title of the calendar event</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Title { get => _explicitNullValueTitle; set { _explicitNullValueTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title"); else _explicitNullProperties?.Remove("title"); } }
+        public string? Title { get => _explicitNullValueTitle; set { _explicitNullValueTitle = value; AdditionalData?.Remove("title"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title"); else _explicitNullProperties?.Remove("title"); } }
         private string? _explicitNullValueTitle = default!;
 #nullable restore
 #else
-        public string Title { get => _explicitNullValueTitle; set { _explicitNullValueTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title"); else _explicitNullProperties?.Remove("title"); } }
+        public string Title { get => _explicitNullValueTitle; set { _explicitNullValueTitle = value; AdditionalData?.Remove("title"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title"); else _explicitNullProperties?.Remove("title"); } }
         private string _explicitNullValueTitle = default!;
 #endif
         /// <summary>
@@ -109,7 +115,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "end", n => { End = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.UpdateUnifiedCalendarEventInputEnd>(global::Soenneker.CalCom.OpenApiClient.Models.UpdateUnifiedCalendarEventInputEnd.CreateFromDiscriminatorValue); } },
                 { "start", n => { Start = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.UpdateUnifiedCalendarEventInputStart>(global::Soenneker.CalCom.OpenApiClient.Models.UpdateUnifiedCalendarEventInputStart.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.UpdateUnifiedCalendarEventInputStatus>(); } },
+                { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.UpdateUnifiedCalendarEventInputStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
                 { "title", n => { Title = n.GetStringValue(); } },
             };
         }

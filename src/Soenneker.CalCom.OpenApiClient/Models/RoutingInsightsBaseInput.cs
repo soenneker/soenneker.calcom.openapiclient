@@ -17,11 +17,16 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("columnFilters") is { } nullNodeColumnFilters && nullNodeColumnFilters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ColumnFilters = null;
-            if (parseNode.GetChildNode("endDate") is { } nullNodeEndDate && nullNodeEndDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndDate = null;
-            if (parseNode.GetChildNode("scope") is { } nullNodeScope && nullNodeScope.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scope = null;
-            if (parseNode.GetChildNode("selectedTeamId") is { } nullNodeSelectedTeamId && nullNodeSelectedTeamId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectedTeamId = null;
-            if (parseNode.GetChildNode("startDate") is { } nullNodeStartDate && nullNodeStartDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartDate = null;
+            if (parseNode.GetChildNode("columnFilters") is null) { _explicitNullValueColumnFilters = default!; _explicitNullProperties?.Remove("columnFilters"); }
+            else if (parseNode.GetChildNode("columnFilters") is { } nullNodeColumnFilters && nullNodeColumnFilters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ColumnFilters = null;
+            if (parseNode.GetChildNode("endDate") is null) { _explicitNullValueEndDate = default!; _explicitNullProperties?.Remove("endDate"); }
+            else if (parseNode.GetChildNode("endDate") is { } nullNodeEndDate && nullNodeEndDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndDate = null;
+            if (parseNode.GetChildNode("scope") is null) { _explicitNullValueScope = default!; _explicitNullProperties?.Remove("scope"); }
+            else if (parseNode.GetChildNode("scope") is { } nullNodeScope && nullNodeScope.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scope = null;
+            if (parseNode.GetChildNode("selectedTeamId") is null) { _explicitNullValueSelectedTeamId = default!; _explicitNullProperties?.Remove("selectedTeamId"); }
+            else if (parseNode.GetChildNode("selectedTeamId") is { } nullNodeSelectedTeamId && nullNodeSelectedTeamId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectedTeamId = null;
+            if (parseNode.GetChildNode("startDate") is null) { _explicitNullValueStartDate = default!; _explicitNullProperties?.Remove("startDate"); }
+            else if (parseNode.GetChildNode("startDate") is { } nullNodeStartDate && nullNodeStartDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartDate = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,37 +34,37 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>Data-table column filters (discriminated union by type: ss, ms, t, n, dr). Date range filters use id=createdAt.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.RoutingInsightsBaseInputColumnFiltersItem>? ColumnFilters { get => _explicitNullValueColumnFilters; set { _explicitNullValueColumnFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("columnFilters"); else _explicitNullProperties?.Remove("columnFilters"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.RoutingInsightsBaseInputColumnFiltersItem>? ColumnFilters { get => _explicitNullValueColumnFilters; set { _explicitNullValueColumnFilters = value; AdditionalData?.Remove("columnFilters"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("columnFilters"); else _explicitNullProperties?.Remove("columnFilters"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.RoutingInsightsBaseInputColumnFiltersItem>? _explicitNullValueColumnFilters = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.RoutingInsightsBaseInputColumnFiltersItem> ColumnFilters { get => _explicitNullValueColumnFilters; set { _explicitNullValueColumnFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("columnFilters"); else _explicitNullProperties?.Remove("columnFilters"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.RoutingInsightsBaseInputColumnFiltersItem> ColumnFilters { get => _explicitNullValueColumnFilters; set { _explicitNullValueColumnFilters = value; AdditionalData?.Remove("columnFilters"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("columnFilters"); else _explicitNullProperties?.Remove("columnFilters"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.RoutingInsightsBaseInputColumnFiltersItem> _explicitNullValueColumnFilters = default!;
 #endif
         /// <summary>Inclusive end date for routing insights</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EndDate { get => _explicitNullValueEndDate; set { _explicitNullValueEndDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("endDate"); else _explicitNullProperties?.Remove("endDate"); } }
+        public string? EndDate { get => _explicitNullValueEndDate; set { _explicitNullValueEndDate = value; AdditionalData?.Remove("endDate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("endDate"); else _explicitNullProperties?.Remove("endDate"); } }
         private string? _explicitNullValueEndDate = default!;
 #nullable restore
 #else
-        public string EndDate { get => _explicitNullValueEndDate; set { _explicitNullValueEndDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("endDate"); else _explicitNullProperties?.Remove("endDate"); } }
+        public string EndDate { get => _explicitNullValueEndDate; set { _explicitNullValueEndDate = value; AdditionalData?.Remove("endDate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("endDate"); else _explicitNullProperties?.Remove("endDate"); } }
         private string _explicitNullValueEndDate = default!;
 #endif
         /// <summary>The scope property</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.RoutingInsightsBaseInputScope? Scope { get => _explicitNullValueScope; set { _explicitNullValueScope = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scope"); else _explicitNullProperties?.Remove("scope"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.RoutingInsightsBaseInputScope? Scope { get => _explicitNullValueScope; set { _explicitNullValueScope = value; AdditionalData?.Remove("scope"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scope"); else _explicitNullProperties?.Remove("scope"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.RoutingInsightsBaseInputScope? _explicitNullValueScope = default!;
         /// <summary>Team ID for team-scoped routing insights</summary>
-        public double? SelectedTeamId { get => _explicitNullValueSelectedTeamId; set { _explicitNullValueSelectedTeamId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selectedTeamId"); else _explicitNullProperties?.Remove("selectedTeamId"); } }
+        public double? SelectedTeamId { get => _explicitNullValueSelectedTeamId; set { _explicitNullValueSelectedTeamId = value; AdditionalData?.Remove("selectedTeamId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selectedTeamId"); else _explicitNullProperties?.Remove("selectedTeamId"); } }
         private double? _explicitNullValueSelectedTeamId = default!;
         /// <summary>Inclusive start date for routing insights</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StartDate { get => _explicitNullValueStartDate; set { _explicitNullValueStartDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("startDate"); else _explicitNullProperties?.Remove("startDate"); } }
+        public string? StartDate { get => _explicitNullValueStartDate; set { _explicitNullValueStartDate = value; AdditionalData?.Remove("startDate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("startDate"); else _explicitNullProperties?.Remove("startDate"); } }
         private string? _explicitNullValueStartDate = default!;
 #nullable restore
 #else
-        public string StartDate { get => _explicitNullValueStartDate; set { _explicitNullValueStartDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("startDate"); else _explicitNullProperties?.Remove("startDate"); } }
+        public string StartDate { get => _explicitNullValueStartDate; set { _explicitNullValueStartDate = value; AdditionalData?.Remove("startDate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("startDate"); else _explicitNullProperties?.Remove("startDate"); } }
         private string _explicitNullValueStartDate = default!;
 #endif
         /// <summary>
@@ -89,7 +94,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             {
                 { "columnFilters", n => { ColumnFilters = n.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.RoutingInsightsBaseInputColumnFiltersItem>(global::Soenneker.CalCom.OpenApiClient.Models.RoutingInsightsBaseInputColumnFiltersItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "endDate", n => { EndDate = n.GetStringValue(); } },
-                { "scope", n => { Scope = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.RoutingInsightsBaseInputScope>(); } },
+                { "scope", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.RoutingInsightsBaseInputScope>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueScope = default; _explicitNullProperties?.Remove("scope"); AdditionalData["scope"] = unknown; } else { Scope = parsed; AdditionalData.Remove("scope"); } } },
                 { "selectedTeamId", n => { SelectedTeamId = n.GetDoubleValue(); } },
                 { "startDate", n => { StartDate = n.GetStringValue(); } },
             };

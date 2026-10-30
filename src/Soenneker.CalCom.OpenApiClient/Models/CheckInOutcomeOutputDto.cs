@@ -17,32 +17,36 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("checkedInAt") is { } nullNodeCheckedInAt && nullNodeCheckedInAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CheckedInAt = null;
-            if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
-            if (parseNode.GetChildNode("registration") is { } nullNodeRegistration && nullNodeRegistration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Registration = null;
-            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("checkedInAt") is null) { _explicitNullValueCheckedInAt = default!; _explicitNullProperties?.Remove("checkedInAt"); }
+            else if (parseNode.GetChildNode("checkedInAt") is { } nullNodeCheckedInAt && nullNodeCheckedInAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CheckedInAt = null;
+            if (parseNode.GetChildNode("kind") is null) { _explicitNullValueKind = default!; _explicitNullProperties?.Remove("kind"); }
+            else if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
+            if (parseNode.GetChildNode("registration") is null) { _explicitNullValueRegistration = default!; _explicitNullProperties?.Remove("registration"); }
+            else if (parseNode.GetChildNode("registration") is { } nullNodeRegistration && nullNodeRegistration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Registration = null;
+            if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
+            else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Set only when `kind` is `already_checked_in`.</summary>
-        public DateTimeOffset? CheckedInAt { get => _explicitNullValueCheckedInAt; set { _explicitNullValueCheckedInAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checkedInAt"); else _explicitNullProperties?.Remove("checkedInAt"); } }
+        public DateTimeOffset? CheckedInAt { get => _explicitNullValueCheckedInAt; set { _explicitNullValueCheckedInAt = value; AdditionalData?.Remove("checkedInAt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checkedInAt"); else _explicitNullProperties?.Remove("checkedInAt"); } }
         private DateTimeOffset? _explicitNullValueCheckedInAt = default!;
         /// <summary>The kind property</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.CheckInOutcomeOutputDtoKind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CheckInOutcomeOutputDtoKind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; AdditionalData?.Remove("kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.CheckInOutcomeOutputDtoKind? _explicitNullValueKind = default!;
         /// <summary>The registration property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.RegistrationOutputDto? Registration { get => _explicitNullValueRegistration; set { _explicitNullValueRegistration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registration"); else _explicitNullProperties?.Remove("registration"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.RegistrationOutputDto? Registration { get => _explicitNullValueRegistration; set { _explicitNullValueRegistration = value; AdditionalData?.Remove("registration"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registration"); else _explicitNullProperties?.Remove("registration"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.RegistrationOutputDto? _explicitNullValueRegistration = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.RegistrationOutputDto Registration { get => _explicitNullValueRegistration; set { _explicitNullValueRegistration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registration"); else _explicitNullProperties?.Remove("registration"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.RegistrationOutputDto Registration { get => _explicitNullValueRegistration; set { _explicitNullValueRegistration = value; AdditionalData?.Remove("registration"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registration"); else _explicitNullProperties?.Remove("registration"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.RegistrationOutputDto _explicitNullValueRegistration = default!;
 #endif
         /// <summary>Set only when `kind` is `not_confirmed`.</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.CheckInOutcomeOutputDtoStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CheckInOutcomeOutputDtoStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.CheckInOutcomeOutputDtoStatus? _explicitNullValueStatus = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.CheckInOutcomeOutputDto"/> and sets the default values.
@@ -70,9 +74,9 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "checkedInAt", n => { CheckedInAt = n.GetDateTimeOffsetValue(); } },
-                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.CheckInOutcomeOutputDtoKind>(); } },
+                { "kind", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.CheckInOutcomeOutputDtoKind>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueKind = default; _explicitNullProperties?.Remove("kind"); AdditionalData["kind"] = unknown; } else { Kind = parsed; AdditionalData.Remove("kind"); } } },
                 { "registration", n => { Registration = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.RegistrationOutputDto>(global::Soenneker.CalCom.OpenApiClient.Models.RegistrationOutputDto.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.CheckInOutcomeOutputDtoStatus>(); } },
+                { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.CheckInOutcomeOutputDtoStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
             };
         }
         /// <summary>

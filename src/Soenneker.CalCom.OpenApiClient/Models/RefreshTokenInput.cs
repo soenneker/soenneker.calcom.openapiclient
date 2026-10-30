@@ -17,7 +17,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("refreshToken") is { } nullNodeRefreshToken && nullNodeRefreshToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RefreshToken = null;
+            if (parseNode.GetChildNode("refreshToken") is null) { _explicitNullValueRefreshToken = default!; _explicitNullProperties?.Remove("refreshToken"); }
+            else if (parseNode.GetChildNode("refreshToken") is { } nullNodeRefreshToken && nullNodeRefreshToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RefreshToken = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>Managed user&apos;s refresh token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RefreshToken { get => _explicitNullValueRefreshToken; set { _explicitNullValueRefreshToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refreshToken"); else _explicitNullProperties?.Remove("refreshToken"); } }
+        public string? RefreshToken { get => _explicitNullValueRefreshToken; set { _explicitNullValueRefreshToken = value; AdditionalData?.Remove("refreshToken"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refreshToken"); else _explicitNullProperties?.Remove("refreshToken"); } }
         private string? _explicitNullValueRefreshToken = default!;
 #nullable restore
 #else
-        public string RefreshToken { get => _explicitNullValueRefreshToken; set { _explicitNullValueRefreshToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refreshToken"); else _explicitNullProperties?.Remove("refreshToken"); } }
+        public string RefreshToken { get => _explicitNullValueRefreshToken; set { _explicitNullValueRefreshToken = value; AdditionalData?.Remove("refreshToken"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refreshToken"); else _explicitNullProperties?.Remove("refreshToken"); } }
         private string _explicitNullValueRefreshToken = default!;
 #endif
         /// <summary>

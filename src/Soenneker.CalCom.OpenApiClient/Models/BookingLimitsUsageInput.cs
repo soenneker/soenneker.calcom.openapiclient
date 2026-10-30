@@ -17,13 +17,20 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("date") is { } nullNodeDate && nullNodeDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Date = null;
-            if (parseNode.GetChildNode("eventTypeId") is { } nullNodeEventTypeId && nullNodeEventTypeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventTypeId = null;
-            if (parseNode.GetChildNode("limit") is { } nullNodeLimit && nullNodeLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Limit = null;
-            if (parseNode.GetChildNode("offset") is { } nullNodeOffset && nullNodeOffset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Offset = null;
-            if (parseNode.GetChildNode("scope") is { } nullNodeScope && nullNodeScope.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scope = null;
-            if (parseNode.GetChildNode("selectedTeamId") is { } nullNodeSelectedTeamId && nullNodeSelectedTeamId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectedTeamId = null;
-            if (parseNode.GetChildNode("userUuids") is { } nullNodeUserUuids && nullNodeUserUuids.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserUuids = null;
+            if (parseNode.GetChildNode("date") is null) { _explicitNullValueDate = default!; _explicitNullProperties?.Remove("date"); }
+            else if (parseNode.GetChildNode("date") is { } nullNodeDate && nullNodeDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Date = null;
+            if (parseNode.GetChildNode("eventTypeId") is null) { _explicitNullValueEventTypeId = default!; _explicitNullProperties?.Remove("eventTypeId"); }
+            else if (parseNode.GetChildNode("eventTypeId") is { } nullNodeEventTypeId && nullNodeEventTypeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventTypeId = null;
+            if (parseNode.GetChildNode("limit") is null) { _explicitNullValueLimit = default!; _explicitNullProperties?.Remove("limit"); }
+            else if (parseNode.GetChildNode("limit") is { } nullNodeLimit && nullNodeLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Limit = null;
+            if (parseNode.GetChildNode("offset") is null) { _explicitNullValueOffset = default!; _explicitNullProperties?.Remove("offset"); }
+            else if (parseNode.GetChildNode("offset") is { } nullNodeOffset && nullNodeOffset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Offset = null;
+            if (parseNode.GetChildNode("scope") is null) { _explicitNullValueScope = default!; _explicitNullProperties?.Remove("scope"); }
+            else if (parseNode.GetChildNode("scope") is { } nullNodeScope && nullNodeScope.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scope = null;
+            if (parseNode.GetChildNode("selectedTeamId") is null) { _explicitNullValueSelectedTeamId = default!; _explicitNullProperties?.Remove("selectedTeamId"); }
+            else if (parseNode.GetChildNode("selectedTeamId") is { } nullNodeSelectedTeamId && nullNodeSelectedTeamId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectedTeamId = null;
+            if (parseNode.GetChildNode("userUuids") is null) { _explicitNullValueUserUuids = default!; _explicitNullProperties?.Remove("userUuids"); }
+            else if (parseNode.GetChildNode("userUuids") is { } nullNodeUserUuids && nullNodeUserUuids.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserUuids = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -31,43 +38,43 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>Calendar day (YYYY-MM-DD). Reports the day, week, month and year containing it, each read in its limit&apos;s own time zone: the user&apos;s for the global limit, the event type&apos;s for the event-type limit. Defaults to today.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Date { get => _explicitNullValueDate; set { _explicitNullValueDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("date"); else _explicitNullProperties?.Remove("date"); } }
+        public string? Date { get => _explicitNullValueDate; set { _explicitNullValueDate = value; AdditionalData?.Remove("date"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("date"); else _explicitNullProperties?.Remove("date"); } }
         private string? _explicitNullValueDate = default!;
 #nullable restore
 #else
-        public string Date { get => _explicitNullValueDate; set { _explicitNullValueDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("date"); else _explicitNullProperties?.Remove("date"); } }
+        public string Date { get => _explicitNullValueDate; set { _explicitNullValueDate = value; AdditionalData?.Remove("date"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("date"); else _explicitNullProperties?.Remove("date"); } }
         private string _explicitNullValueDate = default!;
 #endif
         /// <summary>Adds the event type&apos;s own booking limit. Accepts a numeric ID or UUID. Must be an event type inside the scope; required for org scope.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitsUsageInputEventTypeId? EventTypeId { get => _explicitNullValueEventTypeId; set { _explicitNullValueEventTypeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeId"); else _explicitNullProperties?.Remove("eventTypeId"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitsUsageInputEventTypeId? EventTypeId { get => _explicitNullValueEventTypeId; set { _explicitNullValueEventTypeId = value; AdditionalData?.Remove("eventTypeId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeId"); else _explicitNullProperties?.Remove("eventTypeId"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitsUsageInputEventTypeId? _explicitNullValueEventTypeId = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitsUsageInputEventTypeId EventTypeId { get => _explicitNullValueEventTypeId; set { _explicitNullValueEventTypeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeId"); else _explicitNullProperties?.Remove("eventTypeId"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitsUsageInputEventTypeId EventTypeId { get => _explicitNullValueEventTypeId; set { _explicitNullValueEventTypeId = value; AdditionalData?.Remove("eventTypeId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeId"); else _explicitNullProperties?.Remove("eventTypeId"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitsUsageInputEventTypeId _explicitNullValueEventTypeId = default!;
 #endif
         /// <summary>The limit property</summary>
-        public double? Limit { get => _explicitNullValueLimit; set { _explicitNullValueLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit"); else _explicitNullProperties?.Remove("limit"); } }
+        public double? Limit { get => _explicitNullValueLimit; set { _explicitNullValueLimit = value; AdditionalData?.Remove("limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit"); else _explicitNullProperties?.Remove("limit"); } }
         private double? _explicitNullValueLimit = default!;
         /// <summary>The offset property</summary>
-        public double? Offset { get => _explicitNullValueOffset; set { _explicitNullValueOffset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("offset"); else _explicitNullProperties?.Remove("offset"); } }
+        public double? Offset { get => _explicitNullValueOffset; set { _explicitNullValueOffset = value; AdditionalData?.Remove("offset"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("offset"); else _explicitNullProperties?.Remove("offset"); } }
         private double? _explicitNullValueOffset = default!;
         /// <summary>`user`: the caller only. `team`: accepted members of `selectedTeamId`. `org`: the hosts of `eventTypeId`, which is then required.</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitsUsageInputScope? Scope { get => _explicitNullValueScope; set { _explicitNullValueScope = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scope"); else _explicitNullProperties?.Remove("scope"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitsUsageInputScope? Scope { get => _explicitNullValueScope; set { _explicitNullValueScope = value; AdditionalData?.Remove("scope"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scope"); else _explicitNullProperties?.Remove("scope"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitsUsageInputScope? _explicitNullValueScope = default!;
         /// <summary>Required for team scope.</summary>
-        public double? SelectedTeamId { get => _explicitNullValueSelectedTeamId; set { _explicitNullValueSelectedTeamId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selectedTeamId"); else _explicitNullProperties?.Remove("selectedTeamId"); } }
+        public double? SelectedTeamId { get => _explicitNullValueSelectedTeamId; set { _explicitNullValueSelectedTeamId = value; AdditionalData?.Remove("selectedTeamId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selectedTeamId"); else _explicitNullProperties?.Remove("selectedTeamId"); } }
         private double? _explicitNullValueSelectedTeamId = default!;
         /// <summary>Only report these users. Every uuid must be inside the scope.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? UserUuids { get => _explicitNullValueUserUuids; set { _explicitNullValueUserUuids = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userUuids"); else _explicitNullProperties?.Remove("userUuids"); } }
+        public List<string>? UserUuids { get => _explicitNullValueUserUuids; set { _explicitNullValueUserUuids = value; AdditionalData?.Remove("userUuids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userUuids"); else _explicitNullProperties?.Remove("userUuids"); } }
         private List<string>? _explicitNullValueUserUuids = default!;
 #nullable restore
 #else
-        public List<string> UserUuids { get => _explicitNullValueUserUuids; set { _explicitNullValueUserUuids = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userUuids"); else _explicitNullProperties?.Remove("userUuids"); } }
+        public List<string> UserUuids { get => _explicitNullValueUserUuids; set { _explicitNullValueUserUuids = value; AdditionalData?.Remove("userUuids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userUuids"); else _explicitNullProperties?.Remove("userUuids"); } }
         private List<string> _explicitNullValueUserUuids = default!;
 #endif
         /// <summary>
@@ -99,7 +106,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
                 { "eventTypeId", n => { EventTypeId = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitsUsageInputEventTypeId>(global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitsUsageInputEventTypeId.CreateFromDiscriminatorValue); } },
                 { "limit", n => { Limit = n.GetDoubleValue(); } },
                 { "offset", n => { Offset = n.GetDoubleValue(); } },
-                { "scope", n => { Scope = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitsUsageInputScope>(); } },
+                { "scope", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitsUsageInputScope>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueScope = default; _explicitNullProperties?.Remove("scope"); AdditionalData["scope"] = unknown; } else { Scope = parsed; AdditionalData.Remove("scope"); } } },
                 { "selectedTeamId", n => { SelectedTeamId = n.GetDoubleValue(); } },
                 { "userUuids", n => { UserUuids = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };

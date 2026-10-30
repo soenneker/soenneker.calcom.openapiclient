@@ -17,8 +17,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("option") is { } nullNodeOption && nullNodeOption.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Option = null;
-            if (parseNode.GetChildNode("optionId") is { } nullNodeOptionId && nullNodeOptionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OptionId = null;
+            if (parseNode.GetChildNode("option") is null) { _explicitNullValueOption = default!; _explicitNullProperties?.Remove("option"); }
+            else if (parseNode.GetChildNode("option") is { } nullNodeOption && nullNodeOption.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Option = null;
+            if (parseNode.GetChildNode("optionId") is null) { _explicitNullValueOptionId = default!; _explicitNullProperties?.Remove("optionId"); }
+            else if (parseNode.GetChildNode("optionId") is { } nullNodeOptionId && nullNodeOptionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OptionId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The option property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Option { get => _explicitNullValueOption; set { _explicitNullValueOption = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("option"); else _explicitNullProperties?.Remove("option"); } }
+        public string? Option { get => _explicitNullValueOption; set { _explicitNullValueOption = value; AdditionalData?.Remove("option"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("option"); else _explicitNullProperties?.Remove("option"); } }
         private string? _explicitNullValueOption = default!;
 #nullable restore
 #else
-        public string Option { get => _explicitNullValueOption; set { _explicitNullValueOption = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("option"); else _explicitNullProperties?.Remove("option"); } }
+        public string Option { get => _explicitNullValueOption; set { _explicitNullValueOption = value; AdditionalData?.Remove("option"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("option"); else _explicitNullProperties?.Remove("option"); } }
         private string _explicitNullValueOption = default!;
 #endif
         /// <summary>The optionId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OptionId { get => _explicitNullValueOptionId; set { _explicitNullValueOptionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("optionId"); else _explicitNullProperties?.Remove("optionId"); } }
+        public string? OptionId { get => _explicitNullValueOptionId; set { _explicitNullValueOptionId = value; AdditionalData?.Remove("optionId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("optionId"); else _explicitNullProperties?.Remove("optionId"); } }
         private string? _explicitNullValueOptionId = default!;
 #nullable restore
 #else
-        public string OptionId { get => _explicitNullValueOptionId; set { _explicitNullValueOptionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("optionId"); else _explicitNullProperties?.Remove("optionId"); } }
+        public string OptionId { get => _explicitNullValueOptionId; set { _explicitNullValueOptionId = value; AdditionalData?.Remove("optionId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("optionId"); else _explicitNullProperties?.Remove("optionId"); } }
         private string _explicitNullValueOptionId = default!;
 #endif
         /// <summary>

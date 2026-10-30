@@ -17,34 +17,37 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("direction") is { } nullNodeDirection && nullNodeDirection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Direction = null;
-            if (parseNode.GetChildNode("ipv4") is { } nullNodeIpv4 && nullNodeIpv4.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ipv4 = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("direction") is null) { _explicitNullValueDirection = default!; _explicitNullProperties?.Remove("direction"); }
+            else if (parseNode.GetChildNode("direction") is { } nullNodeDirection && nullNodeDirection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Direction = null;
+            if (parseNode.GetChildNode("ipv4") is null) { _explicitNullValueIpv4 = default!; _explicitNullProperties?.Remove("ipv4"); }
+            else if (parseNode.GetChildNode("ipv4") is { } nullNodeIpv4 && nullNodeIpv4.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ipv4 = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>`ingress-to-cal` are the addresses your systems connect to when they call Cal.com. `egress-from-cal` are the addresses Cal.com connects to your systems from, for example when delivering a webhook.</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.NamedAllowlistServiceOutputDirection? Direction { get => _explicitNullValueDirection; set { _explicitNullValueDirection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("direction"); else _explicitNullProperties?.Remove("direction"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.NamedAllowlistServiceOutputDirection? Direction { get => _explicitNullValueDirection; set { _explicitNullValueDirection = value; AdditionalData?.Remove("direction"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("direction"); else _explicitNullProperties?.Remove("direction"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.NamedAllowlistServiceOutputDirection? _explicitNullValueDirection = default!;
         /// <summary>The ipv4 property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Ipv4 { get => _explicitNullValueIpv4; set { _explicitNullValueIpv4 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ipv4"); else _explicitNullProperties?.Remove("ipv4"); } }
+        public List<string>? Ipv4 { get => _explicitNullValueIpv4; set { _explicitNullValueIpv4 = value; AdditionalData?.Remove("ipv4"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ipv4"); else _explicitNullProperties?.Remove("ipv4"); } }
         private List<string>? _explicitNullValueIpv4 = default!;
 #nullable restore
 #else
-        public List<string> Ipv4 { get => _explicitNullValueIpv4; set { _explicitNullValueIpv4 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ipv4"); else _explicitNullProperties?.Remove("ipv4"); } }
+        public List<string> Ipv4 { get => _explicitNullValueIpv4; set { _explicitNullValueIpv4 = value; AdditionalData?.Remove("ipv4"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ipv4"); else _explicitNullProperties?.Remove("ipv4"); } }
         private List<string> _explicitNullValueIpv4 = default!;
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>
@@ -72,7 +75,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "direction", n => { Direction = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.NamedAllowlistServiceOutputDirection>(); } },
+                { "direction", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.NamedAllowlistServiceOutputDirection>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDirection = default; _explicitNullProperties?.Remove("direction"); AdditionalData["direction"] = unknown; } else { Direction = parsed; AdditionalData.Remove("direction"); } } },
                 { "ipv4", n => { Ipv4 = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
             };

@@ -17,7 +17,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("checkInToken") is { } nullNodeCheckInToken && nullNodeCheckInToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CheckInToken = null;
+            if (parseNode.GetChildNode("checkInToken") is null) { _explicitNullValueCheckInToken = default!; _explicitNullProperties?.Remove("checkInToken"); }
+            else if (parseNode.GetChildNode("checkInToken") is { } nullNodeCheckInToken && nullNodeCheckInToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CheckInToken = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The signed check-in token scanned from the guest&apos;s QR code.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CheckInToken { get => _explicitNullValueCheckInToken; set { _explicitNullValueCheckInToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checkInToken"); else _explicitNullProperties?.Remove("checkInToken"); } }
+        public string? CheckInToken { get => _explicitNullValueCheckInToken; set { _explicitNullValueCheckInToken = value; AdditionalData?.Remove("checkInToken"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checkInToken"); else _explicitNullProperties?.Remove("checkInToken"); } }
         private string? _explicitNullValueCheckInToken = default!;
 #nullable restore
 #else
-        public string CheckInToken { get => _explicitNullValueCheckInToken; set { _explicitNullValueCheckInToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checkInToken"); else _explicitNullProperties?.Remove("checkInToken"); } }
+        public string CheckInToken { get => _explicitNullValueCheckInToken; set { _explicitNullValueCheckInToken = value; AdditionalData?.Remove("checkInToken"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checkInToken"); else _explicitNullProperties?.Remove("checkInToken"); } }
         private string _explicitNullValueCheckInToken = default!;
 #endif
         /// <summary>

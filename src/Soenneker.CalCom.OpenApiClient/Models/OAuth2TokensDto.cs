@@ -17,56 +17,61 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("access_token") is { } nullNodeAccessToken && nullNodeAccessToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccessToken = null;
-            if (parseNode.GetChildNode("expires_in") is { } nullNodeExpiresIn && nullNodeExpiresIn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresIn = null;
-            if (parseNode.GetChildNode("refresh_token") is { } nullNodeRefreshToken && nullNodeRefreshToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RefreshToken = null;
-            if (parseNode.GetChildNode("scope") is { } nullNodeScope && nullNodeScope.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scope = null;
-            if (parseNode.GetChildNode("token_type") is { } nullNodeTokenType && nullNodeTokenType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenType = null;
+            if (parseNode.GetChildNode("access_token") is null) { _explicitNullValueAccessToken = default!; _explicitNullProperties?.Remove("access_token"); }
+            else if (parseNode.GetChildNode("access_token") is { } nullNodeAccessToken && nullNodeAccessToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccessToken = null;
+            if (parseNode.GetChildNode("expires_in") is null) { _explicitNullValueExpiresIn = default!; _explicitNullProperties?.Remove("expires_in"); }
+            else if (parseNode.GetChildNode("expires_in") is { } nullNodeExpiresIn && nullNodeExpiresIn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresIn = null;
+            if (parseNode.GetChildNode("refresh_token") is null) { _explicitNullValueRefreshToken = default!; _explicitNullProperties?.Remove("refresh_token"); }
+            else if (parseNode.GetChildNode("refresh_token") is { } nullNodeRefreshToken && nullNodeRefreshToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RefreshToken = null;
+            if (parseNode.GetChildNode("scope") is null) { _explicitNullValueScope = default!; _explicitNullProperties?.Remove("scope"); }
+            else if (parseNode.GetChildNode("scope") is { } nullNodeScope && nullNodeScope.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scope = null;
+            if (parseNode.GetChildNode("token_type") is null) { _explicitNullValueTokenType = default!; _explicitNullProperties?.Remove("token_type"); }
+            else if (parseNode.GetChildNode("token_type") is { } nullNodeTokenType && nullNodeTokenType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenType = null;
         }
 
         /// <summary>The access token</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AccessToken { get => _explicitNullValueAccessToken; set { _explicitNullValueAccessToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("access_token"); else _explicitNullProperties?.Remove("access_token"); } }
+        public string? AccessToken { get => _explicitNullValueAccessToken; set { _explicitNullValueAccessToken = value; AdditionalData?.Remove("access_token"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("access_token"); else _explicitNullProperties?.Remove("access_token"); } }
         private string? _explicitNullValueAccessToken = default!;
 #nullable restore
 #else
-        public string AccessToken { get => _explicitNullValueAccessToken; set { _explicitNullValueAccessToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("access_token"); else _explicitNullProperties?.Remove("access_token"); } }
+        public string AccessToken { get => _explicitNullValueAccessToken; set { _explicitNullValueAccessToken = value; AdditionalData?.Remove("access_token"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("access_token"); else _explicitNullProperties?.Remove("access_token"); } }
         private string _explicitNullValueAccessToken = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The number of seconds until the access token expires</summary>
-        public double? ExpiresIn { get => _explicitNullValueExpiresIn; set { _explicitNullValueExpiresIn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_in"); else _explicitNullProperties?.Remove("expires_in"); } }
+        public double? ExpiresIn { get => _explicitNullValueExpiresIn; set { _explicitNullValueExpiresIn = value; AdditionalData?.Remove("expires_in"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_in"); else _explicitNullProperties?.Remove("expires_in"); } }
         private double? _explicitNullValueExpiresIn = default!;
         /// <summary>The refresh token</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RefreshToken { get => _explicitNullValueRefreshToken; set { _explicitNullValueRefreshToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refresh_token"); else _explicitNullProperties?.Remove("refresh_token"); } }
+        public string? RefreshToken { get => _explicitNullValueRefreshToken; set { _explicitNullValueRefreshToken = value; AdditionalData?.Remove("refresh_token"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refresh_token"); else _explicitNullProperties?.Remove("refresh_token"); } }
         private string? _explicitNullValueRefreshToken = default!;
 #nullable restore
 #else
-        public string RefreshToken { get => _explicitNullValueRefreshToken; set { _explicitNullValueRefreshToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refresh_token"); else _explicitNullProperties?.Remove("refresh_token"); } }
+        public string RefreshToken { get => _explicitNullValueRefreshToken; set { _explicitNullValueRefreshToken = value; AdditionalData?.Remove("refresh_token"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refresh_token"); else _explicitNullProperties?.Remove("refresh_token"); } }
         private string _explicitNullValueRefreshToken = default!;
 #endif
         /// <summary>The granted scopes (space-delimited per RFC 6749)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Scope { get => _explicitNullValueScope; set { _explicitNullValueScope = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scope"); else _explicitNullProperties?.Remove("scope"); } }
+        public string? Scope { get => _explicitNullValueScope; set { _explicitNullValueScope = value; AdditionalData?.Remove("scope"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scope"); else _explicitNullProperties?.Remove("scope"); } }
         private string? _explicitNullValueScope = default!;
 #nullable restore
 #else
-        public string Scope { get => _explicitNullValueScope; set { _explicitNullValueScope = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scope"); else _explicitNullProperties?.Remove("scope"); } }
+        public string Scope { get => _explicitNullValueScope; set { _explicitNullValueScope = value; AdditionalData?.Remove("scope"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scope"); else _explicitNullProperties?.Remove("scope"); } }
         private string _explicitNullValueScope = default!;
 #endif
         /// <summary>The token type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TokenType { get => _explicitNullValueTokenType; set { _explicitNullValueTokenType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_type"); else _explicitNullProperties?.Remove("token_type"); } }
+        public string? TokenType { get => _explicitNullValueTokenType; set { _explicitNullValueTokenType = value; AdditionalData?.Remove("token_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_type"); else _explicitNullProperties?.Remove("token_type"); } }
         private string? _explicitNullValueTokenType = default!;
 #nullable restore
 #else
-        public string TokenType { get => _explicitNullValueTokenType; set { _explicitNullValueTokenType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_type"); else _explicitNullProperties?.Remove("token_type"); } }
+        public string TokenType { get => _explicitNullValueTokenType; set { _explicitNullValueTokenType = value; AdditionalData?.Remove("token_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_type"); else _explicitNullProperties?.Remove("token_type"); } }
         private string _explicitNullValueTokenType = default!;
 #endif
         /// <summary>

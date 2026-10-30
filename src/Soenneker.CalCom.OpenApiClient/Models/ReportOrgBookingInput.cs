@@ -17,10 +17,14 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("bookingUid") is { } nullNodeBookingUid && nullNodeBookingUid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingUid = null;
-            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
-            if (parseNode.GetChildNode("reason") is { } nullNodeReason && nullNodeReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reason = null;
-            if (parseNode.GetChildNode("reportType") is { } nullNodeReportType && nullNodeReportType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReportType = null;
+            if (parseNode.GetChildNode("bookingUid") is null) { _explicitNullValueBookingUid = default!; _explicitNullProperties?.Remove("bookingUid"); }
+            else if (parseNode.GetChildNode("bookingUid") is { } nullNodeBookingUid && nullNodeBookingUid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingUid = null;
+            if (parseNode.GetChildNode("description") is null) { _explicitNullValueDescription = default!; _explicitNullProperties?.Remove("description"); }
+            else if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("reason") is null) { _explicitNullValueReason = default!; _explicitNullProperties?.Remove("reason"); }
+            else if (parseNode.GetChildNode("reason") is { } nullNodeReason && nullNodeReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reason = null;
+            if (parseNode.GetChildNode("reportType") is null) { _explicitNullValueReportType = default!; _explicitNullProperties?.Remove("reportType"); }
+            else if (parseNode.GetChildNode("reportType") is { } nullNodeReportType && nullNodeReportType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReportType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,28 +32,28 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The UID of the booking to report</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BookingUid { get => _explicitNullValueBookingUid; set { _explicitNullValueBookingUid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUid"); else _explicitNullProperties?.Remove("bookingUid"); } }
+        public string? BookingUid { get => _explicitNullValueBookingUid; set { _explicitNullValueBookingUid = value; AdditionalData?.Remove("bookingUid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUid"); else _explicitNullProperties?.Remove("bookingUid"); } }
         private string? _explicitNullValueBookingUid = default!;
 #nullable restore
 #else
-        public string BookingUid { get => _explicitNullValueBookingUid; set { _explicitNullValueBookingUid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUid"); else _explicitNullProperties?.Remove("bookingUid"); } }
+        public string BookingUid { get => _explicitNullValueBookingUid; set { _explicitNullValueBookingUid = value; AdditionalData?.Remove("bookingUid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUid"); else _explicitNullProperties?.Remove("bookingUid"); } }
         private string _explicitNullValueBookingUid = default!;
 #endif
         /// <summary>Additional description for the report</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; AdditionalData?.Remove("description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
         private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; AdditionalData?.Remove("description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
         private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>The reason for reporting the booking</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.ReportOrgBookingInputReason? Reason { get => _explicitNullValueReason; set { _explicitNullValueReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reason"); else _explicitNullProperties?.Remove("reason"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.ReportOrgBookingInputReason? Reason { get => _explicitNullValueReason; set { _explicitNullValueReason = value; AdditionalData?.Remove("reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reason"); else _explicitNullProperties?.Remove("reason"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.ReportOrgBookingInputReason? _explicitNullValueReason = default!;
         /// <summary>Whether to report by email or domain. EMAIL targets the specific booker email. DOMAIN targets all emails from the same domain.</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.ReportOrgBookingInputReportType? ReportType { get => _explicitNullValueReportType; set { _explicitNullValueReportType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reportType"); else _explicitNullProperties?.Remove("reportType"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.ReportOrgBookingInputReportType? ReportType { get => _explicitNullValueReportType; set { _explicitNullValueReportType = value; AdditionalData?.Remove("reportType"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reportType"); else _explicitNullProperties?.Remove("reportType"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.ReportOrgBookingInputReportType? _explicitNullValueReportType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.ReportOrgBookingInput"/> and sets the default values.
@@ -78,8 +82,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             {
                 { "bookingUid", n => { BookingUid = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "reason", n => { Reason = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.ReportOrgBookingInputReason>(); } },
-                { "reportType", n => { ReportType = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.ReportOrgBookingInputReportType>(); } },
+                { "reason", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.ReportOrgBookingInputReason>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueReason = default; _explicitNullProperties?.Remove("reason"); AdditionalData["reason"] = unknown; } else { Reason = parsed; AdditionalData.Remove("reason"); } } },
+                { "reportType", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.ReportOrgBookingInputReportType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueReportType = default; _explicitNullProperties?.Remove("reportType"); AdditionalData["reportType"] = unknown; } else { ReportType = parsed; AdditionalData.Remove("reportType"); } } },
             };
         }
         /// <summary>

@@ -17,11 +17,16 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("bookingUid") is { } nullNodeBookingUid && nullNodeBookingUid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingUid = null;
-            if (parseNode.GetChildNode("cancelledCount") is { } nullNodeCancelledCount && nullNodeCancelledCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CancelledCount = null;
-            if (parseNode.GetChildNode("message") is { } nullNodeMessage && nullNodeMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Message = null;
-            if (parseNode.GetChildNode("reportedCount") is { } nullNodeReportedCount && nullNodeReportedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReportedCount = null;
-            if (parseNode.GetChildNode("success") is { } nullNodeSuccess && nullNodeSuccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Success = null;
+            if (parseNode.GetChildNode("bookingUid") is null) { _explicitNullValueBookingUid = default!; _explicitNullProperties?.Remove("bookingUid"); }
+            else if (parseNode.GetChildNode("bookingUid") is { } nullNodeBookingUid && nullNodeBookingUid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingUid = null;
+            if (parseNode.GetChildNode("cancelledCount") is null) { _explicitNullValueCancelledCount = default!; _explicitNullProperties?.Remove("cancelledCount"); }
+            else if (parseNode.GetChildNode("cancelledCount") is { } nullNodeCancelledCount && nullNodeCancelledCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CancelledCount = null;
+            if (parseNode.GetChildNode("message") is null) { _explicitNullValueMessage = default!; _explicitNullProperties?.Remove("message"); }
+            else if (parseNode.GetChildNode("message") is { } nullNodeMessage && nullNodeMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Message = null;
+            if (parseNode.GetChildNode("reportedCount") is null) { _explicitNullValueReportedCount = default!; _explicitNullProperties?.Remove("reportedCount"); }
+            else if (parseNode.GetChildNode("reportedCount") is { } nullNodeReportedCount && nullNodeReportedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReportedCount = null;
+            if (parseNode.GetChildNode("success") is null) { _explicitNullValueSuccess = default!; _explicitNullProperties?.Remove("success"); }
+            else if (parseNode.GetChildNode("success") is { } nullNodeSuccess && nullNodeSuccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Success = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,31 +34,31 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The UID of the reported booking</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BookingUid { get => _explicitNullValueBookingUid; set { _explicitNullValueBookingUid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUid"); else _explicitNullProperties?.Remove("bookingUid"); } }
+        public string? BookingUid { get => _explicitNullValueBookingUid; set { _explicitNullValueBookingUid = value; AdditionalData?.Remove("bookingUid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUid"); else _explicitNullProperties?.Remove("bookingUid"); } }
         private string? _explicitNullValueBookingUid = default!;
 #nullable restore
 #else
-        public string BookingUid { get => _explicitNullValueBookingUid; set { _explicitNullValueBookingUid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUid"); else _explicitNullProperties?.Remove("bookingUid"); } }
+        public string BookingUid { get => _explicitNullValueBookingUid; set { _explicitNullValueBookingUid = value; AdditionalData?.Remove("bookingUid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUid"); else _explicitNullProperties?.Remove("bookingUid"); } }
         private string _explicitNullValueBookingUid = default!;
 #endif
         /// <summary>The number of bookings cancelled</summary>
-        public double? CancelledCount { get => _explicitNullValueCancelledCount; set { _explicitNullValueCancelledCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cancelledCount"); else _explicitNullProperties?.Remove("cancelledCount"); } }
+        public double? CancelledCount { get => _explicitNullValueCancelledCount; set { _explicitNullValueCancelledCount = value; AdditionalData?.Remove("cancelledCount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cancelledCount"); else _explicitNullProperties?.Remove("cancelledCount"); } }
         private double? _explicitNullValueCancelledCount = default!;
         /// <summary>A human-readable message describing the result</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
+        public string? Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; AdditionalData?.Remove("message"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
         private string? _explicitNullValueMessage = default!;
 #nullable restore
 #else
-        public string Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
+        public string Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; AdditionalData?.Remove("message"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
         private string _explicitNullValueMessage = default!;
 #endif
         /// <summary>The number of booking reports created</summary>
-        public double? ReportedCount { get => _explicitNullValueReportedCount; set { _explicitNullValueReportedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reportedCount"); else _explicitNullProperties?.Remove("reportedCount"); } }
+        public double? ReportedCount { get => _explicitNullValueReportedCount; set { _explicitNullValueReportedCount = value; AdditionalData?.Remove("reportedCount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reportedCount"); else _explicitNullProperties?.Remove("reportedCount"); } }
         private double? _explicitNullValueReportedCount = default!;
         /// <summary>Whether the operation was successful</summary>
-        public bool? Success { get => _explicitNullValueSuccess; set { _explicitNullValueSuccess = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success"); else _explicitNullProperties?.Remove("success"); } }
+        public bool? Success { get => _explicitNullValueSuccess; set { _explicitNullValueSuccess = value; AdditionalData?.Remove("success"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success"); else _explicitNullProperties?.Remove("success"); } }
         private bool? _explicitNullValueSuccess = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.ReportOrgBookingData"/> and sets the default values.

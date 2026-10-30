@@ -17,11 +17,16 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
-            if (parseNode.GetChildNode("recipientCount") is { } nullNodeRecipientCount && nullNodeRecipientCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecipientCount = null;
-            if (parseNode.GetChildNode("skippedPhoneCount") is { } nullNodeSkippedPhoneCount && nullNodeSkippedPhoneCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkippedPhoneCount = null;
-            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
-            if (parseNode.GetChildNode("textRecipientCount") is { } nullNodeTextRecipientCount && nullNodeTextRecipientCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TextRecipientCount = null;
+            if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
+            else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("recipientCount") is null) { _explicitNullValueRecipientCount = default!; _explicitNullProperties?.Remove("recipientCount"); }
+            else if (parseNode.GetChildNode("recipientCount") is { } nullNodeRecipientCount && nullNodeRecipientCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecipientCount = null;
+            if (parseNode.GetChildNode("skippedPhoneCount") is null) { _explicitNullValueSkippedPhoneCount = default!; _explicitNullProperties?.Remove("skippedPhoneCount"); }
+            else if (parseNode.GetChildNode("skippedPhoneCount") is { } nullNodeSkippedPhoneCount && nullNodeSkippedPhoneCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkippedPhoneCount = null;
+            if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
+            else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("textRecipientCount") is null) { _explicitNullValueTextRecipientCount = default!; _explicitNullProperties?.Remove("textRecipientCount"); }
+            else if (parseNode.GetChildNode("textRecipientCount") is { } nullNodeTextRecipientCount && nullNodeTextRecipientCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TextRecipientCount = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,24 +34,24 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>Unique identifier of the message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string _explicitNullValueId = default!;
 #endif
         /// <summary>How many guests will be emailed.</summary>
-        public double? RecipientCount { get => _explicitNullValueRecipientCount; set { _explicitNullValueRecipientCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipientCount"); else _explicitNullProperties?.Remove("recipientCount"); } }
+        public double? RecipientCount { get => _explicitNullValueRecipientCount; set { _explicitNullValueRecipientCount = value; AdditionalData?.Remove("recipientCount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipientCount"); else _explicitNullProperties?.Remove("recipientCount"); } }
         private double? _explicitNullValueRecipientCount = default!;
         /// <summary>Guests in the segment who have only a phone number and will not be texted.</summary>
-        public double? SkippedPhoneCount { get => _explicitNullValueSkippedPhoneCount; set { _explicitNullValueSkippedPhoneCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skippedPhoneCount"); else _explicitNullProperties?.Remove("skippedPhoneCount"); } }
+        public double? SkippedPhoneCount { get => _explicitNullValueSkippedPhoneCount; set { _explicitNullValueSkippedPhoneCount = value; AdditionalData?.Remove("skippedPhoneCount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skippedPhoneCount"); else _explicitNullProperties?.Remove("skippedPhoneCount"); } }
         private double? _explicitNullValueSkippedPhoneCount = default!;
         /// <summary>`QUEUED` when the message is on its way, `FAILED_TO_QUEUE` when it could not be queued and nothing was sent.</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.SendMessageOutputDtoStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.SendMessageOutputDtoStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.SendMessageOutputDtoStatus? _explicitNullValueStatus = default!;
         /// <summary>How many guests will be texted instead, because they have only a phone number.</summary>
-        public double? TextRecipientCount { get => _explicitNullValueTextRecipientCount; set { _explicitNullValueTextRecipientCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("textRecipientCount"); else _explicitNullProperties?.Remove("textRecipientCount"); } }
+        public double? TextRecipientCount { get => _explicitNullValueTextRecipientCount; set { _explicitNullValueTextRecipientCount = value; AdditionalData?.Remove("textRecipientCount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("textRecipientCount"); else _explicitNullProperties?.Remove("textRecipientCount"); } }
         private double? _explicitNullValueTextRecipientCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.SendMessageOutputDto"/> and sets the default values.
@@ -76,7 +81,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "recipientCount", n => { RecipientCount = n.GetDoubleValue(); } },
                 { "skippedPhoneCount", n => { SkippedPhoneCount = n.GetDoubleValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.SendMessageOutputDtoStatus>(); } },
+                { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.SendMessageOutputDtoStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
                 { "textRecipientCount", n => { TextRecipientCount = n.GetDoubleValue(); } },
             };
         }

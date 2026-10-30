@@ -17,8 +17,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("attendees") is { } nullNodeAttendees && nullNodeAttendees.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Attendees = null;
-            if (parseNode.GetChildNode("host") is { } nullNodeHost && nullNodeHost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Host = null;
+            if (parseNode.GetChildNode("attendees") is null) { _explicitNullValueAttendees = default!; _explicitNullProperties?.Remove("attendees"); }
+            else if (parseNode.GetChildNode("attendees") is { } nullNodeAttendees && nullNodeAttendees.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Attendees = null;
+            if (parseNode.GetChildNode("host") is null) { _explicitNullValueHost = default!; _explicitNullProperties?.Remove("host"); }
+            else if (parseNode.GetChildNode("host") is { } nullNodeHost && nullNodeHost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Host = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,15 +28,15 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The attendees property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.MarkAbsentAttendee>? Attendees { get => _explicitNullValueAttendees; set { _explicitNullValueAttendees = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attendees"); else _explicitNullProperties?.Remove("attendees"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.MarkAbsentAttendee>? Attendees { get => _explicitNullValueAttendees; set { _explicitNullValueAttendees = value; AdditionalData?.Remove("attendees"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attendees"); else _explicitNullProperties?.Remove("attendees"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.MarkAbsentAttendee>? _explicitNullValueAttendees = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.MarkAbsentAttendee> Attendees { get => _explicitNullValueAttendees; set { _explicitNullValueAttendees = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attendees"); else _explicitNullProperties?.Remove("attendees"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.MarkAbsentAttendee> Attendees { get => _explicitNullValueAttendees; set { _explicitNullValueAttendees = value; AdditionalData?.Remove("attendees"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attendees"); else _explicitNullProperties?.Remove("attendees"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.MarkAbsentAttendee> _explicitNullValueAttendees = default!;
 #endif
         /// <summary>Whether the host was absent</summary>
-        public bool? Host { get => _explicitNullValueHost; set { _explicitNullValueHost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("host"); else _explicitNullProperties?.Remove("host"); } }
+        public bool? Host { get => _explicitNullValueHost; set { _explicitNullValueHost = value; AdditionalData?.Remove("host"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("host"); else _explicitNullProperties?.Remove("host"); } }
         private bool? _explicitNullValueHost = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.MarkAbsentBookingInput20240813"/> and sets the default values.

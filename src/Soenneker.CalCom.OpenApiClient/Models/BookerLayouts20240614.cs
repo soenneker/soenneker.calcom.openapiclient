@@ -17,23 +17,25 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("defaultLayout") is { } nullNodeDefaultLayout && nullNodeDefaultLayout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultLayout = null;
-            if (parseNode.GetChildNode("enabledLayouts") is { } nullNodeEnabledLayouts && nullNodeEnabledLayouts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnabledLayouts = null;
+            if (parseNode.GetChildNode("defaultLayout") is null) { _explicitNullValueDefaultLayout = default!; _explicitNullProperties?.Remove("defaultLayout"); }
+            else if (parseNode.GetChildNode("defaultLayout") is { } nullNodeDefaultLayout && nullNodeDefaultLayout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultLayout = null;
+            if (parseNode.GetChildNode("enabledLayouts") is null) { _explicitNullValueEnabledLayouts = default!; _explicitNullProperties?.Remove("enabledLayouts"); }
+            else if (parseNode.GetChildNode("enabledLayouts") is { } nullNodeEnabledLayouts && nullNodeEnabledLayouts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnabledLayouts = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The defaultLayout property</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.BookerLayouts20240614DefaultLayout? DefaultLayout { get => _explicitNullValueDefaultLayout; set { _explicitNullValueDefaultLayout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("defaultLayout"); else _explicitNullProperties?.Remove("defaultLayout"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.BookerLayouts20240614DefaultLayout? DefaultLayout { get => _explicitNullValueDefaultLayout; set { _explicitNullValueDefaultLayout = value; AdditionalData?.Remove("defaultLayout"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("defaultLayout"); else _explicitNullProperties?.Remove("defaultLayout"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.BookerLayouts20240614DefaultLayout? _explicitNullValueDefaultLayout = default!;
         /// <summary>Array of valid layouts - month, week or column</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookerLayouts20240614EnabledLayoutsItem?>? EnabledLayouts { get => _explicitNullValueEnabledLayouts; set { _explicitNullValueEnabledLayouts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabledLayouts"); else _explicitNullProperties?.Remove("enabledLayouts"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookerLayouts20240614EnabledLayoutsItem?>? EnabledLayouts { get => _explicitNullValueEnabledLayouts; set { _explicitNullValueEnabledLayouts = value; AdditionalData?.Remove("enabledLayouts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabledLayouts"); else _explicitNullProperties?.Remove("enabledLayouts"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.BookerLayouts20240614EnabledLayoutsItem?>? _explicitNullValueEnabledLayouts = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookerLayouts20240614EnabledLayoutsItem?> EnabledLayouts { get => _explicitNullValueEnabledLayouts; set { _explicitNullValueEnabledLayouts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabledLayouts"); else _explicitNullProperties?.Remove("enabledLayouts"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookerLayouts20240614EnabledLayoutsItem?> EnabledLayouts { get => _explicitNullValueEnabledLayouts; set { _explicitNullValueEnabledLayouts = value; AdditionalData?.Remove("enabledLayouts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabledLayouts"); else _explicitNullProperties?.Remove("enabledLayouts"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.BookerLayouts20240614EnabledLayoutsItem?> _explicitNullValueEnabledLayouts = default!;
 #endif
         /// <summary>
@@ -61,7 +63,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "defaultLayout", n => { DefaultLayout = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.BookerLayouts20240614DefaultLayout>(); } },
+                { "defaultLayout", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.BookerLayouts20240614DefaultLayout>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDefaultLayout = default; _explicitNullProperties?.Remove("defaultLayout"); AdditionalData["defaultLayout"] = unknown; } else { DefaultLayout = parsed; AdditionalData.Remove("defaultLayout"); } } },
                 { "enabledLayouts", n => { EnabledLayouts = n.GetCollectionOfEnumValues<global::Soenneker.CalCom.OpenApiClient.Models.BookerLayouts20240614EnabledLayoutsItem>()?.AsList(); } },
             };
         }

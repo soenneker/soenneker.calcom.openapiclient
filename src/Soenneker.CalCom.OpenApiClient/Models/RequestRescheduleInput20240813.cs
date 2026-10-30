@@ -17,7 +17,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("rescheduleReason") is { } nullNodeRescheduleReason && nullNodeRescheduleReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RescheduleReason = null;
+            if (parseNode.GetChildNode("rescheduleReason") is null) { _explicitNullValueRescheduleReason = default!; _explicitNullProperties?.Remove("rescheduleReason"); }
+            else if (parseNode.GetChildNode("rescheduleReason") is { } nullNodeRescheduleReason && nullNodeRescheduleReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RescheduleReason = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>Reason for requesting to reschedule the booking</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RescheduleReason { get => _explicitNullValueRescheduleReason; set { _explicitNullValueRescheduleReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rescheduleReason"); else _explicitNullProperties?.Remove("rescheduleReason"); } }
+        public string? RescheduleReason { get => _explicitNullValueRescheduleReason; set { _explicitNullValueRescheduleReason = value; AdditionalData?.Remove("rescheduleReason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rescheduleReason"); else _explicitNullProperties?.Remove("rescheduleReason"); } }
         private string? _explicitNullValueRescheduleReason = default!;
 #nullable restore
 #else
-        public string RescheduleReason { get => _explicitNullValueRescheduleReason; set { _explicitNullValueRescheduleReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rescheduleReason"); else _explicitNullProperties?.Remove("rescheduleReason"); } }
+        public string RescheduleReason { get => _explicitNullValueRescheduleReason; set { _explicitNullValueRescheduleReason = value; AdditionalData?.Remove("rescheduleReason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rescheduleReason"); else _explicitNullProperties?.Remove("rescheduleReason"); } }
         private string _explicitNullValueRescheduleReason = default!;
 #endif
         /// <summary>

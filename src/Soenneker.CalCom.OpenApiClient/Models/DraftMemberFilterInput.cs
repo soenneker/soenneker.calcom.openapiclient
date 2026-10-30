@@ -17,8 +17,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("conditions") is { } nullNodeConditions && nullNodeConditions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Conditions = null;
-            if (parseNode.GetChildNode("match") is { } nullNodeMatch && nullNodeMatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Match = null;
+            if (parseNode.GetChildNode("conditions") is null) { _explicitNullValueConditions = default!; _explicitNullProperties?.Remove("conditions"); }
+            else if (parseNode.GetChildNode("conditions") is { } nullNodeConditions && nullNodeConditions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Conditions = null;
+            if (parseNode.GetChildNode("match") is null) { _explicitNullValueMatch = default!; _explicitNullProperties?.Remove("match"); }
+            else if (parseNode.GetChildNode("match") is { } nullNodeMatch && nullNodeMatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Match = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,15 +28,15 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The conditions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.DraftMemberFilterConditionInput>? Conditions { get => _explicitNullValueConditions; set { _explicitNullValueConditions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conditions"); else _explicitNullProperties?.Remove("conditions"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.DraftMemberFilterConditionInput>? Conditions { get => _explicitNullValueConditions; set { _explicitNullValueConditions = value; AdditionalData?.Remove("conditions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conditions"); else _explicitNullProperties?.Remove("conditions"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.DraftMemberFilterConditionInput>? _explicitNullValueConditions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.DraftMemberFilterConditionInput> Conditions { get => _explicitNullValueConditions; set { _explicitNullValueConditions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conditions"); else _explicitNullProperties?.Remove("conditions"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.DraftMemberFilterConditionInput> Conditions { get => _explicitNullValueConditions; set { _explicitNullValueConditions = value; AdditionalData?.Remove("conditions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conditions"); else _explicitNullProperties?.Remove("conditions"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.DraftMemberFilterConditionInput> _explicitNullValueConditions = default!;
 #endif
         /// <summary>The match property</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.DraftMemberFilterInputMatch? Match { get => _explicitNullValueMatch; set { _explicitNullValueMatch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match"); else _explicitNullProperties?.Remove("match"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.DraftMemberFilterInputMatch? Match { get => _explicitNullValueMatch; set { _explicitNullValueMatch = value; AdditionalData?.Remove("match"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match"); else _explicitNullProperties?.Remove("match"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.DraftMemberFilterInputMatch? _explicitNullValueMatch = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.DraftMemberFilterInput"/> and sets the default values.
@@ -62,7 +64,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "conditions", n => { Conditions = n.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.DraftMemberFilterConditionInput>(global::Soenneker.CalCom.OpenApiClient.Models.DraftMemberFilterConditionInput.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "match", n => { Match = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.DraftMemberFilterInputMatch>(); } },
+                { "match", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.DraftMemberFilterInputMatch>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMatch = default; _explicitNullProperties?.Remove("match"); AdditionalData["match"] = unknown; } else { Match = parsed; AdditionalData.Remove("match"); } } },
             };
         }
         /// <summary>

@@ -17,7 +17,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("authUrl") is { } nullNodeAuthUrl && nullNodeAuthUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthUrl = null;
+            if (parseNode.GetChildNode("authUrl") is null) { _explicitNullValueAuthUrl = default!; _explicitNullProperties?.Remove("authUrl"); }
+            else if (parseNode.GetChildNode("authUrl") is { } nullNodeAuthUrl && nullNodeAuthUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthUrl = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The authUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AuthUrl { get => _explicitNullValueAuthUrl; set { _explicitNullValueAuthUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authUrl"); else _explicitNullProperties?.Remove("authUrl"); } }
+        public string? AuthUrl { get => _explicitNullValueAuthUrl; set { _explicitNullValueAuthUrl = value; AdditionalData?.Remove("authUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authUrl"); else _explicitNullProperties?.Remove("authUrl"); } }
         private string? _explicitNullValueAuthUrl = default!;
 #nullable restore
 #else
-        public string AuthUrl { get => _explicitNullValueAuthUrl; set { _explicitNullValueAuthUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authUrl"); else _explicitNullProperties?.Remove("authUrl"); } }
+        public string AuthUrl { get => _explicitNullValueAuthUrl; set { _explicitNullValueAuthUrl = value; AdditionalData?.Remove("authUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authUrl"); else _explicitNullProperties?.Remove("authUrl"); } }
         private string _explicitNullValueAuthUrl = default!;
 #endif
         /// <summary>

@@ -17,22 +17,28 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("action") is { } nullNodeAction && nullNodeAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Action = null;
-            if (parseNode.GetChildNode("conditions") is { } nullNodeConditions && nullNodeConditions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Conditions = null;
-            if (parseNode.GetChildNode("fallbackMemberFilter") is { } nullNodeFallbackMemberFilter && nullNodeFallbackMemberFilter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FallbackMemberFilter = null;
-            if (parseNode.GetChildNode("match") is { } nullNodeMatch && nullNodeMatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Match = null;
-            if (parseNode.GetChildNode("memberFilter") is { } nullNodeMemberFilter && nullNodeMemberFilter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MemberFilter = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("action") is null) { _explicitNullValueAction = default!; _explicitNullProperties?.Remove("action"); }
+            else if (parseNode.GetChildNode("action") is { } nullNodeAction && nullNodeAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Action = null;
+            if (parseNode.GetChildNode("conditions") is null) { _explicitNullValueConditions = default!; _explicitNullProperties?.Remove("conditions"); }
+            else if (parseNode.GetChildNode("conditions") is { } nullNodeConditions && nullNodeConditions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Conditions = null;
+            if (parseNode.GetChildNode("fallbackMemberFilter") is null) { _explicitNullValueFallbackMemberFilter = default!; _explicitNullProperties?.Remove("fallbackMemberFilter"); }
+            else if (parseNode.GetChildNode("fallbackMemberFilter") is { } nullNodeFallbackMemberFilter && nullNodeFallbackMemberFilter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FallbackMemberFilter = null;
+            if (parseNode.GetChildNode("match") is null) { _explicitNullValueMatch = default!; _explicitNullProperties?.Remove("match"); }
+            else if (parseNode.GetChildNode("match") is { } nullNodeMatch && nullNodeMatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Match = null;
+            if (parseNode.GetChildNode("memberFilter") is null) { _explicitNullValueMemberFilter = default!; _explicitNullProperties?.Remove("memberFilter"); }
+            else if (parseNode.GetChildNode("memberFilter") is { } nullNodeMemberFilter && nullNodeMemberFilter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MemberFilter = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
         }
 
         /// <summary>The action property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.DraftRouteInputAction? Action { get => _explicitNullValueAction; set { _explicitNullValueAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action"); else _explicitNullProperties?.Remove("action"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.DraftRouteInputAction? Action { get => _explicitNullValueAction; set { _explicitNullValueAction = value; AdditionalData?.Remove("action"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action"); else _explicitNullProperties?.Remove("action"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.DraftRouteInputAction? _explicitNullValueAction = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.DraftRouteInputAction Action { get => _explicitNullValueAction; set { _explicitNullValueAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action"); else _explicitNullProperties?.Remove("action"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.DraftRouteInputAction Action { get => _explicitNullValueAction; set { _explicitNullValueAction = value; AdditionalData?.Remove("action"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action"); else _explicitNullProperties?.Remove("action"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.DraftRouteInputAction _explicitNullValueAction = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -40,44 +46,44 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The conditions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.DraftConditionInput>? Conditions { get => _explicitNullValueConditions; set { _explicitNullValueConditions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conditions"); else _explicitNullProperties?.Remove("conditions"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.DraftConditionInput>? Conditions { get => _explicitNullValueConditions; set { _explicitNullValueConditions = value; AdditionalData?.Remove("conditions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conditions"); else _explicitNullProperties?.Remove("conditions"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.DraftConditionInput>? _explicitNullValueConditions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.DraftConditionInput> Conditions { get => _explicitNullValueConditions; set { _explicitNullValueConditions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conditions"); else _explicitNullProperties?.Remove("conditions"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.DraftConditionInput> Conditions { get => _explicitNullValueConditions; set { _explicitNullValueConditions = value; AdditionalData?.Remove("conditions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conditions"); else _explicitNullProperties?.Remove("conditions"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.DraftConditionInput> _explicitNullValueConditions = default!;
 #endif
         /// <summary>The hosts to use when memberFilter matches nobody. The route needs attribute rules: send memberFilter too, or replace a route that already has them. On replace, omit it to keep the stored fallback rules.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.DraftRouteInputFallbackMemberFilter? FallbackMemberFilter { get => _explicitNullValueFallbackMemberFilter; set { _explicitNullValueFallbackMemberFilter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fallbackMemberFilter"); else _explicitNullProperties?.Remove("fallbackMemberFilter"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.DraftRouteInputFallbackMemberFilter? FallbackMemberFilter { get => _explicitNullValueFallbackMemberFilter; set { _explicitNullValueFallbackMemberFilter = value; AdditionalData?.Remove("fallbackMemberFilter"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fallbackMemberFilter"); else _explicitNullProperties?.Remove("fallbackMemberFilter"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.DraftRouteInputFallbackMemberFilter? _explicitNullValueFallbackMemberFilter = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.DraftRouteInputFallbackMemberFilter FallbackMemberFilter { get => _explicitNullValueFallbackMemberFilter; set { _explicitNullValueFallbackMemberFilter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fallbackMemberFilter"); else _explicitNullProperties?.Remove("fallbackMemberFilter"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.DraftRouteInputFallbackMemberFilter FallbackMemberFilter { get => _explicitNullValueFallbackMemberFilter; set { _explicitNullValueFallbackMemberFilter = value; AdditionalData?.Remove("fallbackMemberFilter"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fallbackMemberFilter"); else _explicitNullProperties?.Remove("fallbackMemberFilter"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.DraftRouteInputFallbackMemberFilter _explicitNullValueFallbackMemberFilter = default!;
 #endif
         /// <summary>The match property</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.DraftRouteInputMatch? Match { get => _explicitNullValueMatch; set { _explicitNullValueMatch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match"); else _explicitNullProperties?.Remove("match"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.DraftRouteInputMatch? Match { get => _explicitNullValueMatch; set { _explicitNullValueMatch = value; AdditionalData?.Remove("match"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match"); else _explicitNullProperties?.Remove("match"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.DraftRouteInputMatch? _explicitNullValueMatch = default!;
         /// <summary>The memberFilter property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.DraftMemberFilterInput? MemberFilter { get => _explicitNullValueMemberFilter; set { _explicitNullValueMemberFilter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("memberFilter"); else _explicitNullProperties?.Remove("memberFilter"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.DraftMemberFilterInput? MemberFilter { get => _explicitNullValueMemberFilter; set { _explicitNullValueMemberFilter = value; AdditionalData?.Remove("memberFilter"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("memberFilter"); else _explicitNullProperties?.Remove("memberFilter"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.DraftMemberFilterInput? _explicitNullValueMemberFilter = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.DraftMemberFilterInput MemberFilter { get => _explicitNullValueMemberFilter; set { _explicitNullValueMemberFilter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("memberFilter"); else _explicitNullProperties?.Remove("memberFilter"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.DraftMemberFilterInput MemberFilter { get => _explicitNullValueMemberFilter; set { _explicitNullValueMemberFilter = value; AdditionalData?.Remove("memberFilter"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("memberFilter"); else _explicitNullProperties?.Remove("memberFilter"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.DraftMemberFilterInput _explicitNullValueMemberFilter = default!;
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>
@@ -108,7 +114,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
                 { "action", n => { Action = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.DraftRouteInputAction>(global::Soenneker.CalCom.OpenApiClient.Models.DraftRouteInputAction.CreateFromDiscriminatorValue); } },
                 { "conditions", n => { Conditions = n.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.DraftConditionInput>(global::Soenneker.CalCom.OpenApiClient.Models.DraftConditionInput.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "fallbackMemberFilter", n => { FallbackMemberFilter = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.DraftRouteInputFallbackMemberFilter>(global::Soenneker.CalCom.OpenApiClient.Models.DraftRouteInputFallbackMemberFilter.CreateFromDiscriminatorValue); } },
-                { "match", n => { Match = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.DraftRouteInputMatch>(); } },
+                { "match", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.DraftRouteInputMatch>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMatch = default; _explicitNullProperties?.Remove("match"); AdditionalData["match"] = unknown; } else { Match = parsed; AdditionalData.Remove("match"); } } },
                 { "memberFilter", n => { MemberFilter = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.DraftMemberFilterInput>(global::Soenneker.CalCom.OpenApiClient.Models.DraftMemberFilterInput.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
             };

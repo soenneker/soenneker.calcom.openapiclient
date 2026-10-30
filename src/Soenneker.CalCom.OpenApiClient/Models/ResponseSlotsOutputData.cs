@@ -17,24 +17,26 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("eventTypeId") is { } nullNodeEventTypeId && nullNodeEventTypeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventTypeId = null;
-            if (parseNode.GetChildNode("slots") is { } nullNodeSlots && nullNodeSlots.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Slots = null;
+            if (parseNode.GetChildNode("eventTypeId") is null) { _explicitNullValueEventTypeId = default!; _explicitNullProperties?.Remove("eventTypeId"); }
+            else if (parseNode.GetChildNode("eventTypeId") is { } nullNodeEventTypeId && nullNodeEventTypeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventTypeId = null;
+            if (parseNode.GetChildNode("slots") is null) { _explicitNullValueSlots = default!; _explicitNullProperties?.Remove("slots"); }
+            else if (parseNode.GetChildNode("slots") is { } nullNodeSlots && nullNodeSlots.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Slots = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The eventTypeId property</summary>
-        public double? EventTypeId { get => _explicitNullValueEventTypeId; set { _explicitNullValueEventTypeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeId"); else _explicitNullProperties?.Remove("eventTypeId"); } }
+        public double? EventTypeId { get => _explicitNullValueEventTypeId; set { _explicitNullValueEventTypeId = value; AdditionalData?.Remove("eventTypeId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeId"); else _explicitNullProperties?.Remove("eventTypeId"); } }
         private double? _explicitNullValueEventTypeId = default!;
         /// <summary>The slots property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.ResponseSlotsOutputDataSlots? Slots { get => _explicitNullValueSlots; set { _explicitNullValueSlots = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slots"); else _explicitNullProperties?.Remove("slots"); } }
-        private global::Soenneker.CalCom.OpenApiClient.Models.ResponseSlotsOutputDataSlots? _explicitNullValueSlots = default!;
+        public global::Soenneker.CalCom.OpenApiClient.Models.CreateRoutingFormResponseOutputDataSlots? Slots { get => _explicitNullValueSlots; set { _explicitNullValueSlots = value; AdditionalData?.Remove("slots"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slots"); else _explicitNullProperties?.Remove("slots"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.CreateRoutingFormResponseOutputDataSlots? _explicitNullValueSlots = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.ResponseSlotsOutputDataSlots Slots { get => _explicitNullValueSlots; set { _explicitNullValueSlots = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slots"); else _explicitNullProperties?.Remove("slots"); } }
-        private global::Soenneker.CalCom.OpenApiClient.Models.ResponseSlotsOutputDataSlots _explicitNullValueSlots = default!;
+        public global::Soenneker.CalCom.OpenApiClient.Models.CreateRoutingFormResponseOutputDataSlots Slots { get => _explicitNullValueSlots; set { _explicitNullValueSlots = value; AdditionalData?.Remove("slots"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slots"); else _explicitNullProperties?.Remove("slots"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.CreateRoutingFormResponseOutputDataSlots _explicitNullValueSlots = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.ResponseSlotsOutputData"/> and sets the default values.
@@ -62,7 +64,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "eventTypeId", n => { EventTypeId = n.GetDoubleValue(); } },
-                { "slots", n => { Slots = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.ResponseSlotsOutputDataSlots>(global::Soenneker.CalCom.OpenApiClient.Models.ResponseSlotsOutputDataSlots.CreateFromDiscriminatorValue); } },
+                { "slots", n => { Slots = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.CreateRoutingFormResponseOutputDataSlots>(global::Soenneker.CalCom.OpenApiClient.Models.CreateRoutingFormResponseOutputDataSlots.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -73,7 +75,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("eventTypeId", EventTypeId);
-            writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.ResponseSlotsOutputDataSlots>("slots", Slots);
+            writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.CreateRoutingFormResponseOutputDataSlots>("slots", Slots);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

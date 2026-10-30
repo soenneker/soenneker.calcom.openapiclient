@@ -17,11 +17,16 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("body") is { } nullNodeBody && nullNodeBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Body = null;
-            if (parseNode.GetChildNode("checkedIn") is { } nullNodeCheckedIn && nullNodeCheckedIn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CheckedIn = null;
-            if (parseNode.GetChildNode("locationId") is { } nullNodeLocationId && nullNodeLocationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LocationId = null;
-            if (parseNode.GetChildNode("segment") is { } nullNodeSegment && nullNodeSegment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Segment = null;
-            if (parseNode.GetChildNode("subject") is { } nullNodeSubject && nullNodeSubject.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Subject = null;
+            if (parseNode.GetChildNode("body") is null) { _explicitNullValueBody = default!; _explicitNullProperties?.Remove("body"); }
+            else if (parseNode.GetChildNode("body") is { } nullNodeBody && nullNodeBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Body = null;
+            if (parseNode.GetChildNode("checkedIn") is null) { _explicitNullValueCheckedIn = default!; _explicitNullProperties?.Remove("checkedIn"); }
+            else if (parseNode.GetChildNode("checkedIn") is { } nullNodeCheckedIn && nullNodeCheckedIn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CheckedIn = null;
+            if (parseNode.GetChildNode("locationId") is null) { _explicitNullValueLocationId = default!; _explicitNullProperties?.Remove("locationId"); }
+            else if (parseNode.GetChildNode("locationId") is { } nullNodeLocationId && nullNodeLocationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LocationId = null;
+            if (parseNode.GetChildNode("segment") is null) { _explicitNullValueSegment = default!; _explicitNullProperties?.Remove("segment"); }
+            else if (parseNode.GetChildNode("segment") is { } nullNodeSegment && nullNodeSegment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Segment = null;
+            if (parseNode.GetChildNode("subject") is null) { _explicitNullValueSubject = default!; _explicitNullProperties?.Remove("subject"); }
+            else if (parseNode.GetChildNode("subject") is { } nullNodeSubject && nullNodeSubject.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Subject = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,37 +34,37 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>Message in plain text, up to 5000 characters. Links are allowed as plain URLs; HTML is refused.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Body { get => _explicitNullValueBody; set { _explicitNullValueBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body"); else _explicitNullProperties?.Remove("body"); } }
+        public string? Body { get => _explicitNullValueBody; set { _explicitNullValueBody = value; AdditionalData?.Remove("body"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body"); else _explicitNullProperties?.Remove("body"); } }
         private string? _explicitNullValueBody = default!;
 #nullable restore
 #else
-        public string Body { get => _explicitNullValueBody; set { _explicitNullValueBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body"); else _explicitNullProperties?.Remove("body"); } }
+        public string Body { get => _explicitNullValueBody; set { _explicitNullValueBody = value; AdditionalData?.Remove("body"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body"); else _explicitNullProperties?.Remove("body"); } }
         private string _explicitNullValueBody = default!;
 #endif
         /// <summary>Only message guests who checked in (`true`) or who did not (`false`). Omit to message both.</summary>
-        public bool? CheckedIn { get => _explicitNullValueCheckedIn; set { _explicitNullValueCheckedIn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checkedIn"); else _explicitNullProperties?.Remove("checkedIn"); } }
+        public bool? CheckedIn { get => _explicitNullValueCheckedIn; set { _explicitNullValueCheckedIn = value; AdditionalData?.Remove("checkedIn"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checkedIn"); else _explicitNullProperties?.Remove("checkedIn"); } }
         private bool? _explicitNullValueCheckedIn = default!;
         /// <summary>Only message guests who registered for this location of the Event.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LocationId { get => _explicitNullValueLocationId; set { _explicitNullValueLocationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locationId"); else _explicitNullProperties?.Remove("locationId"); } }
+        public string? LocationId { get => _explicitNullValueLocationId; set { _explicitNullValueLocationId = value; AdditionalData?.Remove("locationId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locationId"); else _explicitNullProperties?.Remove("locationId"); } }
         private string? _explicitNullValueLocationId = default!;
 #nullable restore
 #else
-        public string LocationId { get => _explicitNullValueLocationId; set { _explicitNullValueLocationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locationId"); else _explicitNullProperties?.Remove("locationId"); } }
+        public string LocationId { get => _explicitNullValueLocationId; set { _explicitNullValueLocationId = value; AdditionalData?.Remove("locationId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locationId"); else _explicitNullProperties?.Remove("locationId"); } }
         private string _explicitNullValueLocationId = default!;
 #endif
         /// <summary>Which guests receive the message: `GOING` (confirmed, RSVP yes), `MAYBE` (confirmed, RSVP maybe) or `PENDING` (waiting for approval).</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.SendMessageInputSegment? Segment { get => _explicitNullValueSegment; set { _explicitNullValueSegment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("segment"); else _explicitNullProperties?.Remove("segment"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.SendMessageInputSegment? Segment { get => _explicitNullValueSegment; set { _explicitNullValueSegment = value; AdditionalData?.Remove("segment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("segment"); else _explicitNullProperties?.Remove("segment"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.SendMessageInputSegment? _explicitNullValueSegment = default!;
         /// <summary>Email subject in plain text, up to 200 characters. HTML is refused.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Subject { get => _explicitNullValueSubject; set { _explicitNullValueSubject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject"); else _explicitNullProperties?.Remove("subject"); } }
+        public string? Subject { get => _explicitNullValueSubject; set { _explicitNullValueSubject = value; AdditionalData?.Remove("subject"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject"); else _explicitNullProperties?.Remove("subject"); } }
         private string? _explicitNullValueSubject = default!;
 #nullable restore
 #else
-        public string Subject { get => _explicitNullValueSubject; set { _explicitNullValueSubject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject"); else _explicitNullProperties?.Remove("subject"); } }
+        public string Subject { get => _explicitNullValueSubject; set { _explicitNullValueSubject = value; AdditionalData?.Remove("subject"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject"); else _explicitNullProperties?.Remove("subject"); } }
         private string _explicitNullValueSubject = default!;
 #endif
         /// <summary>
@@ -90,7 +95,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
                 { "body", n => { Body = n.GetStringValue(); } },
                 { "checkedIn", n => { CheckedIn = n.GetBoolValue(); } },
                 { "locationId", n => { LocationId = n.GetStringValue(); } },
-                { "segment", n => { Segment = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.SendMessageInputSegment>(); } },
+                { "segment", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.SendMessageInputSegment>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSegment = default; _explicitNullProperties?.Remove("segment"); AdditionalData["segment"] = unknown; } else { Segment = parsed; AdditionalData.Remove("segment"); } } },
                 { "subject", n => { Subject = n.GetStringValue(); } },
             };
         }

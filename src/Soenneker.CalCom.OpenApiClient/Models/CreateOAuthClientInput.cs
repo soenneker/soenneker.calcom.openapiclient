@@ -17,97 +17,107 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("areCalendarEventsEnabled") is { } nullNodeAreCalendarEventsEnabled && nullNodeAreCalendarEventsEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AreCalendarEventsEnabled = null;
-            if (parseNode.GetChildNode("areDefaultEventTypesEnabled") is { } nullNodeAreDefaultEventTypesEnabled && nullNodeAreDefaultEventTypesEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AreDefaultEventTypesEnabled = null;
-            if (parseNode.GetChildNode("areEmailsEnabled") is { } nullNodeAreEmailsEnabled && nullNodeAreEmailsEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AreEmailsEnabled = null;
-            if (parseNode.GetChildNode("bookingCancelRedirectUri") is { } nullNodeBookingCancelRedirectUri && nullNodeBookingCancelRedirectUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingCancelRedirectUri = null;
-            if (parseNode.GetChildNode("bookingRedirectUri") is { } nullNodeBookingRedirectUri && nullNodeBookingRedirectUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingRedirectUri = null;
-            if (parseNode.GetChildNode("bookingRescheduleRedirectUri") is { } nullNodeBookingRescheduleRedirectUri && nullNodeBookingRescheduleRedirectUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingRescheduleRedirectUri = null;
-            if (parseNode.GetChildNode("logo") is { } nullNodeLogo && nullNodeLogo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Logo = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("permissions") is { } nullNodePermissions && nullNodePermissions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Permissions = null;
-            if (parseNode.GetChildNode("redirectUris") is { } nullNodeRedirectUris && nullNodeRedirectUris.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedirectUris = null;
+            if (parseNode.GetChildNode("areCalendarEventsEnabled") is null) { _explicitNullValueAreCalendarEventsEnabled = default!; _explicitNullProperties?.Remove("areCalendarEventsEnabled"); }
+            else if (parseNode.GetChildNode("areCalendarEventsEnabled") is { } nullNodeAreCalendarEventsEnabled && nullNodeAreCalendarEventsEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AreCalendarEventsEnabled = null;
+            if (parseNode.GetChildNode("areDefaultEventTypesEnabled") is null) { _explicitNullValueAreDefaultEventTypesEnabled = default!; _explicitNullProperties?.Remove("areDefaultEventTypesEnabled"); }
+            else if (parseNode.GetChildNode("areDefaultEventTypesEnabled") is { } nullNodeAreDefaultEventTypesEnabled && nullNodeAreDefaultEventTypesEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AreDefaultEventTypesEnabled = null;
+            if (parseNode.GetChildNode("areEmailsEnabled") is null) { _explicitNullValueAreEmailsEnabled = default!; _explicitNullProperties?.Remove("areEmailsEnabled"); }
+            else if (parseNode.GetChildNode("areEmailsEnabled") is { } nullNodeAreEmailsEnabled && nullNodeAreEmailsEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AreEmailsEnabled = null;
+            if (parseNode.GetChildNode("bookingCancelRedirectUri") is null) { _explicitNullValueBookingCancelRedirectUri = default!; _explicitNullProperties?.Remove("bookingCancelRedirectUri"); }
+            else if (parseNode.GetChildNode("bookingCancelRedirectUri") is { } nullNodeBookingCancelRedirectUri && nullNodeBookingCancelRedirectUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingCancelRedirectUri = null;
+            if (parseNode.GetChildNode("bookingRedirectUri") is null) { _explicitNullValueBookingRedirectUri = default!; _explicitNullProperties?.Remove("bookingRedirectUri"); }
+            else if (parseNode.GetChildNode("bookingRedirectUri") is { } nullNodeBookingRedirectUri && nullNodeBookingRedirectUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingRedirectUri = null;
+            if (parseNode.GetChildNode("bookingRescheduleRedirectUri") is null) { _explicitNullValueBookingRescheduleRedirectUri = default!; _explicitNullProperties?.Remove("bookingRescheduleRedirectUri"); }
+            else if (parseNode.GetChildNode("bookingRescheduleRedirectUri") is { } nullNodeBookingRescheduleRedirectUri && nullNodeBookingRescheduleRedirectUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingRescheduleRedirectUri = null;
+            if (parseNode.GetChildNode("logo") is null) { _explicitNullValueLogo = default!; _explicitNullProperties?.Remove("logo"); }
+            else if (parseNode.GetChildNode("logo") is { } nullNodeLogo && nullNodeLogo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Logo = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("permissions") is null) { _explicitNullValuePermissions = default!; _explicitNullProperties?.Remove("permissions"); }
+            else if (parseNode.GetChildNode("permissions") is { } nullNodePermissions && nullNodePermissions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Permissions = null;
+            if (parseNode.GetChildNode("redirectUris") is null) { _explicitNullValueRedirectUris = default!; _explicitNullProperties?.Remove("redirectUris"); }
+            else if (parseNode.GetChildNode("redirectUris") is { } nullNodeRedirectUris && nullNodeRedirectUris.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedirectUris = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>If true and if managed user has calendar connected, calendar events will be created. Disable it if you manually create calendar events. Default to true.</summary>
-        public bool? AreCalendarEventsEnabled { get => _explicitNullValueAreCalendarEventsEnabled; set { _explicitNullValueAreCalendarEventsEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("areCalendarEventsEnabled"); else _explicitNullProperties?.Remove("areCalendarEventsEnabled"); } }
+        public bool? AreCalendarEventsEnabled { get => _explicitNullValueAreCalendarEventsEnabled; set { _explicitNullValueAreCalendarEventsEnabled = value; AdditionalData?.Remove("areCalendarEventsEnabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("areCalendarEventsEnabled"); else _explicitNullProperties?.Remove("areCalendarEventsEnabled"); } }
         private bool? _explicitNullValueAreCalendarEventsEnabled = default!;
         /// <summary>If true, when creating a managed user the managed user will have 4 default event types: 30 and 60 minutes without Cal video, 30 and 60 minutes with Cal video. Set this as false if you want to create a managed user and then manually create event types for the user.</summary>
-        public bool? AreDefaultEventTypesEnabled { get => _explicitNullValueAreDefaultEventTypesEnabled; set { _explicitNullValueAreDefaultEventTypesEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("areDefaultEventTypesEnabled"); else _explicitNullProperties?.Remove("areDefaultEventTypesEnabled"); } }
+        public bool? AreDefaultEventTypesEnabled { get => _explicitNullValueAreDefaultEventTypesEnabled; set { _explicitNullValueAreDefaultEventTypesEnabled = value; AdditionalData?.Remove("areDefaultEventTypesEnabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("areDefaultEventTypesEnabled"); else _explicitNullProperties?.Remove("areDefaultEventTypesEnabled"); } }
         private bool? _explicitNullValueAreDefaultEventTypesEnabled = default!;
         /// <summary>The areEmailsEnabled property</summary>
-        public bool? AreEmailsEnabled { get => _explicitNullValueAreEmailsEnabled; set { _explicitNullValueAreEmailsEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("areEmailsEnabled"); else _explicitNullProperties?.Remove("areEmailsEnabled"); } }
+        public bool? AreEmailsEnabled { get => _explicitNullValueAreEmailsEnabled; set { _explicitNullValueAreEmailsEnabled = value; AdditionalData?.Remove("areEmailsEnabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("areEmailsEnabled"); else _explicitNullProperties?.Remove("areEmailsEnabled"); } }
         private bool? _explicitNullValueAreEmailsEnabled = default!;
         /// <summary>The bookingCancelRedirectUri property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BookingCancelRedirectUri { get => _explicitNullValueBookingCancelRedirectUri; set { _explicitNullValueBookingCancelRedirectUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingCancelRedirectUri"); else _explicitNullProperties?.Remove("bookingCancelRedirectUri"); } }
+        public string? BookingCancelRedirectUri { get => _explicitNullValueBookingCancelRedirectUri; set { _explicitNullValueBookingCancelRedirectUri = value; AdditionalData?.Remove("bookingCancelRedirectUri"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingCancelRedirectUri"); else _explicitNullProperties?.Remove("bookingCancelRedirectUri"); } }
         private string? _explicitNullValueBookingCancelRedirectUri = default!;
 #nullable restore
 #else
-        public string BookingCancelRedirectUri { get => _explicitNullValueBookingCancelRedirectUri; set { _explicitNullValueBookingCancelRedirectUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingCancelRedirectUri"); else _explicitNullProperties?.Remove("bookingCancelRedirectUri"); } }
+        public string BookingCancelRedirectUri { get => _explicitNullValueBookingCancelRedirectUri; set { _explicitNullValueBookingCancelRedirectUri = value; AdditionalData?.Remove("bookingCancelRedirectUri"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingCancelRedirectUri"); else _explicitNullProperties?.Remove("bookingCancelRedirectUri"); } }
         private string _explicitNullValueBookingCancelRedirectUri = default!;
 #endif
         /// <summary>The bookingRedirectUri property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BookingRedirectUri { get => _explicitNullValueBookingRedirectUri; set { _explicitNullValueBookingRedirectUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingRedirectUri"); else _explicitNullProperties?.Remove("bookingRedirectUri"); } }
+        public string? BookingRedirectUri { get => _explicitNullValueBookingRedirectUri; set { _explicitNullValueBookingRedirectUri = value; AdditionalData?.Remove("bookingRedirectUri"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingRedirectUri"); else _explicitNullProperties?.Remove("bookingRedirectUri"); } }
         private string? _explicitNullValueBookingRedirectUri = default!;
 #nullable restore
 #else
-        public string BookingRedirectUri { get => _explicitNullValueBookingRedirectUri; set { _explicitNullValueBookingRedirectUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingRedirectUri"); else _explicitNullProperties?.Remove("bookingRedirectUri"); } }
+        public string BookingRedirectUri { get => _explicitNullValueBookingRedirectUri; set { _explicitNullValueBookingRedirectUri = value; AdditionalData?.Remove("bookingRedirectUri"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingRedirectUri"); else _explicitNullProperties?.Remove("bookingRedirectUri"); } }
         private string _explicitNullValueBookingRedirectUri = default!;
 #endif
         /// <summary>The bookingRescheduleRedirectUri property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BookingRescheduleRedirectUri { get => _explicitNullValueBookingRescheduleRedirectUri; set { _explicitNullValueBookingRescheduleRedirectUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingRescheduleRedirectUri"); else _explicitNullProperties?.Remove("bookingRescheduleRedirectUri"); } }
+        public string? BookingRescheduleRedirectUri { get => _explicitNullValueBookingRescheduleRedirectUri; set { _explicitNullValueBookingRescheduleRedirectUri = value; AdditionalData?.Remove("bookingRescheduleRedirectUri"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingRescheduleRedirectUri"); else _explicitNullProperties?.Remove("bookingRescheduleRedirectUri"); } }
         private string? _explicitNullValueBookingRescheduleRedirectUri = default!;
 #nullable restore
 #else
-        public string BookingRescheduleRedirectUri { get => _explicitNullValueBookingRescheduleRedirectUri; set { _explicitNullValueBookingRescheduleRedirectUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingRescheduleRedirectUri"); else _explicitNullProperties?.Remove("bookingRescheduleRedirectUri"); } }
+        public string BookingRescheduleRedirectUri { get => _explicitNullValueBookingRescheduleRedirectUri; set { _explicitNullValueBookingRescheduleRedirectUri = value; AdditionalData?.Remove("bookingRescheduleRedirectUri"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingRescheduleRedirectUri"); else _explicitNullProperties?.Remove("bookingRescheduleRedirectUri"); } }
         private string _explicitNullValueBookingRescheduleRedirectUri = default!;
 #endif
         /// <summary>The logo property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Logo { get => _explicitNullValueLogo; set { _explicitNullValueLogo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logo"); else _explicitNullProperties?.Remove("logo"); } }
+        public string? Logo { get => _explicitNullValueLogo; set { _explicitNullValueLogo = value; AdditionalData?.Remove("logo"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logo"); else _explicitNullProperties?.Remove("logo"); } }
         private string? _explicitNullValueLogo = default!;
 #nullable restore
 #else
-        public string Logo { get => _explicitNullValueLogo; set { _explicitNullValueLogo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logo"); else _explicitNullProperties?.Remove("logo"); } }
+        public string Logo { get => _explicitNullValueLogo; set { _explicitNullValueLogo = value; AdditionalData?.Remove("logo"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logo"); else _explicitNullProperties?.Remove("logo"); } }
         private string _explicitNullValueLogo = default!;
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>Array of permission keys like [&quot;BOOKING_READ&quot;, &quot;BOOKING_WRITE&quot;]. Use [&quot;*&quot;] to grant all permissions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.CreateOAuthClientInputPermissionsItem?>? Permissions { get => _explicitNullValuePermissions; set { _explicitNullValuePermissions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissions"); else _explicitNullProperties?.Remove("permissions"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.CreateOAuthClientInputPermissionsItem?>? Permissions { get => _explicitNullValuePermissions; set { _explicitNullValuePermissions = value; AdditionalData?.Remove("permissions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissions"); else _explicitNullProperties?.Remove("permissions"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.CreateOAuthClientInputPermissionsItem?>? _explicitNullValuePermissions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.CreateOAuthClientInputPermissionsItem?> Permissions { get => _explicitNullValuePermissions; set { _explicitNullValuePermissions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissions"); else _explicitNullProperties?.Remove("permissions"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.CreateOAuthClientInputPermissionsItem?> Permissions { get => _explicitNullValuePermissions; set { _explicitNullValuePermissions = value; AdditionalData?.Remove("permissions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissions"); else _explicitNullProperties?.Remove("permissions"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.CreateOAuthClientInputPermissionsItem?> _explicitNullValuePermissions = default!;
 #endif
         /// <summary>The redirectUris property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? RedirectUris { get => _explicitNullValueRedirectUris; set { _explicitNullValueRedirectUris = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redirectUris"); else _explicitNullProperties?.Remove("redirectUris"); } }
+        public List<string>? RedirectUris { get => _explicitNullValueRedirectUris; set { _explicitNullValueRedirectUris = value; AdditionalData?.Remove("redirectUris"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redirectUris"); else _explicitNullProperties?.Remove("redirectUris"); } }
         private List<string>? _explicitNullValueRedirectUris = default!;
 #nullable restore
 #else
-        public List<string> RedirectUris { get => _explicitNullValueRedirectUris; set { _explicitNullValueRedirectUris = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redirectUris"); else _explicitNullProperties?.Remove("redirectUris"); } }
+        public List<string> RedirectUris { get => _explicitNullValueRedirectUris; set { _explicitNullValueRedirectUris = value; AdditionalData?.Remove("redirectUris"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redirectUris"); else _explicitNullProperties?.Remove("redirectUris"); } }
         private List<string> _explicitNullValueRedirectUris = default!;
 #endif
         /// <summary>

@@ -17,7 +17,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("guests") is { } nullNodeGuests && nullNodeGuests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Guests = null;
+            if (parseNode.GetChildNode("guests") is null) { _explicitNullValueGuests = default!; _explicitNullProperties?.Remove("guests"); }
+            else if (parseNode.GetChildNode("guests") is { } nullNodeGuests && nullNodeGuests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Guests = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>Array of guests to add to the booking. Maximum 100 guests per request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.Guest>? Guests { get => _explicitNullValueGuests; set { _explicitNullValueGuests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guests"); else _explicitNullProperties?.Remove("guests"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.Guest>? Guests { get => _explicitNullValueGuests; set { _explicitNullValueGuests = value; AdditionalData?.Remove("guests"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guests"); else _explicitNullProperties?.Remove("guests"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.Guest>? _explicitNullValueGuests = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.Guest> Guests { get => _explicitNullValueGuests; set { _explicitNullValueGuests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guests"); else _explicitNullProperties?.Remove("guests"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.Guest> Guests { get => _explicitNullValueGuests; set { _explicitNullValueGuests = value; AdditionalData?.Remove("guests"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guests"); else _explicitNullProperties?.Remove("guests"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.Guest> _explicitNullValueGuests = default!;
 #endif
         /// <summary>

@@ -17,27 +17,30 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("creditFor") is { } nullNodeCreditFor && nullNodeCreditFor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreditFor = null;
-            if (parseNode.GetChildNode("credits") is { } nullNodeCredits && nullNodeCredits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Credits = null;
-            if (parseNode.GetChildNode("externalRef") is { } nullNodeExternalRef && nullNodeExternalRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExternalRef = null;
+            if (parseNode.GetChildNode("creditFor") is null) { _explicitNullValueCreditFor = default!; _explicitNullProperties?.Remove("creditFor"); }
+            else if (parseNode.GetChildNode("creditFor") is { } nullNodeCreditFor && nullNodeCreditFor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreditFor = null;
+            if (parseNode.GetChildNode("credits") is null) { _explicitNullValueCredits = default!; _explicitNullProperties?.Remove("credits"); }
+            else if (parseNode.GetChildNode("credits") is { } nullNodeCredits && nullNodeCredits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Credits = null;
+            if (parseNode.GetChildNode("externalRef") is null) { _explicitNullValueExternalRef = default!; _explicitNullProperties?.Remove("externalRef"); }
+            else if (parseNode.GetChildNode("externalRef") is { } nullNodeExternalRef && nullNodeExternalRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExternalRef = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>What the credits are being charged for</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.ChargeCreditsInputCreditFor? CreditFor { get => _explicitNullValueCreditFor; set { _explicitNullValueCreditFor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("creditFor"); else _explicitNullProperties?.Remove("creditFor"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.ChargeCreditsInputCreditFor? CreditFor { get => _explicitNullValueCreditFor; set { _explicitNullValueCreditFor = value; AdditionalData?.Remove("creditFor"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("creditFor"); else _explicitNullProperties?.Remove("creditFor"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.ChargeCreditsInputCreditFor? _explicitNullValueCreditFor = default!;
         /// <summary>Number of credits to charge</summary>
-        public double? Credits { get => _explicitNullValueCredits; set { _explicitNullValueCredits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credits"); else _explicitNullProperties?.Remove("credits"); } }
+        public double? Credits { get => _explicitNullValueCredits; set { _explicitNullValueCredits = value; AdditionalData?.Remove("credits"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credits"); else _explicitNullProperties?.Remove("credits"); } }
         private double? _explicitNullValueCredits = default!;
         /// <summary>Unique external reference for idempotency</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExternalRef { get => _explicitNullValueExternalRef; set { _explicitNullValueExternalRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("externalRef"); else _explicitNullProperties?.Remove("externalRef"); } }
+        public string? ExternalRef { get => _explicitNullValueExternalRef; set { _explicitNullValueExternalRef = value; AdditionalData?.Remove("externalRef"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("externalRef"); else _explicitNullProperties?.Remove("externalRef"); } }
         private string? _explicitNullValueExternalRef = default!;
 #nullable restore
 #else
-        public string ExternalRef { get => _explicitNullValueExternalRef; set { _explicitNullValueExternalRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("externalRef"); else _explicitNullProperties?.Remove("externalRef"); } }
+        public string ExternalRef { get => _explicitNullValueExternalRef; set { _explicitNullValueExternalRef = value; AdditionalData?.Remove("externalRef"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("externalRef"); else _explicitNullProperties?.Remove("externalRef"); } }
         private string _explicitNullValueExternalRef = default!;
 #endif
         /// <summary>
@@ -65,7 +68,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "creditFor", n => { CreditFor = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.ChargeCreditsInputCreditFor>(); } },
+                { "creditFor", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.ChargeCreditsInputCreditFor>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCreditFor = default; _explicitNullProperties?.Remove("creditFor"); AdditionalData["creditFor"] = unknown; } else { CreditFor = parsed; AdditionalData.Remove("creditFor"); } } },
                 { "credits", n => { Credits = n.GetDoubleValue(); } },
                 { "externalRef", n => { ExternalRef = n.GetStringValue(); } },
             };

@@ -17,39 +17,43 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("Average") is { } nullNodeAverage && nullNodeAverage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Average = null;
-            if (parseNode.GetChildNode("Date") is { } nullNodeDate && nullNodeDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Date = null;
-            if (parseNode.GetChildNode("formattedDateFull") is { } nullNodeFormattedDateFull && nullNodeFormattedDateFull.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FormattedDateFull = null;
-            if (parseNode.GetChildNode("isToday") is { } nullNodeIsToday && nullNodeIsToday.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsToday = null;
+            if (parseNode.GetChildNode("Average") is null) { _explicitNullValueAverage = default!; _explicitNullProperties?.Remove("Average"); }
+            else if (parseNode.GetChildNode("Average") is { } nullNodeAverage && nullNodeAverage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Average = null;
+            if (parseNode.GetChildNode("Date") is null) { _explicitNullValueDate = default!; _explicitNullProperties?.Remove("Date"); }
+            else if (parseNode.GetChildNode("Date") is { } nullNodeDate && nullNodeDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Date = null;
+            if (parseNode.GetChildNode("formattedDateFull") is null) { _explicitNullValueFormattedDateFull = default!; _explicitNullProperties?.Remove("formattedDateFull"); }
+            else if (parseNode.GetChildNode("formattedDateFull") is { } nullNodeFormattedDateFull && nullNodeFormattedDateFull.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FormattedDateFull = null;
+            if (parseNode.GetChildNode("isToday") is null) { _explicitNullValueIsToday = default!; _explicitNullProperties?.Remove("isToday"); }
+            else if (parseNode.GetChildNode("isToday") is { } nullNodeIsToday && nullNodeIsToday.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsToday = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Average booking duration in minutes for this date</summary>
-        public double? Average { get => _explicitNullValueAverage; set { _explicitNullValueAverage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Average"); else _explicitNullProperties?.Remove("Average"); } }
+        public double? Average { get => _explicitNullValueAverage; set { _explicitNullValueAverage = value; AdditionalData?.Remove("Average"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Average"); else _explicitNullProperties?.Remove("Average"); } }
         private double? _explicitNullValueAverage = default!;
         /// <summary>Abbreviated date label for chart display</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Date { get => _explicitNullValueDate; set { _explicitNullValueDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Date"); else _explicitNullProperties?.Remove("Date"); } }
+        public string? Date { get => _explicitNullValueDate; set { _explicitNullValueDate = value; AdditionalData?.Remove("Date"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Date"); else _explicitNullProperties?.Remove("Date"); } }
         private string? _explicitNullValueDate = default!;
 #nullable restore
 #else
-        public string Date { get => _explicitNullValueDate; set { _explicitNullValueDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Date"); else _explicitNullProperties?.Remove("Date"); } }
+        public string Date { get => _explicitNullValueDate; set { _explicitNullValueDate = value; AdditionalData?.Remove("Date"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Date"); else _explicitNullProperties?.Remove("Date"); } }
         private string _explicitNullValueDate = default!;
 #endif
         /// <summary>Full formatted date label for the data point</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FormattedDateFull { get => _explicitNullValueFormattedDateFull; set { _explicitNullValueFormattedDateFull = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("formattedDateFull"); else _explicitNullProperties?.Remove("formattedDateFull"); } }
+        public string? FormattedDateFull { get => _explicitNullValueFormattedDateFull; set { _explicitNullValueFormattedDateFull = value; AdditionalData?.Remove("formattedDateFull"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("formattedDateFull"); else _explicitNullProperties?.Remove("formattedDateFull"); } }
         private string? _explicitNullValueFormattedDateFull = default!;
 #nullable restore
 #else
-        public string FormattedDateFull { get => _explicitNullValueFormattedDateFull; set { _explicitNullValueFormattedDateFull = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("formattedDateFull"); else _explicitNullProperties?.Remove("formattedDateFull"); } }
+        public string FormattedDateFull { get => _explicitNullValueFormattedDateFull; set { _explicitNullValueFormattedDateFull = value; AdditionalData?.Remove("formattedDateFull"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("formattedDateFull"); else _explicitNullProperties?.Remove("formattedDateFull"); } }
         private string _explicitNullValueFormattedDateFull = default!;
 #endif
         /// <summary>Whether this data point represents the current day</summary>
-        public bool? IsToday { get => _explicitNullValueIsToday; set { _explicitNullValueIsToday = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("isToday"); else _explicitNullProperties?.Remove("isToday"); } }
+        public bool? IsToday { get => _explicitNullValueIsToday; set { _explicitNullValueIsToday = value; AdditionalData?.Remove("isToday"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("isToday"); else _explicitNullProperties?.Remove("isToday"); } }
         private bool? _explicitNullValueIsToday = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsAverageDurationDto"/> and sets the default values.

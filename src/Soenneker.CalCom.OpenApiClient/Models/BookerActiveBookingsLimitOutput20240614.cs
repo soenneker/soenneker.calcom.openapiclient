@@ -17,17 +17,19 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("maximumActiveBookings") is { } nullNodeMaximumActiveBookings && nullNodeMaximumActiveBookings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaximumActiveBookings = null;
-            if (parseNode.GetChildNode("offerReschedule") is { } nullNodeOfferReschedule && nullNodeOfferReschedule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OfferReschedule = null;
+            if (parseNode.GetChildNode("maximumActiveBookings") is null) { _explicitNullValueMaximumActiveBookings = default!; _explicitNullProperties?.Remove("maximumActiveBookings"); }
+            else if (parseNode.GetChildNode("maximumActiveBookings") is { } nullNodeMaximumActiveBookings && nullNodeMaximumActiveBookings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaximumActiveBookings = null;
+            if (parseNode.GetChildNode("offerReschedule") is null) { _explicitNullValueOfferReschedule = default!; _explicitNullProperties?.Remove("offerReschedule"); }
+            else if (parseNode.GetChildNode("offerReschedule") is { } nullNodeOfferReschedule && nullNodeOfferReschedule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OfferReschedule = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The maximum number of active bookings a booker can have for this event type.</summary>
-        public double? MaximumActiveBookings { get => _explicitNullValueMaximumActiveBookings; set { _explicitNullValueMaximumActiveBookings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maximumActiveBookings"); else _explicitNullProperties?.Remove("maximumActiveBookings"); } }
+        public double? MaximumActiveBookings { get => _explicitNullValueMaximumActiveBookings; set { _explicitNullValueMaximumActiveBookings = value; AdditionalData?.Remove("maximumActiveBookings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maximumActiveBookings"); else _explicitNullProperties?.Remove("maximumActiveBookings"); } }
         private double? _explicitNullValueMaximumActiveBookings = default!;
         /// <summary>Whether to offer rescheduling the last active booking to the chosen time slot when limit is reached.</summary>
-        public bool? OfferReschedule { get => _explicitNullValueOfferReschedule; set { _explicitNullValueOfferReschedule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("offerReschedule"); else _explicitNullProperties?.Remove("offerReschedule"); } }
+        public bool? OfferReschedule { get => _explicitNullValueOfferReschedule; set { _explicitNullValueOfferReschedule = value; AdditionalData?.Remove("offerReschedule"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("offerReschedule"); else _explicitNullProperties?.Remove("offerReschedule"); } }
         private bool? _explicitNullValueOfferReschedule = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.BookerActiveBookingsLimitOutput20240614"/> and sets the default values.

@@ -17,32 +17,36 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("blockUnconfirmedBookingsInBooker") is { } nullNodeBlockUnconfirmedBookingsInBooker && nullNodeBlockUnconfirmedBookingsInBooker.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockUnconfirmedBookingsInBooker = null;
-            if (parseNode.GetChildNode("disabled") is { } nullNodeDisabled && nullNodeDisabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Disabled = null;
-            if (parseNode.GetChildNode("noticeThreshold") is { } nullNodeNoticeThreshold && nullNodeNoticeThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoticeThreshold = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("blockUnconfirmedBookingsInBooker") is null) { _explicitNullValueBlockUnconfirmedBookingsInBooker = default!; _explicitNullProperties?.Remove("blockUnconfirmedBookingsInBooker"); }
+            else if (parseNode.GetChildNode("blockUnconfirmedBookingsInBooker") is { } nullNodeBlockUnconfirmedBookingsInBooker && nullNodeBlockUnconfirmedBookingsInBooker.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockUnconfirmedBookingsInBooker = null;
+            if (parseNode.GetChildNode("disabled") is null) { _explicitNullValueDisabled = default!; _explicitNullProperties?.Remove("disabled"); }
+            else if (parseNode.GetChildNode("disabled") is { } nullNodeDisabled && nullNodeDisabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Disabled = null;
+            if (parseNode.GetChildNode("noticeThreshold") is null) { _explicitNullValueNoticeThreshold = default!; _explicitNullProperties?.Remove("noticeThreshold"); }
+            else if (parseNode.GetChildNode("noticeThreshold") is { } nullNodeNoticeThreshold && nullNodeNoticeThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoticeThreshold = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Unconfirmed bookings still block calendar slots.</summary>
-        public bool? BlockUnconfirmedBookingsInBooker { get => _explicitNullValueBlockUnconfirmedBookingsInBooker; set { _explicitNullValueBlockUnconfirmedBookingsInBooker = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blockUnconfirmedBookingsInBooker"); else _explicitNullProperties?.Remove("blockUnconfirmedBookingsInBooker"); } }
+        public bool? BlockUnconfirmedBookingsInBooker { get => _explicitNullValueBlockUnconfirmedBookingsInBooker; set { _explicitNullValueBlockUnconfirmedBookingsInBooker = value; AdditionalData?.Remove("blockUnconfirmedBookingsInBooker"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blockUnconfirmedBookingsInBooker"); else _explicitNullProperties?.Remove("blockUnconfirmedBookingsInBooker"); } }
         private bool? _explicitNullValueBlockUnconfirmedBookingsInBooker = default!;
         /// <summary>The disabled property</summary>
-        public bool? Disabled { get => _explicitNullValueDisabled; set { _explicitNullValueDisabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disabled"); else _explicitNullProperties?.Remove("disabled"); } }
+        public bool? Disabled { get => _explicitNullValueDisabled; set { _explicitNullValueDisabled = value; AdditionalData?.Remove("disabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disabled"); else _explicitNullProperties?.Remove("disabled"); } }
         private bool? _explicitNullValueDisabled = default!;
         /// <summary>The notice threshold required before confirmation is needed. Required when type is &apos;time&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.BaseConfirmationPolicy20240614NoticeThreshold? NoticeThreshold { get => _explicitNullValueNoticeThreshold; set { _explicitNullValueNoticeThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("noticeThreshold"); else _explicitNullProperties?.Remove("noticeThreshold"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.BaseConfirmationPolicy20240614NoticeThreshold? NoticeThreshold { get => _explicitNullValueNoticeThreshold; set { _explicitNullValueNoticeThreshold = value; AdditionalData?.Remove("noticeThreshold"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("noticeThreshold"); else _explicitNullProperties?.Remove("noticeThreshold"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.BaseConfirmationPolicy20240614NoticeThreshold? _explicitNullValueNoticeThreshold = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.BaseConfirmationPolicy20240614NoticeThreshold NoticeThreshold { get => _explicitNullValueNoticeThreshold; set { _explicitNullValueNoticeThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("noticeThreshold"); else _explicitNullProperties?.Remove("noticeThreshold"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.BaseConfirmationPolicy20240614NoticeThreshold NoticeThreshold { get => _explicitNullValueNoticeThreshold; set { _explicitNullValueNoticeThreshold = value; AdditionalData?.Remove("noticeThreshold"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("noticeThreshold"); else _explicitNullProperties?.Remove("noticeThreshold"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.BaseConfirmationPolicy20240614NoticeThreshold _explicitNullValueNoticeThreshold = default!;
 #endif
         /// <summary>The policy that determines when confirmation is required</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.BaseConfirmationPolicy20240614Type? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.BaseConfirmationPolicy20240614Type? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.BaseConfirmationPolicy20240614Type? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.BaseConfirmationPolicy20240614"/> and sets the default values.
@@ -73,7 +77,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
                 { "blockUnconfirmedBookingsInBooker", n => { BlockUnconfirmedBookingsInBooker = n.GetBoolValue(); } },
                 { "disabled", n => { Disabled = n.GetBoolValue(); } },
                 { "noticeThreshold", n => { NoticeThreshold = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.BaseConfirmationPolicy20240614NoticeThreshold>(global::Soenneker.CalCom.OpenApiClient.Models.BaseConfirmationPolicy20240614NoticeThreshold.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.BaseConfirmationPolicy20240614Type>(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.BaseConfirmationPolicy20240614Type>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
         /// <summary>

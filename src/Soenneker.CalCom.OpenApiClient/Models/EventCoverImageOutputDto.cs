@@ -17,28 +17,31 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("coverImageHeight") is { } nullNodeCoverImageHeight && nullNodeCoverImageHeight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CoverImageHeight = null;
-            if (parseNode.GetChildNode("coverImageUrl") is { } nullNodeCoverImageUrl && nullNodeCoverImageUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CoverImageUrl = null;
-            if (parseNode.GetChildNode("coverImageWidth") is { } nullNodeCoverImageWidth && nullNodeCoverImageWidth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CoverImageWidth = null;
+            if (parseNode.GetChildNode("coverImageHeight") is null) { _explicitNullValueCoverImageHeight = default!; _explicitNullProperties?.Remove("coverImageHeight"); }
+            else if (parseNode.GetChildNode("coverImageHeight") is { } nullNodeCoverImageHeight && nullNodeCoverImageHeight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CoverImageHeight = null;
+            if (parseNode.GetChildNode("coverImageUrl") is null) { _explicitNullValueCoverImageUrl = default!; _explicitNullProperties?.Remove("coverImageUrl"); }
+            else if (parseNode.GetChildNode("coverImageUrl") is { } nullNodeCoverImageUrl && nullNodeCoverImageUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CoverImageUrl = null;
+            if (parseNode.GetChildNode("coverImageWidth") is null) { _explicitNullValueCoverImageWidth = default!; _explicitNullProperties?.Remove("coverImageWidth"); }
+            else if (parseNode.GetChildNode("coverImageWidth") is { } nullNodeCoverImageWidth && nullNodeCoverImageWidth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CoverImageWidth = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Height of the cover image in pixels, as displayed.</summary>
-        public double? CoverImageHeight { get => _explicitNullValueCoverImageHeight; set { _explicitNullValueCoverImageHeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coverImageHeight"); else _explicitNullProperties?.Remove("coverImageHeight"); } }
+        public double? CoverImageHeight { get => _explicitNullValueCoverImageHeight; set { _explicitNullValueCoverImageHeight = value; AdditionalData?.Remove("coverImageHeight"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coverImageHeight"); else _explicitNullProperties?.Remove("coverImageHeight"); } }
         private double? _explicitNullValueCoverImageHeight = default!;
         /// <summary>Public URL of the uploaded cover image.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CoverImageUrl { get => _explicitNullValueCoverImageUrl; set { _explicitNullValueCoverImageUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coverImageUrl"); else _explicitNullProperties?.Remove("coverImageUrl"); } }
+        public string? CoverImageUrl { get => _explicitNullValueCoverImageUrl; set { _explicitNullValueCoverImageUrl = value; AdditionalData?.Remove("coverImageUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coverImageUrl"); else _explicitNullProperties?.Remove("coverImageUrl"); } }
         private string? _explicitNullValueCoverImageUrl = default!;
 #nullable restore
 #else
-        public string CoverImageUrl { get => _explicitNullValueCoverImageUrl; set { _explicitNullValueCoverImageUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coverImageUrl"); else _explicitNullProperties?.Remove("coverImageUrl"); } }
+        public string CoverImageUrl { get => _explicitNullValueCoverImageUrl; set { _explicitNullValueCoverImageUrl = value; AdditionalData?.Remove("coverImageUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coverImageUrl"); else _explicitNullProperties?.Remove("coverImageUrl"); } }
         private string _explicitNullValueCoverImageUrl = default!;
 #endif
         /// <summary>Width of the cover image in pixels, as displayed.</summary>
-        public double? CoverImageWidth { get => _explicitNullValueCoverImageWidth; set { _explicitNullValueCoverImageWidth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coverImageWidth"); else _explicitNullProperties?.Remove("coverImageWidth"); } }
+        public double? CoverImageWidth { get => _explicitNullValueCoverImageWidth; set { _explicitNullValueCoverImageWidth = value; AdditionalData?.Remove("coverImageWidth"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coverImageWidth"); else _explicitNullProperties?.Remove("coverImageWidth"); } }
         private double? _explicitNullValueCoverImageWidth = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.EventCoverImageOutputDto"/> and sets the default values.

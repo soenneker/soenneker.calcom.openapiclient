@@ -17,13 +17,14 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("appSlug") is { } nullNodeAppSlug && nullNodeAppSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppSlug = null;
+            if (parseNode.GetChildNode("appSlug") is null) { _explicitNullValueAppSlug = default!; _explicitNullProperties?.Remove("appSlug"); }
+            else if (parseNode.GetChildNode("appSlug") is { } nullNodeAppSlug && nullNodeAppSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppSlug = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The slug of the conferencing app to set as default</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.SetDefaultConferencingAppInputAppSlug? AppSlug { get => _explicitNullValueAppSlug; set { _explicitNullValueAppSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("appSlug"); else _explicitNullProperties?.Remove("appSlug"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.SetDefaultConferencingAppInputAppSlug? AppSlug { get => _explicitNullValueAppSlug; set { _explicitNullValueAppSlug = value; AdditionalData?.Remove("appSlug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("appSlug"); else _explicitNullProperties?.Remove("appSlug"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.SetDefaultConferencingAppInputAppSlug? _explicitNullValueAppSlug = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.SetDefaultConferencingAppInput"/> and sets the default values.
@@ -50,7 +51,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "appSlug", n => { AppSlug = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.SetDefaultConferencingAppInputAppSlug>(); } },
+                { "appSlug", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.SetDefaultConferencingAppInputAppSlug>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAppSlug = default; _explicitNullProperties?.Remove("appSlug"); AdditionalData["appSlug"] = unknown; } else { AppSlug = parsed; AdditionalData.Remove("appSlug"); } } },
             };
         }
         /// <summary>

@@ -17,19 +17,22 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("accent") is { } nullNodeAccent && nullNodeAccent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Accent = null;
-            if (parseNode.GetChildNode("background") is { } nullNodeBackground && nullNodeBackground.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Background = null;
-            if (parseNode.GetChildNode("foreground") is { } nullNodeForeground && nullNodeForeground.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Foreground = null;
+            if (parseNode.GetChildNode("accent") is null) { _explicitNullValueAccent = default!; _explicitNullProperties?.Remove("accent"); }
+            else if (parseNode.GetChildNode("accent") is { } nullNodeAccent && nullNodeAccent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Accent = null;
+            if (parseNode.GetChildNode("background") is null) { _explicitNullValueBackground = default!; _explicitNullProperties?.Remove("background"); }
+            else if (parseNode.GetChildNode("background") is { } nullNodeBackground && nullNodeBackground.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Background = null;
+            if (parseNode.GetChildNode("foreground") is null) { _explicitNullValueForeground = default!; _explicitNullProperties?.Remove("foreground"); }
+            else if (parseNode.GetChildNode("foreground") is { } nullNodeForeground && nullNodeForeground.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Foreground = null;
         }
 
         /// <summary>Accent hex color.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Accent { get => _explicitNullValueAccent; set { _explicitNullValueAccent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accent"); else _explicitNullProperties?.Remove("accent"); } }
+        public string? Accent { get => _explicitNullValueAccent; set { _explicitNullValueAccent = value; AdditionalData?.Remove("accent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accent"); else _explicitNullProperties?.Remove("accent"); } }
         private string? _explicitNullValueAccent = default!;
 #nullable restore
 #else
-        public string Accent { get => _explicitNullValueAccent; set { _explicitNullValueAccent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accent"); else _explicitNullProperties?.Remove("accent"); } }
+        public string Accent { get => _explicitNullValueAccent; set { _explicitNullValueAccent = value; AdditionalData?.Remove("accent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accent"); else _explicitNullProperties?.Remove("accent"); } }
         private string _explicitNullValueAccent = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -37,21 +40,21 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>Background hex color.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Background { get => _explicitNullValueBackground; set { _explicitNullValueBackground = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("background"); else _explicitNullProperties?.Remove("background"); } }
+        public string? Background { get => _explicitNullValueBackground; set { _explicitNullValueBackground = value; AdditionalData?.Remove("background"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("background"); else _explicitNullProperties?.Remove("background"); } }
         private string? _explicitNullValueBackground = default!;
 #nullable restore
 #else
-        public string Background { get => _explicitNullValueBackground; set { _explicitNullValueBackground = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("background"); else _explicitNullProperties?.Remove("background"); } }
+        public string Background { get => _explicitNullValueBackground; set { _explicitNullValueBackground = value; AdditionalData?.Remove("background"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("background"); else _explicitNullProperties?.Remove("background"); } }
         private string _explicitNullValueBackground = default!;
 #endif
         /// <summary>Foreground hex color.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Foreground { get => _explicitNullValueForeground; set { _explicitNullValueForeground = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("foreground"); else _explicitNullProperties?.Remove("foreground"); } }
+        public string? Foreground { get => _explicitNullValueForeground; set { _explicitNullValueForeground = value; AdditionalData?.Remove("foreground"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("foreground"); else _explicitNullProperties?.Remove("foreground"); } }
         private string? _explicitNullValueForeground = default!;
 #nullable restore
 #else
-        public string Foreground { get => _explicitNullValueForeground; set { _explicitNullValueForeground = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("foreground"); else _explicitNullProperties?.Remove("foreground"); } }
+        public string Foreground { get => _explicitNullValueForeground; set { _explicitNullValueForeground = value; AdditionalData?.Remove("foreground"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("foreground"); else _explicitNullProperties?.Remove("foreground"); } }
         private string _explicitNullValueForeground = default!;
 #endif
         /// <summary>

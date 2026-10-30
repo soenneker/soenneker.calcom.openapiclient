@@ -17,17 +17,19 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("latitude") is { } nullNodeLatitude && nullNodeLatitude.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Latitude = null;
-            if (parseNode.GetChildNode("longitude") is { } nullNodeLongitude && nullNodeLongitude.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Longitude = null;
+            if (parseNode.GetChildNode("latitude") is null) { _explicitNullValueLatitude = default!; _explicitNullProperties?.Remove("latitude"); }
+            else if (parseNode.GetChildNode("latitude") is { } nullNodeLatitude && nullNodeLatitude.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Latitude = null;
+            if (parseNode.GetChildNode("longitude") is null) { _explicitNullValueLongitude = default!; _explicitNullProperties?.Remove("longitude"); }
+            else if (parseNode.GetChildNode("longitude") is { } nullNodeLongitude && nullNodeLongitude.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Longitude = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Latitude of the Event&apos;s address location. Must stay within 1 km of the geocoded address.</summary>
-        public double? Latitude { get => _explicitNullValueLatitude; set { _explicitNullValueLatitude = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("latitude"); else _explicitNullProperties?.Remove("latitude"); } }
+        public double? Latitude { get => _explicitNullValueLatitude; set { _explicitNullValueLatitude = value; AdditionalData?.Remove("latitude"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("latitude"); else _explicitNullProperties?.Remove("latitude"); } }
         private double? _explicitNullValueLatitude = default!;
         /// <summary>Longitude of the Event&apos;s address location. Must stay within 1 km of the geocoded address.</summary>
-        public double? Longitude { get => _explicitNullValueLongitude; set { _explicitNullValueLongitude = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("longitude"); else _explicitNullProperties?.Remove("longitude"); } }
+        public double? Longitude { get => _explicitNullValueLongitude; set { _explicitNullValueLongitude = value; AdditionalData?.Remove("longitude"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("longitude"); else _explicitNullProperties?.Remove("longitude"); } }
         private double? _explicitNullValueLongitude = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UpdateEventCoordinatesInput"/> and sets the default values.

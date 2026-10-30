@@ -17,36 +17,41 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("action") is { } nullNodeAction && nullNodeAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Action = null;
-            if (parseNode.GetChildNode("conditions") is { } nullNodeConditions && nullNodeConditions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Conditions = null;
-            if (parseNode.GetChildNode("gatedPathId") is { } nullNodeGatedPathId && nullNodeGatedPathId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GatedPathId = null;
-            if (parseNode.GetChildNode("matches") is { } nullNodeMatches && nullNodeMatches.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Matches = null;
-            if (parseNode.GetChildNode("pathId") is { } nullNodePathId && nullNodePathId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PathId = null;
+            if (parseNode.GetChildNode("action") is null) { _explicitNullValueAction = default!; _explicitNullProperties?.Remove("action"); }
+            else if (parseNode.GetChildNode("action") is { } nullNodeAction && nullNodeAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Action = null;
+            if (parseNode.GetChildNode("conditions") is null) { _explicitNullValueConditions = default!; _explicitNullProperties?.Remove("conditions"); }
+            else if (parseNode.GetChildNode("conditions") is { } nullNodeConditions && nullNodeConditions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Conditions = null;
+            if (parseNode.GetChildNode("gatedPathId") is null) { _explicitNullValueGatedPathId = default!; _explicitNullProperties?.Remove("gatedPathId"); }
+            else if (parseNode.GetChildNode("gatedPathId") is { } nullNodeGatedPathId && nullNodeGatedPathId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GatedPathId = null;
+            if (parseNode.GetChildNode("matches") is null) { _explicitNullValueMatches = default!; _explicitNullProperties?.Remove("matches"); }
+            else if (parseNode.GetChildNode("matches") is { } nullNodeMatches && nullNodeMatches.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Matches = null;
+            if (parseNode.GetChildNode("pathId") is null) { _explicitNullValuePathId = default!; _explicitNullProperties?.Remove("pathId"); }
+            else if (parseNode.GetChildNode("pathId") is { } nullNodePathId && nullNodePathId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PathId = null;
         }
 
         /// <summary>The step that gates every step after it on a set of conditions; include this step by id when updating the workflow&apos;s steps.</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.FilterAction? Action { get => _explicitNullValueAction; set { _explicitNullValueAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action"); else _explicitNullProperties?.Remove("action"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.FilterAction? Action { get => _explicitNullValueAction; set { _explicitNullValueAction = value; AdditionalData?.Remove("action"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action"); else _explicitNullProperties?.Remove("action"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.FilterAction? _explicitNullValueAction = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The conditions every following step is gated on. Omit to leave the persisted conditions untouched; send an empty list for a gate that passes everything.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.WorkflowPathConditionInputDto20260922>? Conditions { get => _explicitNullValueConditions; set { _explicitNullValueConditions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conditions"); else _explicitNullProperties?.Remove("conditions"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.WorkflowPathConditionInputDto20260922>? Conditions { get => _explicitNullValueConditions; set { _explicitNullValueConditions = value; AdditionalData?.Remove("conditions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conditions"); else _explicitNullProperties?.Remove("conditions"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.WorkflowPathConditionInputDto20260922>? _explicitNullValueConditions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.WorkflowPathConditionInputDto20260922> Conditions { get => _explicitNullValueConditions; set { _explicitNullValueConditions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conditions"); else _explicitNullProperties?.Remove("conditions"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.WorkflowPathConditionInputDto20260922> Conditions { get => _explicitNullValueConditions; set { _explicitNullValueConditions = value; AdditionalData?.Remove("conditions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conditions"); else _explicitNullProperties?.Remove("conditions"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.WorkflowPathConditionInputDto20260922> _explicitNullValueConditions = default!;
 #endif
         /// <summary>Id of the path this filter gates, so steps can name it as their pathId. Generated when omitted; send the gatedPathId from GET to keep the steps already behind this gate.</summary>
-        public Guid? GatedPathId { get => _explicitNullValueGatedPathId; set { _explicitNullValueGatedPathId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gatedPathId"); else _explicitNullProperties?.Remove("gatedPathId"); } }
+        public Guid? GatedPathId { get => _explicitNullValueGatedPathId; set { _explicitNullValueGatedPathId = value; AdditionalData?.Remove("gatedPathId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gatedPathId"); else _explicitNullProperties?.Remove("gatedPathId"); } }
         private Guid? _explicitNullValueGatedPathId = default!;
         /// <summary>all: every condition matches; any: at least one matches; none: no conditions match; not_all: at least one condition does not match.</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.CreateFilterWorkflowStepDto20260922Matches? Matches { get => _explicitNullValueMatches; set { _explicitNullValueMatches = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("matches"); else _explicitNullProperties?.Remove("matches"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CreateFilterWorkflowStepDto20260922Matches? Matches { get => _explicitNullValueMatches; set { _explicitNullValueMatches = value; AdditionalData?.Remove("matches"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("matches"); else _explicitNullProperties?.Remove("matches"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.CreateFilterWorkflowStepDto20260922Matches? _explicitNullValueMatches = default!;
         /// <summary>Id of the conditional path this filter itself sits inside. Omit it for a filter at the top level.</summary>
-        public Guid? PathId { get => _explicitNullValuePathId; set { _explicitNullValuePathId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pathId"); else _explicitNullProperties?.Remove("pathId"); } }
+        public Guid? PathId { get => _explicitNullValuePathId; set { _explicitNullValuePathId = value; AdditionalData?.Remove("pathId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pathId"); else _explicitNullProperties?.Remove("pathId"); } }
         private Guid? _explicitNullValuePathId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.CreateFilterWorkflowStepDto20260922"/> and sets the default values.
@@ -73,10 +78,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "action", n => { Action = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.FilterAction>(); } },
+                { "action", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.FilterAction>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAction = default; _explicitNullProperties?.Remove("action"); AdditionalData["action"] = unknown; } else { Action = parsed; AdditionalData.Remove("action"); } } },
                 { "conditions", n => { Conditions = n.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.WorkflowPathConditionInputDto20260922>(global::Soenneker.CalCom.OpenApiClient.Models.WorkflowPathConditionInputDto20260922.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "gatedPathId", n => { GatedPathId = n.GetGuidValue(); } },
-                { "matches", n => { Matches = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.CreateFilterWorkflowStepDto20260922Matches>(); } },
+                { "matches", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.CreateFilterWorkflowStepDto20260922Matches>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMatches = default; _explicitNullProperties?.Remove("matches"); AdditionalData["matches"] = unknown; } else { Matches = parsed; AdditionalData.Remove("matches"); } } },
                 { "pathId", n => { PathId = n.GetGuidValue(); } },
             };
         }

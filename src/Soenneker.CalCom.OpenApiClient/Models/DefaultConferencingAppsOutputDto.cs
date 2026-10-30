@@ -17,8 +17,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("appLink") is { } nullNodeAppLink && nullNodeAppLink.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppLink = null;
-            if (parseNode.GetChildNode("appSlug") is { } nullNodeAppSlug && nullNodeAppSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppSlug = null;
+            if (parseNode.GetChildNode("appLink") is null) { _explicitNullValueAppLink = default!; _explicitNullProperties?.Remove("appLink"); }
+            else if (parseNode.GetChildNode("appLink") is { } nullNodeAppLink && nullNodeAppLink.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppLink = null;
+            if (parseNode.GetChildNode("appSlug") is null) { _explicitNullValueAppSlug = default!; _explicitNullProperties?.Remove("appSlug"); }
+            else if (parseNode.GetChildNode("appSlug") is { } nullNodeAppSlug && nullNodeAppSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppSlug = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The appLink property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AppLink { get => _explicitNullValueAppLink; set { _explicitNullValueAppLink = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("appLink"); else _explicitNullProperties?.Remove("appLink"); } }
+        public string? AppLink { get => _explicitNullValueAppLink; set { _explicitNullValueAppLink = value; AdditionalData?.Remove("appLink"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("appLink"); else _explicitNullProperties?.Remove("appLink"); } }
         private string? _explicitNullValueAppLink = default!;
 #nullable restore
 #else
-        public string AppLink { get => _explicitNullValueAppLink; set { _explicitNullValueAppLink = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("appLink"); else _explicitNullProperties?.Remove("appLink"); } }
+        public string AppLink { get => _explicitNullValueAppLink; set { _explicitNullValueAppLink = value; AdditionalData?.Remove("appLink"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("appLink"); else _explicitNullProperties?.Remove("appLink"); } }
         private string _explicitNullValueAppLink = default!;
 #endif
         /// <summary>The appSlug property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AppSlug { get => _explicitNullValueAppSlug; set { _explicitNullValueAppSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("appSlug"); else _explicitNullProperties?.Remove("appSlug"); } }
+        public string? AppSlug { get => _explicitNullValueAppSlug; set { _explicitNullValueAppSlug = value; AdditionalData?.Remove("appSlug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("appSlug"); else _explicitNullProperties?.Remove("appSlug"); } }
         private string? _explicitNullValueAppSlug = default!;
 #nullable restore
 #else
-        public string AppSlug { get => _explicitNullValueAppSlug; set { _explicitNullValueAppSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("appSlug"); else _explicitNullProperties?.Remove("appSlug"); } }
+        public string AppSlug { get => _explicitNullValueAppSlug; set { _explicitNullValueAppSlug = value; AdditionalData?.Remove("appSlug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("appSlug"); else _explicitNullProperties?.Remove("appSlug"); } }
         private string _explicitNullValueAppSlug = default!;
 #endif
         /// <summary>

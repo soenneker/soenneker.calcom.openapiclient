@@ -17,58 +17,65 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("duration") is { } nullNodeDuration && nullNodeDuration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Duration = null;
-            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
-            if (parseNode.GetChildNode("maxParticipants") is { } nullNodeMaxParticipants && nullNodeMaxParticipants.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxParticipants = null;
-            if (parseNode.GetChildNode("ongoing") is { } nullNodeOngoing && nullNodeOngoing.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ongoing = null;
-            if (parseNode.GetChildNode("participants") is { } nullNodeParticipants && nullNodeParticipants.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Participants = null;
-            if (parseNode.GetChildNode("room") is { } nullNodeRoom && nullNodeRoom.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Room = null;
-            if (parseNode.GetChildNode("startTime") is { } nullNodeStartTime && nullNodeStartTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartTime = null;
+            if (parseNode.GetChildNode("duration") is null) { _explicitNullValueDuration = default!; _explicitNullProperties?.Remove("duration"); }
+            else if (parseNode.GetChildNode("duration") is { } nullNodeDuration && nullNodeDuration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Duration = null;
+            if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
+            else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("maxParticipants") is null) { _explicitNullValueMaxParticipants = default!; _explicitNullProperties?.Remove("maxParticipants"); }
+            else if (parseNode.GetChildNode("maxParticipants") is { } nullNodeMaxParticipants && nullNodeMaxParticipants.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxParticipants = null;
+            if (parseNode.GetChildNode("ongoing") is null) { _explicitNullValueOngoing = default!; _explicitNullProperties?.Remove("ongoing"); }
+            else if (parseNode.GetChildNode("ongoing") is { } nullNodeOngoing && nullNodeOngoing.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ongoing = null;
+            if (parseNode.GetChildNode("participants") is null) { _explicitNullValueParticipants = default!; _explicitNullProperties?.Remove("participants"); }
+            else if (parseNode.GetChildNode("participants") is { } nullNodeParticipants && nullNodeParticipants.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Participants = null;
+            if (parseNode.GetChildNode("room") is null) { _explicitNullValueRoom = default!; _explicitNullProperties?.Remove("room"); }
+            else if (parseNode.GetChildNode("room") is { } nullNodeRoom && nullNodeRoom.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Room = null;
+            if (parseNode.GetChildNode("startTime") is null) { _explicitNullValueStartTime = default!; _explicitNullProperties?.Remove("startTime"); }
+            else if (parseNode.GetChildNode("startTime") is { } nullNodeStartTime && nullNodeStartTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartTime = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The duration property</summary>
-        public double? Duration { get => _explicitNullValueDuration; set { _explicitNullValueDuration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("duration"); else _explicitNullProperties?.Remove("duration"); } }
+        public double? Duration { get => _explicitNullValueDuration; set { _explicitNullValueDuration = value; AdditionalData?.Remove("duration"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("duration"); else _explicitNullProperties?.Remove("duration"); } }
         private double? _explicitNullValueDuration = default!;
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string _explicitNullValueId = default!;
 #endif
         /// <summary>The maxParticipants property</summary>
-        public double? MaxParticipants { get => _explicitNullValueMaxParticipants; set { _explicitNullValueMaxParticipants = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxParticipants"); else _explicitNullProperties?.Remove("maxParticipants"); } }
+        public double? MaxParticipants { get => _explicitNullValueMaxParticipants; set { _explicitNullValueMaxParticipants = value; AdditionalData?.Remove("maxParticipants"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxParticipants"); else _explicitNullProperties?.Remove("maxParticipants"); } }
         private double? _explicitNullValueMaxParticipants = default!;
         /// <summary>The ongoing property</summary>
-        public bool? Ongoing { get => _explicitNullValueOngoing; set { _explicitNullValueOngoing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ongoing"); else _explicitNullProperties?.Remove("ongoing"); } }
+        public bool? Ongoing { get => _explicitNullValueOngoing; set { _explicitNullValueOngoing = value; AdditionalData?.Remove("ongoing"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ongoing"); else _explicitNullProperties?.Remove("ongoing"); } }
         private bool? _explicitNullValueOngoing = default!;
         /// <summary>The participants property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.CalMeetingParticipant>? Participants { get => _explicitNullValueParticipants; set { _explicitNullValueParticipants = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("participants"); else _explicitNullProperties?.Remove("participants"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.CalMeetingParticipant>? Participants { get => _explicitNullValueParticipants; set { _explicitNullValueParticipants = value; AdditionalData?.Remove("participants"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("participants"); else _explicitNullProperties?.Remove("participants"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.CalMeetingParticipant>? _explicitNullValueParticipants = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.CalMeetingParticipant> Participants { get => _explicitNullValueParticipants; set { _explicitNullValueParticipants = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("participants"); else _explicitNullProperties?.Remove("participants"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.CalMeetingParticipant> Participants { get => _explicitNullValueParticipants; set { _explicitNullValueParticipants = value; AdditionalData?.Remove("participants"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("participants"); else _explicitNullProperties?.Remove("participants"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.CalMeetingParticipant> _explicitNullValueParticipants = default!;
 #endif
         /// <summary>The room property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Room { get => _explicitNullValueRoom; set { _explicitNullValueRoom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("room"); else _explicitNullProperties?.Remove("room"); } }
+        public string? Room { get => _explicitNullValueRoom; set { _explicitNullValueRoom = value; AdditionalData?.Remove("room"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("room"); else _explicitNullProperties?.Remove("room"); } }
         private string? _explicitNullValueRoom = default!;
 #nullable restore
 #else
-        public string Room { get => _explicitNullValueRoom; set { _explicitNullValueRoom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("room"); else _explicitNullProperties?.Remove("room"); } }
+        public string Room { get => _explicitNullValueRoom; set { _explicitNullValueRoom = value; AdditionalData?.Remove("room"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("room"); else _explicitNullProperties?.Remove("room"); } }
         private string _explicitNullValueRoom = default!;
 #endif
         /// <summary>The startTime property</summary>
-        public double? StartTime { get => _explicitNullValueStartTime; set { _explicitNullValueStartTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("startTime"); else _explicitNullProperties?.Remove("startTime"); } }
+        public double? StartTime { get => _explicitNullValueStartTime; set { _explicitNullValueStartTime = value; AdditionalData?.Remove("startTime"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("startTime"); else _explicitNullProperties?.Remove("startTime"); } }
         private double? _explicitNullValueStartTime = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.CalMeetingSession"/> and sets the default values.

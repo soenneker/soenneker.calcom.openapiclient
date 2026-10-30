@@ -17,7 +17,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("coHostIds") is { } nullNodeCoHostIds && nullNodeCoHostIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CoHostIds = null;
+            if (parseNode.GetChildNode("coHostIds") is null) { _explicitNullValueCoHostIds = default!; _explicitNullProperties?.Remove("coHostIds"); }
+            else if (parseNode.GetChildNode("coHostIds") is { } nullNodeCoHostIds && nullNodeCoHostIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CoHostIds = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>Every co-host id on the Event, accepted and pending alike, in the new display order. Each id must appear exactly once. These are the `id` values from `GET /v2/events/{uuid}/co-hosts`, not user ids.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Guid?>? CoHostIds { get => _explicitNullValueCoHostIds; set { _explicitNullValueCoHostIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coHostIds"); else _explicitNullProperties?.Remove("coHostIds"); } }
+        public List<Guid?>? CoHostIds { get => _explicitNullValueCoHostIds; set { _explicitNullValueCoHostIds = value; AdditionalData?.Remove("coHostIds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coHostIds"); else _explicitNullProperties?.Remove("coHostIds"); } }
         private List<Guid?>? _explicitNullValueCoHostIds = default!;
 #nullable restore
 #else
-        public List<Guid?> CoHostIds { get => _explicitNullValueCoHostIds; set { _explicitNullValueCoHostIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coHostIds"); else _explicitNullProperties?.Remove("coHostIds"); } }
+        public List<Guid?> CoHostIds { get => _explicitNullValueCoHostIds; set { _explicitNullValueCoHostIds = value; AdditionalData?.Remove("coHostIds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coHostIds"); else _explicitNullProperties?.Remove("coHostIds"); } }
         private List<Guid?> _explicitNullValueCoHostIds = default!;
 #endif
         /// <summary>

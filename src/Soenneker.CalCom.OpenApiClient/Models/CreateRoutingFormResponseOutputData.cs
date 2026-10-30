@@ -17,56 +17,61 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("eventTypeId") is { } nullNodeEventTypeId && nullNodeEventTypeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventTypeId = null;
-            if (parseNode.GetChildNode("routing") is { } nullNodeRouting && nullNodeRouting.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Routing = null;
-            if (parseNode.GetChildNode("routingCustomMessage") is { } nullNodeRoutingCustomMessage && nullNodeRoutingCustomMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoutingCustomMessage = null;
-            if (parseNode.GetChildNode("routingExternalRedirectUrl") is { } nullNodeRoutingExternalRedirectUrl && nullNodeRoutingExternalRedirectUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoutingExternalRedirectUrl = null;
-            if (parseNode.GetChildNode("slots") is { } nullNodeSlots && nullNodeSlots.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Slots = null;
+            if (parseNode.GetChildNode("eventTypeId") is null) { _explicitNullValueEventTypeId = default!; _explicitNullProperties?.Remove("eventTypeId"); }
+            else if (parseNode.GetChildNode("eventTypeId") is { } nullNodeEventTypeId && nullNodeEventTypeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventTypeId = null;
+            if (parseNode.GetChildNode("routing") is null) { _explicitNullValueRouting = default!; _explicitNullProperties?.Remove("routing"); }
+            else if (parseNode.GetChildNode("routing") is { } nullNodeRouting && nullNodeRouting.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Routing = null;
+            if (parseNode.GetChildNode("routingCustomMessage") is null) { _explicitNullValueRoutingCustomMessage = default!; _explicitNullProperties?.Remove("routingCustomMessage"); }
+            else if (parseNode.GetChildNode("routingCustomMessage") is { } nullNodeRoutingCustomMessage && nullNodeRoutingCustomMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoutingCustomMessage = null;
+            if (parseNode.GetChildNode("routingExternalRedirectUrl") is null) { _explicitNullValueRoutingExternalRedirectUrl = default!; _explicitNullProperties?.Remove("routingExternalRedirectUrl"); }
+            else if (parseNode.GetChildNode("routingExternalRedirectUrl") is { } nullNodeRoutingExternalRedirectUrl && nullNodeRoutingExternalRedirectUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoutingExternalRedirectUrl = null;
+            if (parseNode.GetChildNode("slots") is null) { _explicitNullValueSlots = default!; _explicitNullProperties?.Remove("slots"); }
+            else if (parseNode.GetChildNode("slots") is { } nullNodeSlots && nullNodeSlots.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Slots = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The ID of the event type that was routed to.</summary>
-        public double? EventTypeId { get => _explicitNullValueEventTypeId; set { _explicitNullValueEventTypeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeId"); else _explicitNullProperties?.Remove("eventTypeId"); } }
+        public double? EventTypeId { get => _explicitNullValueEventTypeId; set { _explicitNullValueEventTypeId = value; AdditionalData?.Remove("eventTypeId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeId"); else _explicitNullProperties?.Remove("eventTypeId"); } }
         private double? _explicitNullValueEventTypeId = default!;
         /// <summary>The routing information that could be passed as is to the booking API.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.CreateRoutingFormResponseOutputDataRouting? Routing { get => _explicitNullValueRouting; set { _explicitNullValueRouting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routing"); else _explicitNullProperties?.Remove("routing"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CreateRoutingFormResponseOutputDataRouting? Routing { get => _explicitNullValueRouting; set { _explicitNullValueRouting = value; AdditionalData?.Remove("routing"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routing"); else _explicitNullProperties?.Remove("routing"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.CreateRoutingFormResponseOutputDataRouting? _explicitNullValueRouting = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.CreateRoutingFormResponseOutputDataRouting Routing { get => _explicitNullValueRouting; set { _explicitNullValueRouting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routing"); else _explicitNullProperties?.Remove("routing"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CreateRoutingFormResponseOutputDataRouting Routing { get => _explicitNullValueRouting; set { _explicitNullValueRouting = value; AdditionalData?.Remove("routing"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routing"); else _explicitNullProperties?.Remove("routing"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.CreateRoutingFormResponseOutputDataRouting _explicitNullValueRouting = default!;
 #endif
         /// <summary>A custom message to be displayed to the user in case of routing to a custom page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RoutingCustomMessage { get => _explicitNullValueRoutingCustomMessage; set { _explicitNullValueRoutingCustomMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routingCustomMessage"); else _explicitNullProperties?.Remove("routingCustomMessage"); } }
+        public string? RoutingCustomMessage { get => _explicitNullValueRoutingCustomMessage; set { _explicitNullValueRoutingCustomMessage = value; AdditionalData?.Remove("routingCustomMessage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routingCustomMessage"); else _explicitNullProperties?.Remove("routingCustomMessage"); } }
         private string? _explicitNullValueRoutingCustomMessage = default!;
 #nullable restore
 #else
-        public string RoutingCustomMessage { get => _explicitNullValueRoutingCustomMessage; set { _explicitNullValueRoutingCustomMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routingCustomMessage"); else _explicitNullProperties?.Remove("routingCustomMessage"); } }
+        public string RoutingCustomMessage { get => _explicitNullValueRoutingCustomMessage; set { _explicitNullValueRoutingCustomMessage = value; AdditionalData?.Remove("routingCustomMessage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routingCustomMessage"); else _explicitNullProperties?.Remove("routingCustomMessage"); } }
         private string _explicitNullValueRoutingCustomMessage = default!;
 #endif
         /// <summary>The external redirect URL to be used in case of routing to a non cal.com event type URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RoutingExternalRedirectUrl { get => _explicitNullValueRoutingExternalRedirectUrl; set { _explicitNullValueRoutingExternalRedirectUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routingExternalRedirectUrl"); else _explicitNullProperties?.Remove("routingExternalRedirectUrl"); } }
+        public string? RoutingExternalRedirectUrl { get => _explicitNullValueRoutingExternalRedirectUrl; set { _explicitNullValueRoutingExternalRedirectUrl = value; AdditionalData?.Remove("routingExternalRedirectUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routingExternalRedirectUrl"); else _explicitNullProperties?.Remove("routingExternalRedirectUrl"); } }
         private string? _explicitNullValueRoutingExternalRedirectUrl = default!;
 #nullable restore
 #else
-        public string RoutingExternalRedirectUrl { get => _explicitNullValueRoutingExternalRedirectUrl; set { _explicitNullValueRoutingExternalRedirectUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routingExternalRedirectUrl"); else _explicitNullProperties?.Remove("routingExternalRedirectUrl"); } }
+        public string RoutingExternalRedirectUrl { get => _explicitNullValueRoutingExternalRedirectUrl; set { _explicitNullValueRoutingExternalRedirectUrl = value; AdditionalData?.Remove("routingExternalRedirectUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routingExternalRedirectUrl"); else _explicitNullProperties?.Remove("routingExternalRedirectUrl"); } }
         private string _explicitNullValueRoutingExternalRedirectUrl = default!;
 #endif
         /// <summary>The slots property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.CreateRoutingFormResponseOutputDataSlots? Slots { get => _explicitNullValueSlots; set { _explicitNullValueSlots = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slots"); else _explicitNullProperties?.Remove("slots"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CreateRoutingFormResponseOutputDataSlots? Slots { get => _explicitNullValueSlots; set { _explicitNullValueSlots = value; AdditionalData?.Remove("slots"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slots"); else _explicitNullProperties?.Remove("slots"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.CreateRoutingFormResponseOutputDataSlots? _explicitNullValueSlots = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.CreateRoutingFormResponseOutputDataSlots Slots { get => _explicitNullValueSlots; set { _explicitNullValueSlots = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slots"); else _explicitNullProperties?.Remove("slots"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CreateRoutingFormResponseOutputDataSlots Slots { get => _explicitNullValueSlots; set { _explicitNullValueSlots = value; AdditionalData?.Remove("slots"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slots"); else _explicitNullProperties?.Remove("slots"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.CreateRoutingFormResponseOutputDataSlots _explicitNullValueSlots = default!;
 #endif
         /// <summary>

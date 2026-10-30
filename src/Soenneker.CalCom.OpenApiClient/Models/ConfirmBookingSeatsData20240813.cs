@@ -17,7 +17,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("confirmedSeatUids") is { } nullNodeConfirmedSeatUids && nullNodeConfirmedSeatUids.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConfirmedSeatUids = null;
+            if (parseNode.GetChildNode("confirmedSeatUids") is null) { _explicitNullValueConfirmedSeatUids = default!; _explicitNullProperties?.Remove("confirmedSeatUids"); }
+            else if (parseNode.GetChildNode("confirmedSeatUids") is { } nullNodeConfirmedSeatUids && nullNodeConfirmedSeatUids.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConfirmedSeatUids = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>Seat UIDs that were waiting for confirmation and are now confirmed. Seats that were already confirmed are omitted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ConfirmedSeatUids { get => _explicitNullValueConfirmedSeatUids; set { _explicitNullValueConfirmedSeatUids = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("confirmedSeatUids"); else _explicitNullProperties?.Remove("confirmedSeatUids"); } }
+        public List<string>? ConfirmedSeatUids { get => _explicitNullValueConfirmedSeatUids; set { _explicitNullValueConfirmedSeatUids = value; AdditionalData?.Remove("confirmedSeatUids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("confirmedSeatUids"); else _explicitNullProperties?.Remove("confirmedSeatUids"); } }
         private List<string>? _explicitNullValueConfirmedSeatUids = default!;
 #nullable restore
 #else
-        public List<string> ConfirmedSeatUids { get => _explicitNullValueConfirmedSeatUids; set { _explicitNullValueConfirmedSeatUids = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("confirmedSeatUids"); else _explicitNullProperties?.Remove("confirmedSeatUids"); } }
+        public List<string> ConfirmedSeatUids { get => _explicitNullValueConfirmedSeatUids; set { _explicitNullValueConfirmedSeatUids = value; AdditionalData?.Remove("confirmedSeatUids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("confirmedSeatUids"); else _explicitNullProperties?.Remove("confirmedSeatUids"); } }
         private List<string> _explicitNullValueConfirmedSeatUids = default!;
 #endif
         /// <summary>

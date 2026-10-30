@@ -17,13 +17,14 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("sent") is { } nullNodeSent && nullNodeSent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sent = null;
+            if (parseNode.GetChildNode("sent") is null) { _explicitNullValueSent = default!; _explicitNullProperties?.Remove("sent"); }
+            else if (parseNode.GetChildNode("sent") is { } nullNodeSent && nullNodeSent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sent = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The sent property</summary>
-        public bool? Sent { get => _explicitNullValueSent; set { _explicitNullValueSent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sent"); else _explicitNullProperties?.Remove("sent"); } }
+        public bool? Sent { get => _explicitNullValueSent; set { _explicitNullValueSent = value; AdditionalData?.Remove("sent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sent"); else _explicitNullProperties?.Remove("sent"); } }
         private bool? _explicitNullValueSent = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.SendVerificationEmailData"/> and sets the default values.

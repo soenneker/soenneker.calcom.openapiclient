@@ -17,8 +17,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("bookingUid") is { } nullNodeBookingUid && nullNodeBookingUid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingUid = null;
-            if (parseNode.GetChildNode("reassignedTo") is { } nullNodeReassignedTo && nullNodeReassignedTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReassignedTo = null;
+            if (parseNode.GetChildNode("bookingUid") is null) { _explicitNullValueBookingUid = default!; _explicitNullProperties?.Remove("bookingUid"); }
+            else if (parseNode.GetChildNode("bookingUid") is { } nullNodeBookingUid && nullNodeBookingUid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingUid = null;
+            if (parseNode.GetChildNode("reassignedTo") is null) { _explicitNullValueReassignedTo = default!; _explicitNullProperties?.Remove("reassignedTo"); }
+            else if (parseNode.GetChildNode("reassignedTo") is { } nullNodeReassignedTo && nullNodeReassignedTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReassignedTo = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The reassigned booking&apos;s uid. For a managed event booking this is a new uid, because the booking is recreated on the new host&apos;s event type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BookingUid { get => _explicitNullValueBookingUid; set { _explicitNullValueBookingUid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUid"); else _explicitNullProperties?.Remove("bookingUid"); } }
+        public string? BookingUid { get => _explicitNullValueBookingUid; set { _explicitNullValueBookingUid = value; AdditionalData?.Remove("bookingUid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUid"); else _explicitNullProperties?.Remove("bookingUid"); } }
         private string? _explicitNullValueBookingUid = default!;
 #nullable restore
 #else
-        public string BookingUid { get => _explicitNullValueBookingUid; set { _explicitNullValueBookingUid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUid"); else _explicitNullProperties?.Remove("bookingUid"); } }
+        public string BookingUid { get => _explicitNullValueBookingUid; set { _explicitNullValueBookingUid = value; AdditionalData?.Remove("bookingUid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUid"); else _explicitNullProperties?.Remove("bookingUid"); } }
         private string _explicitNullValueBookingUid = default!;
 #endif
         /// <summary>The reassignedTo property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.ReassignedToOutput20260225? ReassignedTo { get => _explicitNullValueReassignedTo; set { _explicitNullValueReassignedTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reassignedTo"); else _explicitNullProperties?.Remove("reassignedTo"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.ReassignedToOutput20260225? ReassignedTo { get => _explicitNullValueReassignedTo; set { _explicitNullValueReassignedTo = value; AdditionalData?.Remove("reassignedTo"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reassignedTo"); else _explicitNullProperties?.Remove("reassignedTo"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.ReassignedToOutput20260225? _explicitNullValueReassignedTo = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.ReassignedToOutput20260225 ReassignedTo { get => _explicitNullValueReassignedTo; set { _explicitNullValueReassignedTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reassignedTo"); else _explicitNullProperties?.Remove("reassignedTo"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.ReassignedToOutput20260225 ReassignedTo { get => _explicitNullValueReassignedTo; set { _explicitNullValueReassignedTo = value; AdditionalData?.Remove("reassignedTo"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reassignedTo"); else _explicitNullProperties?.Remove("reassignedTo"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.ReassignedToOutput20260225 _explicitNullValueReassignedTo = default!;
 #endif
         /// <summary>

@@ -54,10 +54,14 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             }
             
             var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
-            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("private_key") != null && parseNode.GetChildNode("client_email") != null && parseNode.GetChildNode("client_id") != null))();
-            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("private_key") != null && parseNode.GetChildNode("tenant_id") != null && parseNode.GetChildNode("client_id") != null))();
-            if (result.GoogleServiceAccountKeyInput == null && result.MicrosoftServiceAccountKeyInput == null && matchesUnionBranch0 && !matchesUnionBranch1) result.GoogleServiceAccountKeyInput = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.GoogleServiceAccountKeyInput(), parseNode);
-            if (result.GoogleServiceAccountKeyInput == null && result.MicrosoftServiceAccountKeyInput == null && matchesUnionBranch1 && !matchesUnionBranch0) result.MicrosoftServiceAccountKeyInput = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.MicrosoftServiceAccountKeyInput(), parseNode);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("private_key") && shapeMembers1.ContainsKey("client_email") && shapeMembers1.ContainsKey("client_id") && (!shapeMembers1.ContainsKey("private_key") || (((shapeMembers1["private_key"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("client_email") || (((shapeMembers1["client_email"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("client_id") || (((shapeMembers1["client_id"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))))))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("private_key") && shapeMembers1.ContainsKey("tenant_id") && shapeMembers1.ContainsKey("client_id") && (!shapeMembers1.ContainsKey("private_key") || (((shapeMembers1["private_key"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("tenant_id") || (((shapeMembers1["tenant_id"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("client_id") || (((shapeMembers1["client_id"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))))))))();
+            int matchingUnionBranches = 0;
+            if (matchesUnionBranch0) matchingUnionBranches++;
+            if (matchesUnionBranch1) matchingUnionBranches++;
+            bool noSelectedUnionBranch = result.GoogleServiceAccountKeyInput == null && result.MicrosoftServiceAccountKeyInput == null;
+            if (noSelectedUnionBranch && matchesUnionBranch0 && matchingUnionBranches == 1) result.GoogleServiceAccountKeyInput = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.GoogleServiceAccountKeyInput(), parseNode);
+            if (noSelectedUnionBranch && matchesUnionBranch1 && matchingUnionBranches == 1) result.MicrosoftServiceAccountKeyInput = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.MicrosoftServiceAccountKeyInput(), parseNode);
             if (result.GoogleServiceAccountKeyInput == null && result.MicrosoftServiceAccountKeyInput == null) result.UnrecognizedValue = unionPayload;
 return result;
         }
@@ -67,6 +71,8 @@ return result;
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
+
             if(GoogleServiceAccountKeyInput != null)
             {
                 return GoogleServiceAccountKeyInput.GetFieldDeserializers();
@@ -85,8 +91,11 @@ return result;
         {
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
             if (GoogleServiceAccountKeyInput == null && MicrosoftServiceAccountKeyInput == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
-            if (GoogleServiceAccountKeyInput != null && MicrosoftServiceAccountKeyInput == null) { if (GoogleServiceAccountKeyInput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, GoogleServiceAccountKeyInput); return; }
-            if (MicrosoftServiceAccountKeyInput != null && GoogleServiceAccountKeyInput == null) { if (MicrosoftServiceAccountKeyInput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MicrosoftServiceAccountKeyInput); return; }
+            int selectedUnionBranches = 0;
+            if (GoogleServiceAccountKeyInput != null) selectedUnionBranches++;
+            if (MicrosoftServiceAccountKeyInput != null) selectedUnionBranches++;
+            if (GoogleServiceAccountKeyInput != null && selectedUnionBranches == 1) { if (GoogleServiceAccountKeyInput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, GoogleServiceAccountKeyInput); return; }
+            if (MicrosoftServiceAccountKeyInput != null && selectedUnionBranches == 1) { if (MicrosoftServiceAccountKeyInput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MicrosoftServiceAccountKeyInput); return; }
 
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(GoogleServiceAccountKeyInput != null)

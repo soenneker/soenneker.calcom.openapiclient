@@ -17,10 +17,14 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("guest") is { } nullNodeGuest && nullNodeGuest.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Guest = null;
-            if (parseNode.GetChildNode("hasOrganization") is { } nullNodeHasOrganization && nullNodeHasOrganization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasOrganization = null;
-            if (parseNode.GetChildNode("host") is { } nullNodeHost && nullNodeHost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Host = null;
-            if (parseNode.GetChildNode("readOnly") is { } nullNodeReadOnly && nullNodeReadOnly.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReadOnly = null;
+            if (parseNode.GetChildNode("guest") is null) { _explicitNullValueGuest = default!; _explicitNullProperties?.Remove("guest"); }
+            else if (parseNode.GetChildNode("guest") is { } nullNodeGuest && nullNodeGuest.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Guest = null;
+            if (parseNode.GetChildNode("hasOrganization") is null) { _explicitNullValueHasOrganization = default!; _explicitNullProperties?.Remove("hasOrganization"); }
+            else if (parseNode.GetChildNode("hasOrganization") is { } nullNodeHasOrganization && nullNodeHasOrganization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasOrganization = null;
+            if (parseNode.GetChildNode("host") is null) { _explicitNullValueHost = default!; _explicitNullProperties?.Remove("host"); }
+            else if (parseNode.GetChildNode("host") is { } nullNodeHost && nullNodeHost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Host = null;
+            if (parseNode.GetChildNode("readOnly") is null) { _explicitNullValueReadOnly = default!; _explicitNullProperties?.Remove("readOnly"); }
+            else if (parseNode.GetChildNode("readOnly") is { } nullNodeReadOnly && nullNodeReadOnly.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReadOnly = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,28 +32,28 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The guest property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.EventTypeCalendarInviteTemplateOutput? Guest { get => _explicitNullValueGuest; set { _explicitNullValueGuest = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guest"); else _explicitNullProperties?.Remove("guest"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.EventTypeCalendarInviteTemplateOutput? Guest { get => _explicitNullValueGuest; set { _explicitNullValueGuest = value; AdditionalData?.Remove("guest"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guest"); else _explicitNullProperties?.Remove("guest"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.EventTypeCalendarInviteTemplateOutput? _explicitNullValueGuest = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.EventTypeCalendarInviteTemplateOutput Guest { get => _explicitNullValueGuest; set { _explicitNullValueGuest = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guest"); else _explicitNullProperties?.Remove("guest"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.EventTypeCalendarInviteTemplateOutput Guest { get => _explicitNullValueGuest; set { _explicitNullValueGuest = value; AdditionalData?.Remove("guest"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guest"); else _explicitNullProperties?.Remove("guest"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.EventTypeCalendarInviteTemplateOutput _explicitNullValueGuest = default!;
 #endif
         /// <summary>Whether this event type resolves through an organization.</summary>
-        public bool? HasOrganization { get => _explicitNullValueHasOrganization; set { _explicitNullValueHasOrganization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hasOrganization"); else _explicitNullProperties?.Remove("hasOrganization"); } }
+        public bool? HasOrganization { get => _explicitNullValueHasOrganization; set { _explicitNullValueHasOrganization = value; AdditionalData?.Remove("hasOrganization"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hasOrganization"); else _explicitNullProperties?.Remove("hasOrganization"); } }
         private bool? _explicitNullValueHasOrganization = default!;
         /// <summary>The host property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.EventTypeCalendarInviteTemplateOutput? Host { get => _explicitNullValueHost; set { _explicitNullValueHost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("host"); else _explicitNullProperties?.Remove("host"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.EventTypeCalendarInviteTemplateOutput? Host { get => _explicitNullValueHost; set { _explicitNullValueHost = value; AdditionalData?.Remove("host"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("host"); else _explicitNullProperties?.Remove("host"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.EventTypeCalendarInviteTemplateOutput? _explicitNullValueHost = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.EventTypeCalendarInviteTemplateOutput Host { get => _explicitNullValueHost; set { _explicitNullValueHost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("host"); else _explicitNullProperties?.Remove("host"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.EventTypeCalendarInviteTemplateOutput Host { get => _explicitNullValueHost; set { _explicitNullValueHost = value; AdditionalData?.Remove("host"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("host"); else _explicitNullProperties?.Remove("host"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.EventTypeCalendarInviteTemplateOutput _explicitNullValueHost = default!;
 #endif
         /// <summary>Whether this event type is a managed child and its templates are read-only.</summary>
-        public bool? ReadOnly { get => _explicitNullValueReadOnly; set { _explicitNullValueReadOnly = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("readOnly"); else _explicitNullProperties?.Remove("readOnly"); } }
+        public bool? ReadOnly { get => _explicitNullValueReadOnly; set { _explicitNullValueReadOnly = value; AdditionalData?.Remove("readOnly"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("readOnly"); else _explicitNullProperties?.Remove("readOnly"); } }
         private bool? _explicitNullValueReadOnly = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.EventTypeCalendarInvitesDataOutput"/> and sets the default values.

@@ -17,21 +17,24 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("maybe") is { } nullNodeMaybe && nullNodeMaybe.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Maybe = null;
-            if (parseNode.GetChildNode("no") is { } nullNodeNo && nullNodeNo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) No = null;
-            if (parseNode.GetChildNode("yes") is { } nullNodeYes && nullNodeYes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Yes = null;
+            if (parseNode.GetChildNode("maybe") is null) { _explicitNullValueMaybe = default!; _explicitNullProperties?.Remove("maybe"); }
+            else if (parseNode.GetChildNode("maybe") is { } nullNodeMaybe && nullNodeMaybe.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Maybe = null;
+            if (parseNode.GetChildNode("no") is null) { _explicitNullValueNo = default!; _explicitNullProperties?.Remove("no"); }
+            else if (parseNode.GetChildNode("no") is { } nullNodeNo && nullNodeNo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) No = null;
+            if (parseNode.GetChildNode("yes") is null) { _explicitNullValueYes = default!; _explicitNullProperties?.Remove("yes"); }
+            else if (parseNode.GetChildNode("yes") is { } nullNodeYes && nullNodeYes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Yes = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Guests who answered Maybe, in any status.</summary>
-        public double? Maybe { get => _explicitNullValueMaybe; set { _explicitNullValueMaybe = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maybe"); else _explicitNullProperties?.Remove("maybe"); } }
+        public double? Maybe { get => _explicitNullValueMaybe; set { _explicitNullValueMaybe = value; AdditionalData?.Remove("maybe"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maybe"); else _explicitNullProperties?.Remove("maybe"); } }
         private double? _explicitNullValueMaybe = default!;
         /// <summary>Guests who answered No, in any status.</summary>
-        public double? No { get => _explicitNullValueNo; set { _explicitNullValueNo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("no"); else _explicitNullProperties?.Remove("no"); } }
+        public double? No { get => _explicitNullValueNo; set { _explicitNullValueNo = value; AdditionalData?.Remove("no"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("no"); else _explicitNullProperties?.Remove("no"); } }
         private double? _explicitNullValueNo = default!;
         /// <summary>Guests who answered Yes, in any status.</summary>
-        public double? Yes { get => _explicitNullValueYes; set { _explicitNullValueYes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("yes"); else _explicitNullProperties?.Remove("yes"); } }
+        public double? Yes { get => _explicitNullValueYes; set { _explicitNullValueYes = value; AdditionalData?.Remove("yes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("yes"); else _explicitNullProperties?.Remove("yes"); } }
         private double? _explicitNullValueYes = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.RegistrationRsvpCountsOutputDto"/> and sets the default values.

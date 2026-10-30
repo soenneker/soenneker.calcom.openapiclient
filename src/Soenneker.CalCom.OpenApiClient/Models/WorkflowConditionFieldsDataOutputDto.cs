@@ -17,20 +17,24 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("activeOn") is { } nullNodeActiveOn && nullNodeActiveOn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActiveOn = null;
-            if (parseNode.GetChildNode("fields") is { } nullNodeFields && nullNodeFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fields = null;
-            if (parseNode.GetChildNode("isActiveOnAll") is { } nullNodeIsActiveOnAll && nullNodeIsActiveOnAll.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsActiveOnAll = null;
-            if (parseNode.GetChildNode("truncated") is { } nullNodeTruncated && nullNodeTruncated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Truncated = null;
+            if (parseNode.GetChildNode("activeOn") is null) { _explicitNullValueActiveOn = default!; _explicitNullProperties?.Remove("activeOn"); }
+            else if (parseNode.GetChildNode("activeOn") is { } nullNodeActiveOn && nullNodeActiveOn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActiveOn = null;
+            if (parseNode.GetChildNode("fields") is null) { _explicitNullValueFields = default!; _explicitNullProperties?.Remove("fields"); }
+            else if (parseNode.GetChildNode("fields") is { } nullNodeFields && nullNodeFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fields = null;
+            if (parseNode.GetChildNode("isActiveOnAll") is null) { _explicitNullValueIsActiveOnAll = default!; _explicitNullProperties?.Remove("isActiveOnAll"); }
+            else if (parseNode.GetChildNode("isActiveOnAll") is { } nullNodeIsActiveOnAll && nullNodeIsActiveOnAll.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsActiveOnAll = null;
+            if (parseNode.GetChildNode("truncated") is null) { _explicitNullValueTruncated = default!; _explicitNullProperties?.Remove("truncated"); }
+            else if (parseNode.GetChildNode("truncated") is { } nullNodeTruncated && nullNodeTruncated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Truncated = null;
         }
 
         /// <summary>The event types the catalog was built from — what the workflow is active on, capped at 100.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ActiveOn { get => _explicitNullValueActiveOn; set { _explicitNullValueActiveOn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activeOn"); else _explicitNullProperties?.Remove("activeOn"); } }
+        public List<string>? ActiveOn { get => _explicitNullValueActiveOn; set { _explicitNullValueActiveOn = value; AdditionalData?.Remove("activeOn"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activeOn"); else _explicitNullProperties?.Remove("activeOn"); } }
         private List<string>? _explicitNullValueActiveOn = default!;
 #nullable restore
 #else
-        public List<string> ActiveOn { get => _explicitNullValueActiveOn; set { _explicitNullValueActiveOn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activeOn"); else _explicitNullProperties?.Remove("activeOn"); } }
+        public List<string> ActiveOn { get => _explicitNullValueActiveOn; set { _explicitNullValueActiveOn = value; AdditionalData?.Remove("activeOn"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activeOn"); else _explicitNullProperties?.Remove("activeOn"); } }
         private List<string> _explicitNullValueActiveOn = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -38,18 +42,18 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The fields a condition on this workflow can read</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.WorkflowConditionFieldOutputDto>? Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.WorkflowConditionFieldOutputDto>? Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; AdditionalData?.Remove("fields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.WorkflowConditionFieldOutputDto>? _explicitNullValueFields = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.WorkflowConditionFieldOutputDto> Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.WorkflowConditionFieldOutputDto> Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; AdditionalData?.Remove("fields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.WorkflowConditionFieldOutputDto> _explicitNullValueFields = default!;
 #endif
         /// <summary>Present when the workflow is active on everything its owner has, in which case `activeOn` lists what the cap allowed.</summary>
-        public bool? IsActiveOnAll { get => _explicitNullValueIsActiveOnAll; set { _explicitNullValueIsActiveOnAll = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("isActiveOnAll"); else _explicitNullProperties?.Remove("isActiveOnAll"); } }
+        public bool? IsActiveOnAll { get => _explicitNullValueIsActiveOnAll; set { _explicitNullValueIsActiveOnAll = value; AdditionalData?.Remove("isActiveOnAll"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("isActiveOnAll"); else _explicitNullProperties?.Remove("isActiveOnAll"); } }
         private bool? _explicitNullValueIsActiveOnAll = default!;
         /// <summary>True when the catalog samples the first 100 active entities. Warnings cover only that sample.</summary>
-        public bool? Truncated { get => _explicitNullValueTruncated; set { _explicitNullValueTruncated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("truncated"); else _explicitNullProperties?.Remove("truncated"); } }
+        public bool? Truncated { get => _explicitNullValueTruncated; set { _explicitNullValueTruncated = value; AdditionalData?.Remove("truncated"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("truncated"); else _explicitNullProperties?.Remove("truncated"); } }
         private bool? _explicitNullValueTruncated = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.WorkflowConditionFieldsDataOutputDto"/> and sets the default values.

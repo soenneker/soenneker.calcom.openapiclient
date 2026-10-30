@@ -18,21 +18,24 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("layer") is { } nullNodeLayer && nullNodeLayer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Layer = null;
-            if (parseNode.GetChildNode("limitKey") is { } nullNodeLimitKey && nullNodeLimitKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LimitKey = null;
-            if (parseNode.GetChildNode("remaining") is { } nullNodeRemaining && nullNodeRemaining.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Remaining = null;
+            if (parseNode.GetChildNode("layer") is null) { _explicitNullValueLayer = default!; _explicitNullProperties?.Remove("layer"); }
+            else if (parseNode.GetChildNode("layer") is { } nullNodeLayer && nullNodeLayer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Layer = null;
+            if (parseNode.GetChildNode("limitKey") is null) { _explicitNullValueLimitKey = default!; _explicitNullProperties?.Remove("limitKey"); }
+            else if (parseNode.GetChildNode("limitKey") is { } nullNodeLimitKey && nullNodeLimitKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LimitKey = null;
+            if (parseNode.GetChildNode("remaining") is null) { _explicitNullValueRemaining = default!; _explicitNullProperties?.Remove("remaining"); }
+            else if (parseNode.GetChildNode("remaining") is { } nullNodeRemaining && nullNodeRemaining.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Remaining = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The layer property</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.BindingBookingLimitOutputLayer? Layer { get => _explicitNullValueLayer; set { _explicitNullValueLayer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("layer"); else _explicitNullProperties?.Remove("layer"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.BindingBookingLimitOutputLayer? Layer { get => _explicitNullValueLayer; set { _explicitNullValueLayer = value; AdditionalData?.Remove("layer"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("layer"); else _explicitNullProperties?.Remove("layer"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.BindingBookingLimitOutputLayer? _explicitNullValueLayer = default!;
         /// <summary>The limitKey property</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.BindingBookingLimitOutputLimitKey? LimitKey { get => _explicitNullValueLimitKey; set { _explicitNullValueLimitKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limitKey"); else _explicitNullProperties?.Remove("limitKey"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.BindingBookingLimitOutputLimitKey? LimitKey { get => _explicitNullValueLimitKey; set { _explicitNullValueLimitKey = value; AdditionalData?.Remove("limitKey"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limitKey"); else _explicitNullProperties?.Remove("limitKey"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.BindingBookingLimitOutputLimitKey? _explicitNullValueLimitKey = default!;
         /// <summary>The remaining property</summary>
-        public double? Remaining { get => _explicitNullValueRemaining; set { _explicitNullValueRemaining = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remaining"); else _explicitNullProperties?.Remove("remaining"); } }
+        public double? Remaining { get => _explicitNullValueRemaining; set { _explicitNullValueRemaining = value; AdditionalData?.Remove("remaining"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remaining"); else _explicitNullProperties?.Remove("remaining"); } }
         private double? _explicitNullValueRemaining = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UserBookingLimitsUsageOutputBinding"/> and sets the default values.
@@ -59,8 +62,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "layer", n => { Layer = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.BindingBookingLimitOutputLayer>(); } },
-                { "limitKey", n => { LimitKey = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.BindingBookingLimitOutputLimitKey>(); } },
+                { "layer", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.BindingBookingLimitOutputLayer>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueLayer = default; _explicitNullProperties?.Remove("layer"); AdditionalData["layer"] = unknown; } else { Layer = parsed; AdditionalData.Remove("layer"); } } },
+                { "limitKey", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.BindingBookingLimitOutputLimitKey>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueLimitKey = default; _explicitNullProperties?.Remove("limitKey"); AdditionalData["limitKey"] = unknown; } else { LimitKey = parsed; AdditionalData.Remove("limitKey"); } } },
                 { "remaining", n => { Remaining = n.GetDoubleValue(); } },
             };
         }

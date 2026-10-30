@@ -18,24 +18,26 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("activeOnRoutingFormIds") is { } nullNodeActiveOnRoutingFormIds && nullNodeActiveOnRoutingFormIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActiveOnRoutingFormIds = null;
-            if (parseNode.GetChildNode("isActiveOnAllRoutingForms") is { } nullNodeIsActiveOnAllRoutingForms && nullNodeIsActiveOnAllRoutingForms.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsActiveOnAllRoutingForms = null;
+            if (parseNode.GetChildNode("activeOnRoutingFormIds") is null) { _explicitNullValueActiveOnRoutingFormIds = default!; _explicitNullProperties?.Remove("activeOnRoutingFormIds"); }
+            else if (parseNode.GetChildNode("activeOnRoutingFormIds") is { } nullNodeActiveOnRoutingFormIds && nullNodeActiveOnRoutingFormIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActiveOnRoutingFormIds = null;
+            if (parseNode.GetChildNode("isActiveOnAllRoutingForms") is null) { _explicitNullValueIsActiveOnAllRoutingForms = default!; _explicitNullProperties?.Remove("isActiveOnAllRoutingForms"); }
+            else if (parseNode.GetChildNode("isActiveOnAllRoutingForms") is { } nullNodeIsActiveOnAllRoutingForms && nullNodeIsActiveOnAllRoutingForms.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsActiveOnAllRoutingForms = null;
         }
 
         /// <summary>List of Event Type IDs the workflow is specifically active on (if not active on all)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ActiveOnRoutingFormIds { get => _explicitNullValueActiveOnRoutingFormIds; set { _explicitNullValueActiveOnRoutingFormIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activeOnRoutingFormIds"); else _explicitNullProperties?.Remove("activeOnRoutingFormIds"); } }
+        public List<string>? ActiveOnRoutingFormIds { get => _explicitNullValueActiveOnRoutingFormIds; set { _explicitNullValueActiveOnRoutingFormIds = value; AdditionalData?.Remove("activeOnRoutingFormIds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activeOnRoutingFormIds"); else _explicitNullProperties?.Remove("activeOnRoutingFormIds"); } }
         private List<string>? _explicitNullValueActiveOnRoutingFormIds = default!;
 #nullable restore
 #else
-        public List<string> ActiveOnRoutingFormIds { get => _explicitNullValueActiveOnRoutingFormIds; set { _explicitNullValueActiveOnRoutingFormIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activeOnRoutingFormIds"); else _explicitNullProperties?.Remove("activeOnRoutingFormIds"); } }
+        public List<string> ActiveOnRoutingFormIds { get => _explicitNullValueActiveOnRoutingFormIds; set { _explicitNullValueActiveOnRoutingFormIds = value; AdditionalData?.Remove("activeOnRoutingFormIds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activeOnRoutingFormIds"); else _explicitNullProperties?.Remove("activeOnRoutingFormIds"); } }
         private List<string> _explicitNullValueActiveOnRoutingFormIds = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether the workflow is active for all routing forms associated with the team/user</summary>
-        public bool? IsActiveOnAllRoutingForms { get => _explicitNullValueIsActiveOnAllRoutingForms; set { _explicitNullValueIsActiveOnAllRoutingForms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("isActiveOnAllRoutingForms"); else _explicitNullProperties?.Remove("isActiveOnAllRoutingForms"); } }
+        public bool? IsActiveOnAllRoutingForms { get => _explicitNullValueIsActiveOnAllRoutingForms; set { _explicitNullValueIsActiveOnAllRoutingForms = value; AdditionalData?.Remove("isActiveOnAllRoutingForms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("isActiveOnAllRoutingForms"); else _explicitNullProperties?.Remove("isActiveOnAllRoutingForms"); } }
         private bool? _explicitNullValueIsActiveOnAllRoutingForms = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.RoutingFormWorkflowOutputActivation"/> and sets the default values.

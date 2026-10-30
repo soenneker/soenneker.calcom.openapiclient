@@ -17,7 +17,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("bookingFields") is { } nullNodeBookingFields && nullNodeBookingFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingFields = null;
+            if (parseNode.GetChildNode("bookingFields") is null) { _explicitNullValueBookingFields = default!; _explicitNullProperties?.Remove("bookingFields"); }
+            else if (parseNode.GetChildNode("bookingFields") is { } nullNodeBookingFields && nullNodeBookingFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingFields = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The event type&apos;s default, custom, and workflow-added booking fields.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsOutputData20260612BookingFieldsItem>? BookingFields { get => _explicitNullValueBookingFields; set { _explicitNullValueBookingFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingFields"); else _explicitNullProperties?.Remove("bookingFields"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsOutputData20260612BookingFieldsItem>? BookingFields { get => _explicitNullValueBookingFields; set { _explicitNullValueBookingFields = value; AdditionalData?.Remove("bookingFields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingFields"); else _explicitNullProperties?.Remove("bookingFields"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsOutputData20260612BookingFieldsItem>? _explicitNullValueBookingFields = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsOutputData20260612BookingFieldsItem> BookingFields { get => _explicitNullValueBookingFields; set { _explicitNullValueBookingFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingFields"); else _explicitNullProperties?.Remove("bookingFields"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsOutputData20260612BookingFieldsItem> BookingFields { get => _explicitNullValueBookingFields; set { _explicitNullValueBookingFields = value; AdditionalData?.Remove("bookingFields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingFields"); else _explicitNullProperties?.Remove("bookingFields"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsOutputData20260612BookingFieldsItem> _explicitNullValueBookingFields = default!;
 #endif
         /// <summary>

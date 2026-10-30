@@ -17,7 +17,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("hostLimit") is { } nullNodeHostLimit && nullNodeHostLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HostLimit = null;
+            if (parseNode.GetChildNode("hostLimit") is null) { _explicitNullValueHostLimit = default!; _explicitNullProperties?.Remove("hostLimit"); }
+            else if (parseNode.GetChildNode("hostLimit") is { } nullNodeHostLimit && nullNodeHostLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HostLimit = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The host&apos;s complete limit; an omitted or null interval uses the pool&apos;s limit, and an empty object clears the host&apos;s own limit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.SetBookingLimitPoolHostInputHostLimit? HostLimit { get => _explicitNullValueHostLimit; set { _explicitNullValueHostLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hostLimit"); else _explicitNullProperties?.Remove("hostLimit"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.SetBookingLimitPoolHostInputHostLimit? HostLimit { get => _explicitNullValueHostLimit; set { _explicitNullValueHostLimit = value; AdditionalData?.Remove("hostLimit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hostLimit"); else _explicitNullProperties?.Remove("hostLimit"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.SetBookingLimitPoolHostInputHostLimit? _explicitNullValueHostLimit = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.SetBookingLimitPoolHostInputHostLimit HostLimit { get => _explicitNullValueHostLimit; set { _explicitNullValueHostLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hostLimit"); else _explicitNullProperties?.Remove("hostLimit"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.SetBookingLimitPoolHostInputHostLimit HostLimit { get => _explicitNullValueHostLimit; set { _explicitNullValueHostLimit = value; AdditionalData?.Remove("hostLimit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hostLimit"); else _explicitNullProperties?.Remove("hostLimit"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.SetBookingLimitPoolHostInputHostLimit _explicitNullValueHostLimit = default!;
 #endif
         /// <summary>

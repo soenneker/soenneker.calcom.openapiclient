@@ -18,10 +18,14 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("headline") is { } nullNodeHeadline && nullNodeHeadline.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Headline = null;
-            if (parseNode.GetChildNode("layout") is { } nullNodeLayout && nullNodeLayout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Layout = null;
-            if (parseNode.GetChildNode("palette") is { } nullNodePalette && nullNodePalette.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Palette = null;
-            if (parseNode.GetChildNode("seed") is { } nullNodeSeed && nullNodeSeed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Seed = null;
+            if (parseNode.GetChildNode("headline") is null) { _explicitNullValueHeadline = default!; _explicitNullProperties?.Remove("headline"); }
+            else if (parseNode.GetChildNode("headline") is { } nullNodeHeadline && nullNodeHeadline.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Headline = null;
+            if (parseNode.GetChildNode("layout") is null) { _explicitNullValueLayout = default!; _explicitNullProperties?.Remove("layout"); }
+            else if (parseNode.GetChildNode("layout") is { } nullNodeLayout && nullNodeLayout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Layout = null;
+            if (parseNode.GetChildNode("palette") is null) { _explicitNullValuePalette = default!; _explicitNullProperties?.Remove("palette"); }
+            else if (parseNode.GetChildNode("palette") is { } nullNodePalette && nullNodePalette.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Palette = null;
+            if (parseNode.GetChildNode("seed") is null) { _explicitNullValueSeed = default!; _explicitNullProperties?.Remove("seed"); }
+            else if (parseNode.GetChildNode("seed") is { } nullNodeSeed && nullNodeSeed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Seed = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,28 +33,28 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The headline property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Headline { get => _explicitNullValueHeadline; set { _explicitNullValueHeadline = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("headline"); else _explicitNullProperties?.Remove("headline"); } }
+        public string? Headline { get => _explicitNullValueHeadline; set { _explicitNullValueHeadline = value; AdditionalData?.Remove("headline"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("headline"); else _explicitNullProperties?.Remove("headline"); } }
         private string? _explicitNullValueHeadline = default!;
 #nullable restore
 #else
-        public string Headline { get => _explicitNullValueHeadline; set { _explicitNullValueHeadline = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("headline"); else _explicitNullProperties?.Remove("headline"); } }
+        public string Headline { get => _explicitNullValueHeadline; set { _explicitNullValueHeadline = value; AdditionalData?.Remove("headline"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("headline"); else _explicitNullProperties?.Remove("headline"); } }
         private string _explicitNullValueHeadline = default!;
 #endif
         /// <summary>The layout property</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.EventPosterOutputLayout? Layout { get => _explicitNullValueLayout; set { _explicitNullValueLayout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("layout"); else _explicitNullProperties?.Remove("layout"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.EventPosterOutputLayout? Layout { get => _explicitNullValueLayout; set { _explicitNullValueLayout = value; AdditionalData?.Remove("layout"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("layout"); else _explicitNullProperties?.Remove("layout"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.EventPosterOutputLayout? _explicitNullValueLayout = default!;
         /// <summary>The palette property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.EventPosterPaletteOutput? Palette { get => _explicitNullValuePalette; set { _explicitNullValuePalette = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("palette"); else _explicitNullProperties?.Remove("palette"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.EventPosterPaletteOutput? Palette { get => _explicitNullValuePalette; set { _explicitNullValuePalette = value; AdditionalData?.Remove("palette"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("palette"); else _explicitNullProperties?.Remove("palette"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.EventPosterPaletteOutput? _explicitNullValuePalette = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.EventPosterPaletteOutput Palette { get => _explicitNullValuePalette; set { _explicitNullValuePalette = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("palette"); else _explicitNullProperties?.Remove("palette"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.EventPosterPaletteOutput Palette { get => _explicitNullValuePalette; set { _explicitNullValuePalette = value; AdditionalData?.Remove("palette"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("palette"); else _explicitNullProperties?.Remove("palette"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.EventPosterPaletteOutput _explicitNullValuePalette = default!;
 #endif
         /// <summary>The seed property</summary>
-        public double? Seed { get => _explicitNullValueSeed; set { _explicitNullValueSeed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seed"); else _explicitNullProperties?.Remove("seed"); } }
+        public double? Seed { get => _explicitNullValueSeed; set { _explicitNullValueSeed = value; AdditionalData?.Remove("seed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seed"); else _explicitNullProperties?.Remove("seed"); } }
         private double? _explicitNullValueSeed = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.EventOutputDtoPoster"/> and sets the default values.
@@ -78,7 +82,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "headline", n => { Headline = n.GetStringValue(); } },
-                { "layout", n => { Layout = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.EventPosterOutputLayout>(); } },
+                { "layout", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.EventPosterOutputLayout>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueLayout = default; _explicitNullProperties?.Remove("layout"); AdditionalData["layout"] = unknown; } else { Layout = parsed; AdditionalData.Remove("layout"); } } },
                 { "palette", n => { Palette = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.EventPosterPaletteOutput>(global::Soenneker.CalCom.OpenApiClient.Models.EventPosterPaletteOutput.CreateFromDiscriminatorValue); } },
                 { "seed", n => { Seed = n.GetDoubleValue(); } },
             };

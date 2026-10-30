@@ -18,67 +18,73 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("eventTypeId") is { } nullNodeEventTypeId && nullNodeEventTypeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventTypeId = null;
-            if (parseNode.GetChildNode("perDay") is { } nullNodePerDay && nullNodePerDay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerDay = null;
-            if (parseNode.GetChildNode("perMonth") is { } nullNodePerMonth && nullNodePerMonth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerMonth = null;
-            if (parseNode.GetChildNode("perWeek") is { } nullNodePerWeek && nullNodePerWeek.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerWeek = null;
-            if (parseNode.GetChildNode("perYear") is { } nullNodePerYear && nullNodePerYear.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerYear = null;
-            if (parseNode.GetChildNode("timeZone") is { } nullNodeTimeZone && nullNodeTimeZone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeZone = null;
+            if (parseNode.GetChildNode("eventTypeId") is null) { _explicitNullValueEventTypeId = default!; _explicitNullProperties?.Remove("eventTypeId"); }
+            else if (parseNode.GetChildNode("eventTypeId") is { } nullNodeEventTypeId && nullNodeEventTypeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventTypeId = null;
+            if (parseNode.GetChildNode("perDay") is null) { _explicitNullValuePerDay = default!; _explicitNullProperties?.Remove("perDay"); }
+            else if (parseNode.GetChildNode("perDay") is { } nullNodePerDay && nullNodePerDay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerDay = null;
+            if (parseNode.GetChildNode("perMonth") is null) { _explicitNullValuePerMonth = default!; _explicitNullProperties?.Remove("perMonth"); }
+            else if (parseNode.GetChildNode("perMonth") is { } nullNodePerMonth && nullNodePerMonth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerMonth = null;
+            if (parseNode.GetChildNode("perWeek") is null) { _explicitNullValuePerWeek = default!; _explicitNullProperties?.Remove("perWeek"); }
+            else if (parseNode.GetChildNode("perWeek") is { } nullNodePerWeek && nullNodePerWeek.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerWeek = null;
+            if (parseNode.GetChildNode("perYear") is null) { _explicitNullValuePerYear = default!; _explicitNullProperties?.Remove("perYear"); }
+            else if (parseNode.GetChildNode("perYear") is { } nullNodePerYear && nullNodePerYear.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerYear = null;
+            if (parseNode.GetChildNode("timeZone") is null) { _explicitNullValueTimeZone = default!; _explicitNullProperties?.Remove("timeZone"); }
+            else if (parseNode.GetChildNode("timeZone") is { } nullNodeTimeZone && nullNodeTimeZone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeZone = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The eventTypeId property</summary>
-        public double? EventTypeId { get => _explicitNullValueEventTypeId; set { _explicitNullValueEventTypeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeId"); else _explicitNullProperties?.Remove("eventTypeId"); } }
+        public double? EventTypeId { get => _explicitNullValueEventTypeId; set { _explicitNullValueEventTypeId = value; AdditionalData?.Remove("eventTypeId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeId"); else _explicitNullProperties?.Remove("eventTypeId"); } }
         private double? _explicitNullValueEventTypeId = default!;
         /// <summary>The perDay property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.EventTypeBookingLimitsUsageOutputPerDay? PerDay { get => _explicitNullValuePerDay; set { _explicitNullValuePerDay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perDay"); else _explicitNullProperties?.Remove("perDay"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.EventTypeBookingLimitsUsageOutputPerDay? PerDay { get => _explicitNullValuePerDay; set { _explicitNullValuePerDay = value; AdditionalData?.Remove("perDay"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perDay"); else _explicitNullProperties?.Remove("perDay"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.EventTypeBookingLimitsUsageOutputPerDay? _explicitNullValuePerDay = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.EventTypeBookingLimitsUsageOutputPerDay PerDay { get => _explicitNullValuePerDay; set { _explicitNullValuePerDay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perDay"); else _explicitNullProperties?.Remove("perDay"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.EventTypeBookingLimitsUsageOutputPerDay PerDay { get => _explicitNullValuePerDay; set { _explicitNullValuePerDay = value; AdditionalData?.Remove("perDay"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perDay"); else _explicitNullProperties?.Remove("perDay"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.EventTypeBookingLimitsUsageOutputPerDay _explicitNullValuePerDay = default!;
 #endif
         /// <summary>The perMonth property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.EventTypeBookingLimitsUsageOutputPerMonth? PerMonth { get => _explicitNullValuePerMonth; set { _explicitNullValuePerMonth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perMonth"); else _explicitNullProperties?.Remove("perMonth"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.EventTypeBookingLimitsUsageOutputPerMonth? PerMonth { get => _explicitNullValuePerMonth; set { _explicitNullValuePerMonth = value; AdditionalData?.Remove("perMonth"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perMonth"); else _explicitNullProperties?.Remove("perMonth"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.EventTypeBookingLimitsUsageOutputPerMonth? _explicitNullValuePerMonth = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.EventTypeBookingLimitsUsageOutputPerMonth PerMonth { get => _explicitNullValuePerMonth; set { _explicitNullValuePerMonth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perMonth"); else _explicitNullProperties?.Remove("perMonth"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.EventTypeBookingLimitsUsageOutputPerMonth PerMonth { get => _explicitNullValuePerMonth; set { _explicitNullValuePerMonth = value; AdditionalData?.Remove("perMonth"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perMonth"); else _explicitNullProperties?.Remove("perMonth"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.EventTypeBookingLimitsUsageOutputPerMonth _explicitNullValuePerMonth = default!;
 #endif
         /// <summary>The perWeek property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.EventTypeBookingLimitsUsageOutputPerWeek? PerWeek { get => _explicitNullValuePerWeek; set { _explicitNullValuePerWeek = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perWeek"); else _explicitNullProperties?.Remove("perWeek"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.EventTypeBookingLimitsUsageOutputPerWeek? PerWeek { get => _explicitNullValuePerWeek; set { _explicitNullValuePerWeek = value; AdditionalData?.Remove("perWeek"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perWeek"); else _explicitNullProperties?.Remove("perWeek"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.EventTypeBookingLimitsUsageOutputPerWeek? _explicitNullValuePerWeek = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.EventTypeBookingLimitsUsageOutputPerWeek PerWeek { get => _explicitNullValuePerWeek; set { _explicitNullValuePerWeek = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perWeek"); else _explicitNullProperties?.Remove("perWeek"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.EventTypeBookingLimitsUsageOutputPerWeek PerWeek { get => _explicitNullValuePerWeek; set { _explicitNullValuePerWeek = value; AdditionalData?.Remove("perWeek"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perWeek"); else _explicitNullProperties?.Remove("perWeek"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.EventTypeBookingLimitsUsageOutputPerWeek _explicitNullValuePerWeek = default!;
 #endif
         /// <summary>The perYear property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.EventTypeBookingLimitsUsageOutputPerYear? PerYear { get => _explicitNullValuePerYear; set { _explicitNullValuePerYear = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perYear"); else _explicitNullProperties?.Remove("perYear"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.EventTypeBookingLimitsUsageOutputPerYear? PerYear { get => _explicitNullValuePerYear; set { _explicitNullValuePerYear = value; AdditionalData?.Remove("perYear"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perYear"); else _explicitNullProperties?.Remove("perYear"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.EventTypeBookingLimitsUsageOutputPerYear? _explicitNullValuePerYear = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.EventTypeBookingLimitsUsageOutputPerYear PerYear { get => _explicitNullValuePerYear; set { _explicitNullValuePerYear = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perYear"); else _explicitNullProperties?.Remove("perYear"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.EventTypeBookingLimitsUsageOutputPerYear PerYear { get => _explicitNullValuePerYear; set { _explicitNullValuePerYear = value; AdditionalData?.Remove("perYear"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perYear"); else _explicitNullProperties?.Remove("perYear"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.EventTypeBookingLimitsUsageOutputPerYear _explicitNullValuePerYear = default!;
 #endif
         /// <summary>Time zone the event type&apos;s periods are counted in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TimeZone { get => _explicitNullValueTimeZone; set { _explicitNullValueTimeZone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeZone"); else _explicitNullProperties?.Remove("timeZone"); } }
+        public string? TimeZone { get => _explicitNullValueTimeZone; set { _explicitNullValueTimeZone = value; AdditionalData?.Remove("timeZone"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeZone"); else _explicitNullProperties?.Remove("timeZone"); } }
         private string? _explicitNullValueTimeZone = default!;
 #nullable restore
 #else
-        public string TimeZone { get => _explicitNullValueTimeZone; set { _explicitNullValueTimeZone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeZone"); else _explicitNullProperties?.Remove("timeZone"); } }
+        public string TimeZone { get => _explicitNullValueTimeZone; set { _explicitNullValueTimeZone = value; AdditionalData?.Remove("timeZone"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeZone"); else _explicitNullProperties?.Remove("timeZone"); } }
         private string _explicitNullValueTimeZone = default!;
 #endif
         /// <summary>

@@ -17,9 +17,12 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("identifier") is { } nullNodeIdentifier && nullNodeIdentifier.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Identifier = null;
-            if (parseNode.GetChildNode("subscriptionId") is { } nullNodeSubscriptionId && nullNodeSubscriptionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubscriptionId = null;
-            if (parseNode.GetChildNode("subscriptionVersion") is { } nullNodeSubscriptionVersion && nullNodeSubscriptionVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubscriptionVersion = null;
+            if (parseNode.GetChildNode("identifier") is null) { _explicitNullValueIdentifier = default!; _explicitNullProperties?.Remove("identifier"); }
+            else if (parseNode.GetChildNode("identifier") is { } nullNodeIdentifier && nullNodeIdentifier.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Identifier = null;
+            if (parseNode.GetChildNode("subscriptionId") is null) { _explicitNullValueSubscriptionId = default!; _explicitNullProperties?.Remove("subscriptionId"); }
+            else if (parseNode.GetChildNode("subscriptionId") is { } nullNodeSubscriptionId && nullNodeSubscriptionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubscriptionId = null;
+            if (parseNode.GetChildNode("subscriptionVersion") is null) { _explicitNullValueSubscriptionVersion = default!; _explicitNullProperties?.Remove("subscriptionVersion"); }
+            else if (parseNode.GetChildNode("subscriptionVersion") is { } nullNodeSubscriptionVersion && nullNodeSubscriptionVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubscriptionVersion = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,24 +30,24 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>Chat platform identifier to remove</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Identifier { get => _explicitNullValueIdentifier; set { _explicitNullValueIdentifier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identifier"); else _explicitNullProperties?.Remove("identifier"); } }
+        public string? Identifier { get => _explicitNullValueIdentifier; set { _explicitNullValueIdentifier = value; AdditionalData?.Remove("identifier"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identifier"); else _explicitNullProperties?.Remove("identifier"); } }
         private string? _explicitNullValueIdentifier = default!;
 #nullable restore
 #else
-        public string Identifier { get => _explicitNullValueIdentifier; set { _explicitNullValueIdentifier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identifier"); else _explicitNullProperties?.Remove("identifier"); } }
+        public string Identifier { get => _explicitNullValueIdentifier; set { _explicitNullValueIdentifier = value; AdditionalData?.Remove("identifier"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identifier"); else _explicitNullProperties?.Remove("identifier"); } }
         private string _explicitNullValueIdentifier = default!;
 #endif
         /// <summary>Delete only this subscription ID; requires subscriptionVersion</summary>
-        public double? SubscriptionId { get => _explicitNullValueSubscriptionId; set { _explicitNullValueSubscriptionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscriptionId"); else _explicitNullProperties?.Remove("subscriptionId"); } }
+        public double? SubscriptionId { get => _explicitNullValueSubscriptionId; set { _explicitNullValueSubscriptionId = value; AdditionalData?.Remove("subscriptionId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscriptionId"); else _explicitNullProperties?.Remove("subscriptionId"); } }
         private double? _explicitNullValueSubscriptionId = default!;
         /// <summary>Delete only this generation; requires subscriptionId</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SubscriptionVersion { get => _explicitNullValueSubscriptionVersion; set { _explicitNullValueSubscriptionVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscriptionVersion"); else _explicitNullProperties?.Remove("subscriptionVersion"); } }
+        public string? SubscriptionVersion { get => _explicitNullValueSubscriptionVersion; set { _explicitNullValueSubscriptionVersion = value; AdditionalData?.Remove("subscriptionVersion"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscriptionVersion"); else _explicitNullProperties?.Remove("subscriptionVersion"); } }
         private string? _explicitNullValueSubscriptionVersion = default!;
 #nullable restore
 #else
-        public string SubscriptionVersion { get => _explicitNullValueSubscriptionVersion; set { _explicitNullValueSubscriptionVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscriptionVersion"); else _explicitNullProperties?.Remove("subscriptionVersion"); } }
+        public string SubscriptionVersion { get => _explicitNullValueSubscriptionVersion; set { _explicitNullValueSubscriptionVersion = value; AdditionalData?.Remove("subscriptionVersion"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscriptionVersion"); else _explicitNullProperties?.Remove("subscriptionVersion"); } }
         private string _explicitNullValueSubscriptionVersion = default!;
 #endif
         /// <summary>

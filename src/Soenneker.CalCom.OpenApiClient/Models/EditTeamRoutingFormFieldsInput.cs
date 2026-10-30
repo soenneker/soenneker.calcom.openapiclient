@@ -17,27 +17,30 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("dryRun") is { } nullNodeDryRun && nullNodeDryRun.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DryRun = null;
-            if (parseNode.GetChildNode("expectedUpdatedAt") is { } nullNodeExpectedUpdatedAt && nullNodeExpectedUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpectedUpdatedAt = null;
-            if (parseNode.GetChildNode("operations") is { } nullNodeOperations && nullNodeOperations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Operations = null;
+            if (parseNode.GetChildNode("dryRun") is null) { _explicitNullValueDryRun = default!; _explicitNullProperties?.Remove("dryRun"); }
+            else if (parseNode.GetChildNode("dryRun") is { } nullNodeDryRun && nullNodeDryRun.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DryRun = null;
+            if (parseNode.GetChildNode("expectedUpdatedAt") is null) { _explicitNullValueExpectedUpdatedAt = default!; _explicitNullProperties?.Remove("expectedUpdatedAt"); }
+            else if (parseNode.GetChildNode("expectedUpdatedAt") is { } nullNodeExpectedUpdatedAt && nullNodeExpectedUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpectedUpdatedAt = null;
+            if (parseNode.GetChildNode("operations") is null) { _explicitNullValueOperations = default!; _explicitNullProperties?.Remove("operations"); }
+            else if (parseNode.GetChildNode("operations") is { } nullNodeOperations && nullNodeOperations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Operations = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Preview changes without saving. Defaults to true.</summary>
-        public bool? DryRun { get => _explicitNullValueDryRun; set { _explicitNullValueDryRun = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dryRun"); else _explicitNullProperties?.Remove("dryRun"); } }
+        public bool? DryRun { get => _explicitNullValueDryRun; set { _explicitNullValueDryRun = value; AdditionalData?.Remove("dryRun"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dryRun"); else _explicitNullProperties?.Remove("dryRun"); } }
         private bool? _explicitNullValueDryRun = default!;
         /// <summary>Required when dryRun is false: the updatedAt from the preview or from get_routing_form.</summary>
-        public DateTimeOffset? ExpectedUpdatedAt { get => _explicitNullValueExpectedUpdatedAt; set { _explicitNullValueExpectedUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expectedUpdatedAt"); else _explicitNullProperties?.Remove("expectedUpdatedAt"); } }
+        public DateTimeOffset? ExpectedUpdatedAt { get => _explicitNullValueExpectedUpdatedAt; set { _explicitNullValueExpectedUpdatedAt = value; AdditionalData?.Remove("expectedUpdatedAt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expectedUpdatedAt"); else _explicitNullProperties?.Remove("expectedUpdatedAt"); } }
         private DateTimeOffset? _explicitNullValueExpectedUpdatedAt = default!;
         /// <summary>The operations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.EditTeamRoutingFormFieldsInputOperationsItem>? Operations { get => _explicitNullValueOperations; set { _explicitNullValueOperations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("operations"); else _explicitNullProperties?.Remove("operations"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.EditTeamRoutingFormFieldsInputOperationsItem>? Operations { get => _explicitNullValueOperations; set { _explicitNullValueOperations = value; AdditionalData?.Remove("operations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("operations"); else _explicitNullProperties?.Remove("operations"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.EditTeamRoutingFormFieldsInputOperationsItem>? _explicitNullValueOperations = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.EditTeamRoutingFormFieldsInputOperationsItem> Operations { get => _explicitNullValueOperations; set { _explicitNullValueOperations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("operations"); else _explicitNullProperties?.Remove("operations"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.EditTeamRoutingFormFieldsInputOperationsItem> Operations { get => _explicitNullValueOperations; set { _explicitNullValueOperations = value; AdditionalData?.Remove("operations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("operations"); else _explicitNullProperties?.Remove("operations"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.EditTeamRoutingFormFieldsInputOperationsItem> _explicitNullValueOperations = default!;
 #endif
         /// <summary>

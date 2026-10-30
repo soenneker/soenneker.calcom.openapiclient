@@ -18,8 +18,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("hubspot") is { } nullNodeHubspot && nullNodeHubspot.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Hubspot = null;
-            if (parseNode.GetChildNode("salesforce") is { } nullNodeSalesforce && nullNodeSalesforce.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Salesforce = null;
+            if (parseNode.GetChildNode("hubspot") is null) { _explicitNullValueHubspot = default!; _explicitNullProperties?.Remove("hubspot"); }
+            else if (parseNode.GetChildNode("hubspot") is { } nullNodeHubspot && nullNodeHubspot.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Hubspot = null;
+            if (parseNode.GetChildNode("salesforce") is null) { _explicitNullValueSalesforce = default!; _explicitNullProperties?.Remove("salesforce"); }
+            else if (parseNode.GetChildNode("salesforce") is { } nullNodeSalesforce && nullNodeSalesforce.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Salesforce = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>HubSpot app settings for this event type. Present only when the app is configured.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.CrmSettingsOutput20260612Hubspot? Hubspot { get => _explicitNullValueHubspot; set { _explicitNullValueHubspot = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hubspot"); else _explicitNullProperties?.Remove("hubspot"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CrmSettingsOutput20260612Hubspot? Hubspot { get => _explicitNullValueHubspot; set { _explicitNullValueHubspot = value; AdditionalData?.Remove("hubspot"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hubspot"); else _explicitNullProperties?.Remove("hubspot"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.CrmSettingsOutput20260612Hubspot? _explicitNullValueHubspot = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.CrmSettingsOutput20260612Hubspot Hubspot { get => _explicitNullValueHubspot; set { _explicitNullValueHubspot = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hubspot"); else _explicitNullProperties?.Remove("hubspot"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CrmSettingsOutput20260612Hubspot Hubspot { get => _explicitNullValueHubspot; set { _explicitNullValueHubspot = value; AdditionalData?.Remove("hubspot"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hubspot"); else _explicitNullProperties?.Remove("hubspot"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.CrmSettingsOutput20260612Hubspot _explicitNullValueHubspot = default!;
 #endif
         /// <summary>Salesforce app settings for this event type. Present only when the app is configured.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.CrmSettingsOutput20260612Salesforce? Salesforce { get => _explicitNullValueSalesforce; set { _explicitNullValueSalesforce = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("salesforce"); else _explicitNullProperties?.Remove("salesforce"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CrmSettingsOutput20260612Salesforce? Salesforce { get => _explicitNullValueSalesforce; set { _explicitNullValueSalesforce = value; AdditionalData?.Remove("salesforce"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("salesforce"); else _explicitNullProperties?.Remove("salesforce"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.CrmSettingsOutput20260612Salesforce? _explicitNullValueSalesforce = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.CrmSettingsOutput20260612Salesforce Salesforce { get => _explicitNullValueSalesforce; set { _explicitNullValueSalesforce = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("salesforce"); else _explicitNullProperties?.Remove("salesforce"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CrmSettingsOutput20260612Salesforce Salesforce { get => _explicitNullValueSalesforce; set { _explicitNullValueSalesforce = value; AdditionalData?.Remove("salesforce"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("salesforce"); else _explicitNullProperties?.Remove("salesforce"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.CrmSettingsOutput20260612Salesforce _explicitNullValueSalesforce = default!;
 #endif
         /// <summary>

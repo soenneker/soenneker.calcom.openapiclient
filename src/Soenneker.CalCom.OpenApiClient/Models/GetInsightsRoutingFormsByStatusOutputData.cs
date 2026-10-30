@@ -17,21 +17,24 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("total") is { } nullNodeTotal && nullNodeTotal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Total = null;
-            if (parseNode.GetChildNode("totalWithBooking") is { } nullNodeTotalWithBooking && nullNodeTotalWithBooking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalWithBooking = null;
-            if (parseNode.GetChildNode("totalWithoutBooking") is { } nullNodeTotalWithoutBooking && nullNodeTotalWithoutBooking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalWithoutBooking = null;
+            if (parseNode.GetChildNode("total") is null) { _explicitNullValueTotal = default!; _explicitNullProperties?.Remove("total"); }
+            else if (parseNode.GetChildNode("total") is { } nullNodeTotal && nullNodeTotal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Total = null;
+            if (parseNode.GetChildNode("totalWithBooking") is null) { _explicitNullValueTotalWithBooking = default!; _explicitNullProperties?.Remove("totalWithBooking"); }
+            else if (parseNode.GetChildNode("totalWithBooking") is { } nullNodeTotalWithBooking && nullNodeTotalWithBooking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalWithBooking = null;
+            if (parseNode.GetChildNode("totalWithoutBooking") is null) { _explicitNullValueTotalWithoutBooking = default!; _explicitNullProperties?.Remove("totalWithoutBooking"); }
+            else if (parseNode.GetChildNode("totalWithoutBooking") is { } nullNodeTotalWithoutBooking && nullNodeTotalWithoutBooking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalWithoutBooking = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The total property</summary>
-        public double? Total { get => _explicitNullValueTotal; set { _explicitNullValueTotal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total"); else _explicitNullProperties?.Remove("total"); } }
+        public double? Total { get => _explicitNullValueTotal; set { _explicitNullValueTotal = value; AdditionalData?.Remove("total"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total"); else _explicitNullProperties?.Remove("total"); } }
         private double? _explicitNullValueTotal = default!;
         /// <summary>The totalWithBooking property</summary>
-        public double? TotalWithBooking { get => _explicitNullValueTotalWithBooking; set { _explicitNullValueTotalWithBooking = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("totalWithBooking"); else _explicitNullProperties?.Remove("totalWithBooking"); } }
+        public double? TotalWithBooking { get => _explicitNullValueTotalWithBooking; set { _explicitNullValueTotalWithBooking = value; AdditionalData?.Remove("totalWithBooking"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("totalWithBooking"); else _explicitNullProperties?.Remove("totalWithBooking"); } }
         private double? _explicitNullValueTotalWithBooking = default!;
         /// <summary>The totalWithoutBooking property</summary>
-        public double? TotalWithoutBooking { get => _explicitNullValueTotalWithoutBooking; set { _explicitNullValueTotalWithoutBooking = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("totalWithoutBooking"); else _explicitNullProperties?.Remove("totalWithoutBooking"); } }
+        public double? TotalWithoutBooking { get => _explicitNullValueTotalWithoutBooking; set { _explicitNullValueTotalWithoutBooking = value; AdditionalData?.Remove("totalWithoutBooking"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("totalWithoutBooking"); else _explicitNullProperties?.Remove("totalWithoutBooking"); } }
         private double? _explicitNullValueTotalWithoutBooking = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.GetInsightsRoutingFormsByStatusOutputData"/> and sets the default values.

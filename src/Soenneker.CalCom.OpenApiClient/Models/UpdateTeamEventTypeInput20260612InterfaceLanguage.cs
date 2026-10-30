@@ -7,6 +7,9 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum UpdateTeamEventTypeInput20260612InterfaceLanguage
     {
+        [EnumMember(Value = "")]
+        EmptyString,
+
         [EnumMember(Value = "en")]
         #pragma warning disable CS1591
         En,

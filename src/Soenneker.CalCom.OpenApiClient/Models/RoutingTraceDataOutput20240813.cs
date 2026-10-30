@@ -17,9 +17,12 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("formSubmission") is { } nullNodeFormSubmission && nullNodeFormSubmission.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FormSubmission = null;
-            if (parseNode.GetChildNode("groups") is { } nullNodeGroups && nullNodeGroups.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Groups = null;
-            if (parseNode.GetChildNode("steps") is { } nullNodeSteps && nullNodeSteps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Steps = null;
+            if (parseNode.GetChildNode("formSubmission") is null) { _explicitNullValueFormSubmission = default!; _explicitNullProperties?.Remove("formSubmission"); }
+            else if (parseNode.GetChildNode("formSubmission") is { } nullNodeFormSubmission && nullNodeFormSubmission.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FormSubmission = null;
+            if (parseNode.GetChildNode("groups") is null) { _explicitNullValueGroups = default!; _explicitNullProperties?.Remove("groups"); }
+            else if (parseNode.GetChildNode("groups") is { } nullNodeGroups && nullNodeGroups.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Groups = null;
+            if (parseNode.GetChildNode("steps") is null) { _explicitNullValueSteps = default!; _explicitNullProperties?.Remove("steps"); }
+            else if (parseNode.GetChildNode("steps") is { } nullNodeSteps && nullNodeSteps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Steps = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,31 +30,31 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The formSubmission property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.RoutingTraceDataOutput20240813FormSubmission? FormSubmission { get => _explicitNullValueFormSubmission; set { _explicitNullValueFormSubmission = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("formSubmission"); else _explicitNullProperties?.Remove("formSubmission"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.RoutingTraceDataOutput20240813FormSubmission? FormSubmission { get => _explicitNullValueFormSubmission; set { _explicitNullValueFormSubmission = value; AdditionalData?.Remove("formSubmission"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("formSubmission"); else _explicitNullProperties?.Remove("formSubmission"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.RoutingTraceDataOutput20240813FormSubmission? _explicitNullValueFormSubmission = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.RoutingTraceDataOutput20240813FormSubmission FormSubmission { get => _explicitNullValueFormSubmission; set { _explicitNullValueFormSubmission = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("formSubmission"); else _explicitNullProperties?.Remove("formSubmission"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.RoutingTraceDataOutput20240813FormSubmission FormSubmission { get => _explicitNullValueFormSubmission; set { _explicitNullValueFormSubmission = value; AdditionalData?.Remove("formSubmission"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("formSubmission"); else _explicitNullProperties?.Remove("formSubmission"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.RoutingTraceDataOutput20240813FormSubmission _explicitNullValueFormSubmission = default!;
 #endif
         /// <summary>The groups property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.RoutingTraceGroupOutput20240813>? Groups { get => _explicitNullValueGroups; set { _explicitNullValueGroups = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("groups"); else _explicitNullProperties?.Remove("groups"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.RoutingTraceGroupOutput20240813>? Groups { get => _explicitNullValueGroups; set { _explicitNullValueGroups = value; AdditionalData?.Remove("groups"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("groups"); else _explicitNullProperties?.Remove("groups"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.RoutingTraceGroupOutput20240813>? _explicitNullValueGroups = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.RoutingTraceGroupOutput20240813> Groups { get => _explicitNullValueGroups; set { _explicitNullValueGroups = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("groups"); else _explicitNullProperties?.Remove("groups"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.RoutingTraceGroupOutput20240813> Groups { get => _explicitNullValueGroups; set { _explicitNullValueGroups = value; AdditionalData?.Remove("groups"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("groups"); else _explicitNullProperties?.Remove("groups"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.RoutingTraceGroupOutput20240813> _explicitNullValueGroups = default!;
 #endif
         /// <summary>The steps property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.RoutingTraceStepOutput20240813>? Steps { get => _explicitNullValueSteps; set { _explicitNullValueSteps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("steps"); else _explicitNullProperties?.Remove("steps"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.RoutingTraceStepOutput20240813>? Steps { get => _explicitNullValueSteps; set { _explicitNullValueSteps = value; AdditionalData?.Remove("steps"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("steps"); else _explicitNullProperties?.Remove("steps"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.RoutingTraceStepOutput20240813>? _explicitNullValueSteps = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.RoutingTraceStepOutput20240813> Steps { get => _explicitNullValueSteps; set { _explicitNullValueSteps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("steps"); else _explicitNullProperties?.Remove("steps"); } }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.RoutingTraceStepOutput20240813> Steps { get => _explicitNullValueSteps; set { _explicitNullValueSteps = value; AdditionalData?.Remove("steps"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("steps"); else _explicitNullProperties?.Remove("steps"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.RoutingTraceStepOutput20240813> _explicitNullValueSteps = default!;
 #endif
         /// <summary>

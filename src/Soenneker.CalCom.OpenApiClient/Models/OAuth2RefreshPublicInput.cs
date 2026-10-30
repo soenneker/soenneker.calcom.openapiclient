@@ -17,9 +17,12 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("client_id") is { } nullNodeClientId && nullNodeClientId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientId = null;
-            if (parseNode.GetChildNode("grant_type") is { } nullNodeGrantType && nullNodeGrantType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GrantType = null;
-            if (parseNode.GetChildNode("refresh_token") is { } nullNodeRefreshToken && nullNodeRefreshToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RefreshToken = null;
+            if (parseNode.GetChildNode("client_id") is null) { _explicitNullValueClientId = default!; _explicitNullProperties?.Remove("client_id"); }
+            else if (parseNode.GetChildNode("client_id") is { } nullNodeClientId && nullNodeClientId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientId = null;
+            if (parseNode.GetChildNode("grant_type") is null) { _explicitNullValueGrantType = default!; _explicitNullProperties?.Remove("grant_type"); }
+            else if (parseNode.GetChildNode("grant_type") is { } nullNodeGrantType && nullNodeGrantType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GrantType = null;
+            if (parseNode.GetChildNode("refresh_token") is null) { _explicitNullValueRefreshToken = default!; _explicitNullProperties?.Remove("refresh_token"); }
+            else if (parseNode.GetChildNode("refresh_token") is { } nullNodeRefreshToken && nullNodeRefreshToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RefreshToken = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,24 +30,24 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The client identifier</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientId { get => _explicitNullValueClientId; set { _explicitNullValueClientId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_id"); else _explicitNullProperties?.Remove("client_id"); } }
+        public string? ClientId { get => _explicitNullValueClientId; set { _explicitNullValueClientId = value; AdditionalData?.Remove("client_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_id"); else _explicitNullProperties?.Remove("client_id"); } }
         private string? _explicitNullValueClientId = default!;
 #nullable restore
 #else
-        public string ClientId { get => _explicitNullValueClientId; set { _explicitNullValueClientId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_id"); else _explicitNullProperties?.Remove("client_id"); } }
+        public string ClientId { get => _explicitNullValueClientId; set { _explicitNullValueClientId = value; AdditionalData?.Remove("client_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_id"); else _explicitNullProperties?.Remove("client_id"); } }
         private string _explicitNullValueClientId = default!;
 #endif
         /// <summary>The grant type — must be &apos;refresh_token&apos;</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.RefreshTokenGrantType? GrantType { get => _explicitNullValueGrantType; set { _explicitNullValueGrantType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grant_type"); else _explicitNullProperties?.Remove("grant_type"); } }
+        public global::Soenneker.CalCom.OpenApiClient.Models.RefreshTokenGrantType? GrantType { get => _explicitNullValueGrantType; set { _explicitNullValueGrantType = value; AdditionalData?.Remove("grant_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grant_type"); else _explicitNullProperties?.Remove("grant_type"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.RefreshTokenGrantType? _explicitNullValueGrantType = default!;
         /// <summary>The refresh token</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RefreshToken { get => _explicitNullValueRefreshToken; set { _explicitNullValueRefreshToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refresh_token"); else _explicitNullProperties?.Remove("refresh_token"); } }
+        public string? RefreshToken { get => _explicitNullValueRefreshToken; set { _explicitNullValueRefreshToken = value; AdditionalData?.Remove("refresh_token"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refresh_token"); else _explicitNullProperties?.Remove("refresh_token"); } }
         private string? _explicitNullValueRefreshToken = default!;
 #nullable restore
 #else
-        public string RefreshToken { get => _explicitNullValueRefreshToken; set { _explicitNullValueRefreshToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refresh_token"); else _explicitNullProperties?.Remove("refresh_token"); } }
+        public string RefreshToken { get => _explicitNullValueRefreshToken; set { _explicitNullValueRefreshToken = value; AdditionalData?.Remove("refresh_token"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refresh_token"); else _explicitNullProperties?.Remove("refresh_token"); } }
         private string _explicitNullValueRefreshToken = default!;
 #endif
         /// <summary>
@@ -73,7 +76,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "client_id", n => { ClientId = n.GetStringValue(); } },
-                { "grant_type", n => { GrantType = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.RefreshTokenGrantType>(); } },
+                { "grant_type", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.RefreshTokenGrantType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueGrantType = default; _explicitNullProperties?.Remove("grant_type"); AdditionalData["grant_type"] = unknown; } else { GrantType = parsed; AdditionalData.Remove("grant_type"); } } },
                 { "refresh_token", n => { RefreshToken = n.GetStringValue(); } },
             };
         }
