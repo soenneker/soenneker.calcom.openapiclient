@@ -11,41 +11,65 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RescheduleSeatedBookingInput20240813 : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("allowBookingOutOfBounds") is { } nullNodeAllowBookingOutOfBounds && nullNodeAllowBookingOutOfBounds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowBookingOutOfBounds = null;
+            if (parseNode.GetChildNode("allowConflicts") is { } nullNodeAllowConflicts && nullNodeAllowConflicts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowConflicts = null;
+            if (parseNode.GetChildNode("emailVerificationCode") is { } nullNodeEmailVerificationCode && nullNodeEmailVerificationCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailVerificationCode = null;
+            if (parseNode.GetChildNode("rescheduledBy") is { } nullNodeRescheduledBy && nullNodeRescheduledBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RescheduledBy = null;
+            if (parseNode.GetChildNode("seatUid") is { } nullNodeSeatUid && nullNodeSeatUid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SeatUid = null;
+            if (parseNode.GetChildNode("skipBookingLimits") is { } nullNodeSkipBookingLimits && nullNodeSkipBookingLimits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipBookingLimits = null;
+            if (parseNode.GetChildNode("start") is { } nullNodeStart && nullNodeStart.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Start = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>When true, booking time out-of-bounds checks are bypassed, allowing bookings outside the normally permitted scheduling window, for an authenticated user who has access through the existing event owner, host, assigned user, team admin or organization admin checks. Team- and organization-scoped keys are restricted to events in their stored team or organization. Otherwise this parameter is silently ignored. Only supported on the 2026-02-25 and 2026-05-01 API versions.</summary>
-        public bool? AllowBookingOutOfBounds { get; set; }
+        public bool? AllowBookingOutOfBounds { get => _explicitNullValueAllowBookingOutOfBounds; set { _explicitNullValueAllowBookingOutOfBounds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowBookingOutOfBounds"); else _explicitNullProperties?.Remove("allowBookingOutOfBounds"); } }
+        private bool? _explicitNullValueAllowBookingOutOfBounds = default!;
         /// <summary>When true, availability conflict checks are bypassed for an authenticated user who has access through the existing event owner, host, assigned user, team admin or organization admin checks. Team- and organization-scoped keys are restricted to events in their stored team or organization. Otherwise this parameter is silently ignored. Only supported on the 2026-02-25 and 2026-05-01 API versions.</summary>
-        public bool? AllowConflicts { get; set; }
+        public bool? AllowConflicts { get => _explicitNullValueAllowConflicts; set { _explicitNullValueAllowConflicts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowConflicts"); else _explicitNullProperties?.Remove("allowConflicts"); } }
+        private bool? _explicitNullValueAllowConflicts = default!;
         /// <summary>Email verification code required when event type has email verification enabled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EmailVerificationCode { get; set; }
+        public string? EmailVerificationCode { get => _explicitNullValueEmailVerificationCode; set { _explicitNullValueEmailVerificationCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emailVerificationCode"); else _explicitNullProperties?.Remove("emailVerificationCode"); } }
+        private string? _explicitNullValueEmailVerificationCode = default!;
 #nullable restore
 #else
-        public string EmailVerificationCode { get; set; }
+        public string EmailVerificationCode { get => _explicitNullValueEmailVerificationCode; set { _explicitNullValueEmailVerificationCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emailVerificationCode"); else _explicitNullProperties?.Remove("emailVerificationCode"); } }
+        private string _explicitNullValueEmailVerificationCode = default!;
 #endif
         /// <summary>Email of the person who is rescheduling the booking - only needed when rescheduling a booking that requires a confirmation.If event type owner email is provided then rescheduled booking will be automatically confirmed. If attendee email or no email is passed then the event typeowner will have to confirm the rescheduled booking.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RescheduledBy { get; set; }
+        public string? RescheduledBy { get => _explicitNullValueRescheduledBy; set { _explicitNullValueRescheduledBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rescheduledBy"); else _explicitNullProperties?.Remove("rescheduledBy"); } }
+        private string? _explicitNullValueRescheduledBy = default!;
 #nullable restore
 #else
-        public string RescheduledBy { get; set; }
+        public string RescheduledBy { get => _explicitNullValueRescheduledBy; set { _explicitNullValueRescheduledBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rescheduledBy"); else _explicitNullProperties?.Remove("rescheduledBy"); } }
+        private string _explicitNullValueRescheduledBy = default!;
 #endif
         /// <summary>Uid of the specific seat within booking.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SeatUid { get; set; }
+        public string? SeatUid { get => _explicitNullValueSeatUid; set { _explicitNullValueSeatUid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seatUid"); else _explicitNullProperties?.Remove("seatUid"); } }
+        private string? _explicitNullValueSeatUid = default!;
 #nullable restore
 #else
-        public string SeatUid { get; set; }
+        public string SeatUid { get => _explicitNullValueSeatUid; set { _explicitNullValueSeatUid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seatUid"); else _explicitNullProperties?.Remove("seatUid"); } }
+        private string _explicitNullValueSeatUid = default!;
 #endif
         /// <summary>When true, booking limit checks (event type, team, and per-host count and duration limits) are bypassed for an authenticated user who has access through the existing event owner, host, assigned user, team admin or organization admin checks. Team- and organization-scoped keys are restricted to events in their stored team or organization. Otherwise this parameter is silently ignored. Only supported on the 2026-02-25 and 2026-05-01 API versions.</summary>
-        public bool? SkipBookingLimits { get; set; }
+        public bool? SkipBookingLimits { get => _explicitNullValueSkipBookingLimits; set { _explicitNullValueSkipBookingLimits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skipBookingLimits"); else _explicitNullProperties?.Remove("skipBookingLimits"); } }
+        private bool? _explicitNullValueSkipBookingLimits = default!;
         /// <summary>Start time in ISO 8601 format for the new booking</summary>
-        public DateTimeOffset? Start { get; set; }
+        public DateTimeOffset? Start { get => _explicitNullValueStart; set { _explicitNullValueStart = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start"); else _explicitNullProperties?.Remove("start"); } }
+        private DateTimeOffset? _explicitNullValueStart = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.RescheduleSeatedBookingInput20240813"/> and sets the default values.
         /// </summary>
@@ -61,7 +85,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.RescheduleSeatedBookingInput20240813 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.RescheduleSeatedBookingInput20240813();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.RescheduleSeatedBookingInput20240813(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -94,6 +118,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteStringValue("seatUid", SeatUid);
             writer.WriteBoolValue("skipBookingLimits", SkipBookingLimits);
             writer.WriteDateTimeOffsetValue("start", Start);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

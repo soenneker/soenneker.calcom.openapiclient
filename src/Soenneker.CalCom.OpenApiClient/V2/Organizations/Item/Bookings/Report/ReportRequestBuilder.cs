@@ -51,7 +51,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.Bookings.Report
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.ReportOrgBookingOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.ReportOrgBookingOutput.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.ReportOrgBookingOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.ReportOrgBookingOutput.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Report a booking within the organization. A booking report is created and the reported booking along with other matching upcoming bookings are silently cancelled. If accessed using an OAuth access token, the `ORG_BOOKING_WRITE` scope is required.

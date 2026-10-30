@@ -49,7 +49,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Workflows.Item.ConditionFields
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.WorkflowConditionFieldsOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.WorkflowConditionFieldsOutput.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.WorkflowConditionFieldsOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.WorkflowConditionFieldsOutput.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List the fields a conditional path on this workflow can be written against, with the comparisons each one accepts and how both read in the Cal.com app. The catalog comes from what the workflow is active on — booking questions on its active event types — so it also reports the entities that do not ask for a field. Not available to third-party OAuth access tokens.

@@ -49,7 +49,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.SecondaryDomains.
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.OrganizationSecondaryDomainResponseOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.OrganizationSecondaryDomainResponseOutput.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.OrganizationSecondaryDomainResponseOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.OrganizationSecondaryDomainResponseOutput.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Checks the DNS TXT record returned in `verificationRecord` and marks the domain as verified. For platform, the plan must be &apos;ESSENTIALS&apos; or higher to access this endpoint. Required membership role: `org admin`. PBAC permission: `organization.update`. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control

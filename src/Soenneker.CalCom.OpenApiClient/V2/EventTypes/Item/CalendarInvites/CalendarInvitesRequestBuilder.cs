@@ -49,7 +49,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.EventTypes.Item.CalendarInvites
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.EventTypeCalendarInvitesOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.EventTypeCalendarInvitesOutput.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.EventTypeCalendarInvitesOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.EventTypeCalendarInvitesOutput.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Updates host and/or guest settings without changing other event-type fields; omitted audiences remain unchanged. `inherit` uses the organization default, `standard` uses Cal.com&apos;s standard description, and `custom` uses a supplied template of at most 5,000 characters. HTML tags are stripped and Markdown links are kept. Managed children are read-only and return HTTP 400; update their parent. Access matches updating the event type; OAuth clients require `EVENT_TYPE_WRITE`.
@@ -69,7 +69,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.EventTypes.Item.CalendarInvites
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.EventTypeCalendarInvitesOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.EventTypeCalendarInvitesOutput.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.EventTypeCalendarInvitesOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.EventTypeCalendarInvitesOutput.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns host and guest invite-description settings resolved from the event type, organization default when the mode is `inherit`, then Cal.com&apos;s standard description. Access matches reading the event type; OAuth clients require `EVENT_TYPE_READ`. Custom templates are limited to 5,000 characters. Managed children inherit their parent&apos;s templates and are marked read-only. Host templates are private and are not included in event-type responses.

@@ -12,17 +12,32 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SetBookingLimitPoolHostInputHostLimit : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("perDay") is { } nullNodePerDay && nullNodePerDay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerDay = null;
+            if (parseNode.GetChildNode("perMonth") is { } nullNodePerMonth && nullNodePerMonth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerMonth = null;
+            if (parseNode.GetChildNode("perWeek") is { } nullNodePerWeek && nullNodePerWeek.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerWeek = null;
+            if (parseNode.GetChildNode("perYear") is { } nullNodePerYear && nullNodePerYear.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerYear = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The perDay property</summary>
-        public double? PerDay { get; set; }
+        public double? PerDay { get => _explicitNullValuePerDay; set { _explicitNullValuePerDay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perDay"); else _explicitNullProperties?.Remove("perDay"); } }
+        private double? _explicitNullValuePerDay = default!;
         /// <summary>The perMonth property</summary>
-        public double? PerMonth { get; set; }
+        public double? PerMonth { get => _explicitNullValuePerMonth; set { _explicitNullValuePerMonth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perMonth"); else _explicitNullProperties?.Remove("perMonth"); } }
+        private double? _explicitNullValuePerMonth = default!;
         /// <summary>The perWeek property</summary>
-        public double? PerWeek { get; set; }
+        public double? PerWeek { get => _explicitNullValuePerWeek; set { _explicitNullValuePerWeek = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perWeek"); else _explicitNullProperties?.Remove("perWeek"); } }
+        private double? _explicitNullValuePerWeek = default!;
         /// <summary>The perYear property</summary>
-        public double? PerYear { get; set; }
+        public double? PerYear { get => _explicitNullValuePerYear; set { _explicitNullValuePerYear = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perYear"); else _explicitNullProperties?.Remove("perYear"); } }
+        private double? _explicitNullValuePerYear = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.SetBookingLimitPoolHostInputHostLimit"/> and sets the default values.
         /// </summary>
@@ -38,7 +53,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.SetBookingLimitPoolHostInputHostLimit CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.SetBookingLimitPoolHostInputHostLimit();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.SetBookingLimitPoolHostInputHostLimit(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -65,6 +80,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteDoubleValue("perMonth", PerMonth);
             writer.WriteDoubleValue("perWeek", PerWeek);
             writer.WriteDoubleValue("perYear", PerYear);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

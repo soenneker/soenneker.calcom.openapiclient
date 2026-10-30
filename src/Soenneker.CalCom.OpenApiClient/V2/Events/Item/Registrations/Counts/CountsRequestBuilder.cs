@@ -49,7 +49,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Events.Item.Registrations.Counts
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.RegistrationCountsOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.RegistrationCountsOutputResponseDto.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.RegistrationCountsOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.RegistrationCountsOutputResponseDto.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns how many of the Event&apos;s guests are in each status, how many answered each RSVP, how many are checked in and how many seats each location holds, as the roster&apos;s tabs show them. The authenticated user must be the Event&apos;s owner, one of its hosts, an accepted co-host, or a member of the owning team. PBAC permission for team events: `calEvent.read`. If accessed using an OAuth access token, the `EVENT_READ` scope is required.

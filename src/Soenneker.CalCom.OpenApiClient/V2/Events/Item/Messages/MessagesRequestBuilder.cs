@@ -49,7 +49,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Events.Item.Messages
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.MessagesOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.MessagesOutputResponseDto.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.MessagesOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.MessagesOutputResponseDto.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Emails one segment of the Event&apos;s guests, optionally narrowed to one location or to guests who did or did not check in. Guests who have only a phone number are texted instead when texting is available; `textRecipientCount` says how many. The message is queued and sent in the background; list the Event&apos;s messages to follow its status. The authenticated user must be the Event&apos;s owner, one of its hosts, or a member of the owning team. Co-hosts cannot message guests. PBAC permission for team events: `calEvent.update`. If accessed using an OAuth access token, the `EVENT_WRITE` scope is required.
@@ -69,7 +69,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Events.Item.Messages
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.SendMessageOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.SendMessageOutputResponseDto.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.SendMessageOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.SendMessageOutputResponseDto.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the Event&apos;s messages, newest first, with their delivery status. The authenticated user must be the Event&apos;s owner, one of its hosts, or a member of the owning team. Co-hosts cannot message guests. PBAC permission for team events: `calEvent.update`. Cursor-based pagination: pass `pagination.nextCursor` from a previous response as the `cursor` query parameter to fetch the next page; omit `cursor` for the first page. If accessed using an OAuth access token, the `EVENT_READ` scope is required.

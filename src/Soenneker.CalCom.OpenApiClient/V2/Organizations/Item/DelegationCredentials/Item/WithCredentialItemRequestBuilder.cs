@@ -61,7 +61,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.DelegationCredent
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.DeleteDelegationCredentialOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.DeleteDelegationCredentialOutput.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.DeleteDelegationCredentialOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.DeleteDelegationCredentialOutput.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Required membership role: `org admin`. PBAC permission: `organization.readDelegationCredentials`. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control
@@ -87,6 +87,8 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.DelegationCredent
                 { "401", global::Soenneker.CalCom.OpenApiClient.Models.OrganizationsDelegationCredentialControllerGetDelegationCredential401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.CalCom.OpenApiClient.Models.OrganizationsDelegationCredentialControllerGetDelegationCredential403Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.CalCom.OpenApiClient.Models.OrganizationsDelegationCredentialControllerGetDelegationCredential404Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetDelegationCredentialOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetDelegationCredentialOutput.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -108,7 +110,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.DelegationCredent
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.UpdateDelegationCredentialOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.UpdateDelegationCredentialOutput.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.UpdateDelegationCredentialOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.UpdateDelegationCredentialOutput.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Required membership role: `org admin`. PBAC permission: `organization.update`. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control

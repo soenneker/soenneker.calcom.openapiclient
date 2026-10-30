@@ -12,7 +12,12 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateDelegationCredentialOutputData : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.GoogleDelegationCredentialOutput"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,13 +46,20 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             var result = new global::Soenneker.CalCom.OpenApiClient.Models.CreateDelegationCredentialOutputData();
             if("GoogleDelegationCredentialOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.GoogleDelegationCredentialOutput = new global::Soenneker.CalCom.OpenApiClient.Models.GoogleDelegationCredentialOutput();
+                
             }
             else if("MicrosoftDelegationCredentialOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.MicrosoftDelegationCredentialOutput = new global::Soenneker.CalCom.OpenApiClient.Models.MicrosoftDelegationCredentialOutput();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("id") != null && parseNode.GetChildNode("enabled") != null && parseNode.GetChildNode("domain") != null && parseNode.GetChildNode("organizationId") != null && parseNode.GetChildNode("workspacePlatform") != null && parseNode.GetChildNode("createdAt") != null && parseNode.GetChildNode("updatedAt") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("id") != null && parseNode.GetChildNode("enabled") != null && parseNode.GetChildNode("domain") != null && parseNode.GetChildNode("organizationId") != null && parseNode.GetChildNode("workspacePlatform") != null && parseNode.GetChildNode("createdAt") != null && parseNode.GetChildNode("updatedAt") != null && parseNode.GetChildNode("optOutAutoSecretRotation") != null && parseNode.GetChildNode("secretRotationBlocked") != null && parseNode.GetChildNode("secret") != null && parseNode.GetChildNode("pendingSecret") != null && parseNode.GetChildNode("secretRotationErrorCode") != null && (parseNode.GetChildNode("secretRotationErrorCode")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag12 && ("missing_permission".Equals(tag12.GetValue(), global::System.StringComparison.Ordinal) || "tenant_lifetime_policy".Equals(tag12.GetValue(), global::System.StringComparison.Ordinal) || "transient".Equals(tag12.GetValue(), global::System.StringComparison.Ordinal) || "unknown".Equals(tag12.GetValue(), global::System.StringComparison.Ordinal) || "pending_secret_mint_failed".Equals(tag12.GetValue(), global::System.StringComparison.Ordinal) || "pending_secret_promotion_failed".Equals(tag12.GetValue(), global::System.StringComparison.Ordinal)))))();
+            if (result.GoogleDelegationCredentialOutput == null && result.MicrosoftDelegationCredentialOutput == null && matchesUnionBranch0 && !matchesUnionBranch1) result.GoogleDelegationCredentialOutput = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.GoogleDelegationCredentialOutput(), parseNode);
+            if (result.GoogleDelegationCredentialOutput == null && result.MicrosoftDelegationCredentialOutput == null && matchesUnionBranch1 && !matchesUnionBranch0) result.MicrosoftDelegationCredentialOutput = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.MicrosoftDelegationCredentialOutput(), parseNode);
+            if (result.GoogleDelegationCredentialOutput == null && result.MicrosoftDelegationCredentialOutput == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,13 +83,20 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (GoogleDelegationCredentialOutput == null && MicrosoftDelegationCredentialOutput == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (GoogleDelegationCredentialOutput != null && MicrosoftDelegationCredentialOutput == null) { if (GoogleDelegationCredentialOutput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, GoogleDelegationCredentialOutput); return; }
+            if (MicrosoftDelegationCredentialOutput != null && GoogleDelegationCredentialOutput == null) { if (MicrosoftDelegationCredentialOutput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MicrosoftDelegationCredentialOutput); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(GoogleDelegationCredentialOutput != null)
             {
+                if (GoogleDelegationCredentialOutput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.GoogleDelegationCredentialOutput>(null, GoogleDelegationCredentialOutput);
             }
             else if(MicrosoftDelegationCredentialOutput != null)
             {
+                if (MicrosoftDelegationCredentialOutput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.MicrosoftDelegationCredentialOutput>(null, MicrosoftDelegationCredentialOutput);
             }
         }

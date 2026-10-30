@@ -49,7 +49,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.OauthClients.Item.Webhooks.Item
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.OAuthClientWebhookOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.OAuthClientWebhookOutputResponseDto.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.OAuthClientWebhookOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.OAuthClientWebhookOutputResponseDto.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &lt;Warning&gt;These endpoints are deprecated and will be removed in the future.&lt;/Warning&gt;
@@ -67,7 +67,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.OauthClients.Item.Webhooks.Item
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.OAuthClientWebhookOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.OAuthClientWebhookOutputResponseDto.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.OAuthClientWebhookOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.OAuthClientWebhookOutputResponseDto.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &lt;Warning&gt;These endpoints are deprecated and will be removed in the future.&lt;/Warning&gt;
@@ -87,7 +87,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.OauthClients.Item.Webhooks.Item
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.OAuthClientWebhookOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.OAuthClientWebhookOutputResponseDto.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.OAuthClientWebhookOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.OAuthClientWebhookOutputResponseDto.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &lt;Warning&gt;These endpoints are deprecated and will be removed in the future.&lt;/Warning&gt;

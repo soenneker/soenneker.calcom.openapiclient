@@ -11,15 +11,28 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RegistrationRsvpCountsOutputDto : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("maybe") is { } nullNodeMaybe && nullNodeMaybe.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Maybe = null;
+            if (parseNode.GetChildNode("no") is { } nullNodeNo && nullNodeNo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) No = null;
+            if (parseNode.GetChildNode("yes") is { } nullNodeYes && nullNodeYes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Yes = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Guests who answered Maybe, in any status.</summary>
-        public double? Maybe { get; set; }
+        public double? Maybe { get => _explicitNullValueMaybe; set { _explicitNullValueMaybe = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maybe"); else _explicitNullProperties?.Remove("maybe"); } }
+        private double? _explicitNullValueMaybe = default!;
         /// <summary>Guests who answered No, in any status.</summary>
-        public double? No { get; set; }
+        public double? No { get => _explicitNullValueNo; set { _explicitNullValueNo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("no"); else _explicitNullProperties?.Remove("no"); } }
+        private double? _explicitNullValueNo = default!;
         /// <summary>Guests who answered Yes, in any status.</summary>
-        public double? Yes { get; set; }
+        public double? Yes { get => _explicitNullValueYes; set { _explicitNullValueYes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("yes"); else _explicitNullProperties?.Remove("yes"); } }
+        private double? _explicitNullValueYes = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.RegistrationRsvpCountsOutputDto"/> and sets the default values.
         /// </summary>
@@ -35,7 +48,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.RegistrationRsvpCountsOutputDto CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.RegistrationRsvpCountsOutputDto();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.RegistrationRsvpCountsOutputDto(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,6 +73,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteDoubleValue("maybe", Maybe);
             writer.WriteDoubleValue("no", No);
             writer.WriteDoubleValue("yes", Yes);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

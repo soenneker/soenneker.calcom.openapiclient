@@ -12,19 +12,31 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateEventTypeWorkflowDto20260922Activation : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("activeOnEventTypeIds") is { } nullNodeActiveOnEventTypeIds && nullNodeActiveOnEventTypeIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActiveOnEventTypeIds = null;
+            if (parseNode.GetChildNode("isActiveOnAllEventTypes") is { } nullNodeIsActiveOnAllEventTypes && nullNodeIsActiveOnAllEventTypes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsActiveOnAllEventTypes = null;
+        }
+
         /// <summary>List of event-types IDs the workflow applies to, required if isActiveOnAllEventTypes is false</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<double?>? ActiveOnEventTypeIds { get; set; }
+        public List<double?>? ActiveOnEventTypeIds { get => _explicitNullValueActiveOnEventTypeIds; set { _explicitNullValueActiveOnEventTypeIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activeOnEventTypeIds"); else _explicitNullProperties?.Remove("activeOnEventTypeIds"); } }
+        private List<double?>? _explicitNullValueActiveOnEventTypeIds = default!;
 #nullable restore
 #else
-        public List<double?> ActiveOnEventTypeIds { get; set; }
+        public List<double?> ActiveOnEventTypeIds { get => _explicitNullValueActiveOnEventTypeIds; set { _explicitNullValueActiveOnEventTypeIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activeOnEventTypeIds"); else _explicitNullProperties?.Remove("activeOnEventTypeIds"); } }
+        private List<double?> _explicitNullValueActiveOnEventTypeIds = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether the workflow is active for all the event-types</summary>
-        public bool? IsActiveOnAllEventTypes { get; set; }
+        public bool? IsActiveOnAllEventTypes { get => _explicitNullValueIsActiveOnAllEventTypes; set { _explicitNullValueIsActiveOnAllEventTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("isActiveOnAllEventTypes"); else _explicitNullProperties?.Remove("isActiveOnAllEventTypes"); } }
+        private bool? _explicitNullValueIsActiveOnAllEventTypes = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeWorkflowDto20260922Activation"/> and sets the default values.
         /// </summary>
@@ -41,7 +53,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeWorkflowDto20260922Activation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeWorkflowDto20260922Activation();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeWorkflowDto20260922Activation(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,6 +76,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<double?>("activeOnEventTypeIds", ActiveOnEventTypeIds);
             writer.WriteBoolValue("isActiveOnAllEventTypes", IsActiveOnAllEventTypes);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

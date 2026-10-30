@@ -12,7 +12,12 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UpdatePrivateLinkOutputData : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.TimeBasedPrivateLinkOutput"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,13 +46,20 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             var result = new global::Soenneker.CalCom.OpenApiClient.Models.UpdatePrivateLinkOutputData();
             if("TimeBasedPrivateLinkOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.TimeBasedPrivateLinkOutput = new global::Soenneker.CalCom.OpenApiClient.Models.TimeBasedPrivateLinkOutput();
+                
             }
             else if("UsageBasedPrivateLinkOutput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.UsageBasedPrivateLinkOutput = new global::Soenneker.CalCom.OpenApiClient.Models.UsageBasedPrivateLinkOutput();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("linkId") != null && parseNode.GetChildNode("eventTypeId") != null && parseNode.GetChildNode("isExpired") != null && parseNode.GetChildNode("bookingUrl") != null && parseNode.GetChildNode("expiresAt") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("linkId") != null && parseNode.GetChildNode("eventTypeId") != null && parseNode.GetChildNode("isExpired") != null && parseNode.GetChildNode("bookingUrl") != null && parseNode.GetChildNode("maxUsageCount") != null && parseNode.GetChildNode("usageCount") != null))();
+            if (result.TimeBasedPrivateLinkOutput == null && result.UsageBasedPrivateLinkOutput == null && matchesUnionBranch0 && !matchesUnionBranch1) result.TimeBasedPrivateLinkOutput = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.TimeBasedPrivateLinkOutput(), parseNode);
+            if (result.TimeBasedPrivateLinkOutput == null && result.UsageBasedPrivateLinkOutput == null && matchesUnionBranch1 && !matchesUnionBranch0) result.UsageBasedPrivateLinkOutput = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.UsageBasedPrivateLinkOutput(), parseNode);
+            if (result.TimeBasedPrivateLinkOutput == null && result.UsageBasedPrivateLinkOutput == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,13 +83,20 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (TimeBasedPrivateLinkOutput == null && UsageBasedPrivateLinkOutput == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (TimeBasedPrivateLinkOutput != null && UsageBasedPrivateLinkOutput == null) { if (TimeBasedPrivateLinkOutput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, TimeBasedPrivateLinkOutput); return; }
+            if (UsageBasedPrivateLinkOutput != null && TimeBasedPrivateLinkOutput == null) { if (UsageBasedPrivateLinkOutput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, UsageBasedPrivateLinkOutput); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(TimeBasedPrivateLinkOutput != null)
             {
+                if (TimeBasedPrivateLinkOutput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.TimeBasedPrivateLinkOutput>(null, TimeBasedPrivateLinkOutput);
             }
             else if(UsageBasedPrivateLinkOutput != null)
             {
+                if (UsageBasedPrivateLinkOutput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.UsageBasedPrivateLinkOutput>(null, UsageBasedPrivateLinkOutput);
             }
         }

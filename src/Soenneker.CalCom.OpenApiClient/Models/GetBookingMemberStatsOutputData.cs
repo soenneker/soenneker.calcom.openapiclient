@@ -12,72 +12,103 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetBookingMemberStatsOutputData : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("highestRatings") is { } nullNodeHighestRatings && nullNodeHighestRatings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HighestRatings = null;
+            if (parseNode.GetChildNode("leastBookings") is { } nullNodeLeastBookings && nullNodeLeastBookings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LeastBookings = null;
+            if (parseNode.GetChildNode("leastCompleted") is { } nullNodeLeastCompleted && nullNodeLeastCompleted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LeastCompleted = null;
+            if (parseNode.GetChildNode("lowestRatings") is { } nullNodeLowestRatings && nullNodeLowestRatings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LowestRatings = null;
+            if (parseNode.GetChildNode("mostBookings") is { } nullNodeMostBookings && nullNodeMostBookings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MostBookings = null;
+            if (parseNode.GetChildNode("mostCancelled") is { } nullNodeMostCancelled && nullNodeMostCancelled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MostCancelled = null;
+            if (parseNode.GetChildNode("mostCompleted") is { } nullNodeMostCompleted && nullNodeMostCompleted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MostCompleted = null;
+            if (parseNode.GetChildNode("mostNoShow") is { } nullNodeMostNoShow && nullNodeMostNoShow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MostNoShow = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Members ranked by highest average rating</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto>? HighestRatings { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto>? HighestRatings { get => _explicitNullValueHighestRatings; set { _explicitNullValueHighestRatings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("highestRatings"); else _explicitNullProperties?.Remove("highestRatings"); } }
+        private List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto>? _explicitNullValueHighestRatings = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto> HighestRatings { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto> HighestRatings { get => _explicitNullValueHighestRatings; set { _explicitNullValueHighestRatings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("highestRatings"); else _explicitNullProperties?.Remove("highestRatings"); } }
+        private List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto> _explicitNullValueHighestRatings = default!;
 #endif
         /// <summary>Members ranked by fewest total bookings</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto>? LeastBookings { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto>? LeastBookings { get => _explicitNullValueLeastBookings; set { _explicitNullValueLeastBookings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("leastBookings"); else _explicitNullProperties?.Remove("leastBookings"); } }
+        private List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto>? _explicitNullValueLeastBookings = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto> LeastBookings { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto> LeastBookings { get => _explicitNullValueLeastBookings; set { _explicitNullValueLeastBookings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("leastBookings"); else _explicitNullProperties?.Remove("leastBookings"); } }
+        private List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto> _explicitNullValueLeastBookings = default!;
 #endif
         /// <summary>Members ranked by fewest completed bookings</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto>? LeastCompleted { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto>? LeastCompleted { get => _explicitNullValueLeastCompleted; set { _explicitNullValueLeastCompleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("leastCompleted"); else _explicitNullProperties?.Remove("leastCompleted"); } }
+        private List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto>? _explicitNullValueLeastCompleted = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto> LeastCompleted { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto> LeastCompleted { get => _explicitNullValueLeastCompleted; set { _explicitNullValueLeastCompleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("leastCompleted"); else _explicitNullProperties?.Remove("leastCompleted"); } }
+        private List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto> _explicitNullValueLeastCompleted = default!;
 #endif
         /// <summary>Members ranked by lowest average rating</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto>? LowestRatings { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto>? LowestRatings { get => _explicitNullValueLowestRatings; set { _explicitNullValueLowestRatings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lowestRatings"); else _explicitNullProperties?.Remove("lowestRatings"); } }
+        private List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto>? _explicitNullValueLowestRatings = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto> LowestRatings { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto> LowestRatings { get => _explicitNullValueLowestRatings; set { _explicitNullValueLowestRatings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lowestRatings"); else _explicitNullProperties?.Remove("lowestRatings"); } }
+        private List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto> _explicitNullValueLowestRatings = default!;
 #endif
         /// <summary>Members ranked by most total bookings</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto>? MostBookings { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto>? MostBookings { get => _explicitNullValueMostBookings; set { _explicitNullValueMostBookings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mostBookings"); else _explicitNullProperties?.Remove("mostBookings"); } }
+        private List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto>? _explicitNullValueMostBookings = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto> MostBookings { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto> MostBookings { get => _explicitNullValueMostBookings; set { _explicitNullValueMostBookings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mostBookings"); else _explicitNullProperties?.Remove("mostBookings"); } }
+        private List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto> _explicitNullValueMostBookings = default!;
 #endif
         /// <summary>Members ranked by most cancellations</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto>? MostCancelled { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto>? MostCancelled { get => _explicitNullValueMostCancelled; set { _explicitNullValueMostCancelled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mostCancelled"); else _explicitNullProperties?.Remove("mostCancelled"); } }
+        private List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto>? _explicitNullValueMostCancelled = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto> MostCancelled { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto> MostCancelled { get => _explicitNullValueMostCancelled; set { _explicitNullValueMostCancelled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mostCancelled"); else _explicitNullProperties?.Remove("mostCancelled"); } }
+        private List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto> _explicitNullValueMostCancelled = default!;
 #endif
         /// <summary>Members ranked by most completed bookings</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto>? MostCompleted { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto>? MostCompleted { get => _explicitNullValueMostCompleted; set { _explicitNullValueMostCompleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mostCompleted"); else _explicitNullProperties?.Remove("mostCompleted"); } }
+        private List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto>? _explicitNullValueMostCompleted = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto> MostCompleted { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto> MostCompleted { get => _explicitNullValueMostCompleted; set { _explicitNullValueMostCompleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mostCompleted"); else _explicitNullProperties?.Remove("mostCompleted"); } }
+        private List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto> _explicitNullValueMostCompleted = default!;
 #endif
         /// <summary>Members ranked by most no-shows</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto>? MostNoShow { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto>? MostNoShow { get => _explicitNullValueMostNoShow; set { _explicitNullValueMostNoShow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mostNoShow"); else _explicitNullProperties?.Remove("mostNoShow"); } }
+        private List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto>? _explicitNullValueMostNoShow = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto> MostNoShow { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto> MostNoShow { get => _explicitNullValueMostNoShow; set { _explicitNullValueMostNoShow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mostNoShow"); else _explicitNullProperties?.Remove("mostNoShow"); } }
+        private List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto> _explicitNullValueMostNoShow = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.GetBookingMemberStatsOutputData"/> and sets the default values.
@@ -94,7 +125,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.GetBookingMemberStatsOutputData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.GetBookingMemberStatsOutputData();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.GetBookingMemberStatsOutputData(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -129,6 +160,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto>("mostCancelled", MostCancelled);
             writer.WriteCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto>("mostCompleted", MostCompleted);
             writer.WriteCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsMemberStatDto>("mostNoShow", MostNoShow);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

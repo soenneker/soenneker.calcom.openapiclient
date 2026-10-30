@@ -12,7 +12,12 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EventTypeHistoryDisplayField20240614FieldValue : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.DiffFieldValue20240614"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -53,25 +58,36 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.EventTypeHistoryDisplayField20240614FieldValue CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.CalCom.OpenApiClient.Models.EventTypeHistoryDisplayField20240614FieldValue();
-            if("diff".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("DiffFieldValue20240614".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.DiffFieldValue20240614 = new global::Soenneker.CalCom.OpenApiClient.Models.DiffFieldValue20240614();
+                
             }
-            else if("rawValue".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("RawValueFieldValue20240614".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.RawValueFieldValue20240614 = new global::Soenneker.CalCom.OpenApiClient.Models.RawValueFieldValue20240614();
+                
             }
-            else if("rawValues".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("RawValuesFieldValue20240614".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.RawValuesFieldValue20240614 = new global::Soenneker.CalCom.OpenApiClient.Models.RawValuesFieldValue20240614();
+                
             }
-            else if("valueChange".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ValueChangeFieldValue20240614".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ValueChangeFieldValue20240614 = new global::Soenneker.CalCom.OpenApiClient.Models.ValueChangeFieldValue20240614();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("rawValue".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("value") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("rawValues".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("values") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("valueChange".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("previous") != null && parseNode.GetChildNode("next") != null))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("diff".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("previous") != null && parseNode.GetChildNode("next") != null))();
+            if (result.DiffFieldValue20240614 == null && result.RawValueFieldValue20240614 == null && result.RawValuesFieldValue20240614 == null && result.ValueChangeFieldValue20240614 == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3) result.RawValueFieldValue20240614 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.RawValueFieldValue20240614(), parseNode);
+            if (result.DiffFieldValue20240614 == null && result.RawValueFieldValue20240614 == null && result.RawValuesFieldValue20240614 == null && result.ValueChangeFieldValue20240614 == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3) result.RawValuesFieldValue20240614 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.RawValuesFieldValue20240614(), parseNode);
+            if (result.DiffFieldValue20240614 == null && result.RawValueFieldValue20240614 == null && result.RawValuesFieldValue20240614 == null && result.ValueChangeFieldValue20240614 == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3) result.ValueChangeFieldValue20240614 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.ValueChangeFieldValue20240614(), parseNode);
+            if (result.DiffFieldValue20240614 == null && result.RawValueFieldValue20240614 == null && result.RawValuesFieldValue20240614 == null && result.ValueChangeFieldValue20240614 == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.DiffFieldValue20240614 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.DiffFieldValue20240614(), parseNode);
+            if (result.DiffFieldValue20240614 == null && result.RawValueFieldValue20240614 == null && result.RawValuesFieldValue20240614 == null && result.ValueChangeFieldValue20240614 == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -103,21 +119,32 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (DiffFieldValue20240614 == null && RawValueFieldValue20240614 == null && RawValuesFieldValue20240614 == null && ValueChangeFieldValue20240614 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (DiffFieldValue20240614 != null && RawValueFieldValue20240614 == null && RawValuesFieldValue20240614 == null && ValueChangeFieldValue20240614 == null) { if (DiffFieldValue20240614 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, DiffFieldValue20240614); return; }
+            if (RawValueFieldValue20240614 != null && DiffFieldValue20240614 == null && RawValuesFieldValue20240614 == null && ValueChangeFieldValue20240614 == null) { if (RawValueFieldValue20240614 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, RawValueFieldValue20240614); return; }
+            if (RawValuesFieldValue20240614 != null && DiffFieldValue20240614 == null && RawValueFieldValue20240614 == null && ValueChangeFieldValue20240614 == null) { if (RawValuesFieldValue20240614 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, RawValuesFieldValue20240614); return; }
+            if (ValueChangeFieldValue20240614 != null && DiffFieldValue20240614 == null && RawValueFieldValue20240614 == null && RawValuesFieldValue20240614 == null) { if (ValueChangeFieldValue20240614 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ValueChangeFieldValue20240614); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(DiffFieldValue20240614 != null)
             {
+                if (DiffFieldValue20240614 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.DiffFieldValue20240614>(null, DiffFieldValue20240614);
             }
             else if(RawValueFieldValue20240614 != null)
             {
+                if (RawValueFieldValue20240614 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.RawValueFieldValue20240614>(null, RawValueFieldValue20240614);
             }
             else if(RawValuesFieldValue20240614 != null)
             {
+                if (RawValuesFieldValue20240614 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.RawValuesFieldValue20240614>(null, RawValuesFieldValue20240614);
             }
             else if(ValueChangeFieldValue20240614 != null)
             {
+                if (ValueChangeFieldValue20240614 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.ValueChangeFieldValue20240614>(null, ValueChangeFieldValue20240614);
             }
         }

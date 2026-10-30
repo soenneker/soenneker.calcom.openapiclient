@@ -49,7 +49,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Events.Item.Publish
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.EventOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.EventOutputResponseDto.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.EventOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.EventOutputResponseDto.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Takes a draft Event live: its public page becomes reachable, guests can RSVP, the occurrence lands on the hosts&apos; calendars. Idempotent for an Event that is already published. A cancelled Event cannot be published. The authenticated user must be its owner, one of its hosts, or a member of the owning team; an external co-host gets 404, exactly like an unknown uuid. PBAC permission for team events: `calEvent.update`. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the `EVENT_WRITE` scope is required.

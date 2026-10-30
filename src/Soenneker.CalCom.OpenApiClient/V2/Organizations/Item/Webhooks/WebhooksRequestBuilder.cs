@@ -62,7 +62,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.Webhooks
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.TeamWebhooksOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.TeamWebhooksOutputResponseDto.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.TeamWebhooksOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.TeamWebhooksOutputResponseDto.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Required membership role: `org admin`. PBAC permission: `webhook.create`. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the `ORG_WEBHOOK_WRITE` scope is required.
@@ -82,7 +82,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.Webhooks
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.TeamWebhookOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.TeamWebhookOutputResponseDto.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.TeamWebhookOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.TeamWebhookOutputResponseDto.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Required membership role: `org admin`. PBAC permission: `webhook.readOrgWebhooks`. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the `ORG_WEBHOOK_READ` scope is required.

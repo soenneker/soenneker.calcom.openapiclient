@@ -12,15 +12,28 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LinkOutputEmailSettings : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("disableEmailsToAttendees") is { } nullNodeDisableEmailsToAttendees && nullNodeDisableEmailsToAttendees.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisableEmailsToAttendees = null;
+            if (parseNode.GetChildNode("disableEmailsToHosts") is { } nullNodeDisableEmailsToHosts && nullNodeDisableEmailsToHosts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisableEmailsToHosts = null;
+            if (parseNode.GetChildNode("disableProposalEmailsToHosts") is { } nullNodeDisableProposalEmailsToHosts && nullNodeDisableProposalEmailsToHosts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisableProposalEmailsToHosts = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Disables all email communication to attendees for this event type, including booking confirmations, reminders, and cancellations. This DOES NOT include emails sent by custom email workflows.</summary>
-        public bool? DisableEmailsToAttendees { get; set; }
+        public bool? DisableEmailsToAttendees { get => _explicitNullValueDisableEmailsToAttendees; set { _explicitNullValueDisableEmailsToAttendees = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disableEmailsToAttendees"); else _explicitNullProperties?.Remove("disableEmailsToAttendees"); } }
+        private bool? _explicitNullValueDisableEmailsToAttendees = default!;
         /// <summary>Disables all email communication to hosts for this event type, including booking confirmations, reminders, and cancellations. This DOES NOT include emails sent by custom email workflows.</summary>
-        public bool? DisableEmailsToHosts { get; set; }
+        public bool? DisableEmailsToHosts { get => _explicitNullValueDisableEmailsToHosts; set { _explicitNullValueDisableEmailsToHosts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disableEmailsToHosts"); else _explicitNullProperties?.Remove("disableEmailsToHosts"); } }
+        private bool? _explicitNullValueDisableEmailsToHosts = default!;
         /// <summary>Disables only the booking proposal &apos;choose a time&apos; email sent to hosts for this event type (no one-click confirm links are issued to hosts either). Every other host email - confirmation requests, confirmations, reminders and cancellations - is unaffected. Use this when hosts confirm proposals through an external system.</summary>
-        public bool? DisableProposalEmailsToHosts { get; set; }
+        public bool? DisableProposalEmailsToHosts { get => _explicitNullValueDisableProposalEmailsToHosts; set { _explicitNullValueDisableProposalEmailsToHosts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disableProposalEmailsToHosts"); else _explicitNullProperties?.Remove("disableProposalEmailsToHosts"); } }
+        private bool? _explicitNullValueDisableProposalEmailsToHosts = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.LinkOutputEmailSettings"/> and sets the default values.
         /// </summary>
@@ -36,7 +49,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.LinkOutputEmailSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.LinkOutputEmailSettings();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.LinkOutputEmailSettings(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,6 +74,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteBoolValue("disableEmailsToAttendees", DisableEmailsToAttendees);
             writer.WriteBoolValue("disableEmailsToHosts", DisableEmailsToHosts);
             writer.WriteBoolValue("disableProposalEmailsToHosts", DisableProposalEmailsToHosts);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

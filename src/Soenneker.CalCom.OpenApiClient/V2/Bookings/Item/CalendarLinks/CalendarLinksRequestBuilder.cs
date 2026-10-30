@@ -49,7 +49,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Bookings.Item.CalendarLinks
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.CalendarLinksOutput20240813>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.CalendarLinksOutput20240813.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.CalendarLinksOutput20240813>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.CalendarLinksOutput20240813.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve calendar links for a booking that can be used to add the event to various calendar services. Returns links for Google Calendar, Microsoft Office, Microsoft Outlook, and a downloadable ICS file.      &lt;Note&gt;Please make sure to pass in the cal-api-version header value as mentioned in the Headers section. Not passing the correct value will default to an older version of this endpoint.&lt;/Note&gt;If accessed using an OAuth access token, the `BOOKING_READ` scope is required.      

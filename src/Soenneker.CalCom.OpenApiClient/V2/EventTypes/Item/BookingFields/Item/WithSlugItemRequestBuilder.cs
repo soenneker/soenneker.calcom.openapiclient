@@ -49,7 +49,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.EventTypes.Item.BookingFields.Item
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsOutput20260612>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsOutput20260612.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsOutput20260612>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsOutput20260612.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &lt;Note&gt;Please make sure to pass in the cal-api-version header value as mentioned in the Headers section. Not passing the correct value will default to an older version of this endpoint.&lt;/Note&gt;Deletes the custom booking field identified by `slug`. Default fields cannot be deleted, set hidden instead. If accessed using an OAuth access token, the `EVENT_TYPE_WRITE` scope is required.

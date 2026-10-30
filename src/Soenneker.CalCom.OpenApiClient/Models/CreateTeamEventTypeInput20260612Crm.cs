@@ -12,24 +12,37 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateTeamEventTypeInput20260612Crm : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("hubspot") is { } nullNodeHubspot && nullNodeHubspot.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Hubspot = null;
+            if (parseNode.GetChildNode("salesforce") is { } nullNodeSalesforce && nullNodeSalesforce.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Salesforce = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>HubSpot app settings for this event type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.CrmSettingsInput20260612Hubspot? Hubspot { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CrmSettingsInput20260612Hubspot? Hubspot { get => _explicitNullValueHubspot; set { _explicitNullValueHubspot = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hubspot"); else _explicitNullProperties?.Remove("hubspot"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.CrmSettingsInput20260612Hubspot? _explicitNullValueHubspot = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.CrmSettingsInput20260612Hubspot Hubspot { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CrmSettingsInput20260612Hubspot Hubspot { get => _explicitNullValueHubspot; set { _explicitNullValueHubspot = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hubspot"); else _explicitNullProperties?.Remove("hubspot"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.CrmSettingsInput20260612Hubspot _explicitNullValueHubspot = default!;
 #endif
         /// <summary>Salesforce app settings for this event type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.CrmSettingsInput20260612Salesforce? Salesforce { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CrmSettingsInput20260612Salesforce? Salesforce { get => _explicitNullValueSalesforce; set { _explicitNullValueSalesforce = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("salesforce"); else _explicitNullProperties?.Remove("salesforce"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.CrmSettingsInput20260612Salesforce? _explicitNullValueSalesforce = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.CrmSettingsInput20260612Salesforce Salesforce { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CrmSettingsInput20260612Salesforce Salesforce { get => _explicitNullValueSalesforce; set { _explicitNullValueSalesforce = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("salesforce"); else _explicitNullProperties?.Remove("salesforce"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.CrmSettingsInput20260612Salesforce _explicitNullValueSalesforce = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.CreateTeamEventTypeInput20260612Crm"/> and sets the default values.
@@ -46,7 +59,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.CreateTeamEventTypeInput20260612Crm CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.CreateTeamEventTypeInput20260612Crm();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.CreateTeamEventTypeInput20260612Crm(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,6 +82,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.CrmSettingsInput20260612Hubspot>("hubspot", Hubspot);
             writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.CrmSettingsInput20260612Salesforce>("salesforce", Salesforce);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

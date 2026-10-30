@@ -62,7 +62,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Workflows
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetEventTypeWorkflowsOutput20260922>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetEventTypeWorkflowsOutput20260922.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetEventTypeWorkflowsOutput20260922>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetEventTypeWorkflowsOutput20260922.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create an event-type workflow owned by the authenticated user. Not available to third-party OAuth access tokens.
@@ -82,7 +82,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Workflows
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetEventTypeWorkflowOutput20260922>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetEventTypeWorkflowOutput20260922.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetEventTypeWorkflowOutput20260922>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetEventTypeWorkflowOutput20260922.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get the event-type workflows owned by the authenticated user. Routing form workflows are not returned. Not available to third-party OAuth access tokens.

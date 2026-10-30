@@ -62,7 +62,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.EventTypes
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetEventTypesOutput20260612>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetEventTypesOutput20260612.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetEventTypesOutput20260612>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetEventTypesOutput20260612.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &lt;Note&gt;Please make sure to pass in the cal-api-version header value as mentioned in the Headers section.&lt;/Note&gt;If `bookingFields` is omitted, the event type is created with its default booking fields. At least one contact field—`email` or `attendeePhoneNumber`—must remain visible and required. Other default fields, such as additional notes, can be hidden. Provide `bookingFields` to customize the default fields or add custom booking fields. If accessed using an OAuth access token, the `EVENT_TYPE_WRITE` scope is required.
@@ -82,7 +82,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.EventTypes
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeOutput20260612>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeOutput20260612.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeOutput20260612>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.CreateEventTypeOutput20260612.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &lt;Note&gt;Please make sure to pass in the cal-api-version header value as mentioned in the Headers section. Not passing the correct value will default to an older version of this endpoint.&lt;/Note&gt;Hidden event types and hidden booking fields are returned only when listing your own event types. Other callers see public event types and visible booking fields.

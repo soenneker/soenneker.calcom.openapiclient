@@ -49,7 +49,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Slots.Reservations.Item
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.SlotsController20240904DeleteReservedSlot200ResponseSchema>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.SlotsController20240904DeleteReservedSlot200ResponseSchema.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.SlotsController20240904DeleteReservedSlot200ResponseSchema>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.SlotsController20240904DeleteReservedSlot200ResponseSchema.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &lt;Note&gt;Please make sure to pass in the cal-api-version header value as mentioned in the Headers section. Not passing the correct value will default to an older version of this endpoint.&lt;/Note&gt;
@@ -67,7 +67,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Slots.Reservations.Item
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetReservedSlotOutput20240904>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetReservedSlotOutput20240904.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetReservedSlotOutput20240904>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetReservedSlotOutput20240904.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// If you specify a custom reservation duration, you must authenticate using oAuth credentials, api key or access token.    &lt;Note&gt;Please make sure to pass in the cal-api-version header value as mentioned in the Headers section. Not passing the correct value will default to an older version of this endpoint.&lt;/Note&gt;
@@ -87,7 +87,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Slots.Reservations.Item
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.ReserveSlotOutputResponse20240904>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.ReserveSlotOutputResponse20240904.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.ReserveSlotOutputResponse20240904>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.ReserveSlotOutputResponse20240904.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &lt;Note&gt;Please make sure to pass in the cal-api-version header value as mentioned in the Headers section. Not passing the correct value will default to an older version of this endpoint.&lt;/Note&gt;

@@ -11,13 +11,24 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RefreshApiKeyInput : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("apiKeyDaysValid") is { } nullNodeApiKeyDaysValid && nullNodeApiKeyDaysValid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiKeyDaysValid = null;
+            if (parseNode.GetChildNode("apiKeyNeverExpires") is { } nullNodeApiKeyNeverExpires && nullNodeApiKeyNeverExpires.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiKeyNeverExpires = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>For how many days is managed organization api key valid. Defaults to 30 days.</summary>
-        public double? ApiKeyDaysValid { get; set; }
+        public double? ApiKeyDaysValid { get => _explicitNullValueApiKeyDaysValid; set { _explicitNullValueApiKeyDaysValid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("apiKeyDaysValid"); else _explicitNullProperties?.Remove("apiKeyDaysValid"); } }
+        private double? _explicitNullValueApiKeyDaysValid = default!;
         /// <summary>If true, organization api key never expires.</summary>
-        public bool? ApiKeyNeverExpires { get; set; }
+        public bool? ApiKeyNeverExpires { get => _explicitNullValueApiKeyNeverExpires; set { _explicitNullValueApiKeyNeverExpires = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("apiKeyNeverExpires"); else _explicitNullProperties?.Remove("apiKeyNeverExpires"); } }
+        private bool? _explicitNullValueApiKeyNeverExpires = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.RefreshApiKeyInput"/> and sets the default values.
         /// </summary>
@@ -34,7 +45,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.RefreshApiKeyInput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.RefreshApiKeyInput();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.RefreshApiKeyInput(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -57,6 +68,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("apiKeyDaysValid", ApiKeyDaysValid);
             writer.WriteBoolValue("apiKeyNeverExpires", ApiKeyNeverExpires);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

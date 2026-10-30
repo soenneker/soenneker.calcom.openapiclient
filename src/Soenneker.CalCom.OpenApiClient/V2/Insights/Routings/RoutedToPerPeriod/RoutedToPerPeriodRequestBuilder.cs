@@ -51,7 +51,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Insights.Routings.RoutedToPerPeriod
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetInsightsRoutingRoutedToPerPeriodOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetInsightsRoutingRoutedToPerPeriodOutput.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetInsightsRoutingRoutedToPerPeriodOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetInsightsRoutingRoutedToPerPeriodOutput.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get routed-to booking counts by user and period for user, team, or organization insights.

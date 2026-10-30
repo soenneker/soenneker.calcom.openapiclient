@@ -57,6 +57,8 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.DelegationCredent
                 { "401", global::Soenneker.CalCom.OpenApiClient.Models.OrganizationsDelegationCredentialControllerVerifyDelegationCredential401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.CalCom.OpenApiClient.Models.OrganizationsDelegationCredentialControllerVerifyDelegationCredential403Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.CalCom.OpenApiClient.Models.OrganizationsDelegationCredentialControllerVerifyDelegationCredential404Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.VerifyDelegationCredentialOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.VerifyDelegationCredentialOutput.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

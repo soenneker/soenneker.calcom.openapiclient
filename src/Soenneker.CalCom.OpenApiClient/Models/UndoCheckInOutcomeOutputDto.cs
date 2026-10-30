@@ -11,18 +11,30 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class UndoCheckInOutcomeOutputDto : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
+            if (parseNode.GetChildNode("registration") is { } nullNodeRegistration && nullNodeRegistration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Registration = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The kind property</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.UndoCheckInOutcomeOutputDtoKind? Kind { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.UndoCheckInOutcomeOutputDtoKind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.UndoCheckInOutcomeOutputDtoKind? _explicitNullValueKind = default!;
         /// <summary>The registration property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.RegistrationOutputDto? Registration { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.RegistrationOutputDto? Registration { get => _explicitNullValueRegistration; set { _explicitNullValueRegistration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registration"); else _explicitNullProperties?.Remove("registration"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.RegistrationOutputDto? _explicitNullValueRegistration = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.RegistrationOutputDto Registration { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.RegistrationOutputDto Registration { get => _explicitNullValueRegistration; set { _explicitNullValueRegistration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registration"); else _explicitNullProperties?.Remove("registration"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.RegistrationOutputDto _explicitNullValueRegistration = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UndoCheckInOutcomeOutputDto"/> and sets the default values.
@@ -39,7 +51,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.UndoCheckInOutcomeOutputDto CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.UndoCheckInOutcomeOutputDto();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.UndoCheckInOutcomeOutputDto(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,6 +74,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.UndoCheckInOutcomeOutputDtoKind>("kind", Kind);
             writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.RegistrationOutputDto>("registration", Registration);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

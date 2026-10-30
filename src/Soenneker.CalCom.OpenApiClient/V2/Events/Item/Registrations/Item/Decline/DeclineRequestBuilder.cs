@@ -49,7 +49,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Events.Item.Registrations.Item.Decli
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.RegistrationDecisionOutcomeOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.RegistrationDecisionOutcomeOutputResponseDto.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.RegistrationDecisionOutcomeOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.RegistrationDecisionOutcomeOutputResponseDto.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Declines one guest waiting for approval or on the waitlist, as the roster&apos;s Decline does, and emails them. `kind` is `declined`. A guest can be declined even when the Event is cancelled. The authenticated user must be the Event&apos;s owner, one of its hosts, an accepted co-host, or a member of the owning team. PBAC permission for team events: `calEvent.update`. If accessed using an OAuth access token, the `EVENT_WRITE` scope is required.

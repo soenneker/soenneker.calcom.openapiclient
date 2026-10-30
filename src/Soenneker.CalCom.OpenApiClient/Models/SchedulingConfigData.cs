@@ -11,45 +11,78 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class SchedulingConfigData : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("allowRRHostChoiceOnReschedule") is { } nullNodeAllowRRHostChoiceOnReschedule && nullNodeAllowRRHostChoiceOnReschedule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowRRHostChoiceOnReschedule = null;
+            if (parseNode.GetChildNode("assignAllTeamMembers") is { } nullNodeAssignAllTeamMembers && nullNodeAssignAllTeamMembers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AssignAllTeamMembers = null;
+            if (parseNode.GetChildNode("crmRecordOwnerFallbackWindowHours") is { } nullNodeCrmRecordOwnerFallbackWindowHours && nullNodeCrmRecordOwnerFallbackWindowHours.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CrmRecordOwnerFallbackWindowHours = null;
+            if (parseNode.GetChildNode("crmRecordOwnerFallbackWindowSkipWeekends") is { } nullNodeCrmRecordOwnerFallbackWindowSkipWeekends && nullNodeCrmRecordOwnerFallbackWindowSkipWeekends.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CrmRecordOwnerFallbackWindowSkipWeekends = null;
+            if (parseNode.GetChildNode("eventTypeId") is { } nullNodeEventTypeId && nullNodeEventTypeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventTypeId = null;
+            if (parseNode.GetChildNode("hostGroups") is { } nullNodeHostGroups && nullNodeHostGroups.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HostGroups = null;
+            if (parseNode.GetChildNode("hosts") is { } nullNodeHosts && nullNodeHosts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Hosts = null;
+            if (parseNode.GetChildNode("includeNoShowInRRCalculation") is { } nullNodeIncludeNoShowInRRCalculation && nullNodeIncludeNoShowInRRCalculation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeNoShowInRRCalculation = null;
+            if (parseNode.GetChildNode("isRRWeightsEnabled") is { } nullNodeIsRRWeightsEnabled && nullNodeIsRRWeightsEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsRRWeightsEnabled = null;
+            if (parseNode.GetChildNode("maxLeadThreshold") is { } nullNodeMaxLeadThreshold && nullNodeMaxLeadThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxLeadThreshold = null;
+            if (parseNode.GetChildNode("rescheduleWithSameRoundRobinHost") is { } nullNodeRescheduleWithSameRoundRobinHost && nullNodeRescheduleWithSameRoundRobinHost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RescheduleWithSameRoundRobinHost = null;
+            if (parseNode.GetChildNode("schedulingType") is { } nullNodeSchedulingType && nullNodeSchedulingType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SchedulingType = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether the person rescheduling may choose between the original host and the whole team. Only present for roundRobin scheduling type.</summary>
-        public bool? AllowRRHostChoiceOnReschedule { get; set; }
+        public bool? AllowRRHostChoiceOnReschedule { get => _explicitNullValueAllowRRHostChoiceOnReschedule; set { _explicitNullValueAllowRRHostChoiceOnReschedule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowRRHostChoiceOnReschedule"); else _explicitNullProperties?.Remove("allowRRHostChoiceOnReschedule"); } }
+        private bool? _explicitNullValueAllowRRHostChoiceOnReschedule = default!;
         /// <summary>Whether all team members are automatically assigned as hosts</summary>
-        public bool? AssignAllTeamMembers { get; set; }
+        public bool? AssignAllTeamMembers { get => _explicitNullValueAssignAllTeamMembers; set { _explicitNullValueAssignAllTeamMembers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assignAllTeamMembers"); else _explicitNullProperties?.Remove("assignAllTeamMembers"); } }
+        private bool? _explicitNullValueAssignAllTeamMembers = default!;
         /// <summary>CRM record owner fallback window in hours. Only present for roundRobin scheduling type.</summary>
-        public double? CrmRecordOwnerFallbackWindowHours { get; set; }
+        public double? CrmRecordOwnerFallbackWindowHours { get => _explicitNullValueCrmRecordOwnerFallbackWindowHours; set { _explicitNullValueCrmRecordOwnerFallbackWindowHours = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("crmRecordOwnerFallbackWindowHours"); else _explicitNullProperties?.Remove("crmRecordOwnerFallbackWindowHours"); } }
+        private double? _explicitNullValueCrmRecordOwnerFallbackWindowHours = default!;
         /// <summary>Whether to exclude weekends from the CRM record owner fallback window calculation. Only present for roundRobin scheduling type.</summary>
-        public bool? CrmRecordOwnerFallbackWindowSkipWeekends { get; set; }
+        public bool? CrmRecordOwnerFallbackWindowSkipWeekends { get => _explicitNullValueCrmRecordOwnerFallbackWindowSkipWeekends; set { _explicitNullValueCrmRecordOwnerFallbackWindowSkipWeekends = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("crmRecordOwnerFallbackWindowSkipWeekends"); else _explicitNullProperties?.Remove("crmRecordOwnerFallbackWindowSkipWeekends"); } }
+        private bool? _explicitNullValueCrmRecordOwnerFallbackWindowSkipWeekends = default!;
         /// <summary>Event type ID</summary>
-        public double? EventTypeId { get; set; }
+        public double? EventTypeId { get => _explicitNullValueEventTypeId; set { _explicitNullValueEventTypeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeId"); else _explicitNullProperties?.Remove("eventTypeId"); } }
+        private double? _explicitNullValueEventTypeId = default!;
         /// <summary>Host groups for organizing round-robin hosts. Only present for roundRobin scheduling type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.SchedulingHostGroup>? HostGroups { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.SchedulingHostGroup>? HostGroups { get => _explicitNullValueHostGroups; set { _explicitNullValueHostGroups = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hostGroups"); else _explicitNullProperties?.Remove("hostGroups"); } }
+        private List<global::Soenneker.CalCom.OpenApiClient.Models.SchedulingHostGroup>? _explicitNullValueHostGroups = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.SchedulingHostGroup> HostGroups { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.SchedulingHostGroup> HostGroups { get => _explicitNullValueHostGroups; set { _explicitNullValueHostGroups = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hostGroups"); else _explicitNullProperties?.Remove("hostGroups"); } }
+        private List<global::Soenneker.CalCom.OpenApiClient.Models.SchedulingHostGroup> _explicitNullValueHostGroups = default!;
 #endif
         /// <summary>Array of hosts assigned to this event type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.SchedulingHost>? Hosts { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.SchedulingHost>? Hosts { get => _explicitNullValueHosts; set { _explicitNullValueHosts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hosts"); else _explicitNullProperties?.Remove("hosts"); } }
+        private List<global::Soenneker.CalCom.OpenApiClient.Models.SchedulingHost>? _explicitNullValueHosts = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.SchedulingHost> Hosts { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.SchedulingHost> Hosts { get => _explicitNullValueHosts; set { _explicitNullValueHosts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hosts"); else _explicitNullProperties?.Remove("hosts"); } }
+        private List<global::Soenneker.CalCom.OpenApiClient.Models.SchedulingHost> _explicitNullValueHosts = default!;
 #endif
         /// <summary>Whether no-show bookings are included in round-robin calculations. Only present for roundRobin scheduling type.</summary>
-        public bool? IncludeNoShowInRRCalculation { get; set; }
+        public bool? IncludeNoShowInRRCalculation { get => _explicitNullValueIncludeNoShowInRRCalculation; set { _explicitNullValueIncludeNoShowInRRCalculation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("includeNoShowInRRCalculation"); else _explicitNullProperties?.Remove("includeNoShowInRRCalculation"); } }
+        private bool? _explicitNullValueIncludeNoShowInRRCalculation = default!;
         /// <summary>Whether round-robin weights are enabled for host distribution. Only present for roundRobin scheduling type.</summary>
-        public bool? IsRRWeightsEnabled { get; set; }
+        public bool? IsRRWeightsEnabled { get => _explicitNullValueIsRRWeightsEnabled; set { _explicitNullValueIsRRWeightsEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("isRRWeightsEnabled"); else _explicitNullProperties?.Remove("isRRWeightsEnabled"); } }
+        private bool? _explicitNullValueIsRRWeightsEnabled = default!;
         /// <summary>Max lead threshold for load-balanced distribution. null = &apos;maximize availability&apos;, number = &apos;load balancing&apos;. Only present for roundRobin scheduling type.</summary>
-        public double? MaxLeadThreshold { get; set; }
+        public double? MaxLeadThreshold { get => _explicitNullValueMaxLeadThreshold; set { _explicitNullValueMaxLeadThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxLeadThreshold"); else _explicitNullProperties?.Remove("maxLeadThreshold"); } }
+        private double? _explicitNullValueMaxLeadThreshold = default!;
         /// <summary>Whether rescheduled events keep the same round-robin host. Only present for roundRobin scheduling type.</summary>
-        public bool? RescheduleWithSameRoundRobinHost { get; set; }
+        public bool? RescheduleWithSameRoundRobinHost { get => _explicitNullValueRescheduleWithSameRoundRobinHost; set { _explicitNullValueRescheduleWithSameRoundRobinHost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rescheduleWithSameRoundRobinHost"); else _explicitNullProperties?.Remove("rescheduleWithSameRoundRobinHost"); } }
+        private bool? _explicitNullValueRescheduleWithSameRoundRobinHost = default!;
         /// <summary>The scheduling type of this event type. Determines which fields are populated.</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.SchedulingConfigDataSchedulingType? SchedulingType { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.SchedulingConfigDataSchedulingType? SchedulingType { get => _explicitNullValueSchedulingType; set { _explicitNullValueSchedulingType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schedulingType"); else _explicitNullProperties?.Remove("schedulingType"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.SchedulingConfigDataSchedulingType? _explicitNullValueSchedulingType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.SchedulingConfigData"/> and sets the default values.
         /// </summary>
@@ -65,7 +98,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.SchedulingConfigData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.SchedulingConfigData();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.SchedulingConfigData(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -108,6 +141,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteDoubleValue("maxLeadThreshold", MaxLeadThreshold);
             writer.WriteBoolValue("rescheduleWithSameRoundRobinHost", RescheduleWithSameRoundRobinHost);
             writer.WriteEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.SchedulingConfigDataSchedulingType>("schedulingType", SchedulingType);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

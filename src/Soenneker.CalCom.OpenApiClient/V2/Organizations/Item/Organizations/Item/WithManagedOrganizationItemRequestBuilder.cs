@@ -49,7 +49,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.Organizations.Ite
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetManagedOrganizationOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetManagedOrganizationOutput.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetManagedOrganizationOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetManagedOrganizationOutput.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// For platform, the plan must be &apos;SCALE&apos; or higher to access this endpoint. Required membership role: `org admin`. PBAC permission: `organization.readManagedOrganizations`. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control
@@ -67,7 +67,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.Organizations.Ite
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetManagedOrganizationOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetManagedOrganizationOutput.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetManagedOrganizationOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetManagedOrganizationOutput.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// For platform, the plan must be &apos;SCALE&apos; or higher to access this endpoint. Required membership role: `org admin`. PBAC permission: `organization.update`. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control
@@ -87,7 +87,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.Organizations.Ite
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetManagedOrganizationOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetManagedOrganizationOutput.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetManagedOrganizationOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetManagedOrganizationOutput.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// For platform, the plan must be &apos;SCALE&apos; or higher to access this endpoint. Required membership role: `org admin`. PBAC permission: `organization.delete`. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control

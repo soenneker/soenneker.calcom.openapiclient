@@ -49,7 +49,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.EventTypes.Item.History
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetEventTypeHistoryOutput20240614>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetEventTypeHistoryOutput20240614.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetEventTypeHistoryOutput20240614>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetEventTypeHistoryOutput20240614.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &lt;Note&gt;Please make sure to pass in the cal-api-version header value as mentioned in the Headers section. Not passing the correct value will default to an older version of this endpoint.&lt;/Note&gt;If accessed using an OAuth access token, the `EVENT_TYPE_READ` scope is required.Only the event type owner and applicable administrators can view its history. General event type read access does not include access to its history.

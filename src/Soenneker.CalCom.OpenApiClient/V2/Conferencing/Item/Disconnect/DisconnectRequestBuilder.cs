@@ -49,7 +49,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Conferencing.Item.Disconnect
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.DisconnectConferencingAppOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.DisconnectConferencingAppOutputResponseDto.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.DisconnectConferencingAppOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.DisconnectConferencingAppOutputResponseDto.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// If accessed using an OAuth access token, the `APPS_WRITE` scope is required.

@@ -49,7 +49,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.Teams.Item.EventT
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.DeletePrivateLinkOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.DeletePrivateLinkOutput.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.DeletePrivateLinkOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.DeletePrivateLinkOutput.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// If accessed using an OAuth access token, the `TEAM_EVENT_TYPE_WRITE` scope is required.
@@ -67,7 +67,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.Teams.Item.EventT
         {
 #endif
             var requestInfo = ToPatchRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.UpdatePrivateLinkOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.UpdatePrivateLinkOutput.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.UpdatePrivateLinkOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.UpdatePrivateLinkOutput.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// If accessed using an OAuth access token, the `TEAM_EVENT_TYPE_WRITE` scope is required.

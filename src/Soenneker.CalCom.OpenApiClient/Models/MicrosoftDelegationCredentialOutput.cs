@@ -11,62 +11,98 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class MicrosoftDelegationCredentialOutput : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("createdAt") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("domain") is { } nullNodeDomain && nullNodeDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Domain = null;
+            if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("optOutAutoSecretRotation") is { } nullNodeOptOutAutoSecretRotation && nullNodeOptOutAutoSecretRotation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OptOutAutoSecretRotation = null;
+            if (parseNode.GetChildNode("organizationId") is { } nullNodeOrganizationId && nullNodeOrganizationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrganizationId = null;
+            if (parseNode.GetChildNode("pendingSecret") is { } nullNodePendingSecret && nullNodePendingSecret.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PendingSecret = null;
+            if (parseNode.GetChildNode("secret") is { } nullNodeSecret && nullNodeSecret.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Secret = null;
+            if (parseNode.GetChildNode("secretRotationBlocked") is { } nullNodeSecretRotationBlocked && nullNodeSecretRotationBlocked.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretRotationBlocked = null;
+            if (parseNode.GetChildNode("secretRotationErrorCode") is { } nullNodeSecretRotationErrorCode && nullNodeSecretRotationErrorCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretRotationErrorCode = null;
+            if (parseNode.GetChildNode("updatedAt") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+            if (parseNode.GetChildNode("workspacePlatform") is { } nullNodeWorkspacePlatform && nullNodeWorkspacePlatform.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspacePlatform = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The date and time when the delegation credential was created</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("createdAt"); else _explicitNullProperties?.Remove("createdAt"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The email domain the delegation credential applies to</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Domain { get; set; }
+        public string? Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
+        private string? _explicitNullValueDomain = default!;
 #nullable restore
 #else
-        public string Domain { get; set; }
+        public string Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
+        private string _explicitNullValueDomain = default!;
 #endif
         /// <summary>Whether the delegation credential is currently enabled</summary>
-        public bool? Enabled { get; set; }
+        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
+        private bool? _explicitNullValueEnabled = default!;
         /// <summary>The unique identifier of the delegation credential</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get; set; }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string _explicitNullValueId = default!;
 #endif
         /// <summary>Whether Cal.com-managed Microsoft 365 client secret rotation is disabled for this delegation credential.</summary>
-        public bool? OptOutAutoSecretRotation { get; set; }
+        public bool? OptOutAutoSecretRotation { get => _explicitNullValueOptOutAutoSecretRotation; set { _explicitNullValueOptOutAutoSecretRotation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("optOutAutoSecretRotation"); else _explicitNullProperties?.Remove("optOutAutoSecretRotation"); } }
+        private bool? _explicitNullValueOptOutAutoSecretRotation = default!;
         /// <summary>The unique identifier of the organization the delegation credential belongs to</summary>
-        public double? OrganizationId { get; set; }
+        public double? OrganizationId { get => _explicitNullValueOrganizationId; set { _explicitNullValueOrganizationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organizationId"); else _explicitNullProperties?.Remove("organizationId"); } }
+        private double? _explicitNullValueOrganizationId = default!;
         /// <summary>State of a replacement secret minted and pending validation/promotion. `createdAt` and `expiresAt` are null when there is no pending secret in flight.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.MicrosoftDelegationCredentialOutputPendingSecret? PendingSecret { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.MicrosoftDelegationCredentialOutputPendingSecret? PendingSecret { get => _explicitNullValuePendingSecret; set { _explicitNullValuePendingSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pendingSecret"); else _explicitNullProperties?.Remove("pendingSecret"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.MicrosoftDelegationCredentialOutputPendingSecret? _explicitNullValuePendingSecret = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.MicrosoftDelegationCredentialOutputPendingSecret PendingSecret { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.MicrosoftDelegationCredentialOutputPendingSecret PendingSecret { get => _explicitNullValuePendingSecret; set { _explicitNullValuePendingSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pendingSecret"); else _explicitNullProperties?.Remove("pendingSecret"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.MicrosoftDelegationCredentialOutputPendingSecret _explicitNullValuePendingSecret = default!;
 #endif
         /// <summary>State of the current active managed secret. `expiresAt` is null if not yet known.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.MicrosoftDelegationCredentialOutputSecret? Secret { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.MicrosoftDelegationCredentialOutputSecret? Secret { get => _explicitNullValueSecret; set { _explicitNullValueSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret"); else _explicitNullProperties?.Remove("secret"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.MicrosoftDelegationCredentialOutputSecret? _explicitNullValueSecret = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.MicrosoftDelegationCredentialOutputSecret Secret { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.MicrosoftDelegationCredentialOutputSecret Secret { get => _explicitNullValueSecret; set { _explicitNullValueSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret"); else _explicitNullProperties?.Remove("secret"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.MicrosoftDelegationCredentialOutputSecret _explicitNullValueSecret = default!;
 #endif
         /// <summary>Whether managed secret rotation is blocked after repeated failures and requires the reset-rotation endpoint before it will resume.</summary>
-        public bool? SecretRotationBlocked { get; set; }
+        public bool? SecretRotationBlocked { get => _explicitNullValueSecretRotationBlocked; set { _explicitNullValueSecretRotationBlocked = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secretRotationBlocked"); else _explicitNullProperties?.Remove("secretRotationBlocked"); } }
+        private bool? _explicitNullValueSecretRotationBlocked = default!;
         /// <summary>Why the most recent secret rotation attempt failed, or which stage terminally failed, or null if rotation has not failed. This enum is open — new values may be added over time, so treat any value you don&apos;t recognize as `unknown`. See the Cal.com docs&apos; &apos;Microsoft 365 (Azure) Secret Auto-Rotation&apos; section for per-code remediation guidance.</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.MicrosoftDelegationCredentialOutputSecretRotationErrorCode? SecretRotationErrorCode { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.MicrosoftDelegationCredentialOutputSecretRotationErrorCode? SecretRotationErrorCode { get => _explicitNullValueSecretRotationErrorCode; set { _explicitNullValueSecretRotationErrorCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secretRotationErrorCode"); else _explicitNullProperties?.Remove("secretRotationErrorCode"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.MicrosoftDelegationCredentialOutputSecretRotationErrorCode? _explicitNullValueSecretRotationErrorCode = default!;
         /// <summary>The date and time when the delegation credential was last updated</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updatedAt"); else _explicitNullProperties?.Remove("updatedAt"); } }
+        private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>The workspacePlatform property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.WorkspacePlatformDto? WorkspacePlatform { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.WorkspacePlatformDto? WorkspacePlatform { get => _explicitNullValueWorkspacePlatform; set { _explicitNullValueWorkspacePlatform = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspacePlatform"); else _explicitNullProperties?.Remove("workspacePlatform"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.WorkspacePlatformDto? _explicitNullValueWorkspacePlatform = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.WorkspacePlatformDto WorkspacePlatform { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.WorkspacePlatformDto WorkspacePlatform { get => _explicitNullValueWorkspacePlatform; set { _explicitNullValueWorkspacePlatform = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspacePlatform"); else _explicitNullProperties?.Remove("workspacePlatform"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.WorkspacePlatformDto _explicitNullValueWorkspacePlatform = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.MicrosoftDelegationCredentialOutput"/> and sets the default values.
@@ -83,7 +119,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.MicrosoftDelegationCredentialOutput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.MicrosoftDelegationCredentialOutput();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.MicrosoftDelegationCredentialOutput(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -126,6 +162,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.MicrosoftDelegationCredentialOutputSecretRotationErrorCode>("secretRotationErrorCode", SecretRotationErrorCode);
             writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
             writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.WorkspacePlatformDto>("workspacePlatform", WorkspacePlatform);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,7 +12,12 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OAuth2ControllerTokenRequest : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.OAuth2ExchangeConfidentialInput"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,21 +62,32 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             var result = new global::Soenneker.CalCom.OpenApiClient.Models.OAuth2ControllerTokenRequest();
             if("OAuth2ExchangeConfidentialInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.OAuth2ExchangeConfidentialInput = new global::Soenneker.CalCom.OpenApiClient.Models.OAuth2ExchangeConfidentialInput();
+                
             }
             else if("OAuth2ExchangePublicInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.OAuth2ExchangePublicInput = new global::Soenneker.CalCom.OpenApiClient.Models.OAuth2ExchangePublicInput();
+                
             }
             else if("OAuth2RefreshConfidentialInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.OAuth2RefreshConfidentialInput = new global::Soenneker.CalCom.OpenApiClient.Models.OAuth2RefreshConfidentialInput();
+                
             }
             else if("OAuth2RefreshPublicInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.OAuth2RefreshPublicInput = new global::Soenneker.CalCom.OpenApiClient.Models.OAuth2RefreshPublicInput();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("client_id") != null && parseNode.GetChildNode("grant_type") != null && (parseNode.GetChildNode("grant_type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag2 && ("authorization_code".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("code") != null && parseNode.GetChildNode("redirect_uri") != null && parseNode.GetChildNode("client_secret") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("client_id") != null && parseNode.GetChildNode("grant_type") != null && (parseNode.GetChildNode("grant_type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag2 && ("authorization_code".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("code") != null && parseNode.GetChildNode("redirect_uri") != null && parseNode.GetChildNode("code_verifier") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("client_id") != null && parseNode.GetChildNode("grant_type") != null && (parseNode.GetChildNode("grant_type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag2 && ("refresh_token".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("refresh_token") != null && parseNode.GetChildNode("client_secret") != null))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("client_id") != null && parseNode.GetChildNode("grant_type") != null && (parseNode.GetChildNode("grant_type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag2 && ("refresh_token".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("refresh_token") != null))();
+            if (result.OAuth2ExchangeConfidentialInput == null && result.OAuth2ExchangePublicInput == null && result.OAuth2RefreshConfidentialInput == null && result.OAuth2RefreshPublicInput == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3) result.OAuth2ExchangeConfidentialInput = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.OAuth2ExchangeConfidentialInput(), parseNode);
+            if (result.OAuth2ExchangeConfidentialInput == null && result.OAuth2ExchangePublicInput == null && result.OAuth2RefreshConfidentialInput == null && result.OAuth2RefreshPublicInput == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3) result.OAuth2ExchangePublicInput = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.OAuth2ExchangePublicInput(), parseNode);
+            if (result.OAuth2ExchangeConfidentialInput == null && result.OAuth2ExchangePublicInput == null && result.OAuth2RefreshConfidentialInput == null && result.OAuth2RefreshPublicInput == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3) result.OAuth2RefreshConfidentialInput = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.OAuth2RefreshConfidentialInput(), parseNode);
+            if (result.OAuth2ExchangeConfidentialInput == null && result.OAuth2ExchangePublicInput == null && result.OAuth2RefreshConfidentialInput == null && result.OAuth2RefreshPublicInput == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.OAuth2RefreshPublicInput = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.OAuth2RefreshPublicInput(), parseNode);
+            if (result.OAuth2ExchangeConfidentialInput == null && result.OAuth2ExchangePublicInput == null && result.OAuth2RefreshConfidentialInput == null && result.OAuth2RefreshPublicInput == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -103,21 +119,32 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (OAuth2ExchangeConfidentialInput == null && OAuth2ExchangePublicInput == null && OAuth2RefreshConfidentialInput == null && OAuth2RefreshPublicInput == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (OAuth2ExchangeConfidentialInput != null && OAuth2ExchangePublicInput == null && OAuth2RefreshConfidentialInput == null && OAuth2RefreshPublicInput == null) { if (OAuth2ExchangeConfidentialInput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, OAuth2ExchangeConfidentialInput); return; }
+            if (OAuth2ExchangePublicInput != null && OAuth2ExchangeConfidentialInput == null && OAuth2RefreshConfidentialInput == null && OAuth2RefreshPublicInput == null) { if (OAuth2ExchangePublicInput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, OAuth2ExchangePublicInput); return; }
+            if (OAuth2RefreshConfidentialInput != null && OAuth2ExchangeConfidentialInput == null && OAuth2ExchangePublicInput == null && OAuth2RefreshPublicInput == null) { if (OAuth2RefreshConfidentialInput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, OAuth2RefreshConfidentialInput); return; }
+            if (OAuth2RefreshPublicInput != null && OAuth2ExchangeConfidentialInput == null && OAuth2ExchangePublicInput == null && OAuth2RefreshConfidentialInput == null) { if (OAuth2RefreshPublicInput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, OAuth2RefreshPublicInput); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(OAuth2ExchangeConfidentialInput != null)
             {
+                if (OAuth2ExchangeConfidentialInput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.OAuth2ExchangeConfidentialInput>(null, OAuth2ExchangeConfidentialInput);
             }
             else if(OAuth2ExchangePublicInput != null)
             {
+                if (OAuth2ExchangePublicInput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.OAuth2ExchangePublicInput>(null, OAuth2ExchangePublicInput);
             }
             else if(OAuth2RefreshConfidentialInput != null)
             {
+                if (OAuth2RefreshConfidentialInput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.OAuth2RefreshConfidentialInput>(null, OAuth2RefreshConfidentialInput);
             }
             else if(OAuth2RefreshPublicInput != null)
             {
+                if (OAuth2RefreshPublicInput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.OAuth2RefreshPublicInput>(null, OAuth2RefreshPublicInput);
             }
         }

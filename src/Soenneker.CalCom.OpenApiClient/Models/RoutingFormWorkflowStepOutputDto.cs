@@ -11,69 +11,111 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RoutingFormWorkflowStepOutputDto : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("action") is { } nullNodeAction && nullNodeAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Action = null;
+            if (parseNode.GetChildNode("autoTranslateEnabled") is { } nullNodeAutoTranslateEnabled && nullNodeAutoTranslateEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoTranslateEnabled = null;
+            if (parseNode.GetChildNode("email") is { } nullNodeEmail && nullNodeEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Email = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("includeCalendarEvent") is { } nullNodeIncludeCalendarEvent && nullNodeIncludeCalendarEvent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeCalendarEvent = null;
+            if (parseNode.GetChildNode("message") is { } nullNodeMessage && nullNodeMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Message = null;
+            if (parseNode.GetChildNode("pathId") is { } nullNodePathId && nullNodePathId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PathId = null;
+            if (parseNode.GetChildNode("phone") is { } nullNodePhone && nullNodePhone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Phone = null;
+            if (parseNode.GetChildNode("phoneRequired") is { } nullNodePhoneRequired && nullNodePhoneRequired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneRequired = null;
+            if (parseNode.GetChildNode("recipient") is { } nullNodeRecipient && nullNodeRecipient.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Recipient = null;
+            if (parseNode.GetChildNode("sender") is { } nullNodeSender && nullNodeSender.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sender = null;
+            if (parseNode.GetChildNode("skipNoShowAttendees") is { } nullNodeSkipNoShowAttendees && nullNodeSkipNoShowAttendees.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipNoShowAttendees = null;
+            if (parseNode.GetChildNode("sourceLocale") is { } nullNodeSourceLocale && nullNodeSourceLocale.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceLocale = null;
+            if (parseNode.GetChildNode("stepNumber") is { } nullNodeStepNumber && nullNodeStepNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StepNumber = null;
+            if (parseNode.GetChildNode("template") is { } nullNodeTemplate && nullNodeTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Template = null;
+        }
+
         /// <summary>Action to perform</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.RoutingFormWorkflowStepOutputDtoAction? Action { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.RoutingFormWorkflowStepOutputDtoAction? Action { get => _explicitNullValueAction; set { _explicitNullValueAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action"); else _explicitNullProperties?.Remove("action"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.RoutingFormWorkflowStepOutputDtoAction? _explicitNullValueAction = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether auto-translation of the workflow step content for attendees is enabled. Only available for organizations.</summary>
-        public bool? AutoTranslateEnabled { get; set; }
+        public bool? AutoTranslateEnabled { get => _explicitNullValueAutoTranslateEnabled; set { _explicitNullValueAutoTranslateEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autoTranslateEnabled"); else _explicitNullProperties?.Remove("autoTranslateEnabled"); } }
+        private bool? _explicitNullValueAutoTranslateEnabled = default!;
         /// <summary>Verified email address if action is EMAIL_ADDRESS</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Email { get; set; }
+        public string? Email { get => _explicitNullValueEmail; set { _explicitNullValueEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email"); else _explicitNullProperties?.Remove("email"); } }
+        private string? _explicitNullValueEmail = default!;
 #nullable restore
 #else
-        public string Email { get; set; }
+        public string Email { get => _explicitNullValueEmail; set { _explicitNullValueEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email"); else _explicitNullProperties?.Remove("email"); } }
+        private string _explicitNullValueEmail = default!;
 #endif
         /// <summary>Unique identifier of the step</summary>
-        public double? Id { get; set; }
+        public double? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private double? _explicitNullValueId = default!;
         /// <summary>Whether a calendar event (.ics) was included (for email actions)</summary>
-        public bool? IncludeCalendarEvent { get; set; }
+        public bool? IncludeCalendarEvent { get => _explicitNullValueIncludeCalendarEvent; set { _explicitNullValueIncludeCalendarEvent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("includeCalendarEvent"); else _explicitNullProperties?.Remove("includeCalendarEvent"); } }
+        private bool? _explicitNullValueIncludeCalendarEvent = default!;
         /// <summary>Message content for this step</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.RoutingFormWorkflowStepOutputDtoMessage? Message { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.RoutingFormWorkflowStepOutputDtoMessage? Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.RoutingFormWorkflowStepOutputDtoMessage? _explicitNullValueMessage = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.RoutingFormWorkflowStepOutputDtoMessage Message { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.RoutingFormWorkflowStepOutputDtoMessage Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.RoutingFormWorkflowStepOutputDtoMessage _explicitNullValueMessage = default!;
 #endif
         /// <summary>Id of the conditional path this step belongs to; the step only runs when that path&apos;s conditions match. Absent for unconditional steps.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PathId { get; set; }
+        public string? PathId { get => _explicitNullValuePathId; set { _explicitNullValuePathId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pathId"); else _explicitNullProperties?.Remove("pathId"); } }
+        private string? _explicitNullValuePathId = default!;
 #nullable restore
 #else
-        public string PathId { get; set; }
+        public string PathId { get => _explicitNullValuePathId; set { _explicitNullValuePathId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pathId"); else _explicitNullProperties?.Remove("pathId"); } }
+        private string _explicitNullValuePathId = default!;
 #endif
         /// <summary>Verified Phone if action is SMS_NUMBER or WHATSAPP_NUMBER</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Phone { get; set; }
+        public string? Phone { get => _explicitNullValuePhone; set { _explicitNullValuePhone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone"); else _explicitNullProperties?.Remove("phone"); } }
+        private string? _explicitNullValuePhone = default!;
 #nullable restore
 #else
-        public string Phone { get; set; }
+        public string Phone { get => _explicitNullValuePhone; set { _explicitNullValuePhone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone"); else _explicitNullProperties?.Remove("phone"); } }
+        private string _explicitNullValuePhone = default!;
 #endif
         /// <summary>whether or not the attendees are required to provide their phone numbers when booking</summary>
-        public bool? PhoneRequired { get; set; }
+        public bool? PhoneRequired { get => _explicitNullValuePhoneRequired; set { _explicitNullValuePhoneRequired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phoneRequired"); else _explicitNullProperties?.Remove("phoneRequired"); } }
+        private bool? _explicitNullValuePhoneRequired = default!;
         /// <summary>Intended recipient type</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.RoutingFormWorkflowStepOutputDtoRecipient? Recipient { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.RoutingFormWorkflowStepOutputDtoRecipient? Recipient { get => _explicitNullValueRecipient; set { _explicitNullValueRecipient = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipient"); else _explicitNullProperties?.Remove("recipient"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.RoutingFormWorkflowStepOutputDtoRecipient? _explicitNullValueRecipient = default!;
         /// <summary>Displayed sender name used for this step</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Sender { get; set; }
+        public string? Sender { get => _explicitNullValueSender; set { _explicitNullValueSender = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sender"); else _explicitNullProperties?.Remove("sender"); } }
+        private string? _explicitNullValueSender = default!;
 #nullable restore
 #else
-        public string Sender { get; set; }
+        public string Sender { get => _explicitNullValueSender; set { _explicitNullValueSender = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sender"); else _explicitNullProperties?.Remove("sender"); } }
+        private string _explicitNullValueSender = default!;
 #endif
         /// <summary>Whether an after-event attendee rating email skips attendees currently marked as no-show.</summary>
-        public bool? SkipNoShowAttendees { get; set; }
+        public bool? SkipNoShowAttendees { get => _explicitNullValueSkipNoShowAttendees; set { _explicitNullValueSkipNoShowAttendees = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skipNoShowAttendees"); else _explicitNullProperties?.Remove("skipNoShowAttendees"); } }
+        private bool? _explicitNullValueSkipNoShowAttendees = default!;
         /// <summary>The source locale of the workflow step content used for auto-translation (e.g. &apos;en&apos;).</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.RoutingFormWorkflowStepOutputDtoSourceLocale? SourceLocale { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.RoutingFormWorkflowStepOutputDtoSourceLocale? SourceLocale { get => _explicitNullValueSourceLocale; set { _explicitNullValueSourceLocale = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sourceLocale"); else _explicitNullProperties?.Remove("sourceLocale"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.RoutingFormWorkflowStepOutputDtoSourceLocale? _explicitNullValueSourceLocale = default!;
         /// <summary>Step number in the workflow sequence</summary>
-        public double? StepNumber { get; set; }
+        public double? StepNumber { get => _explicitNullValueStepNumber; set { _explicitNullValueStepNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stepNumber"); else _explicitNullProperties?.Remove("stepNumber"); } }
+        private double? _explicitNullValueStepNumber = default!;
         /// <summary>Template type used</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.RoutingFormWorkflowStepOutputDtoTemplate? Template { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.RoutingFormWorkflowStepOutputDtoTemplate? Template { get => _explicitNullValueTemplate; set { _explicitNullValueTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("template"); else _explicitNullProperties?.Remove("template"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.RoutingFormWorkflowStepOutputDtoTemplate? _explicitNullValueTemplate = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.RoutingFormWorkflowStepOutputDto"/> and sets the default values.
         /// </summary>
@@ -93,7 +135,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.RoutingFormWorkflowStepOutputDto CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.RoutingFormWorkflowStepOutputDto();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.RoutingFormWorkflowStepOutputDto(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -142,6 +184,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.RoutingFormWorkflowStepOutputDtoSourceLocale>("sourceLocale", SourceLocale);
             writer.WriteDoubleValue("stepNumber", StepNumber);
             writer.WriteEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.RoutingFormWorkflowStepOutputDtoTemplate>("template", Template);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

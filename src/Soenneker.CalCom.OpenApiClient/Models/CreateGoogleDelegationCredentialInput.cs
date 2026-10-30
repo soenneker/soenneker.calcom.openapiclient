@@ -11,27 +11,42 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CreateGoogleDelegationCredentialInput : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("domain") is { } nullNodeDomain && nullNodeDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Domain = null;
+            if (parseNode.GetChildNode("serviceAccountKey") is { } nullNodeServiceAccountKey && nullNodeServiceAccountKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServiceAccountKey = null;
+            if (parseNode.GetChildNode("workspacePlatformSlug") is { } nullNodeWorkspacePlatformSlug && nullNodeWorkspacePlatformSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspacePlatformSlug = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The domain property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Domain { get; set; }
+        public string? Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
+        private string? _explicitNullValueDomain = default!;
 #nullable restore
 #else
-        public string Domain { get; set; }
+        public string Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
+        private string _explicitNullValueDomain = default!;
 #endif
         /// <summary>The serviceAccountKey property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.GoogleServiceAccountKeyInput? ServiceAccountKey { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.GoogleServiceAccountKeyInput? ServiceAccountKey { get => _explicitNullValueServiceAccountKey; set { _explicitNullValueServiceAccountKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("serviceAccountKey"); else _explicitNullProperties?.Remove("serviceAccountKey"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.GoogleServiceAccountKeyInput? _explicitNullValueServiceAccountKey = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.GoogleServiceAccountKeyInput ServiceAccountKey { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.GoogleServiceAccountKeyInput ServiceAccountKey { get => _explicitNullValueServiceAccountKey; set { _explicitNullValueServiceAccountKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("serviceAccountKey"); else _explicitNullProperties?.Remove("serviceAccountKey"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.GoogleServiceAccountKeyInput _explicitNullValueServiceAccountKey = default!;
 #endif
         /// <summary>The workspacePlatformSlug property</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.GoogleWorkspacePlatformSlug? WorkspacePlatformSlug { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.GoogleWorkspacePlatformSlug? WorkspacePlatformSlug { get => _explicitNullValueWorkspacePlatformSlug; set { _explicitNullValueWorkspacePlatformSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspacePlatformSlug"); else _explicitNullProperties?.Remove("workspacePlatformSlug"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.GoogleWorkspacePlatformSlug? _explicitNullValueWorkspacePlatformSlug = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.CreateGoogleDelegationCredentialInput"/> and sets the default values.
         /// </summary>
@@ -47,7 +62,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.CreateGoogleDelegationCredentialInput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.CreateGoogleDelegationCredentialInput();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.CreateGoogleDelegationCredentialInput(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -72,6 +87,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteStringValue("domain", Domain);
             writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.GoogleServiceAccountKeyInput>("serviceAccountKey", ServiceAccountKey);
             writer.WriteEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.GoogleWorkspacePlatformSlug>("workspacePlatformSlug", WorkspacePlatformSlug);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

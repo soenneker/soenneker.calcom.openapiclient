@@ -11,29 +11,51 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ReserveSlotOutput20240904 : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("eventTypeId") is { } nullNodeEventTypeId && nullNodeEventTypeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventTypeId = null;
+            if (parseNode.GetChildNode("reservationDuration") is { } nullNodeReservationDuration && nullNodeReservationDuration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReservationDuration = null;
+            if (parseNode.GetChildNode("reservationUid") is { } nullNodeReservationUid && nullNodeReservationUid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReservationUid = null;
+            if (parseNode.GetChildNode("reservationUntil") is { } nullNodeReservationUntil && nullNodeReservationUntil.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReservationUntil = null;
+            if (parseNode.GetChildNode("slotDuration") is { } nullNodeSlotDuration && nullNodeSlotDuration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlotDuration = null;
+            if (parseNode.GetChildNode("slotEnd") is { } nullNodeSlotEnd && nullNodeSlotEnd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlotEnd = null;
+            if (parseNode.GetChildNode("slotStart") is { } nullNodeSlotStart && nullNodeSlotStart.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlotStart = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The ID of the event type for which slot was reserved.</summary>
-        public double? EventTypeId { get; set; }
+        public double? EventTypeId { get => _explicitNullValueEventTypeId; set { _explicitNullValueEventTypeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeId"); else _explicitNullProperties?.Remove("eventTypeId"); } }
+        private double? _explicitNullValueEventTypeId = default!;
         /// <summary>For how many minutes the slot is reserved - for this long time noone else can book this event type at `start` time.</summary>
-        public double? ReservationDuration { get; set; }
+        public double? ReservationDuration { get => _explicitNullValueReservationDuration; set { _explicitNullValueReservationDuration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reservationDuration"); else _explicitNullProperties?.Remove("reservationDuration"); } }
+        private double? _explicitNullValueReservationDuration = default!;
         /// <summary>The unique identifier of the reservation. Use it to update, get or delete the reservation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ReservationUid { get; set; }
+        public string? ReservationUid { get => _explicitNullValueReservationUid; set { _explicitNullValueReservationUid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reservationUid"); else _explicitNullProperties?.Remove("reservationUid"); } }
+        private string? _explicitNullValueReservationUid = default!;
 #nullable restore
 #else
-        public string ReservationUid { get; set; }
+        public string ReservationUid { get => _explicitNullValueReservationUid; set { _explicitNullValueReservationUid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reservationUid"); else _explicitNullProperties?.Remove("reservationUid"); } }
+        private string _explicitNullValueReservationUid = default!;
 #endif
         /// <summary>ISO 8601 datestring in UTC timezone representing time until which the slot is reserved.</summary>
-        public DateTimeOffset? ReservationUntil { get; set; }
+        public DateTimeOffset? ReservationUntil { get => _explicitNullValueReservationUntil; set { _explicitNullValueReservationUntil = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reservationUntil"); else _explicitNullProperties?.Remove("reservationUntil"); } }
+        private DateTimeOffset? _explicitNullValueReservationUntil = default!;
         /// <summary>By default slot duration is equal to event type length, but if you want to reserve a slot for an event type that has a variable length you can specify it here. If you don&apos;t have this set explicitly that event type can have one of many lengths you can omit this.</summary>
-        public double? SlotDuration { get; set; }
+        public double? SlotDuration { get => _explicitNullValueSlotDuration; set { _explicitNullValueSlotDuration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slotDuration"); else _explicitNullProperties?.Remove("slotDuration"); } }
+        private double? _explicitNullValueSlotDuration = default!;
         /// <summary>ISO 8601 datestring in UTC timezone representing slot end.</summary>
-        public DateTimeOffset? SlotEnd { get; set; }
+        public DateTimeOffset? SlotEnd { get => _explicitNullValueSlotEnd; set { _explicitNullValueSlotEnd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slotEnd"); else _explicitNullProperties?.Remove("slotEnd"); } }
+        private DateTimeOffset? _explicitNullValueSlotEnd = default!;
         /// <summary>ISO 8601 datestring in UTC timezone representing available slot.</summary>
-        public DateTimeOffset? SlotStart { get; set; }
+        public DateTimeOffset? SlotStart { get => _explicitNullValueSlotStart; set { _explicitNullValueSlotStart = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slotStart"); else _explicitNullProperties?.Remove("slotStart"); } }
+        private DateTimeOffset? _explicitNullValueSlotStart = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.ReserveSlotOutput20240904"/> and sets the default values.
         /// </summary>
@@ -49,7 +71,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.ReserveSlotOutput20240904 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.ReserveSlotOutput20240904();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.ReserveSlotOutput20240904(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -82,6 +104,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteDoubleValue("slotDuration", SlotDuration);
             writer.WriteDateTimeOffsetValue("slotEnd", SlotEnd);
             writer.WriteDateTimeOffsetValue("slotStart", SlotStart);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

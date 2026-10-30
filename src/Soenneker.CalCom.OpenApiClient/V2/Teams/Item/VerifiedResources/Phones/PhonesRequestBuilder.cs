@@ -68,7 +68,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Teams.Item.VerifiedResources.Phones
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.TeamVerifiedPhonesOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.TeamVerifiedPhonesOutput.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.TeamVerifiedPhonesOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.TeamVerifiedPhonesOutput.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Required membership role: `team admin`. PBAC permission: `team.readVerifiedResources`. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the `TEAM_VERIFIED_RESOURCES_READ` scope is required.

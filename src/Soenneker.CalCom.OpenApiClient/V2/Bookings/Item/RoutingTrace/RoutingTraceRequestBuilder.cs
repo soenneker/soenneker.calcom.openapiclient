@@ -49,7 +49,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Bookings.Item.RoutingTrace
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetBookingRoutingTraceOutput20240813>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetBookingRoutingTraceOutput20240813.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetBookingRoutingTraceOutput20240813>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetBookingRoutingTraceOutput20240813.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve the step-by-step routing trace for a booking identified by its UID. Shows how the booking was routed through routing forms, CRM lookups, and host selection logic.Returns presented (human-readable) trace steps grouped by routing round, along with the routing form submission if one was used.If no routing trace exists for the booking, empty steps and groups are returned.&lt;Note&gt;The cal-api-version header is required for this endpoint.&lt;/Note&gt;If accessed using an OAuth access token, the `BOOKING_READ` scope is required.    

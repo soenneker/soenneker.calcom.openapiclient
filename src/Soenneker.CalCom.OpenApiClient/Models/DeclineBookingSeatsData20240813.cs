@@ -11,16 +11,26 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class DeclineBookingSeatsData20240813 : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("declinedSeatUids") is { } nullNodeDeclinedSeatUids && nullNodeDeclinedSeatUids.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeclinedSeatUids = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Seat UIDs that were waiting or confirmed and are now declined. Seats that were already declined are omitted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? DeclinedSeatUids { get; set; }
+        public List<string>? DeclinedSeatUids { get => _explicitNullValueDeclinedSeatUids; set { _explicitNullValueDeclinedSeatUids = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("declinedSeatUids"); else _explicitNullProperties?.Remove("declinedSeatUids"); } }
+        private List<string>? _explicitNullValueDeclinedSeatUids = default!;
 #nullable restore
 #else
-        public List<string> DeclinedSeatUids { get; set; }
+        public List<string> DeclinedSeatUids { get => _explicitNullValueDeclinedSeatUids; set { _explicitNullValueDeclinedSeatUids = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("declinedSeatUids"); else _explicitNullProperties?.Remove("declinedSeatUids"); } }
+        private List<string> _explicitNullValueDeclinedSeatUids = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.DeclineBookingSeatsData20240813"/> and sets the default values.
@@ -37,7 +47,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.DeclineBookingSeatsData20240813 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.DeclineBookingSeatsData20240813();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.DeclineBookingSeatsData20240813(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,6 +68,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("declinedSeatUids", DeclinedSeatUids);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

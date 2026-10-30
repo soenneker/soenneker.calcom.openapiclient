@@ -11,17 +11,32 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class Seats20240614 : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("disabled") is { } nullNodeDisabled && nullNodeDisabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Disabled = null;
+            if (parseNode.GetChildNode("seatsPerTimeSlot") is { } nullNodeSeatsPerTimeSlot && nullNodeSeatsPerTimeSlot.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SeatsPerTimeSlot = null;
+            if (parseNode.GetChildNode("showAttendeeInfo") is { } nullNodeShowAttendeeInfo && nullNodeShowAttendeeInfo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShowAttendeeInfo = null;
+            if (parseNode.GetChildNode("showAvailabilityCount") is { } nullNodeShowAvailabilityCount && nullNodeShowAvailabilityCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShowAvailabilityCount = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The disabled property</summary>
-        public bool? Disabled { get; set; }
+        public bool? Disabled { get => _explicitNullValueDisabled; set { _explicitNullValueDisabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disabled"); else _explicitNullProperties?.Remove("disabled"); } }
+        private bool? _explicitNullValueDisabled = default!;
         /// <summary>Number of seats available per time slot</summary>
-        public double? SeatsPerTimeSlot { get; set; }
+        public double? SeatsPerTimeSlot { get => _explicitNullValueSeatsPerTimeSlot; set { _explicitNullValueSeatsPerTimeSlot = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seatsPerTimeSlot"); else _explicitNullProperties?.Remove("seatsPerTimeSlot"); } }
+        private double? _explicitNullValueSeatsPerTimeSlot = default!;
         /// <summary>Show attendee information to other guests</summary>
-        public bool? ShowAttendeeInfo { get; set; }
+        public bool? ShowAttendeeInfo { get => _explicitNullValueShowAttendeeInfo; set { _explicitNullValueShowAttendeeInfo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("showAttendeeInfo"); else _explicitNullProperties?.Remove("showAttendeeInfo"); } }
+        private bool? _explicitNullValueShowAttendeeInfo = default!;
         /// <summary>Display the count of available seats</summary>
-        public bool? ShowAvailabilityCount { get; set; }
+        public bool? ShowAvailabilityCount { get => _explicitNullValueShowAvailabilityCount; set { _explicitNullValueShowAvailabilityCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("showAvailabilityCount"); else _explicitNullProperties?.Remove("showAvailabilityCount"); } }
+        private bool? _explicitNullValueShowAvailabilityCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.Seats20240614"/> and sets the default values.
         /// </summary>
@@ -38,7 +53,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.Seats20240614 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.Seats20240614();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.Seats20240614(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -65,6 +80,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteDoubleValue("seatsPerTimeSlot", SeatsPerTimeSlot);
             writer.WriteBoolValue("showAttendeeInfo", ShowAttendeeInfo);
             writer.WriteBoolValue("showAvailabilityCount", ShowAvailabilityCount);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

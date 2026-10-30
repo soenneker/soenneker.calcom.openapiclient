@@ -11,23 +11,39 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class BaseConfirmationPolicy20240614 : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("blockUnconfirmedBookingsInBooker") is { } nullNodeBlockUnconfirmedBookingsInBooker && nullNodeBlockUnconfirmedBookingsInBooker.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockUnconfirmedBookingsInBooker = null;
+            if (parseNode.GetChildNode("disabled") is { } nullNodeDisabled && nullNodeDisabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Disabled = null;
+            if (parseNode.GetChildNode("noticeThreshold") is { } nullNodeNoticeThreshold && nullNodeNoticeThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoticeThreshold = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Unconfirmed bookings still block calendar slots.</summary>
-        public bool? BlockUnconfirmedBookingsInBooker { get; set; }
+        public bool? BlockUnconfirmedBookingsInBooker { get => _explicitNullValueBlockUnconfirmedBookingsInBooker; set { _explicitNullValueBlockUnconfirmedBookingsInBooker = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blockUnconfirmedBookingsInBooker"); else _explicitNullProperties?.Remove("blockUnconfirmedBookingsInBooker"); } }
+        private bool? _explicitNullValueBlockUnconfirmedBookingsInBooker = default!;
         /// <summary>The disabled property</summary>
-        public bool? Disabled { get; set; }
+        public bool? Disabled { get => _explicitNullValueDisabled; set { _explicitNullValueDisabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disabled"); else _explicitNullProperties?.Remove("disabled"); } }
+        private bool? _explicitNullValueDisabled = default!;
         /// <summary>The notice threshold required before confirmation is needed. Required when type is &apos;time&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.BaseConfirmationPolicy20240614NoticeThreshold? NoticeThreshold { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.BaseConfirmationPolicy20240614NoticeThreshold? NoticeThreshold { get => _explicitNullValueNoticeThreshold; set { _explicitNullValueNoticeThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("noticeThreshold"); else _explicitNullProperties?.Remove("noticeThreshold"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.BaseConfirmationPolicy20240614NoticeThreshold? _explicitNullValueNoticeThreshold = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.BaseConfirmationPolicy20240614NoticeThreshold NoticeThreshold { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.BaseConfirmationPolicy20240614NoticeThreshold NoticeThreshold { get => _explicitNullValueNoticeThreshold; set { _explicitNullValueNoticeThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("noticeThreshold"); else _explicitNullProperties?.Remove("noticeThreshold"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.BaseConfirmationPolicy20240614NoticeThreshold _explicitNullValueNoticeThreshold = default!;
 #endif
         /// <summary>The policy that determines when confirmation is required</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.BaseConfirmationPolicy20240614Type? Type { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.BaseConfirmationPolicy20240614Type? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.BaseConfirmationPolicy20240614Type? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.BaseConfirmationPolicy20240614"/> and sets the default values.
         /// </summary>
@@ -44,7 +60,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.BaseConfirmationPolicy20240614 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.BaseConfirmationPolicy20240614();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.BaseConfirmationPolicy20240614(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,6 +87,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteBoolValue("disabled", Disabled);
             writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.BaseConfirmationPolicy20240614NoticeThreshold>("noticeThreshold", NoticeThreshold);
             writer.WriteEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.BaseConfirmationPolicy20240614Type>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -64,7 +64,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Slots.Reservations
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.ReserveSlotOutputResponse20240904>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.ReserveSlotOutputResponse20240904.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.ReserveSlotOutputResponse20240904>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.ReserveSlotOutputResponse20240904.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Make a slot not available for others to book for a certain period of time. If you authenticate using oAuth credentials, api key or access token    then you can also specify custom duration for how long the slot should be reserved for (defaults to 5 minutes).        &lt;Note&gt;Please make sure to pass in the cal-api-version header value as mentioned in the Headers section. Not passing the correct value will default to an older version of this endpoint.&lt;/Note&gt;        

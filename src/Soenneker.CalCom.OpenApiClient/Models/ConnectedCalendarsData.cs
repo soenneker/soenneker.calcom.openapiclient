@@ -11,24 +11,37 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ConnectedCalendarsData : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("connectedCalendars") is { } nullNodeConnectedCalendars && nullNodeConnectedCalendars.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectedCalendars = null;
+            if (parseNode.GetChildNode("destinationCalendar") is { } nullNodeDestinationCalendar && nullNodeDestinationCalendar.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DestinationCalendar = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The connectedCalendars property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.ConnectedCalendar>? ConnectedCalendars { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.ConnectedCalendar>? ConnectedCalendars { get => _explicitNullValueConnectedCalendars; set { _explicitNullValueConnectedCalendars = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connectedCalendars"); else _explicitNullProperties?.Remove("connectedCalendars"); } }
+        private List<global::Soenneker.CalCom.OpenApiClient.Models.ConnectedCalendar>? _explicitNullValueConnectedCalendars = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.ConnectedCalendar> ConnectedCalendars { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.ConnectedCalendar> ConnectedCalendars { get => _explicitNullValueConnectedCalendars; set { _explicitNullValueConnectedCalendars = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connectedCalendars"); else _explicitNullProperties?.Remove("connectedCalendars"); } }
+        private List<global::Soenneker.CalCom.OpenApiClient.Models.ConnectedCalendar> _explicitNullValueConnectedCalendars = default!;
 #endif
         /// <summary>The destinationCalendar property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.DestinationCalendar? DestinationCalendar { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.DestinationCalendar? DestinationCalendar { get => _explicitNullValueDestinationCalendar; set { _explicitNullValueDestinationCalendar = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destinationCalendar"); else _explicitNullProperties?.Remove("destinationCalendar"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.DestinationCalendar? _explicitNullValueDestinationCalendar = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.DestinationCalendar DestinationCalendar { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.DestinationCalendar DestinationCalendar { get => _explicitNullValueDestinationCalendar; set { _explicitNullValueDestinationCalendar = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destinationCalendar"); else _explicitNullProperties?.Remove("destinationCalendar"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.DestinationCalendar _explicitNullValueDestinationCalendar = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.ConnectedCalendarsData"/> and sets the default values.
@@ -45,7 +58,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.ConnectedCalendarsData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.ConnectedCalendarsData();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.ConnectedCalendarsData(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +81,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.ConnectedCalendar>("connectedCalendars", ConnectedCalendars);
             writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.DestinationCalendar>("destinationCalendar", DestinationCalendar);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

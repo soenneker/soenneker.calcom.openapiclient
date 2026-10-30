@@ -12,7 +12,12 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UpdateTeamEventTypeOutput20260612Data : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type List&lt;global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,14 +43,20 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.CalCom.OpenApiClient.Models.UpdateTeamEventTypeOutput20260612Data();
-            if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612>(global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612> teamEventTypeOutput20260612Value)
+            if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && global::System.Linq.Enumerable.All(((global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray)parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue)).GetValue(), item => item is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject) && parseNode.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612>(global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612> teamEventTypeOutput20260612Value)
             {
                 result.TeamEventTypeOutput20260612 = teamEventTypeOutput20260612Value;
             }
             else {
-                result.UpdateTeamEventTypeOutput20260612DataTeamEventTypeOutput20260612 = new global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("id") != null && parseNode.GetChildNode("lengthInMinutes") != null && parseNode.GetChildNode("title") != null && parseNode.GetChildNode("slug") != null && parseNode.GetChildNode("description") != null && parseNode.GetChildNode("locations") != null && parseNode.GetChildNode("disableGuests") != null && parseNode.GetChildNode("recurrence") != null && parseNode.GetChildNode("metadata") != null && parseNode.GetChildNode("price") != null && parseNode.GetChildNode("currency") != null && parseNode.GetChildNode("lockTimeZoneToggleOnBookingPage") != null && parseNode.GetChildNode("forwardParamsSuccessRedirect") != null && parseNode.GetChildNode("successRedirectUrl") != null && parseNode.GetChildNode("isInstantEvent") != null && parseNode.GetChildNode("scheduleId") != null && parseNode.GetChildNode("hidden") != null && parseNode.GetChildNode("bookingRequiresAuthentication") != null && parseNode.GetChildNode("teamId") != null && parseNode.GetChildNode("bookingUrl") != null && parseNode.GetChildNode("hosts") != null && parseNode.GetChildNode("schedulingType") != null && (parseNode.GetChildNode("schedulingType")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag22 && ("roundRobin".Equals(tag22.GetValue(), global::System.StringComparison.Ordinal) || "collective".Equals(tag22.GetValue(), global::System.StringComparison.Ordinal) || "managed".Equals(tag22.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("team") != null && parseNode.GetChildNode("bookingFields") != null && parseNode.GetChildNode("crm") != null && (parseNode.GetChildNode("privateNoteMode") == null || (parseNode.GetChildNode("privateNoteMode")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag26 && ("duplicate_event".Equals(optionalTag26.GetValue(), global::System.StringComparison.Ordinal) || "separate_events".Equals(optionalTag26.GetValue(), global::System.StringComparison.Ordinal))))))();
+            if (result.TeamEventTypeOutput20260612 == null && result.UpdateTeamEventTypeOutput20260612DataTeamEventTypeOutput20260612 == null && matchesUnionBranch0) result.UpdateTeamEventTypeOutput20260612DataTeamEventTypeOutput20260612 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612(), parseNode);
+            if (result.TeamEventTypeOutput20260612 == null && result.UpdateTeamEventTypeOutput20260612DataTeamEventTypeOutput20260612 == null && unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject) result.UpdateTeamEventTypeOutput20260612DataTeamEventTypeOutput20260612 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612(), parseNode);
+            if (result.TeamEventTypeOutput20260612 == null && result.UpdateTeamEventTypeOutput20260612DataTeamEventTypeOutput20260612 == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -65,12 +76,17 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (TeamEventTypeOutput20260612 == null && UpdateTeamEventTypeOutput20260612DataTeamEventTypeOutput20260612 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (UpdateTeamEventTypeOutput20260612DataTeamEventTypeOutput20260612 != null && TeamEventTypeOutput20260612 == null) { if (UpdateTeamEventTypeOutput20260612DataTeamEventTypeOutput20260612 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, UpdateTeamEventTypeOutput20260612DataTeamEventTypeOutput20260612); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(TeamEventTypeOutput20260612 != null)
             {
                 writer.WriteCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612>(null, TeamEventTypeOutput20260612);
             }
             else {
+                if (UpdateTeamEventTypeOutput20260612DataTeamEventTypeOutput20260612 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612>(null, UpdateTeamEventTypeOutput20260612DataTeamEventTypeOutput20260612);
             }
         }

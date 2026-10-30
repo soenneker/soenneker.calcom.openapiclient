@@ -62,7 +62,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.OauthClients
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetOAuthClientsResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetOAuthClientsResponseDto.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetOAuthClientsResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetOAuthClientsResponseDto.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &lt;Warning&gt;These endpoints are deprecated and will be removed in the future.&lt;/Warning&gt;
@@ -82,7 +82,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.OauthClients
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.CreateOAuthClientResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.CreateOAuthClientResponseDto.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.CreateOAuthClientResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.CreateOAuthClientResponseDto.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &lt;Warning&gt;These endpoints are deprecated and will be removed in the future.&lt;/Warning&gt;

@@ -51,7 +51,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Auth.Oauth2.Token
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.OAuth2TokensDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.OAuth2TokensDto.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.OAuth2TokensDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.OAuth2TokensDto.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// RFC 6749-compliant token endpoint. Pass client_id in the request body (Section 2.3.1). Use grant_type &apos;authorization_code&apos; to exchange an auth code for tokens, or &apos;refresh_token&apos; to refresh an access token. Accepts both application/x-www-form-urlencoded (standard per RFC 6749 Section 4.1.3) and application/json content types.

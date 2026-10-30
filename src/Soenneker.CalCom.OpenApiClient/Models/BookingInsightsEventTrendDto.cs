@@ -11,39 +11,66 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class BookingInsightsEventTrendDto : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("Cancelled") is { } nullNodeCancelled && nullNodeCancelled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cancelled = null;
+            if (parseNode.GetChildNode("Completed") is { } nullNodeCompleted && nullNodeCompleted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Completed = null;
+            if (parseNode.GetChildNode("Created") is { } nullNodeCreated && nullNodeCreated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Created = null;
+            if (parseNode.GetChildNode("formattedDateFull") is { } nullNodeFormattedDateFull && nullNodeFormattedDateFull.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FormattedDateFull = null;
+            if (parseNode.GetChildNode("isToday") is { } nullNodeIsToday && nullNodeIsToday.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsToday = null;
+            if (parseNode.GetChildNode("Month") is { } nullNodeMonth && nullNodeMonth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Month = null;
+            if (parseNode.GetChildNode("No-Show (Guest)") is { } nullNodeNoShowGuest && nullNodeNoShowGuest.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoShowGuest = null;
+            if (parseNode.GetChildNode("No-Show (Host)") is { } nullNodeNoShowHost && nullNodeNoShowHost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoShowHost = null;
+            if (parseNode.GetChildNode("Rescheduled") is { } nullNodeRescheduled && nullNodeRescheduled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rescheduled = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Number of bookings cancelled on this date</summary>
-        public double? Cancelled { get; set; }
+        public double? Cancelled { get => _explicitNullValueCancelled; set { _explicitNullValueCancelled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Cancelled"); else _explicitNullProperties?.Remove("Cancelled"); } }
+        private double? _explicitNullValueCancelled = default!;
         /// <summary>Number of bookings completed on this date</summary>
-        public double? Completed { get; set; }
+        public double? Completed { get => _explicitNullValueCompleted; set { _explicitNullValueCompleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Completed"); else _explicitNullProperties?.Remove("Completed"); } }
+        private double? _explicitNullValueCompleted = default!;
         /// <summary>Number of bookings created on this date</summary>
-        public double? Created { get; set; }
+        public double? Created { get => _explicitNullValueCreated; set { _explicitNullValueCreated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Created"); else _explicitNullProperties?.Remove("Created"); } }
+        private double? _explicitNullValueCreated = default!;
         /// <summary>Full formatted date label for the data point</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FormattedDateFull { get; set; }
+        public string? FormattedDateFull { get => _explicitNullValueFormattedDateFull; set { _explicitNullValueFormattedDateFull = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("formattedDateFull"); else _explicitNullProperties?.Remove("formattedDateFull"); } }
+        private string? _explicitNullValueFormattedDateFull = default!;
 #nullable restore
 #else
-        public string FormattedDateFull { get; set; }
+        public string FormattedDateFull { get => _explicitNullValueFormattedDateFull; set { _explicitNullValueFormattedDateFull = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("formattedDateFull"); else _explicitNullProperties?.Remove("formattedDateFull"); } }
+        private string _explicitNullValueFormattedDateFull = default!;
 #endif
         /// <summary>Whether this data point represents the current day</summary>
-        public bool? IsToday { get; set; }
+        public bool? IsToday { get => _explicitNullValueIsToday; set { _explicitNullValueIsToday = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("isToday"); else _explicitNullProperties?.Remove("isToday"); } }
+        private bool? _explicitNullValueIsToday = default!;
         /// <summary>Abbreviated month-day label for chart display</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Month { get; set; }
+        public string? Month { get => _explicitNullValueMonth; set { _explicitNullValueMonth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Month"); else _explicitNullProperties?.Remove("Month"); } }
+        private string? _explicitNullValueMonth = default!;
 #nullable restore
 #else
-        public string Month { get; set; }
+        public string Month { get => _explicitNullValueMonth; set { _explicitNullValueMonth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Month"); else _explicitNullProperties?.Remove("Month"); } }
+        private string _explicitNullValueMonth = default!;
 #endif
         /// <summary>Number of guest no-shows on this date</summary>
-        public double? NoShowGuest { get; set; }
+        public double? NoShowGuest { get => _explicitNullValueNoShowGuest; set { _explicitNullValueNoShowGuest = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("No-Show (Guest)"); else _explicitNullProperties?.Remove("No-Show (Guest)"); } }
+        private double? _explicitNullValueNoShowGuest = default!;
         /// <summary>Number of host no-shows on this date</summary>
-        public double? NoShowHost { get; set; }
+        public double? NoShowHost { get => _explicitNullValueNoShowHost; set { _explicitNullValueNoShowHost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("No-Show (Host)"); else _explicitNullProperties?.Remove("No-Show (Host)"); } }
+        private double? _explicitNullValueNoShowHost = default!;
         /// <summary>Number of bookings rescheduled on this date</summary>
-        public double? Rescheduled { get; set; }
+        public double? Rescheduled { get => _explicitNullValueRescheduled; set { _explicitNullValueRescheduled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Rescheduled"); else _explicitNullProperties?.Remove("Rescheduled"); } }
+        private double? _explicitNullValueRescheduled = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsEventTrendDto"/> and sets the default values.
         /// </summary>
@@ -59,7 +86,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsEventTrendDto CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsEventTrendDto();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsEventTrendDto(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -96,6 +123,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteDoubleValue("No-Show (Guest)", NoShowGuest);
             writer.WriteDoubleValue("No-Show (Host)", NoShowHost);
             writer.WriteDoubleValue("Rescheduled", Rescheduled);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

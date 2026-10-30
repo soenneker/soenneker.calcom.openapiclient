@@ -62,7 +62,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.EventTypes.Item.BookingFields
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsOutput20260612>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsOutput20260612.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsOutput20260612>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsOutput20260612.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &lt;Note&gt;Please make sure to pass in the cal-api-version header value as mentioned in the Headers section. Not passing the correct value will default to an older version of this endpoint.&lt;/Note&gt;Updates the booking fields identified by `slug`. Omitted properties keep their current values. Workflow-added fields are read-only. If accessed using an OAuth access token, the `EVENT_TYPE_WRITE` scope is required.
@@ -82,7 +82,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.EventTypes.Item.BookingFields
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsOutput20260612>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsOutput20260612.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsOutput20260612>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsOutput20260612.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &lt;Note&gt;Please make sure to pass in the cal-api-version header value as mentioned in the Headers section. Not passing the correct value will default to an older version of this endpoint.&lt;/Note&gt;Adds custom booking fields. Default and workflow-added fields cannot be added through this endpoint. If accessed using an OAuth access token, the `EVENT_TYPE_WRITE` scope is required.
@@ -102,7 +102,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.EventTypes.Item.BookingFields
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsOutput20260612>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsOutput20260612.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsOutput20260612>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsOutput20260612.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &lt;Note&gt;Please make sure to pass in the cal-api-version header value as mentioned in the Headers section. Not passing the correct value will default to an older version of this endpoint.&lt;/Note&gt;Replaces all booking fields. Omitted custom fields are deleted, while omitted default fields are restored with their default settings. Use `PATCH` to update specific fields. Workflow-added fields are read-only and ignored. If accessed using an OAuth access token, the `EVENT_TYPE_WRITE` scope is required.
@@ -122,7 +122,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.EventTypes.Item.BookingFields
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsOutput20260612>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsOutput20260612.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsOutput20260612>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsOutput20260612.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &lt;Note&gt;Please make sure to pass in the cal-api-version header value as mentioned in the Headers section. Not passing the correct value will default to an older version of this endpoint.&lt;/Note&gt;Returns default and custom booking fields, plus any read-only workflow-added fields. If accessed using an OAuth access token, the `EVENT_TYPE_READ` scope is required.

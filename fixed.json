@@ -59554,816 +59554,70 @@
       "PatchBookingFieldsInput20260612BookingFieldsItem": {
         "anyOf": [
           {
-            "type": "object",
-            "properties": {
-              "slug": {
-                "type": "string",
-                "description": "Only allowed value is \u0027name\u0027.",
-                "example": "name"
-              },
-              "variant": {
-                "type": "string",
-                "description": "Only allowed value is \u0027fullName\u0027. Used for having a single booking field for the attendee\u0027s full name.",
-                "example": "fullName"
-              },
-              "label": {
-                "type": "string"
-              },
-              "placeholder": {
-                "type": "string"
-              },
-              "disableOnPrefill": {
-                "type": "boolean",
-                "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if URL contains query parameter \u0060\u0026name=bob\u0060,    the name field will be prefilled with this value and disabled."
-              }
-            },
-            "required": [
-              "slug"
-            ]
+            "$ref": "#/components/schemas/PatchBookingFieldsInput20260612BookingFieldsItemAnyOf1"
           },
           {
-            "type": "object",
-            "properties": {
-              "slug": {
-                "type": "string",
-                "description": "Only allowed value is \u0027name\u0027.",
-                "example": "name"
-              },
-              "variant": {
-                "type": "string",
-                "description": "Only allowed value is \u0027splitName\u0027. Used to have 2 booking fields \u2014 one for first name and one for last name.",
-                "example": "splitName"
-              },
-              "firstNameLabel": {
-                "type": "string"
-              },
-              "firstNamePlaceholder": {
-                "type": "string"
-              },
-              "lastNameLabel": {
-                "type": "string"
-              },
-              "lastNamePlaceholder": {
-                "type": "string"
-              },
-              "lastNameRequired": {
-                "type": "boolean",
-                "description": "Whether the last name sub-field is required. The first name sub-field is always required and cannot be configured."
-              },
-              "disableOnPrefill": {
-                "type": "boolean",
-                "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if URL contains query parameter \u0060?name=John%20Doe\u0060,    the first name and last name fields will be prefilled with these values and disabled.    The value may also be a JSON object such as \u0060{\u0022firstName\u0022:\u0022John\u0022,\u0022lastName\u0022:\u0022Doe\u0022}\u0060."
-              }
-            },
-            "required": [
-              "slug"
-            ]
+            "$ref": "#/components/schemas/PatchBookingFieldsInput20260612BookingFieldsItemAnyOf2"
           },
           {
-            "type": "object",
-            "properties": {
-              "slug": {
-                "type": "string",
-                "description": "Only allowed value is \u0027email\u0027.",
-                "example": "email"
-              },
-              "label": {
-                "type": "string"
-              },
-              "required": {
-                "type": "boolean",
-                "description": "To enable phone-only bookings, set this to false and hidden to true, then pass an attendeePhoneNumber default booking field with required: true and hidden: false."
-              },
-              "hidden": {
-                "type": "boolean",
-                "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
-              },
-              "placeholder": {
-                "type": "string"
-              },
-              "disableOnPrefill": {
-                "type": "boolean",
-                "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if URL contains query parameter \u0060\u0026email=bob@gmail.com\u0060,    the email field will be prefilled with this value and disabled."
-              },
-              "excludeEmails": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "description": "Bookers whose email matches an entry cannot book. Entries may be a bare domain (\u0060example.com\u0060), a domain with \u0060@\u0060 (\u0060@example.com\u0060), or an exact address (\u0060person@example.com\u0060). Matching is case-insensitive."
-              },
-              "requireEmails": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "description": "Only bookers whose email matches an entry can book. Entries may be a bare domain (\u0060example.com\u0060), a domain with \u0060@\u0060 (\u0060@example.com\u0060), or an exact address (\u0060person@example.com\u0060). Matching is case-insensitive."
-              }
-            },
-            "required": [
-              "slug"
-            ]
+            "$ref": "#/components/schemas/PatchBookingFieldsInput20260612BookingFieldsItemAnyOf3"
           },
           {
-            "type": "object",
-            "properties": {
-              "slug": {
-                "type": "string",
-                "description": "Only allowed value is \u0027location\u0027.",
-                "example": "location"
-              },
-              "label": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "slug"
-            ]
+            "$ref": "#/components/schemas/PatchBookingFieldsInput20260612BookingFieldsItemAnyOf4"
           },
           {
-            "type": "object",
-            "properties": {
-              "slug": {
-                "type": "string",
-                "description": "Only allowed value is \u0027title\u0027.",
-                "example": "title"
-              },
-              "required": {
-                "type": "boolean"
-              },
-              "hidden": {
-                "type": "boolean",
-                "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
-              },
-              "label": {
-                "type": "string"
-              },
-              "placeholder": {
-                "type": "string"
-              },
-              "disableOnPrefill": {
-                "type": "boolean",
-                "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if URL contains query parameter \u0060\u0026title=journey\u0060,    the title field will be prefilled with this value and disabled."
-              }
-            },
-            "required": [
-              "slug"
-            ]
+            "$ref": "#/components/schemas/PatchBookingFieldsInput20260612BookingFieldsItemAnyOf5"
           },
           {
-            "type": "object",
-            "properties": {
-              "slug": {
-                "type": "string",
-                "description": "Only allowed value is \u0027notes\u0027.",
-                "example": "notes"
-              },
-              "required": {
-                "type": "boolean"
-              },
-              "hidden": {
-                "type": "boolean",
-                "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
-              },
-              "label": {
-                "type": "string"
-              },
-              "placeholder": {
-                "type": "string"
-              },
-              "disableOnPrefill": {
-                "type": "boolean",
-                "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if URL contains query parameter \u0060\u0026notes=bring notebook\u0060,    the notes field will be prefilled with this value and disabled."
-              }
-            },
-            "required": [
-              "slug"
-            ]
+            "$ref": "#/components/schemas/PatchBookingFieldsInput20260612BookingFieldsItemAnyOf6"
           },
           {
-            "type": "object",
-            "properties": {
-              "slug": {
-                "type": "string",
-                "description": "Only allowed value is \u0027guests\u0027.",
-                "example": "guests"
-              },
-              "required": {
-                "type": "boolean"
-              },
-              "hidden": {
-                "type": "boolean",
-                "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
-              },
-              "label": {
-                "type": "string"
-              },
-              "placeholder": {
-                "type": "string"
-              },
-              "disableOnPrefill": {
-                "type": "boolean",
-                "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if URL contains query parameter \u0060\u0026guests=bob@cal.com\u0060,    the guests field will be prefilled with this value and disabled."
-              }
-            },
-            "required": [
-              "slug"
-            ]
+            "$ref": "#/components/schemas/PatchBookingFieldsInput20260612BookingFieldsItemAnyOf7"
           },
           {
-            "type": "object",
-            "properties": {
-              "slug": {
-                "type": "string",
-                "description": "Only allowed value is \u0027rescheduleReason\u0027.",
-                "example": "rescheduleReason"
-              },
-              "required": {
-                "type": "boolean"
-              },
-              "hidden": {
-                "type": "boolean",
-                "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
-              },
-              "label": {
-                "type": "string"
-              },
-              "placeholder": {
-                "type": "string"
-              },
-              "disableOnPrefill": {
-                "type": "boolean",
-                "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if URL contains query parameter \u0060\u0026rescheduleReason=travel\u0060,    the rescheduleReason field will be prefilled with this value and disabled."
-              }
-            },
-            "required": [
-              "slug"
-            ]
+            "$ref": "#/components/schemas/PatchBookingFieldsInput20260612BookingFieldsItemAnyOf8"
           },
           {
-            "type": "object",
-            "properties": {
-              "slug": {
-                "type": "string",
-                "description": "Only allowed value is \u0027attendeePhoneNumber\u0027.",
-                "example": "attendeePhoneNumber"
-              },
-              "required": {
-                "type": "boolean",
-                "description": "To enable email-only bookings, set this to false and hidden to true, then pass an email default booking field with required: true and hidden: false."
-              },
-              "hidden": {
-                "type": "boolean",
-                "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
-              },
-              "label": {
-                "type": "string"
-              },
-              "placeholder": {
-                "type": "string"
-              },
-              "disableOnPrefill": {
-                "type": "boolean",
-                "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if URL contains query parameter \u0060\u0026attendeePhoneNumber=\u002B37122222222\u0060,    the phone field will be prefilled with this value and disabled."
-              }
-            },
-            "required": [
-              "slug"
-            ]
+            "$ref": "#/components/schemas/PatchBookingFieldsInput20260612BookingFieldsItemAnyOf9"
           },
           {
-            "type": "object",
-            "properties": {
-              "slug": {
-                "type": "string",
-                "description": "Unique identifier for the field, e.g. \u0060some-slug\u0060. Can contain letters, numbers, hyphens, and underscores.",
-                "example": "some-slug"
-              },
-              "label": {
-                "type": "string",
-                "example": "Your custom field label"
-              },
-              "required": {
-                "type": "boolean"
-              },
-              "hidden": {
-                "type": "boolean",
-                "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
-              },
-              "placeholder": {
-                "type": "string"
-              },
-              "disableOnPrefill": {
-                "type": "boolean",
-                "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if the slug is \u0060my-field\u0060 and the URL contains \u0060\u0026my-field=value\u0060,    the field will be prefilled with this value and disabled."
-              },
-              "type": {
-                "type": "string",
-                "description": "Only allowed value is \u0027email\u0027.",
-                "example": "email"
-              },
-              "excludeEmails": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "description": "Bookers whose email matches an entry cannot book. Entries may be a bare domain (\u0060example.com\u0060), a domain with \u0060@\u0060 (\u0060@example.com\u0060), or an exact address (\u0060person@example.com\u0060). Matching is case-insensitive."
-              },
-              "requireEmails": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "description": "Only bookers whose email matches an entry can book. Entries may be a bare domain (\u0060example.com\u0060), a domain with \u0060@\u0060 (\u0060@example.com\u0060), or an exact address (\u0060person@example.com\u0060). Matching is case-insensitive."
-              }
-            },
-            "required": [
-              "slug"
-            ]
+            "$ref": "#/components/schemas/PatchBookingFieldsInput20260612BookingFieldsItemAnyOf10"
           },
           {
-            "type": "object",
-            "properties": {
-              "slug": {
-                "type": "string",
-                "description": "Unique identifier for the field, e.g. \u0060some-slug\u0060. Can contain letters, numbers, hyphens, and underscores.",
-                "example": "some-slug"
-              },
-              "label": {
-                "type": "string",
-                "example": "Your custom field label"
-              },
-              "required": {
-                "type": "boolean"
-              },
-              "hidden": {
-                "type": "boolean",
-                "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
-              },
-              "placeholder": {
-                "type": "string"
-              },
-              "disableOnPrefill": {
-                "type": "boolean",
-                "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if the slug is \u0060my-field\u0060 and the URL contains \u0060\u0026my-field=value\u0060,    the field will be prefilled with this value and disabled."
-              },
-              "type": {
-                "type": "string",
-                "description": "Only allowed value is \u0027phone\u0027.",
-                "example": "phone"
-              }
-            },
-            "required": [
-              "slug"
-            ]
+            "$ref": "#/components/schemas/PatchBookingFieldsInput20260612BookingFieldsItemAnyOf11"
           },
           {
-            "type": "object",
-            "properties": {
-              "slug": {
-                "type": "string",
-                "description": "Unique identifier for the field, e.g. \u0060some-slug\u0060. Can contain letters, numbers, hyphens, and underscores.",
-                "example": "some-slug"
-              },
-              "label": {
-                "type": "string",
-                "example": "Your custom field label"
-              },
-              "required": {
-                "type": "boolean"
-              },
-              "hidden": {
-                "type": "boolean",
-                "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
-              },
-              "placeholder": {
-                "type": "string"
-              },
-              "disableOnPrefill": {
-                "type": "boolean",
-                "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if the slug is \u0060my-field\u0060 and the URL contains \u0060\u0026my-field=value\u0060,    the field will be prefilled with this value and disabled."
-              },
-              "type": {
-                "type": "string",
-                "description": "Only allowed value is \u0027address\u0027.",
-                "example": "address"
-              }
-            },
-            "required": [
-              "slug"
-            ]
+            "$ref": "#/components/schemas/PatchBookingFieldsInput20260612BookingFieldsItemAnyOf12"
           },
           {
-            "type": "object",
-            "properties": {
-              "slug": {
-                "type": "string",
-                "description": "Unique identifier for the field, e.g. \u0060some-slug\u0060. Can contain letters, numbers, hyphens, and underscores.",
-                "example": "some-slug"
-              },
-              "label": {
-                "type": "string",
-                "example": "Your custom field label"
-              },
-              "required": {
-                "type": "boolean"
-              },
-              "hidden": {
-                "type": "boolean",
-                "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
-              },
-              "placeholder": {
-                "type": "string"
-              },
-              "disableOnPrefill": {
-                "type": "boolean",
-                "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if the slug is \u0060my-field\u0060 and the URL contains \u0060\u0026my-field=value\u0060,    the field will be prefilled with this value and disabled."
-              },
-              "type": {
-                "type": "string",
-                "description": "Only allowed value is \u0027shortText\u0027.",
-                "example": "shortText"
-              }
-            },
-            "required": [
-              "slug"
-            ]
+            "$ref": "#/components/schemas/PatchBookingFieldsInput20260612BookingFieldsItemAnyOf13"
           },
           {
-            "type": "object",
-            "properties": {
-              "slug": {
-                "type": "string",
-                "description": "Unique identifier for the field, e.g. \u0060some-slug\u0060. Can contain letters, numbers, hyphens, and underscores.",
-                "example": "some-slug"
-              },
-              "label": {
-                "type": "string",
-                "example": "Your custom field label"
-              },
-              "required": {
-                "type": "boolean"
-              },
-              "hidden": {
-                "type": "boolean",
-                "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
-              },
-              "placeholder": {
-                "type": "string"
-              },
-              "disableOnPrefill": {
-                "type": "boolean",
-                "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if the slug is \u0060my-field\u0060 and the URL contains \u0060\u0026my-field=value\u0060,    the field will be prefilled with this value and disabled."
-              },
-              "type": {
-                "type": "string",
-                "description": "Only allowed value is \u0027number\u0027.",
-                "example": "number"
-              }
-            },
-            "required": [
-              "slug"
-            ]
+            "$ref": "#/components/schemas/PatchBookingFieldsInput20260612BookingFieldsItemAnyOf14"
           },
           {
-            "type": "object",
-            "properties": {
-              "slug": {
-                "type": "string",
-                "description": "Unique identifier for the field, e.g. \u0060some-slug\u0060. Can contain letters, numbers, hyphens, and underscores.",
-                "example": "some-slug"
-              },
-              "label": {
-                "type": "string",
-                "example": "Your custom field label"
-              },
-              "required": {
-                "type": "boolean"
-              },
-              "hidden": {
-                "type": "boolean",
-                "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
-              },
-              "placeholder": {
-                "type": "string"
-              },
-              "disableOnPrefill": {
-                "type": "boolean",
-                "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if the slug is \u0060my-field\u0060 and the URL contains \u0060\u0026my-field=value\u0060,    the field will be prefilled with this value and disabled."
-              },
-              "type": {
-                "type": "string",
-                "description": "Only allowed value is \u0027longText\u0027.",
-                "example": "longText"
-              },
-              "minLength": {
-                "maximum": 1000,
-                "minimum": 0,
-                "type": "number",
-                "description": "Minimum character length for the long text field. Defaults to 0 if not provided."
-              },
-              "maxLength": {
-                "maximum": 1000,
-                "minimum": 0,
-                "type": "number",
-                "description": "Maximum character length for the long text field. Defaults to 1000 if not provided."
-              }
-            },
-            "required": [
-              "slug"
-            ]
+            "$ref": "#/components/schemas/PatchBookingFieldsInput20260612BookingFieldsItemAnyOf15"
           },
           {
-            "type": "object",
-            "properties": {
-              "slug": {
-                "type": "string",
-                "description": "Unique identifier for the field, e.g. \u0060some-slug\u0060. Can contain letters, numbers, hyphens, and underscores.",
-                "example": "some-slug"
-              },
-              "label": {
-                "type": "string",
-                "example": "Your custom field label"
-              },
-              "required": {
-                "type": "boolean"
-              },
-              "hidden": {
-                "type": "boolean",
-                "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
-              },
-              "placeholder": {
-                "type": "string"
-              },
-              "disableOnPrefill": {
-                "type": "boolean",
-                "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if the slug is \u0060my-field\u0060 and the URL contains \u0060\u0026my-field=value\u0060,    the field will be prefilled with this value and disabled."
-              },
-              "options": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "example": [
-                  "Option 1",
-                  "Option 2"
-                ]
-              },
-              "type": {
-                "type": "string",
-                "description": "Only allowed value is \u0027select\u0027.",
-                "example": "select"
-              }
-            },
-            "required": [
-              "slug"
-            ]
+            "$ref": "#/components/schemas/PatchBookingFieldsInput20260612BookingFieldsItemAnyOf16"
           },
           {
-            "type": "object",
-            "properties": {
-              "slug": {
-                "type": "string",
-                "description": "Unique identifier for the field, e.g. \u0060some-slug\u0060. Can contain letters, numbers, hyphens, and underscores.",
-                "example": "some-slug"
-              },
-              "label": {
-                "type": "string",
-                "example": "Your custom field label"
-              },
-              "required": {
-                "type": "boolean"
-              },
-              "hidden": {
-                "type": "boolean",
-                "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
-              },
-              "placeholder": {
-                "type": "string"
-              },
-              "disableOnPrefill": {
-                "type": "boolean",
-                "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if the slug is \u0060my-field\u0060 and the URL contains \u0060\u0026my-field=value\u0060,    the field will be prefilled with this value and disabled."
-              },
-              "options": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "example": [
-                  "Option 1",
-                  "Option 2"
-                ]
-              },
-              "type": {
-                "type": "string",
-                "description": "Only allowed value is \u0027multiSelect\u0027.",
-                "example": "multiSelect"
-              }
-            },
-            "required": [
-              "slug"
-            ]
+            "$ref": "#/components/schemas/PatchBookingFieldsInput20260612BookingFieldsItemAnyOf17"
           },
           {
-            "type": "object",
-            "properties": {
-              "slug": {
-                "type": "string",
-                "description": "Unique identifier for the field, e.g. \u0060some-slug\u0060. Can contain letters, numbers, hyphens, and underscores.",
-                "example": "some-slug"
-              },
-              "label": {
-                "type": "string",
-                "example": "Your custom field label"
-              },
-              "required": {
-                "type": "boolean"
-              },
-              "hidden": {
-                "type": "boolean",
-                "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
-              },
-              "placeholder": {
-                "type": "string"
-              },
-              "disableOnPrefill": {
-                "type": "boolean",
-                "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if the slug is \u0060my-field\u0060 and the URL contains \u0060\u0026my-field=value\u0060,    the field will be prefilled with this value and disabled."
-              },
-              "type": {
-                "type": "string",
-                "description": "Only allowed value is \u0027multiEmail\u0027.",
-                "example": "multiEmail"
-              }
-            },
-            "required": [
-              "slug"
-            ]
+            "$ref": "#/components/schemas/PatchBookingFieldsInput20260612BookingFieldsItemAnyOf18"
           },
           {
-            "type": "object",
-            "properties": {
-              "slug": {
-                "type": "string",
-                "description": "Unique identifier for the field, e.g. \u0060some-slug\u0060. Can contain letters, numbers, hyphens, and underscores.",
-                "example": "some-slug"
-              },
-              "label": {
-                "type": "string",
-                "example": "Your custom field label"
-              },
-              "required": {
-                "type": "boolean"
-              },
-              "hidden": {
-                "type": "boolean",
-                "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
-              },
-              "placeholder": {
-                "type": "string"
-              },
-              "disableOnPrefill": {
-                "type": "boolean",
-                "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if the slug is \u0060my-field\u0060 and the URL contains \u0060\u0026my-field=value\u0060,    the field will be prefilled with this value and disabled."
-              },
-              "options": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "example": [
-                  "Option 1",
-                  "Option 2"
-                ]
-              },
-              "type": {
-                "type": "string",
-                "description": "Only allowed value is \u0027checkboxGroup\u0027.",
-                "example": "checkboxGroup"
-              }
-            },
-            "required": [
-              "slug"
-            ]
+            "$ref": "#/components/schemas/PatchBookingFieldsInput20260612BookingFieldsItemAnyOf19"
           },
           {
-            "type": "object",
-            "properties": {
-              "slug": {
-                "type": "string",
-                "description": "Unique identifier for the field, e.g. \u0060some-slug\u0060. Can contain letters, numbers, hyphens, and underscores.",
-                "example": "some-slug"
-              },
-              "label": {
-                "type": "string",
-                "example": "Your custom field label"
-              },
-              "required": {
-                "type": "boolean"
-              },
-              "hidden": {
-                "type": "boolean",
-                "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
-              },
-              "placeholder": {
-                "type": "string"
-              },
-              "disableOnPrefill": {
-                "type": "boolean",
-                "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if the slug is \u0060my-field\u0060 and the URL contains \u0060\u0026my-field=value\u0060,    the field will be prefilled with this value and disabled."
-              },
-              "type": {
-                "type": "string",
-                "description": "Only allowed value is \u0027checkbox\u0027.",
-                "example": "checkbox"
-              }
-            },
-            "required": [
-              "slug"
-            ]
+            "$ref": "#/components/schemas/PatchBookingFieldsInput20260612BookingFieldsItemAnyOf20"
           },
           {
-            "type": "object",
-            "properties": {
-              "slug": {
-                "type": "string",
-                "description": "Unique identifier for the field, e.g. \u0060some-slug\u0060. Can contain letters, numbers, hyphens, and underscores.",
-                "example": "some-slug"
-              },
-              "label": {
-                "type": "string",
-                "example": "Your custom field label"
-              },
-              "required": {
-                "type": "boolean"
-              },
-              "hidden": {
-                "type": "boolean",
-                "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
-              },
-              "placeholder": {
-                "type": "string"
-              },
-              "disableOnPrefill": {
-                "type": "boolean",
-                "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if the slug is \u0060my-field\u0060 and the URL contains \u0060\u0026my-field=value\u0060,    the field will be prefilled with this value and disabled."
-              },
-              "options": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "example": [
-                  "Option 1",
-                  "Option 2"
-                ]
-              },
-              "type": {
-                "type": "string",
-                "description": "Only allowed value is \u0027radioGroup\u0027.",
-                "example": "radioGroup"
-              }
-            },
-            "required": [
-              "slug"
-            ]
+            "$ref": "#/components/schemas/PatchBookingFieldsInput20260612BookingFieldsItemAnyOf21"
           },
           {
-            "type": "object",
-            "properties": {
-              "slug": {
-                "type": "string",
-                "description": "Unique identifier for the field, e.g. \u0060some-slug\u0060. Can contain letters, numbers, hyphens, and underscores.",
-                "example": "some-slug"
-              },
-              "label": {
-                "type": "string",
-                "example": "Your custom field label"
-              },
-              "required": {
-                "type": "boolean"
-              },
-              "hidden": {
-                "type": "boolean",
-                "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
-              },
-              "placeholder": {
-                "type": "string"
-              },
-              "disableOnPrefill": {
-                "type": "boolean",
-                "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if the slug is \u0060my-field\u0060 and the URL contains \u0060\u0026my-field=value\u0060,    the field will be prefilled with this value and disabled."
-              },
-              "type": {
-                "type": "string",
-                "description": "Only allowed value is \u0027url\u0027.",
-                "example": "url"
-              }
-            },
-            "required": [
-              "slug"
-            ]
+            "$ref": "#/components/schemas/PatchBookingFieldsInput20260612BookingFieldsItemAnyOf22"
           }
         ]
       },
@@ -63709,9 +62963,6 @@
         "description": "CRM app settings configured for this event type, mirroring the event type Apps tab toggles."
       },
       "EventTypeHistoryDisplayField20240614FieldValue": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/RawValueFieldValue20240614"
@@ -63726,13 +62977,8 @@
             "$ref": "#/components/schemas/DiffFieldValue20240614"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
         "description": "The field value, discriminated by \u0060type\u0060. Each variant includes only its relevant required fields.",
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "rawValue": "#/components/schemas/RawValueFieldValue20240614",
@@ -66515,9 +65761,6 @@
         }
       },
       "UnifiedCalendarEventOutputLocationsItem": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/CalendarEventVideoLocation"
@@ -66532,12 +65775,7 @@
             "$ref": "#/components/schemas/CalendarEventMoreLocation"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "CalendarEventVideoLocation": "#/components/schemas/CalendarEventVideoLocation",
@@ -85676,6 +84914,7 @@
           "webhook.delete",
           "availability.readTeamAvailability",
           "availability.readOrgAvailability",
+          "availability.updateTeamAvailability",
           "availability.updateOrgAvailability",
           "availability.readOrgAuditLogs",
           "ooo.readOrgOoo",
@@ -86038,6 +85277,10 @@
               "name": "AvailabilityReadOrgAvailability"
             },
             {
+              "value": "availability.updateTeamAvailability",
+              "name": "AvailabilityUpdateTeamAvailability"
+            },
+            {
               "value": "availability.updateOrgAvailability",
               "name": "AvailabilityUpdateOrgAvailability"
             },
@@ -86224,6 +85467,7 @@
           "webhook.delete",
           "availability.readTeamAvailability",
           "availability.readOrgAvailability",
+          "availability.updateTeamAvailability",
           "availability.updateOrgAvailability",
           "availability.readOrgAuditLogs",
           "ooo.readOrgOoo",
@@ -86586,6 +85830,10 @@
               "name": "AvailabilityReadOrgAvailability"
             },
             {
+              "value": "availability.updateTeamAvailability",
+              "name": "AvailabilityUpdateTeamAvailability"
+            },
+            {
               "value": "availability.updateOrgAvailability",
               "name": "AvailabilityUpdateOrgAvailability"
             },
@@ -86816,6 +86064,7 @@
           "webhook.delete",
           "availability.readTeamAvailability",
           "availability.readOrgAvailability",
+          "availability.updateTeamAvailability",
           "availability.updateOrgAvailability",
           "availability.readOrgAuditLogs",
           "ooo.readOrgOoo",
@@ -87178,6 +86427,10 @@
               "name": "AvailabilityReadOrgAvailability"
             },
             {
+              "value": "availability.updateTeamAvailability",
+              "name": "AvailabilityUpdateTeamAvailability"
+            },
+            {
               "value": "availability.updateOrgAvailability",
               "name": "AvailabilityUpdateOrgAvailability"
             },
@@ -87386,6 +86639,7 @@
           "webhook.delete",
           "availability.readTeamAvailability",
           "availability.readOrgAvailability",
+          "availability.updateTeamAvailability",
           "availability.updateOrgAvailability",
           "availability.readOrgAuditLogs",
           "ooo.readOrgOoo",
@@ -87748,6 +87002,10 @@
               "name": "AvailabilityReadOrgAvailability"
             },
             {
+              "value": "availability.updateTeamAvailability",
+              "name": "AvailabilityUpdateTeamAvailability"
+            },
+            {
               "value": "availability.updateOrgAvailability",
               "name": "AvailabilityUpdateOrgAvailability"
             },
@@ -87880,6 +87138,7 @@
           "webhook.update",
           "webhook.delete",
           "availability.readTeamAvailability",
+          "availability.updateTeamAvailability",
           "featureOptIn.read",
           "featureOptIn.update",
           "tag.create",
@@ -88103,6 +87362,10 @@
               "name": "AvailabilityReadTeamAvailability"
             },
             {
+              "value": "availability.updateTeamAvailability",
+              "name": "AvailabilityUpdateTeamAvailability"
+            },
+            {
               "value": "featureOptIn.read",
               "name": "FeatureOptInRead"
             },
@@ -88213,6 +87476,7 @@
           "webhook.update",
           "webhook.delete",
           "availability.readTeamAvailability",
+          "availability.updateTeamAvailability",
           "featureOptIn.read",
           "featureOptIn.update",
           "tag.create",
@@ -88436,6 +87700,10 @@
               "name": "AvailabilityReadTeamAvailability"
             },
             {
+              "value": "availability.updateTeamAvailability",
+              "name": "AvailabilityUpdateTeamAvailability"
+            },
+            {
               "value": "featureOptIn.read",
               "name": "FeatureOptInRead"
             },
@@ -88590,6 +87858,7 @@
           "webhook.update",
           "webhook.delete",
           "availability.readTeamAvailability",
+          "availability.updateTeamAvailability",
           "featureOptIn.read",
           "featureOptIn.update",
           "tag.create",
@@ -88813,6 +88082,10 @@
               "name": "AvailabilityReadTeamAvailability"
             },
             {
+              "value": "availability.updateTeamAvailability",
+              "name": "AvailabilityUpdateTeamAvailability"
+            },
+            {
               "value": "featureOptIn.read",
               "name": "FeatureOptInRead"
             },
@@ -88945,6 +88218,7 @@
           "webhook.update",
           "webhook.delete",
           "availability.readTeamAvailability",
+          "availability.updateTeamAvailability",
           "featureOptIn.read",
           "featureOptIn.update",
           "tag.create",
@@ -89166,6 +88440,10 @@
             {
               "value": "availability.readTeamAvailability",
               "name": "AvailabilityReadTeamAvailability"
+            },
+            {
+              "value": "availability.updateTeamAvailability",
+              "name": "AvailabilityUpdateTeamAvailability"
             },
             {
               "value": "featureOptIn.read",
@@ -100315,6 +99593,7 @@
           "webhook.delete",
           "availability.readTeamAvailability",
           "availability.readOrgAvailability",
+          "availability.updateTeamAvailability",
           "availability.updateOrgAvailability",
           "availability.readOrgAuditLogs",
           "ooo.readOrgOoo",
@@ -100675,6 +99954,10 @@
             {
               "value": "availability.readOrgAvailability",
               "name": "AvailabilityReadOrgAvailability"
+            },
+            {
+              "value": "availability.updateTeamAvailability",
+              "name": "AvailabilityUpdateTeamAvailability"
             },
             {
               "value": "availability.updateOrgAvailability",
@@ -101238,6 +100521,7 @@
           "webhook.update",
           "webhook.delete",
           "availability.readTeamAvailability",
+          "availability.updateTeamAvailability",
           "featureOptIn.read",
           "featureOptIn.update",
           "tag.create",
@@ -101459,6 +100743,10 @@
             {
               "value": "availability.readTeamAvailability",
               "name": "AvailabilityReadTeamAvailability"
+            },
+            {
+              "value": "availability.updateTeamAvailability",
+              "name": "AvailabilityUpdateTeamAvailability"
             },
             {
               "value": "featureOptIn.read",
@@ -102728,6 +102016,818 @@
             }
           ]
         }
+      },
+      "PatchBookingFieldsInput20260612BookingFieldsItemAnyOf1": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Only allowed value is \u0027name\u0027.",
+            "example": "name"
+          },
+          "variant": {
+            "type": "string",
+            "description": "Only allowed value is \u0027fullName\u0027. Used for having a single booking field for the attendee\u0027s full name.",
+            "example": "fullName"
+          },
+          "label": {
+            "type": "string"
+          },
+          "placeholder": {
+            "type": "string"
+          },
+          "disableOnPrefill": {
+            "type": "boolean",
+            "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if URL contains query parameter \u0060\u0026name=bob\u0060,    the name field will be prefilled with this value and disabled."
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      },
+      "PatchBookingFieldsInput20260612BookingFieldsItemAnyOf2": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Only allowed value is \u0027name\u0027.",
+            "example": "name"
+          },
+          "variant": {
+            "type": "string",
+            "description": "Only allowed value is \u0027splitName\u0027. Used to have 2 booking fields \u2014 one for first name and one for last name.",
+            "example": "splitName"
+          },
+          "firstNameLabel": {
+            "type": "string"
+          },
+          "firstNamePlaceholder": {
+            "type": "string"
+          },
+          "lastNameLabel": {
+            "type": "string"
+          },
+          "lastNamePlaceholder": {
+            "type": "string"
+          },
+          "lastNameRequired": {
+            "type": "boolean",
+            "description": "Whether the last name sub-field is required. The first name sub-field is always required and cannot be configured."
+          },
+          "disableOnPrefill": {
+            "type": "boolean",
+            "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if URL contains query parameter \u0060?name=John%20Doe\u0060,    the first name and last name fields will be prefilled with these values and disabled.    The value may also be a JSON object such as \u0060{\u0022firstName\u0022:\u0022John\u0022,\u0022lastName\u0022:\u0022Doe\u0022}\u0060."
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      },
+      "PatchBookingFieldsInput20260612BookingFieldsItemAnyOf3": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Only allowed value is \u0027email\u0027.",
+            "example": "email"
+          },
+          "label": {
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean",
+            "description": "To enable phone-only bookings, set this to false and hidden to true, then pass an attendeePhoneNumber default booking field with required: true and hidden: false."
+          },
+          "hidden": {
+            "type": "boolean",
+            "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
+          },
+          "placeholder": {
+            "type": "string"
+          },
+          "disableOnPrefill": {
+            "type": "boolean",
+            "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if URL contains query parameter \u0060\u0026email=bob@gmail.com\u0060,    the email field will be prefilled with this value and disabled."
+          },
+          "excludeEmails": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Bookers whose email matches an entry cannot book. Entries may be a bare domain (\u0060example.com\u0060), a domain with \u0060@\u0060 (\u0060@example.com\u0060), or an exact address (\u0060person@example.com\u0060). Matching is case-insensitive."
+          },
+          "requireEmails": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Only bookers whose email matches an entry can book. Entries may be a bare domain (\u0060example.com\u0060), a domain with \u0060@\u0060 (\u0060@example.com\u0060), or an exact address (\u0060person@example.com\u0060). Matching is case-insensitive."
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      },
+      "PatchBookingFieldsInput20260612BookingFieldsItemAnyOf4": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Only allowed value is \u0027location\u0027.",
+            "example": "location"
+          },
+          "label": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      },
+      "PatchBookingFieldsInput20260612BookingFieldsItemAnyOf5": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Only allowed value is \u0027title\u0027.",
+            "example": "title"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "hidden": {
+            "type": "boolean",
+            "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
+          },
+          "label": {
+            "type": "string"
+          },
+          "placeholder": {
+            "type": "string"
+          },
+          "disableOnPrefill": {
+            "type": "boolean",
+            "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if URL contains query parameter \u0060\u0026title=journey\u0060,    the title field will be prefilled with this value and disabled."
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      },
+      "PatchBookingFieldsInput20260612BookingFieldsItemAnyOf6": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Only allowed value is \u0027notes\u0027.",
+            "example": "notes"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "hidden": {
+            "type": "boolean",
+            "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
+          },
+          "label": {
+            "type": "string"
+          },
+          "placeholder": {
+            "type": "string"
+          },
+          "disableOnPrefill": {
+            "type": "boolean",
+            "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if URL contains query parameter \u0060\u0026notes=bring notebook\u0060,    the notes field will be prefilled with this value and disabled."
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      },
+      "PatchBookingFieldsInput20260612BookingFieldsItemAnyOf7": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Only allowed value is \u0027guests\u0027.",
+            "example": "guests"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "hidden": {
+            "type": "boolean",
+            "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
+          },
+          "label": {
+            "type": "string"
+          },
+          "placeholder": {
+            "type": "string"
+          },
+          "disableOnPrefill": {
+            "type": "boolean",
+            "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if URL contains query parameter \u0060\u0026guests=bob@cal.com\u0060,    the guests field will be prefilled with this value and disabled."
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      },
+      "PatchBookingFieldsInput20260612BookingFieldsItemAnyOf8": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Only allowed value is \u0027rescheduleReason\u0027.",
+            "example": "rescheduleReason"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "hidden": {
+            "type": "boolean",
+            "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
+          },
+          "label": {
+            "type": "string"
+          },
+          "placeholder": {
+            "type": "string"
+          },
+          "disableOnPrefill": {
+            "type": "boolean",
+            "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if URL contains query parameter \u0060\u0026rescheduleReason=travel\u0060,    the rescheduleReason field will be prefilled with this value and disabled."
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      },
+      "PatchBookingFieldsInput20260612BookingFieldsItemAnyOf9": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Only allowed value is \u0027attendeePhoneNumber\u0027.",
+            "example": "attendeePhoneNumber"
+          },
+          "required": {
+            "type": "boolean",
+            "description": "To enable email-only bookings, set this to false and hidden to true, then pass an email default booking field with required: true and hidden: false."
+          },
+          "hidden": {
+            "type": "boolean",
+            "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
+          },
+          "label": {
+            "type": "string"
+          },
+          "placeholder": {
+            "type": "string"
+          },
+          "disableOnPrefill": {
+            "type": "boolean",
+            "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if URL contains query parameter \u0060\u0026attendeePhoneNumber=\u002B37122222222\u0060,    the phone field will be prefilled with this value and disabled."
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      },
+      "PatchBookingFieldsInput20260612BookingFieldsItemAnyOf10": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Unique identifier for the field, e.g. \u0060some-slug\u0060. Can contain letters, numbers, hyphens, and underscores.",
+            "example": "some-slug"
+          },
+          "label": {
+            "type": "string",
+            "example": "Your custom field label"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "hidden": {
+            "type": "boolean",
+            "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
+          },
+          "placeholder": {
+            "type": "string"
+          },
+          "disableOnPrefill": {
+            "type": "boolean",
+            "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if the slug is \u0060my-field\u0060 and the URL contains \u0060\u0026my-field=value\u0060,    the field will be prefilled with this value and disabled."
+          },
+          "type": {
+            "type": "string",
+            "description": "Only allowed value is \u0027email\u0027.",
+            "example": "email"
+          },
+          "excludeEmails": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Bookers whose email matches an entry cannot book. Entries may be a bare domain (\u0060example.com\u0060), a domain with \u0060@\u0060 (\u0060@example.com\u0060), or an exact address (\u0060person@example.com\u0060). Matching is case-insensitive."
+          },
+          "requireEmails": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Only bookers whose email matches an entry can book. Entries may be a bare domain (\u0060example.com\u0060), a domain with \u0060@\u0060 (\u0060@example.com\u0060), or an exact address (\u0060person@example.com\u0060). Matching is case-insensitive."
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      },
+      "PatchBookingFieldsInput20260612BookingFieldsItemAnyOf11": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Unique identifier for the field, e.g. \u0060some-slug\u0060. Can contain letters, numbers, hyphens, and underscores.",
+            "example": "some-slug"
+          },
+          "label": {
+            "type": "string",
+            "example": "Your custom field label"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "hidden": {
+            "type": "boolean",
+            "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
+          },
+          "placeholder": {
+            "type": "string"
+          },
+          "disableOnPrefill": {
+            "type": "boolean",
+            "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if the slug is \u0060my-field\u0060 and the URL contains \u0060\u0026my-field=value\u0060,    the field will be prefilled with this value and disabled."
+          },
+          "type": {
+            "type": "string",
+            "description": "Only allowed value is \u0027phone\u0027.",
+            "example": "phone"
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      },
+      "PatchBookingFieldsInput20260612BookingFieldsItemAnyOf12": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Unique identifier for the field, e.g. \u0060some-slug\u0060. Can contain letters, numbers, hyphens, and underscores.",
+            "example": "some-slug"
+          },
+          "label": {
+            "type": "string",
+            "example": "Your custom field label"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "hidden": {
+            "type": "boolean",
+            "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
+          },
+          "placeholder": {
+            "type": "string"
+          },
+          "disableOnPrefill": {
+            "type": "boolean",
+            "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if the slug is \u0060my-field\u0060 and the URL contains \u0060\u0026my-field=value\u0060,    the field will be prefilled with this value and disabled."
+          },
+          "type": {
+            "type": "string",
+            "description": "Only allowed value is \u0027address\u0027.",
+            "example": "address"
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      },
+      "PatchBookingFieldsInput20260612BookingFieldsItemAnyOf13": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Unique identifier for the field, e.g. \u0060some-slug\u0060. Can contain letters, numbers, hyphens, and underscores.",
+            "example": "some-slug"
+          },
+          "label": {
+            "type": "string",
+            "example": "Your custom field label"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "hidden": {
+            "type": "boolean",
+            "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
+          },
+          "placeholder": {
+            "type": "string"
+          },
+          "disableOnPrefill": {
+            "type": "boolean",
+            "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if the slug is \u0060my-field\u0060 and the URL contains \u0060\u0026my-field=value\u0060,    the field will be prefilled with this value and disabled."
+          },
+          "type": {
+            "type": "string",
+            "description": "Only allowed value is \u0027shortText\u0027.",
+            "example": "shortText"
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      },
+      "PatchBookingFieldsInput20260612BookingFieldsItemAnyOf14": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Unique identifier for the field, e.g. \u0060some-slug\u0060. Can contain letters, numbers, hyphens, and underscores.",
+            "example": "some-slug"
+          },
+          "label": {
+            "type": "string",
+            "example": "Your custom field label"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "hidden": {
+            "type": "boolean",
+            "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
+          },
+          "placeholder": {
+            "type": "string"
+          },
+          "disableOnPrefill": {
+            "type": "boolean",
+            "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if the slug is \u0060my-field\u0060 and the URL contains \u0060\u0026my-field=value\u0060,    the field will be prefilled with this value and disabled."
+          },
+          "type": {
+            "type": "string",
+            "description": "Only allowed value is \u0027number\u0027.",
+            "example": "number"
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      },
+      "PatchBookingFieldsInput20260612BookingFieldsItemAnyOf15": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Unique identifier for the field, e.g. \u0060some-slug\u0060. Can contain letters, numbers, hyphens, and underscores.",
+            "example": "some-slug"
+          },
+          "label": {
+            "type": "string",
+            "example": "Your custom field label"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "hidden": {
+            "type": "boolean",
+            "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
+          },
+          "placeholder": {
+            "type": "string"
+          },
+          "disableOnPrefill": {
+            "type": "boolean",
+            "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if the slug is \u0060my-field\u0060 and the URL contains \u0060\u0026my-field=value\u0060,    the field will be prefilled with this value and disabled."
+          },
+          "type": {
+            "type": "string",
+            "description": "Only allowed value is \u0027longText\u0027.",
+            "example": "longText"
+          },
+          "minLength": {
+            "maximum": 1000,
+            "minimum": 0,
+            "type": "number",
+            "description": "Minimum character length for the long text field. Defaults to 0 if not provided."
+          },
+          "maxLength": {
+            "maximum": 1000,
+            "minimum": 0,
+            "type": "number",
+            "description": "Maximum character length for the long text field. Defaults to 1000 if not provided."
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      },
+      "PatchBookingFieldsInput20260612BookingFieldsItemAnyOf16": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Unique identifier for the field, e.g. \u0060some-slug\u0060. Can contain letters, numbers, hyphens, and underscores.",
+            "example": "some-slug"
+          },
+          "label": {
+            "type": "string",
+            "example": "Your custom field label"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "hidden": {
+            "type": "boolean",
+            "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
+          },
+          "placeholder": {
+            "type": "string"
+          },
+          "disableOnPrefill": {
+            "type": "boolean",
+            "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if the slug is \u0060my-field\u0060 and the URL contains \u0060\u0026my-field=value\u0060,    the field will be prefilled with this value and disabled."
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "Option 1",
+              "Option 2"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "description": "Only allowed value is \u0027select\u0027.",
+            "example": "select"
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      },
+      "PatchBookingFieldsInput20260612BookingFieldsItemAnyOf17": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Unique identifier for the field, e.g. \u0060some-slug\u0060. Can contain letters, numbers, hyphens, and underscores.",
+            "example": "some-slug"
+          },
+          "label": {
+            "type": "string",
+            "example": "Your custom field label"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "hidden": {
+            "type": "boolean",
+            "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
+          },
+          "placeholder": {
+            "type": "string"
+          },
+          "disableOnPrefill": {
+            "type": "boolean",
+            "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if the slug is \u0060my-field\u0060 and the URL contains \u0060\u0026my-field=value\u0060,    the field will be prefilled with this value and disabled."
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "Option 1",
+              "Option 2"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "description": "Only allowed value is \u0027multiSelect\u0027.",
+            "example": "multiSelect"
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      },
+      "PatchBookingFieldsInput20260612BookingFieldsItemAnyOf18": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Unique identifier for the field, e.g. \u0060some-slug\u0060. Can contain letters, numbers, hyphens, and underscores.",
+            "example": "some-slug"
+          },
+          "label": {
+            "type": "string",
+            "example": "Your custom field label"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "hidden": {
+            "type": "boolean",
+            "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
+          },
+          "placeholder": {
+            "type": "string"
+          },
+          "disableOnPrefill": {
+            "type": "boolean",
+            "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if the slug is \u0060my-field\u0060 and the URL contains \u0060\u0026my-field=value\u0060,    the field will be prefilled with this value and disabled."
+          },
+          "type": {
+            "type": "string",
+            "description": "Only allowed value is \u0027multiEmail\u0027.",
+            "example": "multiEmail"
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      },
+      "PatchBookingFieldsInput20260612BookingFieldsItemAnyOf19": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Unique identifier for the field, e.g. \u0060some-slug\u0060. Can contain letters, numbers, hyphens, and underscores.",
+            "example": "some-slug"
+          },
+          "label": {
+            "type": "string",
+            "example": "Your custom field label"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "hidden": {
+            "type": "boolean",
+            "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
+          },
+          "placeholder": {
+            "type": "string"
+          },
+          "disableOnPrefill": {
+            "type": "boolean",
+            "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if the slug is \u0060my-field\u0060 and the URL contains \u0060\u0026my-field=value\u0060,    the field will be prefilled with this value and disabled."
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "Option 1",
+              "Option 2"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "description": "Only allowed value is \u0027checkboxGroup\u0027.",
+            "example": "checkboxGroup"
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      },
+      "PatchBookingFieldsInput20260612BookingFieldsItemAnyOf20": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Unique identifier for the field, e.g. \u0060some-slug\u0060. Can contain letters, numbers, hyphens, and underscores.",
+            "example": "some-slug"
+          },
+          "label": {
+            "type": "string",
+            "example": "Your custom field label"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "hidden": {
+            "type": "boolean",
+            "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
+          },
+          "placeholder": {
+            "type": "string"
+          },
+          "disableOnPrefill": {
+            "type": "boolean",
+            "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if the slug is \u0060my-field\u0060 and the URL contains \u0060\u0026my-field=value\u0060,    the field will be prefilled with this value and disabled."
+          },
+          "type": {
+            "type": "string",
+            "description": "Only allowed value is \u0027checkbox\u0027.",
+            "example": "checkbox"
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      },
+      "PatchBookingFieldsInput20260612BookingFieldsItemAnyOf21": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Unique identifier for the field, e.g. \u0060some-slug\u0060. Can contain letters, numbers, hyphens, and underscores.",
+            "example": "some-slug"
+          },
+          "label": {
+            "type": "string",
+            "example": "Your custom field label"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "hidden": {
+            "type": "boolean",
+            "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
+          },
+          "placeholder": {
+            "type": "string"
+          },
+          "disableOnPrefill": {
+            "type": "boolean",
+            "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if the slug is \u0060my-field\u0060 and the URL contains \u0060\u0026my-field=value\u0060,    the field will be prefilled with this value and disabled."
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "Option 1",
+              "Option 2"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "description": "Only allowed value is \u0027radioGroup\u0027.",
+            "example": "radioGroup"
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      },
+      "PatchBookingFieldsInput20260612BookingFieldsItemAnyOf22": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Unique identifier for the field, e.g. \u0060some-slug\u0060. Can contain letters, numbers, hyphens, and underscores.",
+            "example": "some-slug"
+          },
+          "label": {
+            "type": "string",
+            "example": "Your custom field label"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "hidden": {
+            "type": "boolean",
+            "description": "Hide this booking field from the booking page while keeping it in the event type\u0027s settings. Hidden fields are only returned to callers authorized on the event type."
+          },
+          "placeholder": {
+            "type": "string"
+          },
+          "disableOnPrefill": {
+            "type": "boolean",
+            "description": "Disable this booking field if the URL contains query parameter with key equal to the slug and prefill it with the provided value.    For example, if the slug is \u0060my-field\u0060 and the URL contains \u0060\u0026my-field=value\u0060,    the field will be prefilled with this value and disabled."
+          },
+          "type": {
+            "type": "string",
+            "description": "Only allowed value is \u0027url\u0027.",
+            "example": "url"
+          }
+        },
+        "required": [
+          "slug"
+        ]
       },
       "SlotsController20240904GetAvailableSlots200ResponseOneOf1": {
         "title": "Default format (or with format=time)",

@@ -11,29 +11,51 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class InviteGuestsOutputDto : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("failedCount") is { } nullNodeFailedCount && nullNodeFailedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailedCount = null;
+            if (parseNode.GetChildNode("invitedCount") is { } nullNodeInvitedCount && nullNodeInvitedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InvitedCount = null;
+            if (parseNode.GetChildNode("outcomes") is { } nullNodeOutcomes && nullNodeOutcomes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Outcomes = null;
+            if (parseNode.GetChildNode("skippedAlreadyInvited") is { } nullNodeSkippedAlreadyInvited && nullNodeSkippedAlreadyInvited.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkippedAlreadyInvited = null;
+            if (parseNode.GetChildNode("skippedAlreadyRegistered") is { } nullNodeSkippedAlreadyRegistered && nullNodeSkippedAlreadyRegistered.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkippedAlreadyRegistered = null;
+            if (parseNode.GetChildNode("skippedInvalid") is { } nullNodeSkippedInvalid && nullNodeSkippedInvalid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkippedInvalid = null;
+            if (parseNode.GetChildNode("skippedOnCooldown") is { } nullNodeSkippedOnCooldown && nullNodeSkippedOnCooldown.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkippedOnCooldown = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Addresses whose invitation could not be saved. They can be retried.</summary>
-        public double? FailedCount { get; set; }
+        public double? FailedCount { get => _explicitNullValueFailedCount; set { _explicitNullValueFailedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failedCount"); else _explicitNullProperties?.Remove("failedCount"); } }
+        private double? _explicitNullValueFailedCount = default!;
         /// <summary>The invitedCount property</summary>
-        public double? InvitedCount { get; set; }
+        public double? InvitedCount { get => _explicitNullValueInvitedCount; set { _explicitNullValueInvitedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invitedCount"); else _explicitNullProperties?.Remove("invitedCount"); } }
+        private double? _explicitNullValueInvitedCount = default!;
         /// <summary>One entry per submitted address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.InviteOutcomeOutputDto>? Outcomes { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.InviteOutcomeOutputDto>? Outcomes { get => _explicitNullValueOutcomes; set { _explicitNullValueOutcomes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outcomes"); else _explicitNullProperties?.Remove("outcomes"); } }
+        private List<global::Soenneker.CalCom.OpenApiClient.Models.InviteOutcomeOutputDto>? _explicitNullValueOutcomes = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.InviteOutcomeOutputDto> Outcomes { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.InviteOutcomeOutputDto> Outcomes { get => _explicitNullValueOutcomes; set { _explicitNullValueOutcomes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outcomes"); else _explicitNullProperties?.Remove("outcomes"); } }
+        private List<global::Soenneker.CalCom.OpenApiClient.Models.InviteOutcomeOutputDto> _explicitNullValueOutcomes = default!;
 #endif
         /// <summary>The skippedAlreadyInvited property</summary>
-        public double? SkippedAlreadyInvited { get; set; }
+        public double? SkippedAlreadyInvited { get => _explicitNullValueSkippedAlreadyInvited; set { _explicitNullValueSkippedAlreadyInvited = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skippedAlreadyInvited"); else _explicitNullProperties?.Remove("skippedAlreadyInvited"); } }
+        private double? _explicitNullValueSkippedAlreadyInvited = default!;
         /// <summary>The skippedAlreadyRegistered property</summary>
-        public double? SkippedAlreadyRegistered { get; set; }
+        public double? SkippedAlreadyRegistered { get => _explicitNullValueSkippedAlreadyRegistered; set { _explicitNullValueSkippedAlreadyRegistered = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skippedAlreadyRegistered"); else _explicitNullProperties?.Remove("skippedAlreadyRegistered"); } }
+        private double? _explicitNullValueSkippedAlreadyRegistered = default!;
         /// <summary>The skippedInvalid property</summary>
-        public double? SkippedInvalid { get; set; }
+        public double? SkippedInvalid { get => _explicitNullValueSkippedInvalid; set { _explicitNullValueSkippedInvalid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skippedInvalid"); else _explicitNullProperties?.Remove("skippedInvalid"); } }
+        private double? _explicitNullValueSkippedInvalid = default!;
         /// <summary>The skippedOnCooldown property</summary>
-        public double? SkippedOnCooldown { get; set; }
+        public double? SkippedOnCooldown { get => _explicitNullValueSkippedOnCooldown; set { _explicitNullValueSkippedOnCooldown = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skippedOnCooldown"); else _explicitNullProperties?.Remove("skippedOnCooldown"); } }
+        private double? _explicitNullValueSkippedOnCooldown = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.InviteGuestsOutputDto"/> and sets the default values.
         /// </summary>
@@ -49,7 +71,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.InviteGuestsOutputDto CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.InviteGuestsOutputDto();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.InviteGuestsOutputDto(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -82,6 +104,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteDoubleValue("skippedAlreadyRegistered", SkippedAlreadyRegistered);
             writer.WriteDoubleValue("skippedInvalid", SkippedInvalid);
             writer.WriteDoubleValue("skippedOnCooldown", SkippedOnCooldown);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

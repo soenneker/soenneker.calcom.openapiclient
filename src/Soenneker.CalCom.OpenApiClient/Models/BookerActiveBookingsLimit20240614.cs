@@ -11,15 +11,28 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class BookerActiveBookingsLimit20240614 : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("disabled") is { } nullNodeDisabled && nullNodeDisabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Disabled = null;
+            if (parseNode.GetChildNode("maximumActiveBookings") is { } nullNodeMaximumActiveBookings && nullNodeMaximumActiveBookings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaximumActiveBookings = null;
+            if (parseNode.GetChildNode("offerReschedule") is { } nullNodeOfferReschedule && nullNodeOfferReschedule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OfferReschedule = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The disabled property</summary>
-        public bool? Disabled { get; set; }
+        public bool? Disabled { get => _explicitNullValueDisabled; set { _explicitNullValueDisabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disabled"); else _explicitNullProperties?.Remove("disabled"); } }
+        private bool? _explicitNullValueDisabled = default!;
         /// <summary>The maximum number of active bookings a booker can have for this event type.</summary>
-        public double? MaximumActiveBookings { get; set; }
+        public double? MaximumActiveBookings { get => _explicitNullValueMaximumActiveBookings; set { _explicitNullValueMaximumActiveBookings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maximumActiveBookings"); else _explicitNullProperties?.Remove("maximumActiveBookings"); } }
+        private double? _explicitNullValueMaximumActiveBookings = default!;
         /// <summary>Whether to offer rescheduling the last active booking to the chosen time slot when limit is reached.</summary>
-        public bool? OfferReschedule { get; set; }
+        public bool? OfferReschedule { get => _explicitNullValueOfferReschedule; set { _explicitNullValueOfferReschedule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("offerReschedule"); else _explicitNullProperties?.Remove("offerReschedule"); } }
+        private bool? _explicitNullValueOfferReschedule = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.BookerActiveBookingsLimit20240614"/> and sets the default values.
         /// </summary>
@@ -36,7 +49,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.BookerActiveBookingsLimit20240614 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.BookerActiveBookingsLimit20240614();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.BookerActiveBookingsLimit20240614(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,6 +74,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteBoolValue("disabled", Disabled);
             writer.WriteDoubleValue("maximumActiveBookings", MaximumActiveBookings);
             writer.WriteBoolValue("offerReschedule", OfferReschedule);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

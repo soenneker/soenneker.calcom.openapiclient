@@ -49,7 +49,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Teams.Item.EventTypes.Item.CalendarI
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.EventTypeCalendarInvitesOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.EventTypeCalendarInvitesOutput.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.EventTypeCalendarInvitesOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.EventTypeCalendarInvitesOutput.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Updates one or both audiences without changing other event-type fields; omitted audiences remain unchanged. Access matches updating the team event type: the `eventType.update` PBAC permission, or team ADMIN/OWNER role when PBAC does not grant it. OAuth clients require `TEAM_EVENT_TYPE_WRITE`. Custom templates are limited to 5,000 characters; HTML tags are stripped and Markdown links are kept. Managed children are read-only and return HTTP 400. Event types outside the requested team return 404.
@@ -69,7 +69,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Teams.Item.EventTypes.Item.CalendarI
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.EventTypeCalendarInvitesOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.EventTypeCalendarInvitesOutput.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.EventTypeCalendarInvitesOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.EventTypeCalendarInvitesOutput.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns host and guest settings resolved from the event type, an organization default when available, then Cal.com&apos;s standard description. Access matches reading the team event type: the `eventType.readTeamEventTypes` PBAC permission, or team ADMIN/OWNER role when PBAC does not grant it. OAuth clients require `TEAM_EVENT_TYPE_READ`. Custom templates are limited to 5,000 characters. Event types outside the requested team return 404. Managed children inherit their parent&apos;s settings and are marked read-only.

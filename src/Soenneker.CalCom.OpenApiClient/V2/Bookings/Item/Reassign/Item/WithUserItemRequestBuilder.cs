@@ -51,7 +51,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Bookings.Item.Reassign.Item
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.ReassignBookingOutput20240813>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.ReassignBookingOutput20240813.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.ReassignBookingOutput20240813>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.ReassignBookingOutput20240813.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Currently only supports reassigning host for round robin bookings. The provided authorization header refers to the owner of the booking.      &lt;Note&gt;Please make sure to pass in the cal-api-version header value as mentioned in the Headers section. Not passing the correct value will default to an older version of this endpoint.&lt;/Note&gt;If accessed using an OAuth access token, the `BOOKING_WRITE` scope is required.      

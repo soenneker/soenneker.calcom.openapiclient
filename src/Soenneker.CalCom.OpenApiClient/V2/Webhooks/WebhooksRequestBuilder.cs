@@ -62,7 +62,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Webhooks
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.UserWebhooksOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.UserWebhooksOutputResponseDto.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.UserWebhooksOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.UserWebhooksOutputResponseDto.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// If accessed using an OAuth access token, the `WEBHOOK_WRITE` scope is required.
@@ -82,7 +82,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Webhooks
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.UserWebhookOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.UserWebhookOutputResponseDto.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.UserWebhookOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.UserWebhookOutputResponseDto.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Gets a paginated list of webhooks for the authenticated user. If accessed using an OAuth access token, the `WEBHOOK_READ` scope is required.

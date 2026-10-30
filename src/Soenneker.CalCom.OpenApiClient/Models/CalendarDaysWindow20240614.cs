@@ -11,17 +11,32 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CalendarDaysWindow20240614 : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("disabled") is { } nullNodeDisabled && nullNodeDisabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Disabled = null;
+            if (parseNode.GetChildNode("rolling") is { } nullNodeRolling && nullNodeRolling.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rolling = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("value") is { } nullNodeValue && nullNodeValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Value = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The disabled property</summary>
-        public bool? Disabled { get; set; }
+        public bool? Disabled { get => _explicitNullValueDisabled; set { _explicitNullValueDisabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disabled"); else _explicitNullProperties?.Remove("disabled"); } }
+        private bool? _explicitNullValueDisabled = default!;
         /// <summary>      Determines the behavior of the booking window:      - If **true**, the window is rolling. This means the number of available days will always be equal the specified &apos;value&apos;         and adjust dynamically as bookings are made. For example, if &apos;value&apos; is 3 and availability is only on Mondays,         a booker attempting to schedule on November 10 will see slots on November 11, 18, and 25. As one of these days         becomes fully booked, a new day (e.g., December 2) will open up to ensure 3 available days are always visible.        In this mode &apos;value&apos; must be at most 61, because availability is only searched up to 61 days ahead.      - If **false**, the window is fixed. This means the booking window only considers the next &apos;value&apos; days from the        moment someone is trying to book. For example, if &apos;value&apos; is 3, availability is only on Mondays, and the current         date is November 10, the booker will only see slots on November 11 because the window is restricted to the next         3 calendar days (November 10–12).    </summary>
-        public bool? Rolling { get; set; }
+        public bool? Rolling { get => _explicitNullValueRolling; set { _explicitNullValueRolling = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rolling"); else _explicitNullProperties?.Remove("rolling"); } }
+        private bool? _explicitNullValueRolling = default!;
         /// <summary>Whether the window should be business days, calendar days or a range of dates</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.CalendarDaysWindow20240614Type? Type { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CalendarDaysWindow20240614Type? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.CalendarDaysWindow20240614Type? _explicitNullValueType = default!;
         /// <summary>How many calendar days into the future can this event be booked</summary>
-        public double? Value { get; set; }
+        public double? Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
+        private double? _explicitNullValueValue = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.CalendarDaysWindow20240614"/> and sets the default values.
         /// </summary>
@@ -38,7 +53,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.CalendarDaysWindow20240614 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.CalendarDaysWindow20240614();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.CalendarDaysWindow20240614(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -65,6 +80,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteBoolValue("rolling", Rolling);
             writer.WriteEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.CalendarDaysWindow20240614Type>("type", Type);
             writer.WriteDoubleValue("value", Value);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

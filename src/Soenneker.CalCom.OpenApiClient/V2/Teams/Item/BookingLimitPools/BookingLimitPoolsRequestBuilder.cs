@@ -62,7 +62,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Teams.Item.BookingLimitPools
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolsOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolsOutput.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolsOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolsOutput.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Caps how many bookings each rotating host takes across the pool&apos;s round-robin event types. Set at least one interval. Requires permission to update the team&apos;s event types. If accessed using an OAuth access token, the `TEAM_EVENT_TYPE_WRITE` scope is required.
@@ -82,7 +82,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Teams.Item.BookingLimitPools
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolResponseOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolResponseOutput.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolResponseOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolResponseOutput.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the team&apos;s booking limit pools and its round-robin event types that can be in one. Requires an accepted membership of the team. If accessed using an OAuth access token, the `TEAM_EVENT_TYPE_READ` scope is required.

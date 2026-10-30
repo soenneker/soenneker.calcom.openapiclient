@@ -12,15 +12,28 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UserBookingLimitsUsageOutputBinding : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("layer") is { } nullNodeLayer && nullNodeLayer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Layer = null;
+            if (parseNode.GetChildNode("limitKey") is { } nullNodeLimitKey && nullNodeLimitKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LimitKey = null;
+            if (parseNode.GetChildNode("remaining") is { } nullNodeRemaining && nullNodeRemaining.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Remaining = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The layer property</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.BindingBookingLimitOutputLayer? Layer { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.BindingBookingLimitOutputLayer? Layer { get => _explicitNullValueLayer; set { _explicitNullValueLayer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("layer"); else _explicitNullProperties?.Remove("layer"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.BindingBookingLimitOutputLayer? _explicitNullValueLayer = default!;
         /// <summary>The limitKey property</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.BindingBookingLimitOutputLimitKey? LimitKey { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.BindingBookingLimitOutputLimitKey? LimitKey { get => _explicitNullValueLimitKey; set { _explicitNullValueLimitKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limitKey"); else _explicitNullProperties?.Remove("limitKey"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.BindingBookingLimitOutputLimitKey? _explicitNullValueLimitKey = default!;
         /// <summary>The remaining property</summary>
-        public double? Remaining { get; set; }
+        public double? Remaining { get => _explicitNullValueRemaining; set { _explicitNullValueRemaining = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remaining"); else _explicitNullProperties?.Remove("remaining"); } }
+        private double? _explicitNullValueRemaining = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UserBookingLimitsUsageOutputBinding"/> and sets the default values.
         /// </summary>
@@ -36,7 +49,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.UserBookingLimitsUsageOutputBinding CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.UserBookingLimitsUsageOutputBinding();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.UserBookingLimitsUsageOutputBinding(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,6 +74,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.BindingBookingLimitOutputLayer>("layer", Layer);
             writer.WriteEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.BindingBookingLimitOutputLimitKey>("limitKey", LimitKey);
             writer.WriteDoubleValue("remaining", Remaining);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

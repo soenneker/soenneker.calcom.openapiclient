@@ -62,7 +62,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Teams.Item.BookingLimitPools.Item.Ho
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostsOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostsOutput.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostsOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostsOutput.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the rotating hosts of the pool&apos;s event types in user id order, each with their own limit and the limit enforced for them. Requires permission to update the team&apos;s event types, since a host&apos;s limit can reveal their overall booking limit. If accessed using an OAuth access token, the `TEAM_EVENT_TYPE_WRITE` scope is required.

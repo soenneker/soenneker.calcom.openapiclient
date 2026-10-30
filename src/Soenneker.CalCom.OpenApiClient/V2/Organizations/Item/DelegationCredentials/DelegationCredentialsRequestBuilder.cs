@@ -68,6 +68,8 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.DelegationCredent
             {
                 { "401", global::Soenneker.CalCom.OpenApiClient.Models.OrganizationsDelegationCredentialControllerGetDelegationCredentials401Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.CalCom.OpenApiClient.Models.OrganizationsDelegationCredentialControllerGetDelegationCredentials403Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetDelegationCredentialsOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetDelegationCredentialsOutput.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -89,7 +91,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.DelegationCredent
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.CreateDelegationCredentialOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.CreateDelegationCredentialOutput.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.CreateDelegationCredentialOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.CreateDelegationCredentialOutput.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Optionally filter by `domain` to look up the delegation credential configured for a specific domain. Required membership role: `org admin`. PBAC permission: `organization.readDelegationCredentials`. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control

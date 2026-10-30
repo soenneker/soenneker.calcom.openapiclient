@@ -49,7 +49,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Events.Item.CoHosts.Item
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.CoHostsActionOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.CoHostsActionOutputResponseDto.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.CoHostsActionOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.CoHostsActionOutputResponseDto.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Removes an accepted co-host, or cancels a pending invitation so its link stops working.The authenticated user must be its owner, one of its hosts, or a member of the owning team; an accepted co-host cannot remove anyone and gets 404, exactly like an unknown uuid.PBAC permission for team events: `calEvent.update`. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control.If accessed using an OAuth access token, the `EVENT_WRITE` scope is required.

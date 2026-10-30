@@ -11,28 +11,45 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class BookingInsightsInput : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("columnFilters") is { } nullNodeColumnFilters && nullNodeColumnFilters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ColumnFilters = null;
+            if (parseNode.GetChildNode("scope") is { } nullNodeScope && nullNodeScope.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scope = null;
+            if (parseNode.GetChildNode("selectedTeamId") is { } nullNodeSelectedTeamId && nullNodeSelectedTeamId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectedTeamId = null;
+            if (parseNode.GetChildNode("timeZone") is { } nullNodeTimeZone && nullNodeTimeZone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeZone = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Data-table column filters (discriminated union by type: ss, ms, t, n, dr). Date range filters use id=startTime or id=createdAt.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsInputColumnFiltersItem>? ColumnFilters { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsInputColumnFiltersItem>? ColumnFilters { get => _explicitNullValueColumnFilters; set { _explicitNullValueColumnFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("columnFilters"); else _explicitNullProperties?.Remove("columnFilters"); } }
+        private List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsInputColumnFiltersItem>? _explicitNullValueColumnFilters = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsInputColumnFiltersItem> ColumnFilters { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsInputColumnFiltersItem> ColumnFilters { get => _explicitNullValueColumnFilters; set { _explicitNullValueColumnFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("columnFilters"); else _explicitNullProperties?.Remove("columnFilters"); } }
+        private List<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsInputColumnFiltersItem> _explicitNullValueColumnFilters = default!;
 #endif
         /// <summary>The scope property</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsInputScope? Scope { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsInputScope? Scope { get => _explicitNullValueScope; set { _explicitNullValueScope = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scope"); else _explicitNullProperties?.Remove("scope"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsInputScope? _explicitNullValueScope = default!;
         /// <summary>Team ID for team-scoped insights</summary>
-        public double? SelectedTeamId { get; set; }
+        public double? SelectedTeamId { get => _explicitNullValueSelectedTeamId; set { _explicitNullValueSelectedTeamId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selectedTeamId"); else _explicitNullProperties?.Remove("selectedTeamId"); } }
+        private double? _explicitNullValueSelectedTeamId = default!;
         /// <summary>IANA timezone used to group time-series insights</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TimeZone { get; set; }
+        public string? TimeZone { get => _explicitNullValueTimeZone; set { _explicitNullValueTimeZone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeZone"); else _explicitNullProperties?.Remove("timeZone"); } }
+        private string? _explicitNullValueTimeZone = default!;
 #nullable restore
 #else
-        public string TimeZone { get; set; }
+        public string TimeZone { get => _explicitNullValueTimeZone; set { _explicitNullValueTimeZone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeZone"); else _explicitNullProperties?.Remove("timeZone"); } }
+        private string _explicitNullValueTimeZone = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsInput"/> and sets the default values.
@@ -49,7 +66,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsInput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsInput();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsInput(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -76,6 +93,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.BookingInsightsInputScope>("scope", Scope);
             writer.WriteDoubleValue("selectedTeamId", SelectedTeamId);
             writer.WriteStringValue("timeZone", TimeZone);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

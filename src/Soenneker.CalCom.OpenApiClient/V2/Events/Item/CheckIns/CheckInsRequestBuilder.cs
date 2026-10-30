@@ -51,7 +51,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Events.Item.CheckIns
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.CheckInOutcomeOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.CheckInOutcomeOutputResponseDto.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.CheckInOutcomeOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.CheckInOutcomeOutputResponseDto.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Redeems a scanned check-in QR token. The token is carried in the request body, never the URL, since URLs land in history and access logs. Same access as the by-id check-in; an external co-host may also work the door. PBAC permission for team events: `calEvent.update`. If accessed using an OAuth access token, the `EVENT_WRITE` scope is required.

@@ -62,7 +62,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Allowlists
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetAllowlistsOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetAllowlistsOutput.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetAllowlistsOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetAllowlistsOutput.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the IPv4 ranges Cal.com sends traffic from and receives traffic on, keyed by service. Poll this endpoint instead of hard-coding addresses, because they can change.

@@ -11,121 +11,180 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CreateRecurringBookingInput20240813 : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("allowBookingOutOfBounds") is { } nullNodeAllowBookingOutOfBounds && nullNodeAllowBookingOutOfBounds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowBookingOutOfBounds = null;
+            if (parseNode.GetChildNode("allowConflicts") is { } nullNodeAllowConflicts && nullNodeAllowConflicts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowConflicts = null;
+            if (parseNode.GetChildNode("attendee") is { } nullNodeAttendee && nullNodeAttendee.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Attendee = null;
+            if (parseNode.GetChildNode("bookingFieldsResponses") is { } nullNodeBookingFieldsResponses && nullNodeBookingFieldsResponses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingFieldsResponses = null;
+            if (parseNode.GetChildNode("emailVerificationCode") is { } nullNodeEmailVerificationCode && nullNodeEmailVerificationCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailVerificationCode = null;
+            if (parseNode.GetChildNode("eventTypeId") is { } nullNodeEventTypeId && nullNodeEventTypeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventTypeId = null;
+            if (parseNode.GetChildNode("eventTypeSlug") is { } nullNodeEventTypeSlug && nullNodeEventTypeSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventTypeSlug = null;
+            if (parseNode.GetChildNode("guests") is { } nullNodeGuests && nullNodeGuests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Guests = null;
+            if (parseNode.GetChildNode("leadEnrichmentOptOut") is { } nullNodeLeadEnrichmentOptOut && nullNodeLeadEnrichmentOptOut.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LeadEnrichmentOptOut = null;
+            if (parseNode.GetChildNode("lengthInMinutes") is { } nullNodeLengthInMinutes && nullNodeLengthInMinutes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LengthInMinutes = null;
+            if (parseNode.GetChildNode("location") is { } nullNodeLocation && nullNodeLocation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Location = null;
+            if (parseNode.GetChildNode("meetingUrl") is { } nullNodeMeetingUrl && nullNodeMeetingUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MeetingUrl = null;
+            if (parseNode.GetChildNode("metadata") is { } nullNodeMetadata && nullNodeMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metadata = null;
+            if (parseNode.GetChildNode("organizationSlug") is { } nullNodeOrganizationSlug && nullNodeOrganizationSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrganizationSlug = null;
+            if (parseNode.GetChildNode("recurrenceCount") is { } nullNodeRecurrenceCount && nullNodeRecurrenceCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecurrenceCount = null;
+            if (parseNode.GetChildNode("routing") is { } nullNodeRouting && nullNodeRouting.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Routing = null;
+            if (parseNode.GetChildNode("skipBookingLimits") is { } nullNodeSkipBookingLimits && nullNodeSkipBookingLimits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipBookingLimits = null;
+            if (parseNode.GetChildNode("start") is { } nullNodeStart && nullNodeStart.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Start = null;
+            if (parseNode.GetChildNode("teamSlug") is { } nullNodeTeamSlug && nullNodeTeamSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TeamSlug = null;
+            if (parseNode.GetChildNode("username") is { } nullNodeUsername && nullNodeUsername.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Username = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>When true, booking time out-of-bounds checks are bypassed, allowing bookings outside the normally permitted scheduling window, for an authenticated user who has access through the existing event owner, host, assigned user, team admin or organization admin checks. Team- and organization-scoped keys are restricted to events in their stored team or organization. Otherwise this parameter is silently ignored. Only supported on the 2026-02-25 and 2026-05-01 API versions.</summary>
-        public bool? AllowBookingOutOfBounds { get; set; }
+        public bool? AllowBookingOutOfBounds { get => _explicitNullValueAllowBookingOutOfBounds; set { _explicitNullValueAllowBookingOutOfBounds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowBookingOutOfBounds"); else _explicitNullProperties?.Remove("allowBookingOutOfBounds"); } }
+        private bool? _explicitNullValueAllowBookingOutOfBounds = default!;
         /// <summary>When true, availability conflict checks are bypassed for an authenticated user who has access through the existing event owner, host, assigned user, team admin or organization admin checks. Team- and organization-scoped keys are restricted to events in their stored team or organization. Otherwise this parameter is silently ignored. Only supported on the 2026-02-25 and 2026-05-01 API versions.</summary>
-        public bool? AllowConflicts { get; set; }
+        public bool? AllowConflicts { get => _explicitNullValueAllowConflicts; set { _explicitNullValueAllowConflicts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowConflicts"); else _explicitNullProperties?.Remove("allowConflicts"); } }
+        private bool? _explicitNullValueAllowConflicts = default!;
         /// <summary>The attendee&apos;s details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813Attendee? Attendee { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813Attendee? Attendee { get => _explicitNullValueAttendee; set { _explicitNullValueAttendee = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attendee"); else _explicitNullProperties?.Remove("attendee"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813Attendee? _explicitNullValueAttendee = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813Attendee Attendee { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813Attendee Attendee { get => _explicitNullValueAttendee; set { _explicitNullValueAttendee = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attendee"); else _explicitNullProperties?.Remove("attendee"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813Attendee _explicitNullValueAttendee = default!;
 #endif
         /// <summary>Booking field responses consisting of an object with booking field slug as keys and user response as values for custom booking fields added by you.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813BookingFieldsResponsesProperty? BookingFieldsResponses { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813BookingFieldsResponsesProperty? BookingFieldsResponses { get => _explicitNullValueBookingFieldsResponses; set { _explicitNullValueBookingFieldsResponses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingFieldsResponses"); else _explicitNullProperties?.Remove("bookingFieldsResponses"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813BookingFieldsResponsesProperty? _explicitNullValueBookingFieldsResponses = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813BookingFieldsResponsesProperty BookingFieldsResponses { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813BookingFieldsResponsesProperty BookingFieldsResponses { get => _explicitNullValueBookingFieldsResponses; set { _explicitNullValueBookingFieldsResponses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingFieldsResponses"); else _explicitNullProperties?.Remove("bookingFieldsResponses"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813BookingFieldsResponsesProperty _explicitNullValueBookingFieldsResponses = default!;
 #endif
         /// <summary>Email verification code required when event type has email verification enabled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EmailVerificationCode { get; set; }
+        public string? EmailVerificationCode { get => _explicitNullValueEmailVerificationCode; set { _explicitNullValueEmailVerificationCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emailVerificationCode"); else _explicitNullProperties?.Remove("emailVerificationCode"); } }
+        private string? _explicitNullValueEmailVerificationCode = default!;
 #nullable restore
 #else
-        public string EmailVerificationCode { get; set; }
+        public string EmailVerificationCode { get => _explicitNullValueEmailVerificationCode; set { _explicitNullValueEmailVerificationCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emailVerificationCode"); else _explicitNullProperties?.Remove("emailVerificationCode"); } }
+        private string _explicitNullValueEmailVerificationCode = default!;
 #endif
         /// <summary>The ID of the event type that is booked. Required unless eventTypeSlug and username are provided as an alternative to identifying the event type.</summary>
-        public double? EventTypeId { get; set; }
+        public double? EventTypeId { get => _explicitNullValueEventTypeId; set { _explicitNullValueEventTypeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeId"); else _explicitNullProperties?.Remove("eventTypeId"); } }
+        private double? _explicitNullValueEventTypeId = default!;
         /// <summary>The slug of the event type. Required along with username / teamSlug and optionally organizationSlug if eventTypeId is not provided.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EventTypeSlug { get; set; }
+        public string? EventTypeSlug { get => _explicitNullValueEventTypeSlug; set { _explicitNullValueEventTypeSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeSlug"); else _explicitNullProperties?.Remove("eventTypeSlug"); } }
+        private string? _explicitNullValueEventTypeSlug = default!;
 #nullable restore
 #else
-        public string EventTypeSlug { get; set; }
+        public string EventTypeSlug { get => _explicitNullValueEventTypeSlug; set { _explicitNullValueEventTypeSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeSlug"); else _explicitNullProperties?.Remove("eventTypeSlug"); } }
+        private string _explicitNullValueEventTypeSlug = default!;
 #endif
         /// <summary>An optional list of guest emails attending the event.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Guests { get; set; }
+        public List<string>? Guests { get => _explicitNullValueGuests; set { _explicitNullValueGuests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guests"); else _explicitNullProperties?.Remove("guests"); } }
+        private List<string>? _explicitNullValueGuests = default!;
 #nullable restore
 #else
-        public List<string> Guests { get; set; }
+        public List<string> Guests { get => _explicitNullValueGuests; set { _explicitNullValueGuests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guests"); else _explicitNullProperties?.Remove("guests"); } }
+        private List<string> _explicitNullValueGuests = default!;
 #endif
         /// <summary>The booker&apos;s answer to the lead enrichment opt-out, for an event type with a workflow that looks bookers up with lead enrichment. Send `true` when the booker ticked the opt-out and `false` when they were shown it and left it unticked. Sending `false` asserts that the booker saw the opt-out. Leave it out when the booker was not shown it: a booking without an answer is never looked up.</summary>
-        public bool? LeadEnrichmentOptOut { get; set; }
+        public bool? LeadEnrichmentOptOut { get => _explicitNullValueLeadEnrichmentOptOut; set { _explicitNullValueLeadEnrichmentOptOut = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("leadEnrichmentOptOut"); else _explicitNullProperties?.Remove("leadEnrichmentOptOut"); } }
+        private bool? _explicitNullValueLeadEnrichmentOptOut = default!;
         /// <summary>If it is an event type that has multiple possible lengths that attendee can pick from, you can pass the desired booking length here.    If not provided then event type default length will be used for the booking.</summary>
-        public double? LengthInMinutes { get; set; }
+        public double? LengthInMinutes { get => _explicitNullValueLengthInMinutes; set { _explicitNullValueLengthInMinutes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lengthInMinutes"); else _explicitNullProperties?.Remove("lengthInMinutes"); } }
+        private double? _explicitNullValueLengthInMinutes = default!;
         /// <summary>One of the event type locations. If instead of passing one of the location objects as required by schema you are still passing a string please use an object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813Location? Location { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813Location? Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813Location? _explicitNullValueLocation = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813Location Location { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813Location Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813Location _explicitNullValueLocation = default!;
 #endif
         /// <summary>Deprecated - use &apos;location&apos; instead. Meeting URL just for this booking. Displayed in email and calendar event. If not provided then cal video link will be generated.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MeetingUrl { get; set; }
+        public string? MeetingUrl { get => _explicitNullValueMeetingUrl; set { _explicitNullValueMeetingUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meetingUrl"); else _explicitNullProperties?.Remove("meetingUrl"); } }
+        private string? _explicitNullValueMeetingUrl = default!;
 #nullable restore
 #else
-        public string MeetingUrl { get; set; }
+        public string MeetingUrl { get => _explicitNullValueMeetingUrl; set { _explicitNullValueMeetingUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meetingUrl"); else _explicitNullProperties?.Remove("meetingUrl"); } }
+        private string _explicitNullValueMeetingUrl = default!;
 #endif
         /// <summary>You can store any additional data you want here. Metadata must have at most 50 keys, each key up to 40 characters, and string values up to 500 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813MetadataProperty? Metadata { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813MetadataProperty? Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813MetadataProperty? _explicitNullValueMetadata = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813MetadataProperty Metadata { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813MetadataProperty Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813MetadataProperty _explicitNullValueMetadata = default!;
 #endif
         /// <summary>The organization slug. Optional, only used when booking with eventTypeSlug + username, eventTypeSlug + teamSlug, or usernames.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OrganizationSlug { get; set; }
+        public string? OrganizationSlug { get => _explicitNullValueOrganizationSlug; set { _explicitNullValueOrganizationSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organizationSlug"); else _explicitNullProperties?.Remove("organizationSlug"); } }
+        private string? _explicitNullValueOrganizationSlug = default!;
 #nullable restore
 #else
-        public string OrganizationSlug { get; set; }
+        public string OrganizationSlug { get => _explicitNullValueOrganizationSlug; set { _explicitNullValueOrganizationSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organizationSlug"); else _explicitNullProperties?.Remove("organizationSlug"); } }
+        private string _explicitNullValueOrganizationSlug = default!;
 #endif
         /// <summary>The number of recurrences. If not provided then event type recurrence count will be used. Can&apos;t be more than    event type recurrence count</summary>
-        public double? RecurrenceCount { get; set; }
+        public double? RecurrenceCount { get => _explicitNullValueRecurrenceCount; set { _explicitNullValueRecurrenceCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recurrenceCount"); else _explicitNullProperties?.Remove("recurrenceCount"); } }
+        private double? _explicitNullValueRecurrenceCount = default!;
         /// <summary>Routing information from routing forms that determined the booking assignment. Both responseId and teamMemberIds are required if provided.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813Routing? Routing { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813Routing? Routing { get => _explicitNullValueRouting; set { _explicitNullValueRouting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routing"); else _explicitNullProperties?.Remove("routing"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813Routing? _explicitNullValueRouting = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813Routing Routing { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813Routing Routing { get => _explicitNullValueRouting; set { _explicitNullValueRouting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routing"); else _explicitNullProperties?.Remove("routing"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813Routing _explicitNullValueRouting = default!;
 #endif
         /// <summary>When true, booking limit checks (event type, team, and per-host count and duration limits) are bypassed for an authenticated user who has access through the existing event owner, host, assigned user, team admin or organization admin checks. Team- and organization-scoped keys are restricted to events in their stored team or organization. Otherwise this parameter is silently ignored. Only supported on the 2026-02-25 and 2026-05-01 API versions.</summary>
-        public bool? SkipBookingLimits { get; set; }
+        public bool? SkipBookingLimits { get => _explicitNullValueSkipBookingLimits; set { _explicitNullValueSkipBookingLimits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skipBookingLimits"); else _explicitNullProperties?.Remove("skipBookingLimits"); } }
+        private bool? _explicitNullValueSkipBookingLimits = default!;
         /// <summary>The start time of the booking in ISO 8601 format in UTC timezone.</summary>
-        public DateTimeOffset? Start { get; set; }
+        public DateTimeOffset? Start { get => _explicitNullValueStart; set { _explicitNullValueStart = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start"); else _explicitNullProperties?.Remove("start"); } }
+        private DateTimeOffset? _explicitNullValueStart = default!;
         /// <summary>Team slug for team that owns event type for which slots are fetched. Required along with eventTypeSlug and optionally organizationSlug if the team is part of organization</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TeamSlug { get; set; }
+        public string? TeamSlug { get => _explicitNullValueTeamSlug; set { _explicitNullValueTeamSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("teamSlug"); else _explicitNullProperties?.Remove("teamSlug"); } }
+        private string? _explicitNullValueTeamSlug = default!;
 #nullable restore
 #else
-        public string TeamSlug { get; set; }
+        public string TeamSlug { get => _explicitNullValueTeamSlug; set { _explicitNullValueTeamSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("teamSlug"); else _explicitNullProperties?.Remove("teamSlug"); } }
+        private string _explicitNullValueTeamSlug = default!;
 #endif
         /// <summary>The username of the event owner. Required along with eventTypeSlug and optionally organizationSlug if eventTypeId is not provided.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Username { get; set; }
+        public string? Username { get => _explicitNullValueUsername; set { _explicitNullValueUsername = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("username"); else _explicitNullProperties?.Remove("username"); } }
+        private string? _explicitNullValueUsername = default!;
 #nullable restore
 #else
-        public string Username { get; set; }
+        public string Username { get => _explicitNullValueUsername; set { _explicitNullValueUsername = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("username"); else _explicitNullProperties?.Remove("username"); } }
+        private string _explicitNullValueUsername = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813"/> and sets the default values.
@@ -142,7 +201,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.CreateRecurringBookingInput20240813(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -201,6 +260,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("start", Start);
             writer.WriteStringValue("teamSlug", TeamSlug);
             writer.WriteStringValue("username", Username);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

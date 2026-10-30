@@ -12,39 +12,71 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UpdateEventTypeInput20260612CalVideoSettings : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("disableAttendeeRecordingDownloadEmail") is { } nullNodeDisableAttendeeRecordingDownloadEmail && nullNodeDisableAttendeeRecordingDownloadEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisableAttendeeRecordingDownloadEmail = null;
+            if (parseNode.GetChildNode("disableRecordingForGuests") is { } nullNodeDisableRecordingForGuests && nullNodeDisableRecordingForGuests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisableRecordingForGuests = null;
+            if (parseNode.GetChildNode("disableRecordingForOrganizer") is { } nullNodeDisableRecordingForOrganizer && nullNodeDisableRecordingForOrganizer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisableRecordingForOrganizer = null;
+            if (parseNode.GetChildNode("disableTranscriptionForGuests") is { } nullNodeDisableTranscriptionForGuests && nullNodeDisableTranscriptionForGuests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisableTranscriptionForGuests = null;
+            if (parseNode.GetChildNode("disableTranscriptionForOrganizer") is { } nullNodeDisableTranscriptionForOrganizer && nullNodeDisableTranscriptionForOrganizer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisableTranscriptionForOrganizer = null;
+            if (parseNode.GetChildNode("enableAutomaticRecordingForOrganizer") is { } nullNodeEnableAutomaticRecordingForOrganizer && nullNodeEnableAutomaticRecordingForOrganizer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableAutomaticRecordingForOrganizer = null;
+            if (parseNode.GetChildNode("enableAutomaticTranscription") is { } nullNodeEnableAutomaticTranscription && nullNodeEnableAutomaticTranscription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableAutomaticTranscription = null;
+            if (parseNode.GetChildNode("hideTranscriptionForGuests") is { } nullNodeHideTranscriptionForGuests && nullNodeHideTranscriptionForGuests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HideTranscriptionForGuests = null;
+            if (parseNode.GetChildNode("hideTranscriptionForOrganizer") is { } nullNodeHideTranscriptionForOrganizer && nullNodeHideTranscriptionForOrganizer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HideTranscriptionForOrganizer = null;
+            if (parseNode.GetChildNode("redirectUrlOnExit") is { } nullNodeRedirectUrlOnExit && nullNodeRedirectUrlOnExit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedirectUrlOnExit = null;
+            if (parseNode.GetChildNode("sendTranscriptionEmails") is { } nullNodeSendTranscriptionEmails && nullNodeSendTranscriptionEmails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SendTranscriptionEmails = null;
+            if (parseNode.GetChildNode("transcriptionLanguage") is { } nullNodeTranscriptionLanguage && nullNodeTranscriptionLanguage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TranscriptionLanguage = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>If true, attendees will not receive the Cal Video recording download email for this event type. Defaults to false. Organization guest notifications can still prevent this email from sending.</summary>
-        public bool? DisableAttendeeRecordingDownloadEmail { get; set; }
+        public bool? DisableAttendeeRecordingDownloadEmail { get => _explicitNullValueDisableAttendeeRecordingDownloadEmail; set { _explicitNullValueDisableAttendeeRecordingDownloadEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disableAttendeeRecordingDownloadEmail"); else _explicitNullProperties?.Remove("disableAttendeeRecordingDownloadEmail"); } }
+        private bool? _explicitNullValueDisableAttendeeRecordingDownloadEmail = default!;
         /// <summary>If true, the guests will not be able to record the meeting</summary>
-        public bool? DisableRecordingForGuests { get; set; }
+        public bool? DisableRecordingForGuests { get => _explicitNullValueDisableRecordingForGuests; set { _explicitNullValueDisableRecordingForGuests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disableRecordingForGuests"); else _explicitNullProperties?.Remove("disableRecordingForGuests"); } }
+        private bool? _explicitNullValueDisableRecordingForGuests = default!;
         /// <summary>If true, the organizer will not be able to record the meeting</summary>
-        public bool? DisableRecordingForOrganizer { get; set; }
+        public bool? DisableRecordingForOrganizer { get => _explicitNullValueDisableRecordingForOrganizer; set { _explicitNullValueDisableRecordingForOrganizer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disableRecordingForOrganizer"); else _explicitNullProperties?.Remove("disableRecordingForOrganizer"); } }
+        private bool? _explicitNullValueDisableRecordingForOrganizer = default!;
         /// <summary>If true, the guests will not be able to receive transcription of the meeting</summary>
-        public bool? DisableTranscriptionForGuests { get; set; }
+        public bool? DisableTranscriptionForGuests { get => _explicitNullValueDisableTranscriptionForGuests; set { _explicitNullValueDisableTranscriptionForGuests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disableTranscriptionForGuests"); else _explicitNullProperties?.Remove("disableTranscriptionForGuests"); } }
+        private bool? _explicitNullValueDisableTranscriptionForGuests = default!;
         /// <summary>If true, the organizer will not be able to receive transcription of the meeting</summary>
-        public bool? DisableTranscriptionForOrganizer { get; set; }
+        public bool? DisableTranscriptionForOrganizer { get => _explicitNullValueDisableTranscriptionForOrganizer; set { _explicitNullValueDisableTranscriptionForOrganizer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disableTranscriptionForOrganizer"); else _explicitNullProperties?.Remove("disableTranscriptionForOrganizer"); } }
+        private bool? _explicitNullValueDisableTranscriptionForOrganizer = default!;
         /// <summary>If true, enables the automatic recording for the event when organizer joins the call</summary>
-        public bool? EnableAutomaticRecordingForOrganizer { get; set; }
+        public bool? EnableAutomaticRecordingForOrganizer { get => _explicitNullValueEnableAutomaticRecordingForOrganizer; set { _explicitNullValueEnableAutomaticRecordingForOrganizer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enableAutomaticRecordingForOrganizer"); else _explicitNullProperties?.Remove("enableAutomaticRecordingForOrganizer"); } }
+        private bool? _explicitNullValueEnableAutomaticRecordingForOrganizer = default!;
         /// <summary>If true, enables the automatic transcription for the event whenever someone joins the call</summary>
-        public bool? EnableAutomaticTranscription { get; set; }
+        public bool? EnableAutomaticTranscription { get => _explicitNullValueEnableAutomaticTranscription; set { _explicitNullValueEnableAutomaticTranscription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enableAutomaticTranscription"); else _explicitNullProperties?.Remove("enableAutomaticTranscription"); } }
+        private bool? _explicitNullValueEnableAutomaticTranscription = default!;
         /// <summary>If true, guests will not see live transcription captions during the meeting</summary>
-        public bool? HideTranscriptionForGuests { get; set; }
+        public bool? HideTranscriptionForGuests { get => _explicitNullValueHideTranscriptionForGuests; set { _explicitNullValueHideTranscriptionForGuests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hideTranscriptionForGuests"); else _explicitNullProperties?.Remove("hideTranscriptionForGuests"); } }
+        private bool? _explicitNullValueHideTranscriptionForGuests = default!;
         /// <summary>If true, organizers will not see live transcription captions during the meeting</summary>
-        public bool? HideTranscriptionForOrganizer { get; set; }
+        public bool? HideTranscriptionForOrganizer { get => _explicitNullValueHideTranscriptionForOrganizer; set { _explicitNullValueHideTranscriptionForOrganizer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hideTranscriptionForOrganizer"); else _explicitNullProperties?.Remove("hideTranscriptionForOrganizer"); } }
+        private bool? _explicitNullValueHideTranscriptionForOrganizer = default!;
         /// <summary>URL to which participants are redirected when they exit the call</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RedirectUrlOnExit { get; set; }
+        public string? RedirectUrlOnExit { get => _explicitNullValueRedirectUrlOnExit; set { _explicitNullValueRedirectUrlOnExit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redirectUrlOnExit"); else _explicitNullProperties?.Remove("redirectUrlOnExit"); } }
+        private string? _explicitNullValueRedirectUrlOnExit = default!;
 #nullable restore
 #else
-        public string RedirectUrlOnExit { get; set; }
+        public string RedirectUrlOnExit { get => _explicitNullValueRedirectUrlOnExit; set { _explicitNullValueRedirectUrlOnExit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redirectUrlOnExit"); else _explicitNullProperties?.Remove("redirectUrlOnExit"); } }
+        private string _explicitNullValueRedirectUrlOnExit = default!;
 #endif
         /// <summary>Send emails with the transcription of the Cal Video after the meeting ends.</summary>
-        public bool? SendTranscriptionEmails { get; set; }
+        public bool? SendTranscriptionEmails { get => _explicitNullValueSendTranscriptionEmails; set { _explicitNullValueSendTranscriptionEmails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sendTranscriptionEmails"); else _explicitNullProperties?.Remove("sendTranscriptionEmails"); } }
+        private bool? _explicitNullValueSendTranscriptionEmails = default!;
         /// <summary>Deepgram language code for transcription (e.g. &apos;es&apos;, &apos;fr&apos;, &apos;de&apos;, &apos;pt-BR&apos;, or &apos;multi&apos; for auto-detect). Defaults to English when not set.</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.CalVideoSettingsTranscriptionLanguage? TranscriptionLanguage { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.CalVideoSettingsTranscriptionLanguage? TranscriptionLanguage { get => _explicitNullValueTranscriptionLanguage; set { _explicitNullValueTranscriptionLanguage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcriptionLanguage"); else _explicitNullProperties?.Remove("transcriptionLanguage"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.CalVideoSettingsTranscriptionLanguage? _explicitNullValueTranscriptionLanguage = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UpdateEventTypeInput20260612CalVideoSettings"/> and sets the default values.
         /// </summary>
@@ -70,7 +102,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.UpdateEventTypeInput20260612CalVideoSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.UpdateEventTypeInput20260612CalVideoSettings();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.UpdateEventTypeInput20260612CalVideoSettings(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -113,6 +145,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteStringValue("redirectUrlOnExit", RedirectUrlOnExit);
             writer.WriteBoolValue("sendTranscriptionEmails", SendTranscriptionEmails);
             writer.WriteEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.CalVideoSettingsTranscriptionLanguage>("transcriptionLanguage", TranscriptionLanguage);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

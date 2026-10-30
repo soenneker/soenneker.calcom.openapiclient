@@ -11,27 +11,42 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class BookingLimitPoolHostOutput : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("effectiveLimit") is { } nullNodeEffectiveLimit && nullNodeEffectiveLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EffectiveLimit = null;
+            if (parseNode.GetChildNode("hostLimit") is { } nullNodeHostLimit && nullNodeHostLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HostLimit = null;
+            if (parseNode.GetChildNode("userId") is { } nullNodeUserId && nullNodeUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserId = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The limits enforced for this host.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostOutputEffectiveLimit? EffectiveLimit { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostOutputEffectiveLimit? EffectiveLimit { get => _explicitNullValueEffectiveLimit; set { _explicitNullValueEffectiveLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effectiveLimit"); else _explicitNullProperties?.Remove("effectiveLimit"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostOutputEffectiveLimit? _explicitNullValueEffectiveLimit = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostOutputEffectiveLimit EffectiveLimit { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostOutputEffectiveLimit EffectiveLimit { get => _explicitNullValueEffectiveLimit; set { _explicitNullValueEffectiveLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effectiveLimit"); else _explicitNullProperties?.Remove("effectiveLimit"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostOutputEffectiveLimit _explicitNullValueEffectiveLimit = default!;
 #endif
         /// <summary>The host&apos;s own limits; null while every interval uses the pool&apos;s limits.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostOutputHostLimit? HostLimit { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostOutputHostLimit? HostLimit { get => _explicitNullValueHostLimit; set { _explicitNullValueHostLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hostLimit"); else _explicitNullProperties?.Remove("hostLimit"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostOutputHostLimit? _explicitNullValueHostLimit = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostOutputHostLimit HostLimit { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostOutputHostLimit HostLimit { get => _explicitNullValueHostLimit; set { _explicitNullValueHostLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hostLimit"); else _explicitNullProperties?.Remove("hostLimit"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostOutputHostLimit _explicitNullValueHostLimit = default!;
 #endif
         /// <summary>The userId property</summary>
-        public Guid? UserId { get; set; }
+        public Guid? UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userId"); else _explicitNullProperties?.Remove("userId"); } }
+        private Guid? _explicitNullValueUserId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostOutput"/> and sets the default values.
         /// </summary>
@@ -47,7 +62,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostOutput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostOutput();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostOutput(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -72,6 +87,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostOutputEffectiveLimit>("effectiveLimit", EffectiveLimit);
             writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostOutputHostLimit>("hostLimit", HostLimit);
             writer.WriteGuidValue("userId", UserId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

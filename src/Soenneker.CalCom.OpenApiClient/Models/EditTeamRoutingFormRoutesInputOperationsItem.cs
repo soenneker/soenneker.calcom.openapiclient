@@ -12,7 +12,12 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EditTeamRoutingFormRoutesInputOperationsItem : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.AddRouteOperationInput"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,25 +70,38 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             var result = new global::Soenneker.CalCom.OpenApiClient.Models.EditTeamRoutingFormRoutesInputOperationsItem();
             if("add".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.AddRouteOperationInput = new global::Soenneker.CalCom.OpenApiClient.Models.AddRouteOperationInput();
+                
             }
             else if("move".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.MoveRouteOperationInput = new global::Soenneker.CalCom.OpenApiClient.Models.MoveRouteOperationInput();
+                
             }
             else if("remove".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.RemoveRouteOperationInput = new global::Soenneker.CalCom.OpenApiClient.Models.RemoveRouteOperationInput();
+                
             }
             else if("replace".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ReplaceRouteOperationInput = new global::Soenneker.CalCom.OpenApiClient.Models.ReplaceRouteOperationInput();
+                
             }
             else if("setFallback".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SetFallbackOperationInput = new global::Soenneker.CalCom.OpenApiClient.Models.SetFallbackOperationInput();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("add".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("route") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("replace".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("routeId") != null && parseNode.GetChildNode("route") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("remove".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("routeId") != null))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("move".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("routeId") != null && parseNode.GetChildNode("position") != null))();
+            bool matchesUnionBranch4 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("setFallback".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("action") != null))();
+            if (result.AddRouteOperationInput == null && result.MoveRouteOperationInput == null && result.RemoveRouteOperationInput == null && result.ReplaceRouteOperationInput == null && result.SetFallbackOperationInput == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4) result.AddRouteOperationInput = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.AddRouteOperationInput(), parseNode);
+            if (result.AddRouteOperationInput == null && result.MoveRouteOperationInput == null && result.RemoveRouteOperationInput == null && result.ReplaceRouteOperationInput == null && result.SetFallbackOperationInput == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4) result.ReplaceRouteOperationInput = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.ReplaceRouteOperationInput(), parseNode);
+            if (result.AddRouteOperationInput == null && result.MoveRouteOperationInput == null && result.RemoveRouteOperationInput == null && result.ReplaceRouteOperationInput == null && result.SetFallbackOperationInput == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3 && !matchesUnionBranch4) result.RemoveRouteOperationInput = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.RemoveRouteOperationInput(), parseNode);
+            if (result.AddRouteOperationInput == null && result.MoveRouteOperationInput == null && result.RemoveRouteOperationInput == null && result.ReplaceRouteOperationInput == null && result.SetFallbackOperationInput == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch4) result.MoveRouteOperationInput = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.MoveRouteOperationInput(), parseNode);
+            if (result.AddRouteOperationInput == null && result.MoveRouteOperationInput == null && result.RemoveRouteOperationInput == null && result.ReplaceRouteOperationInput == null && result.SetFallbackOperationInput == null && matchesUnionBranch4 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3) result.SetFallbackOperationInput = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.SetFallbackOperationInput(), parseNode);
+            if (result.AddRouteOperationInput == null && result.MoveRouteOperationInput == null && result.RemoveRouteOperationInput == null && result.ReplaceRouteOperationInput == null && result.SetFallbackOperationInput == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -119,25 +137,38 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (AddRouteOperationInput == null && MoveRouteOperationInput == null && RemoveRouteOperationInput == null && ReplaceRouteOperationInput == null && SetFallbackOperationInput == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (AddRouteOperationInput != null && MoveRouteOperationInput == null && RemoveRouteOperationInput == null && ReplaceRouteOperationInput == null && SetFallbackOperationInput == null) { if (AddRouteOperationInput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, AddRouteOperationInput); return; }
+            if (MoveRouteOperationInput != null && AddRouteOperationInput == null && RemoveRouteOperationInput == null && ReplaceRouteOperationInput == null && SetFallbackOperationInput == null) { if (MoveRouteOperationInput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MoveRouteOperationInput); return; }
+            if (RemoveRouteOperationInput != null && AddRouteOperationInput == null && MoveRouteOperationInput == null && ReplaceRouteOperationInput == null && SetFallbackOperationInput == null) { if (RemoveRouteOperationInput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, RemoveRouteOperationInput); return; }
+            if (ReplaceRouteOperationInput != null && AddRouteOperationInput == null && MoveRouteOperationInput == null && RemoveRouteOperationInput == null && SetFallbackOperationInput == null) { if (ReplaceRouteOperationInput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReplaceRouteOperationInput); return; }
+            if (SetFallbackOperationInput != null && AddRouteOperationInput == null && MoveRouteOperationInput == null && RemoveRouteOperationInput == null && ReplaceRouteOperationInput == null) { if (SetFallbackOperationInput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SetFallbackOperationInput); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(AddRouteOperationInput != null)
             {
+                if (AddRouteOperationInput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.AddRouteOperationInput>(null, AddRouteOperationInput);
             }
             else if(MoveRouteOperationInput != null)
             {
+                if (MoveRouteOperationInput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.MoveRouteOperationInput>(null, MoveRouteOperationInput);
             }
             else if(RemoveRouteOperationInput != null)
             {
+                if (RemoveRouteOperationInput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.RemoveRouteOperationInput>(null, RemoveRouteOperationInput);
             }
             else if(ReplaceRouteOperationInput != null)
             {
+                if (ReplaceRouteOperationInput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.ReplaceRouteOperationInput>(null, ReplaceRouteOperationInput);
             }
             else if(SetFallbackOperationInput != null)
             {
+                if (SetFallbackOperationInput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.SetFallbackOperationInput>(null, SetFallbackOperationInput);
             }
         }

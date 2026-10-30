@@ -49,7 +49,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Events.Item.CoverImage
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.DeleteEventCoverImageOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.DeleteEventCoverImageOutputResponseDto.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.DeleteEventCoverImageOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.DeleteEventCoverImageOutputResponseDto.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Uploads a JPEG, PNG or WebP image of at most 10 MB as the Event&apos;s cover, replacing the current cover and any poster design. The response carries the image&apos;s public URL and its dimensions as displayed.The authenticated user must be its owner, one of its hosts, an accepted co-host, or a member of the owning team. PBAC permission for team events: `calEvent.update`. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control.If accessed using an OAuth access token, the `EVENT_WRITE` scope is required.
@@ -60,16 +60,16 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Events.Item.CoverImage
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.EventCoverImageOutputResponseDto?> PostAsync(MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.EventCoverImageOutputResponseDto?> PostAsync(global::Microsoft.Kiota.Abstractions.MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.EventCoverImageOutputResponseDto> PostAsync(MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.CalCom.OpenApiClient.Models.EventCoverImageOutputResponseDto> PostAsync(global::Microsoft.Kiota.Abstractions.MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.EventCoverImageOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.EventCoverImageOutputResponseDto.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.EventCoverImageOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.EventCoverImageOutputResponseDto.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Removes the Event&apos;s cover image and any poster design. Idempotent for an Event without a cover.The authenticated user must be its owner, one of its hosts, an accepted co-host, or a member of the owning team. PBAC permission for team events: `calEvent.update`. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control.If accessed using an OAuth access token, the `EVENT_WRITE` scope is required.
@@ -98,11 +98,11 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Events.Item.CoverImage
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Microsoft.Kiota.Abstractions.MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Microsoft.Kiota.Abstractions.MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

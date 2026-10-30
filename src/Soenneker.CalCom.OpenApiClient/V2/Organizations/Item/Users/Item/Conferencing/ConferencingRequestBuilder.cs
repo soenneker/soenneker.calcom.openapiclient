@@ -55,7 +55,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.Users.Item.Confer
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.ConferencingAppsWithDefaultOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.ConferencingAppsWithDefaultOutputResponseDto.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.ConferencingAppsWithDefaultOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.ConferencingAppsWithDefaultOutputResponseDto.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists all connected conferencing apps for a specific user within the organization, including which one is set as default. Required membership role: `org admin`. PBAC permission: `team.readConferencing`. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the `APPS_READ` scope is required.

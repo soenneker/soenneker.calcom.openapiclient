@@ -51,7 +51,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.ApiKeys.Refresh
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.RefreshApiKeyOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.RefreshApiKeyOutput.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.RefreshApiKeyOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.RefreshApiKeyOutput.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Generate a new API key and delete the current one. Provide API key to refresh as a Bearer token in the Authorization header (e.g. &quot;Authorization: Bearer &lt;apiKey&gt;&quot;).

@@ -11,43 +11,74 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RegistrationCountsOutputDto : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("byLocation") is { } nullNodeByLocation && nullNodeByLocation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ByLocation = null;
+            if (parseNode.GetChildNode("cancelled") is { } nullNodeCancelled && nullNodeCancelled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cancelled = null;
+            if (parseNode.GetChildNode("checkedIn") is { } nullNodeCheckedIn && nullNodeCheckedIn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CheckedIn = null;
+            if (parseNode.GetChildNode("confirmed") is { } nullNodeConfirmed && nullNodeConfirmed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Confirmed = null;
+            if (parseNode.GetChildNode("declined") is { } nullNodeDeclined && nullNodeDeclined.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Declined = null;
+            if (parseNode.GetChildNode("going") is { } nullNodeGoing && nullNodeGoing.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Going = null;
+            if (parseNode.GetChildNode("offerExpired") is { } nullNodeOfferExpired && nullNodeOfferExpired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OfferExpired = null;
+            if (parseNode.GetChildNode("pendingApproval") is { } nullNodePendingApproval && nullNodePendingApproval.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PendingApproval = null;
+            if (parseNode.GetChildNode("pendingPayment") is { } nullNodePendingPayment && nullNodePendingPayment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PendingPayment = null;
+            if (parseNode.GetChildNode("rsvpResponses") is { } nullNodeRsvpResponses && nullNodeRsvpResponses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RsvpResponses = null;
+            if (parseNode.GetChildNode("waitlisted") is { } nullNodeWaitlisted && nullNodeWaitlisted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Waitlisted = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Seats held per location.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.RegistrationLocationCountOutputDto>? ByLocation { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.RegistrationLocationCountOutputDto>? ByLocation { get => _explicitNullValueByLocation; set { _explicitNullValueByLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("byLocation"); else _explicitNullProperties?.Remove("byLocation"); } }
+        private List<global::Soenneker.CalCom.OpenApiClient.Models.RegistrationLocationCountOutputDto>? _explicitNullValueByLocation = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.RegistrationLocationCountOutputDto> ByLocation { get; set; }
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.RegistrationLocationCountOutputDto> ByLocation { get => _explicitNullValueByLocation; set { _explicitNullValueByLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("byLocation"); else _explicitNullProperties?.Remove("byLocation"); } }
+        private List<global::Soenneker.CalCom.OpenApiClient.Models.RegistrationLocationCountOutputDto> _explicitNullValueByLocation = default!;
 #endif
         /// <summary>Guests who cancelled.</summary>
-        public double? Cancelled { get; set; }
+        public double? Cancelled { get => _explicitNullValueCancelled; set { _explicitNullValueCancelled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cancelled"); else _explicitNullProperties?.Remove("cancelled"); } }
+        private double? _explicitNullValueCancelled = default!;
         /// <summary>Confirmed guests with a recorded door check-in.</summary>
-        public double? CheckedIn { get; set; }
+        public double? CheckedIn { get => _explicitNullValueCheckedIn; set { _explicitNullValueCheckedIn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checkedIn"); else _explicitNullProperties?.Remove("checkedIn"); } }
+        private double? _explicitNullValueCheckedIn = default!;
         /// <summary>Confirmed guests, whatever their RSVP.</summary>
-        public double? Confirmed { get; set; }
+        public double? Confirmed { get => _explicitNullValueConfirmed; set { _explicitNullValueConfirmed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("confirmed"); else _explicitNullProperties?.Remove("confirmed"); } }
+        private double? _explicitNullValueConfirmed = default!;
         /// <summary>Declined guests.</summary>
-        public double? Declined { get; set; }
+        public double? Declined { get => _explicitNullValueDeclined; set { _explicitNullValueDeclined = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("declined"); else _explicitNullProperties?.Remove("declined"); } }
+        private double? _explicitNullValueDeclined = default!;
         /// <summary>Confirmed guests who answered Yes.</summary>
-        public double? Going { get; set; }
+        public double? Going { get => _explicitNullValueGoing; set { _explicitNullValueGoing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("going"); else _explicitNullProperties?.Remove("going"); } }
+        private double? _explicitNullValueGoing = default!;
         /// <summary>Guests whose payment request expired.</summary>
-        public double? OfferExpired { get; set; }
+        public double? OfferExpired { get => _explicitNullValueOfferExpired; set { _explicitNullValueOfferExpired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("offerExpired"); else _explicitNullProperties?.Remove("offerExpired"); } }
+        private double? _explicitNullValueOfferExpired = default!;
         /// <summary>Guests waiting for approval.</summary>
-        public double? PendingApproval { get; set; }
+        public double? PendingApproval { get => _explicitNullValuePendingApproval; set { _explicitNullValuePendingApproval = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pendingApproval"); else _explicitNullProperties?.Remove("pendingApproval"); } }
+        private double? _explicitNullValuePendingApproval = default!;
         /// <summary>Guests sent a payment request who have not paid yet.</summary>
-        public double? PendingPayment { get; set; }
+        public double? PendingPayment { get => _explicitNullValuePendingPayment; set { _explicitNullValuePendingPayment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pendingPayment"); else _explicitNullProperties?.Remove("pendingPayment"); } }
+        private double? _explicitNullValuePendingPayment = default!;
         /// <summary>The rsvpResponses property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.RegistrationRsvpCountsOutputDto? RsvpResponses { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.RegistrationRsvpCountsOutputDto? RsvpResponses { get => _explicitNullValueRsvpResponses; set { _explicitNullValueRsvpResponses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rsvpResponses"); else _explicitNullProperties?.Remove("rsvpResponses"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.RegistrationRsvpCountsOutputDto? _explicitNullValueRsvpResponses = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.RegistrationRsvpCountsOutputDto RsvpResponses { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.RegistrationRsvpCountsOutputDto RsvpResponses { get => _explicitNullValueRsvpResponses; set { _explicitNullValueRsvpResponses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rsvpResponses"); else _explicitNullProperties?.Remove("rsvpResponses"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.RegistrationRsvpCountsOutputDto _explicitNullValueRsvpResponses = default!;
 #endif
         /// <summary>Guests on the waitlist.</summary>
-        public double? Waitlisted { get; set; }
+        public double? Waitlisted { get => _explicitNullValueWaitlisted; set { _explicitNullValueWaitlisted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("waitlisted"); else _explicitNullProperties?.Remove("waitlisted"); } }
+        private double? _explicitNullValueWaitlisted = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.RegistrationCountsOutputDto"/> and sets the default values.
         /// </summary>
@@ -63,7 +94,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.RegistrationCountsOutputDto CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.RegistrationCountsOutputDto();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.RegistrationCountsOutputDto(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -104,6 +135,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteDoubleValue("pendingPayment", PendingPayment);
             writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.RegistrationRsvpCountsOutputDto>("rsvpResponses", RsvpResponses);
             writer.WriteDoubleValue("waitlisted", Waitlisted);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

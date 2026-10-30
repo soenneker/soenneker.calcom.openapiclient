@@ -49,7 +49,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Notifications.Subscriptions.Telegram
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.ChatPushLinkIntentResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.ChatPushLinkIntentResponseDto.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.ChatPushLinkIntentResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.ChatPushLinkIntentResponseDto.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a Telegram push linking intent

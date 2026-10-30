@@ -49,7 +49,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Teams.Item.RoutingForms.Item.Respons
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.CreateRoutingFormResponseOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.CreateRoutingFormResponseOutput.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.CreateRoutingFormResponseOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.CreateRoutingFormResponseOutput.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Only available for teams that are not part of an organization - for a team within an organization use the organization team endpoint instead. Required membership role: `team member`. PBAC permission: `routingForm.create`. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the `TEAM_ROUTING_FORM_WRITE` scope is required.

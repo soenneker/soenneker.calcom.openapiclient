@@ -12,7 +12,12 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TeamEventTypeOutput20260612LocationsItem : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.CalCom.OpenApiClient.Models.OutputAddressLocation20240614"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,29 +78,44 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             var result = new global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612LocationsItem();
             if("OutputAddressLocation20240614".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.OutputAddressLocation20240614 = new global::Soenneker.CalCom.OpenApiClient.Models.OutputAddressLocation20240614();
+                
             }
             else if("OutputIntegrationLocation20240614".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.OutputIntegrationLocation20240614 = new global::Soenneker.CalCom.OpenApiClient.Models.OutputIntegrationLocation20240614();
+                
             }
             else if("OutputLinkLocation20240614".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.OutputLinkLocation20240614 = new global::Soenneker.CalCom.OpenApiClient.Models.OutputLinkLocation20240614();
+                
             }
             else if("OutputOrganizersDefaultAppLocation20240614".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.OutputOrganizersDefaultAppLocation20240614 = new global::Soenneker.CalCom.OpenApiClient.Models.OutputOrganizersDefaultAppLocation20240614();
+                
             }
             else if("OutputPhoneLocation20240614".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.OutputPhoneLocation20240614 = new global::Soenneker.CalCom.OpenApiClient.Models.OutputPhoneLocation20240614();
+                
             }
             else if("OutputUnknownLocation20240614".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.OutputUnknownLocation20240614 = new global::Soenneker.CalCom.OpenApiClient.Models.OutputUnknownLocation20240614();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && parseNode.GetChildNode("address") != null && parseNode.GetChildNode("public") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && parseNode.GetChildNode("link") != null && parseNode.GetChildNode("public") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && parseNode.GetChildNode("integration") != null && (parseNode.GetChildNode("integration")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag2 && ("cal-video".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "google-meet".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "zoom".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "whereby-video".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "whatsapp-video".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "webex-video".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "telegram-video".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "tandem".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "sylaps-video".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "skype-video".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "sirius-video".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "signal-video".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "shimmer-video".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "salesroom-video".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "roam-video".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "riverside-video".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "ping-video".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "office365-video".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "mirotalk-video".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "jitsi".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "jelly-video".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "jelly-conferencing".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "huddle".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "facetime-video".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "element-call-video".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "eightxeight-video".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "discord-video".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "demodesk-video".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "campfire-video".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && parseNode.GetChildNode("phone") != null && parseNode.GetChildNode("public") != null))();
+            bool matchesUnionBranch4 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null))();
+            bool matchesUnionBranch5 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && parseNode.GetChildNode("location") != null))();
+            if (result.OutputAddressLocation20240614 == null && result.OutputIntegrationLocation20240614 == null && result.OutputLinkLocation20240614 == null && result.OutputOrganizersDefaultAppLocation20240614 == null && result.OutputPhoneLocation20240614 == null && result.OutputUnknownLocation20240614 == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5) result.OutputAddressLocation20240614 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.OutputAddressLocation20240614(), parseNode);
+            if (result.OutputAddressLocation20240614 == null && result.OutputIntegrationLocation20240614 == null && result.OutputLinkLocation20240614 == null && result.OutputOrganizersDefaultAppLocation20240614 == null && result.OutputPhoneLocation20240614 == null && result.OutputUnknownLocation20240614 == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5) result.OutputLinkLocation20240614 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.OutputLinkLocation20240614(), parseNode);
+            if (result.OutputAddressLocation20240614 == null && result.OutputIntegrationLocation20240614 == null && result.OutputLinkLocation20240614 == null && result.OutputOrganizersDefaultAppLocation20240614 == null && result.OutputPhoneLocation20240614 == null && result.OutputUnknownLocation20240614 == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5) result.OutputIntegrationLocation20240614 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.OutputIntegrationLocation20240614(), parseNode);
+            if (result.OutputAddressLocation20240614 == null && result.OutputIntegrationLocation20240614 == null && result.OutputLinkLocation20240614 == null && result.OutputOrganizersDefaultAppLocation20240614 == null && result.OutputPhoneLocation20240614 == null && result.OutputUnknownLocation20240614 == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch4 && !matchesUnionBranch5) result.OutputPhoneLocation20240614 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.OutputPhoneLocation20240614(), parseNode);
+            if (result.OutputAddressLocation20240614 == null && result.OutputIntegrationLocation20240614 == null && result.OutputLinkLocation20240614 == null && result.OutputOrganizersDefaultAppLocation20240614 == null && result.OutputPhoneLocation20240614 == null && result.OutputUnknownLocation20240614 == null && matchesUnionBranch4 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch5) result.OutputOrganizersDefaultAppLocation20240614 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.OutputOrganizersDefaultAppLocation20240614(), parseNode);
+            if (result.OutputAddressLocation20240614 == null && result.OutputIntegrationLocation20240614 == null && result.OutputLinkLocation20240614 == null && result.OutputOrganizersDefaultAppLocation20240614 == null && result.OutputPhoneLocation20240614 == null && result.OutputUnknownLocation20240614 == null && matchesUnionBranch5 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4) result.OutputUnknownLocation20240614 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.OutputUnknownLocation20240614(), parseNode);
+            if (result.OutputAddressLocation20240614 == null && result.OutputIntegrationLocation20240614 == null && result.OutputLinkLocation20240614 == null && result.OutputOrganizersDefaultAppLocation20240614 == null && result.OutputPhoneLocation20240614 == null && result.OutputUnknownLocation20240614 == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -135,29 +155,44 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (OutputAddressLocation20240614 == null && OutputIntegrationLocation20240614 == null && OutputLinkLocation20240614 == null && OutputOrganizersDefaultAppLocation20240614 == null && OutputPhoneLocation20240614 == null && OutputUnknownLocation20240614 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (OutputAddressLocation20240614 != null && OutputIntegrationLocation20240614 == null && OutputLinkLocation20240614 == null && OutputOrganizersDefaultAppLocation20240614 == null && OutputPhoneLocation20240614 == null && OutputUnknownLocation20240614 == null) { if (OutputAddressLocation20240614 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, OutputAddressLocation20240614); return; }
+            if (OutputIntegrationLocation20240614 != null && OutputAddressLocation20240614 == null && OutputLinkLocation20240614 == null && OutputOrganizersDefaultAppLocation20240614 == null && OutputPhoneLocation20240614 == null && OutputUnknownLocation20240614 == null) { if (OutputIntegrationLocation20240614 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, OutputIntegrationLocation20240614); return; }
+            if (OutputLinkLocation20240614 != null && OutputAddressLocation20240614 == null && OutputIntegrationLocation20240614 == null && OutputOrganizersDefaultAppLocation20240614 == null && OutputPhoneLocation20240614 == null && OutputUnknownLocation20240614 == null) { if (OutputLinkLocation20240614 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, OutputLinkLocation20240614); return; }
+            if (OutputOrganizersDefaultAppLocation20240614 != null && OutputAddressLocation20240614 == null && OutputIntegrationLocation20240614 == null && OutputLinkLocation20240614 == null && OutputPhoneLocation20240614 == null && OutputUnknownLocation20240614 == null) { if (OutputOrganizersDefaultAppLocation20240614 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, OutputOrganizersDefaultAppLocation20240614); return; }
+            if (OutputPhoneLocation20240614 != null && OutputAddressLocation20240614 == null && OutputIntegrationLocation20240614 == null && OutputLinkLocation20240614 == null && OutputOrganizersDefaultAppLocation20240614 == null && OutputUnknownLocation20240614 == null) { if (OutputPhoneLocation20240614 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, OutputPhoneLocation20240614); return; }
+            if (OutputUnknownLocation20240614 != null && OutputAddressLocation20240614 == null && OutputIntegrationLocation20240614 == null && OutputLinkLocation20240614 == null && OutputOrganizersDefaultAppLocation20240614 == null && OutputPhoneLocation20240614 == null) { if (OutputUnknownLocation20240614 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, OutputUnknownLocation20240614); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(OutputAddressLocation20240614 != null)
             {
+                if (OutputAddressLocation20240614 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.OutputAddressLocation20240614>(null, OutputAddressLocation20240614);
             }
             else if(OutputIntegrationLocation20240614 != null)
             {
+                if (OutputIntegrationLocation20240614 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.OutputIntegrationLocation20240614>(null, OutputIntegrationLocation20240614);
             }
             else if(OutputLinkLocation20240614 != null)
             {
+                if (OutputLinkLocation20240614 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.OutputLinkLocation20240614>(null, OutputLinkLocation20240614);
             }
             else if(OutputOrganizersDefaultAppLocation20240614 != null)
             {
+                if (OutputOrganizersDefaultAppLocation20240614 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.OutputOrganizersDefaultAppLocation20240614>(null, OutputOrganizersDefaultAppLocation20240614);
             }
             else if(OutputPhoneLocation20240614 != null)
             {
+                if (OutputPhoneLocation20240614 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.OutputPhoneLocation20240614>(null, OutputPhoneLocation20240614);
             }
             else if(OutputUnknownLocation20240614 != null)
             {
+                if (OutputUnknownLocation20240614 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.OutputUnknownLocation20240614>(null, OutputUnknownLocation20240614);
             }
         }

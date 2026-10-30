@@ -62,7 +62,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.Roles
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetAllOrgRolesOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetAllOrgRolesOutput.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetAllOrgRolesOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetAllOrgRolesOutput.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Required membership role: `org admin`. PBAC permission: `role.create`. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control
@@ -82,7 +82,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.Roles
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.CreateOrgRoleOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.CreateOrgRoleOutput.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.CreateOrgRoleOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.CreateOrgRoleOutput.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Required membership role: `org admin`. PBAC permission: `role.readOrgRoles`. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control

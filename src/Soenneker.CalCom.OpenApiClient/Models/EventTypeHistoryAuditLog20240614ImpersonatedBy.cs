@@ -12,32 +12,48 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EventTypeHistoryAuditLog20240614ImpersonatedBy : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("displayAvatar") is { } nullNodeDisplayAvatar && nullNodeDisplayAvatar.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayAvatar = null;
+            if (parseNode.GetChildNode("displayEmail") is { } nullNodeDisplayEmail && nullNodeDisplayEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayEmail = null;
+            if (parseNode.GetChildNode("displayName") is { } nullNodeDisplayName && nullNodeDisplayName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayName = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Avatar URL of the impersonated user, or null if unavailable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DisplayAvatar { get; set; }
+        public string? DisplayAvatar { get => _explicitNullValueDisplayAvatar; set { _explicitNullValueDisplayAvatar = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("displayAvatar"); else _explicitNullProperties?.Remove("displayAvatar"); } }
+        private string? _explicitNullValueDisplayAvatar = default!;
 #nullable restore
 #else
-        public string DisplayAvatar { get; set; }
+        public string DisplayAvatar { get => _explicitNullValueDisplayAvatar; set { _explicitNullValueDisplayAvatar = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("displayAvatar"); else _explicitNullProperties?.Remove("displayAvatar"); } }
+        private string _explicitNullValueDisplayAvatar = default!;
 #endif
         /// <summary>Email address of the impersonated user, or null if unavailable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DisplayEmail { get; set; }
+        public string? DisplayEmail { get => _explicitNullValueDisplayEmail; set { _explicitNullValueDisplayEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("displayEmail"); else _explicitNullProperties?.Remove("displayEmail"); } }
+        private string? _explicitNullValueDisplayEmail = default!;
 #nullable restore
 #else
-        public string DisplayEmail { get; set; }
+        public string DisplayEmail { get => _explicitNullValueDisplayEmail; set { _explicitNullValueDisplayEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("displayEmail"); else _explicitNullProperties?.Remove("displayEmail"); } }
+        private string _explicitNullValueDisplayEmail = default!;
 #endif
         /// <summary>Display name of the user who was being impersonated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DisplayName { get; set; }
+        public string? DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("displayName"); else _explicitNullProperties?.Remove("displayName"); } }
+        private string? _explicitNullValueDisplayName = default!;
 #nullable restore
 #else
-        public string DisplayName { get; set; }
+        public string DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("displayName"); else _explicitNullProperties?.Remove("displayName"); } }
+        private string _explicitNullValueDisplayName = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.EventTypeHistoryAuditLog20240614ImpersonatedBy"/> and sets the default values.
@@ -54,7 +70,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.EventTypeHistoryAuditLog20240614ImpersonatedBy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.EventTypeHistoryAuditLog20240614ImpersonatedBy();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.EventTypeHistoryAuditLog20240614ImpersonatedBy(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -79,6 +95,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteStringValue("displayAvatar", DisplayAvatar);
             writer.WriteStringValue("displayEmail", DisplayEmail);
             writer.WriteStringValue("displayName", DisplayName);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -48,7 +48,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Teams.Item.BookingLimitPools.Item.Ho
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Sets the host&apos;s own limit for the intervals sent; null returns that interval to the pool&apos;s limit. Only intervals the pool limits can be set, and each is capped at the host&apos;s overall booking limit. If accessed using an OAuth access token, the `TEAM_EVENT_TYPE_WRITE` scope is required.
@@ -68,7 +68,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Teams.Item.BookingLimitPools.Item.Ho
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostResponseOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostResponseOutput.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostResponseOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostResponseOutput.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Replaces the host&apos;s own limit with the intervals sent; an omitted interval returns to the pool&apos;s limit, so sending the same body again changes nothing. Only intervals the pool limits can be set, and each is capped at the host&apos;s overall booking limit. If accessed using an OAuth access token, the `TEAM_EVENT_TYPE_WRITE` scope is required.
@@ -88,7 +88,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Teams.Item.BookingLimitPools.Item.Ho
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostResponseOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostResponseOutput.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostResponseOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolHostResponseOutput.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the host to the pool&apos;s limits. If accessed using an OAuth access token, the `TEAM_EVENT_TYPE_WRITE` scope is required.

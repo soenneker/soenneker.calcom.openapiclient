@@ -12,21 +12,40 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MessageOutputDtoCounts : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("failedCount") is { } nullNodeFailedCount && nullNodeFailedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailedCount = null;
+            if (parseNode.GetChildNode("sentCount") is { } nullNodeSentCount && nullNodeSentCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SentCount = null;
+            if (parseNode.GetChildNode("skippedPhoneCount") is { } nullNodeSkippedPhoneCount && nullNodeSkippedPhoneCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkippedPhoneCount = null;
+            if (parseNode.GetChildNode("skippedUnsubscribedCount") is { } nullNodeSkippedUnsubscribedCount && nullNodeSkippedUnsubscribedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkippedUnsubscribedCount = null;
+            if (parseNode.GetChildNode("textedCount") is { } nullNodeTextedCount && nullNodeTextedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TextedCount = null;
+            if (parseNode.GetChildNode("textFailedCount") is { } nullNodeTextFailedCount && nullNodeTextFailedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TextFailedCount = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Emails that failed to send.</summary>
-        public double? FailedCount { get; set; }
+        public double? FailedCount { get => _explicitNullValueFailedCount; set { _explicitNullValueFailedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failedCount"); else _explicitNullProperties?.Remove("failedCount"); } }
+        private double? _explicitNullValueFailedCount = default!;
         /// <summary>Emails sent.</summary>
-        public double? SentCount { get; set; }
+        public double? SentCount { get => _explicitNullValueSentCount; set { _explicitNullValueSentCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sentCount"); else _explicitNullProperties?.Remove("sentCount"); } }
+        private double? _explicitNullValueSentCount = default!;
         /// <summary>Guests skipped because they have only a phone number and were not texted.</summary>
-        public double? SkippedPhoneCount { get; set; }
+        public double? SkippedPhoneCount { get => _explicitNullValueSkippedPhoneCount; set { _explicitNullValueSkippedPhoneCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skippedPhoneCount"); else _explicitNullProperties?.Remove("skippedPhoneCount"); } }
+        private double? _explicitNullValueSkippedPhoneCount = default!;
         /// <summary>Guests skipped because they unsubscribed from the Event&apos;s emails.</summary>
-        public double? SkippedUnsubscribedCount { get; set; }
+        public double? SkippedUnsubscribedCount { get => _explicitNullValueSkippedUnsubscribedCount; set { _explicitNullValueSkippedUnsubscribedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skippedUnsubscribedCount"); else _explicitNullProperties?.Remove("skippedUnsubscribedCount"); } }
+        private double? _explicitNullValueSkippedUnsubscribedCount = default!;
         /// <summary>Texts sent to guests who have only a phone number.</summary>
-        public double? TextedCount { get; set; }
+        public double? TextedCount { get => _explicitNullValueTextedCount; set { _explicitNullValueTextedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("textedCount"); else _explicitNullProperties?.Remove("textedCount"); } }
+        private double? _explicitNullValueTextedCount = default!;
         /// <summary>Texts that failed to send.</summary>
-        public double? TextFailedCount { get; set; }
+        public double? TextFailedCount { get => _explicitNullValueTextFailedCount; set { _explicitNullValueTextFailedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("textFailedCount"); else _explicitNullProperties?.Remove("textFailedCount"); } }
+        private double? _explicitNullValueTextFailedCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.MessageOutputDtoCounts"/> and sets the default values.
         /// </summary>
@@ -42,7 +61,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.MessageOutputDtoCounts CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.MessageOutputDtoCounts();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.MessageOutputDtoCounts(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,6 +92,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteDoubleValue("skippedUnsubscribedCount", SkippedUnsubscribedCount);
             writer.WriteDoubleValue("textedCount", TextedCount);
             writer.WriteDoubleValue("textFailedCount", TextFailedCount);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

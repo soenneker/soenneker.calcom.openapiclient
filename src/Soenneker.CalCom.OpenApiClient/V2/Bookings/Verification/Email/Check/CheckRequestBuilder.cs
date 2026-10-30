@@ -49,7 +49,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Bookings.Verification.Email.Check
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.BookingsVerificationControllerCheckEmailVerificationRequired200ResponseSchema>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.BookingsVerificationControllerCheckEmailVerificationRequired200ResponseSchema.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.BookingsVerificationControllerCheckEmailVerificationRequired200ResponseSchema>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.BookingsVerificationControllerCheckEmailVerificationRequired200ResponseSchema.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Checks whether email verification is required for the given email. Returns true if verification is needed.

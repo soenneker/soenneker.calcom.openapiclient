@@ -62,7 +62,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.SecondaryDomains
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.OrganizationSecondaryDomainsResponseOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.OrganizationSecondaryDomainsResponseOutput.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.OrganizationSecondaryDomainsResponseOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.OrganizationSecondaryDomainsResponseOutput.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Adds an unverified secondary domain. Publish the returned `verificationRecord` as a DNS TXT record and call the verify endpoint. Once verified, members with this email domain join the organization with usernames suffixed by `usernameSuffix` (e.g. john@acme.fr becomes john-fr). For platform, the plan must be &apos;ESSENTIALS&apos; or higher to access this endpoint. Required membership role: `org admin`. PBAC permission: `organization.update`. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control
@@ -82,7 +82,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.SecondaryDomains
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.OrganizationSecondaryDomainResponseOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.OrganizationSecondaryDomainResponseOutput.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.OrganizationSecondaryDomainResponseOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.OrganizationSecondaryDomainResponseOutput.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// For platform, the plan must be &apos;ESSENTIALS&apos; or higher to access this endpoint. Required membership role: `org admin`. PBAC permission: `organization.update`. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control

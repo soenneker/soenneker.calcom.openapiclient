@@ -54,7 +54,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Teams.Item.BookingLimitPools.Item
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Changes only the fields sent. An interval sent as null is removed. Changing the mode or event types keeps every host&apos;s own limit. If accessed using an OAuth access token, the `TEAM_EVENT_TYPE_WRITE` scope is required.
@@ -74,7 +74,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Teams.Item.BookingLimitPools.Item
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolResponseOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolResponseOutput.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolResponseOutput>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPoolResponseOutput.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes the pool and the hosts&apos; own limits for it. Its event types go back to their own per-host settings. If accessed using an OAuth access token, the `TEAM_EVENT_TYPE_WRITE` scope is required.

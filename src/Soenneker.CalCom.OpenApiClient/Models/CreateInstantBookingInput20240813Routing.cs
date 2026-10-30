@@ -12,62 +12,93 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateInstantBookingInput20240813Routing : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("crmAppSlug") is { } nullNodeCrmAppSlug && nullNodeCrmAppSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CrmAppSlug = null;
+            if (parseNode.GetChildNode("crmOwnerRecordType") is { } nullNodeCrmOwnerRecordType && nullNodeCrmOwnerRecordType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CrmOwnerRecordType = null;
+            if (parseNode.GetChildNode("crmRecordOwnerFallbackMode") is { } nullNodeCrmRecordOwnerFallbackMode && nullNodeCrmRecordOwnerFallbackMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CrmRecordOwnerFallbackMode = null;
+            if (parseNode.GetChildNode("crmRecordOwnerFallbackTeamMemberIds") is { } nullNodeCrmRecordOwnerFallbackTeamMemberIds && nullNodeCrmRecordOwnerFallbackTeamMemberIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CrmRecordOwnerFallbackTeamMemberIds = null;
+            if (parseNode.GetChildNode("queuedResponseId") is { } nullNodeQueuedResponseId && nullNodeQueuedResponseId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QueuedResponseId = null;
+            if (parseNode.GetChildNode("responseId") is { } nullNodeResponseId && nullNodeResponseId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResponseId = null;
+            if (parseNode.GetChildNode("skipContactOwner") is { } nullNodeSkipContactOwner && nullNodeSkipContactOwner.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipContactOwner = null;
+            if (parseNode.GetChildNode("teamMemberEmail") is { } nullNodeTeamMemberEmail && nullNodeTeamMemberEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TeamMemberEmail = null;
+            if (parseNode.GetChildNode("teamMemberIds") is { } nullNodeTeamMemberIds && nullNodeTeamMemberIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TeamMemberIds = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The CRM application slug for integration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CrmAppSlug { get; set; }
+        public string? CrmAppSlug { get => _explicitNullValueCrmAppSlug; set { _explicitNullValueCrmAppSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("crmAppSlug"); else _explicitNullProperties?.Remove("crmAppSlug"); } }
+        private string? _explicitNullValueCrmAppSlug = default!;
 #nullable restore
 #else
-        public string CrmAppSlug { get; set; }
+        public string CrmAppSlug { get => _explicitNullValueCrmAppSlug; set { _explicitNullValueCrmAppSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("crmAppSlug"); else _explicitNullProperties?.Remove("crmAppSlug"); } }
+        private string _explicitNullValueCrmAppSlug = default!;
 #endif
         /// <summary>The CRM owner record type for contact assignment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CrmOwnerRecordType { get; set; }
+        public string? CrmOwnerRecordType { get => _explicitNullValueCrmOwnerRecordType; set { _explicitNullValueCrmOwnerRecordType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("crmOwnerRecordType"); else _explicitNullProperties?.Remove("crmOwnerRecordType"); } }
+        private string? _explicitNullValueCrmOwnerRecordType = default!;
 #nullable restore
 #else
-        public string CrmOwnerRecordType { get; set; }
+        public string CrmOwnerRecordType { get => _explicitNullValueCrmOwnerRecordType; set { _explicitNullValueCrmOwnerRecordType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("crmOwnerRecordType"); else _explicitNullProperties?.Remove("crmOwnerRecordType"); } }
+        private string _explicitNullValueCrmOwnerRecordType = default!;
 #endif
         /// <summary>The CRM owner fallback strategy used for this routing result.</summary>
-        public global::Soenneker.CalCom.OpenApiClient.Models.RoutingCrmRecordOwnerFallbackMode? CrmRecordOwnerFallbackMode { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.RoutingCrmRecordOwnerFallbackMode? CrmRecordOwnerFallbackMode { get => _explicitNullValueCrmRecordOwnerFallbackMode; set { _explicitNullValueCrmRecordOwnerFallbackMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("crmRecordOwnerFallbackMode"); else _explicitNullProperties?.Remove("crmRecordOwnerFallbackMode"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.RoutingCrmRecordOwnerFallbackMode? _explicitNullValueCrmRecordOwnerFallbackMode = default!;
         /// <summary>Eligible CRM owner fallback team member IDs to pass to the booking API.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<double?>? CrmRecordOwnerFallbackTeamMemberIds { get; set; }
+        public List<double?>? CrmRecordOwnerFallbackTeamMemberIds { get => _explicitNullValueCrmRecordOwnerFallbackTeamMemberIds; set { _explicitNullValueCrmRecordOwnerFallbackTeamMemberIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("crmRecordOwnerFallbackTeamMemberIds"); else _explicitNullProperties?.Remove("crmRecordOwnerFallbackTeamMemberIds"); } }
+        private List<double?>? _explicitNullValueCrmRecordOwnerFallbackTeamMemberIds = default!;
 #nullable restore
 #else
-        public List<double?> CrmRecordOwnerFallbackTeamMemberIds { get; set; }
+        public List<double?> CrmRecordOwnerFallbackTeamMemberIds { get => _explicitNullValueCrmRecordOwnerFallbackTeamMemberIds; set { _explicitNullValueCrmRecordOwnerFallbackTeamMemberIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("crmRecordOwnerFallbackTeamMemberIds"); else _explicitNullProperties?.Remove("crmRecordOwnerFallbackTeamMemberIds"); } }
+        private List<double?> _explicitNullValueCrmRecordOwnerFallbackTeamMemberIds = default!;
 #endif
         /// <summary>The ID of the queued form response. Only present if the form response was queued.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? QueuedResponseId { get; set; }
+        public string? QueuedResponseId { get => _explicitNullValueQueuedResponseId; set { _explicitNullValueQueuedResponseId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("queuedResponseId"); else _explicitNullProperties?.Remove("queuedResponseId"); } }
+        private string? _explicitNullValueQueuedResponseId = default!;
 #nullable restore
 #else
-        public string QueuedResponseId { get; set; }
+        public string QueuedResponseId { get => _explicitNullValueQueuedResponseId; set { _explicitNullValueQueuedResponseId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("queuedResponseId"); else _explicitNullProperties?.Remove("queuedResponseId"); } }
+        private string _explicitNullValueQueuedResponseId = default!;
 #endif
         /// <summary>The ID of the routing form response.</summary>
-        public double? ResponseId { get; set; }
+        public double? ResponseId { get => _explicitNullValueResponseId; set { _explicitNullValueResponseId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("responseId"); else _explicitNullProperties?.Remove("responseId"); } }
+        private double? _explicitNullValueResponseId = default!;
         /// <summary>Whether to skip contact owner assignment from CRM integration.</summary>
-        public bool? SkipContactOwner { get; set; }
+        public bool? SkipContactOwner { get => _explicitNullValueSkipContactOwner; set { _explicitNullValueSkipContactOwner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skipContactOwner"); else _explicitNullProperties?.Remove("skipContactOwner"); } }
+        private bool? _explicitNullValueSkipContactOwner = default!;
         /// <summary>The email of the team member assigned to handle this booking.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TeamMemberEmail { get; set; }
+        public string? TeamMemberEmail { get => _explicitNullValueTeamMemberEmail; set { _explicitNullValueTeamMemberEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("teamMemberEmail"); else _explicitNullProperties?.Remove("teamMemberEmail"); } }
+        private string? _explicitNullValueTeamMemberEmail = default!;
 #nullable restore
 #else
-        public string TeamMemberEmail { get; set; }
+        public string TeamMemberEmail { get => _explicitNullValueTeamMemberEmail; set { _explicitNullValueTeamMemberEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("teamMemberEmail"); else _explicitNullProperties?.Remove("teamMemberEmail"); } }
+        private string _explicitNullValueTeamMemberEmail = default!;
 #endif
         /// <summary>Array of team member IDs that were routed to handle this booking.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<double?>? TeamMemberIds { get; set; }
+        public List<double?>? TeamMemberIds { get => _explicitNullValueTeamMemberIds; set { _explicitNullValueTeamMemberIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("teamMemberIds"); else _explicitNullProperties?.Remove("teamMemberIds"); } }
+        private List<double?>? _explicitNullValueTeamMemberIds = default!;
 #nullable restore
 #else
-        public List<double?> TeamMemberIds { get; set; }
+        public List<double?> TeamMemberIds { get => _explicitNullValueTeamMemberIds; set { _explicitNullValueTeamMemberIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("teamMemberIds"); else _explicitNullProperties?.Remove("teamMemberIds"); } }
+        private List<double?> _explicitNullValueTeamMemberIds = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.CreateInstantBookingInput20240813Routing"/> and sets the default values.
@@ -84,7 +115,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.CreateInstantBookingInput20240813Routing CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.CreateInstantBookingInput20240813Routing();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.CreateInstantBookingInput20240813Routing(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -121,6 +152,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteBoolValue("skipContactOwner", SkipContactOwner);
             writer.WriteStringValue("teamMemberEmail", TeamMemberEmail);
             writer.WriteCollectionOfPrimitiveValues<double?>("teamMemberIds", TeamMemberIds);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

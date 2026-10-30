@@ -216,6 +216,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         #pragma warning disable CS1591
         AvailabilityReadTeamAvailability,
         #pragma warning restore CS1591
+        [EnumMember(Value = "availability.updateTeamAvailability")]
+        #pragma warning disable CS1591
+        AvailabilityUpdateTeamAvailability,
+        #pragma warning restore CS1591
         [EnumMember(Value = "featureOptIn.read")]
         #pragma warning disable CS1591
         FeatureOptInRead,

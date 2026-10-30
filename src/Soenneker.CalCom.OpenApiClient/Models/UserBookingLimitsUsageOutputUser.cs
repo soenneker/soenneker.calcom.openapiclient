@@ -12,40 +12,59 @@ namespace Soenneker.CalCom.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UserBookingLimitsUsageOutputUser : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("perDay") is { } nullNodePerDay && nullNodePerDay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerDay = null;
+            if (parseNode.GetChildNode("perMonth") is { } nullNodePerMonth && nullNodePerMonth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerMonth = null;
+            if (parseNode.GetChildNode("perWeek") is { } nullNodePerWeek && nullNodePerWeek.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerWeek = null;
+            if (parseNode.GetChildNode("perYear") is { } nullNodePerYear && nullNodePerYear.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerYear = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The perDay property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPeriodsUsageOutputPerDay? PerDay { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPeriodsUsageOutputPerDay? PerDay { get => _explicitNullValuePerDay; set { _explicitNullValuePerDay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perDay"); else _explicitNullProperties?.Remove("perDay"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPeriodsUsageOutputPerDay? _explicitNullValuePerDay = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPeriodsUsageOutputPerDay PerDay { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPeriodsUsageOutputPerDay PerDay { get => _explicitNullValuePerDay; set { _explicitNullValuePerDay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perDay"); else _explicitNullProperties?.Remove("perDay"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPeriodsUsageOutputPerDay _explicitNullValuePerDay = default!;
 #endif
         /// <summary>The perMonth property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPeriodsUsageOutputPerMonth? PerMonth { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPeriodsUsageOutputPerMonth? PerMonth { get => _explicitNullValuePerMonth; set { _explicitNullValuePerMonth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perMonth"); else _explicitNullProperties?.Remove("perMonth"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPeriodsUsageOutputPerMonth? _explicitNullValuePerMonth = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPeriodsUsageOutputPerMonth PerMonth { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPeriodsUsageOutputPerMonth PerMonth { get => _explicitNullValuePerMonth; set { _explicitNullValuePerMonth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perMonth"); else _explicitNullProperties?.Remove("perMonth"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPeriodsUsageOutputPerMonth _explicitNullValuePerMonth = default!;
 #endif
         /// <summary>The perWeek property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPeriodsUsageOutputPerWeek? PerWeek { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPeriodsUsageOutputPerWeek? PerWeek { get => _explicitNullValuePerWeek; set { _explicitNullValuePerWeek = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perWeek"); else _explicitNullProperties?.Remove("perWeek"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPeriodsUsageOutputPerWeek? _explicitNullValuePerWeek = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPeriodsUsageOutputPerWeek PerWeek { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPeriodsUsageOutputPerWeek PerWeek { get => _explicitNullValuePerWeek; set { _explicitNullValuePerWeek = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perWeek"); else _explicitNullProperties?.Remove("perWeek"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPeriodsUsageOutputPerWeek _explicitNullValuePerWeek = default!;
 #endif
         /// <summary>The perYear property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPeriodsUsageOutputPerYear? PerYear { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPeriodsUsageOutputPerYear? PerYear { get => _explicitNullValuePerYear; set { _explicitNullValuePerYear = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perYear"); else _explicitNullProperties?.Remove("perYear"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPeriodsUsageOutputPerYear? _explicitNullValuePerYear = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPeriodsUsageOutputPerYear PerYear { get; set; }
+        public global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPeriodsUsageOutputPerYear PerYear { get => _explicitNullValuePerYear; set { _explicitNullValuePerYear = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("perYear"); else _explicitNullProperties?.Remove("perYear"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPeriodsUsageOutputPerYear _explicitNullValuePerYear = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UserBookingLimitsUsageOutputUser"/> and sets the default values.
@@ -62,7 +81,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public static global::Soenneker.CalCom.OpenApiClient.Models.UserBookingLimitsUsageOutputUser CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.CalCom.OpenApiClient.Models.UserBookingLimitsUsageOutputUser();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.UserBookingLimitsUsageOutputUser(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -89,6 +108,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPeriodsUsageOutputPerMonth>("perMonth", PerMonth);
             writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPeriodsUsageOutputPerWeek>("perWeek", PerWeek);
             writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.BookingLimitPeriodsUsageOutputPerYear>("perYear", PerYear);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

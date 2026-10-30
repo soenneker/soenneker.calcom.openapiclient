@@ -49,7 +49,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Bookings.Item.Attendees.Item
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetBookingAttendeeOutput20240813>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetBookingAttendeeOutput20240813.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.GetBookingAttendeeOutput20240813>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.GetBookingAttendeeOutput20240813.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve a specific attendee by their ID for a booking identified by its UID.              &lt;Note&gt;The cal-api-version header is required for this endpoint. Without it, the request will fail with a 404 error.&lt;/Note&gt;If accessed using an OAuth access token, the `BOOKING_READ` scope is required.      
