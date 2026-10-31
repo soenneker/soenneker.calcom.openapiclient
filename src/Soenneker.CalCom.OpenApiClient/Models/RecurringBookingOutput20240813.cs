@@ -200,6 +200,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
                 { "guests", n => { Guests = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "bookingFieldsResponses", n => { BookingFieldsResponses = n.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue); } },
                 { "recurringBookingUid", n => { RecurringBookingUid = n.GetStringValue(); } },
+
             };
         }
         /// <summary>

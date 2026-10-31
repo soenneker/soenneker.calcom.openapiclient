@@ -9,7 +9,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class ResetDelegationCredentialRotationOutputData : IAdditionalDataHolder, IParsable
+    public partial class ResetDelegationCredentialRotationOutputDataOneOf1 : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
         // Track explicitly assigned nulls separately from absent properties.
@@ -117,21 +117,21 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         private global::Soenneker.CalCom.OpenApiClient.Models.WorkspacePlatformDto _explicitNullValueWorkspacePlatform = default!;
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.ResetDelegationCredentialRotationOutputData"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.ResetDelegationCredentialRotationOutputDataOneOf1"/> and sets the default values.
         /// </summary>
-        public ResetDelegationCredentialRotationOutputData()
+        public ResetDelegationCredentialRotationOutputDataOneOf1()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Models.ResetDelegationCredentialRotationOutputData"/></returns>
+        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Models.ResetDelegationCredentialRotationOutputDataOneOf1"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.CalCom.OpenApiClient.Models.ResetDelegationCredentialRotationOutputData CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.CalCom.OpenApiClient.Models.ResetDelegationCredentialRotationOutputDataOneOf1 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.ResetDelegationCredentialRotationOutputData(), parseNode);
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.ResetDelegationCredentialRotationOutputDataOneOf1(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model

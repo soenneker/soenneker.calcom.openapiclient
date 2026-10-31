@@ -195,6 +195,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
                 { "seatUid", n => { SeatUid = n.GetStringValue(); } },
                 { "attendees", n => { Attendees = n.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.SeatedAttendee>(global::Soenneker.CalCom.OpenApiClient.Models.SeatedAttendee.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "recurringBookingUid", n => { RecurringBookingUid = n.GetStringValue(); } },
+
             };
         }
         /// <summary>

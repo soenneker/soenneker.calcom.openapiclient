@@ -124,6 +124,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateOrganizationAttributesOutput"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-platform-plan": "ESSENTIALS"
@@ -347,6 +358,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateAttributeOptionOutput"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-platform-plan": "ESSENTIALS"
@@ -776,6 +798,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssignOptionUserOutput"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-mcp": {
@@ -1849,6 +1882,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateDelegationCredentialOutput"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-platform-plan": "SCALE"
@@ -2445,6 +2489,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateOrgMembershipOutput"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -2737,6 +2792,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateOrgRoleOutput"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-platform-plan": "SCALE"
@@ -3753,6 +3819,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateRoutingFormResponseOutput"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -4032,6 +4109,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationSecondaryDomainResponseOutput"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-platform-plan": "ESSENTIALS"
@@ -4377,6 +4465,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrgTeamOutputResponseDto"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -5788,6 +5887,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreatePrivateLinkOutput"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -6343,6 +6453,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrgTeamMembershipOutputResponseDto"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -6686,6 +6807,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateTeamRoleOutput"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-platform-plan": "SCALE"
@@ -7674,6 +7806,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetTeamRoutingFormOutput"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-mcp": {
@@ -8308,6 +8451,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateRoutingFormResponseOutput"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -8966,6 +9120,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetRoutingFormWorkflowOutput"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -9420,6 +9585,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetEventTypeWorkflowOutput20260922"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -9992,6 +10168,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetOrganizationUserOutput"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -10717,6 +10904,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserOooOutputResponseDto"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -11063,6 +11261,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateScheduleOutput20240611"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -11514,6 +11723,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TeamWebhookOutputResponseDto"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -11896,6 +12116,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateBookingOutput20240813"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": []
@@ -12456,6 +12687,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RescheduleBookingOutput20240813"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": []
@@ -13547,6 +13789,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddAttendeeOutput20240813"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-mcp": {
@@ -13901,6 +14154,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateIcsFeedOutputResponseDto"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -14815,6 +15079,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateManagedUserOutput"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -15119,6 +15394,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OAuthClientWebhookOutputResponseDto"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       },
@@ -15416,6 +15702,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Create an OAuth client",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateOAuthClientResponseDto"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       },
@@ -15794,6 +16091,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateEventTypeOutput20260612"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-mcp": {
@@ -16520,6 +16828,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BookingFieldsOutput20260612"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -16700,6 +17019,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventTypeWebhookOutputResponseDto"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -17034,6 +17364,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreatePrivateLinkOutput"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -17372,6 +17713,17 @@
           },
           "403": {
             "description": "Insufficient permissions"
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventOutputResponseDto"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -18399,6 +18751,17 @@
           },
           "429": {
             "description": "Rate limit exceeded"
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InviteCoHostOutputResponseDto"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -19003,6 +19366,17 @@
           },
           "409": {
             "description": "The Event changed while the location was being saved"
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventLocationOutputResponseDto"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -19904,6 +20278,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateManagedOrganizationOutput"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-platform-plan": "SCALE"
@@ -20416,6 +20801,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppPushSubscriptionResponseDto"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -20494,6 +20890,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatPushLinkIntentResponseDto"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -20529,6 +20936,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatPushLinkIntentResponseDto"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -20564,6 +20982,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatPushLinkIntentResponseDto"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -20949,6 +21378,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateTeamEventTypeOutput20260612"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -21655,6 +22095,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreatePhoneCallOutput"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -22061,6 +22512,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BookingFieldsOutput20260612"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -22348,6 +22810,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DuplicateTeamEventTypeOutput"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-mcp": {
@@ -23061,6 +23534,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserOooOutputResponseDto"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -23331,6 +23815,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateScheduleOutput20240611"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-mcp": {
@@ -23664,6 +24159,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SelectedCalendarOutputResponseDto"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -23939,6 +24445,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReserveSlotOutputResponse20240904"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": []
@@ -24268,6 +24785,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateTeamEventTypeOutput20260612"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -24800,6 +25328,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreatePhoneCallOutput"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -25029,6 +25568,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BookingFieldsOutput20260612"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -25497,6 +26047,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BookingLimitPoolResponseOutput"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -26219,6 +26780,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventTypeWebhookOutputResponseDto"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -26747,6 +27319,17 @@
           },
           "403": {
             "description": "Not a member of the team, or insufficient permissions"
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventOutputResponseDto"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -26865,6 +27448,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateTeamMembershipOutput"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-mcp": {
@@ -27292,6 +27886,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateRoutingFormResponseOutput"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -27534,6 +28139,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserOooOutputResponseDto"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -28678,6 +29294,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserWebhookOutputResponseDto"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -28993,6 +29620,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetEventTypeWorkflowOutput20260922"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -33458,7 +34096,7 @@
           "bookingFields": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/BookingFieldsOutputData20260612BookingFieldsItem"
+              "$ref": "#/components/schemas/TeamEventTypeOutput20260612BookingFieldsItem"
             },
             "description": "The event type\u0027s default, custom, and workflow-added booking fields."
           },
@@ -46746,7 +47384,7 @@
           "bookingFields": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/BookingFieldsOutputData20260612BookingFieldsItem"
+              "$ref": "#/components/schemas/EventTypeOutput20260612BookingFieldsItem"
             },
             "description": "The event type\u0027s booking fields \u2014 the default ones, any custom ones, and any added automatically by an attached workflow."
           },
@@ -47905,7 +48543,7 @@
           "bookingFields": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/BookingFieldsOutputData20260612BookingFieldsItem"
+              "$ref": "#/components/schemas/LinkOutputBookingFieldsItem"
             },
             "description": "The event type\u0027s booking fields \u2014 the default ones, any custom ones, and any added automatically by an attached workflow."
           },
@@ -48216,7 +48854,7 @@
           "bookingFields": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/BookingFieldsOutputData20260612BookingFieldsItem"
+              "$ref": "#/components/schemas/TeamLinkOutputBookingFieldsItem"
             },
             "description": "The event type\u0027s default, custom, and workflow-added booking fields."
           },
@@ -54542,7 +55180,7 @@
           "registrationFields": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/BookingFieldsOutputData20260612BookingFieldsItem"
+              "$ref": "#/components/schemas/EventOutputDtoRegistrationFieldsItem"
             },
             "description": "Questions guests answer when registering. Always includes name and email."
           },
@@ -58749,31 +59387,9 @@
         }
       },
       "TeamEventTypeOutput20260612BookingFieldsItem": {
-        "required": [
-          "field"
-        ],
         "oneOf": [
           {
-            "title": "Default Name",
-            "required": [
-              "variant"
-            ],
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/SystemFullNameFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/SystemSplitNameFieldOutput20260612"
-              }
-            ],
-            "properties": {
-              "variant": {
-                "type": "string"
-              }
-            },
-            "discriminator": {
-              "propertyName": "variant"
-            }
+            "$ref": "#/components/schemas/BookingFieldsOutputData20260612BookingFieldsItemOneOf1"
           },
           {
             "$ref": "#/components/schemas/SystemEmailFieldOutput20260612"
@@ -58803,70 +59419,13 @@
             "$ref": "#/components/schemas/SystemAiAgentPhoneFieldOutput20260612"
           },
           {
-            "title": "Custom Booking Field",
-            "required": [
-              "type"
-            ],
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/CustomEmailFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomPhoneFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomAddressFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomShortTextFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomNumberFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomLongTextFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomSelectFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomMultiSelectFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomMultiEmailFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomCheckboxGroupFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomRadioGroupFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomCheckboxFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomUrlFieldOutput20260612"
-              }
-            ],
-            "properties": {
-              "type": {
-                "type": "string"
-              }
-            },
-            "discriminator": {
-              "propertyName": "type"
-            }
+            "$ref": "#/components/schemas/BookingFieldsOutputData20260612BookingFieldsItemOneOf11"
           },
           {
             "$ref": "#/components/schemas/UnknownBookingFieldOutput20260612"
           }
         ],
-        "properties": {
-          "field": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "field",
           "mapping": {
             "SystemEmailFieldOutput20260612": "#/components/schemas/SystemEmailFieldOutput20260612",
@@ -59342,31 +59901,9 @@
         ]
       },
       "BookingFieldsOutputData20260612BookingFieldsItem": {
-        "required": [
-          "field"
-        ],
         "oneOf": [
           {
-            "title": "Default Name",
-            "required": [
-              "variant"
-            ],
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/SystemFullNameFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/SystemSplitNameFieldOutput20260612"
-              }
-            ],
-            "properties": {
-              "variant": {
-                "type": "string"
-              }
-            },
-            "discriminator": {
-              "propertyName": "variant"
-            }
+            "$ref": "#/components/schemas/BookingFieldsOutputData20260612BookingFieldsItemOneOf1"
           },
           {
             "$ref": "#/components/schemas/SystemEmailFieldOutput20260612"
@@ -59396,70 +59933,13 @@
             "$ref": "#/components/schemas/SystemAiAgentPhoneFieldOutput20260612"
           },
           {
-            "title": "Custom Booking Field",
-            "required": [
-              "type"
-            ],
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/CustomEmailFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomPhoneFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomAddressFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomShortTextFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomNumberFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomLongTextFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomSelectFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomMultiSelectFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomMultiEmailFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomCheckboxGroupFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomRadioGroupFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomCheckboxFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomUrlFieldOutput20260612"
-              }
-            ],
-            "properties": {
-              "type": {
-                "type": "string"
-              }
-            },
-            "discriminator": {
-              "propertyName": "type"
-            }
+            "$ref": "#/components/schemas/BookingFieldsOutputData20260612BookingFieldsItemOneOf11"
           },
           {
             "$ref": "#/components/schemas/UnknownBookingFieldOutput20260612"
           }
         ],
-        "properties": {
-          "field": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "field",
           "mapping": {
             "SystemEmailFieldOutput20260612": "#/components/schemas/SystemEmailFieldOutput20260612",
@@ -61397,80 +61877,11 @@
         ]
       },
       "ResetDelegationCredentialRotationOutputData": {
-        "required": [
-          "id",
-          "enabled",
-          "domain",
-          "organizationId",
-          "workspacePlatform",
-          "createdAt",
-          "updatedAt",
-          "optOutAutoSecretRotation",
-          "secretRotationBlocked",
-          "secret",
-          "pendingSecret",
-          "secretRotationErrorCode"
-        ],
-        "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/MicrosoftDelegationCredentialOutput"
+            "$ref": "#/components/schemas/ResetDelegationCredentialRotationOutputDataOneOf1"
           }
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "The unique identifier of the delegation credential",
-            "example": "clsx1234567890"
-          },
-          "enabled": {
-            "type": "boolean",
-            "description": "Whether the delegation credential is currently enabled",
-            "example": true
-          },
-          "domain": {
-            "type": "string",
-            "description": "The email domain the delegation credential applies to",
-            "example": "example.com"
-          },
-          "organizationId": {
-            "type": "number",
-            "description": "The unique identifier of the organization the delegation credential belongs to",
-            "example": 123
-          },
-          "workspacePlatform": {
-            "$ref": "#/components/schemas/WorkspacePlatformDto"
-          },
-          "createdAt": {
-            "type": "string",
-            "description": "The date and time when the delegation credential was created",
-            "format": "date-time",
-            "example": "2024-04-01T00:00:00.000Z"
-          },
-          "updatedAt": {
-            "type": "string",
-            "description": "The date and time when the delegation credential was last updated",
-            "format": "date-time",
-            "example": "2024-04-01T00:00:00.000Z"
-          },
-          "optOutAutoSecretRotation": {
-            "type": "boolean",
-            "description": "Whether Cal.com-managed Microsoft 365 client secret rotation is disabled for this delegation credential."
-          },
-          "secretRotationBlocked": {
-            "type": "boolean",
-            "description": "Whether managed secret rotation is blocked after repeated failures and requires the reset-rotation endpoint before it will resume."
-          },
-          "secret": {
-            "$ref": "#/components/schemas/MicrosoftDelegationCredentialOutputSecret"
-          },
-          "pendingSecret": {
-            "$ref": "#/components/schemas/MicrosoftDelegationCredentialOutputPendingSecret"
-          },
-          "secretRotationErrorCode": {
-            "$ref": "#/components/schemas/MicrosoftDelegationCredentialOutputSecretRotationErrorCode"
-          }
-        }
+        ]
       },
       "DeleteDelegationCredentialOutputData": {
         "oneOf": [
@@ -62173,7 +62584,7 @@
           "bookingFields": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/BookingFieldsOutputData20260612BookingFieldsItem"
+              "$ref": "#/components/schemas/TeamEventTypeOutput20260612BookingFieldsItem"
             },
             "description": "The event type\u0027s default, custom, and workflow-added booking fields."
           },
@@ -62817,31 +63228,9 @@
         }
       },
       "EventTypeOutput20260612BookingFieldsItem": {
-        "required": [
-          "field"
-        ],
         "oneOf": [
           {
-            "title": "Default Name",
-            "required": [
-              "variant"
-            ],
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/SystemFullNameFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/SystemSplitNameFieldOutput20260612"
-              }
-            ],
-            "properties": {
-              "variant": {
-                "type": "string"
-              }
-            },
-            "discriminator": {
-              "propertyName": "variant"
-            }
+            "$ref": "#/components/schemas/BookingFieldsOutputData20260612BookingFieldsItemOneOf1"
           },
           {
             "$ref": "#/components/schemas/SystemEmailFieldOutput20260612"
@@ -62871,70 +63260,13 @@
             "$ref": "#/components/schemas/SystemAiAgentPhoneFieldOutput20260612"
           },
           {
-            "title": "Custom Booking Field",
-            "required": [
-              "type"
-            ],
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/CustomEmailFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomPhoneFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomAddressFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomShortTextFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomNumberFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomLongTextFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomSelectFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomMultiSelectFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomMultiEmailFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomCheckboxGroupFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomRadioGroupFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomCheckboxFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomUrlFieldOutput20260612"
-              }
-            ],
-            "properties": {
-              "type": {
-                "type": "string"
-              }
-            },
-            "discriminator": {
-              "propertyName": "type"
-            }
+            "$ref": "#/components/schemas/BookingFieldsOutputData20260612BookingFieldsItemOneOf11"
           },
           {
             "$ref": "#/components/schemas/UnknownBookingFieldOutput20260612"
           }
         ],
-        "properties": {
-          "field": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "field",
           "mapping": {
             "SystemEmailFieldOutput20260612": "#/components/schemas/SystemEmailFieldOutput20260612",
@@ -63707,31 +64039,9 @@
         }
       },
       "LinkOutputBookingFieldsItem": {
-        "required": [
-          "field"
-        ],
         "oneOf": [
           {
-            "title": "Default Name",
-            "required": [
-              "variant"
-            ],
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/SystemFullNameFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/SystemSplitNameFieldOutput20260612"
-              }
-            ],
-            "properties": {
-              "variant": {
-                "type": "string"
-              }
-            },
-            "discriminator": {
-              "propertyName": "variant"
-            }
+            "$ref": "#/components/schemas/BookingFieldsOutputData20260612BookingFieldsItemOneOf1"
           },
           {
             "$ref": "#/components/schemas/SystemEmailFieldOutput20260612"
@@ -63761,70 +64071,13 @@
             "$ref": "#/components/schemas/SystemAiAgentPhoneFieldOutput20260612"
           },
           {
-            "title": "Custom Booking Field",
-            "required": [
-              "type"
-            ],
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/CustomEmailFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomPhoneFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomAddressFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomShortTextFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomNumberFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomLongTextFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomSelectFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomMultiSelectFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomMultiEmailFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomCheckboxGroupFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomRadioGroupFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomCheckboxFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomUrlFieldOutput20260612"
-              }
-            ],
-            "properties": {
-              "type": {
-                "type": "string"
-              }
-            },
-            "discriminator": {
-              "propertyName": "type"
-            }
+            "$ref": "#/components/schemas/BookingFieldsOutputData20260612BookingFieldsItemOneOf11"
           },
           {
             "$ref": "#/components/schemas/UnknownBookingFieldOutput20260612"
           }
         ],
-        "properties": {
-          "field": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "field",
           "mapping": {
             "SystemEmailFieldOutput20260612": "#/components/schemas/SystemEmailFieldOutput20260612",
@@ -64082,31 +64335,9 @@
         }
       },
       "TeamLinkOutputBookingFieldsItem": {
-        "required": [
-          "field"
-        ],
         "oneOf": [
           {
-            "title": "Default Name",
-            "required": [
-              "variant"
-            ],
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/SystemFullNameFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/SystemSplitNameFieldOutput20260612"
-              }
-            ],
-            "properties": {
-              "variant": {
-                "type": "string"
-              }
-            },
-            "discriminator": {
-              "propertyName": "variant"
-            }
+            "$ref": "#/components/schemas/BookingFieldsOutputData20260612BookingFieldsItemOneOf1"
           },
           {
             "$ref": "#/components/schemas/SystemEmailFieldOutput20260612"
@@ -64136,70 +64367,13 @@
             "$ref": "#/components/schemas/SystemAiAgentPhoneFieldOutput20260612"
           },
           {
-            "title": "Custom Booking Field",
-            "required": [
-              "type"
-            ],
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/CustomEmailFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomPhoneFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomAddressFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomShortTextFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomNumberFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomLongTextFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomSelectFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomMultiSelectFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomMultiEmailFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomCheckboxGroupFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomRadioGroupFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomCheckboxFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomUrlFieldOutput20260612"
-              }
-            ],
-            "properties": {
-              "type": {
-                "type": "string"
-              }
-            },
-            "discriminator": {
-              "propertyName": "type"
-            }
+            "$ref": "#/components/schemas/BookingFieldsOutputData20260612BookingFieldsItemOneOf11"
           },
           {
             "$ref": "#/components/schemas/UnknownBookingFieldOutput20260612"
           }
         ],
-        "properties": {
-          "field": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "field",
           "mapping": {
             "SystemEmailFieldOutput20260612": "#/components/schemas/SystemEmailFieldOutput20260612",
@@ -64777,24 +64951,11 @@
         "description": "Booking data, which can be either a BookingOutput object or a RecurringBookingOutput object"
       },
       "ReassignBookingOutput20240813Data": {
-        "required": [
-          "status",
-          "data"
-        ],
-        "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/ReassignBookingOutput20240813"
+            "$ref": "#/components/schemas/ReassignBookingOutput20240813DataOneOf1"
           }
         ],
-        "properties": {
-          "status": {
-            "$ref": "#/components/schemas/ReassignBookingOutput20240813Status"
-          },
-          "data": {
-            "$ref": "#/components/schemas/ReassignBookingOutput20240813Data"
-          }
-        },
         "description": "Booking data, which can be either a ReassignAutoBookingOutput object or a ReassignManualBookingOutput object"
       },
       "AddGuestsOutput20240813Data": {
@@ -66023,31 +66184,9 @@
         "description": "Animated background of the event page."
       },
       "EventOutputDtoRegistrationFieldsItem": {
-        "required": [
-          "field"
-        ],
         "oneOf": [
           {
-            "title": "Default Name",
-            "required": [
-              "variant"
-            ],
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/SystemFullNameFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/SystemSplitNameFieldOutput20260612"
-              }
-            ],
-            "properties": {
-              "variant": {
-                "type": "string"
-              }
-            },
-            "discriminator": {
-              "propertyName": "variant"
-            }
+            "$ref": "#/components/schemas/BookingFieldsOutputData20260612BookingFieldsItemOneOf1"
           },
           {
             "$ref": "#/components/schemas/SystemEmailFieldOutput20260612"
@@ -66077,70 +66216,13 @@
             "$ref": "#/components/schemas/SystemAiAgentPhoneFieldOutput20260612"
           },
           {
-            "title": "Custom Booking Field",
-            "required": [
-              "type"
-            ],
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/CustomEmailFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomPhoneFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomAddressFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomShortTextFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomNumberFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomLongTextFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomSelectFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomMultiSelectFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomMultiEmailFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomCheckboxGroupFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomRadioGroupFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomCheckboxFieldOutput20260612"
-              },
-              {
-                "$ref": "#/components/schemas/CustomUrlFieldOutput20260612"
-              }
-            ],
-            "properties": {
-              "type": {
-                "type": "string"
-              }
-            },
-            "discriminator": {
-              "propertyName": "type"
-            }
+            "$ref": "#/components/schemas/BookingFieldsOutputData20260612BookingFieldsItemOneOf11"
           },
           {
             "$ref": "#/components/schemas/UnknownBookingFieldOutput20260612"
           }
         ],
-        "properties": {
-          "field": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "field",
           "mapping": {
             "SystemEmailFieldOutput20260612": "#/components/schemas/SystemEmailFieldOutput20260612",
@@ -102033,6 +102115,128 @@
           ]
         }
       },
+      "TeamEventTypeOutput20260612BookingFieldsItemOneOf1": {
+        "title": "Default Name",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/SystemFullNameFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/SystemSplitNameFieldOutput20260612"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "variant"
+        }
+      },
+      "TeamEventTypeOutput20260612BookingFieldsItemOneOf11": {
+        "title": "Custom Booking Field",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CustomEmailFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomPhoneFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomAddressFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomShortTextFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomNumberFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomLongTextFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomSelectFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomMultiSelectFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomMultiEmailFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomCheckboxGroupFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomRadioGroupFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomCheckboxFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomUrlFieldOutput20260612"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "BookingFieldsOutputData20260612BookingFieldsItemOneOf1": {
+        "title": "Default Name",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/SystemFullNameFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/SystemSplitNameFieldOutput20260612"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "variant"
+        }
+      },
+      "BookingFieldsOutputData20260612BookingFieldsItemOneOf11": {
+        "title": "Custom Booking Field",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CustomEmailFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomPhoneFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomAddressFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomShortTextFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomNumberFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomLongTextFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomSelectFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomMultiSelectFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomMultiEmailFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomCheckboxGroupFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomRadioGroupFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomCheckboxFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomUrlFieldOutput20260612"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "type"
+        }
+      },
       "PatchBookingFieldsInput20260612BookingFieldsItemAnyOf1": {
         "type": "object",
         "properties": {
@@ -102844,6 +103048,702 @@
         "required": [
           "slug"
         ]
+      },
+      "ResetDelegationCredentialRotationOutputDataOneOf1": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique identifier of the delegation credential",
+            "example": "clsx1234567890"
+          },
+          "enabled": {
+            "type": "boolean",
+            "description": "Whether the delegation credential is currently enabled",
+            "example": true
+          },
+          "domain": {
+            "type": "string",
+            "description": "The email domain the delegation credential applies to",
+            "example": "example.com"
+          },
+          "organizationId": {
+            "type": "number",
+            "description": "The unique identifier of the organization the delegation credential belongs to",
+            "example": 123
+          },
+          "workspacePlatform": {
+            "$ref": "#/components/schemas/WorkspacePlatformDto"
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "The date and time when the delegation credential was created",
+            "format": "date-time",
+            "example": "2024-04-01T00:00:00.000Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "The date and time when the delegation credential was last updated",
+            "format": "date-time",
+            "example": "2024-04-01T00:00:00.000Z"
+          },
+          "optOutAutoSecretRotation": {
+            "type": "boolean",
+            "description": "Whether Cal.com-managed Microsoft 365 client secret rotation is disabled for this delegation credential."
+          },
+          "secretRotationBlocked": {
+            "type": "boolean",
+            "description": "Whether managed secret rotation is blocked after repeated failures and requires the reset-rotation endpoint before it will resume."
+          },
+          "secret": {
+            "$ref": "#/components/schemas/MicrosoftDelegationCredentialOutputSecret"
+          },
+          "pendingSecret": {
+            "$ref": "#/components/schemas/MicrosoftDelegationCredentialOutputPendingSecret"
+          },
+          "secretRotationErrorCode": {
+            "$ref": "#/components/schemas/MicrosoftDelegationCredentialOutputSecretRotationErrorCode"
+          }
+        },
+        "required": [
+          "id",
+          "enabled",
+          "domain",
+          "organizationId",
+          "workspacePlatform",
+          "createdAt",
+          "updatedAt",
+          "optOutAutoSecretRotation",
+          "secretRotationBlocked",
+          "secret",
+          "pendingSecret",
+          "secretRotationErrorCode"
+        ]
+      },
+      "EventTypeOutput20260612BookingFieldsItemOneOf1": {
+        "title": "Default Name",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/SystemFullNameFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/SystemSplitNameFieldOutput20260612"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "variant"
+        }
+      },
+      "EventTypeOutput20260612BookingFieldsItemOneOf11": {
+        "title": "Custom Booking Field",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CustomEmailFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomPhoneFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomAddressFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomShortTextFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomNumberFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomLongTextFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomSelectFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomMultiSelectFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomMultiEmailFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomCheckboxGroupFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomRadioGroupFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomCheckboxFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomUrlFieldOutput20260612"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "LinkOutputBookingFieldsItemOneOf1": {
+        "title": "Default Name",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/SystemFullNameFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/SystemSplitNameFieldOutput20260612"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "variant"
+        }
+      },
+      "LinkOutputBookingFieldsItemOneOf11": {
+        "title": "Custom Booking Field",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CustomEmailFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomPhoneFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomAddressFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomShortTextFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomNumberFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomLongTextFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomSelectFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomMultiSelectFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomMultiEmailFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomCheckboxGroupFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomRadioGroupFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomCheckboxFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomUrlFieldOutput20260612"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "TeamLinkOutputBookingFieldsItemOneOf1": {
+        "title": "Default Name",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/SystemFullNameFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/SystemSplitNameFieldOutput20260612"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "variant"
+        }
+      },
+      "TeamLinkOutputBookingFieldsItemOneOf11": {
+        "title": "Custom Booking Field",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CustomEmailFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomPhoneFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomAddressFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomShortTextFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomNumberFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomLongTextFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomSelectFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomMultiSelectFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomMultiEmailFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomCheckboxGroupFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomRadioGroupFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomCheckboxFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomUrlFieldOutput20260612"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "ReassignBookingOutput20240813DataOneOf1": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/ReassignBookingOutput20240813Status"
+          },
+          "data": {
+            "$ref": "#/components/schemas/ReassignBookingOutput20240813Data"
+          }
+        },
+        "required": [
+          "status",
+          "data"
+        ]
+      },
+      "EventOutputDtoRegistrationFieldsItemOneOf1": {
+        "title": "Default Name",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/SystemFullNameFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/SystemSplitNameFieldOutput20260612"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "variant"
+        }
+      },
+      "EventOutputDtoRegistrationFieldsItemOneOf11": {
+        "title": "Custom Booking Field",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CustomEmailFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomPhoneFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomAddressFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomShortTextFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomNumberFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomLongTextFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomSelectFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomMultiSelectFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomMultiEmailFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomCheckboxGroupFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomRadioGroupFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomCheckboxFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomUrlFieldOutput20260612"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "TeamEventTypeOutput20260612BookingFieldsItemOneOf1Branch": {
+        "title": "Default Name",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/SystemFullNameFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/SystemSplitNameFieldOutput20260612"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "variant"
+        }
+      },
+      "TeamEventTypeOutput20260612BookingFieldsItemOneOf11Branch": {
+        "title": "Custom Booking Field",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CustomEmailFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomPhoneFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomAddressFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomShortTextFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomNumberFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomLongTextFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomSelectFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomMultiSelectFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomMultiEmailFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomCheckboxGroupFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomRadioGroupFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomCheckboxFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomUrlFieldOutput20260612"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "BookingFieldsOutputData20260612BookingFieldsItemOneOf1Branch": {
+        "title": "Default Name",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/SystemFullNameFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/SystemSplitNameFieldOutput20260612"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "variant"
+        }
+      },
+      "BookingFieldsOutputData20260612BookingFieldsItemOneOf11Branch": {
+        "title": "Custom Booking Field",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CustomEmailFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomPhoneFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomAddressFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomShortTextFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomNumberFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomLongTextFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomSelectFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomMultiSelectFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomMultiEmailFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomCheckboxGroupFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomRadioGroupFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomCheckboxFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomUrlFieldOutput20260612"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "EventTypeOutput20260612BookingFieldsItemOneOf1Branch": {
+        "title": "Default Name",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/SystemFullNameFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/SystemSplitNameFieldOutput20260612"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "variant"
+        }
+      },
+      "EventTypeOutput20260612BookingFieldsItemOneOf11Branch": {
+        "title": "Custom Booking Field",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CustomEmailFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomPhoneFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomAddressFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomShortTextFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomNumberFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomLongTextFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomSelectFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomMultiSelectFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomMultiEmailFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomCheckboxGroupFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomRadioGroupFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomCheckboxFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomUrlFieldOutput20260612"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "LinkOutputBookingFieldsItemOneOf1Branch": {
+        "title": "Default Name",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/SystemFullNameFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/SystemSplitNameFieldOutput20260612"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "variant"
+        }
+      },
+      "LinkOutputBookingFieldsItemOneOf11Branch": {
+        "title": "Custom Booking Field",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CustomEmailFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomPhoneFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomAddressFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomShortTextFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomNumberFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomLongTextFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomSelectFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomMultiSelectFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomMultiEmailFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomCheckboxGroupFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomRadioGroupFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomCheckboxFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomUrlFieldOutput20260612"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "TeamLinkOutputBookingFieldsItemOneOf1Branch": {
+        "title": "Default Name",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/SystemFullNameFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/SystemSplitNameFieldOutput20260612"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "variant"
+        }
+      },
+      "TeamLinkOutputBookingFieldsItemOneOf11Branch": {
+        "title": "Custom Booking Field",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CustomEmailFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomPhoneFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomAddressFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomShortTextFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomNumberFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomLongTextFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomSelectFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomMultiSelectFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomMultiEmailFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomCheckboxGroupFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomRadioGroupFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomCheckboxFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomUrlFieldOutput20260612"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "EventOutputDtoRegistrationFieldsItemOneOf1Branch": {
+        "title": "Default Name",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/SystemFullNameFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/SystemSplitNameFieldOutput20260612"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "variant"
+        }
+      },
+      "EventOutputDtoRegistrationFieldsItemOneOf11Branch": {
+        "title": "Custom Booking Field",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CustomEmailFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomPhoneFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomAddressFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomShortTextFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomNumberFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomLongTextFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomSelectFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomMultiSelectFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomMultiEmailFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomCheckboxGroupFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomRadioGroupFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomCheckboxFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/CustomUrlFieldOutput20260612"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "type"
+        }
       },
       "SlotsController20240904GetAvailableSlots200ResponseOneOf1": {
         "title": "Default format (or with format=time)",

@@ -28,12 +28,12 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.ResetDelegationCredentialRotationOutputData? Data { get => _explicitNullValueData; set { _explicitNullValueData = value; AdditionalData?.Remove("data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data"); else _explicitNullProperties?.Remove("data"); } }
-        private global::Soenneker.CalCom.OpenApiClient.Models.ResetDelegationCredentialRotationOutputData? _explicitNullValueData = default!;
+        public global::Soenneker.CalCom.OpenApiClient.Models.ResetDelegationCredentialRotationOutputDataOneOf1? Data { get => _explicitNullValueData; set { _explicitNullValueData = value; AdditionalData?.Remove("data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data"); else _explicitNullProperties?.Remove("data"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.ResetDelegationCredentialRotationOutputDataOneOf1? _explicitNullValueData = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.ResetDelegationCredentialRotationOutputData Data { get => _explicitNullValueData; set { _explicitNullValueData = value; AdditionalData?.Remove("data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data"); else _explicitNullProperties?.Remove("data"); } }
-        private global::Soenneker.CalCom.OpenApiClient.Models.ResetDelegationCredentialRotationOutputData _explicitNullValueData = default!;
+        public global::Soenneker.CalCom.OpenApiClient.Models.ResetDelegationCredentialRotationOutputDataOneOf1 Data { get => _explicitNullValueData; set { _explicitNullValueData = value; AdditionalData?.Remove("data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data"); else _explicitNullProperties?.Remove("data"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.ResetDelegationCredentialRotationOutputDataOneOf1 _explicitNullValueData = default!;
 #endif
         /// <summary>The status property</summary>
         public global::Soenneker.CalCom.OpenApiClient.Models.ResetDelegationCredentialRotationOutputStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
@@ -63,7 +63,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.ResetDelegationCredentialRotationOutputData>(global::Soenneker.CalCom.OpenApiClient.Models.ResetDelegationCredentialRotationOutputData.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.ResetDelegationCredentialRotationOutputDataOneOf1>(global::Soenneker.CalCom.OpenApiClient.Models.ResetDelegationCredentialRotationOutputDataOneOf1.CreateFromDiscriminatorValue); } },
                 { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.ResetDelegationCredentialRotationOutputStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
             };
         }
@@ -74,7 +74,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.ResetDelegationCredentialRotationOutputData>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.ResetDelegationCredentialRotationOutputDataOneOf1>("data", Data);
             writer.WriteEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.ResetDelegationCredentialRotationOutputStatus>("status", Status);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

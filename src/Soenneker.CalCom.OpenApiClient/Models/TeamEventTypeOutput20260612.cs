@@ -200,12 +200,12 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The event type&apos;s default, custom, and workflow-added booking fields.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsOutputData20260612BookingFieldsItem>? BookingFields { get => _explicitNullValueBookingFields; set { _explicitNullValueBookingFields = value; AdditionalData?.Remove("bookingFields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingFields"); else _explicitNullProperties?.Remove("bookingFields"); } }
-        private List<global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsOutputData20260612BookingFieldsItem>? _explicitNullValueBookingFields = default!;
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612BookingFieldsItem>? BookingFields { get => _explicitNullValueBookingFields; set { _explicitNullValueBookingFields = value; AdditionalData?.Remove("bookingFields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingFields"); else _explicitNullProperties?.Remove("bookingFields"); } }
+        private List<global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612BookingFieldsItem>? _explicitNullValueBookingFields = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsOutputData20260612BookingFieldsItem> BookingFields { get => _explicitNullValueBookingFields; set { _explicitNullValueBookingFields = value; AdditionalData?.Remove("bookingFields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingFields"); else _explicitNullProperties?.Remove("bookingFields"); } }
-        private List<global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsOutputData20260612BookingFieldsItem> _explicitNullValueBookingFields = default!;
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612BookingFieldsItem> BookingFields { get => _explicitNullValueBookingFields; set { _explicitNullValueBookingFields = value; AdditionalData?.Remove("bookingFields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingFields"); else _explicitNullProperties?.Remove("bookingFields"); } }
+        private List<global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612BookingFieldsItem> _explicitNullValueBookingFields = default!;
 #endif
         /// <summary>The bookingLimitsCount property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -617,7 +617,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
                 { "beforeEventBuffer", n => { BeforeEventBuffer = n.GetDoubleValue(); } },
                 { "bookerActiveBookingsLimit", n => { BookerActiveBookingsLimit = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.BookerActiveBookingsLimitOutput20240614>(global::Soenneker.CalCom.OpenApiClient.Models.BookerActiveBookingsLimitOutput20240614.CreateFromDiscriminatorValue); } },
                 { "bookerLayouts", n => { BookerLayouts = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.BookerLayouts20240614>(global::Soenneker.CalCom.OpenApiClient.Models.BookerLayouts20240614.CreateFromDiscriminatorValue); } },
-                { "bookingFields", n => { BookingFields = n.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsOutputData20260612BookingFieldsItem>(global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsOutputData20260612BookingFieldsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "bookingFields", n => { BookingFields = n.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612BookingFieldsItem>(global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612BookingFieldsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "bookingLimitsCount", n => { BookingLimitsCount = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.EventTypeOutput20260612BookingLimitsCount>(global::Soenneker.CalCom.OpenApiClient.Models.EventTypeOutput20260612BookingLimitsCount.CreateFromDiscriminatorValue); } },
                 { "bookingLimitsDuration", n => { BookingLimitsDuration = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.EventTypeOutput20260612BookingLimitsDuration>(global::Soenneker.CalCom.OpenApiClient.Models.EventTypeOutput20260612BookingLimitsDuration.CreateFromDiscriminatorValue); } },
                 { "bookingProposalCount", n => { BookingProposalCount = n.GetDoubleValue(); } },
@@ -696,7 +696,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteDoubleValue("beforeEventBuffer", BeforeEventBuffer);
             writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.BookerActiveBookingsLimitOutput20240614>("bookerActiveBookingsLimit", BookerActiveBookingsLimit);
             writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.BookerLayouts20240614>("bookerLayouts", BookerLayouts);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsOutputData20260612BookingFieldsItem>("bookingFields", BookingFields);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.TeamEventTypeOutput20260612BookingFieldsItem>("bookingFields", BookingFields);
             writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.EventTypeOutput20260612BookingLimitsCount>("bookingLimitsCount", BookingLimitsCount);
             writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.EventTypeOutput20260612BookingLimitsDuration>("bookingLimitsDuration", BookingLimitsDuration);
             writer.WriteDoubleValue("bookingProposalCount", BookingProposalCount);
