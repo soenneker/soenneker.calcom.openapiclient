@@ -61289,8 +61289,8 @@
         "discriminator": {
           "propertyName": "workspacePlatformSlug",
           "mapping": {
-            "google": "#/components/schemas/OrganizationsDelegationCredentialControllerCreateDelegationCredentialRequestCreateGoogleDelegationCredentialInput",
-            "office365": "#/components/schemas/OrganizationsDelegationCredentialControllerCreateDelegationCredentialRequestCreateMicrosoftDelegationCredentialInput"
+            "google": "#/components/schemas/TaggedGoogleVariant28588EC847CBACA7",
+            "office365": "#/components/schemas/TaggedOffice365VariantC5A502ECC5EE532A"
           }
         },
         "x-client-original-tagged-union": {
@@ -97117,7 +97117,7 @@
           }
         ]
       },
-      "OrganizationsDelegationCredentialControllerCreateDelegationCredentialRequestCreateGoogleDelegationCredentialInput": {
+      "TaggedGoogleVariant28588EC847CBACA7": {
         "allOf": [
           {
             "$ref": "#/components/schemas/OrganizationsDelegationCredentialControllerCreateDelegationCredentialRequest"
@@ -97143,7 +97143,7 @@
           }
         ]
       },
-      "OrganizationsDelegationCredentialControllerCreateDelegationCredentialRequestCreateMicrosoftDelegationCredentialInput": {
+      "TaggedOffice365VariantC5A502ECC5EE532A": {
         "allOf": [
           {
             "$ref": "#/components/schemas/OrganizationsDelegationCredentialControllerCreateDelegationCredentialRequest"

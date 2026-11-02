@@ -9,7 +9,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class OrganizationsDelegationCredentialControllerCreateDelegationCredentialRequestCreateGoogleDelegationCredentialInput : global::Soenneker.CalCom.OpenApiClient.Models.OrganizationsDelegationCredentialControllerCreateDelegationCredentialRequest, IParsable
+    public partial class TaggedOffice365VariantC5A502ECC5EE532A : global::Soenneker.CalCom.OpenApiClient.Models.OrganizationsDelegationCredentialControllerCreateDelegationCredentialRequest, IParsable
     #pragma warning restore CS1591
     {
         // Track explicitly assigned nulls separately from absent properties.
@@ -20,6 +20,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             base.CaptureExplicitNulls(parseNode);
             if (parseNode.GetChildNode("domain") is null) { _explicitNullValueDomain = default!; _explicitNullProperties?.Remove("domain"); }
             else if (parseNode.GetChildNode("domain") is { } nullNodeDomain && nullNodeDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Domain = null;
+            if (parseNode.GetChildNode("optOutAutoSecretRotation") is null) { _explicitNullValueOptOutAutoSecretRotation = default!; _explicitNullProperties?.Remove("optOutAutoSecretRotation"); }
+            else if (parseNode.GetChildNode("optOutAutoSecretRotation") is { } nullNodeOptOutAutoSecretRotation && nullNodeOptOutAutoSecretRotation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OptOutAutoSecretRotation = null;
             if (parseNode.GetChildNode("serviceAccountKey") is null) { _explicitNullValueServiceAccountKey = default!; _explicitNullProperties?.Remove("serviceAccountKey"); }
             else if (parseNode.GetChildNode("serviceAccountKey") is { } nullNodeServiceAccountKey && nullNodeServiceAccountKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServiceAccountKey = null;
         }
@@ -34,25 +36,28 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public string Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
         private string _explicitNullValueDomain = default!;
 #endif
+        /// <summary>When true, Cal.com will not mint or promote managed Microsoft 365 client secrets for this delegation credential. Use this when the credential owner wants to rotate the active secret outside Cal.com.</summary>
+        public bool? OptOutAutoSecretRotation { get => _explicitNullValueOptOutAutoSecretRotation; set { _explicitNullValueOptOutAutoSecretRotation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("optOutAutoSecretRotation"); else _explicitNullProperties?.Remove("optOutAutoSecretRotation"); } }
+        private bool? _explicitNullValueOptOutAutoSecretRotation = default!;
         /// <summary>The serviceAccountKey property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.CalCom.OpenApiClient.Models.GoogleServiceAccountKeyInput? ServiceAccountKey { get => _explicitNullValueServiceAccountKey; set { _explicitNullValueServiceAccountKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("serviceAccountKey"); else _explicitNullProperties?.Remove("serviceAccountKey"); } }
-        private global::Soenneker.CalCom.OpenApiClient.Models.GoogleServiceAccountKeyInput? _explicitNullValueServiceAccountKey = default!;
+        public global::Soenneker.CalCom.OpenApiClient.Models.MicrosoftServiceAccountKeyInput? ServiceAccountKey { get => _explicitNullValueServiceAccountKey; set { _explicitNullValueServiceAccountKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("serviceAccountKey"); else _explicitNullProperties?.Remove("serviceAccountKey"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.MicrosoftServiceAccountKeyInput? _explicitNullValueServiceAccountKey = default!;
 #nullable restore
 #else
-        public global::Soenneker.CalCom.OpenApiClient.Models.GoogleServiceAccountKeyInput ServiceAccountKey { get => _explicitNullValueServiceAccountKey; set { _explicitNullValueServiceAccountKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("serviceAccountKey"); else _explicitNullProperties?.Remove("serviceAccountKey"); } }
-        private global::Soenneker.CalCom.OpenApiClient.Models.GoogleServiceAccountKeyInput _explicitNullValueServiceAccountKey = default!;
+        public global::Soenneker.CalCom.OpenApiClient.Models.MicrosoftServiceAccountKeyInput ServiceAccountKey { get => _explicitNullValueServiceAccountKey; set { _explicitNullValueServiceAccountKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("serviceAccountKey"); else _explicitNullProperties?.Remove("serviceAccountKey"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.MicrosoftServiceAccountKeyInput _explicitNullValueServiceAccountKey = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Models.OrganizationsDelegationCredentialControllerCreateDelegationCredentialRequestCreateGoogleDelegationCredentialInput"/></returns>
+        /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Models.TaggedOffice365VariantC5A502ECC5EE532A"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.CalCom.OpenApiClient.Models.OrganizationsDelegationCredentialControllerCreateDelegationCredentialRequestCreateGoogleDelegationCredentialInput CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new global::Soenneker.CalCom.OpenApiClient.Models.TaggedOffice365VariantC5A502ECC5EE532A CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.OrganizationsDelegationCredentialControllerCreateDelegationCredentialRequestCreateGoogleDelegationCredentialInput(), parseNode);
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.CalCom.OpenApiClient.Models.TaggedOffice365VariantC5A502ECC5EE532A(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,7 +68,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "domain", n => { Domain = n.GetStringValue(); } },
-                { "serviceAccountKey", n => { ServiceAccountKey = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.GoogleServiceAccountKeyInput>(global::Soenneker.CalCom.OpenApiClient.Models.GoogleServiceAccountKeyInput.CreateFromDiscriminatorValue); } },
+                { "optOutAutoSecretRotation", n => { OptOutAutoSecretRotation = n.GetBoolValue(); } },
+                { "serviceAccountKey", n => { ServiceAccountKey = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.MicrosoftServiceAccountKeyInput>(global::Soenneker.CalCom.OpenApiClient.Models.MicrosoftServiceAccountKeyInput.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -75,7 +81,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("domain", Domain);
-            writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.GoogleServiceAccountKeyInput>("serviceAccountKey", ServiceAccountKey);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            writer.WriteBoolValue("optOutAutoSecretRotation", OptOutAutoSecretRotation);
+            writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.MicrosoftServiceAccountKeyInput>("serviceAccountKey", ServiceAccountKey);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }
     }

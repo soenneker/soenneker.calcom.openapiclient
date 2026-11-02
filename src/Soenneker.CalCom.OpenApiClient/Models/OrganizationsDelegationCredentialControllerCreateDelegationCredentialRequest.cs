@@ -51,8 +51,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("workspacePlatformSlug")?.GetStringValue();
             return mappingValue switch
             {
-                "google" => new global::Soenneker.CalCom.OpenApiClient.Models.OrganizationsDelegationCredentialControllerCreateDelegationCredentialRequestCreateGoogleDelegationCredentialInput(),
-                "office365" => new global::Soenneker.CalCom.OpenApiClient.Models.OrganizationsDelegationCredentialControllerCreateDelegationCredentialRequestCreateMicrosoftDelegationCredentialInput(),
+                "google" => new global::Soenneker.CalCom.OpenApiClient.Models.TaggedGoogleVariant28588EC847CBACA7(),
+                "office365" => new global::Soenneker.CalCom.OpenApiClient.Models.TaggedOffice365VariantC5A502ECC5EE532A(),
                 _ => new global::Soenneker.CalCom.OpenApiClient.Models.OrganizationsDelegationCredentialControllerCreateDelegationCredentialRequest(),
             };
         }
