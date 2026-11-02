@@ -59371,6 +59371,7 @@
         ],
         "type": "string",
         "description": "How private notes are delivered: as an additional host event or by sending separate host and guest invites.",
+        "nullable": true,
         "x-ms-enum": {
           "name": "TeamEventTypeOutput20260612PrivateNoteMode",
           "modelAsString": false,
@@ -63212,6 +63213,7 @@
         ],
         "type": "string",
         "description": "How private notes are delivered: as an additional host event or by sending separate host and guest invites.",
+        "nullable": true,
         "x-ms-enum": {
           "name": "EventTypeOutput20260612PrivateNoteMode",
           "modelAsString": false,
@@ -64023,6 +64025,7 @@
         ],
         "type": "string",
         "description": "How private notes are delivered: as an additional host event or by sending separate host and guest invites.",
+        "nullable": true,
         "x-ms-enum": {
           "name": "LinkOutputPrivateNoteMode",
           "modelAsString": false,
@@ -64319,6 +64322,7 @@
         ],
         "type": "string",
         "description": "How private notes are delivered: as an additional host event or by sending separate host and guest invites.",
+        "nullable": true,
         "x-ms-enum": {
           "name": "TeamLinkOutputPrivateNoteMode",
           "modelAsString": false,
@@ -65865,6 +65869,7 @@
         "type": "string",
         "description": "Attendee\u0027s response to the invitation",
         "example": "accepted",
+        "nullable": true,
         "x-ms-enum": {
           "name": "CalendarEventAttendeeResponseStatus",
           "modelAsString": false,
@@ -65898,6 +65903,7 @@
         "type": "string",
         "description": "Attendee\u0027s response to the invitation",
         "example": "accepted",
+        "nullable": true,
         "x-ms-enum": {
           "name": "CalendarEventHostResponseStatus",
           "modelAsString": false,
@@ -65956,6 +65962,7 @@
         "type": "string",
         "description": "Status of the event (accepted, pending, declined, cancelled)",
         "example": "accepted",
+        "nullable": true,
         "x-ms-enum": {
           "name": "UnifiedCalendarEventOutputStatus",
           "modelAsString": false,
@@ -66034,6 +66041,7 @@
         ],
         "type": "string",
         "description": "Attendee\u0027s response to the invitation",
+        "nullable": true,
         "x-ms-enum": {
           "name": "UpdateCalendarEventAttendeeResponseStatus",
           "modelAsString": false,
@@ -66067,6 +66075,7 @@
         "type": "string",
         "description": "Status of the event (accepted, pending, declined, cancelled)",
         "example": "accepted",
+        "nullable": true,
         "x-ms-enum": {
           "name": "UpdateUnifiedCalendarEventInputStatus",
           "modelAsString": false,
