@@ -16595,11 +16595,12 @@
             "schema": {
               "oneOf": [
                 {
+                  "title": "Numeric ID",
                   "type": "integer"
                 },
                 {
-                  "type": "string",
-                  "format": "uuid"
+                  "title": "UUID or short UUID",
+                  "type": "string"
                 }
               ]
             }
