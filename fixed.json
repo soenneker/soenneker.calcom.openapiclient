@@ -1809,7 +1809,7 @@
             }
           },
           "403": {
-            "description": "The authenticated user is not an org admin, lacks the \u0060organization.read\u0060 permission, or the organization is not on the required plan",
+            "description": "The authenticated user is not an org admin, lacks the \u0060organization.readDelegationCredentials\u0060 permission, or the organization is not on the required plan",
             "content": {
               "application/json": {
                 "schema": {
@@ -1974,7 +1974,7 @@
             }
           },
           "403": {
-            "description": "The authenticated user is not an org admin, lacks the \u0060organization.read\u0060 permission, or the organization is not on the required plan",
+            "description": "The authenticated user is not an org admin, lacks the \u0060organization.readDelegationCredentials\u0060 permission, or the organization is not on the required plan",
             "content": {
               "application/json": {
                 "schema": {
@@ -21543,9 +21543,19 @@
           {
             "name": "eventTypeId",
             "in": "path",
+            "description": "Numeric event type ID or its UUID. Accepts the canonical UUID or its short-uuid (Flickr Base58) form, e.g. the one in an app.cal.com/links/{uuid} URL.",
             "required": true,
             "schema": {
-              "type": "number"
+              "oneOf": [
+                {
+                  "title": "Numeric ID",
+                  "type": "number"
+                },
+                {
+                  "title": "UUID or short UUID",
+                  "type": "string"
+                }
+              ]
             }
           },
           {
@@ -21637,9 +21647,19 @@
           {
             "name": "eventTypeId",
             "in": "path",
+            "description": "Numeric event type ID or its UUID. Accepts the canonical UUID or its short-uuid (Flickr Base58) form, e.g. the one in an app.cal.com/links/{uuid} URL.",
             "required": true,
             "schema": {
-              "type": "number"
+              "oneOf": [
+                {
+                  "title": "Numeric ID",
+                  "type": "number"
+                },
+                {
+                  "title": "UUID or short UUID",
+                  "type": "string"
+                }
+              ]
             }
           },
           {
@@ -21741,9 +21761,19 @@
           {
             "name": "eventTypeId",
             "in": "path",
+            "description": "Numeric event type ID or its UUID. Accepts the canonical UUID or its short-uuid (Flickr Base58) form, e.g. the one in an app.cal.com/links/{uuid} URL.",
             "required": true,
             "schema": {
-              "type": "number"
+              "oneOf": [
+                {
+                  "title": "Numeric ID",
+                  "type": "number"
+                },
+                {
+                  "title": "UUID or short UUID",
+                  "type": "string"
+                }
+              ]
             }
           },
           {
@@ -21837,9 +21867,19 @@
           {
             "name": "eventTypeId",
             "in": "path",
+            "description": "Numeric event type ID or its UUID. Accepts the canonical UUID or its short-uuid (Flickr Base58) form, e.g. the one in an app.cal.com/links/{uuid} URL.",
             "required": true,
             "schema": {
-              "type": "number"
+              "oneOf": [
+                {
+                  "title": "Numeric ID",
+                  "type": "number"
+                },
+                {
+                  "title": "UUID or short UUID",
+                  "type": "string"
+                }
+              ]
             }
           },
           {
@@ -21931,9 +21971,19 @@
           {
             "name": "eventTypeId",
             "in": "path",
+            "description": "Numeric event type ID or its UUID. Accepts the canonical UUID or its short-uuid (Flickr Base58) form, e.g. the one in an app.cal.com/links/{uuid} URL.",
             "required": true,
             "schema": {
-              "type": "number"
+              "oneOf": [
+                {
+                  "title": "Numeric ID",
+                  "type": "number"
+                },
+                {
+                  "title": "UUID or short UUID",
+                  "type": "string"
+                }
+              ]
             }
           },
           {
@@ -22035,7 +22085,7 @@
             }
           },
           {
-            "name": "eventTypeId",
+            "name": "orgId",
             "in": "path",
             "required": true,
             "schema": {
@@ -22043,11 +22093,21 @@
             }
           },
           {
-            "name": "orgId",
+            "name": "eventTypeId",
             "in": "path",
+            "description": "Numeric event type ID or its UUID. Accepts the canonical UUID or its short-uuid (Flickr Base58) form, e.g. the one in an app.cal.com/links/{uuid} URL.",
             "required": true,
             "schema": {
-              "type": "number"
+              "oneOf": [
+                {
+                  "title": "Numeric ID",
+                  "type": "number"
+                },
+                {
+                  "title": "UUID or short UUID",
+                  "type": "string"
+                }
+              ]
             }
           },
           {
@@ -22256,9 +22316,19 @@
           {
             "name": "eventTypeId",
             "in": "path",
+            "description": "Numeric event type ID or its UUID. Accepts the canonical UUID or its short-uuid (Flickr Base58) form, e.g. the one in an app.cal.com/links/{uuid} URL.",
             "required": true,
             "schema": {
-              "type": "number"
+              "oneOf": [
+                {
+                  "title": "Numeric ID",
+                  "type": "number"
+                },
+                {
+                  "title": "UUID or short UUID",
+                  "type": "string"
+                }
+              ]
             }
           },
           {
@@ -22350,9 +22420,19 @@
           {
             "name": "eventTypeId",
             "in": "path",
+            "description": "Numeric event type ID or its UUID. Accepts the canonical UUID or its short-uuid (Flickr Base58) form, e.g. the one in an app.cal.com/links/{uuid} URL.",
             "required": true,
             "schema": {
-              "type": "number"
+              "oneOf": [
+                {
+                  "title": "Numeric ID",
+                  "type": "number"
+                },
+                {
+                  "title": "UUID or short UUID",
+                  "type": "string"
+                }
+              ]
             }
           },
           {
@@ -22454,9 +22534,19 @@
           {
             "name": "eventTypeId",
             "in": "path",
+            "description": "Numeric event type ID or its UUID. Accepts the canonical UUID or its short-uuid (Flickr Base58) form, e.g. the one in an app.cal.com/links/{uuid} URL.",
             "required": true,
             "schema": {
-              "type": "number"
+              "oneOf": [
+                {
+                  "title": "Numeric ID",
+                  "type": "number"
+                },
+                {
+                  "title": "UUID or short UUID",
+                  "type": "string"
+                }
+              ]
             }
           },
           {
@@ -22569,9 +22659,19 @@
           {
             "name": "eventTypeId",
             "in": "path",
+            "description": "Numeric event type ID or its UUID. Accepts the canonical UUID or its short-uuid (Flickr Base58) form, e.g. the one in an app.cal.com/links/{uuid} URL.",
             "required": true,
             "schema": {
-              "type": "number"
+              "oneOf": [
+                {
+                  "title": "Numeric ID",
+                  "type": "number"
+                },
+                {
+                  "title": "UUID or short UUID",
+                  "type": "string"
+                }
+              ]
             }
           },
           {
@@ -22673,19 +22773,29 @@
             }
           },
           {
-            "name": "eventTypeId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "number"
-            }
-          },
-          {
             "name": "slug",
             "in": "path",
             "required": true,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "eventTypeId",
+            "in": "path",
+            "description": "Numeric event type ID or its UUID. Accepts the canonical UUID or its short-uuid (Flickr Base58) form, e.g. the one in an app.cal.com/links/{uuid} URL.",
+            "required": true,
+            "schema": {
+              "oneOf": [
+                {
+                  "title": "Numeric ID",
+                  "type": "number"
+                },
+                {
+                  "title": "UUID or short UUID",
+                  "type": "string"
+                }
+              ]
             }
           },
           {
@@ -22761,9 +22871,19 @@
           {
             "name": "eventTypeId",
             "in": "path",
+            "description": "Numeric event type ID or its UUID. Accepts the canonical UUID or its short-uuid (Flickr Base58) form, e.g. the one in an app.cal.com/links/{uuid} URL.",
             "required": true,
             "schema": {
-              "type": "number"
+              "oneOf": [
+                {
+                  "title": "Numeric ID",
+                  "type": "number"
+                },
+                {
+                  "title": "UUID or short UUID",
+                  "type": "string"
+                }
+              ]
             }
           },
           {
@@ -22972,7 +23092,8 @@
         },
         "x-oauth-scopes": [
           "TEAM_VERIFIED_RESOURCES_WRITE"
-        ]
+        ],
+        "x-platform-plan": "ESSENTIALS"
       }
     },
     "/v2/organizations/{orgId}/teams/{teamId}/verified-resources/emails/verification-code/verify": {
@@ -23346,6 +23467,9 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "Verified email not found"
           }
         },
         "x-oauth-scopes": [
@@ -23415,6 +23539,9 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "Verified phone number not found"
           }
         },
         "x-oauth-scopes": [
@@ -24909,9 +25036,19 @@
           {
             "name": "eventTypeId",
             "in": "path",
+            "description": "Numeric event type ID or its UUID. Accepts the canonical UUID or its short-uuid (Flickr Base58) form, e.g. the one in an app.cal.com/links/{uuid} URL.",
             "required": true,
             "schema": {
-              "type": "number"
+              "oneOf": [
+                {
+                  "title": "Numeric ID",
+                  "type": "number"
+                },
+                {
+                  "title": "UUID or short UUID",
+                  "type": "string"
+                }
+              ]
             }
           },
           {
@@ -24978,9 +25115,19 @@
           {
             "name": "eventTypeId",
             "in": "path",
+            "description": "Numeric event type ID or its UUID. Accepts the canonical UUID or its short-uuid (Flickr Base58) form, e.g. the one in an app.cal.com/links/{uuid} URL.",
             "required": true,
             "schema": {
-              "type": "number"
+              "oneOf": [
+                {
+                  "title": "Numeric ID",
+                  "type": "number"
+                },
+                {
+                  "title": "UUID or short UUID",
+                  "type": "string"
+                }
+              ]
             }
           },
           {
@@ -25057,9 +25204,19 @@
           {
             "name": "eventTypeId",
             "in": "path",
+            "description": "Numeric event type ID or its UUID. Accepts the canonical UUID or its short-uuid (Flickr Base58) form, e.g. the one in an app.cal.com/links/{uuid} URL.",
             "required": true,
             "schema": {
-              "type": "number"
+              "oneOf": [
+                {
+                  "title": "Numeric ID",
+                  "type": "number"
+                },
+                {
+                  "title": "UUID or short UUID",
+                  "type": "string"
+                }
+              ]
             }
           },
           {
@@ -25128,9 +25285,19 @@
           {
             "name": "eventTypeId",
             "in": "path",
+            "description": "Numeric event type ID or its UUID. Accepts the canonical UUID or its short-uuid (Flickr Base58) form, e.g. the one in an app.cal.com/links/{uuid} URL.",
             "required": true,
             "schema": {
-              "type": "number"
+              "oneOf": [
+                {
+                  "title": "Numeric ID",
+                  "type": "number"
+                },
+                {
+                  "title": "UUID or short UUID",
+                  "type": "string"
+                }
+              ]
             }
           },
           {
@@ -25197,9 +25364,19 @@
           {
             "name": "eventTypeId",
             "in": "path",
+            "description": "Numeric event type ID or its UUID. Accepts the canonical UUID or its short-uuid (Flickr Base58) form, e.g. the one in an app.cal.com/links/{uuid} URL.",
             "required": true,
             "schema": {
-              "type": "number"
+              "oneOf": [
+                {
+                  "title": "Numeric ID",
+                  "type": "number"
+                },
+                {
+                  "title": "UUID or short UUID",
+                  "type": "string"
+                }
+              ]
             }
           },
           {
@@ -25278,9 +25455,19 @@
           {
             "name": "eventTypeId",
             "in": "path",
+            "description": "Numeric event type ID or its UUID. Accepts the canonical UUID or its short-uuid (Flickr Base58) form, e.g. the one in an app.cal.com/links/{uuid} URL.",
             "required": true,
             "schema": {
-              "type": "number"
+              "oneOf": [
+                {
+                  "title": "Numeric ID",
+                  "type": "number"
+                },
+                {
+                  "title": "UUID or short UUID",
+                  "type": "string"
+                }
+              ]
             }
           },
           {
@@ -25370,9 +25557,19 @@
           {
             "name": "eventTypeId",
             "in": "path",
+            "description": "Numeric event type ID or its UUID. Accepts the canonical UUID or its short-uuid (Flickr Base58) form, e.g. the one in an app.cal.com/links/{uuid} URL.",
             "required": true,
             "schema": {
-              "type": "number"
+              "oneOf": [
+                {
+                  "title": "Numeric ID",
+                  "type": "number"
+                },
+                {
+                  "title": "UUID or short UUID",
+                  "type": "string"
+                }
+              ]
             }
           },
           {
@@ -25439,9 +25636,19 @@
           {
             "name": "eventTypeId",
             "in": "path",
+            "description": "Numeric event type ID or its UUID. Accepts the canonical UUID or its short-uuid (Flickr Base58) form, e.g. the one in an app.cal.com/links/{uuid} URL.",
             "required": true,
             "schema": {
-              "type": "number"
+              "oneOf": [
+                {
+                  "title": "Numeric ID",
+                  "type": "number"
+                },
+                {
+                  "title": "UUID or short UUID",
+                  "type": "string"
+                }
+              ]
             }
           },
           {
@@ -25518,9 +25725,19 @@
           {
             "name": "eventTypeId",
             "in": "path",
+            "description": "Numeric event type ID or its UUID. Accepts the canonical UUID or its short-uuid (Flickr Base58) form, e.g. the one in an app.cal.com/links/{uuid} URL.",
             "required": true,
             "schema": {
-              "type": "number"
+              "oneOf": [
+                {
+                  "title": "Numeric ID",
+                  "type": "number"
+                },
+                {
+                  "title": "UUID or short UUID",
+                  "type": "string"
+                }
+              ]
             }
           },
           {
@@ -25608,9 +25825,19 @@
           {
             "name": "eventTypeId",
             "in": "path",
+            "description": "Numeric event type ID or its UUID. Accepts the canonical UUID or its short-uuid (Flickr Base58) form, e.g. the one in an app.cal.com/links/{uuid} URL.",
             "required": true,
             "schema": {
-              "type": "number"
+              "oneOf": [
+                {
+                  "title": "Numeric ID",
+                  "type": "number"
+                },
+                {
+                  "title": "UUID or short UUID",
+                  "type": "string"
+                }
+              ]
             }
           },
           {
@@ -25687,19 +25914,29 @@
             }
           },
           {
-            "name": "eventTypeId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "number"
-            }
-          },
-          {
             "name": "slug",
             "in": "path",
             "required": true,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "eventTypeId",
+            "in": "path",
+            "description": "Numeric event type ID or its UUID. Accepts the canonical UUID or its short-uuid (Flickr Base58) form, e.g. the one in an app.cal.com/links/{uuid} URL.",
+            "required": true,
+            "schema": {
+              "oneOf": [
+                {
+                  "title": "Numeric ID",
+                  "type": "number"
+                },
+                {
+                  "title": "UUID or short UUID",
+                  "type": "string"
+                }
+              ]
             }
           },
           {
@@ -28753,6 +28990,9 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "Verified email not found"
           }
         },
         "x-oauth-scopes": [
@@ -28813,6 +29053,9 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "Verified phone number not found"
           }
         },
         "x-oauth-scopes": [
@@ -29205,6 +29448,9 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "Verified email not found"
           }
         },
         "x-oauth-scopes": [
@@ -29249,6 +29495,9 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "Verified phone number not found"
           }
         },
         "x-oauth-scopes": [
@@ -77735,6 +77984,7 @@
           "organization.customDomain.read",
           "organization.customDomain.update",
           "organization.customDomain.delete",
+          "app.read",
           "tag.create",
           "tag.update",
           "tag.delete",
@@ -78140,6 +78390,10 @@
               "name": "OrganizationCustomDomainDelete"
             },
             {
+              "value": "app.read",
+              "name": "AppRead"
+            },
+            {
               "value": "tag.create",
               "name": "TagCreate"
             },
@@ -78288,6 +78542,7 @@
           "organization.customDomain.read",
           "organization.customDomain.update",
           "organization.customDomain.delete",
+          "app.read",
           "tag.create",
           "tag.update",
           "tag.delete",
@@ -78693,6 +78948,10 @@
               "name": "OrganizationCustomDomainDelete"
             },
             {
+              "value": "app.read",
+              "name": "AppRead"
+            },
+            {
               "value": "tag.create",
               "name": "TagCreate"
             },
@@ -78885,6 +79144,7 @@
           "organization.customDomain.read",
           "organization.customDomain.update",
           "organization.customDomain.delete",
+          "app.read",
           "tag.create",
           "tag.update",
           "tag.delete",
@@ -79290,6 +79550,10 @@
               "name": "OrganizationCustomDomainDelete"
             },
             {
+              "value": "app.read",
+              "name": "AppRead"
+            },
+            {
               "value": "tag.create",
               "name": "TagCreate"
             },
@@ -79460,6 +79724,7 @@
           "organization.customDomain.read",
           "organization.customDomain.update",
           "organization.customDomain.delete",
+          "app.read",
           "tag.create",
           "tag.update",
           "tag.delete",
@@ -79865,6 +80130,10 @@
               "name": "OrganizationCustomDomainDelete"
             },
             {
+              "value": "app.read",
+              "name": "AppRead"
+            },
+            {
               "value": "tag.create",
               "name": "TagCreate"
             },
@@ -79948,6 +80217,7 @@
           "availability.updateTeamAvailability",
           "featureOptIn.read",
           "featureOptIn.update",
+          "app.read",
           "tag.create",
           "tag.update",
           "tag.delete",
@@ -80181,6 +80451,10 @@
               "name": "FeatureOptInUpdate"
             },
             {
+              "value": "app.read",
+              "name": "AppRead"
+            },
+            {
               "value": "tag.create",
               "name": "TagCreate"
             },
@@ -80286,6 +80560,7 @@
           "availability.updateTeamAvailability",
           "featureOptIn.read",
           "featureOptIn.update",
+          "app.read",
           "tag.create",
           "tag.update",
           "tag.delete",
@@ -80519,6 +80794,10 @@
               "name": "FeatureOptInUpdate"
             },
             {
+              "value": "app.read",
+              "name": "AppRead"
+            },
+            {
               "value": "tag.create",
               "name": "TagCreate"
             },
@@ -80668,6 +80947,7 @@
           "availability.updateTeamAvailability",
           "featureOptIn.read",
           "featureOptIn.update",
+          "app.read",
           "tag.create",
           "tag.update",
           "tag.delete",
@@ -80901,6 +81181,10 @@
               "name": "FeatureOptInUpdate"
             },
             {
+              "value": "app.read",
+              "name": "AppRead"
+            },
+            {
               "value": "tag.create",
               "name": "TagCreate"
             },
@@ -81028,6 +81312,7 @@
           "availability.updateTeamAvailability",
           "featureOptIn.read",
           "featureOptIn.update",
+          "app.read",
           "tag.create",
           "tag.update",
           "tag.delete",
@@ -81259,6 +81544,10 @@
             {
               "value": "featureOptIn.update",
               "name": "FeatureOptInUpdate"
+            },
+            {
+              "value": "app.read",
+              "name": "AppRead"
             },
             {
               "value": "tag.create",
@@ -92400,6 +92689,7 @@
           "organization.customDomain.read",
           "organization.customDomain.update",
           "organization.customDomain.delete",
+          "app.read",
           "tag.create",
           "tag.update",
           "tag.delete",
@@ -92803,6 +93093,10 @@
             {
               "value": "organization.customDomain.delete",
               "name": "OrganizationCustomDomainDelete"
+            },
+            {
+              "value": "app.read",
+              "name": "AppRead"
             },
             {
               "value": "tag.create",
@@ -93317,6 +93611,7 @@
           "availability.updateTeamAvailability",
           "featureOptIn.read",
           "featureOptIn.update",
+          "app.read",
           "tag.create",
           "tag.update",
           "tag.delete",
@@ -93548,6 +93843,10 @@
             {
               "value": "featureOptIn.update",
               "name": "FeatureOptInUpdate"
+            },
+            {
+              "value": "app.read",
+              "name": "AppRead"
             },
             {
               "value": "tag.create",

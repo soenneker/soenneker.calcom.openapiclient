@@ -19,7 +19,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Teams.Item.EventTypes
     public partial class EventTypesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.CalCom.OpenApiClient.v2.teams.item.eventTypes.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Numeric event type ID or its UUID. Accepts the canonical UUID or its short-uuid (Flickr Base58) form, e.g. the one in an app.cal.com/links/{uuid} URL.</param>
         /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.V2.Teams.Item.EventTypes.Item.WithEventTypeItemRequestBuilder"/></returns>
         public global::Soenneker.CalCom.OpenApiClient.V2.Teams.Item.EventTypes.Item.WithEventTypeItemRequestBuilder this[double position]
         {

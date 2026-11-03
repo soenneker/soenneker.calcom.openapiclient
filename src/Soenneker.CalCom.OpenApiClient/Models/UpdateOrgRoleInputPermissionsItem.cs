@@ -400,6 +400,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         #pragma warning disable CS1591
         OrganizationCustomDomainDelete,
         #pragma warning restore CS1591
+        [EnumMember(Value = "app.read")]
+        #pragma warning disable CS1591
+        AppRead,
+        #pragma warning restore CS1591
         [EnumMember(Value = "tag.create")]
         #pragma warning disable CS1591
         TagCreate,
