@@ -35,7 +35,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.Memberships
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MembershipsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/organizations/{orgId}/memberships{?skip*,take*}", pathParameters)
+        public MembershipsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/organizations/{orgId}/memberships{?skip*,take*,userIds*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.Memberships
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MembershipsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/organizations/{orgId}/memberships{?skip*,take*}", rawUrl)
+        public MembershipsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/organizations/{orgId}/memberships{?skip*,take*,userIds*}", rawUrl)
         {
         }
         /// <summary>
@@ -146,6 +146,16 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.Memberships
             /// <summary>Maximum number of items to return</summary>
             [QueryParameter("take")]
             public double? Take { get; set; }
+            /// <summary>Filter organization memberships by user ids. If you want to filter by multiple users, separate them with a comma (max 20 user ids).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("userIds")]
+            public double?[]? UserIds { get; set; }
+#nullable restore
+#else
+            [QueryParameter("userIds")]
+            public double?[] UserIds { get; set; }
+#endif
         }
     }
 }

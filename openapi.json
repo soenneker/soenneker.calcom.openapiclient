@@ -2666,6 +2666,23 @@
               "example": 0,
               "type": "number"
             }
+          },
+          {
+            "name": "userIds",
+            "required": false,
+            "in": "query",
+            "description": "Filter organization memberships by user ids. If you want to filter by multiple users, separate them with a comma (max 20 user ids).",
+            "schema": {
+              "minItems": 1,
+              "maxItems": 20,
+              "example": "?userIds=100,200",
+              "type": "array",
+              "items": {
+                "type": "number",
+                "maximum": 2147483647,
+                "minimum": 1
+              }
+            }
           }
         ],
         "responses": {
@@ -2684,7 +2701,7 @@
         "tags": ["Orgs / Memberships"],
         "x-mcp": {
           "name": "get_org_memberships",
-          "guidance": "List all memberships in an organization. Supports pagination with take/skip (take max 250)."
+          "guidance": "List all memberships in an organization. Supports pagination with take/skip (take max 250) and filtering by up to 20 user ids."
         },
         "x-oauth-scopes": ["ORG_MEMBERSHIP_READ"],
         "x-platform-plan": "ESSENTIALS"
@@ -20130,6 +20147,51 @@
         "summary": "Get a link",
         "tags": ["Links"],
         "x-oauth-scopes": ["EVENT_TYPE_READ"]
+      },
+      "delete": {
+        "description": "If accessed using an OAuth access token, the `EVENT_TYPE_WRITE` scope is required.",
+        "operationId": "LinksController_deleteLink",
+        "parameters": [
+          {
+            "name": "linkUid",
+            "required": true,
+            "in": "path",
+            "description": "Link UUID. Accepts the canonical UUID (e.g. `018ff5cd-6dc4-7d57-bcbc-374702ca8b38`) or its short-uuid (Flickr Base58) form (e.g. `1cbZYoAFoJdwqN4tixezd5`).",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be `Bearer <token>` where `<token>` is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteLinkOutput"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid link UUID"
+          },
+          "404": {
+            "description": "Link not found"
+          }
+        },
+        "summary": "Delete a link",
+        "tags": ["Links"],
+        "x-oauth-scopes": ["EVENT_TYPE_WRITE"]
       }
     },
     "/v2/organizations/{orgId}/organizations": {
@@ -53780,6 +53842,42 @@
         },
         "required": ["status", "data"]
       },
+      "DeleteLinkData": {
+        "type": "object",
+        "properties": {
+          "lengthInMinutes": {
+            "type": "number",
+            "example": 60
+          },
+          "title": {
+            "type": "string",
+            "example": "Learn the secrets of masterchief!"
+          },
+          "uuid": {
+            "type": "string",
+            "format": "uuid",
+            "example": "018ff5cd-6dc4-7d57-bcbc-374702ca8b38"
+          },
+          "slug": {
+            "type": "string"
+          }
+        },
+        "required": ["lengthInMinutes", "title", "uuid", "slug"]
+      },
+      "DeleteLinkOutput": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "success",
+            "enum": ["success", "error"]
+          },
+          "data": {
+            "$ref": "#/components/schemas/DeleteLinkData"
+          }
+        },
+        "required": ["status", "data"]
+      },
       "BookingInputAddressLocation_2024_08_13": {
         "type": "object",
         "properties": {
@@ -64541,7 +64639,7 @@
           "eventTypeIds": {
             "uniqueItems": true,
             "minItems": 1,
-            "maxItems": 100,
+            "maxItems": 10000,
             "example": ["0bce7b70-d7f0-4e5f-bcce-2f41b6fd5116", "15314c7c-11a0-440d-9ae9-23593c193a2b"],
             "description": "Round-robin event types of the team. Each event type can be in one pool.",
             "type": "array",
@@ -64604,7 +64702,7 @@
           "eventTypeIds": {
             "uniqueItems": true,
             "minItems": 1,
-            "maxItems": 100,
+            "maxItems": 10000,
             "example": ["0bce7b70-d7f0-4e5f-bcce-2f41b6fd5116", "15314c7c-11a0-440d-9ae9-23593c193a2b"],
             "description": "Replaces the pool's event types.",
             "type": "array",

@@ -2404,6 +2404,22 @@
               "default": 0,
               "example": 0
             }
+          },
+          {
+            "name": "userIds",
+            "in": "query",
+            "description": "Filter organization memberships by user ids. If you want to filter by multiple users, separate them with a comma (max 20 user ids).",
+            "schema": {
+              "maxItems": 20,
+              "minItems": 1,
+              "type": "array",
+              "items": {
+                "maximum": 2147483647,
+                "minimum": 1,
+                "type": "number"
+              },
+              "example": "?userIds=100,200"
+            }
           }
         ],
         "responses": {
@@ -2420,7 +2436,7 @@
         },
         "x-mcp": {
           "name": "get_org_memberships",
-          "guidance": "List all memberships in an organization. Supports pagination with take/skip (take max 250)."
+          "guidance": "List all memberships in an organization. Supports pagination with take/skip (take max 250) and filtering by up to 20 user ids."
         },
         "x-oauth-scopes": [
           "ORG_MEMBERSHIP_READ"
@@ -20222,6 +20238,55 @@
         },
         "x-oauth-scopes": [
           "EVENT_TYPE_READ"
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Links"
+        ],
+        "summary": "Delete a link",
+        "description": "If accessed using an OAuth access token, the \u0060EVENT_TYPE_WRITE\u0060 scope is required.",
+        "operationId": "LinksControllerDeleteLink",
+        "parameters": [
+          {
+            "name": "linkUid",
+            "in": "path",
+            "description": "Link UUID. Accepts the canonical UUID (e.g. \u0060018ff5cd-6dc4-7d57-bcbc-374702ca8b38\u0060) or its short-uuid (Flickr Base58) form (e.g. \u00601cbZYoAFoJdwqN4tixezd5\u0060).",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be \u0060Bearer \u003Ctoken\u003E\u0060 where \u0060\u003Ctoken\u003E\u0060 is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteLinkOutput"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid link UUID"
+          },
+          "404": {
+            "description": "Link not found"
+          }
+        },
+        "x-oauth-scopes": [
+          "EVENT_TYPE_WRITE"
         ]
       }
     },
@@ -45769,6 +45834,48 @@
           }
         }
       },
+      "DeleteLinkData": {
+        "required": [
+          "lengthInMinutes",
+          "title",
+          "uuid",
+          "slug"
+        ],
+        "type": "object",
+        "properties": {
+          "lengthInMinutes": {
+            "type": "number",
+            "example": 60
+          },
+          "title": {
+            "type": "string",
+            "example": "Learn the secrets of masterchief!"
+          },
+          "uuid": {
+            "type": "string",
+            "format": "uuid",
+            "example": "018ff5cd-6dc4-7d57-bcbc-374702ca8b38"
+          },
+          "slug": {
+            "type": "string"
+          }
+        }
+      },
+      "DeleteLinkOutput": {
+        "required": [
+          "status",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/DeleteLinkOutputStatus"
+          },
+          "data": {
+            "$ref": "#/components/schemas/DeleteLinkData"
+          }
+        }
+      },
       "BookingInputAddressLocation20240813": {
         "required": [
           "type"
@@ -53728,7 +53835,7 @@
             "$ref": "#/components/schemas/CreateBookingLimitPoolInputMode"
           },
           "eventTypeIds": {
-            "maxItems": 100,
+            "maxItems": 10000,
             "minItems": 1,
             "uniqueItems": true,
             "type": "array",
@@ -53793,7 +53900,7 @@
             "$ref": "#/components/schemas/UpdateBookingLimitPoolInputMode"
           },
           "eventTypeIds": {
-            "maxItems": 100,
+            "maxItems": 10000,
             "minItems": 1,
             "uniqueItems": true,
             "type": "array",
@@ -83605,6 +83712,28 @@
         "example": "success",
         "x-ms-enum": {
           "name": "GetLinkOutputStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "success",
+              "name": "Success"
+            },
+            {
+              "value": "error",
+              "name": "Error"
+            }
+          ]
+        }
+      },
+      "DeleteLinkOutputStatus": {
+        "enum": [
+          "success",
+          "error"
+        ],
+        "type": "string",
+        "example": "success",
+        "x-ms-enum": {
+          "name": "DeleteLinkOutputStatus",
           "modelAsString": false,
           "values": [
             {
