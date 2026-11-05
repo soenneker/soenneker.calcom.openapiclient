@@ -34,7 +34,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Credits.Charge
         {
         }
         /// <summary>
-        /// Charge credits for an authenticated user. Uses externalRef for idempotency to prevent double-charging. Third-party OAuth tokens require the `CREDITS_WRITE` scope.
+        /// Charge up to 10,000 credits with a covering balance. Team and organization charges require manageBilling permission. References are scoped to the caller; replays return charged: false and duplicate: true. Third-party OAuth tokens require the `CREDITS_WRITE` scope.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Models.CreditsControllerChargeCredits200ResponseSchema"/></returns>
         /// <param name="body">The request body</param>
@@ -54,7 +54,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Credits.Charge
             return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.CreditsControllerChargeCredits200ResponseSchema>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.CreditsControllerChargeCredits200ResponseSchema.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Charge credits for an authenticated user. Uses externalRef for idempotency to prevent double-charging. Third-party OAuth tokens require the `CREDITS_WRITE` scope.
+        /// Charge up to 10,000 credits with a covering balance. Team and organization charges require manageBilling permission. References are scoped to the caller; replays return charged: false and duplicate: true. Third-party OAuth tokens require the `CREDITS_WRITE` scope.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

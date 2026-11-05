@@ -13833,7 +13833,7 @@
     },
     "/v2/bookings/{bookingUid}/location": {
       "patch": {
-        "description": "Updates the booking location in Cal.com and updates the corresponding calendar event via the organizer's connected credentials. For integration locations (e.g. Zoom, Google Meet, Cal Video), the endpoint also provisions a conference link. Attendees are notified of the location change by email.\n    \n    <Note>The cal-api-version header is required for this endpoint. Without it, the request will fail with a 404 error.</Note>\n\nIf accessed using an OAuth access token, the `BOOKING_WRITE` scope is required.",
+        "description": "Updates the booking location in Cal.com and updates the corresponding calendar event via the organizer's connected credentials. For integration locations (e.g. Zoom, Google Meet, Cal Video), the endpoint also provisions a conference link. Attendees and hosts are notified of the location change by email; set `notifyHosts` to false to skip the host emails.\n    \n    <Note>The cal-api-version header is required for this endpoint. Without it, the request will fail with a 404 error.</Note>\n\nIf accessed using an OAuth access token, the `BOOKING_WRITE` scope is required.",
         "operationId": "BookingLocationController_2024_08_13_updateBookingLocation",
         "parameters": [
           {
@@ -15122,6 +15122,251 @@
         "x-oauth-scopes": ["APPS_WRITE"]
       }
     },
+    "/v2/contacts": {
+      "get": {
+        "description": "Returns the authenticated user's personal contacts from their Contacts page, ordered by stored name (nulls last), email and id, with limit/cursor pagination. When pagination.hasMore is true, pass pagination.nextCursor as cursor with the same search. Use usernames of contacts with groupBooking eligible for dynamic group availability and booking with the authenticated user. Team and organization members are not included. A contact whose email belongs to a verified, discoverable Cal account shows that account's name, username and booking page. Contact avatars and Cal user ids are never returned. If accessed using an OAuth access token, the `CONTACT_READ` scope is required.",
+        "operationId": "ContactsController_list",
+        "parameters": [
+          {
+            "name": "search",
+            "required": false,
+            "in": "query",
+            "description": "Part of a contact's name or email, to narrow the list.",
+            "schema": {
+              "maxLength": 100,
+              "example": "jamie",
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "Maximum number of contacts to return.",
+            "schema": {
+              "minimum": 1,
+              "maximum": 50,
+              "default": 50,
+              "example": 50,
+              "type": "number"
+            }
+          },
+          {
+            "name": "cursor",
+            "required": false,
+            "in": "query",
+            "description": "Opaque cursor from pagination.nextCursor. Omit for the first page; keep the same search on subsequent pages.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be `Bearer <token>` where `<token>` is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListContactsOutputResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid cursor"
+          },
+          "401": {
+            "description": "Unauthenticated"
+          },
+          "403": {
+            "description": "Insufficient permissions"
+          },
+          "429": {
+            "description": "Too many contact lookups"
+          }
+        },
+        "summary": "List personal contacts",
+        "tags": ["Contacts"],
+        "x-oauth-scopes": ["CONTACT_READ"]
+      },
+      "post": {
+        "description": "Adds a personal contact to the authenticated user's Contacts page by email, with an optional name. The email is checked for its format and mail server first, and a user holds at most 5,000 contacts. Adding an email already in the user's contacts changes nothing, not even its name. If accessed using an OAuth access token, the `CONTACT_WRITE` scope is required.",
+        "operationId": "ContactsController_add",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be `Bearer <token>` where `<token>` is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateContactInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateContactOutputResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The email failed the format or mail server check"
+          },
+          "401": {
+            "description": "Unauthenticated"
+          },
+          "403": {
+            "description": "Insufficient permissions"
+          },
+          "409": {
+            "description": "The user already has 5,000 contacts"
+          },
+          "429": {
+            "description": "Too many contacts added"
+          }
+        },
+        "summary": "Add a personal contact",
+        "tags": ["Contacts"],
+        "x-oauth-scopes": ["CONTACT_WRITE"]
+      }
+    },
+    "/v2/contacts/{id}": {
+      "patch": {
+        "description": "Updates one of the authenticated user's personal contacts, changing only the fields given in the body; a body with no fields changes nothing and returns the contact as it is. `name` is the only field today. A contact on Cal (`type: calUser`) shows the name from their Cal account and can't have its name changed. A contact the user does not have is not found. If accessed using an OAuth access token, the `CONTACT_WRITE` scope is required.",
+        "operationId": "ContactsController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "The contact's `id` from `GET /v2/contacts`.",
+            "schema": {
+              "example": "0192f3a1-7c2b-7d4e-9a10-000000000001",
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be `Bearer <token>` where `<token>` is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateContactInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateContactOutputResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The contact is on Cal, or the name is not allowed"
+          },
+          "401": {
+            "description": "Unauthenticated"
+          },
+          "403": {
+            "description": "Insufficient permissions"
+          },
+          "404": {
+            "description": "Contact not found"
+          }
+        },
+        "summary": "Update a personal contact",
+        "tags": ["Contacts"],
+        "x-oauth-scopes": ["CONTACT_WRITE"]
+      },
+      "delete": {
+        "description": "Removes one of the authenticated user's personal contacts, with its tags. It cannot be undone: adding the email again makes a new contact, without the old one's tags. A contact the user does not have is not found. If accessed using an OAuth access token, the `CONTACT_WRITE` scope is required.",
+        "operationId": "ContactsController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "The contact's `id` from `GET /v2/contacts`.",
+            "schema": {
+              "example": "0192f3a1-7c2b-7d4e-9a10-000000000001",
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be `Bearer <token>` where `<token>` is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoveContactOutputResponseDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated"
+          },
+          "403": {
+            "description": "Insufficient permissions"
+          },
+          "404": {
+            "description": "Contact not found"
+          }
+        },
+        "summary": "Remove a personal contact",
+        "tags": ["Contacts"],
+        "x-oauth-scopes": ["CONTACT_WRITE"]
+      }
+    },
     "/v2/credits/available": {
       "get": {
         "description": "Check if the authenticated user (or their org/team) has available credits and return the current balance. Third-party OAuth tokens require the `CREDITS_READ` scope.",
@@ -15146,7 +15391,7 @@
     },
     "/v2/credits/charge": {
       "post": {
-        "description": "Charge credits for an authenticated user. Uses externalRef for idempotency to prevent double-charging. Third-party OAuth tokens require the `CREDITS_WRITE` scope.",
+        "description": "Charge up to 10,000 credits with a covering balance. Team and organization charges require manageBilling permission. References are scoped to the caller; replays return charged: false and duplicate: true. Third-party OAuth tokens require the `CREDITS_WRITE` scope.",
         "operationId": "CreditsController_chargeCredits",
         "parameters": [],
         "requestBody": {
@@ -27312,7 +27557,7 @@
         "tags": ["Teams / Memberships"],
         "x-mcp": {
           "name": "create_team_membership",
-          "guidance": "Add a user to a team. Required: userId (must be a real user ID from the system). Optional: role (defaults to MEMBER), accepted, disableImpersonation. accepted: true is applied only to an accepted member of the parent organization or a managed user of the team's OAuth client; anyone else is added as a pending invite they have to accept. Ask the user for the userId — never guess."
+          "guidance": "Add a user to a team. Required: userId (must be a real user ID from the system). Optional: role (defaults to MEMBER), accepted, disableImpersonation. accepted: true is applied only to an accepted member of the parent organization or a managed user of the team's OAuth client; anyone else in an organization sub-team is added as a pending invite they have to accept. A team outside an organization can add only managed users of its OAuth client; anyone else returns 403; use create_team_invite to get an invite link for them instead. Ask the user for the userId — never guess."
         },
         "x-oauth-scopes": ["TEAM_MEMBERSHIP_WRITE"]
       },
@@ -50310,6 +50555,7 @@
           "credits": {
             "type": "number",
             "minimum": 1,
+            "maximum": 10000,
             "description": "Number of credits to charge",
             "example": 5
           },
@@ -50321,6 +50567,8 @@
           },
           "externalRef": {
             "type": "string",
+            "minLength": 1,
+            "maxLength": 255,
             "description": "Unique external reference for idempotency",
             "example": "agent-thread-123-1711432800000"
           }
@@ -57463,6 +57711,11 @@
                 "$ref": "#/components/schemas/UpdateBookingInputPhoneLocation_2024_08_13"
               }
             ]
+          },
+          "notifyHosts": {
+            "type": "boolean",
+            "default": true,
+            "description": "Set to false to skip the location-change emails to hosts. Attendee notifications and the BOOKING_LOCATION_UPDATED webhook are unaffected."
           }
         }
       },
@@ -57788,7 +58041,7 @@
           "accepted": {
             "type": "boolean",
             "default": false,
-            "description": "Only applied when the team is an organization sub-team and the user is already an accepted member of the organization, or when the user is a managed user of the team's OAuth client. Otherwise the membership is created as a pending invite (`accepted: false`) that the user has to accept."
+            "description": "Only applied when the team is an organization sub-team and the user is already an accepted member of the organization, or when the user is a managed user of the team's OAuth client. Otherwise a sub-team membership is created as a pending invite (`accepted: false`) that the user has to accept. A team outside an organization can add only managed users of its OAuth client; any other user returns 403 and has to be invited with an invite link or by email."
           },
           "role": {
             "default": "MEMBER",
@@ -63972,6 +64225,265 @@
           },
           "data": {
             "$ref": "#/components/schemas/InviteGuestsOutputDto"
+          }
+        },
+        "required": ["status", "data"]
+      },
+      "ContactTagOutput": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "0192f3a1-7c2b-7d4e-9a10-00000000000a"
+          },
+          "name": {
+            "type": "string",
+            "example": "Investors"
+          }
+        },
+        "required": ["id", "name"]
+      },
+      "CalUserContactOutput": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": ["calUser"],
+            "type": "string",
+            "description": "The email belongs to a verified, discoverable Cal account. The contact shows the name from that account, and its name can't be changed.",
+            "example": "calUser"
+          },
+          "id": {
+            "type": "string",
+            "example": "0192f3a1-7c2b-7d4e-9a10-000000000001"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "description": "The name from the contact's Cal account, or the stored name when that account has none.",
+            "example": "Jamie Rivera"
+          },
+          "email": {
+            "type": "string",
+            "example": "jamie.rivera@example.com"
+          },
+          "tags": {
+            "description": "The user's own tags on this contact.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ContactTagOutput"
+            }
+          },
+          "username": {
+            "type": "string",
+            "nullable": true,
+            "description": "The Cal account's username, null when the account has none yet.",
+            "example": "jamie"
+          },
+          "bookingUrl": {
+            "type": "string",
+            "nullable": true,
+            "description": "Full URL to the contact's booking page, null when the account has no username yet.",
+            "example": "https://cal.com/jamie"
+          },
+          "groupBooking": {
+            "enum": ["eligible", "outsideOrganization", "unavailable"],
+            "type": "string",
+            "description": "Whether this contact can join a dynamic group booking with the authenticated user. eligible: available for group booking with them; outsideOrganization: in a different organization; unavailable: dynamic group booking is unavailable (disabled, locked or the user themself)."
+          }
+        },
+        "required": ["type", "id", "name", "email", "tags", "username", "bookingUrl", "groupBooking"]
+      },
+      "NonCalUserContactOutput": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": ["nonCalUser"],
+            "type": "string",
+            "description": "The email doesn't belong to a verified, discoverable Cal account.",
+            "example": "nonCalUser"
+          },
+          "id": {
+            "type": "string",
+            "example": "0192f3a1-7c2b-7d4e-9a10-000000000001"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "description": "The name the user stored for this contact.",
+            "example": "Jamie Rivera"
+          },
+          "email": {
+            "type": "string",
+            "example": "jamie.rivera@example.com"
+          },
+          "tags": {
+            "description": "The user's own tags on this contact.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ContactTagOutput"
+            }
+          }
+        },
+        "required": ["type", "id", "name", "email", "tags"]
+      },
+      "ContactsCursorPaginationMetaDto": {
+        "type": "object",
+        "properties": {
+          "nextCursor": {
+            "type": "string",
+            "nullable": true,
+            "description": "Opaque cursor to fetch the next page. Pass this value as the cursor query parameter with the same search. null when hasMore is false."
+          },
+          "hasMore": {
+            "type": "boolean",
+            "description": "Whether more pages are available after this one."
+          }
+        },
+        "required": ["nextCursor", "hasMore"]
+      },
+      "ListContactsOutputResponseDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "enum": ["success", "error"],
+            "type": "string",
+            "example": "success"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "title": "Contact on Cal",
+                  "$ref": "#/components/schemas/CalUserContactOutput"
+                },
+                {
+                  "title": "Contact not on Cal",
+                  "$ref": "#/components/schemas/NonCalUserContactOutput"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "type",
+                "mapping": {
+                  "calUser": "#/components/schemas/CalUserContactOutput",
+                  "nonCalUser": "#/components/schemas/NonCalUserContactOutput"
+                }
+              }
+            },
+            "description": "The contacts on this page, discriminated by `type`. Only a contact on Cal has a username, booking URL and group booking eligibility."
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/ContactsCursorPaginationMetaDto"
+          }
+        },
+        "required": ["status", "data", "pagination"]
+      },
+      "CreateContactInput": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "minLength": 1,
+            "description": "The email address to add. It is checked for its format and mail server, and stored lowercased.",
+            "example": "jamie.rivera@example.com",
+            "maxLength": 254
+          },
+          "name": {
+            "type": "string",
+            "description": "The contact's name. Leave out when there is none.",
+            "example": "Jamie Rivera",
+            "maxLength": 50
+          }
+        },
+        "required": ["email"]
+      },
+      "CreatedContactOutput": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "The email address that was added.",
+            "example": "jamie.rivera@example.com"
+          }
+        },
+        "required": ["email"]
+      },
+      "CreateContactOutputResponseDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "enum": ["success", "error"],
+            "type": "string",
+            "example": "success"
+          },
+          "data": {
+            "$ref": "#/components/schemas/CreatedContactOutput"
+          }
+        },
+        "required": ["status", "data"]
+      },
+      "UpdateContactInput": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "The contact's new name. A contact on Cal (`type: calUser`) can't have its name changed.",
+            "example": "Jamie R.",
+            "maxLength": 50
+          }
+        }
+      },
+      "UpdatedContactOutput": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "0192f3a1-7c2b-7d4e-9a10-000000000001"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "description": "The contact's name after the update, as the list shows it.",
+            "example": "Jamie R."
+          }
+        },
+        "required": ["id", "name"]
+      },
+      "UpdateContactOutputResponseDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "enum": ["success", "error"],
+            "type": "string",
+            "example": "success"
+          },
+          "data": {
+            "$ref": "#/components/schemas/UpdatedContactOutput"
+          }
+        },
+        "required": ["status", "data"]
+      },
+      "RemovedContactOutput": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "0192f3a1-7c2b-7d4e-9a10-000000000001"
+          }
+        },
+        "required": ["id"]
+      },
+      "RemoveContactOutputResponseDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "enum": ["success", "error"],
+            "type": "string",
+            "example": "success"
+          },
+          "data": {
+            "$ref": "#/components/schemas/RemovedContactOutput"
           }
         },
         "required": ["status", "data"]

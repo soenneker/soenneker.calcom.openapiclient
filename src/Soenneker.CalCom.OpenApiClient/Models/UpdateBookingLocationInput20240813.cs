@@ -19,6 +19,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("location") is null) { _explicitNullValueLocation = default!; _explicitNullProperties?.Remove("location"); }
             else if (parseNode.GetChildNode("location") is { } nullNodeLocation && nullNodeLocation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Location = null;
+            if (parseNode.GetChildNode("notifyHosts") is null) { _explicitNullValueNotifyHosts = default!; _explicitNullProperties?.Remove("notifyHosts"); }
+            else if (parseNode.GetChildNode("notifyHosts") is { } nullNodeNotifyHosts && nullNodeNotifyHosts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NotifyHosts = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -33,12 +35,16 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public global::Soenneker.CalCom.OpenApiClient.Models.UpdateBookingLocationInput20240813Location Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; AdditionalData?.Remove("location"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.UpdateBookingLocationInput20240813Location _explicitNullValueLocation = default!;
 #endif
+        /// <summary>Set to false to skip the location-change emails to hosts. Attendee notifications and the BOOKING_LOCATION_UPDATED webhook are unaffected.</summary>
+        public bool? NotifyHosts { get => _explicitNullValueNotifyHosts; set { _explicitNullValueNotifyHosts = value; AdditionalData?.Remove("notifyHosts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notifyHosts"); else _explicitNullProperties?.Remove("notifyHosts"); } }
+        private bool? _explicitNullValueNotifyHosts = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UpdateBookingLocationInput20240813"/> and sets the default values.
         /// </summary>
         public UpdateBookingLocationInput20240813()
         {
             AdditionalData = new Dictionary<string, object>();
+            NotifyHosts = true;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -59,6 +65,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "location", n => { Location = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.UpdateBookingLocationInput20240813Location>(global::Soenneker.CalCom.OpenApiClient.Models.UpdateBookingLocationInput20240813Location.CreateFromDiscriminatorValue); } },
+                { "notifyHosts", n => { NotifyHosts = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -69,6 +76,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.UpdateBookingLocationInput20240813Location>("location", Location);
+            writer.WriteBoolValue("notifyHosts", NotifyHosts);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

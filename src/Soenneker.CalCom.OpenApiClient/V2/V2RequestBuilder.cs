@@ -8,6 +8,7 @@ using Soenneker.CalCom.OpenApiClient.V2.Auth;
 using Soenneker.CalCom.OpenApiClient.V2.Bookings;
 using Soenneker.CalCom.OpenApiClient.V2.Calendars;
 using Soenneker.CalCom.OpenApiClient.V2.Conferencing;
+using Soenneker.CalCom.OpenApiClient.V2.Contacts;
 using Soenneker.CalCom.OpenApiClient.V2.Credits;
 using Soenneker.CalCom.OpenApiClient.V2.DestinationCalendars;
 using Soenneker.CalCom.OpenApiClient.V2.EventTypes;
@@ -70,6 +71,11 @@ namespace Soenneker.CalCom.OpenApiClient.V2
         public global::Soenneker.CalCom.OpenApiClient.V2.Conferencing.ConferencingRequestBuilder Conferencing
         {
             get => new global::Soenneker.CalCom.OpenApiClient.V2.Conferencing.ConferencingRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The contacts property</summary>
+        public global::Soenneker.CalCom.OpenApiClient.V2.Contacts.ContactsRequestBuilder Contacts
+        {
+            get => new global::Soenneker.CalCom.OpenApiClient.V2.Contacts.ContactsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The credits property</summary>
         public global::Soenneker.CalCom.OpenApiClient.V2.Credits.CreditsRequestBuilder Credits

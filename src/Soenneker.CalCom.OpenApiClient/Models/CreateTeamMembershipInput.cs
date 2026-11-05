@@ -27,7 +27,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             else if (parseNode.GetChildNode("userId") is { } nullNodeUserId && nullNodeUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserId = null;
         }
 
-        /// <summary>Only applied when the team is an organization sub-team and the user is already an accepted member of the organization, or when the user is a managed user of the team&apos;s OAuth client. Otherwise the membership is created as a pending invite (`accepted: false`) that the user has to accept.</summary>
+        /// <summary>Only applied when the team is an organization sub-team and the user is already an accepted member of the organization, or when the user is a managed user of the team&apos;s OAuth client. Otherwise a sub-team membership is created as a pending invite (`accepted: false`) that the user has to accept. A team outside an organization can add only managed users of its OAuth client; any other user returns 403 and has to be invited with an invite link or by email.</summary>
         public bool? Accepted { get => _explicitNullValueAccepted; set { _explicitNullValueAccepted = value; AdditionalData?.Remove("accepted"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accepted"); else _explicitNullProperties?.Remove("accepted"); } }
         private bool? _explicitNullValueAccepted = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
