@@ -35,7 +35,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Round-robin event types of the team. Each event type can be in one pool.</summary>
+        /// <summary>Round-robin event type UUIDs of the team (short UUIDs accepted). Each event type can be in one pool. Legacy numeric IDs require organization access.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<Guid?>? EventTypeIds { get => _explicitNullValueEventTypeIds; set { _explicitNullValueEventTypeIds = value; AdditionalData?.Remove("eventTypeIds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventTypeIds"); else _explicitNullProperties?.Remove("eventTypeIds"); } }

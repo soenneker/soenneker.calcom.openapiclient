@@ -12577,7 +12577,7 @@
           "Bookings"
         ],
         "summary": "Get Cal Video real time transcript download links for the booking",
-        "description": "Fetches all the transcript download links for the booking \u0060:bookingUid\u0060. Requires authentication and proper authorization. Access is granted to the booking organizer and hosts, and to team or organization members whose role can view the booking and has the \u0060booking.readRecordings\u0060 permission, which team and organization admins and owners have by default.\n\n    \u003CNote\u003E\n    Transcripts are generated when clicking \u0022Transcribe\u0022 during a Cal Video meeting. Download links are valid for 1 hour only - make a new request to generate fresh links after expiration.\n\n    Please make sure to pass in the cal-api-version header value as mentioned in the Headers section. Not passing the correct value will default to an older version of this endpoint.\n    \u003C/Note\u003E\n\nIf accessed using an OAuth access token, the \u0060BOOKING_READ\u0060 scope is required.\n    ",
+        "description": "Fetches all the transcript download links for the booking \u0060:bookingUid\u0060. Requires authentication and proper authorization. Access is granted to the booking organizer and hosts, and to team or organization members whose role can view the booking and has the \u0060booking.readRecordings\u0060 permission, which team and organization admins and owners have by default.\n\n    \u003CNote\u003E\n    Transcripts are generated when clicking \u0022Transcribe\u0022 during a Cal Video meeting, or from live captions in a Cal Video 2.0 meeting. Download links are valid for 1 hour only - make a new request to generate fresh links after expiration.\n\n    Please make sure to pass in the cal-api-version header value as mentioned in the Headers section. Not passing the correct value will default to an older version of this endpoint.\n    \u003C/Note\u003E\n\nIf accessed using an OAuth access token, the \u0060BOOKING_READ\u0060 scope is required.\n    ",
         "operationId": "BookingsController20260225GetBookingTranscripts",
         "parameters": [
           {
@@ -14987,6 +14987,10 @@
             "description": "Too many contact lookups"
           }
         },
+        "x-mcp": {
+          "name": "list_contacts",
+          "guidance": "List the user\u0027s personal contacts from their Contacts page, up to 50 per page, narrowed by search; when pagination.hasMore is true, pass pagination.nextCursor as cursor with the same search. Each contact has its id, name, email and tags. A contact on Cal (type calUser) also has their username, bookingUrl and groupBooking: eligible when they can join a dynamic group meeting with the user, outsideOrganization when they are in another organization, unavailable otherwise. Use eligible contacts\u0027 usernames for group availability and booking. Team and organization members, avatars and Cal user ids are never returned."
+        },
         "x-oauth-scopes": [
           "CONTACT_READ"
         ]
@@ -15057,6 +15061,13 @@
             "x-client-success-response-status": "201"
           }
         },
+        "x-mcp": {
+          "name": "add_contact",
+          "guidance": "Add a personal contact to the user\u0027s Contacts page by email, with an optional name. The email is checked for its format and mail server first, and a user holds at most 5,000 contacts. Adding an email already in the user\u0027s contacts changes nothing, not even its name.",
+          "hints": {
+            "idempotent": true
+          }
+        },
         "x-oauth-scopes": [
           "CONTACT_WRITE"
         ]
@@ -15125,6 +15136,10 @@
             "description": "Contact not found"
           }
         },
+        "x-mcp": {
+          "name": "update_contact",
+          "guidance": "Update one of the user\u0027s personal contacts; today that is only its name. A contact on Cal shows the name from their Cal account, and its name cannot be changed. A contact the user does not have is not found."
+        },
         "x-oauth-scopes": [
           "CONTACT_WRITE"
         ]
@@ -15177,6 +15192,10 @@
           "404": {
             "description": "Contact not found"
           }
+        },
+        "x-mcp": {
+          "name": "remove_contact",
+          "guidance": "Remove one of the user\u0027s personal contacts, with its tags. It cannot be undone. A contact the user does not have is not found."
         },
         "x-oauth-scopes": [
           "CONTACT_WRITE"
@@ -18336,16 +18355,6 @@
         "operationId": "EventRegistrationsControllerListBookings",
         "parameters": [
           {
-            "name": "uuid",
-            "in": "path",
-            "description": "Event UUID. Accepts the canonical UUID (e.g. \u0060018ff5cd-6dc4-7d57-bcbc-374702ca8b38\u0060) or its short-uuid (Flickr Base58) form (e.g. \u00601cbZYoAFoJdwqN4tixezd5\u0060).",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
             "name": "cursor",
             "in": "query",
             "description": "Opaque cursor for cursor-based pagination. Pass the \u0060pagination.nextCursor\u0060 value from a previous response to fetch the next page. Omit to fetch the first page.",
@@ -18408,6 +18417,16 @@
             }
           },
           {
+            "name": "uuid",
+            "in": "path",
+            "description": "Event UUID. Accepts the canonical UUID (e.g. \u0060018ff5cd-6dc4-7d57-bcbc-374702ca8b38\u0060) or its short-uuid (Flickr Base58) form (e.g. \u00601cbZYoAFoJdwqN4tixezd5\u0060).",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
             "name": "Authorization",
             "in": "header",
             "description": "value must be \u0060Bearer \u003Ctoken\u003E\u0060 where \u0060\u003Ctoken\u003E\u0060 is api key prefixed with cal_, managed user access token, or OAuth access token",
@@ -18456,6 +18475,14 @@
         "operationId": "EventRegistrationsControllerCheckInById",
         "parameters": [
           {
+            "name": "registrationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "uuid",
             "in": "path",
             "description": "Event UUID. Accepts the canonical UUID (e.g. \u0060018ff5cd-6dc4-7d57-bcbc-374702ca8b38\u0060) or its short-uuid (Flickr Base58) form (e.g. \u00601cbZYoAFoJdwqN4tixezd5\u0060).",
@@ -18463,14 +18490,6 @@
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
-          },
-          {
-            "name": "registrationId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
             }
           },
           {
@@ -18523,6 +18542,14 @@
         "operationId": "EventRegistrationsControllerUndoCheckIn",
         "parameters": [
           {
+            "name": "registrationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "uuid",
             "in": "path",
             "description": "Event UUID. Accepts the canonical UUID (e.g. \u0060018ff5cd-6dc4-7d57-bcbc-374702ca8b38\u0060) or its short-uuid (Flickr Base58) form (e.g. \u00601cbZYoAFoJdwqN4tixezd5\u0060).",
@@ -18530,14 +18557,6 @@
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
-          },
-          {
-            "name": "registrationId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
             }
           },
           {
@@ -18734,6 +18753,14 @@
         "operationId": "EventRegistrationsControllerApprove",
         "parameters": [
           {
+            "name": "registrationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "uuid",
             "in": "path",
             "description": "Event UUID. Accepts the canonical UUID (e.g. \u0060018ff5cd-6dc4-7d57-bcbc-374702ca8b38\u0060) or its short-uuid (Flickr Base58) form (e.g. \u00601cbZYoAFoJdwqN4tixezd5\u0060).",
@@ -18741,14 +18768,6 @@
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
-          },
-          {
-            "name": "registrationId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
             }
           },
           {
@@ -18803,6 +18822,14 @@
         "operationId": "EventRegistrationsControllerDecline",
         "parameters": [
           {
+            "name": "registrationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "uuid",
             "in": "path",
             "description": "Event UUID. Accepts the canonical UUID (e.g. \u0060018ff5cd-6dc4-7d57-bcbc-374702ca8b38\u0060) or its short-uuid (Flickr Base58) form (e.g. \u00601cbZYoAFoJdwqN4tixezd5\u0060).",
@@ -18810,14 +18837,6 @@
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
-          },
-          {
-            "name": "registrationId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
             }
           },
           {
@@ -19133,9 +19152,9 @@
         "operationId": "EventCoHostsControllerRevoke",
         "parameters": [
           {
-            "name": "uuid",
+            "name": "coHostId",
             "in": "path",
-            "description": "Event UUID. Accepts the canonical UUID (e.g. \u0060018ff5cd-6dc4-7d57-bcbc-374702ca8b38\u0060) or its short-uuid (Flickr Base58) form (e.g. \u00601cbZYoAFoJdwqN4tixezd5\u0060).",
+            "description": "Id of the co-host on this Event, the \u0060id\u0060 from \u0060GET /v2/events/{uuid}/co-hosts\u0060. Not a user id.",
             "required": true,
             "schema": {
               "type": "string",
@@ -19143,9 +19162,9 @@
             }
           },
           {
-            "name": "coHostId",
+            "name": "uuid",
             "in": "path",
-            "description": "Id of the co-host on this Event, the \u0060id\u0060 from \u0060GET /v2/events/{uuid}/co-hosts\u0060. Not a user id.",
+            "description": "Event UUID. Accepts the canonical UUID (e.g. \u0060018ff5cd-6dc4-7d57-bcbc-374702ca8b38\u0060) or its short-uuid (Flickr Base58) form (e.g. \u00601cbZYoAFoJdwqN4tixezd5\u0060).",
             "required": true,
             "schema": {
               "type": "string",
@@ -19201,16 +19220,6 @@
         "operationId": "EventHostCandidatesControllerList",
         "parameters": [
           {
-            "name": "uuid",
-            "in": "path",
-            "description": "Event UUID. Accepts the canonical UUID (e.g. \u0060018ff5cd-6dc4-7d57-bcbc-374702ca8b38\u0060) or its short-uuid (Flickr Base58) form (e.g. \u00601cbZYoAFoJdwqN4tixezd5\u0060).",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
             "name": "cursor",
             "in": "query",
             "description": "Opaque cursor for cursor-based pagination. Pass the \u0060pagination.nextCursor\u0060 value from a previous response to fetch the next page. Omit to fetch the first page.",
@@ -19237,6 +19246,16 @@
             "schema": {
               "maxLength": 255,
               "type": "string"
+            }
+          },
+          {
+            "name": "uuid",
+            "in": "path",
+            "description": "Event UUID. Accepts the canonical UUID (e.g. \u0060018ff5cd-6dc4-7d57-bcbc-374702ca8b38\u0060) or its short-uuid (Flickr Base58) form (e.g. \u00601cbZYoAFoJdwqN4tixezd5\u0060).",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
@@ -19680,9 +19699,9 @@
         "operationId": "EventLocationsControllerRemove",
         "parameters": [
           {
-            "name": "uuid",
+            "name": "locationId",
             "in": "path",
-            "description": "Event UUID. Accepts the canonical UUID (e.g. \u0060018ff5cd-6dc4-7d57-bcbc-374702ca8b38\u0060) or its short-uuid (Flickr Base58) form (e.g. \u00601cbZYoAFoJdwqN4tixezd5\u0060).",
+            "description": "Id of the location, the \u0060id\u0060 from \u0060GET /v2/events/{uuid}/locations\u0060.",
             "required": true,
             "schema": {
               "type": "string",
@@ -19690,9 +19709,9 @@
             }
           },
           {
-            "name": "locationId",
+            "name": "uuid",
             "in": "path",
-            "description": "Id of the location, the \u0060id\u0060 from \u0060GET /v2/events/{uuid}/locations\u0060.",
+            "description": "Event UUID. Accepts the canonical UUID (e.g. \u0060018ff5cd-6dc4-7d57-bcbc-374702ca8b38\u0060) or its short-uuid (Flickr Base58) form (e.g. \u00601cbZYoAFoJdwqN4tixezd5\u0060).",
             "required": true,
             "schema": {
               "type": "string",
@@ -19749,6 +19768,15 @@
         "operationId": "EventLocationsControllerUpdate",
         "parameters": [
           {
+            "name": "locationId",
+            "in": "path",
+            "description": "The location\u0027s \u0060id\u0060, from \u0060GET /v2/events/{uuid}/locations\u0060.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "uuid",
             "in": "path",
             "description": "Event UUID. Accepts the canonical UUID (e.g. \u0060018ff5cd-6dc4-7d57-bcbc-374702ca8b38\u0060) or its short-uuid (Flickr Base58) form (e.g. \u00601cbZYoAFoJdwqN4tixezd5\u0060).",
@@ -19756,15 +19784,6 @@
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
-          },
-          {
-            "name": "locationId",
-            "in": "path",
-            "description": "The location\u0027s \u0060id\u0060, from \u0060GET /v2/events/{uuid}/locations\u0060.",
-            "required": true,
-            "schema": {
-              "type": "string"
             }
           },
           {
@@ -19969,6 +19988,14 @@
         "operationId": "EventMessagesControllerListMessages",
         "parameters": [
           {
+            "name": "cursor",
+            "in": "query",
+            "description": "Opaque cursor for cursor-based pagination. Pass the \u0060pagination.nextCursor\u0060 value from a previous response to fetch the next page. Omit to fetch the first page.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "uuid",
             "in": "path",
             "description": "Event UUID. Accepts the canonical UUID (e.g. \u0060018ff5cd-6dc4-7d57-bcbc-374702ca8b38\u0060) or its short-uuid (Flickr Base58) form (e.g. \u00601cbZYoAFoJdwqN4tixezd5\u0060).",
@@ -19976,14 +20003,6 @@
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
-          },
-          {
-            "name": "cursor",
-            "in": "query",
-            "description": "Opaque cursor for cursor-based pagination. Pass the \u0060pagination.nextCursor\u0060 value from a previous response to fetch the next page. Omit to fetch the first page.",
-            "schema": {
-              "type": "string"
             }
           },
           {
@@ -26322,7 +26341,7 @@
           "Teams"
         ],
         "summary": "Get a team",
-        "description": "If accessed using an OAuth access token, the \u0060TEAM_PROFILE_READ\u0060 scope is required.",
+        "description": "Required membership role: \u0060team member\u0060. PBAC permission: \u0060team.readTeamSettings\u0060. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the \u0060TEAM_PROFILE_READ\u0060 scope is required.",
         "operationId": "TeamsControllerGetTeam",
         "parameters": [
           {
@@ -26656,16 +26675,6 @@
             }
           },
           {
-            "name": "poolId",
-            "in": "path",
-            "description": "Pool UUID; short UUID form is accepted too.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
             "name": "teamId",
             "in": "path",
             "description": "The team\u0027s uuid (preferred), its short-uuid (Flickr Base58) form, or its numeric id.",
@@ -26679,6 +26688,16 @@
                   "type": "string"
                 }
               ]
+            }
+          },
+          {
+            "name": "poolId",
+            "in": "path",
+            "description": "Pool UUID; short UUID form is accepted too.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -26726,16 +26745,6 @@
             }
           },
           {
-            "name": "poolId",
-            "in": "path",
-            "description": "Pool UUID; short UUID form is accepted too.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
             "name": "teamId",
             "in": "path",
             "description": "The team\u0027s uuid (preferred), its short-uuid (Flickr Base58) form, or its numeric id.",
@@ -26749,6 +26758,16 @@
                   "type": "string"
                 }
               ]
+            }
+          },
+          {
+            "name": "poolId",
+            "in": "path",
+            "description": "Pool UUID; short UUID form is accepted too.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -26778,16 +26797,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "name": "poolId",
-            "in": "path",
-            "description": "Pool UUID; short UUID form is accepted too.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
             }
           },
           {
@@ -26824,6 +26833,16 @@
                   "type": "string"
                 }
               ]
+            }
+          },
+          {
+            "name": "poolId",
+            "in": "path",
+            "description": "Pool UUID; short UUID form is accepted too.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -26863,26 +26882,6 @@
             }
           },
           {
-            "name": "poolId",
-            "in": "path",
-            "description": "Pool UUID; short UUID form is accepted too.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "userId",
-            "in": "path",
-            "description": "User UUID; short UUID form is accepted too.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
             "name": "teamId",
             "in": "path",
             "description": "The team\u0027s uuid (preferred), its short-uuid (Flickr Base58) form, or its numeric id.",
@@ -26896,6 +26895,26 @@
                   "type": "string"
                 }
               ]
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User UUID; short UUID form is accepted too.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "poolId",
+            "in": "path",
+            "description": "Pool UUID; short UUID form is accepted too.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -26943,26 +26962,6 @@
             }
           },
           {
-            "name": "poolId",
-            "in": "path",
-            "description": "Pool UUID; short UUID form is accepted too.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "userId",
-            "in": "path",
-            "description": "User UUID; short UUID form is accepted too.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
             "name": "teamId",
             "in": "path",
             "description": "The team\u0027s uuid (preferred), its short-uuid (Flickr Base58) form, or its numeric id.",
@@ -26976,6 +26975,26 @@
                   "type": "string"
                 }
               ]
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User UUID; short UUID form is accepted too.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "poolId",
+            "in": "path",
+            "description": "Pool UUID; short UUID form is accepted too.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -27023,26 +27042,6 @@
             }
           },
           {
-            "name": "poolId",
-            "in": "path",
-            "description": "Pool UUID; short UUID form is accepted too.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "userId",
-            "in": "path",
-            "description": "User UUID; short UUID form is accepted too.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
             "name": "teamId",
             "in": "path",
             "description": "The team\u0027s uuid (preferred), its short-uuid (Flickr Base58) form, or its numeric id.",
@@ -27056,6 +27055,26 @@
                   "type": "string"
                 }
               ]
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User UUID; short UUID form is accepted too.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "poolId",
+            "in": "path",
+            "description": "Pool UUID; short UUID form is accepted too.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -52681,6 +52700,7 @@
       },
       "RegistrationLocationCountOutputDto": {
         "required": [
+          "locationId",
           "count"
         ],
         "type": "object",
@@ -54300,7 +54320,7 @@
               "type": "string",
               "format": "uuid"
             },
-            "description": "Round-robin event types of the team. Each event type can be in one pool.",
+            "description": "Round-robin event type UUIDs of the team (short UUIDs accepted). Each event type can be in one pool. Legacy numeric IDs require organization access.",
             "example": [
               "0bce7b70-d7f0-4e5f-bcce-2f41b6fd5116",
               "15314c7c-11a0-440d-9ae9-23593c193a2b"
@@ -54365,7 +54385,7 @@
               "type": "string",
               "format": "uuid"
             },
-            "description": "Replaces the pool\u0027s event types.",
+            "description": "Replaces the pool\u0027s event type UUIDs (short UUIDs accepted). Legacy numeric IDs require organization access.",
             "example": [
               "0bce7b70-d7f0-4e5f-bcce-2f41b6fd5116",
               "15314c7c-11a0-440d-9ae9-23593c193a2b"
