@@ -10128,7 +10128,7 @@
           "Orgs / Users"
         ],
         "summary": "Create a user",
-        "description": "Required membership role: \u0060org admin\u0060. PBAC permission: \u0060organization.invite\u0060. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the \u0060ORG_MEMBERSHIP_WRITE\u0060 scope is required.\n\nThis endpoint creates a brand-new Cal.com user account and attaches them to the organization. If the email already belongs to an existing Cal.com user, the request fails with \u0060409 Conflict\u0060. When the user is already a member of this organization the message is \u0060A user already exists with that email and is already a member of this organization\u0060. When the user exists but is not a member, the message is \u0060A user already exists with this email. Use POST /v2/organizations/{orgId}/memberships to add them to this organization.\u0060. A common case is re-adding someone who was previously removed from the organization via the dashboard: the membership is gone, but the underlying Cal.com user account still exists.\n\nTo attach an existing Cal.com user to the organization, use \u0060POST /v2/organizations/{orgId}/memberships\u0060 with the \u0060email\u0060 field instead.",
+        "description": "Required membership role: \u0060org admin\u0060. PBAC permission: \u0060organization.invite\u0060. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the \u0060ORG_MEMBERSHIP_WRITE\u0060 scope is required.\n\nThis endpoint creates a brand-new Cal.com user account and attaches them to the organization. If the email already belongs to an existing Cal.com user, the request fails with \u0060409 Conflict\u0060. When the user is already a member of this organization the message is \u0060A user already exists with that email and is already a member of this organization\u0060. When the user exists but is not a member, the message is \u0060A user already exists with this email. Use POST /v2/organizations/{orgId}/memberships to add them to this organization.\u0060. A common case is re-adding someone who was previously removed from the organization via the dashboard: the membership is gone, but the underlying Cal.com user account still exists.\n\nTo attach an existing Cal.com user to the organization, use \u0060POST /v2/organizations/{orgId}/memberships\u0060 with the \u0060email\u0060 field instead.\n\nThe response includes \u0060membership.id\u0060 and \u0060membership.accepted\u0060. When \u0060accepted\u0060 is \u0060false\u0060, the membership is pending until the user accepts the invite; poll \u0060GET /v2/organizations/{orgId}/memberships/{membershipId}\u0060 with \u0060membership.id\u0060 until \u0060accepted\u0060 is \u0060true\u0060.",
         "operationId": "OrganizationsUsersControllerCreateOrganizationUser",
         "parameters": [
           {
@@ -10180,7 +10180,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetOrganizationUserOutput"
+                  "$ref": "#/components/schemas/CreateOrganizationUserOutput"
                 }
               }
             }
@@ -10190,7 +10190,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetOrganizationUserOutput"
+                  "$ref": "#/components/schemas/CreateOrganizationUserOutput"
                 }
               }
             },
@@ -36182,7 +36182,177 @@
           }
         }
       },
-      "GetOrganizationUserOutput": {
+      "OrganizationUserMembershipOutput": {
+        "required": [
+          "id",
+          "accepted"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 123
+          },
+          "accepted": {
+            "type": "boolean",
+            "example": false
+          }
+        }
+      },
+      "CreateOrganizationUserData": {
+        "required": [
+          "id",
+          "uuid",
+          "email",
+          "timeZone",
+          "weekStart",
+          "hideBranding",
+          "createdDate",
+          "profile",
+          "membership"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "The ID of the user",
+            "example": 1
+          },
+          "uuid": {
+            "type": "string",
+            "description": "The UUID of the user",
+            "format": "uuid",
+            "example": "3f2504e0-4f89-41d3-9a0c-0305e82c3301"
+          },
+          "username": {
+            "type": "string",
+            "description": "The username of the user",
+            "nullable": true,
+            "example": "john_doe"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the user",
+            "nullable": true,
+            "example": "John Doe"
+          },
+          "email": {
+            "type": "string",
+            "description": "The email of the user",
+            "example": "john@example.com"
+          },
+          "emailVerified": {
+            "type": "string",
+            "description": "The date when the email was verified",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2022-01-01T00:00:00Z"
+          },
+          "bio": {
+            "type": "string",
+            "description": "The bio of the user",
+            "nullable": true,
+            "example": "I am a software developer"
+          },
+          "avatarUrl": {
+            "type": "string",
+            "description": "The URL of the user\u0027s avatar",
+            "nullable": true,
+            "example": "https://example.com/avatar.jpg"
+          },
+          "timeZone": {
+            "type": "string",
+            "description": "The time zone of the user",
+            "example": "America/New_York"
+          },
+          "weekStart": {
+            "type": "string",
+            "description": "The week start day of the user",
+            "example": "Monday"
+          },
+          "appTheme": {
+            "type": "string",
+            "description": "The app theme of the user",
+            "nullable": true,
+            "example": "light"
+          },
+          "theme": {
+            "type": "string",
+            "description": "The theme of the user",
+            "nullable": true,
+            "example": "default"
+          },
+          "defaultScheduleId": {
+            "type": "number",
+            "description": "The ID of the default schedule for the user",
+            "nullable": true,
+            "example": 1
+          },
+          "locale": {
+            "type": "string",
+            "description": "The locale of the user",
+            "nullable": true,
+            "example": "en-US"
+          },
+          "timeFormat": {
+            "type": "number",
+            "description": "The time format of the user",
+            "nullable": true,
+            "example": 12
+          },
+          "hideBranding": {
+            "type": "boolean",
+            "description": "Whether to hide branding for the user",
+            "example": false
+          },
+          "brandColor": {
+            "type": "string",
+            "description": "The brand color of the user",
+            "nullable": true,
+            "example": "#ffffff"
+          },
+          "darkBrandColor": {
+            "type": "string",
+            "description": "The dark brand color of the user",
+            "nullable": true,
+            "example": "#000000"
+          },
+          "allowDynamicBooking": {
+            "type": "boolean",
+            "description": "Whether dynamic booking is allowed for the user",
+            "nullable": true,
+            "example": true
+          },
+          "createdDate": {
+            "type": "string",
+            "description": "The date when the user was created",
+            "format": "date-time",
+            "example": "2022-01-01T00:00:00Z"
+          },
+          "verified": {
+            "type": "boolean",
+            "description": "Whether the user is verified",
+            "nullable": true,
+            "example": true
+          },
+          "invitedTo": {
+            "type": "number",
+            "description": "The ID of the user who invited this user",
+            "nullable": true,
+            "example": 1
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/CreateOrganizationUserDataMetadataProperty"
+          },
+          "profile": {
+            "$ref": "#/components/schemas/CreateOrganizationUserDataProfile"
+          },
+          "membership": {
+            "$ref": "#/components/schemas/OrganizationUserMembershipOutput"
+          }
+        }
+      },
+      "CreateOrganizationUserOutput": {
         "required": [
           "status",
           "data"
@@ -36190,10 +36360,10 @@
         "type": "object",
         "properties": {
           "status": {
-            "$ref": "#/components/schemas/GetOrganizationUserOutputStatus"
+            "$ref": "#/components/schemas/CreateOrganizationUserOutputStatus"
           },
           "data": {
-            "$ref": "#/components/schemas/GetOrgUsersWithProfileOutput"
+            "$ref": "#/components/schemas/CreateOrganizationUserData"
           }
         }
       },
@@ -36287,6 +36457,21 @@
             "type": "string",
             "description": "Avatar URL",
             "example": "https://example.com/avatar.jpg"
+          }
+        }
+      },
+      "GetOrganizationUserOutput": {
+        "required": [
+          "status",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/GetOrganizationUserOutputStatus"
+          },
+          "data": {
+            "$ref": "#/components/schemas/GetOrgUsersWithProfileOutput"
           }
         }
       },
@@ -56059,6 +56244,38 @@
         },
         "description": "organization user profile, contains user data within the organizaton context"
       },
+      "CreateOrganizationUserDataProfile": {
+        "required": [
+          "id",
+          "organizationId",
+          "userId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "The ID of the profile of user",
+            "example": 1
+          },
+          "organizationId": {
+            "type": "number",
+            "description": "The ID of the organization of user",
+            "example": 1
+          },
+          "userId": {
+            "type": "number",
+            "description": "The IDof the user",
+            "example": 1
+          },
+          "username": {
+            "type": "string",
+            "description": "The username of the user within the organization context",
+            "nullable": true,
+            "example": "john_doe"
+          }
+        },
+        "description": "organization user profile, contains user data within the organizaton context"
+      },
       "OrganizationMembershipOutputAttributesItem": {
         "oneOf": [
           {
@@ -62633,6 +62850,12 @@
           "key": "value"
         }
       },
+      "CreateOrganizationUserDataMetadataProperty": {
+        "type": "object",
+        "example": {
+          "key": "value"
+        }
+      },
       "UpdateOrganizationUserInputMetadataProperty": {
         "type": "object",
         "description": "You can store any additional data you want here. Metadata must have at most 50 keys, each key up to 40 characters, and values up to 500 characters.",
@@ -66456,6 +66679,28 @@
             {
               "value": "OWNER",
               "name": "Owner"
+            }
+          ]
+        }
+      },
+      "CreateOrganizationUserOutputStatus": {
+        "enum": [
+          "success",
+          "error"
+        ],
+        "type": "string",
+        "example": "success",
+        "x-ms-enum": {
+          "name": "CreateOrganizationUserOutputStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "success",
+              "name": "Success"
+            },
+            {
+              "value": "error",
+              "name": "Error"
             }
           ]
         }
@@ -104681,6 +104926,12 @@
     "CreateOrganizationUserInputMetadata": {
       "type": "object",
       "description": "You can store any additional data you want here. Metadata must have at most 50 keys, each key up to 40 characters, and values up to 500 characters.",
+      "example": {
+        "key": "value"
+      }
+    },
+    "CreateOrganizationUserDataMetadata": {
+      "type": "object",
       "example": {
         "key": "value"
       }
