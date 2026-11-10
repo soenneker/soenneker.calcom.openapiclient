@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.CalCom.OpenApiClient.Models;
 using Soenneker.CalCom.OpenApiClient.V2.Contacts.Item;
+using Soenneker.CalCom.OpenApiClient.V2.Contacts.Tags;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -18,6 +19,11 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Contacts
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ContactsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The tags property</summary>
+        public global::Soenneker.CalCom.OpenApiClient.V2.Contacts.Tags.TagsRequestBuilder Tags
+        {
+            get => new global::Soenneker.CalCom.OpenApiClient.V2.Contacts.Tags.TagsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Gets an item from the Soenneker.CalCom.OpenApiClient.v2.contacts.item collection</summary>
         /// <param name="position">The contact&apos;s `id` from `GET /v2/contacts`.</param>
         /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.V2.Contacts.Item.ContactsItemRequestBuilder"/></returns>
@@ -35,7 +41,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Contacts
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ContactsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/contacts{?cursor*,limit*,search*}", pathParameters)
+        public ContactsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/contacts{?cursor*,limit*,search*,tagIds*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,11 +49,11 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Contacts
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ContactsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/contacts{?cursor*,limit*,search*}", rawUrl)
+        public ContactsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/contacts{?cursor*,limit*,search*,tagIds*}", rawUrl)
         {
         }
         /// <summary>
-        /// Returns the authenticated user&apos;s personal contacts from their Contacts page, ordered by stored name (nulls last), email and id, with limit/cursor pagination. When pagination.hasMore is true, pass pagination.nextCursor as cursor with the same search. Use usernames of contacts with groupBooking eligible for dynamic group availability and booking with the authenticated user. Team and organization members are not included. A contact whose email belongs to a verified, discoverable Cal account shows that account&apos;s name, username and booking page. Contact avatars and Cal user ids are never returned. If accessed using an OAuth access token, the `CONTACT_READ` scope is required.
+        /// Returns the authenticated user&apos;s personal contacts from their Contacts page, ordered by stored name (nulls last), email and id, with limit/cursor pagination. `tagIds` narrows the list to contacts carrying at least one of the tags. When pagination.hasMore is true, pass pagination.nextCursor as cursor with the same search and tagIds. Use usernames of contacts with groupBooking eligible for dynamic group availability and booking with the authenticated user. Team and organization members are not included. A contact whose email belongs to a verified, discoverable Cal account shows that account&apos;s name, username and booking page. Contact avatars and Cal user ids are never returned. If accessed using an OAuth access token, the `CONTACT_READ` scope is required.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Models.ListContactsOutputResponseDto"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -85,7 +91,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Contacts
             return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.CreateContactOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.CreateContactOutputResponseDto.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns the authenticated user&apos;s personal contacts from their Contacts page, ordered by stored name (nulls last), email and id, with limit/cursor pagination. When pagination.hasMore is true, pass pagination.nextCursor as cursor with the same search. Use usernames of contacts with groupBooking eligible for dynamic group availability and booking with the authenticated user. Team and organization members are not included. A contact whose email belongs to a verified, discoverable Cal account shows that account&apos;s name, username and booking page. Contact avatars and Cal user ids are never returned. If accessed using an OAuth access token, the `CONTACT_READ` scope is required.
+        /// Returns the authenticated user&apos;s personal contacts from their Contacts page, ordered by stored name (nulls last), email and id, with limit/cursor pagination. `tagIds` narrows the list to contacts carrying at least one of the tags. When pagination.hasMore is true, pass pagination.nextCursor as cursor with the same search and tagIds. Use usernames of contacts with groupBooking eligible for dynamic group availability and booking with the authenticated user. Team and organization members are not included. A contact whose email belongs to a verified, discoverable Cal account shows that account&apos;s name, username and booking page. Contact avatars and Cal user ids are never returned. If accessed using an OAuth access token, the `CONTACT_READ` scope is required.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -135,12 +141,12 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Contacts
             return new global::Soenneker.CalCom.OpenApiClient.V2.Contacts.ContactsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns the authenticated user&apos;s personal contacts from their Contacts page, ordered by stored name (nulls last), email and id, with limit/cursor pagination. When pagination.hasMore is true, pass pagination.nextCursor as cursor with the same search. Use usernames of contacts with groupBooking eligible for dynamic group availability and booking with the authenticated user. Team and organization members are not included. A contact whose email belongs to a verified, discoverable Cal account shows that account&apos;s name, username and booking page. Contact avatars and Cal user ids are never returned. If accessed using an OAuth access token, the `CONTACT_READ` scope is required.
+        /// Returns the authenticated user&apos;s personal contacts from their Contacts page, ordered by stored name (nulls last), email and id, with limit/cursor pagination. `tagIds` narrows the list to contacts carrying at least one of the tags. When pagination.hasMore is true, pass pagination.nextCursor as cursor with the same search and tagIds. Use usernames of contacts with groupBooking eligible for dynamic group availability and booking with the authenticated user. Team and organization members are not included. A contact whose email belongs to a verified, discoverable Cal account shows that account&apos;s name, username and booking page. Contact avatars and Cal user ids are never returned. If accessed using an OAuth access token, the `CONTACT_READ` scope is required.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ContactsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Opaque cursor from pagination.nextCursor. Omit for the first page; keep the same search on subsequent pages.</summary>
+            /// <summary>Opaque cursor from pagination.nextCursor. Omit for the first page; keep the same search and tagIds on subsequent pages.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("cursor")]
@@ -162,6 +168,16 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Contacts
 #else
             [QueryParameter("search")]
             public string Search { get; set; }
+#endif
+            /// <summary>Tag ids from `GET /v2/contacts/tags`, to list only contacts carrying at least one of them. Separate ids with commas, or repeat the parameter once per id.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("tagIds")]
+            public Guid?[]? TagIds { get; set; }
+#nullable restore
+#else
+            [QueryParameter("tagIds")]
+            public Guid?[] TagIds { get; set; }
 #endif
         }
     }

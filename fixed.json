@@ -14923,7 +14923,7 @@
           "Contacts"
         ],
         "summary": "List personal contacts",
-        "description": "Returns the authenticated user\u0027s personal contacts from their Contacts page, ordered by stored name (nulls last), email and id, with limit/cursor pagination. When pagination.hasMore is true, pass pagination.nextCursor as cursor with the same search. Use usernames of contacts with groupBooking eligible for dynamic group availability and booking with the authenticated user. Team and organization members are not included. A contact whose email belongs to a verified, discoverable Cal account shows that account\u0027s name, username and booking page. Contact avatars and Cal user ids are never returned. If accessed using an OAuth access token, the \u0060CONTACT_READ\u0060 scope is required.",
+        "description": "Returns the authenticated user\u0027s personal contacts from their Contacts page, ordered by stored name (nulls last), email and id, with limit/cursor pagination. \u0060tagIds\u0060 narrows the list to contacts carrying at least one of the tags. When pagination.hasMore is true, pass pagination.nextCursor as cursor with the same search and tagIds. Use usernames of contacts with groupBooking eligible for dynamic group availability and booking with the authenticated user. Team and organization members are not included. A contact whose email belongs to a verified, discoverable Cal account shows that account\u0027s name, username and booking page. Contact avatars and Cal user ids are never returned. If accessed using an OAuth access token, the \u0060CONTACT_READ\u0060 scope is required.",
         "operationId": "ContactsControllerList",
         "parameters": [
           {
@@ -14934,6 +14934,23 @@
               "maxLength": 100,
               "type": "string",
               "example": "jamie"
+            }
+          },
+          {
+            "name": "tagIds",
+            "in": "query",
+            "description": "Tag ids from \u0060GET /v2/contacts/tags\u0060, to list only contacts carrying at least one of them. Separate ids with commas, or repeat the parameter once per id.",
+            "schema": {
+              "maxItems": 100,
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "example": [
+                "0192f3a1-7c2b-7d4e-9a10-00000000000a",
+                "0192f3a1-7c2b-7d4e-9a10-00000000000b"
+              ]
             }
           },
           {
@@ -14951,7 +14968,7 @@
           {
             "name": "cursor",
             "in": "query",
-            "description": "Opaque cursor from pagination.nextCursor. Omit for the first page; keep the same search on subsequent pages.",
+            "description": "Opaque cursor from pagination.nextCursor. Omit for the first page; keep the same search and tagIds on subsequent pages.",
             "schema": {
               "type": "string"
             }
@@ -15069,6 +15086,145 @@
           "guidance": "Add a personal contact to the user\u0027s Contacts page by email, with an optional name. The email is checked for its format and mail server first, and a user holds at most 5,000 contacts. Adding an email already in the user\u0027s contacts changes nothing, not even its name.",
           "hints": {
             "idempotent": true
+          }
+        },
+        "x-oauth-scopes": [
+          "CONTACT_WRITE"
+        ]
+      }
+    },
+    "/v2/contacts/tags": {
+      "get": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "List contact tags",
+        "description": "Returns the authenticated user\u0027s own tags, the ones they can put on their contacts, ordered by name and id, with limit/cursor pagination. Each tag has how many of the user\u0027s contacts carry it. They are the same personal tags the user can put on their own links; team tags are not included. When pagination.hasMore is true, pass pagination.nextCursor as cursor. If accessed using an OAuth access token, the \u0060CONTACT_READ\u0060 scope is required.",
+        "operationId": "ContactsControllerListTags",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of tags to return.",
+            "schema": {
+              "maximum": 50,
+              "minimum": 1,
+              "type": "number",
+              "default": 50,
+              "example": 50
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "description": "The pagination.nextCursor value from the previous page. Omit for the first page.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be \u0060Bearer \u003Ctoken\u003E\u0060 where \u0060\u003Ctoken\u003E\u0060 is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListContactTagsOutputResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid cursor"
+          },
+          "401": {
+            "description": "Unauthenticated"
+          },
+          "403": {
+            "description": "Insufficient permissions"
+          },
+          "429": {
+            "description": "Too many tag lookups"
+          }
+        },
+        "x-oauth-scopes": [
+          "CONTACT_READ"
+        ]
+      },
+      "post": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Create a contact tag",
+        "description": "Creates one of the authenticated user\u0027s own tags, to put on their contacts. The tag is personal, never a team\u0027s, and it is also offered for the user\u0027s own links. It does not put the tag on any contact. A name the user already has is refused. If accessed using an OAuth access token, the \u0060CONTACT_WRITE\u0060 scope is required.",
+        "operationId": "ContactsControllerCreateTag",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be \u0060Bearer \u003Ctoken\u003E\u0060 where \u0060\u003Ctoken\u003E\u0060 is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateContactTagInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateContactTagOutputResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The name or color is not allowed"
+          },
+          "401": {
+            "description": "Unauthenticated"
+          },
+          "403": {
+            "description": "Insufficient permissions"
+          },
+          "409": {
+            "description": "The user already has a tag with this name"
+          },
+          "429": {
+            "description": "Too many tags created"
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateContactTagOutputResponseDto"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-oauth-scopes": [
@@ -16227,6 +16383,88 @@
         },
         "x-oauth-scopes": [
           "APPS_WRITE"
+        ]
+      }
+    },
+    "/v2/discover/listings": {
+      "get": {
+        "tags": [
+          "Discover"
+        ],
+        "summary": "Get Discover listings by id",
+        "description": "Returns published Discover listings by id, with the fields their public cards show: service name, provider, price, new-client discount, the provider\u0027s rating, review count and verification, duration, whether it is online, city, neighborhood and the business\u0027s time zone. With \u0060includeNextAvailable\u0060, also the earliest open slot in the next 7 days for the first 10 listings. Any id that is not a published listing is returned in \u0060notFoundListingIds\u0060. Requests with \u0060includeNextAvailable\u0060 are limited to 60 per minute per user, shared across all of the user\u0027s API keys and access tokens. If accessed using an OAuth access token, the \u0060EVENT_TYPE_READ\u0060 scope is required.",
+        "operationId": "DiscoverListingsControllerGetListings",
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Discover listing ids, such as the \u0060listingId\u0060 values a Discover search returned. Repeat the parameter (\u0060ids=12\u0026ids=34\u0060) or separate the ids with commas (\u0060ids=12,34\u0060). Duplicates are read once.",
+            "required": true,
+            "schema": {
+              "maxItems": 50,
+              "minItems": 1,
+              "type": "array",
+              "items": {
+                "maximum": 2147483647,
+                "minimum": 1,
+                "type": "integer"
+              },
+              "example": [
+                12,
+                34
+              ]
+            }
+          },
+          {
+            "name": "includeNextAvailable",
+            "in": "query",
+            "description": "Also look up each listing\u0027s earliest open slot in the next 7 days. Only the first 10 listings are checked, so list the ones you care about first.",
+            "schema": {
+              "type": "boolean",
+              "default": false,
+              "example": true
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be \u0060Bearer \u003Ctoken\u003E\u0060 where \u0060\u003Ctoken\u003E\u0060 is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetDiscoverListingsOutputResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "ids is missing, has more than 50 ids or a non-positive id"
+          },
+          "401": {
+            "description": "Unauthenticated"
+          },
+          "403": {
+            "description": "Insufficient permissions"
+          },
+          "429": {
+            "description": "Too many listing lookups with this credential, or more than 60 \u0060includeNextAvailable\u0060 requests per minute for this user across all of their credentials"
+          }
+        },
+        "x-mcp": {
+          "name": "get_discover_listings",
+          "guidance": "Read published Discover listings by id, as their public cards show them: service name, provider, price, new-client discount, rating, review count, verified, duration, whether it is online, city and neighborhood, and optionally the earliest open slot in the next 7 days for the first 10. An id that is not a published listing is returned as not found."
+        },
+        "x-oauth-scopes": [
+          "EVENT_TYPE_READ"
         ]
       }
     },
@@ -53727,7 +53965,7 @@
         "properties": {
           "nextCursor": {
             "type": "string",
-            "description": "Opaque cursor to fetch the next page. Pass this value as the cursor query parameter with the same search. null when hasMore is false.",
+            "description": "Opaque cursor to fetch the next page. Pass this value as the cursor query parameter with the same filters. null when hasMore is false.",
             "nullable": true
           },
           "hasMore": {
@@ -53756,6 +53994,87 @@
           },
           "pagination": {
             "$ref": "#/components/schemas/ContactsCursorPaginationMetaDto"
+          }
+        }
+      },
+      "ContactTagWithCountOutput": {
+        "required": [
+          "id",
+          "name",
+          "contactCount"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "0192f3a1-7c2b-7d4e-9a10-00000000000a"
+          },
+          "name": {
+            "type": "string",
+            "example": "Investors"
+          },
+          "contactCount": {
+            "type": "number",
+            "description": "How many of the user\u0027s contacts carry this tag.",
+            "example": 3
+          }
+        }
+      },
+      "ListContactTagsOutputResponseDto": {
+        "required": [
+          "status",
+          "data",
+          "pagination"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/ListContactTagsOutputResponseDtoStatus"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ContactTagWithCountOutput"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/ContactsCursorPaginationMetaDto"
+          }
+        }
+      },
+      "CreateContactTagInput": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 50,
+            "minLength": 1,
+            "type": "string",
+            "description": "The tag\u0027s name.",
+            "example": "Investors"
+          },
+          "color": {
+            "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$",
+            "type": "string",
+            "description": "A hex color. Leave out for the default.",
+            "example": "#0ea5e9"
+          }
+        }
+      },
+      "CreateContactTagOutputResponseDto": {
+        "required": [
+          "status",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/CreateContactTagOutputResponseDtoStatus"
+          },
+          "data": {
+            "$ref": "#/components/schemas/ContactTagOutput"
           }
         }
       },
@@ -53878,6 +54197,163 @@
           },
           "data": {
             "$ref": "#/components/schemas/RemovedContactOutput"
+          }
+        }
+      },
+      "DiscoverListingOutput": {
+        "required": [
+          "listingId",
+          "service",
+          "provider",
+          "priceInCents",
+          "currency",
+          "price",
+          "newClientDiscountPercent",
+          "rating",
+          "reviewCount",
+          "verified",
+          "durationMinutes",
+          "online",
+          "city",
+          "neighborhood",
+          "timeZone"
+        ],
+        "type": "object",
+        "properties": {
+          "listingId": {
+            "type": "number",
+            "description": "The Discover listing id.",
+            "example": 12
+          },
+          "service": {
+            "type": "string",
+            "description": "The service\u0027s name, as its card shows it.",
+            "example": "Deep tissue massage"
+          },
+          "provider": {
+            "type": "string",
+            "description": "The provider\u0027s name; null when the listing shows none.",
+            "nullable": true,
+            "example": "Riverside Massage"
+          },
+          "priceInCents": {
+            "type": "number",
+            "description": "The price in the currency\u0027s minor unit; null when no price is listed, which is not free.",
+            "nullable": true,
+            "example": 9000
+          },
+          "currency": {
+            "type": "string",
+            "description": "The price\u0027s ISO 4217 currency code.",
+            "example": "usd"
+          },
+          "price": {
+            "type": "string",
+            "description": "The price as the card shows it: a formatted amount, \u0060free\u0060, or \u0060not listed\u0060.",
+            "example": "$90.00"
+          },
+          "newClientDiscountPercent": {
+            "type": "number",
+            "description": "The discount, in percent, a new client gets when booking through Discover; null when none.",
+            "nullable": true,
+            "example": 15
+          },
+          "rating": {
+            "type": "number",
+            "description": "The provider\u0027s aggregate rating out of 5; null when unrated.",
+            "nullable": true,
+            "example": 4.8
+          },
+          "reviewCount": {
+            "type": "number",
+            "description": "How many reviews the rating is based on; null when unrated.",
+            "nullable": true,
+            "example": 132
+          },
+          "verified": {
+            "type": "boolean",
+            "description": "Whether the provider is verified.",
+            "example": true
+          },
+          "durationMinutes": {
+            "type": "number",
+            "description": "The service\u0027s length in minutes.",
+            "example": 60
+          },
+          "online": {
+            "type": "boolean",
+            "description": "Whether the service is online rather than at a place.",
+            "example": false
+          },
+          "city": {
+            "type": "string",
+            "description": "The city the card shows; null for an online listing or one whose city is not shown.",
+            "nullable": true,
+            "example": "Austin"
+          },
+          "neighborhood": {
+            "type": "string",
+            "description": "The neighborhood the card shows; null when none, or when city is null.",
+            "nullable": true,
+            "example": "Zilker"
+          },
+          "timeZone": {
+            "type": "string",
+            "description": "The business\u0027s IANA time zone; null when unknown.",
+            "nullable": true,
+            "example": "America/Chicago"
+          },
+          "nextAvailableChecked": {
+            "type": "boolean",
+            "description": "Only with \u0060includeNextAvailable\u0060: whether the earliest open slot was looked up. False past the first 10 listings.",
+            "example": true
+          },
+          "nextAvailableSlot": {
+            "type": "string",
+            "description": "Only with \u0060includeNextAvailable\u0060: the ISO 8601 start of the earliest open slot in the next 7 days; null when none or not checked.",
+            "nullable": true,
+            "example": "2026-11-10T15:00:00.000Z"
+          }
+        }
+      },
+      "GetDiscoverListingsData": {
+        "required": [
+          "listings",
+          "notFoundListingIds"
+        ],
+        "type": "object",
+        "properties": {
+          "listings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DiscoverListingOutput"
+            },
+            "description": "The published listings among the requested ids, in the order asked. Review text, addresses, coordinates, descriptions, bios, photos and contact details are never returned."
+          },
+          "notFoundListingIds": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "description": "Requested ids that are not a published listing: unknown, unpublished or hidden.",
+            "example": [
+              56
+            ]
+          }
+        }
+      },
+      "GetDiscoverListingsOutputResponseDto": {
+        "required": [
+          "status",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/GetDiscoverListingsOutputResponseDtoStatus"
+          },
+          "data": {
+            "$ref": "#/components/schemas/GetDiscoverListingsData"
           }
         }
       },
@@ -92749,6 +93225,50 @@
           ]
         }
       },
+      "ListContactTagsOutputResponseDtoStatus": {
+        "enum": [
+          "success",
+          "error"
+        ],
+        "type": "string",
+        "example": "success",
+        "x-ms-enum": {
+          "name": "ListContactTagsOutputResponseDtoStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "success",
+              "name": "Success"
+            },
+            {
+              "value": "error",
+              "name": "Error"
+            }
+          ]
+        }
+      },
+      "CreateContactTagOutputResponseDtoStatus": {
+        "enum": [
+          "success",
+          "error"
+        ],
+        "type": "string",
+        "example": "success",
+        "x-ms-enum": {
+          "name": "CreateContactTagOutputResponseDtoStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "success",
+              "name": "Success"
+            },
+            {
+              "value": "error",
+              "name": "Error"
+            }
+          ]
+        }
+      },
       "CreateContactOutputResponseDtoStatus": {
         "enum": [
           "success",
@@ -92802,6 +93322,28 @@
         "example": "success",
         "x-ms-enum": {
           "name": "RemoveContactOutputResponseDtoStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "success",
+              "name": "Success"
+            },
+            {
+              "value": "error",
+              "name": "Error"
+            }
+          ]
+        }
+      },
+      "GetDiscoverListingsOutputResponseDtoStatus": {
+        "enum": [
+          "success",
+          "error"
+        ],
+        "type": "string",
+        "example": "success",
+        "x-ms-enum": {
+          "name": "GetDiscoverListingsOutputResponseDtoStatus",
           "modelAsString": false,
           "values": [
             {

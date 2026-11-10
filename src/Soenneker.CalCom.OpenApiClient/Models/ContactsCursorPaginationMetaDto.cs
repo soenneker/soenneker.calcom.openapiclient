@@ -28,7 +28,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>Whether more pages are available after this one.</summary>
         public bool? HasMore { get => _explicitNullValueHasMore; set { _explicitNullValueHasMore = value; AdditionalData?.Remove("hasMore"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hasMore"); else _explicitNullProperties?.Remove("hasMore"); } }
         private bool? _explicitNullValueHasMore = default!;
-        /// <summary>Opaque cursor to fetch the next page. Pass this value as the cursor query parameter with the same search. null when hasMore is false.</summary>
+        /// <summary>Opaque cursor to fetch the next page. Pass this value as the cursor query parameter with the same filters. null when hasMore is false.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? NextCursor { get => _explicitNullValueNextCursor; set { _explicitNullValueNextCursor = value; AdditionalData?.Remove("nextCursor"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nextCursor"); else _explicitNullProperties?.Remove("nextCursor"); } }

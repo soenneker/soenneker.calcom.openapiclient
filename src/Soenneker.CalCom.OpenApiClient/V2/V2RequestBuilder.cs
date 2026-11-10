@@ -11,6 +11,7 @@ using Soenneker.CalCom.OpenApiClient.V2.Conferencing;
 using Soenneker.CalCom.OpenApiClient.V2.Contacts;
 using Soenneker.CalCom.OpenApiClient.V2.Credits;
 using Soenneker.CalCom.OpenApiClient.V2.DestinationCalendars;
+using Soenneker.CalCom.OpenApiClient.V2.Discover;
 using Soenneker.CalCom.OpenApiClient.V2.EventTypes;
 using Soenneker.CalCom.OpenApiClient.V2.Events;
 using Soenneker.CalCom.OpenApiClient.V2.Insights;
@@ -86,6 +87,11 @@ namespace Soenneker.CalCom.OpenApiClient.V2
         public global::Soenneker.CalCom.OpenApiClient.V2.DestinationCalendars.DestinationCalendarsRequestBuilder DestinationCalendars
         {
             get => new global::Soenneker.CalCom.OpenApiClient.V2.DestinationCalendars.DestinationCalendarsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The discover property</summary>
+        public global::Soenneker.CalCom.OpenApiClient.V2.Discover.DiscoverRequestBuilder Discover
+        {
+            get => new global::Soenneker.CalCom.OpenApiClient.V2.Discover.DiscoverRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The events property</summary>
         public global::Soenneker.CalCom.OpenApiClient.V2.Events.EventsRequestBuilder Events
