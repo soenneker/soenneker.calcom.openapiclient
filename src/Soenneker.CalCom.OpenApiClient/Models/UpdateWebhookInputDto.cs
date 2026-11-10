@@ -52,7 +52,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public List<global::Soenneker.CalCom.OpenApiClient.Models.WebhookCustomHeaderInput> CustomHeaders { get => _explicitNullValueCustomHeaders; set { _explicitNullValueCustomHeaders = value; AdditionalData?.Remove("customHeaders"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customHeaders"); else _explicitNullProperties?.Remove("customHeaders"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.WebhookCustomHeaderInput> _explicitNullValueCustomHeaders = default!;
 #endif
-        /// <summary>The template of the payload that will be sent to the subscriberUrl, check cal.com/docs/core-features/webhooks for more information</summary>
+        /// <summary>The template of the payload that will be sent to the subscriberUrl, check cal.com/help/webhooks for more information</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PayloadTemplate { get => _explicitNullValuePayloadTemplate; set { _explicitNullValuePayloadTemplate = value; AdditionalData?.Remove("payloadTemplate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payloadTemplate"); else _explicitNullProperties?.Remove("payloadTemplate"); } }

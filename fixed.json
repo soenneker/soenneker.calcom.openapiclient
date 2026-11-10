@@ -1086,6 +1086,9 @@
           "name": "get_user_attribute_history",
           "guidance": "Get the attribute assignment history (audit log) for a user within an organization. Returns a chronological log of attribute assignment changes (assigned, updated, unassigned). Supports pagination with limit (1-50) and cursor. Requires org admin role."
         },
+        "x-oauth-scopes": [
+          "ORG_ATTRIBUTES_READ"
+        ],
         "x-platform-plan": "ESSENTIALS"
       }
     },
@@ -19915,7 +19918,7 @@
           "Events"
         ],
         "summary": "Message an Event\u0027s guests",
-        "description": "Emails one segment of the Event\u0027s guests, optionally narrowed to one location or to guests who did or did not check in. Guests who have only a phone number are texted instead when texting is available; \u0060textRecipientCount\u0060 says how many. The message is queued and sent in the background; list the Event\u0027s messages to follow its status. The authenticated user must be the Event\u0027s owner, one of its hosts, or a member of the owning team. Co-hosts cannot message guests. PBAC permission for team events: \u0060calEvent.update\u0060. If accessed using an OAuth access token, the \u0060EVENT_WRITE\u0060 scope is required.",
+        "description": "Emails one segment of the Event\u0027s guests, optionally narrowed to one location or to guests who did or did not check in. Guests who have only a phone number are texted instead when texting is available; \u0060textRecipientCount\u0060 says how many. The message is queued and sent in the background, or at \u0060scheduledAt\u0060 when you give one; list the Event\u0027s messages to follow its status. The authenticated user must be the Event\u0027s owner, one of its hosts, or a member of the owning team. Co-hosts cannot message guests. PBAC permission for team events: \u0060calEvent.update\u0060. If accessed using an OAuth access token, the \u0060EVENT_WRITE\u0060 scope is required.",
         "operationId": "EventMessagesControllerSendMessage",
         "parameters": [
           {
@@ -19960,7 +19963,7 @@
             }
           },
           "400": {
-            "description": "Invalid Event UUID or body, the segment has no guests to email, or the Event no longer accepts messages"
+            "description": "Invalid Event UUID or body, the segment has no guests to email, the Event no longer accepts messages, or \u0060scheduledAt\u0060 is too soon or after messages close"
           },
           "401": {
             "description": "Unauthenticated"
@@ -20041,6 +20044,74 @@
         },
         "x-oauth-scopes": [
           "EVENT_READ"
+        ]
+      }
+    },
+    "/v2/events/{uuid}/messages/{messageId}/cancel": {
+      "post": {
+        "tags": [
+          "Events"
+        ],
+        "summary": "Cancel a scheduled message",
+        "description": "Cancels a message that is still waiting for its \u0060scheduledAt\u0060, so nothing is sent. Once that time has come, or for a message sent at once, the cancel is refused. The authenticated user must be the Event\u0027s owner, one of its hosts, or a member of the owning team. Co-hosts cannot message guests. PBAC permission for team events: \u0060calEvent.update\u0060. If accessed using an OAuth access token, the \u0060EVENT_WRITE\u0060 scope is required.",
+        "operationId": "EventMessagesControllerCancelMessage",
+        "parameters": [
+          {
+            "name": "messageId",
+            "in": "path",
+            "description": "Unique identifier of the message.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "uuid",
+            "in": "path",
+            "description": "Event UUID. Accepts the canonical UUID (e.g. \u0060018ff5cd-6dc4-7d57-bcbc-374702ca8b38\u0060) or its short-uuid (Flickr Base58) form (e.g. \u00601cbZYoAFoJdwqN4tixezd5\u0060).",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be \u0060Bearer \u003Ctoken\u003E\u0060 where \u0060\u003Ctoken\u003E\u0060 is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CancelMessageOutputResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid Event UUID or message id, or the message is no longer scheduled"
+          },
+          "401": {
+            "description": "Unauthenticated"
+          },
+          "403": {
+            "description": "Insufficient permissions"
+          },
+          "404": {
+            "description": "Event or message not found"
+          }
+        },
+        "x-oauth-scopes": [
+          "EVENT_WRITE"
         ]
       }
     },
@@ -37937,7 +38008,7 @@
         "properties": {
           "payloadTemplate": {
             "type": "string",
-            "description": "The template of the payload that will be sent to the subscriberUrl, check cal.com/docs/core-features/webhooks for more information",
+            "description": "The template of the payload that will be sent to the subscriberUrl, check cal.com/help/webhooks for more information",
             "example": "{\u0022content\u0022:\u0022A new event has been scheduled\u0022,\u0022type\u0022:\u0022{{type}}\u0022,\u0022name\u0022:\u0022{{title}}\u0022,\u0022organizer\u0022:\u0022{{organizer.name}}\u0022,\u0022booker\u0022:\u0022{{attendees.0.name}}\u0022}"
           },
           "triggers": {
@@ -38027,7 +38098,7 @@
         "properties": {
           "payloadTemplate": {
             "type": "string",
-            "description": "The template of the payload that will be sent to the subscriberUrl, check cal.com/docs/core-features/webhooks for more information",
+            "description": "The template of the payload that will be sent to the subscriberUrl, check cal.com/help/webhooks for more information",
             "example": "{\u0022content\u0022:\u0022A new event has been scheduled\u0022,\u0022type\u0022:\u0022{{type}}\u0022,\u0022name\u0022:\u0022{{title}}\u0022,\u0022organizer\u0022:\u0022{{organizer.name}}\u0022,\u0022booker\u0022:\u0022{{attendees.0.name}}\u0022}"
           },
           "active": {
@@ -38097,7 +38168,7 @@
         "properties": {
           "payloadTemplate": {
             "type": "string",
-            "description": "The template of the payload that will be sent to the subscriberUrl, check cal.com/docs/core-features/webhooks for more information",
+            "description": "The template of the payload that will be sent to the subscriberUrl, check cal.com/help/webhooks for more information",
             "example": "{\u0022content\u0022:\u0022A new event has been scheduled\u0022,\u0022type\u0022:\u0022{{type}}\u0022,\u0022name\u0022:\u0022{{title}}\u0022,\u0022organizer\u0022:\u0022{{organizer.name}}\u0022,\u0022booker\u0022:\u0022{{attendees.0.name}}\u0022}"
           },
           "active": {
@@ -49652,7 +49723,7 @@
         "properties": {
           "payloadTemplate": {
             "type": "string",
-            "description": "The template of the payload that will be sent to the subscriberUrl, check cal.com/docs/core-features/webhooks for more information",
+            "description": "The template of the payload that will be sent to the subscriberUrl, check cal.com/help/webhooks for more information",
             "example": "{\u0022content\u0022:\u0022A new event has been scheduled\u0022,\u0022type\u0022:\u0022{{type}}\u0022,\u0022name\u0022:\u0022{{title}}\u0022,\u0022organizer\u0022:\u0022{{organizer.name}}\u0022,\u0022booker\u0022:\u0022{{attendees.0.name}}\u0022}"
           },
           "triggers": {
@@ -49743,7 +49814,7 @@
         "properties": {
           "payloadTemplate": {
             "type": "string",
-            "description": "The template of the payload that will be sent to the subscriberUrl, check cal.com/docs/core-features/webhooks for more information",
+            "description": "The template of the payload that will be sent to the subscriberUrl, check cal.com/help/webhooks for more information",
             "example": "{\u0022content\u0022:\u0022A new event has been scheduled\u0022,\u0022type\u0022:\u0022{{type}}\u0022,\u0022name\u0022:\u0022{{title}}\u0022,\u0022organizer\u0022:\u0022{{organizer.name}}\u0022,\u0022booker\u0022:\u0022{{attendees.0.name}}\u0022}"
           },
           "triggers": {
@@ -49849,7 +49920,7 @@
         "properties": {
           "payloadTemplate": {
             "type": "string",
-            "description": "The template of the payload that will be sent to the subscriberUrl, check cal.com/docs/core-features/webhooks for more information",
+            "description": "The template of the payload that will be sent to the subscriberUrl, check cal.com/help/webhooks for more information",
             "example": "{\u0022content\u0022:\u0022A new event has been scheduled\u0022,\u0022type\u0022:\u0022{{type}}\u0022,\u0022name\u0022:\u0022{{title}}\u0022,\u0022organizer\u0022:\u0022{{organizer.name}}\u0022,\u0022booker\u0022:\u0022{{attendees.0.name}}\u0022}"
           },
           "triggers": {
@@ -53380,6 +53451,11 @@
             "type": "string",
             "description": "Message in plain text, up to 5000 characters. Links are allowed as plain URLs; HTML is refused."
           },
+          "scheduledAt": {
+            "type": "string",
+            "description": "When to send the message, as an ISO 8601 date-time such as \u00602030-01-01T09:00:00Z\u0060. It must be at least 5 minutes from now and earlier than 7 days after the Event ends. Omit it to send the message now. Cancel a scheduled message before this time with the cancel endpoint.",
+            "example": "2030-01-01T09:00:00Z"
+          },
           "locationId": {
             "maxLength": 128,
             "type": "string",
@@ -53408,6 +53484,11 @@
           "status": {
             "$ref": "#/components/schemas/SendMessageOutputDtoStatus"
           },
+          "scheduledAt": {
+            "type": "string",
+            "description": "When the message will be sent. Present only for a scheduled message.",
+            "format": "date-time"
+          },
           "recipientCount": {
             "type": "number",
             "description": "How many guests will be emailed."
@@ -53434,6 +53515,37 @@
           },
           "data": {
             "$ref": "#/components/schemas/SendMessageOutputDto"
+          }
+        }
+      },
+      "CancelMessageOutputDto": {
+        "required": [
+          "id",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier of the message."
+          },
+          "status": {
+            "$ref": "#/components/schemas/CancelMessageOutputDtoStatus"
+          }
+        }
+      },
+      "CancelMessageOutputResponseDto": {
+        "required": [
+          "status",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/CancelMessageOutputResponseDtoStatus"
+          },
+          "data": {
+            "$ref": "#/components/schemas/CancelMessageOutputDto"
           }
         }
       },
@@ -92306,7 +92418,7 @@
           "FAILED_TO_QUEUE"
         ],
         "type": "string",
-        "description": "\u0060QUEUED\u0060 when the message is on its way, \u0060FAILED_TO_QUEUE\u0060 when it could not be queued and nothing was sent.",
+        "description": "\u0060QUEUED\u0060 when the message is on its way, or waiting for its \u0060scheduledAt\u0060; \u0060FAILED_TO_QUEUE\u0060 when it could not be queued and nothing was sent.",
         "x-ms-enum": {
           "name": "SendMessageOutputDtoStatus",
           "modelAsString": false,
@@ -92331,6 +92443,45 @@
         "example": "success",
         "x-ms-enum": {
           "name": "SendMessageOutputResponseDtoStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "success",
+              "name": "Success"
+            },
+            {
+              "value": "error",
+              "name": "Error"
+            }
+          ]
+        }
+      },
+      "CancelMessageOutputDtoStatus": {
+        "enum": [
+          "CANCELLED"
+        ],
+        "type": "string",
+        "description": "The message was cancelled and will not be sent.",
+        "x-ms-enum": {
+          "name": "CancelMessageOutputDtoStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "CANCELLED",
+              "name": "Cancelled"
+            }
+          ]
+        }
+      },
+      "CancelMessageOutputResponseDtoStatus": {
+        "enum": [
+          "success",
+          "error"
+        ],
+        "type": "string",
+        "example": "success",
+        "x-ms-enum": {
+          "name": "CancelMessageOutputResponseDtoStatus",
           "modelAsString": false,
           "values": [
             {

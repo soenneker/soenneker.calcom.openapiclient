@@ -21,6 +21,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
             if (parseNode.GetChildNode("recipientCount") is null) { _explicitNullValueRecipientCount = default!; _explicitNullProperties?.Remove("recipientCount"); }
             else if (parseNode.GetChildNode("recipientCount") is { } nullNodeRecipientCount && nullNodeRecipientCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecipientCount = null;
+            if (parseNode.GetChildNode("scheduledAt") is null) { _explicitNullValueScheduledAt = default!; _explicitNullProperties?.Remove("scheduledAt"); }
+            else if (parseNode.GetChildNode("scheduledAt") is { } nullNodeScheduledAt && nullNodeScheduledAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScheduledAt = null;
             if (parseNode.GetChildNode("skippedPhoneCount") is null) { _explicitNullValueSkippedPhoneCount = default!; _explicitNullProperties?.Remove("skippedPhoneCount"); }
             else if (parseNode.GetChildNode("skippedPhoneCount") is { } nullNodeSkippedPhoneCount && nullNodeSkippedPhoneCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkippedPhoneCount = null;
             if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
@@ -44,10 +46,13 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>How many guests will be emailed.</summary>
         public double? RecipientCount { get => _explicitNullValueRecipientCount; set { _explicitNullValueRecipientCount = value; AdditionalData?.Remove("recipientCount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipientCount"); else _explicitNullProperties?.Remove("recipientCount"); } }
         private double? _explicitNullValueRecipientCount = default!;
+        /// <summary>When the message will be sent. Present only for a scheduled message.</summary>
+        public DateTimeOffset? ScheduledAt { get => _explicitNullValueScheduledAt; set { _explicitNullValueScheduledAt = value; AdditionalData?.Remove("scheduledAt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scheduledAt"); else _explicitNullProperties?.Remove("scheduledAt"); } }
+        private DateTimeOffset? _explicitNullValueScheduledAt = default!;
         /// <summary>Guests in the segment who have only a phone number and will not be texted.</summary>
         public double? SkippedPhoneCount { get => _explicitNullValueSkippedPhoneCount; set { _explicitNullValueSkippedPhoneCount = value; AdditionalData?.Remove("skippedPhoneCount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skippedPhoneCount"); else _explicitNullProperties?.Remove("skippedPhoneCount"); } }
         private double? _explicitNullValueSkippedPhoneCount = default!;
-        /// <summary>`QUEUED` when the message is on its way, `FAILED_TO_QUEUE` when it could not be queued and nothing was sent.</summary>
+        /// <summary>`QUEUED` when the message is on its way, or waiting for its `scheduledAt`; `FAILED_TO_QUEUE` when it could not be queued and nothing was sent.</summary>
         public global::Soenneker.CalCom.OpenApiClient.Models.SendMessageOutputDtoStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.SendMessageOutputDtoStatus? _explicitNullValueStatus = default!;
         /// <summary>How many guests will be texted instead, because they have only a phone number.</summary>
@@ -80,6 +85,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             {
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "recipientCount", n => { RecipientCount = n.GetDoubleValue(); } },
+                { "scheduledAt", n => { ScheduledAt = n.GetDateTimeOffsetValue(); } },
                 { "skippedPhoneCount", n => { SkippedPhoneCount = n.GetDoubleValue(); } },
                 { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.SendMessageOutputDtoStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
                 { "textRecipientCount", n => { TextRecipientCount = n.GetDoubleValue(); } },
@@ -94,6 +100,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
             writer.WriteDoubleValue("recipientCount", RecipientCount);
+            writer.WriteDateTimeOffsetValue("scheduledAt", ScheduledAt);
             writer.WriteDoubleValue("skippedPhoneCount", SkippedPhoneCount);
             writer.WriteEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.SendMessageOutputDtoStatus>("status", Status);
             writer.WriteDoubleValue("textRecipientCount", TextRecipientCount);

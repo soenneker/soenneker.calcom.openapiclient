@@ -59,7 +59,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The id property</summary>
         public double? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private double? _explicitNullValueId = default!;
-        /// <summary>The template of the payload that will be sent to the subscriberUrl, check cal.com/docs/core-features/webhooks for more information</summary>
+        /// <summary>The template of the payload that will be sent to the subscriberUrl, check cal.com/help/webhooks for more information</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PayloadTemplate { get => _explicitNullValuePayloadTemplate; set { _explicitNullValuePayloadTemplate = value; AdditionalData?.Remove("payloadTemplate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payloadTemplate"); else _explicitNullProperties?.Remove("payloadTemplate"); } }

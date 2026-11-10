@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.CalCom.OpenApiClient.Models
 {
-    /// <summary>`QUEUED` when the message is on its way, `FAILED_TO_QUEUE` when it could not be queued and nothing was sent.</summary>
+    /// <summary>`QUEUED` when the message is on its way, or waiting for its `scheduledAt`; `FAILED_TO_QUEUE` when it could not be queued and nothing was sent.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum SendMessageOutputDtoStatus
     {

@@ -23,6 +23,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             else if (parseNode.GetChildNode("checkedIn") is { } nullNodeCheckedIn && nullNodeCheckedIn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CheckedIn = null;
             if (parseNode.GetChildNode("locationId") is null) { _explicitNullValueLocationId = default!; _explicitNullProperties?.Remove("locationId"); }
             else if (parseNode.GetChildNode("locationId") is { } nullNodeLocationId && nullNodeLocationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LocationId = null;
+            if (parseNode.GetChildNode("scheduledAt") is null) { _explicitNullValueScheduledAt = default!; _explicitNullProperties?.Remove("scheduledAt"); }
+            else if (parseNode.GetChildNode("scheduledAt") is { } nullNodeScheduledAt && nullNodeScheduledAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScheduledAt = null;
             if (parseNode.GetChildNode("segment") is null) { _explicitNullValueSegment = default!; _explicitNullProperties?.Remove("segment"); }
             else if (parseNode.GetChildNode("segment") is { } nullNodeSegment && nullNodeSegment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Segment = null;
             if (parseNode.GetChildNode("subject") is null) { _explicitNullValueSubject = default!; _explicitNullProperties?.Remove("subject"); }
@@ -53,6 +55,16 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 #else
         public string LocationId { get => _explicitNullValueLocationId; set { _explicitNullValueLocationId = value; AdditionalData?.Remove("locationId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locationId"); else _explicitNullProperties?.Remove("locationId"); } }
         private string _explicitNullValueLocationId = default!;
+#endif
+        /// <summary>When to send the message, as an ISO 8601 date-time such as `2030-01-01T09:00:00Z`. It must be at least 5 minutes from now and earlier than 7 days after the Event ends. Omit it to send the message now. Cancel a scheduled message before this time with the cancel endpoint.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ScheduledAt { get => _explicitNullValueScheduledAt; set { _explicitNullValueScheduledAt = value; AdditionalData?.Remove("scheduledAt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scheduledAt"); else _explicitNullProperties?.Remove("scheduledAt"); } }
+        private string? _explicitNullValueScheduledAt = default!;
+#nullable restore
+#else
+        public string ScheduledAt { get => _explicitNullValueScheduledAt; set { _explicitNullValueScheduledAt = value; AdditionalData?.Remove("scheduledAt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scheduledAt"); else _explicitNullProperties?.Remove("scheduledAt"); } }
+        private string _explicitNullValueScheduledAt = default!;
 #endif
         /// <summary>Which guests receive the message: `GOING` (confirmed, RSVP yes), `MAYBE` (confirmed, RSVP maybe) or `PENDING` (waiting for approval).</summary>
         public global::Soenneker.CalCom.OpenApiClient.Models.SendMessageInputSegment? Segment { get => _explicitNullValueSegment; set { _explicitNullValueSegment = value; AdditionalData?.Remove("segment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("segment"); else _explicitNullProperties?.Remove("segment"); } }
@@ -95,6 +107,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
                 { "body", n => { Body = n.GetStringValue(); } },
                 { "checkedIn", n => { CheckedIn = n.GetBoolValue(); } },
                 { "locationId", n => { LocationId = n.GetStringValue(); } },
+                { "scheduledAt", n => { ScheduledAt = n.GetStringValue(); } },
                 { "segment", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.SendMessageInputSegment>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSegment = default; _explicitNullProperties?.Remove("segment"); AdditionalData["segment"] = unknown; } else { Segment = parsed; AdditionalData.Remove("segment"); } } },
                 { "subject", n => { Subject = n.GetStringValue(); } },
             };
@@ -109,6 +122,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteStringValue("body", Body);
             writer.WriteBoolValue("checkedIn", CheckedIn);
             writer.WriteStringValue("locationId", LocationId);
+            writer.WriteStringValue("scheduledAt", ScheduledAt);
             writer.WriteEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.SendMessageInputSegment>("segment", Segment);
             writer.WriteStringValue("subject", Subject);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
