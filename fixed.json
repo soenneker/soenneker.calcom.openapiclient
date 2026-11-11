@@ -5809,6 +5809,447 @@
         "x-platform-plan": "ESSENTIALS"
       }
     },
+    "/v2/organizations/{orgId}/teams/{teamId}/event-type-sequences": {
+      "post": {
+        "tags": [
+          "Orgs / Teams / Event Type Sequences"
+        ],
+        "summary": "Create an event type sequence",
+        "description": "Lets a booker book the team\u0027s event types back to back, as one loop. Every segment\u0027s event type must belong to the team and be bookable together: a 422 names each segment that isn\u0027t and why, and a slug already used by one of the team\u0027s sequences or event types is a 409. PBAC permission: \u0060eventType.create\u0060. If accessed using an OAuth access token, the \u0060TEAM_EVENT_TYPE_WRITE\u0060 scope is required.",
+        "operationId": "OrganizationsTeamsEventTypeSequencesControllerCreate",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be \u0060Bearer \u003Ctoken\u003E\u0060 where \u0060\u003Ctoken\u003E\u0060 is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-cal-secret-key",
+            "in": "header",
+            "description": "For platform customers - OAuth client secret key",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-cal-client-id",
+            "in": "header",
+            "description": "For platform customers - OAuth client ID",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "teamId",
+            "in": "path",
+            "description": "The team\u0027s uuid (preferred), its short-uuid (Flickr Base58) form, or its numeric id.",
+            "required": true,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          {
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateEventTypeSequenceInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventTypeSequenceResponseOutput"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventTypeSequenceResponseOutput"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
+          }
+        },
+        "x-oauth-scopes": [
+          "TEAM_EVENT_TYPE_WRITE"
+        ]
+      },
+      "get": {
+        "tags": [
+          "Orgs / Teams / Event Type Sequences"
+        ],
+        "summary": "List event type sequences",
+        "description": "Returns the team\u0027s sequences in creation order, each checked against its segments\u0027 event types as they are now. PBAC permission: \u0060eventType.read\u0060 for a team member, or \u0060eventType.readTeamEventTypes\u0060 for anyone else in the organization. If accessed using an OAuth access token, the \u0060TEAM_EVENT_TYPE_READ\u0060 scope is required.",
+        "operationId": "OrganizationsTeamsEventTypeSequencesControllerList",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be \u0060Bearer \u003Ctoken\u003E\u0060 where \u0060\u003Ctoken\u003E\u0060 is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-cal-secret-key",
+            "in": "header",
+            "description": "For platform customers - OAuth client secret key",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-cal-client-id",
+            "in": "header",
+            "description": "For platform customers - OAuth client ID",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "description": "The \u0060nextCursor\u0060 of the previous page.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "schema": {
+              "maximum": 50,
+              "minimum": 1,
+              "type": "number",
+              "default": 50
+            }
+          },
+          {
+            "name": "teamId",
+            "in": "path",
+            "description": "The team\u0027s uuid (preferred), its short-uuid (Flickr Base58) form, or its numeric id.",
+            "required": true,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          {
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventTypeSequencesOutput"
+                }
+              }
+            }
+          }
+        },
+        "x-oauth-scopes": [
+          "TEAM_EVENT_TYPE_READ"
+        ]
+      }
+    },
+    "/v2/organizations/{orgId}/teams/{teamId}/event-type-sequences/{uid}": {
+      "get": {
+        "tags": [
+          "Orgs / Teams / Event Type Sequences"
+        ],
+        "summary": "Get an event type sequence",
+        "description": "Includes whether the sequence can be booked right now and, for each segment that can\u0027t, why. PBAC permission: \u0060eventType.read\u0060 for a team member, or \u0060eventType.readTeamEventTypes\u0060 for anyone else in the organization. If accessed using an OAuth access token, the \u0060TEAM_EVENT_TYPE_READ\u0060 scope is required.",
+        "operationId": "OrganizationsTeamsEventTypeSequencesControllerGet",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be \u0060Bearer \u003Ctoken\u003E\u0060 where \u0060\u003Ctoken\u003E\u0060 is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-cal-secret-key",
+            "in": "header",
+            "description": "For platform customers - OAuth client secret key",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-cal-client-id",
+            "in": "header",
+            "description": "For platform customers - OAuth client ID",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "uid",
+            "in": "path",
+            "description": "The sequence\u0027s \u0060uid\u0060.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "teamId",
+            "in": "path",
+            "description": "The team\u0027s uuid (preferred), its short-uuid (Flickr Base58) form, or its numeric id.",
+            "required": true,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          {
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventTypeSequenceResponseOutput"
+                }
+              }
+            }
+          }
+        },
+        "x-oauth-scopes": [
+          "TEAM_EVENT_TYPE_READ"
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Orgs / Teams / Event Type Sequences"
+        ],
+        "summary": "Update an event type sequence",
+        "description": "Changes only the fields sent; \u0060segments\u0060 replaces every segment and is checked like a new sequence. PBAC permission: \u0060eventType.update\u0060. If accessed using an OAuth access token, the \u0060TEAM_EVENT_TYPE_WRITE\u0060 scope is required.",
+        "operationId": "OrganizationsTeamsEventTypeSequencesControllerUpdate",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be \u0060Bearer \u003Ctoken\u003E\u0060 where \u0060\u003Ctoken\u003E\u0060 is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-cal-secret-key",
+            "in": "header",
+            "description": "For platform customers - OAuth client secret key",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-cal-client-id",
+            "in": "header",
+            "description": "For platform customers - OAuth client ID",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "uid",
+            "in": "path",
+            "description": "The sequence\u0027s \u0060uid\u0060.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "teamId",
+            "in": "path",
+            "description": "The team\u0027s uuid (preferred), its short-uuid (Flickr Base58) form, or its numeric id.",
+            "required": true,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          {
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateEventTypeSequenceInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventTypeSequenceResponseOutput"
+                }
+              }
+            }
+          }
+        },
+        "x-oauth-scopes": [
+          "TEAM_EVENT_TYPE_WRITE"
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Orgs / Teams / Event Type Sequences"
+        ],
+        "summary": "Delete an event type sequence",
+        "description": "Loops already booked stay: each of their segments is a normal booking of its event type. PBAC permission: \u0060eventType.delete\u0060. If accessed using an OAuth access token, the \u0060TEAM_EVENT_TYPE_WRITE\u0060 scope is required.",
+        "operationId": "OrganizationsTeamsEventTypeSequencesControllerDelete",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be \u0060Bearer \u003Ctoken\u003E\u0060 where \u0060\u003Ctoken\u003E\u0060 is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-cal-secret-key",
+            "in": "header",
+            "description": "For platform customers - OAuth client secret key",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-cal-client-id",
+            "in": "header",
+            "description": "For platform customers - OAuth client ID",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "uid",
+            "in": "path",
+            "description": "The sequence\u0027s \u0060uid\u0060.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "teamId",
+            "in": "path",
+            "description": "The team\u0027s uuid (preferred), its short-uuid (Flickr Base58) form, or its numeric id.",
+            "required": true,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          {
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "204 response"
+          }
+        },
+        "x-oauth-scopes": [
+          "TEAM_EVENT_TYPE_WRITE"
+        ]
+      }
+    },
     "/v2/organizations/{orgId}/teams/{teamId}/event-types/{eventTypeId}/private-links": {
       "post": {
         "tags": [
@@ -15009,7 +15450,7 @@
         },
         "x-mcp": {
           "name": "list_contacts",
-          "guidance": "List the user\u0027s personal contacts from their Contacts page, up to 50 per page, narrowed by search; when pagination.hasMore is true, pass pagination.nextCursor as cursor with the same search. Each contact has its id, name, email and tags. A contact on Cal (type calUser) also has their username, bookingUrl and groupBooking: eligible when they can join a dynamic group meeting with the user, outsideOrganization when they are in another organization, unavailable otherwise. Use eligible contacts\u0027 usernames for group availability and booking. Team and organization members, avatars and Cal user ids are never returned."
+          "guidance": "List the user\u0027s personal contacts from their Contacts page, up to 50 per page, narrowed by search and by tagIds to contacts carrying at least one of the tags; when pagination.hasMore is true, pass pagination.nextCursor as cursor with the same search and tagIds. Each contact has its id, name, email and tags. A contact on Cal (type calUser) also has their username, bookingUrl and groupBooking: eligible when they can join a dynamic group meeting with the user, outsideOrganization when they are in another organization, unavailable otherwise. Use eligible contacts\u0027 usernames for group availability and booking. Team and organization members, avatars and Cal user ids are never returned."
         },
         "x-oauth-scopes": [
           "CONTACT_READ"
@@ -15157,6 +15598,10 @@
             "description": "Too many tag lookups"
           }
         },
+        "x-mcp": {
+          "name": "list_contact_tags",
+          "guidance": "List the user\u0027s own tags, the ones they can put on their contacts, sorted by name, up to 50 per page; when pagination.hasMore is true, pass pagination.nextCursor as cursor. Each tag has its id, name and contactCount, how many of the user\u0027s contacts carry it. They are the same personal tags the user can put on their own links; team tags are never listed."
+        },
         "x-oauth-scopes": [
           "CONTACT_READ"
         ]
@@ -15166,7 +15611,7 @@
           "Contacts"
         ],
         "summary": "Create a contact tag",
-        "description": "Creates one of the authenticated user\u0027s own tags, to put on their contacts. The tag is personal, never a team\u0027s, and it is also offered for the user\u0027s own links. It does not put the tag on any contact. A name the user already has is refused. If accessed using an OAuth access token, the \u0060CONTACT_WRITE\u0060 scope is required.",
+        "description": "Creates one of the authenticated user\u0027s own tags, to put on their contacts with \u0060POST /v2/contacts/{id}/tags\u0060. The tag is personal, never a team\u0027s, and it is also offered for the user\u0027s own links. It does not put the tag on any contact. A name the user already has is refused. If accessed using an OAuth access token, the \u0060CONTACT_WRITE\u0060 scope is required.",
         "operationId": "ContactsControllerCreateTag",
         "parameters": [
           {
@@ -15226,6 +15671,10 @@
             },
             "x-client-success-response-status": "201"
           }
+        },
+        "x-mcp": {
+          "name": "create_contact_tag",
+          "guidance": "Create one of the user\u0027s own tags, to put on their contacts. Returns the new tag\u0027s id and name. A name the user already has is refused. The tag is personal, never a team\u0027s, and it is also offered for the user\u0027s own links. It does not put the tag on any contact."
         },
         "x-oauth-scopes": [
           "CONTACT_WRITE"
@@ -15355,6 +15804,171 @@
         "x-mcp": {
           "name": "remove_contact",
           "guidance": "Remove one of the user\u0027s personal contacts, with its tags. It cannot be undone. A contact the user does not have is not found."
+        },
+        "x-oauth-scopes": [
+          "CONTACT_WRITE"
+        ]
+      }
+    },
+    "/v2/contacts/{id}/tags": {
+      "post": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Add a tag to a contact",
+        "description": "Puts one of the authenticated user\u0027s own tags on one of their contacts. The contact keeps every other tag, and a tag it already carries is left as it is. A team tag, another user\u0027s tag or an unknown id is refused. A contact the user does not have is not found. If accessed using an OAuth access token, the \u0060CONTACT_WRITE\u0060 scope is required.",
+        "operationId": "ContactsControllerAddTag",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The contact\u0027s \u0060id\u0060 from \u0060GET /v2/contacts\u0060.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "0192f3a1-7c2b-7d4e-9a10-000000000001"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be \u0060Bearer \u003Ctoken\u003E\u0060 where \u0060\u003Ctoken\u003E\u0060 is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddContactTagInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactTagChangeOutputResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The tag is not the user\u0027s own"
+          },
+          "401": {
+            "description": "Unauthenticated"
+          },
+          "403": {
+            "description": "Insufficient permissions"
+          },
+          "404": {
+            "description": "Contact not found"
+          },
+          "429": {
+            "description": "Too many contact lookups"
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactTagChangeOutputResponseDto"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
+          }
+        },
+        "x-mcp": {
+          "name": "add_contact_tag",
+          "guidance": "Put one of the user\u0027s own tags on one of their contacts. The contact keeps every other tag, and a tag it already carries is left as it is. A team tag, another user\u0027s tag or an unknown id is refused. A contact the user does not have is not found.",
+          "hints": {
+            "idempotent": true
+          }
+        },
+        "x-oauth-scopes": [
+          "CONTACT_WRITE"
+        ]
+      }
+    },
+    "/v2/contacts/{id}/tags/{tagId}": {
+      "delete": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Remove a tag from a contact",
+        "description": "Takes one tag off one of the authenticated user\u0027s contacts. The contact keeps every other tag, and a tag it does not carry changes nothing. The tag itself is not deleted. A contact the user does not have is not found. If accessed using an OAuth access token, the \u0060CONTACT_WRITE\u0060 scope is required.",
+        "operationId": "ContactsControllerRemoveTag",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The contact\u0027s \u0060id\u0060 from \u0060GET /v2/contacts\u0060.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "0192f3a1-7c2b-7d4e-9a10-000000000001"
+            }
+          },
+          {
+            "name": "tagId",
+            "in": "path",
+            "description": "The tag\u0027s \u0060id\u0060 from the contact\u0027s \u0060tags\u0060.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "0192f3a1-7c2b-7d4e-9a10-00000000000a"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be \u0060Bearer \u003Ctoken\u003E\u0060 where \u0060\u003Ctoken\u003E\u0060 is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactTagChangeOutputResponseDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated"
+          },
+          "403": {
+            "description": "Insufficient permissions"
+          },
+          "404": {
+            "description": "Contact not found"
+          },
+          "429": {
+            "description": "Too many contact lookups"
+          }
+        },
+        "x-mcp": {
+          "name": "remove_contact_tag",
+          "guidance": "Take one tag off one of the user\u0027s contacts. The contact keeps every other tag, and a tag it does not carry changes nothing. The tag itself is not deleted, so add_contact_tag can put it back. A contact the user does not have is not found.",
+          "hints": {
+            "destructive": false,
+            "idempotent": true
+          }
         },
         "x-oauth-scopes": [
           "CONTACT_WRITE"
@@ -16466,6 +17080,197 @@
         "x-oauth-scopes": [
           "EVENT_TYPE_READ"
         ]
+      }
+    },
+    "/v2/discover/listings/search": {
+      "get": {
+        "tags": [
+          "Discover"
+        ],
+        "summary": "Search Discover listings",
+        "description": "Searches the published Discover listings the way Cal.ai does. In-person results stay within the area you name, else around your saved ZIP code; with neither, nothing is searched and \u0060areaNeeded\u0060 is returned. When the named area or the saved ZIP code cannot be found, nothing is searched and \u0060areaNeeded\u0060 comes with \u0060areaNotFound\u0060. Online-only categories and \u0060onlineOnly\u0060 searches are searched everywhere. An empty neighborhood widens to its whole region (\u0060widenedFrom\u0060); an empty search retries with the category alone (\u0060broadenedFrom\u0060); when the whole area has nothing, the web is searched there once and businesses not on Discover come back in \u0060webBusinesses\u0060. Availability is judged in your saved time zone. Searches are limited to 20 per minute per user, and web searches to 10 per hour per user, each shared across all of the user\u0027s API keys and access tokens; past the web search limit a search still returns its listings, without \u0060webBusinesses\u0060. The web search runs on your own AI access: when one of your organizations has turned AI off, it is skipped and the listings still return. A place lookup that is rate limited answers 429 and one that fails answers 503, each with a message starting \u0060Place lookup\u0060; neither means the place does not exist. Other 429s are the request limits above. Each result\u0027s \u0060bookingUrl\u0060 is attributed to Discover. If accessed using an OAuth access token, the \u0060EVENT_TYPE_READ\u0060 scope is required.",
+        "operationId": "DiscoverListingSearchControllerSearchListings",
+        "parameters": [
+          {
+            "name": "category",
+            "in": "query",
+            "description": "The Discover category the need maps to, such as \u0060medical\u0060 for tooth pain.",
+            "schema": {
+              "$ref": "#/components/schemas/DiscoverListingSearchControllerSearchListingsCategoryParameter"
+            }
+          },
+          {
+            "name": "subcategory",
+            "in": "query",
+            "description": "A subcategory of \u0060category\u0060, such as \u0060dentistry\u0060 under \u0060medical\u0060. Ignored without its category, and named in \u0060ignoredFilters\u0060 when it is not one of the category\u0027s.",
+            "schema": {
+              "$ref": "#/components/schemas/DiscoverListingSearchControllerSearchListingsSubcategoryParameter"
+            }
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "description": "Free text matched against the title, description, provider and subcategory. Never a place.",
+            "schema": {
+              "maxLength": 100,
+              "type": "string",
+              "example": "skin fade"
+            }
+          },
+          {
+            "name": "neighborhood",
+            "in": "query",
+            "description": "A neighborhood of a launch region, such as \u0060Capitol Hill\u0060, for in-person listings there only. An unknown name comes back in \u0060ignoredFilters\u0060.",
+            "schema": {
+              "maxLength": 80,
+              "type": "string",
+              "example": "Capitol Hill"
+            }
+          },
+          {
+            "name": "onlineOnly",
+            "in": "query",
+            "description": "Keep only online listings and search them everywhere, whatever \u0060area\u0060 says. Online searches never fall back to the web.",
+            "schema": {
+              "type": "boolean",
+              "example": false
+            }
+          },
+          {
+            "name": "localQuery",
+            "in": "query",
+            "description": "For the web fallback, the need in the area\u0027s local language when it is not English, such as \u0060Zahnarzt\u0060 for a dentist in Hamburg.",
+            "schema": {
+              "maxLength": 100,
+              "type": "string",
+              "example": "Zahnarzt"
+            }
+          },
+          {
+            "name": "area",
+            "in": "query",
+            "description": "The place to search around: a ZIP code, neighborhood or city. Without it, the search uses your saved ZIP code, and answers \u0060areaNeeded\u0060 when there is none. Pass \u0060anywhere\u0060 for results from anywhere.",
+            "schema": {
+              "maxLength": 80,
+              "type": "string",
+              "example": "98122"
+            }
+          },
+          {
+            "name": "maximumPrice",
+            "in": "query",
+            "description": "The highest price, in whole currency units: 50 means $50, 0 means free only.",
+            "schema": {
+              "minimum": 0,
+              "type": "number",
+              "example": 50
+            }
+          },
+          {
+            "name": "maximumDurationMinutes",
+            "in": "query",
+            "description": "The longest session, in minutes.",
+            "schema": {
+              "minimum": 1,
+              "type": "number",
+              "example": 60
+            }
+          },
+          {
+            "name": "availableWithin",
+            "in": "query",
+            "description": "Only listings with a real open slot in this window, in your saved time zone. \u0060this_week\u0060 means the next 7 days.",
+            "schema": {
+              "$ref": "#/components/schemas/DiscoverListingSearchControllerSearchListingsAvailableWithinParameter"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be \u0060Bearer \u003Ctoken\u003E\u0060 where \u0060\u003Ctoken\u003E\u0060 is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchDiscoverListingsOutputResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "A query parameter is not one the search accepts"
+          },
+          "401": {
+            "description": "Unauthenticated"
+          },
+          "403": {
+            "description": "Insufficient permissions"
+          },
+          "429": {
+            "description": "One of three limits, told apart by the error message: this credential\u0027s request throttle or this user\u0027s limit of 20 searches per minute across all of their credentials (both \u0060\u2026 Too many requests \u2026\u0060), or the place lookup\u0027s own limit (\u0060Place lookup rate limited \u2026\u0060). Back off and retry later; only the last means the place lookup failed."
+          },
+          "503": {
+            "description": "The place lookup is unavailable for the moment (\u0060Place lookup unavailable \u2026\u0060). The place was not rejected; retry the same search later."
+          }
+        },
+        "x-mcp": {
+          "name": "search_listings",
+          "guidance": "Search the published Discover listings: bookable services with provider, price, duration, rating, neighborhood, distance, next open slot and the listing\u0027s booking page. Filter by category, subcategory, free text, neighborhood, area, maximum price, maximum duration and an availability window. In-person results stay within the searched area; online-only categories are searched everywhere."
+        },
+        "x-oauth-scopes": [
+          "EVENT_TYPE_READ"
+        ]
+      }
+    },
+    "/v2/event-type-sequences/{uid}": {
+      "get": {
+        "tags": [
+          "Event Type Sequences"
+        ],
+        "summary": "Get a sequence\u0027s booking page",
+        "description": "What a booker sees before booking the sequence: its segments in order, who each collective segment is with, and the questions asked once for the whole sequence. No authentication is required. A sequence that can\u0027t be booked right now is not found.",
+        "operationId": "EventTypeSequencesControllerGetPublic",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be \u0060Bearer \u003Ctoken\u003E\u0060 where \u0060\u003Ctoken\u003E\u0060 is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "uid",
+            "in": "path",
+            "description": "The sequence\u0027s \u0060uid\u0060.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicEventTypeSequenceResponseOutput"
+                }
+              }
+            }
+          }
+        },
+        "x-oauth-scopes": []
       }
     },
     "/v2/event-types/{eventTypeId}/calendar-invites": {
@@ -54173,6 +54978,52 @@
           }
         }
       },
+      "AddContactTagInput": {
+        "required": [
+          "tagId"
+        ],
+        "type": "object",
+        "properties": {
+          "tagId": {
+            "type": "string",
+            "description": "The id of one of the user\u0027s own tags, from \u0060GET /v2/contacts/tags\u0060.",
+            "format": "uuid",
+            "example": "0192f3a1-7c2b-7d4e-9a10-00000000000a"
+          }
+        }
+      },
+      "ContactTagChangeOutput": {
+        "required": [
+          "contactId",
+          "tagId"
+        ],
+        "type": "object",
+        "properties": {
+          "contactId": {
+            "type": "string",
+            "example": "0192f3a1-7c2b-7d4e-9a10-000000000001"
+          },
+          "tagId": {
+            "type": "string",
+            "example": "0192f3a1-7c2b-7d4e-9a10-00000000000a"
+          }
+        }
+      },
+      "ContactTagChangeOutputResponseDto": {
+        "required": [
+          "status",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/ContactTagChangeOutputResponseDtoStatus"
+          },
+          "data": {
+            "$ref": "#/components/schemas/ContactTagChangeOutput"
+          }
+        }
+      },
       "RemovedContactOutput": {
         "required": [
           "id"
@@ -54354,6 +55205,315 @@
           },
           "data": {
             "$ref": "#/components/schemas/GetDiscoverListingsData"
+          }
+        }
+      },
+      "DiscoverListingSearchResultOutput": {
+        "required": [
+          "listingId",
+          "title",
+          "description",
+          "provider",
+          "avatarUrl",
+          "category",
+          "subcategory",
+          "city",
+          "neighborhood",
+          "timeZone",
+          "latitude",
+          "longitude",
+          "distanceMiles",
+          "durationMinutes",
+          "priceInCents",
+          "currency",
+          "price",
+          "rating",
+          "reviewCount",
+          "openNow",
+          "verified",
+          "newClientDiscountPercent",
+          "path",
+          "bookingUrl",
+          "nextAvailableSlot",
+          "nextAvailableSlotLocal",
+          "nextAvailableSlotTimeZone"
+        ],
+        "type": "object",
+        "properties": {
+          "listingId": {
+            "type": "number",
+            "description": "The Discover listing id, which \u0060GET /v2/discover/listings\u0060 reads.",
+            "example": 12
+          },
+          "title": {
+            "type": "string",
+            "description": "The service\u0027s name.",
+            "example": "Skin fade"
+          },
+          "description": {
+            "type": "string",
+            "description": "The listing\u0027s description; null when it has none.",
+            "nullable": true,
+            "example": "A sharp fade with a hot-towel finish."
+          },
+          "provider": {
+            "type": "string",
+            "description": "The provider\u0027s name; null when the listing shows none.",
+            "nullable": true,
+            "example": "Fade House"
+          },
+          "avatarUrl": {
+            "type": "string",
+            "description": "The provider\u0027s avatar or team logo URL; null when none.",
+            "nullable": true,
+            "example": "https://cal.com/api/avatar/fade-house.png"
+          },
+          "category": {
+            "$ref": "#/components/schemas/DiscoverListingSearchResultOutputCategory"
+          },
+          "subcategory": {
+            "type": "string",
+            "description": "The listing\u0027s subcategory slug; null when none.",
+            "nullable": true,
+            "example": "haircuts"
+          },
+          "city": {
+            "type": "string",
+            "description": "The city the listing\u0027s card shows; null for an online listing.",
+            "nullable": true,
+            "example": "Seattle"
+          },
+          "neighborhood": {
+            "type": "string",
+            "description": "The listing\u0027s neighborhood; null for an online listing or when none is known.",
+            "nullable": true,
+            "example": "Capitol Hill"
+          },
+          "timeZone": {
+            "type": "string",
+            "description": "The business\u0027s IANA time zone, which an in-person slot is shown in; null for an online listing.",
+            "nullable": true,
+            "example": "America/Los_Angeles"
+          },
+          "latitude": {
+            "type": "number",
+            "description": "The listing\u0027s public, rounded latitude; null when the business is not geocoded.",
+            "nullable": true,
+            "example": 47.62
+          },
+          "longitude": {
+            "type": "number",
+            "description": "The listing\u0027s public, rounded longitude; null when the business is not geocoded.",
+            "nullable": true,
+            "example": -122.32
+          },
+          "distanceMiles": {
+            "type": "number",
+            "description": "Miles from the searched area\u0027s centre to the listing, to one decimal; null without an area or a location.",
+            "nullable": true,
+            "example": 1.4
+          },
+          "durationMinutes": {
+            "type": "number",
+            "description": "The session\u0027s length in minutes.",
+            "example": 30
+          },
+          "priceInCents": {
+            "type": "number",
+            "description": "The price in the currency\u0027s minor unit; null when no price is listed, which is not free.",
+            "nullable": true,
+            "example": 4500
+          },
+          "currency": {
+            "type": "string",
+            "description": "The price\u0027s ISO 4217 currency code.",
+            "example": "usd"
+          },
+          "price": {
+            "type": "string",
+            "description": "The price in words: an amount with its currency, \u0060free\u0060, or \u0060not listed\u0060.",
+            "example": "45.00 USD"
+          },
+          "rating": {
+            "type": "number",
+            "description": "The provider\u0027s aggregate rating out of 5; null when unrated.",
+            "nullable": true,
+            "example": 4.8
+          },
+          "reviewCount": {
+            "type": "number",
+            "description": "How many reviews the rating is based on; null when unrated.",
+            "nullable": true,
+            "example": 132
+          },
+          "openNow": {
+            "type": "boolean",
+            "description": "Whether the business is open now.",
+            "example": true
+          },
+          "verified": {
+            "type": "boolean",
+            "description": "Whether the provider is verified.",
+            "example": true
+          },
+          "newClientDiscountPercent": {
+            "type": "number",
+            "description": "The discount, in percent, a new client gets on a first visit booked through Discover; null when none.",
+            "nullable": true,
+            "example": 15
+          },
+          "path": {
+            "type": "string",
+            "description": "The listing\u0027s Discover page path on the web app; null when the provider has no Discover page.",
+            "nullable": true,
+            "example": "/discover/fade-house/skin-fade"
+          },
+          "bookingUrl": {
+            "type": "string",
+            "description": "The listing\u0027s booking page, attributed to Discover so its new-client discount applies; null when the listing has no booking page.",
+            "nullable": true,
+            "example": "https://cal.com/fade-house/skin-fade?utm_source=discover\u0026utm_medium=api\u0026utm_campaign=barbers\u0026utm_content=listing%3A12"
+          },
+          "nextAvailableSlot": {
+            "type": "string",
+            "description": "The ISO 8601 start of the earliest open slot in the searched window; null when none was found.",
+            "nullable": true,
+            "example": "2026-11-10T17:00:00.000Z"
+          },
+          "nextAvailableSlotLocal": {
+            "type": "string",
+            "description": "That slot as the listing\u0027s card shows it, in \u0060timeZone\u0060, else your saved time zone; null when none.",
+            "nullable": true,
+            "example": "Today, 9:00 AM PST"
+          },
+          "nextAvailableSlotTimeZone": {
+            "type": "string",
+            "description": "The time zone abbreviation \u0060nextAvailableSlotLocal\u0060 is in; null when none.",
+            "nullable": true,
+            "example": "PST"
+          }
+        }
+      },
+      "DiscoverWebBusinessOutput": {
+        "required": [
+          "name",
+          "url",
+          "description",
+          "appointmentEmails",
+          "appointmentPhones"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The business\u0027s name, from its website.",
+            "example": "Example Barbers"
+          },
+          "url": {
+            "type": "string",
+            "description": "The page the business was found on.",
+            "example": "https://barbers.example/book"
+          },
+          "description": {
+            "type": "string",
+            "description": "What the page says the business offers; null when it says nothing usable.",
+            "nullable": true,
+            "example": "Fades and beard trims"
+          },
+          "appointmentEmails": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Email addresses the business\u0027s page offers for making an appointment.",
+            "example": [
+              "bookings@barbers.example"
+            ]
+          },
+          "appointmentPhones": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Phone numbers the business\u0027s page offers for making an appointment.",
+            "example": [
+              "(415) 555-0101"
+            ]
+          }
+        }
+      },
+      "SearchDiscoverListingsData": {
+        "type": "object",
+        "properties": {
+          "areaNeeded": {
+            "type": "boolean",
+            "description": "Present, and true, only when nothing was searched. Without \u0060areaNotFound\u0060, no \u0060area\u0060 was given and there is no saved ZIP code: search again with \u0060area\u0060 set. With \u0060areaNotFound\u0060, see that field. No search fields are present then.",
+            "example": true
+          },
+          "areaNotFound": {
+            "type": "boolean",
+            "description": "Present, and true, only with \u0060areaNeeded\u0060: the named \u0060area\u0060, or your saved ZIP code when no \u0060area\u0060 was given, could not be found. Search again with a nearby city or a ZIP code, not the same place.",
+            "example": true
+          },
+          "totalMatches": {
+            "type": "number",
+            "description": "How many published listings matched.",
+            "example": 3
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DiscoverListingSearchResultOutput"
+            },
+            "description": "Up to 8 matching listings, at most 2 per provider."
+          },
+          "searchedArea": {
+            "type": "string",
+            "description": "The area in-person results were kept within; absent for an online or \u0060anywhere\u0060 search.",
+            "example": "within 10 miles of Seattle, WA"
+          },
+          "areaSource": {
+            "$ref": "#/components/schemas/SearchDiscoverListingsDataAreaSource"
+          },
+          "ignoredFilters": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Query parameters the search could not use and ignored, such as an unknown \u0060neighborhood\u0060, a \u0060subcategory\u0060 outside its \u0060category\u0060, an \u0060area\u0060 that could not be found, or \u0060availableWithin\u0060.",
+            "example": [
+              "neighborhood"
+            ]
+          },
+          "widenedFrom": {
+            "type": "string",
+            "description": "The neighborhood that had nothing, when the search widened to its whole region.",
+            "example": "Capitol Hill"
+          },
+          "broadenedFrom": {
+            "$ref": "#/components/schemas/SearchDiscoverListingsDataBroadenedFrom"
+          },
+          "webBusinesses": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DiscoverWebBusinessOutput"
+            },
+            "description": "When no listing in the area matched, businesses found on the public web there that are not on Discover, each with an appointment email or phone. Absent when the web search is not configured or the search is online-only."
+          }
+        }
+      },
+      "SearchDiscoverListingsOutputResponseDto": {
+        "required": [
+          "status",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/SearchDiscoverListingsOutputResponseDtoStatus"
+          },
+          "data": {
+            "$ref": "#/components/schemas/SearchDiscoverListingsData"
           }
         }
       },
@@ -55256,6 +56416,360 @@
         "properties": {
           "hostLimit": {
             "$ref": "#/components/schemas/SetBookingLimitPoolHostInputHostLimit"
+          }
+        }
+      },
+      "EventTypeSequenceSegmentInput": {
+        "required": [
+          "eventTypeId"
+        ],
+        "type": "object",
+        "properties": {
+          "eventTypeId": {
+            "minimum": 1,
+            "type": "number",
+            "description": "A collective or round-robin event type of the team. It can\u0027t be seated, recurring, paid or a managed event type.",
+            "example": 101
+          }
+        }
+      },
+      "CreateEventTypeSequenceInput": {
+        "required": [
+          "title",
+          "slug",
+          "segments"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "maxLength": 255,
+            "type": "string",
+            "example": "Engineering interview loop"
+          },
+          "slug": {
+            "maxLength": 255,
+            "type": "string",
+            "description": "Slugified like an event type slug. Must not be the slug of another sequence or event type of the team.",
+            "example": "engineering-loop"
+          },
+          "description": {
+            "maxLength": 3000,
+            "type": "string",
+            "example": "Three back-to-back interviews."
+          },
+          "segments": {
+            "maxItems": 5,
+            "minItems": 2,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EventTypeSequenceSegmentInput"
+            },
+            "description": "The event types in booking order; they run back to back, at most 8 hours in total. The same round-robin event type can be used for two segments, but a person can be a fixed host of only one segment."
+          }
+        }
+      },
+      "EventTypeSequenceHostOutput": {
+        "required": [
+          "name",
+          "avatarUrl"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "example": "Dana Smith"
+          },
+          "avatarUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "EventTypeSequenceSegmentOutput": {
+        "required": [
+          "position",
+          "eventTypeId",
+          "title",
+          "lengthMinutes",
+          "schedulingType",
+          "fixedHosts",
+          "invalidReason"
+        ],
+        "type": "object",
+        "properties": {
+          "position": {
+            "type": "number",
+            "description": "0-based place in booking order.",
+            "example": 0
+          },
+          "eventTypeId": {
+            "type": "number",
+            "example": 101
+          },
+          "title": {
+            "type": "string",
+            "description": "Null when the event type was deleted.",
+            "nullable": true,
+            "example": "Technical interview"
+          },
+          "lengthMinutes": {
+            "type": "number",
+            "nullable": true,
+            "example": 45
+          },
+          "schedulingType": {
+            "$ref": "#/components/schemas/EventTypeSequenceSegmentOutputSchedulingType"
+          },
+          "fixedHosts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EventTypeSequenceHostOutput"
+            },
+            "description": "Every host of a collective segment, or the fixed hosts of a round-robin segment."
+          },
+          "invalidReason": {
+            "$ref": "#/components/schemas/EventTypeSequenceSegmentOutputInvalidReason"
+          }
+        }
+      },
+      "EventTypeSequenceOutput": {
+        "required": [
+          "uid",
+          "teamId",
+          "title",
+          "slug",
+          "description",
+          "status",
+          "totalLengthMinutes",
+          "segments",
+          "bookingFields",
+          "createdAt",
+          "updatedAt"
+        ],
+        "type": "object",
+        "properties": {
+          "uid": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "teamId": {
+            "type": "number"
+          },
+          "title": {
+            "type": "string",
+            "example": "Engineering interview loop"
+          },
+          "slug": {
+            "type": "string",
+            "example": "engineering-loop"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/EventTypeSequenceOutputStatus"
+          },
+          "totalLengthMinutes": {
+            "type": "number",
+            "example": 135
+          },
+          "segments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EventTypeSequenceSegmentOutput"
+            }
+          },
+          "bookingFields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EventTypeSequenceOutputBookingFieldsItem"
+            },
+            "description": "Each segment\u0027s booking fields merged by slug, without the location."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "EventTypeSequenceResponseOutput": {
+        "required": [
+          "status",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/SuccessStatus"
+          },
+          "data": {
+            "$ref": "#/components/schemas/EventTypeSequenceOutput"
+          }
+        }
+      },
+      "EventTypeSequencesData": {
+        "required": [
+          "sequences",
+          "nextCursor"
+        ],
+        "type": "object",
+        "properties": {
+          "sequences": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EventTypeSequenceOutput"
+            },
+            "description": "In creation order."
+          },
+          "nextCursor": {
+            "type": "string",
+            "description": "Pass as \u0060cursor\u0060 to fetch the next page; null on the last page.",
+            "nullable": true
+          }
+        }
+      },
+      "EventTypeSequencesOutput": {
+        "required": [
+          "status",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/SuccessStatus"
+          },
+          "data": {
+            "$ref": "#/components/schemas/EventTypeSequencesData"
+          }
+        }
+      },
+      "UpdateEventTypeSequenceInput": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "maxLength": 255,
+            "type": "string",
+            "example": "Engineering interview loop"
+          },
+          "slug": {
+            "maxLength": 255,
+            "type": "string",
+            "description": "Must not be the slug of another sequence or event type of the team.",
+            "example": "engineering-loop"
+          },
+          "description": {
+            "maxLength": 3000,
+            "type": "string",
+            "description": "Null removes the description.",
+            "nullable": true
+          },
+          "segments": {
+            "maxItems": 5,
+            "minItems": 2,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EventTypeSequenceSegmentInput"
+            },
+            "description": "Replaces every segment, in booking order. Loops already booked keep their bookings. When left out, the segments are not checked again, so a sequence that reads as invalid can still be renamed."
+          }
+        }
+      },
+      "PublicEventTypeSequenceSegmentOutput": {
+        "required": [
+          "position",
+          "title",
+          "lengthMinutes",
+          "schedulingType",
+          "fixedHosts"
+        ],
+        "type": "object",
+        "properties": {
+          "position": {
+            "type": "number",
+            "description": "0-based place in booking order.",
+            "example": 0
+          },
+          "title": {
+            "type": "string",
+            "example": "Technical interview"
+          },
+          "lengthMinutes": {
+            "type": "number",
+            "example": 45
+          },
+          "schedulingType": {
+            "$ref": "#/components/schemas/PublicEventTypeSequenceSegmentOutputSchedulingType"
+          },
+          "fixedHosts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EventTypeSequenceHostOutput"
+            },
+            "description": "Who the segment is with: every host of a collective segment. Empty for a round-robin segment, whose host is picked from its pool when booking, and for a private team."
+          }
+        }
+      },
+      "PublicEventTypeSequenceOutput": {
+        "required": [
+          "uid",
+          "title",
+          "description",
+          "totalLengthMinutes",
+          "segments",
+          "bookingFields"
+        ],
+        "type": "object",
+        "properties": {
+          "uid": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "type": "string",
+            "example": "Engineering interview loop"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "totalLengthMinutes": {
+            "type": "number",
+            "description": "The segments run back to back.",
+            "example": 135
+          },
+          "segments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PublicEventTypeSequenceSegmentOutput"
+            }
+          },
+          "bookingFields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PublicEventTypeSequenceOutputBookingFieldsItem"
+            },
+            "description": "The questions the booker answers once for the whole sequence: each segment\u0027s booking fields merged by slug, without the location."
+          }
+        }
+      },
+      "PublicEventTypeSequenceResponseOutput": {
+        "required": [
+          "status",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/SuccessStatus"
+          },
+          "data": {
+            "$ref": "#/components/schemas/PublicEventTypeSequenceOutput"
           }
         }
       },
@@ -62656,6 +64170,22 @@
           "type"
         ]
       },
+      "SearchDiscoverListingsDataBroadenedFrom": {
+        "type": "object",
+        "properties": {
+          "subcategory": {
+            "type": "string",
+            "description": "The subcategory the search dropped.",
+            "example": "haircuts"
+          },
+          "query": {
+            "type": "string",
+            "description": "The free text the search dropped.",
+            "example": "skin fade"
+          }
+        },
+        "description": "When the search found nothing, it searched again with the category alone; these are the filters it dropped."
+      },
       "BookingLimitPoolHostOutputHostLimit": {
         "required": [
           "perDay",
@@ -62775,6 +64305,116 @@
           }
         },
         "description": "The host\u0027s complete limit; an omitted or null interval uses the pool\u0027s limit, and an empty object clears the host\u0027s own limit."
+      },
+      "EventTypeSequenceOutputBookingFieldsItem": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/BookingFieldsOutputData20260612BookingFieldsItemOneOf1"
+          },
+          {
+            "$ref": "#/components/schemas/SystemEmailFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/SystemLocationFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/SystemTitleFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/SystemNotesFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/SystemGuestsFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/SystemRescheduleReasonFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/SystemAttendeePhoneFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/SystemSmsReminderFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/SystemAiAgentPhoneFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/BookingFieldsOutputData20260612BookingFieldsItemOneOf11"
+          },
+          {
+            "$ref": "#/components/schemas/UnknownBookingFieldOutput20260612"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "field",
+          "mapping": {
+            "SystemEmailFieldOutput20260612": "#/components/schemas/SystemEmailFieldOutput20260612",
+            "SystemLocationFieldOutput20260612": "#/components/schemas/SystemLocationFieldOutput20260612",
+            "SystemTitleFieldOutput20260612": "#/components/schemas/SystemTitleFieldOutput20260612",
+            "SystemNotesFieldOutput20260612": "#/components/schemas/SystemNotesFieldOutput20260612",
+            "SystemGuestsFieldOutput20260612": "#/components/schemas/SystemGuestsFieldOutput20260612",
+            "SystemRescheduleReasonFieldOutput20260612": "#/components/schemas/SystemRescheduleReasonFieldOutput20260612",
+            "SystemAttendeePhoneFieldOutput20260612": "#/components/schemas/SystemAttendeePhoneFieldOutput20260612",
+            "SystemSmsReminderFieldOutput20260612": "#/components/schemas/SystemSmsReminderFieldOutput20260612",
+            "SystemAiAgentPhoneFieldOutput20260612": "#/components/schemas/SystemAiAgentPhoneFieldOutput20260612",
+            "UnknownBookingFieldOutput20260612": "#/components/schemas/UnknownBookingFieldOutput20260612"
+          }
+        }
+      },
+      "PublicEventTypeSequenceOutputBookingFieldsItem": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/BookingFieldsOutputData20260612BookingFieldsItemOneOf1"
+          },
+          {
+            "$ref": "#/components/schemas/SystemEmailFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/SystemLocationFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/SystemTitleFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/SystemNotesFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/SystemGuestsFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/SystemRescheduleReasonFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/SystemAttendeePhoneFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/SystemSmsReminderFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/SystemAiAgentPhoneFieldOutput20260612"
+          },
+          {
+            "$ref": "#/components/schemas/BookingFieldsOutputData20260612BookingFieldsItemOneOf11"
+          },
+          {
+            "$ref": "#/components/schemas/UnknownBookingFieldOutput20260612"
+          }
+        ],
+        "x-client-original-discriminator": {
+          "propertyName": "field",
+          "mapping": {
+            "SystemEmailFieldOutput20260612": "#/components/schemas/SystemEmailFieldOutput20260612",
+            "SystemLocationFieldOutput20260612": "#/components/schemas/SystemLocationFieldOutput20260612",
+            "SystemTitleFieldOutput20260612": "#/components/schemas/SystemTitleFieldOutput20260612",
+            "SystemNotesFieldOutput20260612": "#/components/schemas/SystemNotesFieldOutput20260612",
+            "SystemGuestsFieldOutput20260612": "#/components/schemas/SystemGuestsFieldOutput20260612",
+            "SystemRescheduleReasonFieldOutput20260612": "#/components/schemas/SystemRescheduleReasonFieldOutput20260612",
+            "SystemAttendeePhoneFieldOutput20260612": "#/components/schemas/SystemAttendeePhoneFieldOutput20260612",
+            "SystemSmsReminderFieldOutput20260612": "#/components/schemas/SystemSmsReminderFieldOutput20260612",
+            "SystemAiAgentPhoneFieldOutput20260612": "#/components/schemas/SystemAiAgentPhoneFieldOutput20260612",
+            "UnknownBookingFieldOutput20260612": "#/components/schemas/UnknownBookingFieldOutput20260612"
+          }
+        }
       },
       "DeletePrivateLinkOutputData": {
         "type": "object",
@@ -93313,6 +94953,28 @@
           ]
         }
       },
+      "ContactTagChangeOutputResponseDtoStatus": {
+        "enum": [
+          "success",
+          "error"
+        ],
+        "type": "string",
+        "example": "success",
+        "x-ms-enum": {
+          "name": "ContactTagChangeOutputResponseDtoStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "success",
+              "name": "Success"
+            },
+            {
+              "value": "error",
+              "name": "Error"
+            }
+          ]
+        }
+      },
       "RemoveContactOutputResponseDtoStatus": {
         "enum": [
           "success",
@@ -93344,6 +95006,129 @@
         "example": "success",
         "x-ms-enum": {
           "name": "GetDiscoverListingsOutputResponseDtoStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "success",
+              "name": "Success"
+            },
+            {
+              "value": "error",
+              "name": "Error"
+            }
+          ]
+        }
+      },
+      "DiscoverListingSearchResultOutputCategory": {
+        "enum": [
+          "MEDICAL",
+          "BARBERS",
+          "COACHING",
+          "CONSULTING",
+          "LESSONS",
+          "PETS",
+          "SPORTS",
+          "DANCE",
+          "SOCIAL",
+          "ONLINE_SERVICES",
+          "SAAS",
+          "HOME_SERVICES",
+          "OTHER"
+        ],
+        "type": "string",
+        "description": "The listing\u0027s category.",
+        "example": "BARBERS",
+        "x-ms-enum": {
+          "name": "DiscoverListingSearchResultOutputCategory",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "MEDICAL",
+              "name": "Medical"
+            },
+            {
+              "value": "BARBERS",
+              "name": "Barbers"
+            },
+            {
+              "value": "COACHING",
+              "name": "Coaching"
+            },
+            {
+              "value": "CONSULTING",
+              "name": "Consulting"
+            },
+            {
+              "value": "LESSONS",
+              "name": "Lessons"
+            },
+            {
+              "value": "PETS",
+              "name": "Pets"
+            },
+            {
+              "value": "SPORTS",
+              "name": "Sports"
+            },
+            {
+              "value": "DANCE",
+              "name": "Dance"
+            },
+            {
+              "value": "SOCIAL",
+              "name": "Social"
+            },
+            {
+              "value": "ONLINE_SERVICES",
+              "name": "OnlineServices"
+            },
+            {
+              "value": "SAAS",
+              "name": "Saas"
+            },
+            {
+              "value": "HOME_SERVICES",
+              "name": "HomeServices"
+            },
+            {
+              "value": "OTHER",
+              "name": "Other"
+            }
+          ]
+        }
+      },
+      "SearchDiscoverListingsDataAreaSource": {
+        "enum": [
+          "named",
+          "saved"
+        ],
+        "type": "string",
+        "description": "Where \u0060searchedArea\u0060 came from: \u0060named\u0060 when you passed \u0060area\u0060 or \u0060neighborhood\u0060, \u0060saved\u0060 for your saved ZIP code. Absent with \u0060searchedArea\u0060.",
+        "example": "saved",
+        "x-ms-enum": {
+          "name": "SearchDiscoverListingsDataAreaSource",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "named",
+              "name": "Named"
+            },
+            {
+              "value": "saved",
+              "name": "Saved"
+            }
+          ]
+        }
+      },
+      "SearchDiscoverListingsOutputResponseDtoStatus": {
+        "enum": [
+          "success",
+          "error"
+        ],
+        "type": "string",
+        "example": "success",
+        "x-ms-enum": {
+          "name": "SearchDiscoverListingsOutputResponseDtoStatus",
           "modelAsString": false,
           "values": [
             {
@@ -93815,6 +95600,144 @@
             {
               "value": "PER_EVENT",
               "name": "PerEvent"
+            }
+          ]
+        }
+      },
+      "EventTypeSequenceSegmentOutputSchedulingType": {
+        "enum": [
+          "collective",
+          "roundRobin",
+          "managed"
+        ],
+        "type": "string",
+        "nullable": true,
+        "x-ms-enum": {
+          "name": "EventTypeSequenceSegmentOutputSchedulingType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "collective",
+              "name": "Collective"
+            },
+            {
+              "value": "roundRobin",
+              "name": "RoundRobin"
+            },
+            {
+              "value": "managed",
+              "name": "Managed"
+            }
+          ]
+        }
+      },
+      "EventTypeSequenceSegmentOutputInvalidReason": {
+        "enum": [
+          "not_found",
+          "managed_parent",
+          "unsupported_scheduling_type",
+          "seated",
+          "recurring",
+          "paid",
+          "multiple_host_groups",
+          "no_hosts",
+          "fixed_host_in_several_segments",
+          "question_conflict",
+          "block_too_long"
+        ],
+        "type": "string",
+        "description": "Why this segment can\u0027t be booked as part of the sequence right now, from its event type as it is now; null when it can.",
+        "nullable": true,
+        "x-ms-enum": {
+          "name": "EventTypeSequenceSegmentOutputInvalidReason",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "not_found",
+              "name": "NotFound"
+            },
+            {
+              "value": "managed_parent",
+              "name": "ManagedParent"
+            },
+            {
+              "value": "unsupported_scheduling_type",
+              "name": "UnsupportedSchedulingType"
+            },
+            {
+              "value": "seated",
+              "name": "Seated"
+            },
+            {
+              "value": "recurring",
+              "name": "Recurring"
+            },
+            {
+              "value": "paid",
+              "name": "Paid"
+            },
+            {
+              "value": "multiple_host_groups",
+              "name": "MultipleHostGroups"
+            },
+            {
+              "value": "no_hosts",
+              "name": "NoHosts"
+            },
+            {
+              "value": "fixed_host_in_several_segments",
+              "name": "FixedHostInSeveralSegments"
+            },
+            {
+              "value": "question_conflict",
+              "name": "QuestionConflict"
+            },
+            {
+              "value": "block_too_long",
+              "name": "BlockTooLong"
+            }
+          ]
+        }
+      },
+      "EventTypeSequenceOutputStatus": {
+        "enum": [
+          "valid",
+          "invalid"
+        ],
+        "type": "string",
+        "description": "Checked against the segments\u0027 event types on every read. An invalid sequence can\u0027t be booked, and its public page is not found.",
+        "x-ms-enum": {
+          "name": "EventTypeSequenceOutputStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "valid",
+              "name": "Valid"
+            },
+            {
+              "value": "invalid",
+              "name": "Invalid"
+            }
+          ]
+        }
+      },
+      "PublicEventTypeSequenceSegmentOutputSchedulingType": {
+        "enum": [
+          "collective",
+          "roundRobin"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "PublicEventTypeSequenceSegmentOutputSchedulingType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "collective",
+              "name": "Collective"
+            },
+            {
+              "value": "roundRobin",
+              "name": "RoundRobin"
             }
           ]
         }
@@ -96352,6 +98275,457 @@
             {
               "value": "msteams",
               "name": "Msteams"
+            }
+          ]
+        }
+      },
+      "DiscoverListingSearchControllerSearchListingsCategoryParameter": {
+        "enum": [
+          "medical",
+          "barbers",
+          "coaching",
+          "consulting",
+          "lessons",
+          "pets",
+          "sports",
+          "dance",
+          "social",
+          "online-services",
+          "saas",
+          "home-services",
+          "other"
+        ],
+        "type": "string",
+        "example": "barbers",
+        "x-ms-enum": {
+          "name": "DiscoverListingSearchControllerSearchListingsCategoryParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "medical",
+              "name": "Medical"
+            },
+            {
+              "value": "barbers",
+              "name": "Barbers"
+            },
+            {
+              "value": "coaching",
+              "name": "Coaching"
+            },
+            {
+              "value": "consulting",
+              "name": "Consulting"
+            },
+            {
+              "value": "lessons",
+              "name": "Lessons"
+            },
+            {
+              "value": "pets",
+              "name": "Pets"
+            },
+            {
+              "value": "sports",
+              "name": "Sports"
+            },
+            {
+              "value": "dance",
+              "name": "Dance"
+            },
+            {
+              "value": "social",
+              "name": "Social"
+            },
+            {
+              "value": "online-services",
+              "name": "OnlineServices"
+            },
+            {
+              "value": "saas",
+              "name": "Saas"
+            },
+            {
+              "value": "home-services",
+              "name": "HomeServices"
+            },
+            {
+              "value": "other",
+              "name": "Other"
+            }
+          ]
+        }
+      },
+      "DiscoverListingSearchControllerSearchListingsSubcategoryParameter": {
+        "enum": [
+          "dentistry",
+          "therapy",
+          "physiotherapy",
+          "nutrition",
+          "somatic-and-breathwork",
+          "doula",
+          "general-care",
+          "haircuts",
+          "beard-and-shave",
+          "coloring",
+          "kids-cuts",
+          "nails",
+          "waxing",
+          "lashes",
+          "skin-and-spa",
+          "massage",
+          "tattoo",
+          "life",
+          "career",
+          "executive",
+          "mindset",
+          "spiritual",
+          "business",
+          "tech-and-ai",
+          "finance-and-tax",
+          "legal",
+          "real-estate",
+          "marketing",
+          "hr",
+          "academic",
+          "language",
+          "music-and-voice",
+          "arts",
+          "chess",
+          "veterinary",
+          "grooming",
+          "training",
+          "sitting",
+          "fitness",
+          "yoga",
+          "tennis",
+          "swimming",
+          "skiing",
+          "salsa",
+          "ballet",
+          "hip-hop",
+          "ballroom",
+          "clubs",
+          "workshops",
+          "networking",
+          "tours",
+          "photoshoots-and-studios",
+          "pop-ups-and-showrooms",
+          "design",
+          "development",
+          "writing",
+          "virtual-assistance",
+          "legal-advice",
+          "product-demos",
+          "onboarding",
+          "customer-support",
+          "sales",
+          "cleaning",
+          "repairs",
+          "heating-and-cooling",
+          "inspections",
+          "auto"
+        ],
+        "type": "string",
+        "example": "haircuts",
+        "x-ms-enum": {
+          "name": "DiscoverListingSearchControllerSearchListingsSubcategoryParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "dentistry",
+              "name": "Dentistry"
+            },
+            {
+              "value": "therapy",
+              "name": "Therapy"
+            },
+            {
+              "value": "physiotherapy",
+              "name": "Physiotherapy"
+            },
+            {
+              "value": "nutrition",
+              "name": "Nutrition"
+            },
+            {
+              "value": "somatic-and-breathwork",
+              "name": "SomaticAndBreathwork"
+            },
+            {
+              "value": "doula",
+              "name": "Doula"
+            },
+            {
+              "value": "general-care",
+              "name": "GeneralCare"
+            },
+            {
+              "value": "haircuts",
+              "name": "Haircuts"
+            },
+            {
+              "value": "beard-and-shave",
+              "name": "BeardAndShave"
+            },
+            {
+              "value": "coloring",
+              "name": "Coloring"
+            },
+            {
+              "value": "kids-cuts",
+              "name": "KidsCuts"
+            },
+            {
+              "value": "nails",
+              "name": "Nails"
+            },
+            {
+              "value": "waxing",
+              "name": "Waxing"
+            },
+            {
+              "value": "lashes",
+              "name": "Lashes"
+            },
+            {
+              "value": "skin-and-spa",
+              "name": "SkinAndSpa"
+            },
+            {
+              "value": "massage",
+              "name": "Massage"
+            },
+            {
+              "value": "tattoo",
+              "name": "Tattoo"
+            },
+            {
+              "value": "life",
+              "name": "Life"
+            },
+            {
+              "value": "career",
+              "name": "Career"
+            },
+            {
+              "value": "executive",
+              "name": "Executive"
+            },
+            {
+              "value": "mindset",
+              "name": "Mindset"
+            },
+            {
+              "value": "spiritual",
+              "name": "Spiritual"
+            },
+            {
+              "value": "business",
+              "name": "Business"
+            },
+            {
+              "value": "tech-and-ai",
+              "name": "TechAndAi"
+            },
+            {
+              "value": "finance-and-tax",
+              "name": "FinanceAndTax"
+            },
+            {
+              "value": "legal",
+              "name": "Legal"
+            },
+            {
+              "value": "real-estate",
+              "name": "RealEstate"
+            },
+            {
+              "value": "marketing",
+              "name": "Marketing"
+            },
+            {
+              "value": "hr",
+              "name": "Hr"
+            },
+            {
+              "value": "academic",
+              "name": "Academic"
+            },
+            {
+              "value": "language",
+              "name": "Language"
+            },
+            {
+              "value": "music-and-voice",
+              "name": "MusicAndVoice"
+            },
+            {
+              "value": "arts",
+              "name": "Arts"
+            },
+            {
+              "value": "chess",
+              "name": "Chess"
+            },
+            {
+              "value": "veterinary",
+              "name": "Veterinary"
+            },
+            {
+              "value": "grooming",
+              "name": "Grooming"
+            },
+            {
+              "value": "training",
+              "name": "Training"
+            },
+            {
+              "value": "sitting",
+              "name": "Sitting"
+            },
+            {
+              "value": "fitness",
+              "name": "Fitness"
+            },
+            {
+              "value": "yoga",
+              "name": "Yoga"
+            },
+            {
+              "value": "tennis",
+              "name": "Tennis"
+            },
+            {
+              "value": "swimming",
+              "name": "Swimming"
+            },
+            {
+              "value": "skiing",
+              "name": "Skiing"
+            },
+            {
+              "value": "salsa",
+              "name": "Salsa"
+            },
+            {
+              "value": "ballet",
+              "name": "Ballet"
+            },
+            {
+              "value": "hip-hop",
+              "name": "HipHop"
+            },
+            {
+              "value": "ballroom",
+              "name": "Ballroom"
+            },
+            {
+              "value": "clubs",
+              "name": "Clubs"
+            },
+            {
+              "value": "workshops",
+              "name": "Workshops"
+            },
+            {
+              "value": "networking",
+              "name": "Networking"
+            },
+            {
+              "value": "tours",
+              "name": "Tours"
+            },
+            {
+              "value": "photoshoots-and-studios",
+              "name": "PhotoshootsAndStudios"
+            },
+            {
+              "value": "pop-ups-and-showrooms",
+              "name": "PopUpsAndShowrooms"
+            },
+            {
+              "value": "design",
+              "name": "Design"
+            },
+            {
+              "value": "development",
+              "name": "Development"
+            },
+            {
+              "value": "writing",
+              "name": "Writing"
+            },
+            {
+              "value": "virtual-assistance",
+              "name": "VirtualAssistance"
+            },
+            {
+              "value": "legal-advice",
+              "name": "LegalAdvice"
+            },
+            {
+              "value": "product-demos",
+              "name": "ProductDemos"
+            },
+            {
+              "value": "onboarding",
+              "name": "Onboarding"
+            },
+            {
+              "value": "customer-support",
+              "name": "CustomerSupport"
+            },
+            {
+              "value": "sales",
+              "name": "Sales"
+            },
+            {
+              "value": "cleaning",
+              "name": "Cleaning"
+            },
+            {
+              "value": "repairs",
+              "name": "Repairs"
+            },
+            {
+              "value": "heating-and-cooling",
+              "name": "HeatingAndCooling"
+            },
+            {
+              "value": "inspections",
+              "name": "Inspections"
+            },
+            {
+              "value": "auto",
+              "name": "Auto"
+            }
+          ]
+        }
+      },
+      "DiscoverListingSearchControllerSearchListingsAvailableWithinParameter": {
+        "enum": [
+          "today",
+          "tomorrow",
+          "this_week"
+        ],
+        "type": "string",
+        "example": "today",
+        "x-ms-enum": {
+          "name": "DiscoverListingSearchControllerSearchListingsAvailableWithinParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "today",
+              "name": "Today"
+            },
+            {
+              "value": "tomorrow",
+              "name": "Tomorrow"
+            },
+            {
+              "value": "this_week",
+              "name": "ThisWeek"
             }
           ]
         }
@@ -104122,6 +106496,21 @@
         }
       }
     },
+    "DiscoverSearchBroadenedFromOutput": {
+      "type": "object",
+      "properties": {
+        "subcategory": {
+          "type": "string",
+          "description": "The subcategory the search dropped.",
+          "example": "haircuts"
+        },
+        "query": {
+          "type": "string",
+          "description": "The free text the search dropped.",
+          "example": "skin fade"
+        }
+      }
+    },
     "BookingLimitsPatchInput": {
       "type": "object",
       "properties": {
@@ -107718,6 +110107,178 @@
         }
       }
     },
+    "EventTypeSequenceOutputBookingFieldsItemOneOf1": {
+      "title": "Default Name",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/SystemFullNameFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/SystemSplitNameFieldOutput20260612"
+        }
+      ],
+      "x-client-original-discriminator": {
+        "propertyName": "variant"
+      },
+      "discriminator": {
+        "propertyName": "variant",
+        "mapping": {
+          "fullName": "#/components/schemas/SystemFullNameFieldOutput20260612",
+          "splitName": "#/components/schemas/SystemSplitNameFieldOutput20260612"
+        }
+      }
+    },
+    "EventTypeSequenceOutputBookingFieldsItemOneOf11": {
+      "title": "Custom Booking Field",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/CustomEmailFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomPhoneFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomAddressFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomShortTextFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomNumberFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomLongTextFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomSelectFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomMultiSelectFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomMultiEmailFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomCheckboxGroupFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomRadioGroupFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomCheckboxFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomUrlFieldOutput20260612"
+        }
+      ],
+      "x-client-original-discriminator": {
+        "propertyName": "type"
+      },
+      "discriminator": {
+        "propertyName": "type",
+        "mapping": {
+          "email": "#/components/schemas/CustomEmailFieldOutput20260612",
+          "phone": "#/components/schemas/CustomPhoneFieldOutput20260612",
+          "address": "#/components/schemas/CustomAddressFieldOutput20260612",
+          "shortText": "#/components/schemas/CustomShortTextFieldOutput20260612",
+          "number": "#/components/schemas/CustomNumberFieldOutput20260612",
+          "longText": "#/components/schemas/CustomLongTextFieldOutput20260612",
+          "select": "#/components/schemas/CustomSelectFieldOutput20260612",
+          "multiSelect": "#/components/schemas/CustomMultiSelectFieldOutput20260612",
+          "multiEmail": "#/components/schemas/CustomMultiEmailFieldOutput20260612",
+          "checkboxGroup": "#/components/schemas/CustomCheckboxGroupFieldOutput20260612",
+          "radioGroup": "#/components/schemas/CustomRadioGroupFieldOutput20260612",
+          "checkbox": "#/components/schemas/CustomCheckboxFieldOutput20260612",
+          "url": "#/components/schemas/CustomUrlFieldOutput20260612"
+        }
+      }
+    },
+    "PublicEventTypeSequenceOutputBookingFieldsItemOneOf1": {
+      "title": "Default Name",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/SystemFullNameFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/SystemSplitNameFieldOutput20260612"
+        }
+      ],
+      "x-client-original-discriminator": {
+        "propertyName": "variant"
+      },
+      "discriminator": {
+        "propertyName": "variant",
+        "mapping": {
+          "fullName": "#/components/schemas/SystemFullNameFieldOutput20260612",
+          "splitName": "#/components/schemas/SystemSplitNameFieldOutput20260612"
+        }
+      }
+    },
+    "PublicEventTypeSequenceOutputBookingFieldsItemOneOf11": {
+      "title": "Custom Booking Field",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/CustomEmailFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomPhoneFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomAddressFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomShortTextFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomNumberFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomLongTextFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomSelectFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomMultiSelectFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomMultiEmailFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomCheckboxGroupFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomRadioGroupFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomCheckboxFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomUrlFieldOutput20260612"
+        }
+      ],
+      "x-client-original-discriminator": {
+        "propertyName": "type"
+      },
+      "discriminator": {
+        "propertyName": "type",
+        "mapping": {
+          "email": "#/components/schemas/CustomEmailFieldOutput20260612",
+          "phone": "#/components/schemas/CustomPhoneFieldOutput20260612",
+          "address": "#/components/schemas/CustomAddressFieldOutput20260612",
+          "shortText": "#/components/schemas/CustomShortTextFieldOutput20260612",
+          "number": "#/components/schemas/CustomNumberFieldOutput20260612",
+          "longText": "#/components/schemas/CustomLongTextFieldOutput20260612",
+          "select": "#/components/schemas/CustomSelectFieldOutput20260612",
+          "multiSelect": "#/components/schemas/CustomMultiSelectFieldOutput20260612",
+          "multiEmail": "#/components/schemas/CustomMultiEmailFieldOutput20260612",
+          "checkboxGroup": "#/components/schemas/CustomCheckboxGroupFieldOutput20260612",
+          "radioGroup": "#/components/schemas/CustomRadioGroupFieldOutput20260612",
+          "checkbox": "#/components/schemas/CustomCheckboxFieldOutput20260612",
+          "url": "#/components/schemas/CustomUrlFieldOutput20260612"
+        }
+      }
+    },
     "TeamEventTypeOutput20260612BookingFieldsItemOneOf1Branch": {
       "title": "Default Name",
       "oneOf": [
@@ -108170,6 +110731,178 @@
       }
     },
     "EventOutputDtoRegistrationFieldsItemOneOf11Branch": {
+      "title": "Custom Booking Field",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/CustomEmailFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomPhoneFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomAddressFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomShortTextFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomNumberFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomLongTextFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomSelectFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomMultiSelectFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomMultiEmailFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomCheckboxGroupFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomRadioGroupFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomCheckboxFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomUrlFieldOutput20260612"
+        }
+      ],
+      "x-client-original-discriminator": {
+        "propertyName": "type"
+      },
+      "discriminator": {
+        "propertyName": "type",
+        "mapping": {
+          "email": "#/components/schemas/CustomEmailFieldOutput20260612",
+          "phone": "#/components/schemas/CustomPhoneFieldOutput20260612",
+          "address": "#/components/schemas/CustomAddressFieldOutput20260612",
+          "shortText": "#/components/schemas/CustomShortTextFieldOutput20260612",
+          "number": "#/components/schemas/CustomNumberFieldOutput20260612",
+          "longText": "#/components/schemas/CustomLongTextFieldOutput20260612",
+          "select": "#/components/schemas/CustomSelectFieldOutput20260612",
+          "multiSelect": "#/components/schemas/CustomMultiSelectFieldOutput20260612",
+          "multiEmail": "#/components/schemas/CustomMultiEmailFieldOutput20260612",
+          "checkboxGroup": "#/components/schemas/CustomCheckboxGroupFieldOutput20260612",
+          "radioGroup": "#/components/schemas/CustomRadioGroupFieldOutput20260612",
+          "checkbox": "#/components/schemas/CustomCheckboxFieldOutput20260612",
+          "url": "#/components/schemas/CustomUrlFieldOutput20260612"
+        }
+      }
+    },
+    "EventTypeSequenceOutputBookingFieldsItemOneOf1Branch": {
+      "title": "Default Name",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/SystemFullNameFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/SystemSplitNameFieldOutput20260612"
+        }
+      ],
+      "x-client-original-discriminator": {
+        "propertyName": "variant"
+      },
+      "discriminator": {
+        "propertyName": "variant",
+        "mapping": {
+          "fullName": "#/components/schemas/SystemFullNameFieldOutput20260612",
+          "splitName": "#/components/schemas/SystemSplitNameFieldOutput20260612"
+        }
+      }
+    },
+    "EventTypeSequenceOutputBookingFieldsItemOneOf11Branch": {
+      "title": "Custom Booking Field",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/CustomEmailFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomPhoneFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomAddressFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomShortTextFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomNumberFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomLongTextFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomSelectFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomMultiSelectFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomMultiEmailFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomCheckboxGroupFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomRadioGroupFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomCheckboxFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/CustomUrlFieldOutput20260612"
+        }
+      ],
+      "x-client-original-discriminator": {
+        "propertyName": "type"
+      },
+      "discriminator": {
+        "propertyName": "type",
+        "mapping": {
+          "email": "#/components/schemas/CustomEmailFieldOutput20260612",
+          "phone": "#/components/schemas/CustomPhoneFieldOutput20260612",
+          "address": "#/components/schemas/CustomAddressFieldOutput20260612",
+          "shortText": "#/components/schemas/CustomShortTextFieldOutput20260612",
+          "number": "#/components/schemas/CustomNumberFieldOutput20260612",
+          "longText": "#/components/schemas/CustomLongTextFieldOutput20260612",
+          "select": "#/components/schemas/CustomSelectFieldOutput20260612",
+          "multiSelect": "#/components/schemas/CustomMultiSelectFieldOutput20260612",
+          "multiEmail": "#/components/schemas/CustomMultiEmailFieldOutput20260612",
+          "checkboxGroup": "#/components/schemas/CustomCheckboxGroupFieldOutput20260612",
+          "radioGroup": "#/components/schemas/CustomRadioGroupFieldOutput20260612",
+          "checkbox": "#/components/schemas/CustomCheckboxFieldOutput20260612",
+          "url": "#/components/schemas/CustomUrlFieldOutput20260612"
+        }
+      }
+    },
+    "PublicEventTypeSequenceOutputBookingFieldsItemOneOf1Branch": {
+      "title": "Default Name",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/SystemFullNameFieldOutput20260612"
+        },
+        {
+          "$ref": "#/components/schemas/SystemSplitNameFieldOutput20260612"
+        }
+      ],
+      "x-client-original-discriminator": {
+        "propertyName": "variant"
+      },
+      "discriminator": {
+        "propertyName": "variant",
+        "mapping": {
+          "fullName": "#/components/schemas/SystemFullNameFieldOutput20260612",
+          "splitName": "#/components/schemas/SystemSplitNameFieldOutput20260612"
+        }
+      }
+    },
+    "PublicEventTypeSequenceOutputBookingFieldsItemOneOf11Branch": {
       "title": "Custom Booking Field",
       "oneOf": [
         {

@@ -52,7 +52,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Contacts.Tags
             return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.ListContactTagsOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.ListContactTagsOutputResponseDto.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates one of the authenticated user&apos;s own tags, to put on their contacts. The tag is personal, never a team&apos;s, and it is also offered for the user&apos;s own links. It does not put the tag on any contact. A name the user already has is refused. If accessed using an OAuth access token, the `CONTACT_WRITE` scope is required.
+        /// Creates one of the authenticated user&apos;s own tags, to put on their contacts with `POST /v2/contacts/{id}/tags`. The tag is personal, never a team&apos;s, and it is also offered for the user&apos;s own links. It does not put the tag on any contact. A name the user already has is refused. If accessed using an OAuth access token, the `CONTACT_WRITE` scope is required.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Models.CreateContactTagOutputResponseDto"/></returns>
         /// <param name="body">The request body</param>
@@ -91,7 +91,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Contacts.Tags
             return requestInfo;
         }
         /// <summary>
-        /// Creates one of the authenticated user&apos;s own tags, to put on their contacts. The tag is personal, never a team&apos;s, and it is also offered for the user&apos;s own links. It does not put the tag on any contact. A name the user already has is refused. If accessed using an OAuth access token, the `CONTACT_WRITE` scope is required.
+        /// Creates one of the authenticated user&apos;s own tags, to put on their contacts with `POST /v2/contacts/{id}/tags`. The tag is personal, never a team&apos;s, and it is also offered for the user&apos;s own links. It does not put the tag on any contact. A name the user already has is refused. If accessed using an OAuth access token, the `CONTACT_WRITE` scope is required.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

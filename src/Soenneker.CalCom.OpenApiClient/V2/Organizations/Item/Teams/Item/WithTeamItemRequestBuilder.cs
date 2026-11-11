@@ -6,6 +6,7 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.CalCom.OpenApiClient.Models;
 using Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.Teams.Item.Bookings;
 using Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.Teams.Item.Conferencing;
+using Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.Teams.Item.EventTypeSequences;
 using Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.Teams.Item.EventTypes;
 using Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.Teams.Item.Invite;
 using Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.Teams.Item.Memberships;
@@ -43,6 +44,11 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.Teams.Item
         public global::Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.Teams.Item.EventTypes.EventTypesRequestBuilder EventTypes
         {
             get => new global::Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.Teams.Item.EventTypes.EventTypesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The eventTypeSequences property</summary>
+        public global::Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.Teams.Item.EventTypeSequences.EventTypeSequencesRequestBuilder EventTypeSequences
+        {
+            get => new global::Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.Teams.Item.EventTypeSequences.EventTypeSequencesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The invite property</summary>
         public global::Soenneker.CalCom.OpenApiClient.V2.Organizations.Item.Teams.Item.Invite.InviteRequestBuilder Invite
