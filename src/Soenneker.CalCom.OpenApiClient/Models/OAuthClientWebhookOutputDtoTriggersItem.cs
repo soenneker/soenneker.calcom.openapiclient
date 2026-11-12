@@ -132,5 +132,25 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         #pragma warning disable CS1591
         CalendarEntryRejected,
         #pragma warning restore CS1591
+        [EnumMember(Value = "CAL_EVENT_REGISTRATION_REQUESTED")]
+        #pragma warning disable CS1591
+        CalEventRegistrationRequested,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "CAL_EVENT_REGISTRATION_CONFIRMED")]
+        #pragma warning disable CS1591
+        CalEventRegistrationConfirmed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "CAL_EVENT_REGISTRATION_WAITLISTED")]
+        #pragma warning disable CS1591
+        CalEventRegistrationWaitlisted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "CAL_EVENT_REGISTRATION_DECLINED")]
+        #pragma warning disable CS1591
+        CalEventRegistrationDeclined,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "CAL_EVENT_REGISTRATION_CANCELLED")]
+        #pragma warning disable CS1591
+        CalEventRegistrationCancelled,
+        #pragma warning restore CS1591
     }
 }

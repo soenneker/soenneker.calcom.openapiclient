@@ -2451,7 +2451,7 @@
           "Orgs / Memberships"
         ],
         "summary": "Create a membership",
-        "description": "Required membership role: \u0060org admin\u0060. PBAC permission: \u0060organization.invite\u0060. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the \u0060ORG_MEMBERSHIP_WRITE\u0060 scope is required.\n\nTwo identifier modes are accepted in the request body:\n\n1. **\u0060userId\u0060** \u2014 attach an existing user (by id) directly. Use when the caller already knows the Cal.com user id and just needs the membership row created/updated. No notification email is sent.\n\n2. **\u0060email\u0060** \u2014 invite an existing Cal.com user (by email). Runs the same invite flow the dashboard uses; the user must already exist (if not, the request returns \u0060404\u0060 \u2014 create them first via \u0060POST /v2/organizations/{orgId}/users\u0060). What happens next depends on the organization\u0027s settings:\n\n   - **Auto-attach path.** When the organization is verified by Cal.com and the invitee\u0027s email domain matches the organization\u0027s configured auto-accept domain (both set by Cal.com during organization verification \u2014 not editable by the organization\u0027s own admins), the user is added as an accepted member: their organization profile is created, the membership is created with \u0060accepted: true\u0060, and they receive a \u0022you\u0027ve been added to the organization\u0022 notification email.\n\n   - **Pending-invite path.** If either condition is not met, the user receives an \u0022accept your invite\u0022 notification email and the membership is created with \u0060accepted: false\u0060 until they accept it via the dashboard. No organization profile is created until acceptance.\n\n   Either way the response\u0027s \u0060accepted\u0060 value reflects the outcome, seat addition is recorded, and the new seat count is pushed to the billing provider.",
+        "description": "Required membership role: \u0060org admin\u0060. PBAC permission: \u0060organization.invite\u0060. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the \u0060ORG_MEMBERSHIP_WRITE\u0060 scope is required.\n\nTwo identifier modes are accepted in the request body:\n\n1. **\u0060userId\u0060** \u2014 attach an existing user (by id) directly. Use when the caller already knows the Cal.com user id and just needs the membership row created/updated. No notification email is sent. When \u0060accepted: true\u0060 takes effect, the user\u0027s organization profile is also created, as accepting an invite in the dashboard does, so the user can be added to the organization\u0027s teams.\n\n2. **\u0060email\u0060** \u2014 invite an existing Cal.com user (by email). Runs the same invite flow the dashboard uses; the user must already exist (if not, the request returns \u0060404\u0060 \u2014 create them first via \u0060POST /v2/organizations/{orgId}/users\u0060). What happens next depends on the organization\u0027s settings:\n\n   - **Auto-attach path.** When the organization is verified by Cal.com and the invitee\u0027s email domain matches the organization\u0027s configured auto-accept domain (both set by Cal.com during organization verification \u2014 not editable by the organization\u0027s own admins), the user is added as an accepted member: their organization profile is created, the membership is created with \u0060accepted: true\u0060, and they receive a \u0022you\u0027ve been added to the organization\u0022 notification email.\n\n   - **Pending-invite path.** If either condition is not met, the user receives an \u0022accept your invite\u0022 notification email and the membership is created with \u0060accepted: false\u0060 until they accept it via the dashboard. No organization profile is created until acceptance.\n\n   Either way the response\u0027s \u0060accepted\u0060 value reflects the outcome, seat addition is recorded, and the new seat count is pushed to the billing provider.",
         "operationId": "OrganizationsMembershipsControllerCreateMembership",
         "parameters": [
           {
@@ -69928,7 +69928,12 @@
           "DELEGATION_CREDENTIAL_SECRET_ROTATION_FAILED",
           "DELEGATION_CREDENTIAL_ROTATION_REQUIRED",
           "DELEGATION_CREDENTIAL_SECRET_ROTATED",
-          "CALENDAR_ENTRY_REJECTED"
+          "CALENDAR_ENTRY_REJECTED",
+          "CAL_EVENT_REGISTRATION_REQUESTED",
+          "CAL_EVENT_REGISTRATION_CONFIRMED",
+          "CAL_EVENT_REGISTRATION_WAITLISTED",
+          "CAL_EVENT_REGISTRATION_DECLINED",
+          "CAL_EVENT_REGISTRATION_CANCELLED"
         ],
         "type": "string",
         "x-ms-enum": {
@@ -70058,6 +70063,26 @@
             {
               "value": "CALENDAR_ENTRY_REJECTED",
               "name": "CalendarEntryRejected"
+            },
+            {
+              "value": "CAL_EVENT_REGISTRATION_REQUESTED",
+              "name": "CalEventRegistrationRequested"
+            },
+            {
+              "value": "CAL_EVENT_REGISTRATION_CONFIRMED",
+              "name": "CalEventRegistrationConfirmed"
+            },
+            {
+              "value": "CAL_EVENT_REGISTRATION_WAITLISTED",
+              "name": "CalEventRegistrationWaitlisted"
+            },
+            {
+              "value": "CAL_EVENT_REGISTRATION_DECLINED",
+              "name": "CalEventRegistrationDeclined"
+            },
+            {
+              "value": "CAL_EVENT_REGISTRATION_CANCELLED",
+              "name": "CalEventRegistrationCancelled"
             }
           ]
         }
@@ -70167,7 +70192,12 @@
           "DELEGATION_CREDENTIAL_SECRET_ROTATION_FAILED",
           "DELEGATION_CREDENTIAL_ROTATION_REQUIRED",
           "DELEGATION_CREDENTIAL_SECRET_ROTATED",
-          "CALENDAR_ENTRY_REJECTED"
+          "CALENDAR_ENTRY_REJECTED",
+          "CAL_EVENT_REGISTRATION_REQUESTED",
+          "CAL_EVENT_REGISTRATION_CONFIRMED",
+          "CAL_EVENT_REGISTRATION_WAITLISTED",
+          "CAL_EVENT_REGISTRATION_DECLINED",
+          "CAL_EVENT_REGISTRATION_CANCELLED"
         ],
         "type": "string",
         "x-ms-enum": {
@@ -70297,6 +70327,26 @@
             {
               "value": "CALENDAR_ENTRY_REJECTED",
               "name": "CalendarEntryRejected"
+            },
+            {
+              "value": "CAL_EVENT_REGISTRATION_REQUESTED",
+              "name": "CalEventRegistrationRequested"
+            },
+            {
+              "value": "CAL_EVENT_REGISTRATION_CONFIRMED",
+              "name": "CalEventRegistrationConfirmed"
+            },
+            {
+              "value": "CAL_EVENT_REGISTRATION_WAITLISTED",
+              "name": "CalEventRegistrationWaitlisted"
+            },
+            {
+              "value": "CAL_EVENT_REGISTRATION_DECLINED",
+              "name": "CalEventRegistrationDeclined"
+            },
+            {
+              "value": "CAL_EVENT_REGISTRATION_CANCELLED",
+              "name": "CalEventRegistrationCancelled"
             }
           ]
         }
@@ -70406,7 +70456,12 @@
           "DELEGATION_CREDENTIAL_SECRET_ROTATION_FAILED",
           "DELEGATION_CREDENTIAL_ROTATION_REQUIRED",
           "DELEGATION_CREDENTIAL_SECRET_ROTATED",
-          "CALENDAR_ENTRY_REJECTED"
+          "CALENDAR_ENTRY_REJECTED",
+          "CAL_EVENT_REGISTRATION_REQUESTED",
+          "CAL_EVENT_REGISTRATION_CONFIRMED",
+          "CAL_EVENT_REGISTRATION_WAITLISTED",
+          "CAL_EVENT_REGISTRATION_DECLINED",
+          "CAL_EVENT_REGISTRATION_CANCELLED"
         ],
         "type": "string",
         "x-ms-enum": {
@@ -70536,6 +70591,26 @@
             {
               "value": "CALENDAR_ENTRY_REJECTED",
               "name": "CalendarEntryRejected"
+            },
+            {
+              "value": "CAL_EVENT_REGISTRATION_REQUESTED",
+              "name": "CalEventRegistrationRequested"
+            },
+            {
+              "value": "CAL_EVENT_REGISTRATION_CONFIRMED",
+              "name": "CalEventRegistrationConfirmed"
+            },
+            {
+              "value": "CAL_EVENT_REGISTRATION_WAITLISTED",
+              "name": "CalEventRegistrationWaitlisted"
+            },
+            {
+              "value": "CAL_EVENT_REGISTRATION_DECLINED",
+              "name": "CalEventRegistrationDeclined"
+            },
+            {
+              "value": "CAL_EVENT_REGISTRATION_CANCELLED",
+              "name": "CalEventRegistrationCancelled"
             }
           ]
         }
@@ -89723,7 +89798,12 @@
           "DELEGATION_CREDENTIAL_SECRET_ROTATION_FAILED",
           "DELEGATION_CREDENTIAL_ROTATION_REQUIRED",
           "DELEGATION_CREDENTIAL_SECRET_ROTATED",
-          "CALENDAR_ENTRY_REJECTED"
+          "CALENDAR_ENTRY_REJECTED",
+          "CAL_EVENT_REGISTRATION_REQUESTED",
+          "CAL_EVENT_REGISTRATION_CONFIRMED",
+          "CAL_EVENT_REGISTRATION_WAITLISTED",
+          "CAL_EVENT_REGISTRATION_DECLINED",
+          "CAL_EVENT_REGISTRATION_CANCELLED"
         ],
         "type": "string",
         "x-ms-enum": {
@@ -89853,6 +89933,26 @@
             {
               "value": "CALENDAR_ENTRY_REJECTED",
               "name": "CalendarEntryRejected"
+            },
+            {
+              "value": "CAL_EVENT_REGISTRATION_REQUESTED",
+              "name": "CalEventRegistrationRequested"
+            },
+            {
+              "value": "CAL_EVENT_REGISTRATION_CONFIRMED",
+              "name": "CalEventRegistrationConfirmed"
+            },
+            {
+              "value": "CAL_EVENT_REGISTRATION_WAITLISTED",
+              "name": "CalEventRegistrationWaitlisted"
+            },
+            {
+              "value": "CAL_EVENT_REGISTRATION_DECLINED",
+              "name": "CalEventRegistrationDeclined"
+            },
+            {
+              "value": "CAL_EVENT_REGISTRATION_CANCELLED",
+              "name": "CalEventRegistrationCancelled"
             }
           ]
         }
@@ -89984,7 +90084,12 @@
           "DELEGATION_CREDENTIAL_SECRET_ROTATION_FAILED",
           "DELEGATION_CREDENTIAL_ROTATION_REQUIRED",
           "DELEGATION_CREDENTIAL_SECRET_ROTATED",
-          "CALENDAR_ENTRY_REJECTED"
+          "CALENDAR_ENTRY_REJECTED",
+          "CAL_EVENT_REGISTRATION_REQUESTED",
+          "CAL_EVENT_REGISTRATION_CONFIRMED",
+          "CAL_EVENT_REGISTRATION_WAITLISTED",
+          "CAL_EVENT_REGISTRATION_DECLINED",
+          "CAL_EVENT_REGISTRATION_CANCELLED"
         ],
         "type": "string",
         "x-ms-enum": {
@@ -90114,6 +90219,26 @@
             {
               "value": "CALENDAR_ENTRY_REJECTED",
               "name": "CalendarEntryRejected"
+            },
+            {
+              "value": "CAL_EVENT_REGISTRATION_REQUESTED",
+              "name": "CalEventRegistrationRequested"
+            },
+            {
+              "value": "CAL_EVENT_REGISTRATION_CONFIRMED",
+              "name": "CalEventRegistrationConfirmed"
+            },
+            {
+              "value": "CAL_EVENT_REGISTRATION_WAITLISTED",
+              "name": "CalEventRegistrationWaitlisted"
+            },
+            {
+              "value": "CAL_EVENT_REGISTRATION_DECLINED",
+              "name": "CalEventRegistrationDeclined"
+            },
+            {
+              "value": "CAL_EVENT_REGISTRATION_CANCELLED",
+              "name": "CalEventRegistrationCancelled"
             }
           ]
         }
@@ -90267,7 +90392,12 @@
           "DELEGATION_CREDENTIAL_SECRET_ROTATION_FAILED",
           "DELEGATION_CREDENTIAL_ROTATION_REQUIRED",
           "DELEGATION_CREDENTIAL_SECRET_ROTATED",
-          "CALENDAR_ENTRY_REJECTED"
+          "CALENDAR_ENTRY_REJECTED",
+          "CAL_EVENT_REGISTRATION_REQUESTED",
+          "CAL_EVENT_REGISTRATION_CONFIRMED",
+          "CAL_EVENT_REGISTRATION_WAITLISTED",
+          "CAL_EVENT_REGISTRATION_DECLINED",
+          "CAL_EVENT_REGISTRATION_CANCELLED"
         ],
         "type": "string",
         "x-ms-enum": {
@@ -90397,6 +90527,26 @@
             {
               "value": "CALENDAR_ENTRY_REJECTED",
               "name": "CalendarEntryRejected"
+            },
+            {
+              "value": "CAL_EVENT_REGISTRATION_REQUESTED",
+              "name": "CalEventRegistrationRequested"
+            },
+            {
+              "value": "CAL_EVENT_REGISTRATION_CONFIRMED",
+              "name": "CalEventRegistrationConfirmed"
+            },
+            {
+              "value": "CAL_EVENT_REGISTRATION_WAITLISTED",
+              "name": "CalEventRegistrationWaitlisted"
+            },
+            {
+              "value": "CAL_EVENT_REGISTRATION_DECLINED",
+              "name": "CalEventRegistrationDeclined"
+            },
+            {
+              "value": "CAL_EVENT_REGISTRATION_CANCELLED",
+              "name": "CalEventRegistrationCancelled"
             }
           ]
         }
