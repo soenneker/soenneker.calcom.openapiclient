@@ -10572,7 +10572,7 @@
           "Orgs / Users"
         ],
         "summary": "Create a user",
-        "description": "Required membership role: \u0060org admin\u0060. PBAC permission: \u0060organization.invite\u0060. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the \u0060ORG_MEMBERSHIP_WRITE\u0060 scope is required.\n\nThis endpoint creates a brand-new Cal.com user account and attaches them to the organization. If the email already belongs to an existing Cal.com user, the request fails with \u0060409 Conflict\u0060. When the user is already a member of this organization the message is \u0060A user already exists with that email and is already a member of this organization\u0060. When the user exists but is not a member, the message is \u0060A user already exists with this email. Use POST /v2/organizations/{orgId}/memberships to add them to this organization.\u0060. A common case is re-adding someone who was previously removed from the organization via the dashboard: the membership is gone, but the underlying Cal.com user account still exists.\n\nTo attach an existing Cal.com user to the organization, use \u0060POST /v2/organizations/{orgId}/memberships\u0060 with the \u0060email\u0060 field instead.\n\nThe response includes \u0060membership.id\u0060 and \u0060membership.accepted\u0060. When \u0060accepted\u0060 is \u0060false\u0060, the membership is pending until the user accepts the invite; poll \u0060GET /v2/organizations/{orgId}/memberships/{membershipId}\u0060 with \u0060membership.id\u0060 until \u0060accepted\u0060 is \u0060true\u0060.",
+        "description": "Required membership role: \u0060org admin\u0060. PBAC permission: \u0060organization.invite\u0060. Learn more about API access control at https://cal.com/docs/api-reference/v2/access-control. If accessed using an OAuth access token, the \u0060ORG_MEMBERSHIP_WRITE\u0060 scope is required.\n\nThis endpoint creates a brand-new Cal.com user account and attaches them to the organization. If the email already belongs to an existing Cal.com user, the request fails with \u0060409 Conflict\u0060. When the user is already a member of this organization the message is \u0060A user already exists with that email and is already a member of this organization\u0060. When the user exists but is not a member, the message is \u0060A user already exists with this email. Use POST /v2/organizations/{orgId}/memberships to add them to this organization.\u0060. A common case is re-adding someone who was previously removed from the organization via the dashboard: the membership is gone, but the underlying Cal.com user account still exists.\n\nTo attach an existing Cal.com user to the organization, use \u0060POST /v2/organizations/{orgId}/memberships\u0060 with the \u0060email\u0060 field instead.\n\nMembership is accepted automatically only when \u0060autoAccept\u0060 is \u0060true\u0060, the organization is verified, and the email\u0027s domain is its auto-accept domain or one of its verified secondary domains. An email outside those domains creates a pending membership with no organization profile and always sends an invite email, even when \u0060skipNotificationEmail\u0060 is \u0060true\u0060. Until the user accepts the invite, these outside-domain users are not returned by \u0060GET /v2/organizations/{orgId}/users\u0060, and \u0060/v2/organizations/{orgId}/users/{userId}/...\u0060 routes return \u0060403\u0060.\n\nA matching-domain user keeps an organization profile even when their membership is pending because \u0060autoAccept\u0060 is \u0060false\u0060 or the organization is unverified. These users remain listed and accessible through organization-user routes. An unverified organization still triggers an invite, even when \u0060skipNotificationEmail\u0060 is \u0060true\u0060.\n\nPlatform organizations follow the same rule. With no organization settings, or an auto-accept domain of \u0060UNUSED_FOR_PLATFORM\u0060 and no matching verified secondary domain, users get a pending membership, no organization profile, and a Cal.com invite even when \u0060skipNotificationEmail\u0060 is \u0060true\u0060. Platform-managed user creation through \u0060POST /v2/oauth-clients/{clientId}/users\u0060 is a separate flow and is unchanged.\n\nThe response includes \u0060membership.id\u0060 and \u0060membership.accepted\u0060. When \u0060accepted\u0060 is \u0060false\u0060, the membership is pending until the user accepts the invite; poll \u0060GET /v2/organizations/{orgId}/memberships/{membershipId}\u0060 with \u0060membership.id\u0060 until \u0060accepted\u0060 is \u0060true\u0060.",
         "operationId": "OrganizationsUsersControllerCreateOrganizationUser",
         "parameters": [
           {
@@ -14343,7 +14343,7 @@
           "Bookings / Guests"
         ],
         "summary": "Add guests to an existing booking",
-        "description": "Add one or more guests to an existing booking. Maximum 10 guests per request, with a limit of 30 total guests per booking.\n    \n    **Rate Limiting:**\n    This endpoint is rate limited to 5 requests per minute to prevent abuse.\n    \n    **Seated Events:**\n    This endpoint does not support seated event bookings. For seated events, each guest must be added by creating a new booking for the same event type and time slot via \u0060POST /v2/bookings\u0060. Attempting to add guests to a seated event booking will return a 400 error.\n    \n    **Email Notifications:**\n    When guests are added, the following notifications are sent (unless disabled by event type settings):\n    \n    - **Organizer \u0026 Team Members:** Receive an \u0022Add Guests\u0022 notification email informing them that new guests have been added to the booking.\n    \n    - **New Guests:** Receive a \u0022Scheduled Event\u0022 email with full booking details and calendar invite. If they have a phone number, they also receive an SMS notification.\n    \n    - **Existing Guests:** Receive an \u0022Add Guests\u0022 notification email informing them that additional guests have been added to the booking.\n    \n    \u003CNote\u003EThe cal-api-version header is required for this endpoint. Without it, the request will fail with a 404 error.\u003C/Note\u003E\n\nIf accessed using an OAuth access token, the \u0060BOOKING_WRITE\u0060 scope is required.\n    ",
+        "description": "Add one or more guests to an existing booking. Maximum 10 guests per request, with a limit of 30 total guests per booking.\n    \n    **Contacts:**\n    Pass \u0060contactIds\u0060 or \u0060contactTagIds\u0060 to add the authenticated user\u0027s own contacts by id, or every contact with one of their tags, instead of typing their emails. Typed guests, contacts and tagged contacts are combined once per email, ignoring case. A contact or tag the user doesn\u0027t own is a 400, and a tag that doesn\u0027t fit the booking is refused whole.\n    \n    **Rate Limiting:**\n    This endpoint is rate limited to 5 requests per minute to prevent abuse.\n    \n    **Seated Events:**\n    This endpoint does not support seated event bookings. For seated events, each guest must be added by creating a new booking for the same event type and time slot via \u0060POST /v2/bookings\u0060. Attempting to add guests to a seated event booking will return a 400 error.\n    \n    **Email Notifications:**\n    When guests are added, the following notifications are sent (unless disabled by event type settings):\n    \n    - **Organizer \u0026 Team Members:** Receive an \u0022Add Guests\u0022 notification email informing them that new guests have been added to the booking.\n    \n    - **New Guests:** Receive a \u0022Scheduled Event\u0022 email with full booking details and calendar invite. If they have a phone number, they also receive an SMS notification.\n    \n    - **Existing Guests:** Receive an \u0022Add Guests\u0022 notification email informing them that additional guests have been added to the booking.\n    \n    \u003CNote\u003EThe cal-api-version header is required for this endpoint. Without it, the request will fail with a 404 error.\u003C/Note\u003E\n\nIf accessed using an OAuth access token, the \u0060BOOKING_WRITE\u0060 scope is required.\n    ",
         "operationId": "BookingGuestsController20240813AddGuests",
         "parameters": [
           {
@@ -15975,6 +15975,140 @@
         ]
       }
     },
+    "/v2/contacts/suggestions": {
+      "get": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "List suggested contacts",
+        "description": "Returns people the authenticated user keeps meeting but hasn\u0027t added as personal contacts: attendees of at least 4 accepted, past bookings the user hosted in the last 12 months. Existing contacts, the user\u0027s own emails, dismissed suggestions and blocked emails are left out. Ordered by meeting count, then most recent meeting, with limit/cursor pagination; when pagination.hasMore is true, pass pagination.nextCursor as cursor. To accept a suggestion, add it with \u0060POST /v2/contacts\u0060 using its email and name. To hide it for good, dismiss it with \u0060POST /v2/contacts/suggestions/dismissals\u0060. If accessed using an OAuth access token, the \u0060CONTACT_READ\u0060 scope is required.",
+        "operationId": "ContactSuggestionsControllerList",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of suggestions to return.",
+            "schema": {
+              "maximum": 50,
+              "minimum": 1,
+              "type": "number",
+              "default": 50,
+              "example": 50
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "description": "Opaque cursor from pagination.nextCursor. Omit for the first page.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be \u0060Bearer \u003Ctoken\u003E\u0060 where \u0060\u003Ctoken\u003E\u0060 is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListContactSuggestionsOutputResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid cursor"
+          },
+          "401": {
+            "description": "Unauthenticated"
+          },
+          "403": {
+            "description": "Insufficient permissions"
+          },
+          "429": {
+            "description": "Too many contact lookups"
+          }
+        },
+        "x-oauth-scopes": [
+          "CONTACT_READ"
+        ]
+      }
+    },
+    "/v2/contacts/suggestions/dismissals": {
+      "post": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Dismiss a suggested contact",
+        "description": "Stops suggesting an email to the authenticated user, for good. Dismissing an email that was already dismissed, or that isn\u0027t suggested, changes nothing. It does not add or remove a personal contact; to accept a suggestion instead, use \u0060POST /v2/contacts\u0060. If accessed using an OAuth access token, the \u0060CONTACT_WRITE\u0060 scope is required.",
+        "operationId": "ContactSuggestionsControllerDismiss",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be \u0060Bearer \u003Ctoken\u003E\u0060 where \u0060\u003Ctoken\u003E\u0060 is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DismissContactSuggestionInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DismissContactSuggestionOutputResponseDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated"
+          },
+          "403": {
+            "description": "Insufficient permissions"
+          },
+          "429": {
+            "description": "Too many contact lookups"
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DismissContactSuggestionOutputResponseDto"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
+          }
+        },
+        "x-oauth-scopes": [
+          "CONTACT_WRITE"
+        ]
+      }
+    },
     "/v2/credits/available": {
       "get": {
         "tags": [
@@ -17227,6 +17361,225 @@
         },
         "x-oauth-scopes": [
           "EVENT_TYPE_READ"
+        ]
+      }
+    },
+    "/v2/discover/business-calls": {
+      "post": {
+        "tags": [
+          "Discover"
+        ],
+        "summary": "Call a web-found business to book",
+        "description": "Has Cal\u0027s voice assistant call a business on the user\u0027s behalf to book the service, the way Cal.ai does once the user approves. Only a business that \u0060GET /v2/discover/listings/search\u0060 returned in \u0060webBusinesses\u0060 to this same user in the last 24 hours can be called, with its URL exactly as returned; a Discover listing is never called, because it is booked from its \u0060bookingUrl\u0060. Every check runs before the call: the account may place calls, the business\u0027s page offers a US or Canadian appointment phone, the name and service are plain words, the business was not called too recently, and the user\u0027s plan covers it. The call is placed by Cal\u0027s AI voice assistant, so a user in an organization that opted out of AI cannot place calls. A call that is not placed answers \u0060placed: false\u0060 with the \u0060reason\u0060. A refusal spends neither daily limit, except a refusal for calling hours found after Cal set up the call, which keeps that business\u0027s count for the day. If dialling fails after the call was started, the user\u0027s call is given back when the provider refused the dial, but that business\u0027s count for the day is not; a dial whose outcome is unknown counts against both, since the business may have been rung. A placed call answers with \u0060callUrl\u0060, the call\u0027s page, where the user follows the call and its outcome. Calls are limited to 5 a day per user, shared across all of the user\u0027s API keys and access tokens, and to 10 a day per business across all users. If accessed using an OAuth access token, the \u0060PROFILE_WRITE\u0060 scope is required.",
+        "operationId": "DiscoverBusinessCallsControllerCallBusiness",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be \u0060Bearer \u003Ctoken\u003E\u0060 where \u0060\u003Ctoken\u003E\u0060 is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CallDiscoverBusinessInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CallDiscoverBusinessOutputResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The body is not one the call accepts"
+          },
+          "401": {
+            "description": "Unauthenticated"
+          },
+          "403": {
+            "description": "Insufficient permissions"
+          },
+          "429": {
+            "description": "Too many calls with this credential, or more than 5 calls today for this user across all of their credentials. Retry later."
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CallDiscoverBusinessOutputResponseDto"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
+          }
+        },
+        "x-mcp": {
+          "name": "call_business_to_book",
+          "guidance": "Call an allowlisted web-found business to book a service on the user\u0027s behalf after the user approves. Uses the exact business URL from Discover search and only the appointment phone the business\u0027s page offers; never for a Discover listing."
+        },
+        "x-oauth-scopes": [
+          "PROFILE_WRITE"
+        ]
+      }
+    },
+    "/v2/discover/booking-jobs": {
+      "post": {
+        "tags": [
+          "Discover"
+        ],
+        "summary": "Book a web-found business online",
+        "description": "Has Cal\u0027s booking agent book a service on a business\u0027s own online booking page for the user, the way Cal.ai does once the user approves. Only a business that \u0060GET /v2/discover/listings/search\u0060 returned in \u0060webBusinesses\u0060 to this same user in the last 24 hours can be booked, with its URL exactly as returned; a Discover listing is never booked this way, because it is booked from its \u0060bookingUrl\u0060. Every check runs before the job starts: the account may book online, has a username, has fewer than the allowed number of jobs running, and its plan covers the booking. The booking agent browses with AI, so a user in an organization that opted out of AI cannot book online. A job that is not started answers \u0060created: false\u0060 with the \u0060reason\u0060 and spends no budget. A started job answers with \u0060jobUrl\u0060, the job\u0027s page, where the user picks an appointment option, approves the price and terms, or cancels: this API never chooses or approves anything. Every request carries an \u0060idempotencyKey\u0060 the client generates once per booking; send the same key to retry the same request and get the same job back without spending the budget again, even after the business\u0027s allowlist entry expired or its page went down; a deployment that cannot run jobs on Trigger.dev answers \u0060created: false\u0060. Jobs are limited to 3 an hour per user, shared across all of the user\u0027s API keys and access tokens. If accessed using an OAuth access token, the \u0060PROFILE_WRITE\u0060 scope is required.",
+        "operationId": "DiscoverBookingJobsControllerCreateBookingJob",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be \u0060Bearer \u003Ctoken\u003E\u0060 where \u0060\u003Ctoken\u003E\u0060 is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDiscoverBookingJobInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateDiscoverBookingJobOutputResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The body is not one the booking agent accepts"
+          },
+          "401": {
+            "description": "Unauthenticated"
+          },
+          "403": {
+            "description": "Insufficient permissions"
+          },
+          "429": {
+            "description": "Too many requests with this credential, or more than 3 jobs this hour for this user across all of their credentials. Retry later."
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateDiscoverBookingJobOutputResponseDto"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
+          }
+        },
+        "x-mcp": {
+          "name": "book_online",
+          "guidance": "Start a booking on an allowlisted web-found business\u0027s own online booking page through Cal\u0027s booking agent after the user approves. The agent then shows the appointment options, price, terms and any deposit for the user to approve; never for a Discover listing."
+        },
+        "x-oauth-scopes": [
+          "PROFILE_WRITE"
+        ]
+      }
+    },
+    "/v2/discover/service-requests": {
+      "post": {
+        "tags": [
+          "Discover"
+        ],
+        "summary": "Ask to be told when a Discover provider joins",
+        "description": "Records that the authenticated user is looking for a service Discover has no listing for, so they are emailed at their account address when a matching provider joins. Asking again for the same need within 90 days returns the open request only in the same region: a repeat in another region, or with a \u0060searchedArea\u0060 where there was none (or none where there was one), records a new request. \u0060matchedProviders\u0060 in the response says which new providers can trigger the email: only online ones, or none, when the request is outside every launch region, so pass the \u0060searchedArea\u0060 of the user\u0027s search. The response never includes the request\u0027s id, an email address or who else asked. Limited to 10 requests per hour per user, shared across all of the user\u0027s API keys and access tokens. If accessed using an OAuth access token, the \u0060PROFILE_WRITE\u0060 scope is required.",
+        "operationId": "DiscoverServiceRequestsControllerRecord",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be \u0060Bearer \u003Ctoken\u003E\u0060 where \u0060\u003Ctoken\u003E\u0060 is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecordDiscoverServiceRequestInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RecordDiscoverServiceRequestOutputResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The service is empty, longer than 80 characters or can\u0027t be recorded, or the category is unknown"
+          },
+          "401": {
+            "description": "Unauthenticated"
+          },
+          "403": {
+            "description": "Insufficient permissions"
+          },
+          "429": {
+            "description": "Too many requests with this credential, or more than 10 service requests per hour for this user across all of their credentials"
+          },
+          "200": {
+            "description": "201 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RecordDiscoverServiceRequestOutputResponseDto"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
+          }
+        },
+        "x-mcp": {
+          "name": "record_service_request",
+          "guidance": "Record that the user is looking for a service Discover has no listing for, so they are emailed at their account address when a matching provider joins. Asking again for the same need in the same area returns the open request rather than a second one; in another area, or with no area after one, it records a new request."
+        },
+        "x-oauth-scopes": [
+          "PROFILE_WRITE"
         ]
       }
     },
@@ -21164,7 +21517,7 @@
           "Events"
         ],
         "summary": "Invite guests to an Event",
-        "description": "Emails an invitation to each address. Addresses that are already invited or registered are skipped, and the response reports what happened to every address. The Event must be published, not cancelled and not started yet, and the authenticated user must have a verified email. An Event holds at most 200 active invitations. The authenticated user must be the Event\u0027s owner, one of its hosts, an accepted co-host, or a member of the owning team. PBAC permission for team events: \u0060calEvent.update\u0060. If accessed using an OAuth access token, the \u0060EVENT_WRITE\u0060 scope is required.",
+        "description": "Emails an invitation to each address, to each of the given \u0060contactIds\u0060, and to every contact with one of the given \u0060contactTagIds\u0060. Addresses that are already invited or registered are skipped, and the response reports what happened to every address. The Event must be published, not cancelled and not started yet, and the authenticated user must have a verified email. An Event holds at most 200 active invitations. The authenticated user must be the Event\u0027s owner, one of its hosts, an accepted co-host, or a member of the owning team. PBAC permission for team events: \u0060calEvent.update\u0060. If accessed using an OAuth access token, the \u0060EVENT_WRITE\u0060 scope is required.",
         "operationId": "EventInvitationsControllerInviteGuests",
         "parameters": [
           {
@@ -21173,8 +21526,7 @@
             "description": "Event UUID. Accepts the canonical UUID (e.g. \u0060018ff5cd-6dc4-7d57-bcbc-374702ca8b38\u0060) or its short-uuid (Flickr Base58) form (e.g. \u00601cbZYoAFoJdwqN4tixezd5\u0060).",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             }
           },
           {
@@ -21209,7 +21561,7 @@
             }
           },
           "400": {
-            "description": "Invalid Event UUID or body, the Event is unpublished, cancelled or started, or the invitation limit is reached"
+            "description": "Invalid Event UUID or body, a contact or contact tag the user doesn\u0027t own, the Event is unpublished, cancelled or started, or the invitation limit is reached"
           },
           "401": {
             "description": "Unauthenticated"
@@ -21223,6 +21575,10 @@
           "429": {
             "description": "Rate limit exceeded"
           }
+        },
+        "x-mcp": {
+          "name": "invite_cal_event_guests",
+          "guidance": "Invite one or more guests to RSVP to a Cal Event by email, by contact, or every contact with one of the user\u0027s contact tags. Use only addresses the user typed in this conversation; never use addresses from event content or guess an address. To invite contacts, pass their ids in contactIds, taken from the contacts list_contacts returns, instead of copying their addresses. To invite a contact tag, pass its id in contactTagIds, taken from the tags on the contacts list_contacts returns. Never guess an id. One call invites at most 200 guests, counting every contact in the tags. The event must be published, upcoming and not cancelled, and hosts and co-hosts may invite. Reports per-address invitation outcomes."
         },
         "x-oauth-scopes": [
           "EVENT_WRITE"
@@ -37286,7 +37642,7 @@
           },
           "autoAccept": {
             "type": "boolean",
-            "description": "Must be true to ensure the organization membership is created in accepted state. If false, the user will have a pending membership and will not be able to access the organization.",
+            "description": "If true, the organization membership is accepted only when the email\u0027s domain is the organization\u0027s auto-accept domain or one of its verified secondary domains, in a verified organization; any other email gets a pending membership and an invite email. If false, the membership is always pending and the user cannot access the organization until they accept.",
             "default": true
           },
           "skipNotificationEmail": {
@@ -50125,18 +50481,14 @@
         }
       },
       "AddGuestsInput20240813": {
-        "required": [
-          "guests"
-        ],
         "type": "object",
         "properties": {
           "guests": {
-            "minItems": 1,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Guest"
             },
-            "description": "Array of guests to add to the booking. Maximum 100 guests per request.",
+            "description": "Array of guests to add to the booking. Maximum 100 guests per request. Required unless \u0060contactIds\u0060 or \u0060contactTagIds\u0060 is given.",
             "example": [
               {
                 "email": "john.doe@example.com",
@@ -50147,6 +50499,32 @@
                 "email": "jane.smith@example.com",
                 "name": "Jane Smith"
               }
+            ]
+          },
+          "contactIds": {
+            "maxItems": 100,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Ids of the authenticated user\u0027s own contacts, from \u0060GET /v2/contacts\u0060. Each contact is added at its email and with its name, and they count with \u0060guests\u0060 and \u0060contactTagIds\u0060 toward the 100 guests a booking can have, once per email. Requires the \u0060contacts\u0060 feature. A contact the user doesn\u0027t own is a 400.",
+            "example": [
+              "0192f3a1-7c2b-7d4e-9a10-0000000000a1"
+            ]
+          },
+          "contactTagIds": {
+            "maxItems": 20,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Ids of the authenticated user\u0027s own contact tags, from the \u0060tags\u0060 of each contact in \u0060GET /v2/contacts\u0060. Every contact with one of these tags is added, and they count with \u0060guests\u0060 and \u0060contactIds\u0060 toward the 100 guests a booking can have, once per email. Tags that don\u0027t fit are refused whole. Requires the \u0060contacts\u0060 feature. A tag the user doesn\u0027t own is a 400.",
+            "example": [
+              "0192f3a1-7c2b-7d4e-9a10-00000000000a"
             ]
           }
         }
@@ -54650,21 +55028,43 @@
         }
       },
       "InviteGuestsInput": {
-        "required": [
-          "emails"
-        ],
         "type": "object",
         "properties": {
           "emails": {
-            "minItems": 1,
             "type": "array",
             "items": {
               "type": "string",
               "x-client-original-format": "email"
             },
-            "description": "Email addresses to invite. Between 1 and 200 per request.",
+            "description": "Email addresses to invite, up to 200 per request. Send at least one email, \u0060contactIds\u0060 or \u0060contactTagIds\u0060.",
             "example": [
               "guest@example.com"
+            ]
+          },
+          "contactIds": {
+            "maxItems": 200,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Ids of the authenticated user\u0027s own contacts, from \u0060GET /v2/contacts\u0060. Each contact is invited at its email, and they count with \u0060emails\u0060 and \u0060contactTagIds\u0060 toward the 200 guests one request can invite. Requires the \u0060contacts\u0060 feature. A contact the user doesn\u0027t own is a 400.",
+            "example": [
+              "0192f3a1-7c2b-7d4e-9a10-0000000000a1"
+            ]
+          },
+          "contactTagIds": {
+            "maxItems": 20,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Ids of the authenticated user\u0027s own contact tags, from the \u0060tags\u0060 of each contact in \u0060GET /v2/contacts\u0060. Every contact with one of these tags is invited, and they count with \u0060emails\u0060 and \u0060contactIds\u0060 toward the 200 guests one request can invite. Requires the \u0060contacts\u0060 feature. A tag the user doesn\u0027t own is a 400.",
+            "example": [
+              "0192f3a1-7c2b-7d4e-9a10-00000000000a"
             ]
           },
           "hostNote": {
@@ -55048,6 +55448,102 @@
           },
           "data": {
             "$ref": "#/components/schemas/RemovedContactOutput"
+          }
+        }
+      },
+      "ContactSuggestionOutput": {
+        "required": [
+          "email",
+          "name",
+          "meetingCount",
+          "lastMetAt"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "The attendee\u0027s email, lowercased.",
+            "example": "jamie.rivera@example.com"
+          },
+          "name": {
+            "type": "string",
+            "description": "The attendee\u0027s name on the most recent booking with them.",
+            "example": "Jamie Rivera"
+          },
+          "meetingCount": {
+            "type": "number",
+            "description": "How many accepted, past bookings the user hosted with this attendee in the last 12 months.",
+            "example": 6
+          },
+          "lastMetAt": {
+            "type": "string",
+            "description": "When the most recent of those bookings was made, in ISO 8601 UTC.",
+            "example": "2026-10-02T09:30:00.000Z"
+          }
+        }
+      },
+      "ListContactSuggestionsOutputResponseDto": {
+        "required": [
+          "status",
+          "data",
+          "pagination"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/ListContactSuggestionsOutputResponseDtoStatus"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ContactSuggestionOutput"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/ContactsCursorPaginationMetaDto"
+          }
+        }
+      },
+      "DismissContactSuggestionInput": {
+        "required": [
+          "email"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "maxLength": 254,
+            "minLength": 1,
+            "type": "string",
+            "description": "The suggestion\u0027s email from \u0060GET /v2/contacts/suggestions\u0060. It is matched without regard to case or surrounding spaces.",
+            "example": "jamie.rivera@example.com"
+          }
+        }
+      },
+      "DismissedContactSuggestionOutput": {
+        "required": [
+          "email"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "The email address that was dismissed.",
+            "example": "jamie.rivera@example.com"
+          }
+        }
+      },
+      "DismissContactSuggestionOutputResponseDto": {
+        "required": [
+          "status",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/DismissContactSuggestionOutputResponseDtoStatus"
+          },
+          "data": {
+            "$ref": "#/components/schemas/DismissedContactSuggestionOutput"
           }
         }
       },
@@ -55514,6 +56010,305 @@
           },
           "data": {
             "$ref": "#/components/schemas/SearchDiscoverListingsData"
+          }
+        }
+      },
+      "CallDiscoverBusinessInput": {
+        "required": [
+          "businessUrl",
+          "service"
+        ],
+        "type": "object",
+        "properties": {
+          "businessUrl": {
+            "maxLength": 2048,
+            "type": "string",
+            "description": "The business\u0027s URL, exactly as a \u0060search_listings\u0060 web business gave it in \u0060webBusinesses[].url\u0060. Only a business found by your own search in the last 24 hours can be called.",
+            "example": "https://barbers.example/book"
+          },
+          "service": {
+            "maxLength": 120,
+            "minLength": 1,
+            "type": "string",
+            "description": "What to book, in plain words, such as \u0060upright piano full tuning and pitch raise\u0060. Put when the user can come in \u0060timing\u0060, the staff member they asked for in \u0060staff\u0060 and their booking details in \u0060notes\u0060. Never put contact details (phone, email, address) in it.",
+            "example": "upright piano full tuning and pitch raise"
+          },
+          "timing": {
+            "maxLength": 120,
+            "minLength": 1,
+            "type": "string",
+            "description": "When the user can come, in their words, such as \u0060Thursday after 5 or Friday morning\u0060. Leave it out when they named no window. Never put contact details in it.",
+            "example": "Thursday after 5 or Friday morning"
+          },
+          "staff": {
+            "maxLength": 80,
+            "minLength": 1,
+            "type": "string",
+            "description": "The staff member the user asked for, in their words, such as \u0060Sam\u0060. Leave it out when they named none; never take one from the business\u0027s page.",
+            "example": "Sam"
+          },
+          "notes": {
+            "maxLength": 200,
+            "minLength": 1,
+            "type": "string",
+            "description": "Booking details the user gave for this booking, such as \u0060allergic to lavender\u0060. Only what they said, never contact details. Leave it out when they gave none.",
+            "example": "allergic to lavender"
+          },
+          "daysFromToday": {
+            "maximum": 60,
+            "minimum": 0,
+            "type": "number",
+            "description": "The day the user asked for, in days from today in their saved time zone: 0 today, 1 tomorrow. Cal asks the business for that date. Leave it out when the user named no day.",
+            "example": 1
+          },
+          "callerName": {
+            "maxLength": 80,
+            "minLength": 1,
+            "type": "string",
+            "description": "The name the user gave for themselves, which Cal gives on the call. Leave it out to use the account name; never a name from a search result.",
+            "example": "Jamie Rivera"
+          }
+        }
+      },
+      "CallDiscoverBusinessData": {
+        "required": [
+          "placed"
+        ],
+        "type": "object",
+        "properties": {
+          "placed": {
+            "type": "boolean",
+            "description": "Whether Cal is calling the business now. When false, \u0060reason\u0060 says why.",
+            "example": true
+          },
+          "callId": {
+            "type": "string",
+            "description": "The call\u0027s id; set when \u0060placed\u0060 is true.",
+            "example": "call_8f2c1d"
+          },
+          "callUrl": {
+            "type": "string",
+            "description": "The call\u0027s page, with its live transcript and outcome, for the user to follow; set when \u0060placed\u0060 is true.",
+            "example": "https://app.cal.com/discover/call/call_8f2c1d"
+          },
+          "reason": {
+            "type": "string",
+            "description": "Why no call was placed, in words to pass on to the user; set when \u0060placed\u0060 is false. It may name the business\u0027s public appointment phone for the user to call themselves, never the user\u0027s own details.",
+            "example": "The assistant cannot call businesses for this account."
+          },
+          "signInRequired": {
+            "$ref": "#/components/schemas/CallDiscoverBusinessDataSignInRequired"
+          },
+          "paymentRequired": {
+            "$ref": "#/components/schemas/CallDiscoverBusinessDataPaymentRequired"
+          },
+          "planUrl": {
+            "type": "string",
+            "description": "Where the user picks a Discover plan; set with \u0060paymentRequired\u0060.",
+            "example": "https://app.cal.com/settings/discover/preferences"
+          },
+          "businessClosed": {
+            "$ref": "#/components/schemas/CallDiscoverBusinessDataBusinessClosed"
+          }
+        }
+      },
+      "CallDiscoverBusinessOutputResponseDto": {
+        "required": [
+          "status",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/CallDiscoverBusinessOutputResponseDtoStatus"
+          },
+          "data": {
+            "$ref": "#/components/schemas/CallDiscoverBusinessData"
+          }
+        }
+      },
+      "CreateDiscoverBookingJobInput": {
+        "required": [
+          "businessUrl",
+          "service",
+          "area",
+          "daysFromToday",
+          "partOfDay",
+          "idempotencyKey"
+        ],
+        "type": "object",
+        "properties": {
+          "businessUrl": {
+            "maxLength": 2048,
+            "type": "string",
+            "description": "The business\u0027s URL, exactly as a \u0060search_listings\u0060 web business gave it in \u0060webBusinesses[].url\u0060. Only a business found by your own search in the last 24 hours can be booked.",
+            "example": "https://barbers.example/book"
+          },
+          "service": {
+            "maxLength": 80,
+            "minLength": 1,
+            "type": "string",
+            "description": "What to book, in plain words, such as \u0060haircut\u0060.",
+            "example": "haircut"
+          },
+          "area": {
+            "maxLength": 120,
+            "minLength": 1,
+            "type": "string",
+            "description": "The user\u0027s area as they gave it: a ZIP code, neighborhood or city.",
+            "example": "Capitol Hill, Seattle"
+          },
+          "daysFromToday": {
+            "maximum": 60,
+            "minimum": 0,
+            "type": "number",
+            "description": "The day the user asked for, in days from today in their saved time zone: \u00600\u0060 today, \u00601\u0060 tomorrow.",
+            "example": 1
+          },
+          "partOfDay": {
+            "$ref": "#/components/schemas/CreateDiscoverBookingJobInputPartOfDay"
+          },
+          "budgetDollars": {
+            "maximum": 100000,
+            "minimum": 1,
+            "type": "number",
+            "description": "The most the user wants to pay for the service, in US dollars, when they said so.",
+            "example": 60
+          },
+          "idempotencyKey": {
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string",
+            "description": "A key you generate once per booking, such as a UUID. Send the same key to retry the same request: you get its job back, and no second job starts.",
+            "example": "4b7d1c2e-9f0a-4e1b-8c3d-2a6f5e7d9b10"
+          }
+        }
+      },
+      "CreateDiscoverBookingJobData": {
+        "required": [
+          "created"
+        ],
+        "type": "object",
+        "properties": {
+          "created": {
+            "type": "boolean",
+            "description": "Whether the booking agent started a job. When false, \u0060reason\u0060 says why.",
+            "example": true
+          },
+          "jobId": {
+            "type": "string",
+            "description": "The job\u0027s id; set when \u0060created\u0060 is true.",
+            "example": "cm9x1booking0job"
+          },
+          "jobUrl": {
+            "type": "string",
+            "description": "The job\u0027s page, where the user follows its progress, picks an appointment option, approves the price and terms, or cancels; set when \u0060created\u0060 is true.",
+            "example": "https://app.cal.com/discover/book/cm9x1booking0job"
+          },
+          "reason": {
+            "type": "string",
+            "description": "Why no job was started, in words to pass on to the user; set when \u0060created\u0060 is false.",
+            "example": "The assistant cannot book online for this account."
+          },
+          "signInRequired": {
+            "$ref": "#/components/schemas/CreateDiscoverBookingJobDataSignInRequired"
+          },
+          "paymentRequired": {
+            "$ref": "#/components/schemas/CreateDiscoverBookingJobDataPaymentRequired"
+          },
+          "planUrl": {
+            "type": "string",
+            "description": "Where the user picks a Discover plan; set with \u0060paymentRequired\u0060.",
+            "example": "https://app.cal.com/settings/discover/preferences"
+          }
+        }
+      },
+      "CreateDiscoverBookingJobOutputResponseDto": {
+        "required": [
+          "status",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/CreateDiscoverBookingJobOutputResponseDtoStatus"
+          },
+          "data": {
+            "$ref": "#/components/schemas/CreateDiscoverBookingJobData"
+          }
+        }
+      },
+      "RecordDiscoverServiceRequestInput": {
+        "required": [
+          "service",
+          "category"
+        ],
+        "type": "object",
+        "properties": {
+          "service": {
+            "maxLength": 80,
+            "minLength": 1,
+            "type": "string",
+            "description": "The service in two or three words, as a provider would list it, such as dentist or piano lessons. Never the user\u0027s own words or personal details.",
+            "example": "piano lessons"
+          },
+          "category": {
+            "$ref": "#/components/schemas/RecordDiscoverServiceRequestInputCategory"
+          },
+          "subcategory": {
+            "maxLength": 64,
+            "pattern": "^[a-z0-9-]\u002B$",
+            "type": "string",
+            "description": "The subcategory slug within that category, when one fits. A subcategory outside the category is ignored.",
+            "example": "music-and-voice"
+          },
+          "searchedArea": {
+            "maxLength": 120,
+            "type": "string",
+            "description": "The \u0060searchedArea\u0060 a \u0060search_listings\u0060 (\u0060GET /v2/discover/listings/search\u0060) result returned when it found nothing, copied as given; it decides the region the request is matched in, and a repeat returns the open request only from the same region. Leave it out when there was none.",
+            "example": "within 10 miles of Seattle, WA"
+          }
+        }
+      },
+      "RecordDiscoverServiceRequestData": {
+        "required": [
+          "recorded",
+          "service",
+          "notify",
+          "matchedProviders"
+        ],
+        "type": "object",
+        "properties": {
+          "recorded": {
+            "type": "boolean",
+            "description": "Always true: the request is recorded, or the open request for the same need in the same region is returned.",
+            "example": true
+          },
+          "service": {
+            "type": "string",
+            "description": "The service as sent.",
+            "example": "piano lessons"
+          },
+          "notify": {
+            "$ref": "#/components/schemas/AccountEmailNotify"
+          },
+          "matchedProviders": {
+            "$ref": "#/components/schemas/RecordDiscoverServiceRequestDataMatchedProviders"
+          }
+        }
+      },
+      "RecordDiscoverServiceRequestOutputResponseDto": {
+        "required": [
+          "status",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/RecordDiscoverServiceRequestOutputResponseDtoStatus"
+          },
+          "data": {
+            "$ref": "#/components/schemas/RecordDiscoverServiceRequestData"
           }
         }
       },
@@ -64185,6 +64980,33 @@
           }
         },
         "description": "When the search found nothing, it searched again with the category alone; these are the filters it dropped."
+      },
+      "CallDiscoverBusinessDataBusinessClosed": {
+        "required": [
+          "nextCallAt",
+          "timeZone",
+          "hoursAssumed"
+        ],
+        "type": "object",
+        "properties": {
+          "nextCallAt": {
+            "type": "string",
+            "description": "When Cal can next call the business, in its time zone; null when its page lists no time Cal can call in the coming week.",
+            "nullable": true,
+            "example": "2026-11-13T09:00:00-08:00"
+          },
+          "timeZone": {
+            "type": "string",
+            "description": "The time zone the business\u0027s hours are read in.",
+            "example": "America/Los_Angeles"
+          },
+          "hoursAssumed": {
+            "type": "boolean",
+            "description": "True when the business\u0027s page publishes no opening hours and Cal used its default weekday hours instead.",
+            "example": false
+          }
+        },
+        "description": "Set when Cal did not call because it is outside the business\u0027s calling hours. Cal does not schedule calls: tell the user when Cal can call, and call again then if they ask."
       },
       "BookingLimitPoolHostOutputHostLimit": {
         "required": [
@@ -95147,6 +95969,50 @@
           ]
         }
       },
+      "ListContactSuggestionsOutputResponseDtoStatus": {
+        "enum": [
+          "success",
+          "error"
+        ],
+        "type": "string",
+        "example": "success",
+        "x-ms-enum": {
+          "name": "ListContactSuggestionsOutputResponseDtoStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "success",
+              "name": "Success"
+            },
+            {
+              "value": "error",
+              "name": "Error"
+            }
+          ]
+        }
+      },
+      "DismissContactSuggestionOutputResponseDtoStatus": {
+        "enum": [
+          "success",
+          "error"
+        ],
+        "type": "string",
+        "example": "success",
+        "x-ms-enum": {
+          "name": "DismissContactSuggestionOutputResponseDtoStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "success",
+              "name": "Success"
+            },
+            {
+              "value": "error",
+              "name": "Error"
+            }
+          ]
+        }
+      },
       "GetDiscoverListingsOutputResponseDtoStatus": {
         "enum": [
           "success",
@@ -95279,6 +96145,262 @@
         "example": "success",
         "x-ms-enum": {
           "name": "SearchDiscoverListingsOutputResponseDtoStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "success",
+              "name": "Success"
+            },
+            {
+              "value": "error",
+              "name": "Error"
+            }
+          ]
+        }
+      },
+      "CallDiscoverBusinessDataSignInRequired": {
+        "enum": [
+          true
+        ],
+        "type": "boolean",
+        "description": "Set when the user must sign in before Cal can call."
+      },
+      "CallDiscoverBusinessDataPaymentRequired": {
+        "enum": [
+          true
+        ],
+        "type": "boolean",
+        "description": "Set when the user must pick a Discover plan first; \u0060planUrl\u0060 is where they pick it."
+      },
+      "CallDiscoverBusinessOutputResponseDtoStatus": {
+        "enum": [
+          "success",
+          "error"
+        ],
+        "type": "string",
+        "example": "success",
+        "x-ms-enum": {
+          "name": "CallDiscoverBusinessOutputResponseDtoStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "success",
+              "name": "Success"
+            },
+            {
+              "value": "error",
+              "name": "Error"
+            }
+          ]
+        }
+      },
+      "CreateDiscoverBookingJobInputPartOfDay": {
+        "enum": [
+          "morning",
+          "afternoon",
+          "evening",
+          "any"
+        ],
+        "type": "string",
+        "description": "The part of that day the user asked for; \u0060any\u0060 when they did not say.",
+        "example": "afternoon",
+        "x-ms-enum": {
+          "name": "CreateDiscoverBookingJobInputPartOfDay",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "morning",
+              "name": "Morning"
+            },
+            {
+              "value": "afternoon",
+              "name": "Afternoon"
+            },
+            {
+              "value": "evening",
+              "name": "Evening"
+            },
+            {
+              "value": "any",
+              "name": "Any"
+            }
+          ]
+        }
+      },
+      "CreateDiscoverBookingJobDataSignInRequired": {
+        "enum": [
+          true
+        ],
+        "type": "boolean",
+        "description": "Set when the user must sign in before a job can start."
+      },
+      "CreateDiscoverBookingJobDataPaymentRequired": {
+        "enum": [
+          true
+        ],
+        "type": "boolean",
+        "description": "Set when the user must pick a Discover plan first; \u0060planUrl\u0060 is where they pick it."
+      },
+      "CreateDiscoverBookingJobOutputResponseDtoStatus": {
+        "enum": [
+          "success",
+          "error"
+        ],
+        "type": "string",
+        "example": "success",
+        "x-ms-enum": {
+          "name": "CreateDiscoverBookingJobOutputResponseDtoStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "success",
+              "name": "Success"
+            },
+            {
+              "value": "error",
+              "name": "Error"
+            }
+          ]
+        }
+      },
+      "RecordDiscoverServiceRequestInputCategory": {
+        "enum": [
+          "medical",
+          "barbers",
+          "coaching",
+          "consulting",
+          "lessons",
+          "pets",
+          "sports",
+          "dance",
+          "social",
+          "online-services",
+          "saas",
+          "home-services",
+          "other"
+        ],
+        "type": "string",
+        "description": "The Discover category it belongs to.",
+        "example": "lessons",
+        "x-ms-enum": {
+          "name": "RecordDiscoverServiceRequestInputCategory",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "medical",
+              "name": "Medical"
+            },
+            {
+              "value": "barbers",
+              "name": "Barbers"
+            },
+            {
+              "value": "coaching",
+              "name": "Coaching"
+            },
+            {
+              "value": "consulting",
+              "name": "Consulting"
+            },
+            {
+              "value": "lessons",
+              "name": "Lessons"
+            },
+            {
+              "value": "pets",
+              "name": "Pets"
+            },
+            {
+              "value": "sports",
+              "name": "Sports"
+            },
+            {
+              "value": "dance",
+              "name": "Dance"
+            },
+            {
+              "value": "social",
+              "name": "Social"
+            },
+            {
+              "value": "online-services",
+              "name": "OnlineServices"
+            },
+            {
+              "value": "saas",
+              "name": "Saas"
+            },
+            {
+              "value": "home-services",
+              "name": "HomeServices"
+            },
+            {
+              "value": "other",
+              "name": "Other"
+            }
+          ]
+        }
+      },
+      "AccountEmailNotify": {
+        "enum": [
+          "account_email"
+        ],
+        "type": "string",
+        "description": "How the user hears back: an email to their account address when a matching provider joins.",
+        "example": "account_email",
+        "x-ms-enum": {
+          "name": "AccountEmailNotify",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "account_email",
+              "name": "AccountEmail"
+            }
+          ]
+        }
+      },
+      "RecordDiscoverServiceRequestDataMatchedProviders": {
+        "enum": [
+          "nearby_and_online",
+          "nearby",
+          "online_only",
+          "none"
+        ],
+        "type": "string",
+        "description": "Which new providers can trigger the email. \u0060nearby_and_online\u0060: providers in the user\u0027s launch region, and online providers in this online-friendly category (coaching, consulting, online services, software). \u0060nearby\u0060: providers in the user\u0027s launch region. \u0060online_only\u0060: only online providers, because the request is outside every launch region. \u0060none\u0060: no provider can, because the request is outside every launch region in a category booked in person; search the user\u0027s area with \u0060GET /v2/discover/listings/search\u0060 and record it again with its \u0060searchedArea\u0060.",
+        "example": "nearby",
+        "x-ms-enum": {
+          "name": "RecordDiscoverServiceRequestDataMatchedProviders",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "nearby_and_online",
+              "name": "NearbyAndOnline"
+            },
+            {
+              "value": "nearby",
+              "name": "Nearby"
+            },
+            {
+              "value": "online_only",
+              "name": "OnlineOnly"
+            },
+            {
+              "value": "none",
+              "name": "None"
+            }
+          ]
+        }
+      },
+      "RecordDiscoverServiceRequestOutputResponseDtoStatus": {
+        "enum": [
+          "success",
+          "error"
+        ],
+        "type": "string",
+        "example": "success",
+        "x-ms-enum": {
+          "name": "RecordDiscoverServiceRequestOutputResponseDtoStatus",
           "modelAsString": false,
           "values": [
             {
@@ -106658,6 +107780,32 @@
           "type": "string",
           "description": "The free text the search dropped.",
           "example": "skin fade"
+        }
+      }
+    },
+    "CallDiscoverBusinessClosedOutput": {
+      "required": [
+        "nextCallAt",
+        "timeZone",
+        "hoursAssumed"
+      ],
+      "type": "object",
+      "properties": {
+        "nextCallAt": {
+          "type": "string",
+          "description": "When Cal can next call the business, in its time zone; null when its page lists no time Cal can call in the coming week.",
+          "nullable": true,
+          "example": "2026-11-13T09:00:00-08:00"
+        },
+        "timeZone": {
+          "type": "string",
+          "description": "The time zone the business\u0027s hours are read in.",
+          "example": "America/Los_Angeles"
+        },
+        "hoursAssumed": {
+          "type": "boolean",
+          "description": "True when the business\u0027s page publishes no opening hours and Cal used its default weekday hours instead.",
+          "example": false
         }
       }
     },

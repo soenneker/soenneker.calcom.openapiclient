@@ -2,7 +2,10 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.CalCom.OpenApiClient.V2.Discover.BookingJobs;
+using Soenneker.CalCom.OpenApiClient.V2.Discover.BusinessCalls;
 using Soenneker.CalCom.OpenApiClient.V2.Discover.Listings;
+using Soenneker.CalCom.OpenApiClient.V2.Discover.ServiceRequests;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -15,10 +18,25 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Discover
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DiscoverRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The bookingJobs property</summary>
+        public global::Soenneker.CalCom.OpenApiClient.V2.Discover.BookingJobs.BookingJobsRequestBuilder BookingJobs
+        {
+            get => new global::Soenneker.CalCom.OpenApiClient.V2.Discover.BookingJobs.BookingJobsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The businessCalls property</summary>
+        public global::Soenneker.CalCom.OpenApiClient.V2.Discover.BusinessCalls.BusinessCallsRequestBuilder BusinessCalls
+        {
+            get => new global::Soenneker.CalCom.OpenApiClient.V2.Discover.BusinessCalls.BusinessCallsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The listings property</summary>
         public global::Soenneker.CalCom.OpenApiClient.V2.Discover.Listings.ListingsRequestBuilder Listings
         {
             get => new global::Soenneker.CalCom.OpenApiClient.V2.Discover.Listings.ListingsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The serviceRequests property</summary>
+        public global::Soenneker.CalCom.OpenApiClient.V2.Discover.ServiceRequests.ServiceRequestsRequestBuilder ServiceRequests
+        {
+            get => new global::Soenneker.CalCom.OpenApiClient.V2.Discover.ServiceRequests.ServiceRequestsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.V2.Discover.DiscoverRequestBuilder"/> and sets the default values.

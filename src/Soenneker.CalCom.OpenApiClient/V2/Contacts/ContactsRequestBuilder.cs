@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.CalCom.OpenApiClient.Models;
 using Soenneker.CalCom.OpenApiClient.V2.Contacts.Item;
+using Soenneker.CalCom.OpenApiClient.V2.Contacts.Suggestions;
 using Soenneker.CalCom.OpenApiClient.V2.Contacts.Tags;
 using System.Collections.Generic;
 using System.IO;
@@ -19,6 +20,11 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Contacts
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ContactsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The suggestions property</summary>
+        public global::Soenneker.CalCom.OpenApiClient.V2.Contacts.Suggestions.SuggestionsRequestBuilder Suggestions
+        {
+            get => new global::Soenneker.CalCom.OpenApiClient.V2.Contacts.Suggestions.SuggestionsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The tags property</summary>
         public global::Soenneker.CalCom.OpenApiClient.V2.Contacts.Tags.TagsRequestBuilder Tags
         {

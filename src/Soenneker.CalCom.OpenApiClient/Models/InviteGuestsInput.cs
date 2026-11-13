@@ -17,6 +17,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("contactIds") is null) { _explicitNullValueContactIds = default!; _explicitNullProperties?.Remove("contactIds"); }
+            else if (parseNode.GetChildNode("contactIds") is { } nullNodeContactIds && nullNodeContactIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContactIds = null;
+            if (parseNode.GetChildNode("contactTagIds") is null) { _explicitNullValueContactTagIds = default!; _explicitNullProperties?.Remove("contactTagIds"); }
+            else if (parseNode.GetChildNode("contactTagIds") is { } nullNodeContactTagIds && nullNodeContactTagIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContactTagIds = null;
             if (parseNode.GetChildNode("emails") is null) { _explicitNullValueEmails = default!; _explicitNullProperties?.Remove("emails"); }
             else if (parseNode.GetChildNode("emails") is { } nullNodeEmails && nullNodeEmails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Emails = null;
             if (parseNode.GetChildNode("hostNote") is null) { _explicitNullValueHostNote = default!; _explicitNullProperties?.Remove("hostNote"); }
@@ -25,7 +29,27 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Email addresses to invite. Between 1 and 200 per request.</summary>
+        /// <summary>Ids of the authenticated user&apos;s own contacts, from `GET /v2/contacts`. Each contact is invited at its email, and they count with `emails` and `contactTagIds` toward the 200 guests one request can invite. Requires the `contacts` feature. A contact the user doesn&apos;t own is a 400.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<Guid?>? ContactIds { get => _explicitNullValueContactIds; set { _explicitNullValueContactIds = value; AdditionalData?.Remove("contactIds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contactIds"); else _explicitNullProperties?.Remove("contactIds"); } }
+        private List<Guid?>? _explicitNullValueContactIds = default!;
+#nullable restore
+#else
+        public List<Guid?> ContactIds { get => _explicitNullValueContactIds; set { _explicitNullValueContactIds = value; AdditionalData?.Remove("contactIds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contactIds"); else _explicitNullProperties?.Remove("contactIds"); } }
+        private List<Guid?> _explicitNullValueContactIds = default!;
+#endif
+        /// <summary>Ids of the authenticated user&apos;s own contact tags, from the `tags` of each contact in `GET /v2/contacts`. Every contact with one of these tags is invited, and they count with `emails` and `contactIds` toward the 200 guests one request can invite. Requires the `contacts` feature. A tag the user doesn&apos;t own is a 400.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<Guid?>? ContactTagIds { get => _explicitNullValueContactTagIds; set { _explicitNullValueContactTagIds = value; AdditionalData?.Remove("contactTagIds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contactTagIds"); else _explicitNullProperties?.Remove("contactTagIds"); } }
+        private List<Guid?>? _explicitNullValueContactTagIds = default!;
+#nullable restore
+#else
+        public List<Guid?> ContactTagIds { get => _explicitNullValueContactTagIds; set { _explicitNullValueContactTagIds = value; AdditionalData?.Remove("contactTagIds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contactTagIds"); else _explicitNullProperties?.Remove("contactTagIds"); } }
+        private List<Guid?> _explicitNullValueContactTagIds = default!;
+#endif
+        /// <summary>Email addresses to invite, up to 200 per request. Send at least one email, `contactIds` or `contactTagIds`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Emails { get => _explicitNullValueEmails; set { _explicitNullValueEmails = value; AdditionalData?.Remove("emails"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emails"); else _explicitNullProperties?.Remove("emails"); } }
@@ -70,6 +94,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "contactIds", n => { ContactIds = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
+                { "contactTagIds", n => { ContactTagIds = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
                 { "emails", n => { Emails = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "hostNote", n => { HostNote = n.GetStringValue(); } },
             };
@@ -81,6 +107,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfPrimitiveValues<Guid?>("contactIds", ContactIds);
+            writer.WriteCollectionOfPrimitiveValues<Guid?>("contactTagIds", ContactTagIds);
             writer.WriteCollectionOfPrimitiveValues<string>("emails", Emails);
             writer.WriteStringValue("hostNote", HostNote);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

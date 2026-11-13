@@ -69,7 +69,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public string AppTheme { get => _explicitNullValueAppTheme; set { _explicitNullValueAppTheme = value; AdditionalData?.Remove("appTheme"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("appTheme"); else _explicitNullProperties?.Remove("appTheme"); } }
         private string _explicitNullValueAppTheme = default!;
 #endif
-        /// <summary>Must be true to ensure the organization membership is created in accepted state. If false, the user will have a pending membership and will not be able to access the organization.</summary>
+        /// <summary>If true, the organization membership is accepted only when the email&apos;s domain is the organization&apos;s auto-accept domain or one of its verified secondary domains, in a verified organization; any other email gets a pending membership and an invite email. If false, the membership is always pending and the user cannot access the organization until they accept.</summary>
         public bool? AutoAccept { get => _explicitNullValueAutoAccept; set { _explicitNullValueAutoAccept = value; AdditionalData?.Remove("autoAccept"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autoAccept"); else _explicitNullProperties?.Remove("autoAccept"); } }
         private bool? _explicitNullValueAutoAccept = default!;
         /// <summary>Avatar URL</summary>
