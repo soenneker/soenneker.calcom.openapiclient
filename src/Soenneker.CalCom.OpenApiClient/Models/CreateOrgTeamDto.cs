@@ -156,7 +156,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public string LogoUrl { get => _explicitNullValueLogoUrl; set { _explicitNullValueLogoUrl = value; AdditionalData?.Remove("logoUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logoUrl"); else _explicitNullProperties?.Remove("logoUrl"); } }
         private string _explicitNullValueLogoUrl = default!;
 #endif
-        /// <summary>You can store any additional data you want here.Metadata must have at most 50 keys, each key up to 40 characters.Values can be strings (up to 500 characters), numbers, or booleans.</summary>
+        /// <summary>You can store any additional data you want here.Metadata must have at most 50 keys, each key up to 40 characters.Values can be strings (up to 500 characters), numbers, or booleans.Reserved team system metadata keys are rejected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.CalCom.OpenApiClient.Models.CreateOrgTeamDtoMetadataProperty? Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; AdditionalData?.Remove("metadata"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }

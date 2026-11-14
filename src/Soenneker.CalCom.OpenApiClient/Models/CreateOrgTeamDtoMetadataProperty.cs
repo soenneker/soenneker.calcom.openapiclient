@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.CalCom.OpenApiClient.Models
 {
     /// <summary>
-    /// You can store any additional data you want here.Metadata must have at most 50 keys, each key up to 40 characters.Values can be strings (up to 500 characters), numbers, or booleans.
+    /// You can store any additional data you want here.Metadata must have at most 50 keys, each key up to 40 characters.Values can be strings (up to 500 characters), numbers, or booleans.Reserved team system metadata keys are rejected.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateOrgTeamDtoMetadataProperty : IAdditionalDataHolder, IParsable
