@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.CalCom.OpenApiClient.Models
 {
-    /// <summary>The part of that day the user asked for; `any` when they did not say.</summary>
+    /// <summary>The part of that day the user asked for, on the business&apos;s local clock; `any` when they did not say.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum CreateDiscoverBookingJobInputPartOfDay
     {

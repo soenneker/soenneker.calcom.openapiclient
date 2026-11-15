@@ -71,7 +71,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public string IdempotencyKey { get => _explicitNullValueIdempotencyKey; set { _explicitNullValueIdempotencyKey = value; AdditionalData?.Remove("idempotencyKey"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idempotencyKey"); else _explicitNullProperties?.Remove("idempotencyKey"); } }
         private string _explicitNullValueIdempotencyKey = default!;
 #endif
-        /// <summary>The part of that day the user asked for; `any` when they did not say.</summary>
+        /// <summary>The part of that day the user asked for, on the business&apos;s local clock; `any` when they did not say.</summary>
         public global::Soenneker.CalCom.OpenApiClient.Models.CreateDiscoverBookingJobInputPartOfDay? PartOfDay { get => _explicitNullValuePartOfDay; set { _explicitNullValuePartOfDay = value; AdditionalData?.Remove("partOfDay"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partOfDay"); else _explicitNullProperties?.Remove("partOfDay"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.CreateDiscoverBookingJobInputPartOfDay? _explicitNullValuePartOfDay = default!;
         /// <summary>What to book, in plain words, such as `haircut`.</summary>

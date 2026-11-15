@@ -67098,7 +67098,7 @@
           "partOfDay": {
             "enum": ["morning", "afternoon", "evening", "any"],
             "type": "string",
-            "description": "The part of that day the user asked for; `any` when they did not say.",
+            "description": "The part of that day the user asked for, on the business's local clock; `any` when they did not say.",
             "example": "afternoon"
           },
           "budgetDollars": {
