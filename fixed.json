@@ -17626,6 +17626,78 @@
         "x-oauth-scopes": []
       }
     },
+    "/v2/event-type-sequences/{uid}/slots": {
+      "get": {
+        "tags": [
+          "Event Type Sequences"
+        ],
+        "summary": "Get a sequence\u0027s available start times",
+        "description": "The times at which the whole sequence can be booked: every segment fits its own hosts, notice and booking window, back to back. Each start time is when the first segment begins. No authentication is required, and each caller can make 60 requests a minute. A sequence that can\u0027t be booked right now returns no start times.",
+        "operationId": "EventTypeSequencesControllerGetSlots",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be \u0060Bearer \u003Ctoken\u003E\u0060 where \u0060\u003Ctoken\u003E\u0060 is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "uid",
+            "in": "path",
+            "description": "The sequence\u0027s \u0060uid\u0060.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "\n      Time starting from which available slots should be checked.\n    \n      Must be in UTC timezone as ISO 8601 datestring.\n      \n      You can pass date without hours which defaults to start of day or specify hours:\n      2024-08-13 (will have hours 00:00:00 aka at very beginning of the date) or you can specify hours manually like 2024-08-13T09:00:00Z\n      ",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "2033-09-05"
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "description": "\n      Time until which available slots should be checked.\n      \n      Must be in UTC timezone as ISO 8601 datestring.\n      \n      You can pass date without hours which defaults to end of day or specify hours:\n      2024-08-20 (will have hours 23:59:59 aka at the very end of the date) or you can specify hours manually like 2024-08-20T18:00:00Z",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "2033-09-06"
+            }
+          },
+          {
+            "name": "timeZone",
+            "in": "query",
+            "description": "Time zone in which the available slots should be returned. Defaults to UTC.",
+            "schema": {
+              "type": "string",
+              "example": "Europe/Rome"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSequenceSlotsResponseOutput"
+                }
+              }
+            }
+          }
+        },
+        "x-oauth-scopes": []
+      }
+    },
     "/v2/event-types/{eventTypeId}/calendar-invites": {
       "get": {
         "tags": [
@@ -57568,6 +57640,33 @@
           }
         }
       },
+      "Slot20240904": {
+        "required": [
+          "start"
+        ],
+        "type": "object",
+        "properties": {
+          "start": {
+            "type": "string",
+            "description": "Start time of slot."
+          }
+        }
+      },
+      "GetSequenceSlotsResponseOutput": {
+        "required": [
+          "status",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/SuccessStatus"
+          },
+          "data": {
+            "$ref": "#/components/schemas/GetSequenceSlotsResponseOutputDataProperty"
+          }
+        }
+      },
       "RegisterAppPushSubscriptionInput": {
         "required": [
           "token",
@@ -66223,6 +66322,31 @@
         "type": "object",
         "description": "Registration-form answers.",
         "nullable": true
+      },
+      "GetSequenceSlotsResponseOutputDataProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Slot20240904"
+          }
+        },
+        "description": "Start times at which every segment fits back to back, grouped by day (\u0060YYYY-MM-DD\u0060) in the requested time zone. Each start is when the first segment begins. Empty for a sequence that can\u0027t be booked right now.",
+        "example": {
+          "2033-09-05": [
+            {
+              "start": "2033-09-05T09:00:00.000\u002B02:00"
+            },
+            {
+              "start": "2033-09-05T09:30:00.000\u002B02:00"
+            }
+          ],
+          "2033-09-06": [
+            {
+              "start": "2033-09-06T09:00:00.000\u002B02:00"
+            }
+          ]
+        }
       },
       "AllowlistServicesDataServicesProperty": {
         "type": "object",
@@ -109633,6 +109757,31 @@
       "type": "object",
       "description": "Registration-form answers.",
       "nullable": true
+    },
+    "GetSequenceSlotsResponseOutputData": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Slot20240904"
+        }
+      },
+      "description": "Start times at which every segment fits back to back, grouped by day (\u0060YYYY-MM-DD\u0060) in the requested time zone. Each start is when the first segment begins. Empty for a sequence that can\u0027t be booked right now.",
+      "example": {
+        "2033-09-05": [
+          {
+            "start": "2033-09-05T09:00:00.000\u002B02:00"
+          },
+          {
+            "start": "2033-09-05T09:30:00.000\u002B02:00"
+          }
+        ],
+        "2033-09-06": [
+          {
+            "start": "2033-09-06T09:00:00.000\u002B02:00"
+          }
+        ]
+      }
     },
     "AllowlistServicesDataServices": {
       "type": "object",

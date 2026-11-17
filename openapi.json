@@ -17707,6 +17707,78 @@
         "x-oauth-scopes": []
       }
     },
+    "/v2/event-type-sequences/{uid}/slots": {
+      "get": {
+        "description": "The times at which the whole sequence can be booked: every segment fits its own hosts, notice and booking window, back to back. Each start time is when the first segment begins. No authentication is required, and each caller can make 60 requests a minute. A sequence that can't be booked right now returns no start times.",
+        "operationId": "EventTypeSequencesController_getSlots",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be `Bearer <token>` where `<token>` is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "uid",
+            "required": true,
+            "in": "path",
+            "description": "The sequence's `uid`.",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "required": true,
+            "description": "\n      Time starting from which available slots should be checked.\n    \n      Must be in UTC timezone as ISO 8601 datestring.\n      \n      You can pass date without hours which defaults to start of day or specify hours:\n      2024-08-13 (will have hours 00:00:00 aka at very beginning of the date) or you can specify hours manually like 2024-08-13T09:00:00Z\n      ",
+            "name": "start",
+            "in": "query",
+            "schema": {
+              "example": "2033-09-05",
+              "type": "string"
+            }
+          },
+          {
+            "required": true,
+            "description": "\n      Time until which available slots should be checked.\n      \n      Must be in UTC timezone as ISO 8601 datestring.\n      \n      You can pass date without hours which defaults to end of day or specify hours:\n      2024-08-20 (will have hours 23:59:59 aka at the very end of the date) or you can specify hours manually like 2024-08-20T18:00:00Z",
+            "name": "end",
+            "in": "query",
+            "schema": {
+              "example": "2033-09-06",
+              "type": "string"
+            }
+          },
+          {
+            "required": false,
+            "description": "Time zone in which the available slots should be returned. Defaults to UTC.",
+            "name": "timeZone",
+            "in": "query",
+            "schema": {
+              "example": "Europe/Rome",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSequenceSlotsResponseOutput"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get a sequence's available start times",
+        "tags": ["Event Type Sequences"],
+        "x-oauth-scopes": []
+      }
+    },
     "/v2/event-types/{eventTypeId}/calendar-invites": {
       "get": {
         "description": "Returns host and guest invite-description settings resolved from the event type, organization default when the mode is `inherit`, then Cal.com's standard description. Access matches reading the event type; OAuth clients require `EVENT_TYPE_READ`. Custom templates are limited to 5,000 characters. Managed children inherit their parent's templates and are marked read-only. Host templates are private and are not included in event-type responses.",
@@ -68704,6 +68776,51 @@
           },
           "data": {
             "$ref": "#/components/schemas/PublicEventTypeSequenceOutput"
+          }
+        },
+        "required": ["status", "data"]
+      },
+      "Slot_2024_09_04": {
+        "type": "object",
+        "properties": {
+          "start": {
+            "type": "string",
+            "description": "Start time of slot."
+          }
+        },
+        "required": ["start"]
+      },
+      "GetSequenceSlotsResponseOutput": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "enum": ["success"],
+            "type": "string"
+          },
+          "data": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Slot_2024_09_04"
+              }
+            },
+            "description": "Start times at which every segment fits back to back, grouped by day (`YYYY-MM-DD`) in the requested time zone. Each start is when the first segment begins. Empty for a sequence that can't be booked right now.",
+            "example": {
+              "2033-09-05": [
+                {
+                  "start": "2033-09-05T09:00:00.000+02:00"
+                },
+                {
+                  "start": "2033-09-05T09:30:00.000+02:00"
+                }
+              ],
+              "2033-09-06": [
+                {
+                  "start": "2033-09-06T09:00:00.000+02:00"
+                }
+              ]
+            }
           }
         },
         "required": ["status", "data"]

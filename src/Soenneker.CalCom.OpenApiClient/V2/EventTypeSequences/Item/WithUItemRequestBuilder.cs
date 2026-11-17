@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.CalCom.OpenApiClient.Models;
+using Soenneker.CalCom.OpenApiClient.V2.EventTypeSequences.Item.Slots;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -17,6 +18,11 @@ namespace Soenneker.CalCom.OpenApiClient.V2.EventTypeSequences.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithUItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The slots property</summary>
+        public global::Soenneker.CalCom.OpenApiClient.V2.EventTypeSequences.Item.Slots.SlotsRequestBuilder Slots
+        {
+            get => new global::Soenneker.CalCom.OpenApiClient.V2.EventTypeSequences.Item.Slots.SlotsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.V2.EventTypeSequences.Item.WithUItemRequestBuilder"/> and sets the default values.
         /// </summary>
