@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.CalCom.OpenApiClient.V2.Discover.BookingJobs;
 using Soenneker.CalCom.OpenApiClient.V2.Discover.BusinessCalls;
+using Soenneker.CalCom.OpenApiClient.V2.Discover.Favorites;
 using Soenneker.CalCom.OpenApiClient.V2.Discover.Listings;
 using Soenneker.CalCom.OpenApiClient.V2.Discover.ServiceRequests;
 using System.Collections.Generic;
@@ -27,6 +28,11 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Discover
         public global::Soenneker.CalCom.OpenApiClient.V2.Discover.BusinessCalls.BusinessCallsRequestBuilder BusinessCalls
         {
             get => new global::Soenneker.CalCom.OpenApiClient.V2.Discover.BusinessCalls.BusinessCallsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The favorites property</summary>
+        public global::Soenneker.CalCom.OpenApiClient.V2.Discover.Favorites.FavoritesRequestBuilder Favorites
+        {
+            get => new global::Soenneker.CalCom.OpenApiClient.V2.Discover.Favorites.FavoritesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The listings property</summary>
         public global::Soenneker.CalCom.OpenApiClient.V2.Discover.Listings.ListingsRequestBuilder Listings

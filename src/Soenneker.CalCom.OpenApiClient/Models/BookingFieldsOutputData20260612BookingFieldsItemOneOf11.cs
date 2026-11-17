@@ -39,6 +39,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             else if (parseNode.GetChildNode("required") is { } nullNodeRequired && nullNodeRequired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Required = null;
             if (parseNode.GetChildNode("requireEmails") is null) { _explicitNullValueRequireEmails = default!; _explicitNullProperties?.Remove("requireEmails"); }
             else if (parseNode.GetChildNode("requireEmails") is { } nullNodeRequireEmails && nullNodeRequireEmails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequireEmails = null;
+            if (parseNode.GetChildNode("showWhen") is null) { _explicitNullValueShowWhen = default!; _explicitNullProperties?.Remove("showWhen"); }
+            else if (parseNode.GetChildNode("showWhen") is { } nullNodeShowWhen && nullNodeShowWhen.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShowWhen = null;
             if (parseNode.GetChildNode("slug") is null) { _explicitNullValueSlug = default!; _explicitNullProperties?.Remove("slug"); }
             else if (parseNode.GetChildNode("slug") is { } nullNodeSlug && nullNodeSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Slug = null;
             if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
@@ -122,6 +124,16 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public List<string> RequireEmails { get => _explicitNullValueRequireEmails; set { _explicitNullValueRequireEmails = value; AdditionalData?.Remove("requireEmails"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requireEmails"); else _explicitNullProperties?.Remove("requireEmails"); } }
         private List<string> _explicitNullValueRequireEmails = default!;
 #endif
+        /// <summary>The showWhen property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldShowWhenOutput20260612? ShowWhen { get => _explicitNullValueShowWhen; set { _explicitNullValueShowWhen = value; AdditionalData?.Remove("showWhen"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("showWhen"); else _explicitNullProperties?.Remove("showWhen"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldShowWhenOutput20260612? _explicitNullValueShowWhen = default!;
+#nullable restore
+#else
+        public global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldShowWhenOutput20260612 ShowWhen { get => _explicitNullValueShowWhen; set { _explicitNullValueShowWhen = value; AdditionalData?.Remove("showWhen"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("showWhen"); else _explicitNullProperties?.Remove("showWhen"); } }
+        private global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldShowWhenOutput20260612 _explicitNullValueShowWhen = default!;
+#endif
         /// <summary>Unique slug identifier for this custom field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -173,6 +185,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
                 { "placeholder", n => { Placeholder = n.GetStringValue(); } },
                 { "requireEmails", n => { RequireEmails = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "required", n => { Required = n.GetBoolValue(); } },
+                { "showWhen", n => { ShowWhen = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldShowWhenOutput20260612>(global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldShowWhenOutput20260612.CreateFromDiscriminatorValue); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
@@ -195,6 +208,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteStringValue("placeholder", Placeholder);
             writer.WriteBoolValue("required", Required);
             writer.WriteCollectionOfPrimitiveValues<string>("requireEmails", RequireEmails);
+            writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldShowWhenOutput20260612>("showWhen", ShowWhen);
             writer.WriteStringValue("slug", Slug);
             writer.WriteStringValue("type", Type);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

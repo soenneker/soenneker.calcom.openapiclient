@@ -23,7 +23,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Booking fields to update. Identify each field by `slug` and include at least one property to change. `field` and a custom field&apos;s `type` cannot be changed. Null values and repeated slugs are not allowed. Workflow-added fields are read-only.</summary>
+        /// <summary>Booking fields to update. Identify each field by `slug` and include at least one property to change. `field` and a custom field&apos;s `type` cannot be changed. Null values and repeated slugs are not allowed, except `showWhen: null`, which removes a follow-up condition. Workflow-added fields are read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.CalCom.OpenApiClient.Models.PatchBookingFieldsInput20260612BookingFieldsItem>? BookingFields { get => _explicitNullValueBookingFields; set { _explicitNullValueBookingFields = value; AdditionalData?.Remove("bookingFields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingFields"); else _explicitNullProperties?.Remove("bookingFields"); } }

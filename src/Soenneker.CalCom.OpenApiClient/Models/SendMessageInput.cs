@@ -21,6 +21,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             else if (parseNode.GetChildNode("body") is { } nullNodeBody && nullNodeBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Body = null;
             if (parseNode.GetChildNode("checkedIn") is null) { _explicitNullValueCheckedIn = default!; _explicitNullProperties?.Remove("checkedIn"); }
             else if (parseNode.GetChildNode("checkedIn") is { } nullNodeCheckedIn && nullNodeCheckedIn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CheckedIn = null;
+            if (parseNode.GetChildNode("contactTagId") is null) { _explicitNullValueContactTagId = default!; _explicitNullProperties?.Remove("contactTagId"); }
+            else if (parseNode.GetChildNode("contactTagId") is { } nullNodeContactTagId && nullNodeContactTagId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContactTagId = null;
             if (parseNode.GetChildNode("locationId") is null) { _explicitNullValueLocationId = default!; _explicitNullProperties?.Remove("locationId"); }
             else if (parseNode.GetChildNode("locationId") is { } nullNodeLocationId && nullNodeLocationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LocationId = null;
             if (parseNode.GetChildNode("scheduledAt") is null) { _explicitNullValueScheduledAt = default!; _explicitNullProperties?.Remove("scheduledAt"); }
@@ -46,6 +48,9 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>Only message guests who checked in (`true`) or who did not (`false`). Omit to message both.</summary>
         public bool? CheckedIn { get => _explicitNullValueCheckedIn; set { _explicitNullValueCheckedIn = value; AdditionalData?.Remove("checkedIn"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checkedIn"); else _explicitNullProperties?.Remove("checkedIn"); } }
         private bool? _explicitNullValueCheckedIn = default!;
+        /// <summary>Only message guests whose email is among your contacts with this tag. It must be one of your own contact tags, from `GET /v2/contacts/tags`.</summary>
+        public Guid? ContactTagId { get => _explicitNullValueContactTagId; set { _explicitNullValueContactTagId = value; AdditionalData?.Remove("contactTagId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contactTagId"); else _explicitNullProperties?.Remove("contactTagId"); } }
+        private Guid? _explicitNullValueContactTagId = default!;
         /// <summary>Only message guests who registered for this location of the Event.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -106,6 +111,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             {
                 { "body", n => { Body = n.GetStringValue(); } },
                 { "checkedIn", n => { CheckedIn = n.GetBoolValue(); } },
+                { "contactTagId", n => { ContactTagId = n.GetGuidValue(); } },
                 { "locationId", n => { LocationId = n.GetStringValue(); } },
                 { "scheduledAt", n => { ScheduledAt = n.GetStringValue(); } },
                 { "segment", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.SendMessageInputSegment>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSegment = default; _explicitNullProperties?.Remove("segment"); AdditionalData["segment"] = unknown; } else { Segment = parsed; AdditionalData.Remove("segment"); } } },
@@ -121,6 +127,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("body", Body);
             writer.WriteBoolValue("checkedIn", CheckedIn);
+            writer.WriteGuidValue("contactTagId", ContactTagId);
             writer.WriteStringValue("locationId", LocationId);
             writer.WriteStringValue("scheduledAt", ScheduledAt);
             writer.WriteEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.SendMessageInputSegment>("segment", Segment);

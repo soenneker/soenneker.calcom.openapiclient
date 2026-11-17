@@ -168,15 +168,15 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public string RegistrationClosesAt { get => _explicitNullValueRegistrationClosesAt; set { _explicitNullValueRegistrationClosesAt = value; AdditionalData?.Remove("registrationClosesAt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registrationClosesAt"); else _explicitNullProperties?.Remove("registrationClosesAt"); } }
         private string _explicitNullValueRegistrationClosesAt = default!;
 #endif
-        /// <summary>The questions guests answer when they register.</summary>
+        /// <summary>The questions guests answer when they register. Every guest sees every question, so `showWhen` is rejected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsInput20260612BookingFieldsItem>? RegistrationFields { get => _explicitNullValueRegistrationFields; set { _explicitNullValueRegistrationFields = value; AdditionalData?.Remove("registrationFields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registrationFields"); else _explicitNullProperties?.Remove("registrationFields"); } }
-        private List<global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsInput20260612BookingFieldsItem>? _explicitNullValueRegistrationFields = default!;
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.CreateEventInputRegistrationFieldsItem>? RegistrationFields { get => _explicitNullValueRegistrationFields; set { _explicitNullValueRegistrationFields = value; AdditionalData?.Remove("registrationFields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registrationFields"); else _explicitNullProperties?.Remove("registrationFields"); } }
+        private List<global::Soenneker.CalCom.OpenApiClient.Models.CreateEventInputRegistrationFieldsItem>? _explicitNullValueRegistrationFields = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsInput20260612BookingFieldsItem> RegistrationFields { get => _explicitNullValueRegistrationFields; set { _explicitNullValueRegistrationFields = value; AdditionalData?.Remove("registrationFields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registrationFields"); else _explicitNullProperties?.Remove("registrationFields"); } }
-        private List<global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsInput20260612BookingFieldsItem> _explicitNullValueRegistrationFields = default!;
+        public List<global::Soenneker.CalCom.OpenApiClient.Models.CreateEventInputRegistrationFieldsItem> RegistrationFields { get => _explicitNullValueRegistrationFields; set { _explicitNullValueRegistrationFields = value; AdditionalData?.Remove("registrationFields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registrationFields"); else _explicitNullProperties?.Remove("registrationFields"); } }
+        private List<global::Soenneker.CalCom.OpenApiClient.Models.CreateEventInputRegistrationFieldsItem> _explicitNullValueRegistrationFields = default!;
 #endif
         /// <summary>When guests can start registering, in ISO 8601 format in UTC timezone. Must be before registration closes. null opens registration when the Event is published.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -294,7 +294,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
                 { "paymentTimeoutMinutes", n => { PaymentTimeoutMinutes = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.UpdateEventInputPaymentTimeoutMinutesProperty>(global::Soenneker.CalCom.OpenApiClient.Models.UpdateEventInputPaymentTimeoutMinutesProperty.CreateFromDiscriminatorValue); } },
                 { "price", n => { Price = n.GetDoubleValue(); } },
                 { "registrationClosesAt", n => { RegistrationClosesAt = n.GetStringValue(); } },
-                { "registrationFields", n => { RegistrationFields = n.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsInput20260612BookingFieldsItem>(global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsInput20260612BookingFieldsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "registrationFields", n => { RegistrationFields = n.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.CreateEventInputRegistrationFieldsItem>(global::Soenneker.CalCom.OpenApiClient.Models.CreateEventInputRegistrationFieldsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "registrationOpensAt", n => { RegistrationOpensAt = n.GetStringValue(); } },
                 { "requiresApproval", n => { RequiresApproval = n.GetBoolValue(); } },
                 { "schedule", n => { Schedule = n.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.EventScheduleItemInput>(global::Soenneker.CalCom.OpenApiClient.Models.EventScheduleItemInput.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -329,7 +329,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.UpdateEventInputPaymentTimeoutMinutesProperty>("paymentTimeoutMinutes", PaymentTimeoutMinutes);
             writer.WriteDoubleValue("price", Price);
             writer.WriteStringValue("registrationClosesAt", RegistrationClosesAt);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.BookingFieldsInput20260612BookingFieldsItem>("registrationFields", RegistrationFields);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.CreateEventInputRegistrationFieldsItem>("registrationFields", RegistrationFields);
             writer.WriteStringValue("registrationOpensAt", RegistrationOpensAt);
             writer.WriteBoolValue("requiresApproval", RequiresApproval);
             writer.WriteCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.EventScheduleItemInput>("schedule", Schedule);

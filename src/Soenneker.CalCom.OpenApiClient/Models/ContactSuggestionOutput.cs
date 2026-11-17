@@ -39,7 +39,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public string Email { get => _explicitNullValueEmail; set { _explicitNullValueEmail = value; AdditionalData?.Remove("email"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email"); else _explicitNullProperties?.Remove("email"); } }
         private string _explicitNullValueEmail = default!;
 #endif
-        /// <summary>When the most recent of those bookings was made, in ISO 8601 UTC.</summary>
+        /// <summary>When the most recent of those bookings was made or the most recent of those Cal Events started, in ISO 8601 UTC.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LastMetAt { get => _explicitNullValueLastMetAt; set { _explicitNullValueLastMetAt = value; AdditionalData?.Remove("lastMetAt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lastMetAt"); else _explicitNullProperties?.Remove("lastMetAt"); } }
@@ -49,10 +49,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public string LastMetAt { get => _explicitNullValueLastMetAt; set { _explicitNullValueLastMetAt = value; AdditionalData?.Remove("lastMetAt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lastMetAt"); else _explicitNullProperties?.Remove("lastMetAt"); } }
         private string _explicitNullValueLastMetAt = default!;
 #endif
-        /// <summary>How many accepted, past bookings the user hosted with this attendee in the last 12 months.</summary>
+        /// <summary>How many accepted, past bookings the user shared with this person in the last 12 months, as their host or as their attendee, plus the past Cal Events the user hosted that this person was confirmed for.</summary>
         public double? MeetingCount { get => _explicitNullValueMeetingCount; set { _explicitNullValueMeetingCount = value; AdditionalData?.Remove("meetingCount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meetingCount"); else _explicitNullProperties?.Remove("meetingCount"); } }
         private double? _explicitNullValueMeetingCount = default!;
-        /// <summary>The attendee&apos;s name on the most recent booking with them.</summary>
+        /// <summary>The person&apos;s name on the most recent booking or Cal Event registration with them, or a host&apos;s account name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
