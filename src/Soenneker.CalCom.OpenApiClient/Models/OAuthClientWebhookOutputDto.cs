@@ -141,7 +141,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(11)
             {
                 { "active", n => { Active = n.GetBoolValue(); } },
                 { "customHeaders", n => { CustomHeaders = n.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.WebhookCustomHeaderOutputDto>(global::Soenneker.CalCom.OpenApiClient.Models.WebhookCustomHeaderOutputDto.CreateFromDiscriminatorValue)?.AsList(); } },

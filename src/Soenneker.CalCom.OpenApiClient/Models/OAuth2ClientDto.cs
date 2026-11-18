@@ -102,7 +102,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "client_id", n => { ClientId = n.GetStringValue(); } },
                 { "client_type", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.OAuth2ClientDtoClientType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueClientType = default; _explicitNullProperties?.Remove("client_type"); AdditionalData["client_type"] = unknown; } else { ClientType = parsed; AdditionalData.Remove("client_type"); } } },

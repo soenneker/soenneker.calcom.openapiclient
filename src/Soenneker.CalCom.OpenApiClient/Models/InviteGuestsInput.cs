@@ -25,6 +25,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             else if (parseNode.GetChildNode("emails") is { } nullNodeEmails && nullNodeEmails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Emails = null;
             if (parseNode.GetChildNode("hostNote") is null) { _explicitNullValueHostNote = default!; _explicitNullProperties?.Remove("hostNote"); }
             else if (parseNode.GetChildNode("hostNote") is { } nullNodeHostNote && nullNodeHostNote.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HostNote = null;
+            if (parseNode.GetChildNode("pastEventUuids") is null) { _explicitNullValuePastEventUuids = default!; _explicitNullProperties?.Remove("pastEventUuids"); }
+            else if (parseNode.GetChildNode("pastEventUuids") is { } nullNodePastEventUuids && nullNodePastEventUuids.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PastEventUuids = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -49,7 +51,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public List<Guid?> ContactTagIds { get => _explicitNullValueContactTagIds; set { _explicitNullValueContactTagIds = value; AdditionalData?.Remove("contactTagIds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contactTagIds"); else _explicitNullProperties?.Remove("contactTagIds"); } }
         private List<Guid?> _explicitNullValueContactTagIds = default!;
 #endif
-        /// <summary>Email addresses to invite, up to 200 per request. Send at least one email, `contactIds` or `contactTagIds`.</summary>
+        /// <summary>Email addresses to invite, up to 200 per request. Send at least one email, `contactIds`, `contactTagIds` or `pastEventUuids`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Emails { get => _explicitNullValueEmails; set { _explicitNullValueEmails = value; AdditionalData?.Remove("emails"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emails"); else _explicitNullProperties?.Remove("emails"); } }
@@ -68,6 +70,16 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 #else
         public string HostNote { get => _explicitNullValueHostNote; set { _explicitNullValueHostNote = value; AdditionalData?.Remove("hostNote"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hostNote"); else _explicitNullProperties?.Remove("hostNote"); } }
         private string _explicitNullValueHostNote = default!;
+#endif
+        /// <summary>Uuids of other Events, usually past ones, such as those `GET /v2/events` returns. Everyone with a confirmed registration on them is invited, and they count with `emails`, `contactIds` and `contactTagIds` toward the 200 guests one request can invite. Only Events the authenticated user owns, hosts or co-hosts, or that belong to a team where they have the `calEvent.read` permission, add guests; any other Event adds nobody.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<Guid?>? PastEventUuids { get => _explicitNullValuePastEventUuids; set { _explicitNullValuePastEventUuids = value; AdditionalData?.Remove("pastEventUuids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pastEventUuids"); else _explicitNullProperties?.Remove("pastEventUuids"); } }
+        private List<Guid?>? _explicitNullValuePastEventUuids = default!;
+#nullable restore
+#else
+        public List<Guid?> PastEventUuids { get => _explicitNullValuePastEventUuids; set { _explicitNullValuePastEventUuids = value; AdditionalData?.Remove("pastEventUuids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pastEventUuids"); else _explicitNullProperties?.Remove("pastEventUuids"); } }
+        private List<Guid?> _explicitNullValuePastEventUuids = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.CalCom.OpenApiClient.Models.InviteGuestsInput"/> and sets the default values.
@@ -92,12 +104,13 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "contactIds", n => { ContactIds = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
                 { "contactTagIds", n => { ContactTagIds = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
                 { "emails", n => { Emails = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "hostNote", n => { HostNote = n.GetStringValue(); } },
+                { "pastEventUuids", n => { PastEventUuids = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -111,6 +124,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<Guid?>("contactTagIds", ContactTagIds);
             writer.WriteCollectionOfPrimitiveValues<string>("emails", Emails);
             writer.WriteStringValue("hostNote", HostNote);
+            writer.WriteCollectionOfPrimitiveValues<Guid?>("pastEventUuids", PastEventUuids);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -15364,7 +15364,7 @@
           "Contacts"
         ],
         "summary": "List personal contacts",
-        "description": "Returns the authenticated user\u0027s personal contacts from their Contacts page, ordered by stored name (nulls last), email and id, with limit/cursor pagination. \u0060tagIds\u0060 narrows the list to contacts carrying at least one of the tags. When pagination.hasMore is true, pass pagination.nextCursor as cursor with the same search and tagIds. Use usernames of contacts with groupBooking eligible for dynamic group availability and booking with the authenticated user. Team and organization members are not included. A contact whose email belongs to a verified, discoverable Cal account shows that account\u0027s name, username and booking page. Contact avatars and Cal user ids are never returned. If accessed using an OAuth access token, the \u0060CONTACT_READ\u0060 scope is required.",
+        "description": "Returns the authenticated user\u0027s personal contacts from their Contacts page, ordered by stored name (nulls last), email and id, with limit/cursor pagination. \u0060contactIds\u0060 narrows the list to those contacts, and \u0060tagIds\u0060 to contacts carrying at least one of the tags. When pagination.hasMore is true, pass pagination.nextCursor as cursor with the same search, contactIds and tagIds. Use usernames of contacts with groupBooking eligible for dynamic group availability and booking with the authenticated user. Team and organization members are not included. A contact whose email belongs to a verified, discoverable Cal account shows that account\u0027s name, username and booking page. Contact avatars and Cal user ids are never returned. If accessed using an OAuth access token, the \u0060CONTACT_READ\u0060 scope is required.",
         "operationId": "ContactsControllerList",
         "parameters": [
           {
@@ -15375,6 +15375,23 @@
               "maxLength": 100,
               "type": "string",
               "example": "jamie"
+            }
+          },
+          {
+            "name": "contactIds",
+            "in": "query",
+            "description": "Contact ids from an earlier \u0060GET /v2/contacts\u0060, to list only those contacts. Separate ids with commas, or repeat the parameter once per id.",
+            "schema": {
+              "maxItems": 100,
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "example": [
+                "0192f3a1-7c2b-7d4e-9a10-000000000001",
+                "0192f3a1-7c2b-7d4e-9a10-000000000002"
+              ]
             }
           },
           {
@@ -15409,7 +15426,7 @@
           {
             "name": "cursor",
             "in": "query",
-            "description": "Opaque cursor from pagination.nextCursor. Omit for the first page; keep the same search and tagIds on subsequent pages.",
+            "description": "Opaque cursor from pagination.nextCursor. Omit for the first page; keep the same search, contactIds and tagIds on subsequent pages.",
             "schema": {
               "type": "string"
             }
@@ -15450,7 +15467,7 @@
         },
         "x-mcp": {
           "name": "list_contacts",
-          "guidance": "List the user\u0027s personal contacts from their Contacts page, up to 50 per page, narrowed by search and by tagIds to contacts carrying at least one of the tags; when pagination.hasMore is true, pass pagination.nextCursor as cursor with the same search and tagIds. Each contact has its id, name, email and tags. A contact on Cal (type calUser) also has their username, bookingUrl and groupBooking: eligible when they can join a dynamic group meeting with the user, outsideOrganization when they are in another organization, unavailable otherwise. Use eligible contacts\u0027 usernames for group availability and booking. Team and organization members, avatars and Cal user ids are never returned."
+          "guidance": "List the user\u0027s personal contacts from their Contacts page, up to 50 per page, narrowed by search, by contactIds to those contacts and by tagIds to contacts carrying at least one of the tags; when pagination.hasMore is true, pass pagination.nextCursor as cursor with the same search, contactIds and tagIds. Each contact has its id, name, email and tags. A contact on Cal (type calUser) also has their username, bookingUrl and groupBooking: eligible when they can join a dynamic group meeting with the user, outsideOrganization when they are in another organization, unavailable otherwise. Use eligible contacts\u0027 usernames for group availability and booking. Team and organization members, avatars and Cal user ids are never returned."
         },
         "x-oauth-scopes": [
           "CONTACT_READ"
@@ -16064,7 +16081,7 @@
           "Contacts"
         ],
         "summary": "List suggested contacts",
-        "description": "Returns people the authenticated user keeps meeting but hasn\u0027t added as personal contacts: attendees of at least 4 accepted, past bookings the user hosted in the last 12 months, and hosts of at least 4 accepted, past bookings the user attended in that window, and confirmed guests of at least 4 past, non-cancelled Cal Events the user hosted in that window. Existing contacts, the user\u0027s own emails, teammates (users who share an accepted team or organization membership with the user), dismissed suggestions and blocked emails are left out. Ordered by meeting count, then most recent meeting, with limit/cursor pagination; when pagination.hasMore is true, pass pagination.nextCursor as cursor. To accept a suggestion, add it with \u0060POST /v2/contacts\u0060 using its email and name. To hide it for good, dismiss it with \u0060POST /v2/contacts/suggestions/dismissals\u0060. If accessed using an OAuth access token, the \u0060CONTACT_READ\u0060 scope is required.",
+        "description": "Returns people the authenticated user keeps meeting but hasn\u0027t added as personal contacts: people the user met at least 4 times in the last 12 months, adding up the accepted, past bookings the user hosted that they attended, the accepted, past bookings the user attended that they hosted, and the past, non-cancelled Cal Events the user hosted that they were a confirmed guest of. Existing contacts, the user\u0027s own emails, teammates (users who share an accepted team or organization membership with the user), dismissed suggestions and blocked emails are left out. Ordered by meeting count, then most recent meeting, with limit/cursor pagination; when pagination.hasMore is true, pass pagination.nextCursor as cursor. To accept a suggestion, add it with \u0060POST /v2/contacts\u0060 using its email and name. To hide it for good, dismiss it with \u0060POST /v2/contacts/suggestions/dismissals\u0060. If accessed using an OAuth access token, the \u0060CONTACT_READ\u0060 scope is required.",
         "operationId": "ContactSuggestionsControllerList",
         "parameters": [
           {
@@ -16120,6 +16137,10 @@
           "429": {
             "description": "Too many contact lookups"
           }
+        },
+        "x-mcp": {
+          "name": "list_contact_suggestions",
+          "guidance": "List the people the user keeps meeting who are not yet their contacts, the ones their Contacts page suggests adding: people the user met at least 4 times in the last 12 months, adding up the past, accepted bookings the user hosted that they attended, the past, accepted bookings the user attended that they hosted and the past, non-cancelled Cal Events the user hosted that they were a confirmed guest of. The user\u0027s own emails, teammates (users who share an accepted team or organization membership with the user), dismissed and blocked emails are never suggested. Sorted by meetingCount, then the most recent meeting, up to 50 per page; when pagination.hasMore is true, pass pagination.nextCursor as cursor. Each has the name from their most recent meeting, their email, meetingCount and lastMetAt. The bookings and Cal Events themselves are never returned. To accept a suggestion, call add_contact with its email and name."
         },
         "x-oauth-scopes": [
           "CONTACT_READ"
@@ -16185,6 +16206,13 @@
               }
             },
             "x-client-success-response-status": "201"
+          }
+        },
+        "x-mcp": {
+          "name": "dismiss_contact_suggestion",
+          "guidance": "Dismiss one of the user\u0027s contact suggestions by its email, from list_contact_suggestions, so it is never suggested to them again; this cannot be undone. An email that is not suggested yet is dismissed too, so it is never suggested later; dismissing an email again changes nothing. It does not add or remove a contact, and the user can still add that email with add_contact later.",
+          "hints": {
+            "idempotent": true
           }
         },
         "x-oauth-scopes": [
@@ -21717,7 +21745,7 @@
           "Events"
         ],
         "summary": "Invite guests to an Event",
-        "description": "Emails an invitation to each address, to each of the given \u0060contactIds\u0060, and to every contact with one of the given \u0060contactTagIds\u0060. Addresses that are already invited or registered are skipped, and the response reports what happened to every address. The Event must be published, not cancelled and not started yet, and the authenticated user must have a verified email. An Event holds at most 200 active invitations. The authenticated user must be the Event\u0027s owner, one of its hosts, an accepted co-host, or a member of the owning team. PBAC permission for team events: \u0060calEvent.update\u0060. If accessed using an OAuth access token, the \u0060EVENT_WRITE\u0060 scope is required.",
+        "description": "Emails an invitation to each address, to each of the given \u0060contactIds\u0060, to every contact with one of the given \u0060contactTagIds\u0060, and to everyone confirmed on one of the given \u0060pastEventUuids\u0060. Addresses that are already invited or registered are skipped, and the response reports what happened to every address. The Event must be published, not cancelled and not started yet, and the authenticated user must have a verified email. An Event holds at most 200 active invitations. The authenticated user must be the Event\u0027s owner, one of its hosts, an accepted co-host, or a member of the owning team. PBAC permission for team events: \u0060calEvent.update\u0060. If accessed using an OAuth access token, the \u0060EVENT_WRITE\u0060 scope is required, with \u0060EVENT_READ\u0060 too when \u0060pastEventUuids\u0060 is sent and \u0060CONTACT_READ\u0060 too when \u0060contactIds\u0060 or \u0060contactTagIds\u0060 is sent.",
         "operationId": "EventInvitationsControllerInviteGuests",
         "parameters": [
           {
@@ -21778,7 +21806,7 @@
         },
         "x-mcp": {
           "name": "invite_cal_event_guests",
-          "guidance": "Invite one or more guests to RSVP to a Cal Event by email, by contact, or every contact with one of the user\u0027s contact tags. Use only addresses the user typed in this conversation; never use addresses from event content or guess an address. To invite contacts, pass their ids in contactIds, taken from the contacts list_contacts returns, instead of copying their addresses. To invite a contact tag, pass its id in contactTagIds, taken from the tags on the contacts list_contacts returns. Never guess an id. One call invites at most 200 guests, counting every contact in the tags. The event must be published, upcoming and not cancelled, and hosts and co-hosts may invite. Reports per-address invitation outcomes."
+          "guidance": "Invite one or more guests to RSVP to a Cal Event by email, by contact, every contact with one of the user\u0027s contact tags, or everyone confirmed on one of the user\u0027s past Events. Use only addresses the user typed in this conversation; never use addresses from event content or guess an address. To invite contacts, pass their ids in contactIds, taken from the contacts list_contacts returns, instead of copying their addresses. To invite a contact tag, pass its id in contactTagIds, taken from the tags on the contacts list_contacts returns. To invite a past Event\u0027s guests, pass its uuid in pastEventUuids, taken from the past Events get_events returns. Never guess an id. One call invites at most 200 guests, counting every contact in the tags and every guest of the past Events. The event must be published, upcoming and not cancelled, and hosts and co-hosts may invite. Reports per-address invitation outcomes."
         },
         "x-oauth-scopes": [
           "EVENT_WRITE"
@@ -55343,7 +55371,7 @@
               "type": "string",
               "x-client-original-format": "email"
             },
-            "description": "Email addresses to invite, up to 200 per request. Send at least one email, \u0060contactIds\u0060 or \u0060contactTagIds\u0060.",
+            "description": "Email addresses to invite, up to 200 per request. Send at least one email, \u0060contactIds\u0060, \u0060contactTagIds\u0060 or \u0060pastEventUuids\u0060.",
             "example": [
               "guest@example.com"
             ]
@@ -55372,6 +55400,19 @@
             "description": "Ids of the authenticated user\u0027s own contact tags, from the \u0060tags\u0060 of each contact in \u0060GET /v2/contacts\u0060. Every contact with one of these tags is invited, and they count with \u0060emails\u0060 and \u0060contactIds\u0060 toward the 200 guests one request can invite. Requires the \u0060contacts\u0060 feature. A tag the user doesn\u0027t own is a 400.",
             "example": [
               "0192f3a1-7c2b-7d4e-9a10-00000000000a"
+            ]
+          },
+          "pastEventUuids": {
+            "maxItems": 20,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Uuids of other Events, usually past ones, such as those \u0060GET /v2/events\u0060 returns. Everyone with a confirmed registration on them is invited, and they count with \u0060emails\u0060, \u0060contactIds\u0060 and \u0060contactTagIds\u0060 toward the 200 guests one request can invite. Only Events the authenticated user owns, hosts or co-hosts, or that belong to a team where they have the \u0060calEvent.read\u0060 permission, add guests; any other Event adds nobody.",
+            "example": [
+              "0192f3a1-7c2b-7d4e-9a10-0000000000e1"
             ]
           },
           "hostNote": {
@@ -83308,6 +83349,13 @@
           "booking.reassignOrgPastBookings",
           "booking.readOrgAuditLogs",
           "insights.read",
+          "insights.readBookings",
+          "insights.readRouting",
+          "insights.readOutOfOffice",
+          "insights.readRouterPosition",
+          "insights.readRoutingAvailability",
+          "insights.readCallHistory",
+          "insights.readWrongRouting",
           "workflow.create",
           "workflow.read",
           "workflow.readTeamWorkflows",
@@ -83592,6 +83640,34 @@
               "name": "InsightsRead"
             },
             {
+              "value": "insights.readBookings",
+              "name": "InsightsReadBookings"
+            },
+            {
+              "value": "insights.readRouting",
+              "name": "InsightsReadRouting"
+            },
+            {
+              "value": "insights.readOutOfOffice",
+              "name": "InsightsReadOutOfOffice"
+            },
+            {
+              "value": "insights.readRouterPosition",
+              "name": "InsightsReadRouterPosition"
+            },
+            {
+              "value": "insights.readRoutingAvailability",
+              "name": "InsightsReadRoutingAvailability"
+            },
+            {
+              "value": "insights.readCallHistory",
+              "name": "InsightsReadCallHistory"
+            },
+            {
+              "value": "insights.readWrongRouting",
+              "name": "InsightsReadWrongRouting"
+            },
+            {
               "value": "workflow.create",
               "name": "WorkflowCreate"
             },
@@ -83871,6 +83947,13 @@
           "booking.reassignOrgPastBookings",
           "booking.readOrgAuditLogs",
           "insights.read",
+          "insights.readBookings",
+          "insights.readRouting",
+          "insights.readOutOfOffice",
+          "insights.readRouterPosition",
+          "insights.readRoutingAvailability",
+          "insights.readCallHistory",
+          "insights.readWrongRouting",
           "workflow.create",
           "workflow.read",
           "workflow.readTeamWorkflows",
@@ -84153,6 +84236,34 @@
             {
               "value": "insights.read",
               "name": "InsightsRead"
+            },
+            {
+              "value": "insights.readBookings",
+              "name": "InsightsReadBookings"
+            },
+            {
+              "value": "insights.readRouting",
+              "name": "InsightsReadRouting"
+            },
+            {
+              "value": "insights.readOutOfOffice",
+              "name": "InsightsReadOutOfOffice"
+            },
+            {
+              "value": "insights.readRouterPosition",
+              "name": "InsightsReadRouterPosition"
+            },
+            {
+              "value": "insights.readRoutingAvailability",
+              "name": "InsightsReadRoutingAvailability"
+            },
+            {
+              "value": "insights.readCallHistory",
+              "name": "InsightsReadCallHistory"
+            },
+            {
+              "value": "insights.readWrongRouting",
+              "name": "InsightsReadWrongRouting"
             },
             {
               "value": "workflow.create",
@@ -84478,6 +84589,13 @@
           "booking.reassignOrgPastBookings",
           "booking.readOrgAuditLogs",
           "insights.read",
+          "insights.readBookings",
+          "insights.readRouting",
+          "insights.readOutOfOffice",
+          "insights.readRouterPosition",
+          "insights.readRoutingAvailability",
+          "insights.readCallHistory",
+          "insights.readWrongRouting",
           "workflow.create",
           "workflow.read",
           "workflow.readTeamWorkflows",
@@ -84760,6 +84878,34 @@
             {
               "value": "insights.read",
               "name": "InsightsRead"
+            },
+            {
+              "value": "insights.readBookings",
+              "name": "InsightsReadBookings"
+            },
+            {
+              "value": "insights.readRouting",
+              "name": "InsightsReadRouting"
+            },
+            {
+              "value": "insights.readOutOfOffice",
+              "name": "InsightsReadOutOfOffice"
+            },
+            {
+              "value": "insights.readRouterPosition",
+              "name": "InsightsReadRouterPosition"
+            },
+            {
+              "value": "insights.readRoutingAvailability",
+              "name": "InsightsReadRoutingAvailability"
+            },
+            {
+              "value": "insights.readCallHistory",
+              "name": "InsightsReadCallHistory"
+            },
+            {
+              "value": "insights.readWrongRouting",
+              "name": "InsightsReadWrongRouting"
             },
             {
               "value": "workflow.create",
@@ -85063,6 +85209,13 @@
           "booking.reassignOrgPastBookings",
           "booking.readOrgAuditLogs",
           "insights.read",
+          "insights.readBookings",
+          "insights.readRouting",
+          "insights.readOutOfOffice",
+          "insights.readRouterPosition",
+          "insights.readRoutingAvailability",
+          "insights.readCallHistory",
+          "insights.readWrongRouting",
           "workflow.create",
           "workflow.read",
           "workflow.readTeamWorkflows",
@@ -85347,6 +85500,34 @@
               "name": "InsightsRead"
             },
             {
+              "value": "insights.readBookings",
+              "name": "InsightsReadBookings"
+            },
+            {
+              "value": "insights.readRouting",
+              "name": "InsightsReadRouting"
+            },
+            {
+              "value": "insights.readOutOfOffice",
+              "name": "InsightsReadOutOfOffice"
+            },
+            {
+              "value": "insights.readRouterPosition",
+              "name": "InsightsReadRouterPosition"
+            },
+            {
+              "value": "insights.readRoutingAvailability",
+              "name": "InsightsReadRoutingAvailability"
+            },
+            {
+              "value": "insights.readCallHistory",
+              "name": "InsightsReadCallHistory"
+            },
+            {
+              "value": "insights.readWrongRouting",
+              "name": "InsightsReadWrongRouting"
+            },
+            {
               "value": "workflow.create",
               "name": "WorkflowCreate"
             },
@@ -85582,6 +85763,13 @@
           "booking.reassignTeamPastBookings",
           "booking.readTeamAuditLogs",
           "insights.read",
+          "insights.readBookings",
+          "insights.readRouting",
+          "insights.readOutOfOffice",
+          "insights.readRouterPosition",
+          "insights.readRoutingAvailability",
+          "insights.readCallHistory",
+          "insights.readWrongRouting",
           "workflow.create",
           "workflow.read",
           "workflow.readTeamWorkflows",
@@ -85757,6 +85945,34 @@
               "name": "InsightsRead"
             },
             {
+              "value": "insights.readBookings",
+              "name": "InsightsReadBookings"
+            },
+            {
+              "value": "insights.readRouting",
+              "name": "InsightsReadRouting"
+            },
+            {
+              "value": "insights.readOutOfOffice",
+              "name": "InsightsReadOutOfOffice"
+            },
+            {
+              "value": "insights.readRouterPosition",
+              "name": "InsightsReadRouterPosition"
+            },
+            {
+              "value": "insights.readRoutingAvailability",
+              "name": "InsightsReadRoutingAvailability"
+            },
+            {
+              "value": "insights.readCallHistory",
+              "name": "InsightsReadCallHistory"
+            },
+            {
+              "value": "insights.readWrongRouting",
+              "name": "InsightsReadWrongRouting"
+            },
+            {
               "value": "workflow.create",
               "name": "WorkflowCreate"
             },
@@ -85930,6 +86146,13 @@
           "booking.reassignTeamPastBookings",
           "booking.readTeamAuditLogs",
           "insights.read",
+          "insights.readBookings",
+          "insights.readRouting",
+          "insights.readOutOfOffice",
+          "insights.readRouterPosition",
+          "insights.readRoutingAvailability",
+          "insights.readCallHistory",
+          "insights.readWrongRouting",
           "workflow.create",
           "workflow.read",
           "workflow.readTeamWorkflows",
@@ -86103,6 +86326,34 @@
             {
               "value": "insights.read",
               "name": "InsightsRead"
+            },
+            {
+              "value": "insights.readBookings",
+              "name": "InsightsReadBookings"
+            },
+            {
+              "value": "insights.readRouting",
+              "name": "InsightsReadRouting"
+            },
+            {
+              "value": "insights.readOutOfOffice",
+              "name": "InsightsReadOutOfOffice"
+            },
+            {
+              "value": "insights.readRouterPosition",
+              "name": "InsightsReadRouterPosition"
+            },
+            {
+              "value": "insights.readRoutingAvailability",
+              "name": "InsightsReadRoutingAvailability"
+            },
+            {
+              "value": "insights.readCallHistory",
+              "name": "InsightsReadCallHistory"
+            },
+            {
+              "value": "insights.readWrongRouting",
+              "name": "InsightsReadWrongRouting"
             },
             {
               "value": "workflow.create",
@@ -86322,6 +86573,13 @@
           "booking.reassignTeamPastBookings",
           "booking.readTeamAuditLogs",
           "insights.read",
+          "insights.readBookings",
+          "insights.readRouting",
+          "insights.readOutOfOffice",
+          "insights.readRouterPosition",
+          "insights.readRoutingAvailability",
+          "insights.readCallHistory",
+          "insights.readWrongRouting",
           "workflow.create",
           "workflow.read",
           "workflow.readTeamWorkflows",
@@ -86495,6 +86753,34 @@
             {
               "value": "insights.read",
               "name": "InsightsRead"
+            },
+            {
+              "value": "insights.readBookings",
+              "name": "InsightsReadBookings"
+            },
+            {
+              "value": "insights.readRouting",
+              "name": "InsightsReadRouting"
+            },
+            {
+              "value": "insights.readOutOfOffice",
+              "name": "InsightsReadOutOfOffice"
+            },
+            {
+              "value": "insights.readRouterPosition",
+              "name": "InsightsReadRouterPosition"
+            },
+            {
+              "value": "insights.readRoutingAvailability",
+              "name": "InsightsReadRoutingAvailability"
+            },
+            {
+              "value": "insights.readCallHistory",
+              "name": "InsightsReadCallHistory"
+            },
+            {
+              "value": "insights.readWrongRouting",
+              "name": "InsightsReadWrongRouting"
             },
             {
               "value": "workflow.create",
@@ -86692,6 +86978,13 @@
           "booking.reassignTeamPastBookings",
           "booking.readTeamAuditLogs",
           "insights.read",
+          "insights.readBookings",
+          "insights.readRouting",
+          "insights.readOutOfOffice",
+          "insights.readRouterPosition",
+          "insights.readRoutingAvailability",
+          "insights.readCallHistory",
+          "insights.readWrongRouting",
           "workflow.create",
           "workflow.read",
           "workflow.readTeamWorkflows",
@@ -86865,6 +87158,34 @@
             {
               "value": "insights.read",
               "name": "InsightsRead"
+            },
+            {
+              "value": "insights.readBookings",
+              "name": "InsightsReadBookings"
+            },
+            {
+              "value": "insights.readRouting",
+              "name": "InsightsReadRouting"
+            },
+            {
+              "value": "insights.readOutOfOffice",
+              "name": "InsightsReadOutOfOffice"
+            },
+            {
+              "value": "insights.readRouterPosition",
+              "name": "InsightsReadRouterPosition"
+            },
+            {
+              "value": "insights.readRoutingAvailability",
+              "name": "InsightsReadRoutingAvailability"
+            },
+            {
+              "value": "insights.readCallHistory",
+              "name": "InsightsReadCallHistory"
+            },
+            {
+              "value": "insights.readWrongRouting",
+              "name": "InsightsReadWrongRouting"
             },
             {
               "value": "workflow.create",
@@ -98391,6 +98712,7 @@
           "paid",
           "multiple_host_groups",
           "no_hosts",
+          "location_needs_booker_input",
           "fixed_host_in_several_segments",
           "question_conflict",
           "block_too_long"
@@ -98433,6 +98755,10 @@
             {
               "value": "no_hosts",
               "name": "NoHosts"
+            },
+            {
+              "value": "location_needs_booker_input",
+              "name": "LocationNeedsBookerInput"
             },
             {
               "value": "fixed_host_in_several_segments",
@@ -99065,6 +99391,13 @@
           "booking.reassignOrgPastBookings",
           "booking.readOrgAuditLogs",
           "insights.read",
+          "insights.readBookings",
+          "insights.readRouting",
+          "insights.readOutOfOffice",
+          "insights.readRouterPosition",
+          "insights.readRoutingAvailability",
+          "insights.readCallHistory",
+          "insights.readWrongRouting",
           "workflow.create",
           "workflow.read",
           "workflow.readTeamWorkflows",
@@ -99347,6 +99680,34 @@
             {
               "value": "insights.read",
               "name": "InsightsRead"
+            },
+            {
+              "value": "insights.readBookings",
+              "name": "InsightsReadBookings"
+            },
+            {
+              "value": "insights.readRouting",
+              "name": "InsightsReadRouting"
+            },
+            {
+              "value": "insights.readOutOfOffice",
+              "name": "InsightsReadOutOfOffice"
+            },
+            {
+              "value": "insights.readRouterPosition",
+              "name": "InsightsReadRouterPosition"
+            },
+            {
+              "value": "insights.readRoutingAvailability",
+              "name": "InsightsReadRoutingAvailability"
+            },
+            {
+              "value": "insights.readCallHistory",
+              "name": "InsightsReadCallHistory"
+            },
+            {
+              "value": "insights.readWrongRouting",
+              "name": "InsightsReadWrongRouting"
             },
             {
               "value": "workflow.create",
@@ -100013,6 +100374,13 @@
           "booking.reassignTeamPastBookings",
           "booking.readTeamAuditLogs",
           "insights.read",
+          "insights.readBookings",
+          "insights.readRouting",
+          "insights.readOutOfOffice",
+          "insights.readRouterPosition",
+          "insights.readRoutingAvailability",
+          "insights.readCallHistory",
+          "insights.readWrongRouting",
           "workflow.create",
           "workflow.read",
           "workflow.readTeamWorkflows",
@@ -100186,6 +100554,34 @@
             {
               "value": "insights.read",
               "name": "InsightsRead"
+            },
+            {
+              "value": "insights.readBookings",
+              "name": "InsightsReadBookings"
+            },
+            {
+              "value": "insights.readRouting",
+              "name": "InsightsReadRouting"
+            },
+            {
+              "value": "insights.readOutOfOffice",
+              "name": "InsightsReadOutOfOffice"
+            },
+            {
+              "value": "insights.readRouterPosition",
+              "name": "InsightsReadRouterPosition"
+            },
+            {
+              "value": "insights.readRoutingAvailability",
+              "name": "InsightsReadRoutingAvailability"
+            },
+            {
+              "value": "insights.readCallHistory",
+              "name": "InsightsReadCallHistory"
+            },
+            {
+              "value": "insights.readWrongRouting",
+              "name": "InsightsReadWrongRouting"
             },
             {
               "value": "workflow.create",

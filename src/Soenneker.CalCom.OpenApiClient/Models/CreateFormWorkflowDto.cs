@@ -92,7 +92,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "activation", n => { Activation = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.CreateFormWorkflowDtoActivation>(global::Soenneker.CalCom.OpenApiClient.Models.CreateFormWorkflowDtoActivation.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },

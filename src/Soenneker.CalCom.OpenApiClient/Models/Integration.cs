@@ -241,7 +241,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(17)
             {
                 { "appData", n => { AppData = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.IntegrationAppDataProperty>(global::Soenneker.CalCom.OpenApiClient.Models.IntegrationAppDataProperty.CreateFromDiscriminatorValue); } },
                 { "categories", n => { Categories = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },

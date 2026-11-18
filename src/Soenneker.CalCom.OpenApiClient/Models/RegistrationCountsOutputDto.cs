@@ -113,7 +113,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(11)
             {
                 { "byLocation", n => { ByLocation = n.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.RegistrationLocationCountOutputDto>(global::Soenneker.CalCom.OpenApiClient.Models.RegistrationLocationCountOutputDto.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "cancelled", n => { Cancelled = n.GetDoubleValue(); } },

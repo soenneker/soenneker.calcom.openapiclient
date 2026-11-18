@@ -39,6 +39,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         #pragma warning disable CS1591
         NoHosts,
         #pragma warning restore CS1591
+        [EnumMember(Value = "location_needs_booker_input")]
+        #pragma warning disable CS1591
+        LocationNeedsBookerInput,
+        #pragma warning restore CS1591
         [EnumMember(Value = "fixed_host_in_several_segments")]
         #pragma warning disable CS1591
         FixedHostInSeveralSegments,

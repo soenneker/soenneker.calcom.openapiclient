@@ -102,7 +102,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "bookingFields", n => { BookingFields = n.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.PublicEventTypeSequenceOutputBookingFieldsItem>(global::Soenneker.CalCom.OpenApiClient.Models.PublicEventTypeSequenceOutputBookingFieldsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "description", n => { Description = n.GetStringValue(); } },

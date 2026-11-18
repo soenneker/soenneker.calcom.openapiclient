@@ -92,7 +92,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "attribute", n => { Attribute = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.AttributeAssignmentHistoryChangeOutputAttribute>(global::Soenneker.CalCom.OpenApiClient.Models.AttributeAssignmentHistoryChangeOutputAttribute.CreateFromDiscriminatorValue); } },
                 { "current", n => { Current = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.AttributeAssignmentHistoryChangeOutputCurrent>(global::Soenneker.CalCom.OpenApiClient.Models.AttributeAssignmentHistoryChangeOutputCurrent.CreateFromDiscriminatorValue); } },

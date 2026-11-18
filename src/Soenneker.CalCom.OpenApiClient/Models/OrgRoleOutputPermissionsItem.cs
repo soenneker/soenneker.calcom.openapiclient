@@ -236,6 +236,34 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         #pragma warning disable CS1591
         InsightsRead,
         #pragma warning restore CS1591
+        [EnumMember(Value = "insights.readBookings")]
+        #pragma warning disable CS1591
+        InsightsReadBookings,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "insights.readRouting")]
+        #pragma warning disable CS1591
+        InsightsReadRouting,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "insights.readOutOfOffice")]
+        #pragma warning disable CS1591
+        InsightsReadOutOfOffice,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "insights.readRouterPosition")]
+        #pragma warning disable CS1591
+        InsightsReadRouterPosition,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "insights.readRoutingAvailability")]
+        #pragma warning disable CS1591
+        InsightsReadRoutingAvailability,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "insights.readCallHistory")]
+        #pragma warning disable CS1591
+        InsightsReadCallHistory,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "insights.readWrongRouting")]
+        #pragma warning disable CS1591
+        InsightsReadWrongRouting,
+        #pragma warning restore CS1591
         [EnumMember(Value = "workflow.create")]
         #pragma warning disable CS1591
         WorkflowCreate,
