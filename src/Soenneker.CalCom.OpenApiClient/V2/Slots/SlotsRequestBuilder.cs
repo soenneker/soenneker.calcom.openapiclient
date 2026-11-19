@@ -28,7 +28,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Slots
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SlotsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/slots?end={end}&start={start}{&bookingUidToReschedule*,duration*,eventTypeId*,eventTypeSlug*,format*,organizationSlug*,teamSlug*,timeZone*,username*,usernames*}", pathParameters)
+        public SlotsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/slots?end={end}&start={start}{&bookingUidToReschedule*,duration*,eventTypeId*,eventTypeSlug*,format*,hostUsernames*,organizationSlug*,teamSlug*,timeZone*,username*,usernames*}", pathParameters)
         {
         }
         /// <summary>
@@ -36,7 +36,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Slots
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SlotsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/slots?end={end}&start={start}{&bookingUidToReschedule*,duration*,eventTypeId*,eventTypeSlug*,format*,organizationSlug*,teamSlug*,timeZone*,username*,usernames*}", rawUrl)
+        public SlotsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/slots?end={end}&start={start}{&bookingUidToReschedule*,duration*,eventTypeId*,eventTypeSlug*,format*,hostUsernames*,organizationSlug*,teamSlug*,timeZone*,username*,usernames*}", rawUrl)
         {
         }
         /// <summary>
@@ -136,6 +136,16 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Slots
 #else
             [QueryParameter("format")]
             public string Format { get; set; }
+#endif
+            /// <summary>Only for collective event types: returns the slots when just these hosts are all available, instead of every host. Pass usernames separated by commas e.g. ?hostUsernames=alice,bob, or repeat the key e.g. ?hostUsernames=alice&amp;hostUsernames=bob. For a team in an organization, use the hosts&apos; organization usernames.      Every username must be a host of the event type, otherwise the request fails with 400 and the message &quot;invalid_hosts&quot;. At most 50 distinct usernames of at most 255 characters each. Leaving it out, or passing it empty, returns the slots of every host. A seated event type refuses it with 400.      Ignored for other event types, for dynamic events (usernames) and when bookingUidToReschedule is passed: a reschedule keeps the hosts of the original booking. To book the slot with the same hosts, pass the same hostUsernames when creating the booking.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("hostUsernames")]
+            public string? HostUsernames { get; set; }
+#nullable restore
+#else
+            [QueryParameter("hostUsernames")]
+            public string HostUsernames { get; set; }
 #endif
             /// <summary>The slug of the organization to which user with username belongs or team with teamSlug belongs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

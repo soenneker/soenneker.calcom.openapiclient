@@ -33,6 +33,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             else if (parseNode.GetChildNode("eventTypeSlug") is { } nullNodeEventTypeSlug && nullNodeEventTypeSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventTypeSlug = null;
             if (parseNode.GetChildNode("guests") is null) { _explicitNullValueGuests = default!; _explicitNullProperties?.Remove("guests"); }
             else if (parseNode.GetChildNode("guests") is { } nullNodeGuests && nullNodeGuests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Guests = null;
+            if (parseNode.GetChildNode("hostUsernames") is null) { _explicitNullValueHostUsernames = default!; _explicitNullProperties?.Remove("hostUsernames"); }
+            else if (parseNode.GetChildNode("hostUsernames") is { } nullNodeHostUsernames && nullNodeHostUsernames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HostUsernames = null;
             if (parseNode.GetChildNode("leadEnrichmentOptOut") is null) { _explicitNullValueLeadEnrichmentOptOut = default!; _explicitNullProperties?.Remove("leadEnrichmentOptOut"); }
             else if (parseNode.GetChildNode("leadEnrichmentOptOut") is { } nullNodeLeadEnrichmentOptOut && nullNodeLeadEnrichmentOptOut.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LeadEnrichmentOptOut = null;
             if (parseNode.GetChildNode("lengthInMinutes") is null) { _explicitNullValueLengthInMinutes = default!; _explicitNullProperties?.Remove("lengthInMinutes"); }
@@ -119,6 +121,16 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 #else
         public List<string> Guests { get => _explicitNullValueGuests; set { _explicitNullValueGuests = value; AdditionalData?.Remove("guests"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guests"); else _explicitNullProperties?.Remove("guests"); } }
         private List<string> _explicitNullValueGuests = default!;
+#endif
+        /// <summary>Only for collective event types: books just these hosts instead of every host. The organizer is whichever of them comes first in the event type&apos;s host order, not in this list. For a team in an organization, use the hosts&apos; organization usernames. Fetch slots with the same hostUsernames first.      Every username must be a host of the event type, otherwise the request fails with 400 and the message &quot;invalid_hosts&quot;. At most 50 distinct usernames of at most 255 characters each. Leaving it out, or passing an empty list, books every host.      Ignored for other event types and for dynamic group bookings (usernames). A seated or recurring collective event type refuses it with 400. Can&apos;t be sent with instant or recurrenceCount, and rescheduling a booking keeps the hosts of the original booking.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? HostUsernames { get => _explicitNullValueHostUsernames; set { _explicitNullValueHostUsernames = value; AdditionalData?.Remove("hostUsernames"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hostUsernames"); else _explicitNullProperties?.Remove("hostUsernames"); } }
+        private List<string>? _explicitNullValueHostUsernames = default!;
+#nullable restore
+#else
+        public List<string> HostUsernames { get => _explicitNullValueHostUsernames; set { _explicitNullValueHostUsernames = value; AdditionalData?.Remove("hostUsernames"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hostUsernames"); else _explicitNullProperties?.Remove("hostUsernames"); } }
+        private List<string> _explicitNullValueHostUsernames = default!;
 #endif
         /// <summary>The booker&apos;s answer to the lead enrichment opt-out, for an event type with a workflow that looks bookers up with lead enrichment. Send `true` when the booker ticked the opt-out and `false` when they were shown it and left it unticked. Sending `false` asserts that the booker saw the opt-out. Leave it out when the booker was not shown it: a booking without an answer is never looked up.</summary>
         public bool? LeadEnrichmentOptOut { get => _explicitNullValueLeadEnrichmentOptOut; set { _explicitNullValueLeadEnrichmentOptOut = value; AdditionalData?.Remove("leadEnrichmentOptOut"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("leadEnrichmentOptOut"); else _explicitNullProperties?.Remove("leadEnrichmentOptOut"); } }
@@ -236,7 +248,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(20)
+            return new Dictionary<string, Action<IParseNode>>(21)
             {
                 { "allowBookingOutOfBounds", n => { AllowBookingOutOfBounds = n.GetBoolValue(); } },
                 { "allowConflicts", n => { AllowConflicts = n.GetBoolValue(); } },
@@ -246,6 +258,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
                 { "eventTypeId", n => { EventTypeId = n.GetDoubleValue(); } },
                 { "eventTypeSlug", n => { EventTypeSlug = n.GetStringValue(); } },
                 { "guests", n => { Guests = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "hostUsernames", n => { HostUsernames = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "leadEnrichmentOptOut", n => { LeadEnrichmentOptOut = n.GetBoolValue(); } },
                 { "lengthInMinutes", n => { LengthInMinutes = n.GetDoubleValue(); } },
                 { "location", n => { Location = n.GetObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.CreateBookingInput20240813Location>(global::Soenneker.CalCom.OpenApiClient.Models.CreateBookingInput20240813Location.CreateFromDiscriminatorValue); } },
@@ -275,6 +288,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteDoubleValue("eventTypeId", EventTypeId);
             writer.WriteStringValue("eventTypeSlug", EventTypeSlug);
             writer.WriteCollectionOfPrimitiveValues<string>("guests", Guests);
+            writer.WriteCollectionOfPrimitiveValues<string>("hostUsernames", HostUsernames);
             writer.WriteBoolValue("leadEnrichmentOptOut", LeadEnrichmentOptOut);
             writer.WriteDoubleValue("lengthInMinutes", LengthInMinutes);
             writer.WriteObjectValue<global::Soenneker.CalCom.OpenApiClient.Models.CreateBookingInput20240813Location>("location", Location);

@@ -21687,6 +21687,48 @@
         "x-oauth-scopes": ["EVENT_WRITE"]
       }
     },
+    "/v2/feedback": {
+      "post": {
+        "description": "Record negative feedback about Cal.com tools for triage. Limited to 30 requests per minute per authenticated user across credentials. Details must not contain personal information.",
+        "operationId": "FeedbackController_report",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be `Bearer <token>` where `<token>` is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReportFeedbackInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportFeedbackOutput"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Report MCP feedback",
+        "tags": ["Feedback"],
+        "x-oauth-scopes": []
+      }
+    },
     "/v2/insights/booking-limits/usage": {
       "post": {
         "description": "How much of each booking limit is used in the day, week, month and year containing `date` (default today), per user in scope. Counts come from the same queries booking-limit enforcement uses. Reports the user's global limit and, when `eventTypeId` is given, the event type's own limit; team booking limits are not included yet. Team scope requires `insights.read` on the team, even for direct members. Org scope requires `eventTypeId` and lists that event's hosts. An admin `skipBookingLimits` override can still let a booking through when `remaining` is 0.",
@@ -26042,6 +26084,32 @@
               "type": "string",
               "example": "2024-09-04",
               "default": "2024-09-04"
+            }
+          },
+          {
+            "name": "hostUsernames",
+            "required": false,
+            "in": "query",
+            "description": "Only for collective event types: returns the slots when just these hosts are all available, instead of every host. Pass usernames separated by commas e.g. ?hostUsernames=alice,bob, or repeat the key e.g. ?hostUsernames=alice&hostUsernames=bob. For a team in an organization, use the hosts' organization usernames.\n\n      Every username must be a host of the event type, otherwise the request fails with 400 and the message \"invalid_hosts\". At most 50 distinct usernames of at most 255 characters each. Leaving it out, or passing it empty, returns the slots of every host. A seated event type refuses it with 400.\n\n      Ignored for other event types, for dynamic events (usernames) and when bookingUidToReschedule is passed: a reschedule keeps the hosts of the original booking. To book the slot with the same hosts, pass the same hostUsernames when creating the booking.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "oneOf": [
+                {
+                  "title": "Comma-separated usernames",
+                  "type": "string",
+                  "example": "alice,bob"
+                },
+                {
+                  "title": "Repeated usernames (array)",
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "maxLength": 255
+                  },
+                  "example": ["alice", "bob"]
+                }
+              ]
             }
           },
           {
@@ -42224,7 +42292,8 @@
                 "CAL_EVENT_REGISTRATION_CONFIRMED",
                 "CAL_EVENT_REGISTRATION_WAITLISTED",
                 "CAL_EVENT_REGISTRATION_DECLINED",
-                "CAL_EVENT_REGISTRATION_CANCELLED"
+                "CAL_EVENT_REGISTRATION_CANCELLED",
+                "SEQUENCE_BOOKING_CREATED"
               ]
             }
           },
@@ -42357,7 +42426,8 @@
                 "CAL_EVENT_REGISTRATION_CONFIRMED",
                 "CAL_EVENT_REGISTRATION_WAITLISTED",
                 "CAL_EVENT_REGISTRATION_DECLINED",
-                "CAL_EVENT_REGISTRATION_CANCELLED"
+                "CAL_EVENT_REGISTRATION_CANCELLED",
+                "SEQUENCE_BOOKING_CREATED"
               ]
             },
             "example": [
@@ -42471,7 +42541,8 @@
                 "CAL_EVENT_REGISTRATION_CONFIRMED",
                 "CAL_EVENT_REGISTRATION_WAITLISTED",
                 "CAL_EVENT_REGISTRATION_DECLINED",
-                "CAL_EVENT_REGISTRATION_CANCELLED"
+                "CAL_EVENT_REGISTRATION_CANCELLED",
+                "SEQUENCE_BOOKING_CREATED"
               ]
             },
             "example": [
@@ -56705,6 +56776,14 @@
               "type": "string"
             }
           },
+          "hostUsernames": {
+            "description": "Only for collective event types: books just these hosts instead of every host. The organizer is whichever of them comes first in the event type's host order, not in this list. For a team in an organization, use the hosts' organization usernames. Fetch slots with the same hostUsernames first.\n\n      Every username must be a host of the event type, otherwise the request fails with 400 and the message \"invalid_hosts\". At most 50 distinct usernames of at most 255 characters each. Leaving it out, or passing an empty list, books every host.\n\n      Ignored for other event types and for dynamic group bookings (usernames). A seated or recurring collective event type refuses it with 400. Can't be sent with instant or recurrenceCount, and rescheduling a booking keeps the hosts of the original booking.",
+            "example": ["alice", "bob"],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
           "guests": {
             "description": "An optional list of guest emails attending the event.",
             "example": ["guest1@example.com", "guest2@example.com"],
@@ -60556,7 +60635,8 @@
                 "CAL_EVENT_REGISTRATION_CONFIRMED",
                 "CAL_EVENT_REGISTRATION_WAITLISTED",
                 "CAL_EVENT_REGISTRATION_DECLINED",
-                "CAL_EVENT_REGISTRATION_CANCELLED"
+                "CAL_EVENT_REGISTRATION_CANCELLED",
+                "SEQUENCE_BOOKING_CREATED"
               ]
             }
           },
@@ -60681,7 +60761,8 @@
                 "CAL_EVENT_REGISTRATION_CONFIRMED",
                 "CAL_EVENT_REGISTRATION_WAITLISTED",
                 "CAL_EVENT_REGISTRATION_DECLINED",
-                "CAL_EVENT_REGISTRATION_CANCELLED"
+                "CAL_EVENT_REGISTRATION_CANCELLED",
+                "SEQUENCE_BOOKING_CREATED"
               ]
             }
           },
@@ -60820,7 +60901,8 @@
                 "CAL_EVENT_REGISTRATION_CONFIRMED",
                 "CAL_EVENT_REGISTRATION_WAITLISTED",
                 "CAL_EVENT_REGISTRATION_DECLINED",
-                "CAL_EVENT_REGISTRATION_CANCELLED"
+                "CAL_EVENT_REGISTRATION_CANCELLED",
+                "SEQUENCE_BOOKING_CREATED"
               ]
             }
           },
@@ -66642,6 +66724,49 @@
           }
         },
         "required": ["status", "data"]
+      },
+      "ReportFeedbackInput": {
+        "type": "object",
+        "properties": {
+          "reasons": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "enum": [
+                "wrong_date_or_time",
+                "wrong_person_or_event",
+                "missing_or_incomplete_information",
+                "looked_in_wrong_place",
+                "did_not_do_what_i_asked",
+                "lost_context",
+                "slow_or_buggy",
+                "other"
+              ]
+            },
+            "maxItems": 8
+          },
+          "details": {
+            "type": "string",
+            "maxLength": 1000,
+            "description": "Short feedback without names, emails or other personal information."
+          },
+          "toolName": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]{1,64}$",
+            "description": "The MCP tool this feedback is about, including a needed tool that is missing."
+          }
+        },
+        "required": ["reasons"]
+      },
+      "ReportFeedbackOutput": {
+        "type": "object",
+        "properties": {
+          "saved": {
+            "type": "boolean"
+          }
+        },
+        "required": ["saved"]
       },
       "ContactTagOutput": {
         "type": "object",

@@ -152,5 +152,9 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         #pragma warning disable CS1591
         CalEventRegistrationCancelled,
         #pragma warning restore CS1591
+        [EnumMember(Value = "SEQUENCE_BOOKING_CREATED")]
+        #pragma warning disable CS1591
+        SequenceBookingCreated,
+        #pragma warning restore CS1591
     }
 }

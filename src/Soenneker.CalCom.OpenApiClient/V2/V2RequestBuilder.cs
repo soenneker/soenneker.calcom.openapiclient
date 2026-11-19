@@ -15,6 +15,7 @@ using Soenneker.CalCom.OpenApiClient.V2.Discover;
 using Soenneker.CalCom.OpenApiClient.V2.EventTypeSequences;
 using Soenneker.CalCom.OpenApiClient.V2.EventTypes;
 using Soenneker.CalCom.OpenApiClient.V2.Events;
+using Soenneker.CalCom.OpenApiClient.V2.Feedback;
 using Soenneker.CalCom.OpenApiClient.V2.Insights;
 using Soenneker.CalCom.OpenApiClient.V2.Links;
 using Soenneker.CalCom.OpenApiClient.V2.Me;
@@ -108,6 +109,11 @@ namespace Soenneker.CalCom.OpenApiClient.V2
         public global::Soenneker.CalCom.OpenApiClient.V2.EventTypeSequences.EventTypeSequencesRequestBuilder EventTypeSequences
         {
             get => new global::Soenneker.CalCom.OpenApiClient.V2.EventTypeSequences.EventTypeSequencesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The feedback property</summary>
+        public global::Soenneker.CalCom.OpenApiClient.V2.Feedback.FeedbackRequestBuilder Feedback
+        {
+            get => new global::Soenneker.CalCom.OpenApiClient.V2.Feedback.FeedbackRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The insights property</summary>
         public global::Soenneker.CalCom.OpenApiClient.V2.Insights.InsightsRequestBuilder Insights

@@ -21813,6 +21813,50 @@
         ]
       }
     },
+    "/v2/feedback": {
+      "post": {
+        "tags": [
+          "Feedback"
+        ],
+        "summary": "Report MCP feedback",
+        "description": "Record negative feedback about Cal.com tools for triage. Limited to 30 requests per minute per authenticated user across credentials. Details must not contain personal information.",
+        "operationId": "FeedbackControllerReport",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be \u0060Bearer \u003Ctoken\u003E\u0060 where \u0060\u003Ctoken\u003E\u0060 is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReportFeedbackInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportFeedbackOutput"
+                }
+              }
+            }
+          }
+        },
+        "x-oauth-scopes": []
+      }
+    },
     "/v2/insights/booking-limits/usage": {
       "post": {
         "tags": [
@@ -26439,6 +26483,32 @@
               "type": "string",
               "default": "2024-09-04",
               "example": "2024-09-04"
+            }
+          },
+          {
+            "name": "hostUsernames",
+            "in": "query",
+            "description": "Only for collective event types: returns the slots when just these hosts are all available, instead of every host. Pass usernames separated by commas e.g. ?hostUsernames=alice,bob, or repeat the key e.g. ?hostUsernames=alice\u0026hostUsernames=bob. For a team in an organization, use the hosts\u0027 organization usernames.\n\n      Every username must be a host of the event type, otherwise the request fails with 400 and the message \u0022invalid_hosts\u0022. At most 50 distinct usernames of at most 255 characters each. Leaving it out, or passing it empty, returns the slots of every host. A seated event type refuses it with 400.\n\n      Ignored for other event types, for dynamic events (usernames) and when bookingUidToReschedule is passed: a reschedule keeps the hosts of the original booking. To book the slot with the same hosts, pass the same hostUsernames when creating the booking.",
+            "schema": {
+              "oneOf": [
+                {
+                  "title": "Comma-separated usernames",
+                  "type": "string",
+                  "example": "alice,bob"
+                },
+                {
+                  "title": "Repeated usernames (array)",
+                  "type": "array",
+                  "items": {
+                    "maxLength": 255,
+                    "type": "string"
+                  },
+                  "example": [
+                    "alice",
+                    "bob"
+                  ]
+                }
+              ]
             }
           },
           {
@@ -48340,6 +48410,17 @@
               "bob"
             ]
           },
+          "hostUsernames": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Only for collective event types: books just these hosts instead of every host. The organizer is whichever of them comes first in the event type\u0027s host order, not in this list. For a team in an organization, use the hosts\u0027 organization usernames. Fetch slots with the same hostUsernames first.\n\n      Every username must be a host of the event type, otherwise the request fails with 400 and the message \u0022invalid_hosts\u0022. At most 50 distinct usernames of at most 255 characters each. Leaving it out, or passing an empty list, books every host.\n\n      Ignored for other event types and for dynamic group bookings (usernames). A seated or recurring collective event type refuses it with 400. Can\u0027t be sent with instant or recurrenceCount, and rescheduling a booking keeps the hosts of the original booking.",
+            "example": [
+              "alice",
+              "bob"
+            ]
+          },
           "guests": {
             "type": "array",
             "items": {
@@ -55489,6 +55570,43 @@
           },
           "data": {
             "$ref": "#/components/schemas/InviteGuestsOutputDto"
+          }
+        }
+      },
+      "ReportFeedbackInput": {
+        "required": [
+          "reasons"
+        ],
+        "type": "object",
+        "properties": {
+          "reasons": {
+            "maxItems": 8,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportFeedbackInputReasonsItem"
+            }
+          },
+          "details": {
+            "maxLength": 1000,
+            "type": "string",
+            "description": "Short feedback without names, emails or other personal information."
+          },
+          "toolName": {
+            "pattern": "^[a-z0-9_]{1,64}$",
+            "type": "string",
+            "description": "The MCP tool this feedback is about, including a needed tool that is missing."
+          }
+        }
+      },
+      "ReportFeedbackOutput": {
+        "required": [
+          "saved"
+        ],
+        "type": "object",
+        "properties": {
+          "saved": {
+            "type": "boolean"
           }
         }
       },
@@ -72158,7 +72276,8 @@
           "CAL_EVENT_REGISTRATION_CONFIRMED",
           "CAL_EVENT_REGISTRATION_WAITLISTED",
           "CAL_EVENT_REGISTRATION_DECLINED",
-          "CAL_EVENT_REGISTRATION_CANCELLED"
+          "CAL_EVENT_REGISTRATION_CANCELLED",
+          "SEQUENCE_BOOKING_CREATED"
         ],
         "type": "string",
         "x-ms-enum": {
@@ -72308,6 +72427,10 @@
             {
               "value": "CAL_EVENT_REGISTRATION_CANCELLED",
               "name": "CalEventRegistrationCancelled"
+            },
+            {
+              "value": "SEQUENCE_BOOKING_CREATED",
+              "name": "SequenceBookingCreated"
             }
           ]
         }
@@ -72422,7 +72545,8 @@
           "CAL_EVENT_REGISTRATION_CONFIRMED",
           "CAL_EVENT_REGISTRATION_WAITLISTED",
           "CAL_EVENT_REGISTRATION_DECLINED",
-          "CAL_EVENT_REGISTRATION_CANCELLED"
+          "CAL_EVENT_REGISTRATION_CANCELLED",
+          "SEQUENCE_BOOKING_CREATED"
         ],
         "type": "string",
         "x-ms-enum": {
@@ -72572,6 +72696,10 @@
             {
               "value": "CAL_EVENT_REGISTRATION_CANCELLED",
               "name": "CalEventRegistrationCancelled"
+            },
+            {
+              "value": "SEQUENCE_BOOKING_CREATED",
+              "name": "SequenceBookingCreated"
             }
           ]
         }
@@ -72686,7 +72814,8 @@
           "CAL_EVENT_REGISTRATION_CONFIRMED",
           "CAL_EVENT_REGISTRATION_WAITLISTED",
           "CAL_EVENT_REGISTRATION_DECLINED",
-          "CAL_EVENT_REGISTRATION_CANCELLED"
+          "CAL_EVENT_REGISTRATION_CANCELLED",
+          "SEQUENCE_BOOKING_CREATED"
         ],
         "type": "string",
         "x-ms-enum": {
@@ -72836,6 +72965,10 @@
             {
               "value": "CAL_EVENT_REGISTRATION_CANCELLED",
               "name": "CalEventRegistrationCancelled"
+            },
+            {
+              "value": "SEQUENCE_BOOKING_CREATED",
+              "name": "SequenceBookingCreated"
             }
           ]
         }
@@ -92348,7 +92481,8 @@
           "CAL_EVENT_REGISTRATION_CONFIRMED",
           "CAL_EVENT_REGISTRATION_WAITLISTED",
           "CAL_EVENT_REGISTRATION_DECLINED",
-          "CAL_EVENT_REGISTRATION_CANCELLED"
+          "CAL_EVENT_REGISTRATION_CANCELLED",
+          "SEQUENCE_BOOKING_CREATED"
         ],
         "type": "string",
         "x-ms-enum": {
@@ -92498,6 +92632,10 @@
             {
               "value": "CAL_EVENT_REGISTRATION_CANCELLED",
               "name": "CalEventRegistrationCancelled"
+            },
+            {
+              "value": "SEQUENCE_BOOKING_CREATED",
+              "name": "SequenceBookingCreated"
             }
           ]
         }
@@ -92634,7 +92772,8 @@
           "CAL_EVENT_REGISTRATION_CONFIRMED",
           "CAL_EVENT_REGISTRATION_WAITLISTED",
           "CAL_EVENT_REGISTRATION_DECLINED",
-          "CAL_EVENT_REGISTRATION_CANCELLED"
+          "CAL_EVENT_REGISTRATION_CANCELLED",
+          "SEQUENCE_BOOKING_CREATED"
         ],
         "type": "string",
         "x-ms-enum": {
@@ -92784,6 +92923,10 @@
             {
               "value": "CAL_EVENT_REGISTRATION_CANCELLED",
               "name": "CalEventRegistrationCancelled"
+            },
+            {
+              "value": "SEQUENCE_BOOKING_CREATED",
+              "name": "SequenceBookingCreated"
             }
           ]
         }
@@ -92942,7 +93085,8 @@
           "CAL_EVENT_REGISTRATION_CONFIRMED",
           "CAL_EVENT_REGISTRATION_WAITLISTED",
           "CAL_EVENT_REGISTRATION_DECLINED",
-          "CAL_EVENT_REGISTRATION_CANCELLED"
+          "CAL_EVENT_REGISTRATION_CANCELLED",
+          "SEQUENCE_BOOKING_CREATED"
         ],
         "type": "string",
         "x-ms-enum": {
@@ -93092,6 +93236,10 @@
             {
               "value": "CAL_EVENT_REGISTRATION_CANCELLED",
               "name": "CalEventRegistrationCancelled"
+            },
+            {
+              "value": "SEQUENCE_BOOKING_CREATED",
+              "name": "SequenceBookingCreated"
             }
           ]
         }
@@ -97471,6 +97619,57 @@
             {
               "value": "error",
               "name": "Error"
+            }
+          ]
+        }
+      },
+      "ReportFeedbackInputReasonsItem": {
+        "enum": [
+          "wrong_date_or_time",
+          "wrong_person_or_event",
+          "missing_or_incomplete_information",
+          "looked_in_wrong_place",
+          "did_not_do_what_i_asked",
+          "lost_context",
+          "slow_or_buggy",
+          "other"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ReportFeedbackInputReasonsItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "wrong_date_or_time",
+              "name": "WrongDateOrTime"
+            },
+            {
+              "value": "wrong_person_or_event",
+              "name": "WrongPersonOrEvent"
+            },
+            {
+              "value": "missing_or_incomplete_information",
+              "name": "MissingOrIncompleteInformation"
+            },
+            {
+              "value": "looked_in_wrong_place",
+              "name": "LookedInWrongPlace"
+            },
+            {
+              "value": "did_not_do_what_i_asked",
+              "name": "DidNotDoWhatIAsked"
+            },
+            {
+              "value": "lost_context",
+              "name": "LostContext"
+            },
+            {
+              "value": "slow_or_buggy",
+              "name": "SlowOrBuggy"
+            },
+            {
+              "value": "other",
+              "name": "Other"
             }
           ]
         }
