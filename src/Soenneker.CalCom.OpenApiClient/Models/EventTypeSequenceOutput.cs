@@ -19,6 +19,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("bookingFields") is null) { _explicitNullValueBookingFields = default!; _explicitNullProperties?.Remove("bookingFields"); }
             else if (parseNode.GetChildNode("bookingFields") is { } nullNodeBookingFields && nullNodeBookingFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingFields = null;
+            if (parseNode.GetChildNode("bookingUrl") is null) { _explicitNullValueBookingUrl = default!; _explicitNullProperties?.Remove("bookingUrl"); }
+            else if (parseNode.GetChildNode("bookingUrl") is { } nullNodeBookingUrl && nullNodeBookingUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingUrl = null;
             if (parseNode.GetChildNode("createdAt") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("createdAt"); }
             else if (parseNode.GetChildNode("createdAt") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
             if (parseNode.GetChildNode("description") is null) { _explicitNullValueDescription = default!; _explicitNullProperties?.Remove("description"); }
@@ -52,6 +54,16 @@ namespace Soenneker.CalCom.OpenApiClient.Models
 #else
         public List<global::Soenneker.CalCom.OpenApiClient.Models.EventTypeSequenceOutputBookingFieldsItem> BookingFields { get => _explicitNullValueBookingFields; set { _explicitNullValueBookingFields = value; AdditionalData?.Remove("bookingFields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingFields"); else _explicitNullProperties?.Remove("bookingFields"); } }
         private List<global::Soenneker.CalCom.OpenApiClient.Models.EventTypeSequenceOutputBookingFieldsItem> _explicitNullValueBookingFields = default!;
+#endif
+        /// <summary>Full URL to the sequence&apos;s booking page, which it shares with the team&apos;s event types. Null when the team does not have a slug.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? BookingUrl { get => _explicitNullValueBookingUrl; set { _explicitNullValueBookingUrl = value; AdditionalData?.Remove("bookingUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUrl"); else _explicitNullProperties?.Remove("bookingUrl"); } }
+        private string? _explicitNullValueBookingUrl = default!;
+#nullable restore
+#else
+        public string BookingUrl { get => _explicitNullValueBookingUrl; set { _explicitNullValueBookingUrl = value; AdditionalData?.Remove("bookingUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bookingUrl"); else _explicitNullProperties?.Remove("bookingUrl"); } }
+        private string _explicitNullValueBookingUrl = default!;
 #endif
         /// <summary>The createdAt property</summary>
         public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("createdAt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("createdAt"); else _explicitNullProperties?.Remove("createdAt"); } }
@@ -134,9 +146,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(11)
+            return new Dictionary<string, Action<IParseNode>>(12)
             {
                 { "bookingFields", n => { BookingFields = n.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.EventTypeSequenceOutputBookingFieldsItem>(global::Soenneker.CalCom.OpenApiClient.Models.EventTypeSequenceOutputBookingFieldsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "bookingUrl", n => { BookingUrl = n.GetStringValue(); } },
                 { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "segments", n => { Segments = n.GetCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.EventTypeSequenceSegmentOutput>(global::Soenneker.CalCom.OpenApiClient.Models.EventTypeSequenceSegmentOutput.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -157,6 +170,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.EventTypeSequenceOutputBookingFieldsItem>("bookingFields", BookingFields);
+            writer.WriteStringValue("bookingUrl", BookingUrl);
             writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
             writer.WriteStringValue("description", Description);
             writer.WriteCollectionOfObjectValues<global::Soenneker.CalCom.OpenApiClient.Models.EventTypeSequenceSegmentOutput>("segments", Segments);

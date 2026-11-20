@@ -1,8 +1,8 @@
 {
-  "descriptionHash": "6285706315FCB684667A507BAAAAE79501278A0FDDA98ACCDBAFD9356313CB81BA8CF7747CCC23A92FD548B825E7BECF315DA110931503633D3AF2C2A01ECB52",
+  "descriptionHash": "D9C009F25B11DC01B5FB56D5AF0AEC6DAD5D6AF299EDF43E53DCCD31ABFC932258CE408260CB678E3D51D0E02AE2A044F8A302EFBBB6034508CFDE621166BD2E",
   "descriptionLocation": "../../fixed.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.38.0",
+  "kiotaVersion": "1.39.0",
   "clientClassName": "CalComOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.CalCom.OpenApiClient",

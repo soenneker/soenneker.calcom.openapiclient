@@ -40,5 +40,9 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         #pragma warning disable CS1591
         Cancelled,
         #pragma warning restore CS1591
+        [EnumMember(Value = "RESERVED")]
+        #pragma warning disable CS1591
+        Reserved,
+        #pragma warning restore CS1591
     }
 }

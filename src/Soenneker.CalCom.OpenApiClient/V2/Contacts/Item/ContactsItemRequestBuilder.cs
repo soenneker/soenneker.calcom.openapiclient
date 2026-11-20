@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.CalCom.OpenApiClient.Models;
 using Soenneker.CalCom.OpenApiClient.V2.Contacts.Item.History;
+using Soenneker.CalCom.OpenApiClient.V2.Contacts.Item.Note;
 using Soenneker.CalCom.OpenApiClient.V2.Contacts.Item.Tags;
 using System.Collections.Generic;
 using System.IO;
@@ -23,6 +24,11 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Contacts.Item
         public global::Soenneker.CalCom.OpenApiClient.V2.Contacts.Item.History.HistoryRequestBuilder History
         {
             get => new global::Soenneker.CalCom.OpenApiClient.V2.Contacts.Item.History.HistoryRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The note property</summary>
+        public global::Soenneker.CalCom.OpenApiClient.V2.Contacts.Item.Note.NoteRequestBuilder Note
+        {
+            get => new global::Soenneker.CalCom.OpenApiClient.V2.Contacts.Item.Note.NoteRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The tags property</summary>
         public global::Soenneker.CalCom.OpenApiClient.V2.Contacts.Item.Tags.TagsRequestBuilder Tags
@@ -64,7 +70,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Contacts.Item
             return await RequestAdapter.SendAsync<global::Soenneker.CalCom.OpenApiClient.Models.RemoveContactOutputResponseDto>(requestInfo, global::Soenneker.CalCom.OpenApiClient.Models.RemoveContactOutputResponseDto.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates one of the authenticated user&apos;s personal contacts, changing only the fields given in the body; a body with no fields changes nothing and returns the contact as it is. `name` is the only field today. A contact on Cal (`type: calUser`) shows the name from their Cal account and can&apos;t have its name changed. A contact the user does not have is not found. If accessed using an OAuth access token, the `CONTACT_WRITE` scope is required.
+        /// Updates one of the authenticated user&apos;s personal contacts, changing only the fields given in the body; a body with no fields changes nothing and returns the contact as it is. `note` replaces the user&apos;s private note on the contact, sanitized and limited as on the Contacts page, and an empty `note` clears it; read it with `GET /v2/contacts/{id}/note`. A contact on Cal (`type: calUser`) shows the name from their Cal account and can&apos;t have its name changed, but it can have a note; a body with both is refused whole and stores neither. A contact the user does not have is not found. If accessed using an OAuth access token, the `CONTACT_WRITE` scope is required.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.CalCom.OpenApiClient.Models.UpdateContactOutputResponseDto"/></returns>
         /// <param name="body">The request body</param>
@@ -103,7 +109,7 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Contacts.Item
             return requestInfo;
         }
         /// <summary>
-        /// Updates one of the authenticated user&apos;s personal contacts, changing only the fields given in the body; a body with no fields changes nothing and returns the contact as it is. `name` is the only field today. A contact on Cal (`type: calUser`) shows the name from their Cal account and can&apos;t have its name changed. A contact the user does not have is not found. If accessed using an OAuth access token, the `CONTACT_WRITE` scope is required.
+        /// Updates one of the authenticated user&apos;s personal contacts, changing only the fields given in the body; a body with no fields changes nothing and returns the contact as it is. `note` replaces the user&apos;s private note on the contact, sanitized and limited as on the Contacts page, and an empty `note` clears it; read it with `GET /v2/contacts/{id}/note`. A contact on Cal (`type: calUser`) shows the name from their Cal account and can&apos;t have its name changed, but it can have a note; a body with both is refused whole and stores neither. A contact the user does not have is not found. If accessed using an OAuth access token, the `CONTACT_WRITE` scope is required.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
