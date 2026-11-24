@@ -21,6 +21,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             else if (parseNode.GetChildNode("mandatory") is { } nullNodeMandatory && nullNodeMandatory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mandatory = null;
             if (parseNode.GetChildNode("priority") is null) { _explicitNullValuePriority = default!; _explicitNullProperties?.Remove("priority"); }
             else if (parseNode.GetChildNode("priority") is { } nullNodePriority && nullNodePriority.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Priority = null;
+            if (parseNode.GetChildNode("scheduleId") is null) { _explicitNullValueScheduleId = default!; _explicitNullProperties?.Remove("scheduleId"); }
+            else if (parseNode.GetChildNode("scheduleId") is { } nullNodeScheduleId && nullNodeScheduleId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScheduleId = null;
             if (parseNode.GetChildNode("userId") is null) { _explicitNullValueUserId = default!; _explicitNullProperties?.Remove("userId"); }
             else if (parseNode.GetChildNode("userId") is { } nullNodeUserId && nullNodeUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserId = null;
             if (parseNode.GetChildNode("weight") is null) { _explicitNullValueWeight = default!; _explicitNullProperties?.Remove("weight"); }
@@ -35,6 +37,9 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>The priority property</summary>
         public global::Soenneker.CalCom.OpenApiClient.Models.HostPriority? Priority { get => _explicitNullValuePriority; set { _explicitNullValuePriority = value; AdditionalData?.Remove("priority"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("priority"); else _explicitNullProperties?.Remove("priority"); } }
         private global::Soenneker.CalCom.OpenApiClient.Models.HostPriority? _explicitNullValuePriority = default!;
+        /// <summary>Only relevant for round robin and collective event types. ID of one of this host&apos;s own schedules to use for this event type instead of their default schedule. Pass `null` to use the host&apos;s default schedule. When updating, omitting it keeps the host&apos;s current schedule. Ignored for managed event types and, like the rest of the entry, for non-mandatory entries combined with `assignAllTeamMembers: true`. While the event type has its own `scheduleId`, that schedule applies to every host instead.</summary>
+        public double? ScheduleId { get => _explicitNullValueScheduleId; set { _explicitNullValueScheduleId = value; AdditionalData?.Remove("scheduleId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scheduleId"); else _explicitNullProperties?.Remove("scheduleId"); } }
+        private double? _explicitNullValueScheduleId = default!;
         /// <summary>Which user is the host of this event</summary>
         public double? UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; AdditionalData?.Remove("userId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userId"); else _explicitNullProperties?.Remove("userId"); } }
         private double? _explicitNullValueUserId = default!;
@@ -65,10 +70,11 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(4)
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "mandatory", n => { Mandatory = n.GetBoolValue(); } },
                 { "priority", n => { var parsed = n.GetEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.HostPriority>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValuePriority = default; _explicitNullProperties?.Remove("priority"); AdditionalData["priority"] = unknown; } else { Priority = parsed; AdditionalData.Remove("priority"); } } },
+                { "scheduleId", n => { ScheduleId = n.GetDoubleValue(); } },
                 { "userId", n => { UserId = n.GetDoubleValue(); } },
                 { "weight", n => { Weight = n.GetDoubleValue(); } },
             };
@@ -82,6 +88,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("mandatory", Mandatory);
             writer.WriteEnumValue<global::Soenneker.CalCom.OpenApiClient.Models.HostPriority>("priority", Priority);
+            writer.WriteDoubleValue("scheduleId", ScheduleId);
             writer.WriteDoubleValue("userId", UserId);
             writer.WriteDoubleValue("weight", Weight);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

@@ -16343,7 +16343,7 @@
         "tags": ["Contacts"],
         "x-mcp": {
           "name": "list_contact_suggestions",
-          "guidance": "List the people the user keeps meeting who are not yet their contacts, the ones their Contacts page suggests adding: people the user met at least 4 times in the last 12 months, adding up the past, accepted bookings the user hosted that they attended, the past, accepted bookings the user attended that they hosted and the past, non-cancelled Cal Events the user hosted that they were a confirmed guest of. The user's own emails, teammates (users who share an accepted team or organization membership with the user), dismissed and blocked emails are never suggested. Sorted by meetingCount, then the most recent meeting, up to 50 per page; when pagination.hasMore is true, pass pagination.nextCursor as cursor. Each has the name from their most recent meeting, their email, meetingCount and lastMetAt. The bookings and Cal Events themselves are never returned. To accept a suggestion, call add_contact with its email and name."
+          "guidance": "List the people the user keeps meeting who are not yet their contacts, the ones their Contacts page suggests adding: people the user met at least 4 times in the last 12 months, adding up the past, accepted bookings the user hosted that they attended, the past, accepted bookings the user attended that they hosted and the past, non-cancelled Cal Events the user hosted that they were a confirmed guest of. The user's own emails, teammates (users who share an accepted team or organization membership with the user), dismissed and blocked emails are never suggested. Sorted by meetingCount, then the most recent meeting, up to 50 per page; when pagination.hasMore is true, pass pagination.nextCursor as cursor. Each has the name from their most recent meeting, their email, meetingCount, lastMetAt and fromDiscover, true when at least one booking the user hosted that they attended was made through Cal.com Discover. The bookings and Cal Events themselves are never returned. To accept a suggestion, call add_contact with its email and name."
         },
         "x-oauth-scopes": ["CONTACT_READ"]
       }
@@ -18000,6 +18000,93 @@
           }
         },
         "summary": "Get a sequence's available start times",
+        "tags": ["Event Type Sequences"],
+        "x-oauth-scopes": []
+      }
+    },
+    "/v2/event-type-sequences/{uid}/bookings": {
+      "post": {
+        "description": "Books every segment of the sequence back to back from `start`, all or nothing: either each segment gets its own booking with hosts free for its window, or nothing is written. Each segment is booked as a booking of its own event type: it gets that event type's questions, confirmation setting, emails, workflows and webhooks, and is held at the event type's first location (or the assigned round-robin host's own location). After the bookings commit, the sequence team's `SEQUENCE_BOOKING_CREATED` webhook lists every segment, and each segment's `BOOKING_CREATED` or `BOOKING_REQUESTED` carries `sequenceBooking`. A segment whose event type requires confirmation is `pending` until a host confirms it.\n\nNo authentication is required. Anonymous callers can make 5 requests a minute per IP address; authenticated callers are limited per credential as on other routes. A segment whose event type requires authentication can only be booked by its owner, a host, or an admin or owner of its team or organization.\n\nEvery refusal tied to one segment names its 0-based `position` in `error.details.position`, and never names a host.",
+        "operationId": "EventTypeSequencesController_book",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be `Bearer <token>` where `<token>` is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "uid",
+            "required": true,
+            "in": "path",
+            "description": "The sequence's `uid`.",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "description": "Makes a retry safe: a request repeating a key it already booked a loop with gets that loop back instead of booking another. The key is scoped to the OAuth client and user that send it, or to the attendee's email when the request is anonymous. A replay compares the sequence, `start`, `attendee` and `bookingFieldsResponses` (ignoring key order, surrounding spaces and email case), answers 201 with the loop's current state, each segment's `status` as it is now, and books nothing. The same key with a different body is a 422. A key whose request was refused (400, 401, 403, 409) booked nothing and can be sent again. A retry after the sequence was deleted is a 404. With a key, `hosts` lists the organizer and the co-hosts whose email is verified. The key is never stored or logged as sent.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 255
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BookEventTypeSequenceInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SequenceBookingResponseOutput"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The body (including an invalid `attendee.phoneNumber`) or the `Idempotency-Key` header is invalid, the `uid` isn't a UUID, or a segment's checks refused the booking, with its `position`: a missing or invalid answer, a missing or wrong `emailVerificationCode` (`email_verification_required`), a start inside the segment's notice or outside its booking window, a booker limit, `sequence_location_input_required` (the segment is held at the booker's phone and `attendee.phoneNumber` is missing, or its location changed to an address or free text after the sequence was last checked)."
+          },
+          "401": {
+            "description": "A segment's event type requires authentication and the request is anonymous, with the segment's `position`."
+          },
+          "403": {
+            "description": "A segment's event type requires authentication and the caller isn't its owner, a host, or an admin or owner of its team or organization, with the segment's `position`."
+          },
+          "404": {
+            "description": "No sequence has this `uid`, or its team doesn't have sequences enabled."
+          },
+          "409": {
+            "description": "`sequence_time_taken` with a `position`: that segment's time can't be booked. Its hosts are busy, booked or held by another booker, outside their availability, outside a date-range restriction schedule (which `/v2/bookings` answers with 400) or over a booking limit, or the sequence changed while booking. A booking that waited too long for another booking of the same people names the first segment. `calendar_read_failed_error` with a `position`: no host of that segment is free and one of their calendars couldn't be read. `sequence_not_bookable`: the sequence can't be booked right now, for example a segment's event type turned paid or is held at an address or a location the booker would type (a location that changed to one of those after the sequence was last checked answers 400 `sequence_location_input_required` instead)."
+          },
+          "422": {
+            "description": "`sequence_idempotency_key_reused`: the `Idempotency-Key` already booked a loop with a different body."
+          },
+          "429": {
+            "description": "An anonymous caller made more than 5 requests in a minute from one IP address. Nothing is booked."
+          },
+          "503": {
+            "description": "This route's own count of anonymous requests couldn't be read, so the request was refused and nothing is booked; try again later. When the rate limit store is down entirely, every API v2 request fails earlier with the global rate limiter's error instead."
+          }
+        },
+        "summary": "Book a sequence",
         "tags": ["Event Type Sequences"],
         "x-oauth-scopes": []
       }
@@ -33978,6 +34065,12 @@
             "minimum": 0,
             "description": "Only relevant for round robin event types with `isRRWeightsEnabled: true`. Relative share of bookings this host receives - a host with weight 200 gets twice as many bookings as a host with weight 100. Defaults to 100.",
             "example": 100
+          },
+          "scheduleId": {
+            "type": "number",
+            "nullable": true,
+            "description": "Only relevant for round robin and collective event types. ID of one of this host's own schedules to use for this event type instead of their default schedule. Pass `null` to use the host's default schedule. When updating, omitting it keeps the host's current schedule. Ignored for managed event types and, like the rest of the entry, for non-mandatory entries combined with `assignAllTeamMembers: true`. While the event type has its own `scheduleId`, that schedule applies to every host instead.",
+            "example": 1234
           }
         },
         "required": ["userId"]
@@ -35791,6 +35884,12 @@
             "minimum": 0,
             "description": "Only relevant for round robin event types with `isRRWeightsEnabled: true`. Relative share of bookings this host receives - a host with weight 200 gets twice as many bookings as a host with weight 100. Defaults to 100.",
             "example": 100
+          },
+          "scheduleId": {
+            "type": "number",
+            "nullable": true,
+            "description": "ID of the host's schedule used for this event type, or `null` when the host uses their default schedule. Returned for round robin and collective event types. While the event type has its own `scheduleId`, that schedule applies to every host instead.",
+            "example": 1234
           },
           "userUuid": {
             "type": "string",
@@ -67361,9 +67460,14 @@
             "type": "string",
             "description": "When the most recent of those bookings was made or the most recent of those Cal Events started, in ISO 8601 UTC.",
             "example": "2026-10-02T09:30:00.000Z"
+          },
+          "fromDiscover": {
+            "type": "boolean",
+            "description": "Whether at least one of the accepted, past bookings in the last 12 months that the user hosted and this person attended was made through Cal.com Discover. Always false for a person the user met only as the host of a booking the user attended or as a Cal Event guest.",
+            "example": true
           }
         },
-        "required": ["email", "name", "meetingCount", "lastMetAt"]
+        "required": ["email", "name", "meetingCount", "lastMetAt", "fromDiscover"]
       },
       "ListContactSuggestionsOutputResponseDto": {
         "type": "object",
@@ -69894,6 +69998,212 @@
                 }
               ]
             }
+          }
+        },
+        "required": ["status", "data"]
+      },
+      "BookEventTypeSequenceAttendeeInput": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 255,
+            "example": "Alice Candidate",
+            "description": "The booker's name."
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "example": "alice@example.com",
+            "description": "The booker's email."
+          },
+          "timeZone": {
+            "type": "string",
+            "example": "Europe/Rome",
+            "description": "The booker's time zone, used for every segment's emails and calendar invites."
+          },
+          "language": {
+            "enum": [
+              "ar",
+              "ca",
+              "de",
+              "es",
+              "eu",
+              "he",
+              "id",
+              "ja",
+              "lv",
+              "pl",
+              "ro",
+              "sr",
+              "th",
+              "vi",
+              "az",
+              "cs",
+              "el",
+              "es-419",
+              "fi",
+              "hr",
+              "it",
+              "km",
+              "nl",
+              "pt",
+              "ru",
+              "sv",
+              "tr",
+              "zh-CN",
+              "bg",
+              "da",
+              "en",
+              "et",
+              "fr",
+              "hu",
+              "iw",
+              "ko",
+              "no",
+              "pt-BR",
+              "sk",
+              "sl",
+              "ta",
+              "uk",
+              "zh-TW",
+              "bn"
+            ],
+            "type": "string",
+            "example": "it",
+            "default": "en",
+            "description": "The language of the booker's emails."
+          },
+          "phoneNumber": {
+            "type": "string",
+            "maxLength": 32,
+            "example": "+393401234567",
+            "description": "The booker's phone number in international format. Required, and must be a valid number, when a segment is held at the booker's phone, as its event type's first location or as its assigned host's own location. A segment whose event type texts reminders to attendees sends them here."
+          }
+        },
+        "required": ["name", "email", "timeZone"]
+      },
+      "BookEventTypeSequenceInput": {
+        "type": "object",
+        "properties": {
+          "start": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2033-09-05T09:00:00Z",
+            "description": "When the first segment starts, as an RFC 3339 date-time with an offset (`Z` or `±HH:MM`), as `GET /v2/event-type-sequences/{uid}/slots` returns it. A day that doesn't exist, such as February 31, is refused. The other segments follow back to back."
+          },
+          "attendee": {
+            "$ref": "#/components/schemas/BookEventTypeSequenceAttendeeInput"
+          },
+          "bookingFieldsResponses": {
+            "type": "object",
+            "additionalProperties": true,
+            "example": {
+              "notice-period": "4 weeks"
+            },
+            "description": "Answers to the sequence's `bookingFields`, keyed by their `slug`. A `null` answer is read as an empty one, as on `/v2/bookings`. Each segment receives only the answers to its own event type's questions. Guests are added through a `guests` field when a segment asks for one; name and email come from `attendee`."
+          },
+          "emailVerificationCode": {
+            "type": "string",
+            "maxLength": 32,
+            "example": "123456",
+            "description": "The code sent to the booker's email, required when any segment's event type asks the booker to verify their email. One code is checked for every such segment."
+          }
+        },
+        "required": ["start", "attendee"]
+      },
+      "SequenceBookingHostOutput": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "example": "Dana Smith"
+          }
+        },
+        "required": ["name"]
+      },
+      "SequenceBookingSegmentOutput": {
+        "type": "object",
+        "properties": {
+          "position": {
+            "type": "number",
+            "example": 0,
+            "description": "0-based place in booking order."
+          },
+          "bookingUid": {
+            "type": "string",
+            "example": "8Kq2nP4cWzR1vY7tLm3sXe",
+            "description": "The segment's booking `uid`."
+          },
+          "title": {
+            "type": "string",
+            "example": "Technical interview between Dana Smith and Alice Candidate"
+          },
+          "status": {
+            "enum": ["accepted", "pending", "cancelled", "rejected", "awaiting_host"],
+            "type": "string",
+            "example": "accepted",
+            "description": "`accepted`, or `pending` for a segment whose event type requires confirmation. A replay reads each booking as it is now, so it can also be `cancelled`, `rejected` or `awaiting_host`."
+          },
+          "start": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2033-09-05T09:00:00.000Z"
+          },
+          "end": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2033-09-05T09:45:00.000Z"
+          },
+          "hosts": {
+            "description": "Who the segment is with, its organizer first.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SequenceBookingHostOutput"
+            }
+          }
+        },
+        "required": ["position", "bookingUid", "title", "status", "start", "end", "hosts"]
+      },
+      "SequenceBookingOutput": {
+        "type": "object",
+        "properties": {
+          "uid": {
+            "type": "string",
+            "example": "3Fz8kQw1mNp5rT9vXc2bLd",
+            "description": "The booked loop's `uid`."
+          },
+          "start": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2033-09-05T09:00:00.000Z",
+            "description": "When the first segment starts."
+          },
+          "end": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2033-09-05T11:15:00.000Z",
+            "description": "When the last segment ends."
+          },
+          "segments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SequenceBookingSegmentOutput"
+            }
+          }
+        },
+        "required": ["uid", "start", "end", "segments"]
+      },
+      "SequenceBookingResponseOutput": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "enum": ["success"],
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/SequenceBookingOutput"
           }
         },
         "required": ["status", "data"]

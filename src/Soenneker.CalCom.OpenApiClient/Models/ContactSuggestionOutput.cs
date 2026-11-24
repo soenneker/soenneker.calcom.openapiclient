@@ -19,6 +19,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("email") is null) { _explicitNullValueEmail = default!; _explicitNullProperties?.Remove("email"); }
             else if (parseNode.GetChildNode("email") is { } nullNodeEmail && nullNodeEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Email = null;
+            if (parseNode.GetChildNode("fromDiscover") is null) { _explicitNullValueFromDiscover = default!; _explicitNullProperties?.Remove("fromDiscover"); }
+            else if (parseNode.GetChildNode("fromDiscover") is { } nullNodeFromDiscover && nullNodeFromDiscover.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FromDiscover = null;
             if (parseNode.GetChildNode("lastMetAt") is null) { _explicitNullValueLastMetAt = default!; _explicitNullProperties?.Remove("lastMetAt"); }
             else if (parseNode.GetChildNode("lastMetAt") is { } nullNodeLastMetAt && nullNodeLastMetAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastMetAt = null;
             if (parseNode.GetChildNode("meetingCount") is null) { _explicitNullValueMeetingCount = default!; _explicitNullProperties?.Remove("meetingCount"); }
@@ -39,6 +41,9 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         public string Email { get => _explicitNullValueEmail; set { _explicitNullValueEmail = value; AdditionalData?.Remove("email"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email"); else _explicitNullProperties?.Remove("email"); } }
         private string _explicitNullValueEmail = default!;
 #endif
+        /// <summary>Whether at least one of the accepted, past bookings in the last 12 months that the user hosted and this person attended was made through Cal.com Discover. Always false for a person the user met only as the host of a booking the user attended or as a Cal Event guest.</summary>
+        public bool? FromDiscover { get => _explicitNullValueFromDiscover; set { _explicitNullValueFromDiscover = value; AdditionalData?.Remove("fromDiscover"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fromDiscover"); else _explicitNullProperties?.Remove("fromDiscover"); } }
+        private bool? _explicitNullValueFromDiscover = default!;
         /// <summary>When the most recent of those bookings was made or the most recent of those Cal Events started, in ISO 8601 UTC.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -85,9 +90,10 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(4)
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "email", n => { Email = n.GetStringValue(); } },
+                { "fromDiscover", n => { FromDiscover = n.GetBoolValue(); } },
                 { "lastMetAt", n => { LastMetAt = n.GetStringValue(); } },
                 { "meetingCount", n => { MeetingCount = n.GetDoubleValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -101,6 +107,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("email", Email);
+            writer.WriteBoolValue("fromDiscover", FromDiscover);
             writer.WriteStringValue("lastMetAt", LastMetAt);
             writer.WriteDoubleValue("meetingCount", MeetingCount);
             writer.WriteStringValue("name", Name);
