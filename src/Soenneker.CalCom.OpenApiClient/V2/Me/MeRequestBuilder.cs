@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.CalCom.OpenApiClient.Models;
 using Soenneker.CalCom.OpenApiClient.V2.Me.BookingLimits;
+using Soenneker.CalCom.OpenApiClient.V2.Me.Onboarding;
 using Soenneker.CalCom.OpenApiClient.V2.Me.Ooo;
 using System.Collections.Generic;
 using System.IO;
@@ -23,6 +24,11 @@ namespace Soenneker.CalCom.OpenApiClient.V2.Me
         public global::Soenneker.CalCom.OpenApiClient.V2.Me.BookingLimits.BookingLimitsRequestBuilder BookingLimits
         {
             get => new global::Soenneker.CalCom.OpenApiClient.V2.Me.BookingLimits.BookingLimitsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The onboarding property</summary>
+        public global::Soenneker.CalCom.OpenApiClient.V2.Me.Onboarding.OnboardingRequestBuilder Onboarding
+        {
+            get => new global::Soenneker.CalCom.OpenApiClient.V2.Me.Onboarding.OnboardingRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The ooo property</summary>
         public global::Soenneker.CalCom.OpenApiClient.V2.Me.Ooo.OooRequestBuilder Ooo

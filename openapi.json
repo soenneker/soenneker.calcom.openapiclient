@@ -22740,6 +22740,82 @@
         "x-oauth-scopes": ["PROFILE_WRITE"]
       }
     },
+    "/v2/me/onboarding": {
+      "get": {
+        "description": "Returns the authenticated user's onboarding state. Requires the PROFILE_READ OAuth scope.",
+        "operationId": "MeController_getOnboarding",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be `Bearer <token>` where `<token>` is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OnboardingOutput"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get my onboarding",
+        "tags": ["Me"],
+        "x-oauth-scopes": ["PROFILE_READ"]
+      },
+      "patch": {
+        "description": "Updates the authenticated user's personal username and/or marks onboarding complete. At least one field is required. Requires the PROFILE_WRITE OAuth scope. Does not perform organization invitation acceptance or billing changes.",
+        "operationId": "MeController_updateOnboarding",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "value must be `Bearer <token>` where `<token>` is api key prefixed with cal_, managed user access token, or OAuth access token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateOnboardingInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OnboardingOutput"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Update my onboarding",
+        "tags": ["Me"],
+        "x-mcp": {
+          "name": "update_onboarding",
+          "guidance": "Call with an empty object to read username and completedOnboarding without changing them. Set a personal account's username or mark onboarding complete with completedOnboarding: true. Use update_me for name and timeZone. Organization username changes and premium usernames require the web app. Finish profile, default schedule, calendar connection and first event type before marking complete."
+        },
+        "x-oauth-scopes": ["PROFILE_WRITE"]
+      }
+    },
     "/v2/me/booking-limits": {
       "get": {
         "description": "Returns the authenticated user's global booking limits. Unset bounds are returned as null. Only available to organization members — non-org accounts receive a 403. If accessed using an OAuth access token, the `PROFILE_READ` scope is required.",
@@ -53204,6 +53280,52 @@
           }
         },
         "required": ["status", "data"]
+      },
+      "OnboardingData": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "nullable": true,
+            "example": "jane-smith"
+          },
+          "completedOnboarding": {
+            "type": "boolean",
+            "example": false
+          }
+        },
+        "required": ["username", "completedOnboarding"]
+      },
+      "OnboardingOutput": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "enum": ["success"],
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/OnboardingData"
+          }
+        },
+        "required": ["status", "data"]
+      },
+      "UpdateOnboardingInput": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100,
+            "description": "Personal account username. Organization and premium username changes are not supported.",
+            "example": "jane-smith"
+          },
+          "completedOnboarding": {
+            "type": "boolean",
+            "enum": [true],
+            "description": "Set to true after setup is complete. Cannot reset onboarding.",
+            "example": true
+          }
+        }
       },
       "UpdateMeOutput": {
         "type": "object",
