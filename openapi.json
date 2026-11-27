@@ -52369,7 +52369,7 @@
         "properties": {
           "eventTypeId": {
             "type": "number",
-            "example": 1,
+            "example": 123,
             "description": "The ID of the event type for which slot should be reserved."
           },
           "slotStart": {
@@ -52396,7 +52396,7 @@
         "properties": {
           "eventTypeId": {
             "type": "number",
-            "example": 1,
+            "example": 123,
             "description": "The ID of the event type for which slot was reserved."
           },
           "slotStart": {
@@ -68100,6 +68100,12 @@
             "example": "/discover/fade-house/skin-fade",
             "description": "The listing's Discover page path on the web app; null when the provider has no Discover page."
           },
+          "pageUrl": {
+            "type": "string",
+            "nullable": true,
+            "example": "https://cal.com/discover/fade-house/skin-fade",
+            "description": "The absolute URL of `path`, whose link preview shows the listing's first photo; null when the provider has no Discover page."
+          },
           "bookingUrl": {
             "type": "string",
             "nullable": true,
@@ -68149,6 +68155,7 @@
           "verified",
           "newClientDiscountPercent",
           "path",
+          "pageUrl",
           "bookingUrl",
           "nextAvailableSlot",
           "nextAvailableSlotLocal",

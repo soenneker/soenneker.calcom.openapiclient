@@ -51,6 +51,8 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             else if (parseNode.GetChildNode("nextAvailableSlotTimeZone") is { } nullNodeNextAvailableSlotTimeZone && nullNodeNextAvailableSlotTimeZone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextAvailableSlotTimeZone = null;
             if (parseNode.GetChildNode("openNow") is null) { _explicitNullValueOpenNow = default!; _explicitNullProperties?.Remove("openNow"); }
             else if (parseNode.GetChildNode("openNow") is { } nullNodeOpenNow && nullNodeOpenNow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OpenNow = null;
+            if (parseNode.GetChildNode("pageUrl") is null) { _explicitNullValuePageUrl = default!; _explicitNullProperties?.Remove("pageUrl"); }
+            else if (parseNode.GetChildNode("pageUrl") is { } nullNodePageUrl && nullNodePageUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PageUrl = null;
             if (parseNode.GetChildNode("path") is null) { _explicitNullValuePath = default!; _explicitNullProperties?.Remove("path"); }
             else if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
             if (parseNode.GetChildNode("price") is null) { _explicitNullValuePrice = default!; _explicitNullProperties?.Remove("price"); }
@@ -189,6 +191,16 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <summary>Whether the business is open now.</summary>
         public bool? OpenNow { get => _explicitNullValueOpenNow; set { _explicitNullValueOpenNow = value; AdditionalData?.Remove("openNow"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("openNow"); else _explicitNullProperties?.Remove("openNow"); } }
         private bool? _explicitNullValueOpenNow = default!;
+        /// <summary>The absolute URL of `path`, whose link preview shows the listing&apos;s first photo; null when the provider has no Discover page.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PageUrl { get => _explicitNullValuePageUrl; set { _explicitNullValuePageUrl = value; AdditionalData?.Remove("pageUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pageUrl"); else _explicitNullProperties?.Remove("pageUrl"); } }
+        private string? _explicitNullValuePageUrl = default!;
+#nullable restore
+#else
+        public string PageUrl { get => _explicitNullValuePageUrl; set { _explicitNullValuePageUrl = value; AdditionalData?.Remove("pageUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pageUrl"); else _explicitNullProperties?.Remove("pageUrl"); } }
+        private string _explicitNullValuePageUrl = default!;
+#endif
         /// <summary>The listing&apos;s Discover page path on the web app; null when the provider has no Discover page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -284,7 +296,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(27)
+            return new Dictionary<string, Action<IParseNode>>(28)
             {
                 { "avatarUrl", n => { AvatarUrl = n.GetStringValue(); } },
                 { "bookingUrl", n => { BookingUrl = n.GetStringValue(); } },
@@ -303,6 +315,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
                 { "nextAvailableSlotLocal", n => { NextAvailableSlotLocal = n.GetStringValue(); } },
                 { "nextAvailableSlotTimeZone", n => { NextAvailableSlotTimeZone = n.GetStringValue(); } },
                 { "openNow", n => { OpenNow = n.GetBoolValue(); } },
+                { "pageUrl", n => { PageUrl = n.GetStringValue(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "price", n => { Price = n.GetStringValue(); } },
                 { "priceInCents", n => { PriceInCents = n.GetDoubleValue(); } },
@@ -339,6 +352,7 @@ namespace Soenneker.CalCom.OpenApiClient.Models
             writer.WriteStringValue("nextAvailableSlotLocal", NextAvailableSlotLocal);
             writer.WriteStringValue("nextAvailableSlotTimeZone", NextAvailableSlotTimeZone);
             writer.WriteBoolValue("openNow", OpenNow);
+            writer.WriteStringValue("pageUrl", PageUrl);
             writer.WriteStringValue("path", Path);
             writer.WriteStringValue("price", Price);
             writer.WriteDoubleValue("priceInCents", PriceInCents);
